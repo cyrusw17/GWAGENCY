@@ -217,6 +217,7 @@ body.has-demo .f-header{top:40px}
 /* ---------- upgrades for wider screens ---------- */
 @media (min-width:480px){
   .f-ctas{grid-auto-flow:column;justify-content:start}
+  .f-ctas .f-btn{white-space:nowrap}
   .f-gallery{grid-template-columns:repeat(3,1fr)}
   .f-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .f-demo span{display:inline}
