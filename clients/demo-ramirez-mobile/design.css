@@ -74,3 +74,9 @@ h3{font-family:var(--f-body);font-weight:800}
 }
 .f-pill{border-radius:0;border:2px solid var(--f-text);background:var(--f-bg)}
 .f-pill .stars,.f-rating .stars{color:var(--f-accent)}
+/* "We come to you" painted as a red stamp, not accent-colored text */
+.f-hero h1 em{display:inline-block;background:var(--f-accent);color:var(--f-accent-ink);padding:.14em .3em .08em;transform:rotate(-2deg);margin-top:.3em}
+/* price picker: a counter ticket */
+.f-est{border:2px solid var(--f-text);border-radius:var(--f-radius);background:var(--f-bg);box-shadow:6px 6px 0 var(--f-accent-2)}
+.f-est-total{font-weight:400;color:var(--f-accent);font-size:56px}
+#price .f-block-copy h2{font-size:clamp(30px,7vw,48px)}

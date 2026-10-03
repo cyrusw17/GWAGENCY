@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ramirez &amp; Son Mobile Detail | Mobile Car Detailing in San Antonio</title>
+<title>Mobile Car Detailing in San Antonio | Ramirez &amp; Son</title>
 <meta name="description" content="Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español.">
 <meta name="robots" content="noindex">
 <meta name="author" content="Ramirez &amp; Son Mobile Detail">
@@ -11,7 +11,7 @@
 <link rel="alternate" type="text/markdown" href="index.md">
 <meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ramirez &amp; Son Mobile Detail | Mobile Car Detailing in San Antonio">
+<meta property="og:title" content="Mobile Car Detailing in San Antonio | Ramirez &amp; Son">
 <meta property="og:description" content="Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español.">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23B3121E%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2219%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E">
@@ -287,6 +287,16 @@ body.has-demo .f-header{top:40px}
 .f-block-copy h2{margin-bottom:16px}
 .f-hero-type .f-wrap,.f-hero-stack .f-wrap{grid-template-columns:minmax(0,1fr)}
 
+/* price picker */
+.f-est-grid{display:grid;gap:24px}
+.f-est{display:grid;gap:18px;background:var(--f-surface);border:1px solid var(--f-line);border-radius:var(--f-radius);padding:20px}
+.f-est .f-chips span{flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.2}
+.f-est .f-chips small{font-size:13px;font-weight:400;opacity:.8}
+.f-est-out{display:grid;gap:2px;border-top:1px solid var(--f-line);padding-top:14px}
+.f-est-label{font-size:14px;font-weight:700;color:var(--f-muted)}
+.f-est-total{font:800 48px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.f-est-sum{font-size:15px;color:var(--f-muted)}
+
 /* ---------- upgrades for wider screens ---------- */
 @media (min-width:480px){
   .f-logo small{display:block}
@@ -319,6 +329,7 @@ body.has-demo .f-header{top:40px}
   .f-hero{padding-block:64px 80px}
   .f-hero .f-wrap{grid-template-columns:1.15fr 1fr;align-items:center;gap:56px}
   .f-hero-type .f-wrap,.f-hero-stack .f-wrap{grid-template-columns:minmax(0,1fr)}
+  .f-est-grid{grid-template-columns:1fr 1.1fr;align-items:start;gap:56px}
   .f-block .f-wrap:has(.f-rows){grid-template-columns:1fr 1fr;align-items:start;gap:56px}
   .f-hero .f-media{aspect-ratio:4/5}
   .f-hero-compare .f-compare-wrap{order:0}
@@ -407,10 +418,16 @@ h3{font-family:var(--f-body);font-weight:800}
 }
 .f-pill{border-radius:0;border:2px solid var(--f-text);background:var(--f-bg)}
 .f-pill .stars,.f-rating .stars{color:var(--f-accent)}
+/* "We come to you" painted as a red stamp, not accent-colored text */
+.f-hero h1 em{display:inline-block;background:var(--f-accent);color:var(--f-accent-ink);padding:.14em .3em .08em;transform:rotate(-2deg);margin-top:.3em}
+/* price picker: a counter ticket */
+.f-est{border:2px solid var(--f-text);border-radius:var(--f-radius);background:var(--f-bg);box-shadow:6px 6px 0 var(--f-accent-2)}
+.f-est-total{font-weight:400;color:var(--f-accent);font-size:56px}
+#price .f-block-copy h2{font-size:clamp(30px,7vw,48px)}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoWash","name":"Ramirez & Son Mobile Detail","description":"Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español.","telephone":"(210) 555-0142","email":"rudy@example.com","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"San Antonio","addressRegion":"TX","postalCode":"78209","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Alamo Heights"},{"@type":"City","name":"Stone Oak"},{"@type":"City","name":"Helotes"},{"@type":"City","name":"Leon Valley"},{"@type":"City","name":"Live Oak"},{"@type":"City","name":"Converse"},{"@type":"City","name":"Southside"},{"@type":"City","name":"Medical Center"},{"@type":"City","name":"Terrell Hills"},{"@type":"City","name":"Shavano Park"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"sameAs":["https://instagram.com/example","https://facebook.com/example"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","name":"Quick Shine","price":89,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Quick Shine"}},{"@type":"Offer","name":"La Completa","price":189,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"La Completa"}},{"@type":"Offer","name":"Showroom","price":299,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Showroom"}}]}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Ramirez & Son Mobile Detail | Mobile Car Detailing in San Antonio","dateModified":"2026-10-03","author":{"@type":"Organization","name":"Ramirez & Son Mobile Detail"},"publisher":{"@type":"Organization","name":"Ramirez & Son Mobile Detail"},"about":{"@type":"AutoWash","name":"Ramirez & Son Mobile Detail"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mobile Car Detailing in San Antonio | Ramirez & Son","dateModified":"2026-10-03","author":{"@type":"Organization","name":"Ramirez & Son Mobile Detail"},"publisher":{"@type":"Organization","name":"Ramirez & Son Mobile Detail"},"about":{"@type":"AutoWash","name":"Ramirez & Son Mobile Detail"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you need my water or electricity?","acceptedAnswer":{"@type":"Answer","text":"No. We carry 100 gallons of water and our own generator."}},{"@type":"Question","name":"What if it rains?","acceptedAnswer":{"@type":"Answer","text":"We text the night before and move you to the next open day. No fee."}},{"@type":"Question","name":"Can you work at my office?","acceptedAnswer":{"@type":"Answer","text":"Yes, if the lot allows it. Leave us the keys at the front desk and we'll text when it's done."}},{"@type":"Question","name":"¿Hablan español?","acceptedAnswer":{"@type":"Answer","text":"Sí. Rudy y Mateo hablan español e inglés. Escríbanos por texto como guste."}},{"@type":"Question","name":"How do I pay?","acceptedAnswer":{"@type":"Answer","text":"Cash, card, Zelle or Venmo, after you've looked the car over."}}]}</script>
 </head>
 <body class="f-hero-is-split has-demo">
@@ -420,7 +437,7 @@ h3{font-family:var(--f-body);font-weight:800}
 <header class="f-header">
   <div class="f-wrap">
     <a class="f-logo" href="#main">Ramirez &amp; Son Mobile Detail<small class="f-tagline">Since 2011 · Se habla español</small></a>
-    <nav class="f-nav" aria-label="Sections"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#story">About us</a><a href="#reviews">Reviews</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></nav>
+    <nav class="f-nav" aria-label="Sections"><a href="#services">Services</a><a href="#price">Price my car</a><a href="#pricing">Pricing</a><a href="#story">About us</a><a href="#reviews">Reviews</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></nav>
     <div class="f-actions">
       <a class="f-btn f-btn-ghost" href="tel:2105550142" data-ev="call" data-label="header" aria-label="Call (210) 555-0142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="f-call-text">(210) 555-0142</span></a>
       <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="header">Book a time</a>
@@ -433,7 +450,7 @@ h3{font-family:var(--f-body);font-weight:800}
   <div class="f-wrap">
     <div class="f-hero-copy">
       <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>212 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span></p>
-      <p class="f-eyebrow">Family owned since 2011 · Se habla español</p>
+      <p class="f-eyebrow">Since 2011 · Se habla español</p>
       <h1>Mobile car detailing in San Antonio <em>We come to you.</em></h1>
       <p class="lede">Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The prices on our board are the prices you pay.</p>
       <div class="f-ctas">
@@ -459,6 +476,28 @@ h3{font-family:var(--f-body);font-weight:800}
       <div class="f-svc"><div class="top"><h3>Dog hair removal</h3><span class="price">from $40</span></div><p>Add-on. Rubber brush and patience.</p></div>
       <div class="f-svc"><div class="top"><h3>Engine bay clean</h3><span class="price">from $45</span></div><p>Degreased and dressed. Safe on hybrids.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="f-est-sec" id="price">
+  <div class="f-wrap f-est-grid">
+    <div class="f-block-copy">
+      
+      <h2>Price your car before you call</h2>
+      <p>Three taps and you&#39;ll see what Rudy would quote you on the phone. Tap Book and we&#39;ll already know what you picked.</p>
+    </div>
+    <form class="f-est" data-est>
+      <fieldset class="f-chips"><legend>Which package?</legend><label><input type="radio" name="est0" value="0" checked data-pick-pkg="La Completa" data-price="189" data-text="La Completa"><span>La Completa<small>inside and out</small></span></label><label><input type="radio" name="est0" value="1" data-pick-pkg="Quick Shine" data-price="89" data-text="Quick Shine"><span>Quick Shine<small>outside, about 1 hour</small></span></label><label><input type="radio" name="est0" value="2" data-pick-pkg="Showroom" data-price="299" data-text="Showroom"><span>Showroom<small>most of a day</small></span></label></fieldset>
+      <fieldset class="f-chips"><legend>What are we washing?</legend><label><input type="radio" name="est1" value="0" checked data-text="car or small SUV"><span>Car or small SUV</span></label><label><input type="radio" name="est1" value="1" data-add="30" data-text="truck or 3-row SUV"><span>Truck or 3-row SUV</span></label></fieldset>
+      <fieldset class="f-chips"><legend>Anything extra?</legend><label><input type="radio" name="est2" value="0" checked data-text="no extras"><span>Nothing extra</span></label><label><input type="radio" name="est2" value="1" data-add="40" data-text="dog hair"><span>Dog hair</span></label><label><input type="radio" name="est2" value="2" data-add="45" data-text="engine bay"><span>Engine bay</span></label><label><input type="radio" name="est2" value="3" data-add="59" data-text="headlights"><span>Foggy headlights</span></label></fieldset>
+      <div class="f-est-out" aria-live="polite">
+        <span class="f-est-label">Rudy&#39;s price <span class="f-tag">sample</span></span>
+        <output class="f-est-total" data-est-total>$189</output>
+        <span class="f-est-sum" data-est-sum>La Completa · car or small SUV · no extras</span>
+      </div>
+      <a class="f-btn f-btn-primary f-btn-block" href="#book" data-ev="book" data-label="estimator" data-pick="La Completa" data-est-book>Book this price</a>
+      <p class="f-fine">Pay after you&#39;ve checked the car. Cash, card, Zelle or Venmo.</p>
+    </form>
   </div>
 </section>
 
@@ -492,7 +531,7 @@ h3{font-family:var(--f-body);font-weight:800}
         <a class="f-btn f-btn-ghost f-btn-block" href="#book" data-ev="book" data-label="package Showroom" data-pick="Showroom">Choose Showroom</a>
       </div>
     </div>
-    <p class="f-fine">Cash, card, Zelle or Venmo. Pay when you&#39;ve seen the car.</p>
+    <p class="f-fine">Sample prices for this demo. Cash, card, Zelle or Venmo. Pay when you&#39;ve seen the car.</p>
   </div>
 </section>
 

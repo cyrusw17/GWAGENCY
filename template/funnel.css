@@ -267,6 +267,16 @@ body.has-demo .f-header{top:40px}
 .f-block-copy h2{margin-bottom:16px}
 .f-hero-type .f-wrap,.f-hero-stack .f-wrap{grid-template-columns:minmax(0,1fr)}
 
+/* price picker */
+.f-est-grid{display:grid;gap:24px}
+.f-est{display:grid;gap:18px;background:var(--f-surface);border:1px solid var(--f-line);border-radius:var(--f-radius);padding:20px}
+.f-est .f-chips span{flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.2}
+.f-est .f-chips small{font-size:13px;font-weight:400;opacity:.8}
+.f-est-out{display:grid;gap:2px;border-top:1px solid var(--f-line);padding-top:14px}
+.f-est-label{font-size:14px;font-weight:700;color:var(--f-muted)}
+.f-est-total{font:800 48px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.f-est-sum{font-size:15px;color:var(--f-muted)}
+
 /* ---------- upgrades for wider screens ---------- */
 @media (min-width:480px){
   .f-logo small{display:block}
@@ -299,6 +309,7 @@ body.has-demo .f-header{top:40px}
   .f-hero{padding-block:64px 80px}
   .f-hero .f-wrap{grid-template-columns:1.15fr 1fr;align-items:center;gap:56px}
   .f-hero-type .f-wrap,.f-hero-stack .f-wrap{grid-template-columns:minmax(0,1fr)}
+  .f-est-grid{grid-template-columns:1fr 1.1fr;align-items:start;gap:56px}
   .f-block .f-wrap:has(.f-rows){grid-template-columns:1fr 1fr;align-items:start;gap:56px}
   .f-hero .f-media{aspect-ratio:4/5}
   .f-hero-compare .f-compare-wrap{order:0}

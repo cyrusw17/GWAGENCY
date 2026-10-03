@@ -3,7 +3,10 @@
   "demo": true,
   "niche": "auto detailing",
   "demoNote": "Fictional family business. Yours gets your name, your van, your prices.",
-  "demoCta": { "label": "Get this site", "href": "https://groundwork-web.com/start/?demo=ramirez" },
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=ramirez"
+  },
   "business": {
     "name": "Ramirez & Son Mobile Detail",
     "tagline": "Since 2011 · Se habla español",
@@ -15,58 +18,174 @@
     "email": "rudy@example.com",
     "priceRange": "$$",
     "hoursText": "Mon-Sat 7am-6pm",
-    "hours": [{ "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "07:00", "closes": "18:00" }],
-    "address": { "city": "San Antonio", "region": "TX", "postal": "78209" },
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ],
+    "address": {
+      "city": "San Antonio",
+      "region": "TX",
+      "postal": "78209"
+    },
     "footerLine": "Family owned since 2011 · Insured · Hablamos español",
-    "social": ["https://instagram.com/example", "https://facebook.com/example"]
+    "social": [
+      "https://instagram.com/example",
+      "https://facebook.com/example"
+    ]
   },
   "theme": {
-    "bg": "#FFFFFF", "surface": "#F6F4EF", "surface2": "#ECE8DF", "text": "#151515", "muted": "#55524C", "line": "#E2DDD2",
-    "accent": "#B3121E", "accentInk": "#FFFFFF", "accent2": "#1C3557",
+    "bg": "#FFFFFF",
+    "surface": "#F6F4EF",
+    "surface2": "#ECE8DF",
+    "text": "#151515",
+    "muted": "#55524C",
+    "line": "#E2DDD2",
+    "accent": "#B3121E",
+    "accentInk": "#FFFFFF",
+    "accent2": "#1C3557",
     "display": "\"Alfa Slab One\", Rockwell, \"Roboto Slab\", Georgia, serif",
     "body": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
     "radius": "4px",
     "fontFaces": [
-      { "family": "Alfa Slab One", "weight": 400, "src": "fonts/alfa-slab-one-latin-400-normal.woff2", "preload": true },
-      { "family": "Archivo", "weight": 400, "src": "fonts/archivo-latin-400-normal.woff2", "preload": true },
-      { "family": "Archivo", "weight": 600, "src": "fonts/archivo-latin-600-normal.woff2" },
-      { "family": "Archivo", "weight": 800, "src": "fonts/archivo-latin-800-normal.woff2" }
+      {
+        "family": "Alfa Slab One",
+        "weight": 400,
+        "src": "fonts/alfa-slab-one-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Archivo",
+        "weight": 400,
+        "src": "fonts/archivo-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Archivo",
+        "weight": 600,
+        "src": "fonts/archivo-latin-600-normal.woff2"
+      },
+      {
+        "family": "Archivo",
+        "weight": 800,
+        "src": "fonts/archivo-latin-800-normal.woff2"
+      }
     ]
   },
   "seo": {
-    "title": "Ramirez & Son Mobile Detail | Mobile Car Detailing in San Antonio",
+    "title": "Mobile Car Detailing in San Antonio | Ramirez & Son",
     "description": "Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español."
   },
-  "offer": { "bar": "October: free odor treatment with La Completa.", "barCta": "Book" },
-  "layout": { "hero": "split", "order": ["services", "pricing", "story", "reviews", "how", "promise", "areas", "book", "faq"] },
-  "eyebrows": { "services": "The board", "pricing": "Packages", "reviews": "From the neighbors", "how": "", "faq": "Preguntas" },
+  "offer": {
+    "bar": "October: free odor treatment with La Completa.",
+    "barCta": "Book"
+  },
+  "layout": {
+    "hero": "split",
+    "order": [
+      "services",
+      "price",
+      "pricing",
+      "story",
+      "reviews",
+      "how",
+      "promise",
+      "areas",
+      "book",
+      "faq"
+    ]
+  },
+  "eyebrows": {
+    "services": "The board",
+    "pricing": "Packages",
+    "reviews": "From the neighbors",
+    "how": "",
+    "faq": "Preguntas"
+  },
   "hero": {
-    "eyebrow": "Family owned since 2011 · Se habla español",
+    "eyebrow": "Since 2011 · Se habla español",
     "headlineEm": "We come to you.",
     "sub": "Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The prices on our board are the prices you pay.",
     "card": {
       "title": "Painted on the van door",
       "rows": [
-        { "k": "Call or text", "v": "(210) 555-0142" },
-        { "k": "Hours", "v": "Mon-Sat, 7 to 6" },
-        { "k": "Summer start", "v": "6:30 am", "note": "before the heat" },
-        { "k": "We cover", "v": "Inside Loop 1604" }
+        {
+          "k": "Call or text",
+          "v": "(210) 555-0142"
+        },
+        {
+          "k": "Hours",
+          "v": "Mon-Sat, 7 to 6"
+        },
+        {
+          "k": "Summer start",
+          "v": "6:30 am",
+          "note": "before the heat"
+        },
+        {
+          "k": "We cover",
+          "v": "Inside Loop 1604"
+        }
       ]
     },
     "proof": [
-      { "value": "14 years", "label": "same family, same van" },
-      { "value": "Nothing", "label": "needed from you, not even a hose" }
+      {
+        "value": "14 years",
+        "label": "same family, same van"
+      },
+      {
+        "value": "Nothing",
+        "label": "needed from you, not even a hose"
+      }
     ]
   },
-  "trust": ["Insured", "Prices posted", "One of us two at your door", "Español o inglés"],
+  "trust": [
+    "Insured",
+    "Prices posted",
+    "One of us two at your door",
+    "Español o inglés"
+  ],
   "servicesHeadline": "Everything we do, and what it costs",
   "services": [
-    { "name": "Hand wash and spray wax", "from": 69, "desc": "Body, wheels, tires and windows. About an hour." },
-    { "name": "Interior shampoo", "from": 129, "desc": "Seats and carpet shampooed and extracted. Dry by dinner in summer." },
-    { "name": "Full detail, inside and out", "from": 189, "desc": "Our most booked job. See La Completa below." },
-    { "name": "Headlight restore", "from": 59, "desc": "Yellow, foggy lenses sanded, polished and sealed." },
-    { "name": "Dog hair removal", "from": 40, "desc": "Add-on. Rubber brush and patience." },
-    { "name": "Engine bay clean", "from": 45, "desc": "Degreased and dressed. Safe on hybrids." }
+    {
+      "name": "Hand wash and spray wax",
+      "from": 69,
+      "desc": "Body, wheels, tires and windows. About an hour."
+    },
+    {
+      "name": "Interior shampoo",
+      "from": 129,
+      "desc": "Seats and carpet shampooed and extracted. Dry by dinner in summer."
+    },
+    {
+      "name": "Full detail, inside and out",
+      "from": 189,
+      "desc": "Our most booked job. See La Completa below."
+    },
+    {
+      "name": "Headlight restore",
+      "from": 59,
+      "desc": "Yellow, foggy lenses sanded, polished and sealed."
+    },
+    {
+      "name": "Dog hair removal",
+      "from": 40,
+      "desc": "Add-on. Rubber brush and patience."
+    },
+    {
+      "name": "Engine bay clean",
+      "from": 45,
+      "desc": "Degreased and dressed. Safe on hybrids."
+    }
   ],
   "pricing": {
     "headline": "Three ways to book us",
@@ -74,19 +193,65 @@
     "fine": "Cash, card, Zelle or Venmo. Pay when you've seen the car."
   },
   "packages": [
-    { "name": "Quick Shine", "price": 89, "note": "About 1 hour", "features": ["Hand wash and dry", "Wheels, tires and dressing", "Windows inside and out", "Spray wax"] },
-    { "name": "La Completa", "price": 189, "note": "About 3 hours", "popular": true, "popularLabel": "Most booked", "features": ["Everything in Quick Shine", "Full vacuum, trunk too", "Mats shampooed", "Dash, doors and vents wiped and protected", "Hand wax"] },
-    { "name": "Showroom", "price": 299, "note": "Most of a day", "features": ["Everything in La Completa", "Clay bar on the paint", "Seats and carpet shampooed", "Engine bay", "Headlights restored"] }
+    {
+      "name": "Quick Shine",
+      "price": 89,
+      "note": "About 1 hour",
+      "features": [
+        "Hand wash and dry",
+        "Wheels, tires and dressing",
+        "Windows inside and out",
+        "Spray wax"
+      ]
+    },
+    {
+      "name": "La Completa",
+      "price": 189,
+      "note": "About 3 hours",
+      "popular": true,
+      "popularLabel": "Most booked",
+      "features": [
+        "Everything in Quick Shine",
+        "Full vacuum, trunk too",
+        "Mats shampooed",
+        "Dash, doors and vents wiped and protected",
+        "Hand wax"
+      ]
+    },
+    {
+      "name": "Showroom",
+      "price": 299,
+      "note": "Most of a day",
+      "features": [
+        "Everything in La Completa",
+        "Clay bar on the paint",
+        "Seats and carpet shampooed",
+        "Engine bay",
+        "Headlights restored"
+      ]
+    }
   ],
   "stepsHeadline": "How a booking goes",
   "steps": [
-    { "title": "Text us a photo", "body": "Of the car, inside and out. We reply with the price and two or three times that work." },
-    { "title": "We pull up", "body": "Driveway, curb or your office lot. Shade tent goes up, generator stays quiet." },
-    { "title": "You check it before you pay", "body": "Walk around it with us. If something's not right, we fix it right there." }
+    {
+      "title": "Text us a photo",
+      "body": "Of the car, inside and out. We reply with the price and two or three times that work."
+    },
+    {
+      "title": "We pull up",
+      "body": "Driveway, curb or your office lot. Shade tent goes up, generator stays quiet."
+    },
+    {
+      "title": "You check it before you pay",
+      "body": "Walk around it with us. If something's not right, we fix it right there."
+    }
   ],
   "blocks": [
     {
-      "id": "story", "nav": "About us", "kind": "note", "band": true,
+      "id": "story",
+      "nav": "About us",
+      "kind": "note",
+      "band": true,
       "eyebrow": "Who's coming to your house",
       "title": "Rudy, Mateo, and a white Ford Transit",
       "body": [
@@ -96,20 +261,54 @@
       ],
       "sign": "Rudy Ramirez, owner",
       "items": [
-        { "k": "Water", "v": "100 gal tank", "note": "we never use yours" },
-        { "k": "Power", "v": "Honda generator", "note": "quiet enough for nap time" },
-        { "k": "Shade", "v": "10 × 10 canopy", "note": "so wax doesn't bake on" },
-        { "k": "Seats", "v": "Steam cleaner", "note": "for juice boxes and tacos" }
+        {
+          "k": "Water",
+          "v": "100 gal tank",
+          "note": "we never use yours"
+        },
+        {
+          "k": "Power",
+          "v": "Honda generator",
+          "note": "quiet enough for nap time"
+        },
+        {
+          "k": "Shade",
+          "v": "10 × 10 canopy",
+          "note": "so wax doesn't bake on"
+        },
+        {
+          "k": "Seats",
+          "v": "Steam cleaner",
+          "note": "for juice boxes and tacos"
+        }
       ]
     }
   ],
   "reviews": {
     "headline": "What people on our route say",
-    "source": "Google", "url": "https://www.google.com/maps", "rating": "4.9", "count": 212,
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 212,
     "items": [
-      { "name": "Sample customer", "detail": " · Alamo Heights, Tahoe", "text": "Mateo got three years of soccer season out of my back seat. Showed up at 6:30 like they said.", "date": "2026-09-28" },
-      { "name": "Sample customer", "detail": " · Stone Oak, F-150", "text": "Price on the website is the price he charged. Truck was done before I finished my calls.", "date": "2026-09-16" },
-      { "name": "Sample customer", "detail": " · Southside, Camry", "text": "Le hablé en español a Don Rudy y me explicó todo. Muy buen trabajo.", "date": "2026-08-30" }
+      {
+        "name": "Sample customer",
+        "detail": " · Alamo Heights, Tahoe",
+        "text": "Mateo got three years of soccer season out of my back seat. Showed up at 6:30 like they said.",
+        "date": "2026-09-28"
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Stone Oak, F-150",
+        "text": "Price on the website is the price he charged. Truck was done before I finished my calls.",
+        "date": "2026-09-16"
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Southside, Camry",
+        "text": "Le hablé en español a Don Rudy y me explicó todo. Muy buen trabajo.",
+        "date": "2026-08-30"
+      }
     ]
   },
   "guarantee": {
@@ -120,7 +319,18 @@
   "areas": {
     "headline": "Our route, inside 1604",
     "body": "Outside the loop? Text us. We go to Boerne and New Braunfels on Saturdays for a $25 trip fee.",
-    "cities": ["Alamo Heights", "Stone Oak", "Helotes", "Leon Valley", "Live Oak", "Converse", "Southside", "Medical Center", "Terrell Hills", "Shavano Park"]
+    "cities": [
+      "Alamo Heights",
+      "Stone Oak",
+      "Helotes",
+      "Leon Valley",
+      "Live Oak",
+      "Converse",
+      "Southside",
+      "Medical Center",
+      "Terrell Hills",
+      "Shavano Park"
+    ]
   },
   "booking": {
     "cta": "Book a time",
@@ -136,12 +346,103 @@
   },
   "faqHeadline": "Questions we get on the driveway",
   "faq": [
-    { "q": "Do you need my water or electricity?", "a": "No. We carry 100 gallons of water and our own generator." },
-    { "q": "What if it rains?", "a": "We text the night before and move you to the next open day. No fee." },
-    { "q": "Can you work at my office?", "a": "Yes, if the lot allows it. Leave us the keys at the front desk and we'll text when it's done." },
-    { "q": "¿Hablan español?", "a": "Sí. Rudy y Mateo hablan español e inglés. Escríbanos por texto como guste." },
-    { "q": "How do I pay?", "a": "Cash, card, Zelle or Venmo, after you've looked the car over." }
+    {
+      "q": "Do you need my water or electricity?",
+      "a": "No. We carry 100 gallons of water and our own generator."
+    },
+    {
+      "q": "What if it rains?",
+      "a": "We text the night before and move you to the next open day. No fee."
+    },
+    {
+      "q": "Can you work at my office?",
+      "a": "Yes, if the lot allows it. Leave us the keys at the front desk and we'll text when it's done."
+    },
+    {
+      "q": "¿Hablan español?",
+      "a": "Sí. Rudy y Mateo hablan español e inglés. Escríbanos por texto como guste."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "Cash, card, Zelle or Venmo, after you've looked the car over."
+    }
   ],
-  "final": { "headline": "Your driveway, this week.", "sub": "Text a photo of the car and we'll send back a price and a time." },
-  "tracking": "groundwork"
+  "final": {
+    "headline": "Your driveway, this week.",
+    "sub": "Text a photo of the car and we'll send back a price and a time."
+  },
+  "tracking": "groundwork",
+  "estimator": {
+    "id": "price",
+    "nav": "Price my car",
+    "band": false,
+    "eyebrow": "",
+    "title": "Price your car before you call",
+    "body": [
+      "Three taps and you'll see what Rudy would quote you on the phone. Tap Book and we'll already know what you picked."
+    ],
+    "questions": [
+      {
+        "q": "Which package?",
+        "options": [
+          {
+            "label": "La Completa",
+            "pick": "La Completa",
+            "hint": "inside and out"
+          },
+          {
+            "label": "Quick Shine",
+            "pick": "Quick Shine",
+            "hint": "outside, about 1 hour"
+          },
+          {
+            "label": "Showroom",
+            "pick": "Showroom",
+            "hint": "most of a day"
+          }
+        ]
+      },
+      {
+        "q": "What are we washing?",
+        "options": [
+          {
+            "label": "Car or small SUV",
+            "say": "car or small SUV"
+          },
+          {
+            "label": "Truck or 3-row SUV",
+            "add": 30,
+            "say": "truck or 3-row SUV"
+          }
+        ]
+      },
+      {
+        "q": "Anything extra?",
+        "options": [
+          {
+            "label": "Nothing extra",
+            "say": "no extras"
+          },
+          {
+            "label": "Dog hair",
+            "add": 40,
+            "say": "dog hair"
+          },
+          {
+            "label": "Engine bay",
+            "add": 45,
+            "say": "engine bay"
+          },
+          {
+            "label": "Foggy headlights",
+            "add": 59,
+            "say": "headlights"
+          }
+        ]
+      }
+    ],
+    "totalLabel": "Rudy's price",
+    "cta": "Book this price",
+    "fine": "Pay after you've checked the car. Cash, card, Zelle or Venmo."
+  }
 }
