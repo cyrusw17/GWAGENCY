@@ -5,6 +5,7 @@
   "minReviews": 15,
   "flawOrder": [
     "no_quote",
+    "no_prices",
     "no_services",
     "no_photos",
     "no_reviews",

@@ -29,13 +29,35 @@ export function checkShop(p) {
   return r;
 }
 
+const textOf = html => html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, " ").replace(/<[^>]+>/g, " ")
+  .replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
+
+// Every visible fact on a mockup must come from the shop's row or sit in a section labeled "sample".
+// Sections built from niche defaults must carry the label; everywhere else, every number and price
+// must be one of the shop's own facts.
 export function checkMockup(html, p, site) {
   const r = [];
   if (!html.includes(esc(p.shop))) r.push("mockup doesn't show the shop name");
   if (!html.includes('<meta name="robots" content="noindex">')) r.push("mockup is missing noindex");
   if (!html.includes(`tel:${p.phone.replace(/\D/g, "")}`)) r.push("mockup is missing the shop's tap-to-call");
-  if (/Harbor Line|555-01\d\d|Fictional business|Sample customer|\{\w+\}/.test(html)) r.push("mockup has leftover template text");
+  if (/Harbor Line|555-01\d\d|Fictional business|Sample customer|\{\w+\}/.test(textOf(html))) r.push("mockup has leftover template text");
   if (site.reviews?.items?.some(i => !p.reviews.some(rv => rv.text === i.text))) r.push("mockup shows a review that isn't from the shop's profile");
   if (html.length > 200000) r.push(`mockup HTML is ${Math.round(html.length / 1024)} KB`);
+
+  let rest = html.replace(/<div class="f-demo"[\s\S]*?<\/div><\/div>/, " ");
+  for (const id of site.sampleSections || []) {
+    const sec = html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?<\\/section>`));
+    if (!sec) continue;
+    if (!/\bsample\b/i.test(textOf(sec[0]))) r.push(`mockup section "${id}" uses sample content without a "Sample" label`);
+    rest = rest.replace(sec[0], " ");
+  }
+  // Allowed numbers: the shop's own facts, plus the copyright year.
+  const allowed = new Set([p.rating?.toFixed(1), String(p.review_count), p.review_count?.toLocaleString("en-US"), p.zip, String(new Date(site.builtAt || Date.now()).getFullYear()), "5"].filter(Boolean));
+  const own = [p.shop, p.city, p.phone, p.hours_text, ...p.reviews.map(x => `${x.text} ${x.date}`)].join(" ");
+  const text = textOf(rest).split(p.phone).join(" ");
+  for (const m of text.match(/\$\s?\d[\d,.]*|\d[\d,.:]*\d|\d/g) || []) {
+    const n = m.replace(/[.,:]$/, "");
+    if (!allowed.has(n) && !own.includes(n)) { r.push(`mockup shows "${n}" outside a sample section, and it isn't one of the shop's facts`); break; }
+  }
   return r;
 }

@@ -24,6 +24,10 @@ function pickServices(p, niche) {
   return chosen.slice(0, 6).map(({ name, desc }) => ({ name, desc }));
 }
 
+// Sections built from niche defaults rather than the shop's data. Each must carry a visible
+// "Sample" label; QA fails the mockup if one doesn't (checkMockup in qa.mjs).
+export const SAMPLE_LABEL = /\bsample\b/i;
+
 export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
   const f = { shop: p.shop, city: p.city, phone: p.phone, service: facts.service, Service: cap(facts.service) };
   const mobile = /mobile/i.test(`${p.raw_name} ${p.category} ${p.services.join(" ")}`);
@@ -33,13 +37,15 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
   const realReviews = p.reviews.filter(r => (r.stars ?? 5) >= 4 && r.text.length <= 400)
     .sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, 3);
   const reviewsUrl = p.gbp_url || undefined;
-  const title = `${p.shop} | ${cap(facts.service)} in ${p.city}, ${p.state}`;
+  // Services the listing names are real; otherwise the niche's list, labeled as a sample.
+  const realServices = p.services.slice(0, 6).map(name => ({ name, desc: "" }));
+  const sampleSections = ["pricing", "how", "work", "faq"].concat(realServices.length ? [] : ["services"]);
 
-  return {
+  const site = {
     slug: id,
     demo: true,
-    demoLabel: `Mockup for ${p.shop}`,
-    demoNote: "Made by GroundWork. Not published. Photos and prices are samples until you send yours.",
+    demoLabel: "Free mockup",
+    demoNote: `Made for ${p.shop} by GroundWork. Not published. Sections marked "sample" get your real details.`,
     demoCta: { label: "Make it mine", href: demoCtaHref },
     niche: niche.label,
     credit: true,
@@ -55,7 +61,7 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
     },
     theme: palette,
     seo: {
-      title,
+      title: `${p.shop} | ${cap(facts.service)} in ${p.city}, ${p.state}`,
       description: `${p.shop}: ${facts.service} in ${p.city}, ${p.state}. Rated ${facts.rating} from ${facts.review_count} Google reviews.`.slice(0, 158),
     },
     hero: {
@@ -64,25 +70,27 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
       headlineEm: fill(hero.headlineEm, f),
       sub: fill(hero.sub, f),
       cta: niche.heroCta,
-      proof: [{ value: `${facts.rating}★`, label: `${facts.review_count} Google reviews`, href: reviewsUrl }],
     },
-    trust: [niche.packages ? "Prices shown up front" : "Fast quotes", "Request from your phone", `${facts.rating}★ on Google`],
-    servicesHeadline: `What ${p.shop} does`,
-    services: pickServices(p, niche),
-    pricing: niche.pricing,
+    trust: [`${facts.rating}★ on Google`, `${facts.review_count} Google reviews`, `Based in ${p.city}, ${p.state}`],
+    servicesHeadline: realServices.length ? `What ${p.shop} does` : "Sample services. Your real list goes here.",
+    services: realServices.length ? realServices : pickServices(p, niche),
+    pricing: niche.packages ? { headline: "Sample packages and prices", sub: "Your site shows your real packages and prices." } : undefined,
     packages: niche.packages,
-    stepsHeadline: niche.packages ? "Booked in under a minute" : "How it works",
+    stepsHeadline: "How booking could work (sample)",
     steps: niche.steps,
-    work: { headline: fill(niche.workHeadline, f), sub: "Your own before and after photos go here.", compare: { caption: "" }, gallery: [{}, {}, {}].map(() => ({ caption: "" })) },
-    reviews: realReviews.length
-      ? { headline: "What customers say", source: "Google", url: reviewsUrl, rating: facts.rating, count: facts.review_count, sampleNote: "Real reviews from your Google profile.", items: realReviews.map(r => ({ name: r.name.split(" ")[0], detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) }
-      : undefined,
-    areas: { headline: `Serving ${p.city} and nearby`, body: "Your full service area goes here.", cities: [p.city] },
+    work: { headline: "Your work goes here", sub: "Sample images. Your own before and after photos go here.", compare: { caption: "" }, gallery: [{}, {}, {}].map(() => ({ caption: "" })) },
+    // The rating badge always shows (real data); review cards only when the list gave real review text.
+    reviews: { headline: "What customers say", source: "Google", url: reviewsUrl, rating: facts.rating, count: facts.review_count, sampleNote: "Real reviews from your Google profile.",
+      items: realReviews.map(r => ({ name: r.name.split(" ")[0], detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) },
+    areas: { headline: `Based in ${p.city}`, body: "Your full service area goes here.", cities: [p.city] },
     booking: { cta: niche.cta, eyebrow: niche.packages ? "Book" : "Quote", headline: niche.booking.headline, body: `Tell us what you need and ${p.shop} will get back to you.` },
     lead: { endpoint: "", submit: niche.booking.submit, notesHint: niche.booking.notesHint },
+    faqHeadline: "Sample questions and answers",
     faq: niche.faq.map(x => ({ q: fill(x.q, f), a: fill(x.a, f) })),
     final: niche.final,
   };
+  Object.defineProperty(site, "sampleSections", { value: sampleSections, enumerable: false });
+  return site;
 }
 
 export function writeMockup(site, outDir, templateDir, today) {

@@ -65,6 +65,9 @@ export async function run(opts) {
   // No mockup host is approved yet: until one is, mockup_url stays empty and copy must not link to it.
   const mockupBase = opts.mockupBase ? opts.mockupBase.replace(/\/?$/, "/") : "";
   const rules = { ...DEFAULT_RULES, ...(opts.rules || {}) };
+  // Google lets us keep Places data (name, rating, review text) for 30 days, so every mockup built
+  // from it must be taken down or rebuilt from a fresh export by this date.
+  const expires = new Date(Date.parse(today) + 30 * 86400000).toISOString().slice(0, 10);
 
   const raw = parseProspects(readFileSync(opts.in, "utf8"));
   if (!opts.pipeline && !opts.noPipeline) throw new Error("pass --pipeline <sales/pipeline.csv> so do-not-contact and already-contacted shops are dropped");
@@ -122,7 +125,7 @@ export async function run(opts) {
       email: p.email, first_name: facts.first_name, company_name: p.shop, personalization: line,
       niche: p.niche, niche_plural: facts.niche_plural, city: p.city, state: p.state, rating: facts.rating, review_count: facts.review_count,
       service: facts.service, flaw: facts.flaw_line, flaw_line: facts.flaw_line, flaw_id: facts.flaw_id, old_copyright: facts.old_copyright,
-      mockup_url: mockupBase ? mockupBase + id + "/" : "", segment: segmentOf(p), line_variant: variant, send_date: sendDate,
+      mockup_url: mockupBase ? mockupBase + id + "/" : "", mockup_expires: expires, segment: segmentOf(p), line_variant: variant, send_date: sendDate,
       phone: p.phone, website: p.website, place_id: p.place_id, site_check: x.site?.detail || "", mockup_dir: `mockups/${id}/`,
     });
   }
@@ -165,6 +168,7 @@ function report({ today, sendDate, mockupBase, cost, approved, rejected, sample 
 
 ${cost.rows_in} prospects in, **${cost.approved} approved**, ${cost.rejected} rejected. Nothing has been sent or published.
 First lines are checked for send date ${sendDate}; if the batch goes out later, re-run with --send-date.
+Mockups hold Google data: take them down or rebuild them from a fresh export by ${approved[0]?.mockup_expires || "30 days after the run"}.
 ${mockupBase ? `Mockup links point to ${mockupBase}.` : "No mockup host is set, so mockup_url is empty: copy must not link to mockups yet."}
 
 ## Cost

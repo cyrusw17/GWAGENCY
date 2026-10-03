@@ -8,7 +8,8 @@
 const BOOKING_WIDGETS = /(square\.site|squareup\.com\/appointments|book\.squareup|booksy\.com|calendly\.com|acuityscheduling|setmore\.com|vagaro\.com|urable\.com|mobile-tech\.app|mobiletechrx|housecallpro|getjobber|jobber\.com|schedulicity|simplybook|appointy|fresha\.com|glossgenius|orderly|youcanbook\.me|google\.com\/calendar\/appointments|calendar\.app\.google|tidycal|zcal|bookeo|checkfront|servicetitan|detailbook|detail\.bot|markate|workiz|servicem8|yardbook|lawnpro|responsibid|quotes\.)/i;
 const REVIEW_WIDGETS = /(elfsight|trustindex|embedsocial|birdeye|podium|reviewsonmywebsite|grade\.us|nicejob|broadly|shapo|widget\.trustpilot|featurable|sociablekit|google-reviews|wpreviewslider|wp-google-reviews|ti-widget)/i;
 const BOOK_WORDS = /\b(book( now| online| an? appointment| your)?|schedule( now| online| (an? )?appointment)?|request (a |an )?(quote|appointment|time|estimate)|get (a |your )?(free )?(quote|estimate)|reserve)\b/i;
-const PRICE = /\$\s?\d{2,5}(?:\.\d{2})?\b/;
+// "$149", "$ 99.00", or "starting at 149" / "from 99" without the dollar sign.
+const PRICE = /\$\s?\d{2,5}(?:\.\d{2})?\b|\b(?:starting at|starts at|from|only)\s+\$?\d{2,5}\b/i;
 const MORE_PAGES = /(price|pricing|service|package|menu|rates|book|detail|quote|estimate|contact|gallery|photo|portfolio|our-work|review|testimonial)/i;
 const MIN_TEXT = 300; // less visible text than this usually means the page is built by JavaScript
 
@@ -88,7 +89,7 @@ const ABSENT = {
 };
 const DETAIL = {
   no_booking: "no booking widget, booking form or booking link",
-  no_prices: "no $ prices",
+  no_prices: "no prices or \"starting at\" figures",
   no_quote: "no quote form or booking tool",
   no_photos: "fewer than 3 photos",
   no_reviews: "no reviews section, widget or testimonials",

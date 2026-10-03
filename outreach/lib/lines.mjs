@@ -18,10 +18,14 @@ function recentReview(p, sendDate) {
 }
 
 // The service the sequences call {service}: what someone would type into Google.
+// The shop's own name and category win over its service list ("Bayside Mobile Detailing" that
+// also lists ceramic coating is a mobile detailer).
 export function topService(p, niche) {
-  const hay = `${p.raw_name} ${p.category} ${p.services.join(" ")}`.toLowerCase();
-  const rule = (niche.serviceRules || []).find(([re]) => new RegExp(re, "i").test(hay));
-  return rule ? rule[1] : niche.serviceDefault;
+  for (const hay of [`${p.raw_name} ${p.category}`, p.services.join(" ")]) {
+    const rule = (niche.serviceRules || []).find(([re]) => new RegExp(re, "i").test(hay));
+    if (rule) return rule[1];
+  }
+  return niche.serviceDefault;
 }
 
 export function segmentOf(p) {

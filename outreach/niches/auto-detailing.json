@@ -6,16 +6,18 @@
   "flawOrder": [
     "no_booking",
     "no_prices",
+    "no_reviews",
+    "no_tap_to_call",
     "slow_mobile"
   ],
   "serviceRules": [
     [
-      "ceramic|coating",
-      "ceramic coating"
-    ],
-    [
       "mobile",
       "mobile detailing"
+    ],
+    [
+      "ceramic|coating",
+      "ceramic coating"
     ]
   ],
   "serviceDefault": "car detailing",
@@ -167,7 +169,7 @@
     }
   ],
   "final": {
-    "headline": "Your car, clean, this week.",
-    "sub": "Pick a package and we'll text you a time."
+    "headline": "Ready when you are.",
+    "sub": "Pick a package and send a request."
   }
 }

@@ -56,7 +56,12 @@ export function formatPhone(raw = "") {
 
 const num = v => { const n = Number(String(v ?? "").replace(/[^\d.]/g, "")); return String(v ?? "").trim() === "" || Number.isNaN(n) ? null : n; };
 
-export function normalize(row, defaultNiche = "auto-detailing") {
+// Column names the lead list builder's exports use, mapped to ours.
+const ALIASES = { company_name: "name", reviews: "review_count", user_ratings_total: "review_count", maps_url: "gbp_url", primary_type: "category" };
+
+export function normalize(input, defaultNiche = "auto-detailing") {
+  const row = { ...input };
+  for (const [from, to] of Object.entries(ALIASES)) if (row[to] == null || row[to] === "") row[to] = input[from] ?? row[to];
   const city = String(row.city || "").trim().replace(/\s+/g, " ");
   const reviews = [1, 2, 3].map(i => ({ name: (row[`review_${i}_author`] || "").trim(), text: (row[`review_${i}_text`] || "").trim(), stars: num(row[`review_${i}_stars`]), date: (row[`review_${i}_date`] || "").trim() }))
     .filter(r => r.name && r.text);

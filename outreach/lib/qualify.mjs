@@ -61,11 +61,13 @@ export function loadSuppression(text = "", map = new Map()) {
   return map;
 }
 
+const DO_NOT_CONTACT = /^(do-not-contact|do_not_contact|opted[-_ ]?out|unsubscribed|bounced|complained)$/;
+
 export function loadPipeline(rows, map = new Map()) {
   for (const row of rows) {
     const status = String(row.status || "").trim().toLowerCase();
     if (!status || status === "new") continue;
-    const reason = status === "do-not-contact" ? "do-not-contact in sales pipeline" : `already in sales pipeline (${status})`;
+    const reason = DO_NOT_CONTACT.test(status) ? `do-not-contact in sales pipeline (${status})` : `already in sales pipeline (${status})`;
     const email = String(row.contact_email || "").trim().toLowerCase();
     const phone = String(row.contact_phone || "").replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
     if (email) map.set("email:" + email, reason);
