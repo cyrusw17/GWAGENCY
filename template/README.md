@@ -18,19 +18,23 @@ Set `"demo": true` for sales demos: it adds the GroundWork bar, `noindex`, and l
 |---------|-----|
 | Offer bar (optional) | One time-bound reason to act now. |
 | Header | Tap-to-call and Book always visible; sticky. |
-| Hero | Outcome headline, the area, one primary CTA, call as second. Proof numbers under it. |
+| Hero | Rating pill (from `reviews`), outcome headline, the area, one primary CTA, call as second. Proof numbers under it. |
 | Trust strip | Insured, prices shown, guarantee: kill the top fears early. |
 | Services | What they do, each with a "from" price. |
-| Pricing | 3 packages, middle one highlighted. Each button pre-selects that package in the form. |
+| Pricing | 3 packages, middle one highlighted. Add `member` prices to get a One-time / Member toggle (sells the client's recurring plan). Each button pre-selects that package in the form. |
 | How it works | 3 steps, to make booking feel small. |
 | Our work | Before/after slider + gallery of real jobs. |
-| Reviews | Real reviews only, linked to the Google profile. |
+| Reviews | Real reviews only, linked to the Google profile. Swipeable row on phones, grid on desktop. |
 | Guarantee | Risk reversal with a CTA. |
 | Service area | City list + map, so out-of-area visitors don't waste a lead. |
 | Book | Booking embed (Square, Booksy, Calendly, Google) or a 4-field quote form. Call/text option next to it. |
 | FAQ | Objections answered; also marked up as FAQPage for search and AI answers. |
 | Final CTA, footer | Last chance + consistent name/phone/area for local SEO. |
 | Sticky bar (phones) | Call + Book under the thumb on every scroll position. |
+
+## Design references
+
+Layout patterns are adapted from [21st.dev](https://21st.dev) (rating badge over the headline, gradient emphasis text, swipeable testimonial row, pricing toggle), rebuilt as plain HTML/CSS so pages stay fast with no framework. CSS is inlined into each page; the only other file is the 4KB `funnel.js`.
 
 ## Leads
 

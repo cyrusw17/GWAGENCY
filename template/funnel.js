@@ -14,7 +14,7 @@
       if (!(navigator.sendBeacon && navigator.sendBeacon(C.analytics, body))) fetch(C.analytics, { method: "POST", body: body, keepalive: true }).catch(function () {});
     } catch (_) {}
   }
-  if (C.analytics && !quiet) track("pageview");
+  track("pageview");
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-ev]");
     if (a) track(a.getAttribute("data-ev"), a.getAttribute("data-label") || a.textContent.trim());
@@ -40,7 +40,7 @@
   if (!form) return;
   var status = form.querySelector("[role=status]");
   function smsFallback(data) {
-    var to = C.sms || C.phone;
+    var to = C.sms;
     if (!to) return false;
     var body = "Hi, I'm " + data.name + ". Interested in " + (data.service || "a quote") +
       (data.zip ? " in " + data.zip : "") + "." + (data.notes ? " " + data.notes : "");
