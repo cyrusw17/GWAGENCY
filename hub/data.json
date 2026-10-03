@@ -1,0 +1,190 @@
+{
+  "updated": "2026-10-03",
+  "boards": [
+    {
+      "name": "Strategy",
+      "owner": "Strategy lead",
+      "grade": "Inc.",
+      "note": "Playbook, decision log and scoreboard"
+    },
+    {
+      "name": "Pricing",
+      "owner": "Pricing desk",
+      "grade": "Inc.",
+      "note": "Final price list and offers"
+    },
+    {
+      "name": "Niche research",
+      "owner": "Marketing",
+      "grade": "Inc.",
+      "note": "Three trades picked, samples pending"
+    },
+    {
+      "name": "Cold email",
+      "owner": "Cold email desk",
+      "grade": "Inc.",
+      "note": "Playbook, setup and four sequences"
+    },
+    {
+      "name": "Lead lists",
+      "owner": "Lead list desk",
+      "grade": "Inc.",
+      "note": "Pipeline built, first run pending"
+    },
+    {
+      "name": "Mockup engine",
+      "owner": "Mockup desk",
+      "grade": "Inc.",
+      "note": "Waits for the new designs"
+    },
+    {
+      "name": "Sales ops",
+      "owner": "Sales ops",
+      "grade": "Inc.",
+      "note": "Replies, call script, onboarding"
+    },
+    {
+      "name": "Detailing sites",
+      "owner": "Web developer",
+      "grade": "Inc.",
+      "note": "5 sites, graded on the lowest"
+    },
+    {
+      "name": "Exterior cleaning sites",
+      "owner": "Exterior design desk",
+      "grade": "Inc.",
+      "note": "5 sites, graded on the lowest"
+    },
+    {
+      "name": "Landscaping sites",
+      "owner": "Landscaping design desk",
+      "grade": "Inc.",
+      "note": "5 sites, graded on the lowest"
+    },
+    {
+      "name": "This work log",
+      "owner": "Hub desk",
+      "grade": "Inc.",
+      "note": "The page you are reading"
+    }
+  ],
+  "niches": [
+    {
+      "id": "detailing",
+      "name": "Auto detailing",
+      "owner": "Web developer",
+      "slots": [
+        {
+          "business": "Northline Ceramic & Detail",
+          "town": "Dallas, TX",
+          "concept": "Ceramic coating and paint correction studio",
+          "status": "draft",
+          "client": "demo-ceramic-studio",
+          "slug": "ceramic-studio"
+        },
+        {
+          "business": "Harbor Line Mobile Detail",
+          "town": "Tampa, FL",
+          "concept": "Mobile detailing at your home",
+          "status": "draft",
+          "client": "_example",
+          "slug": "mobile-detail"
+        },
+        {
+          "business": "Version 3",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        },
+        {
+          "business": "Version 4",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        },
+        {
+          "business": "Version 5",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        }
+      ]
+    },
+    {
+      "id": "exterior",
+      "name": "Exterior cleaning",
+      "owner": "Exterior design desk",
+      "slots": [
+        {
+          "business": "Brightside Exterior Wash",
+          "town": "Charlotte, NC",
+          "concept": "House, roof and driveway washing",
+          "status": "draft",
+          "client": "demo-exterior-wash",
+          "slug": "exterior-wash"
+        },
+        {
+          "business": "Version 2",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        },
+        {
+          "business": "Version 3",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        },
+        {
+          "business": "Version 4",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        },
+        {
+          "business": "Version 5",
+          "town": "",
+          "concept": "Concept line due before building",
+          "status": "concept"
+        }
+      ]
+    },
+    {
+      "id": "landscaping",
+      "name": "Landscaping and lawn care",
+      "owner": "Landscaping design desk",
+      "slots": [
+        {
+          "business": "Pruitt Lawn Co.",
+          "town": "Dublin, OH",
+          "concept": "Route sheet: mowing stripes, a clipboard route card, a printed price sheet",
+          "status": "building"
+        },
+        {
+          "business": "Fernhollow Gardens",
+          "town": "Asheville, NC",
+          "concept": "Field journal: plant line art, margin notes, seed-packet price cards",
+          "status": "building"
+        },
+        {
+          "business": "Los Primos Landscaping",
+          "town": "San Antonio, TX",
+          "concept": "Sign painter: drop-shaded lettering, painted banners, bilingual labels",
+          "status": "building"
+        },
+        {
+          "business": "Halvorsen Grounds",
+          "town": "Edina, MN",
+          "concept": "Site plan: a drawn lot plan, spec-sheet pricing, a four-season year line",
+          "status": "building"
+        },
+        {
+          "business": "Dale's Mowing",
+          "town": "Hixson, TN",
+          "concept": "Corkboard flyer: canary paper, taped photos, tear-off phone tabs",
+          "status": "building"
+        }
+      ]
+    }
+  ]
+}
