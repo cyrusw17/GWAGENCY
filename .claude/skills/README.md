@@ -6,6 +6,8 @@ Any session working in the GWAGENCY checkout on branch `claude/design-skills-woi
 Sources (pinned commits): freshtechbro/claudedesignskills @ 1da73fe, jeffallan/claude-skills @ 882ef55, alirezarezvani/claude-skills @ 19392f7.
 
 ## House rules for using them on our sites
+- strategy/design-bar.md (in the project files) overrides every skill here, above all modern-web-design, landing and epic-design. Skills are for craft (motion, type, tokens, CRO, a11y, schema), not ready-made layouts. Glassmorphism and default bento grids fail the bar.
+- Motion has to do a job: a before/after reveal, an estimator, a package picker, a service-area checker. Decorative scroll effects don't count.
 - Phones first. A demo must still load fast on a mid-range phone on 4G: aim for LCP under 2.5s and keep total JS under about 100 KB gzipped unless 3D clearly earns its place.
 - Heavy 3D (Three.js, Vanta) only where it sells the business (a car-paint reflection, a before/after reveal). Otherwise use CSS, GSAP or Motion. Always honor `prefers-reduced-motion`.
 - The funnel template is vanilla HTML/CSS/JS with no build step. Skills that show React examples (motion-framer, web3d-integration-patterns) are still useful for their vanilla APIs and patterns; don't add React to the template.

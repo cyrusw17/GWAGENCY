@@ -3,6 +3,8 @@ name: modern-web-design
 description: Modern web design trends, principles, and implementation patterns for 2024-2025. Use this skill when designing websites, creating interactive experiences, implementing design systems, ensuring accessibility, or building performance-first interfaces. Triggers on tasks involving modern design trends, micro-interactions, scrollytelling, bold minimalism, cursor UX, glassmorphism, accessibility compliance, performance optimization, or design system architecture. References animation skills (GSAP, Framer Motion, React Spring), 3D skills (Three.js, R3F, Babylon.js), and component libraries for implementation guidance.
 ---
 
+> **GroundWork override:** /mnt/project-files/strategy/design-bar.md wins over this skill. Use it for craft (motion, type, tokens, CRO, a11y, schema), not ready-made layouts. Glassmorphism, neon glows, purple-to-blue gradients and default bento or three-card grids are automatic fails on our bar.
+
 # Modern Web Design
 
 ## Overview

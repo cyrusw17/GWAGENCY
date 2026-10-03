@@ -9,6 +9,8 @@ metadata:
   version: 1.0.0
 ---
 
+> **GroundWork override:** /mnt/project-files/strategy/design-bar.md wins over this skill. Use it for craft (motion, type, tokens, CRO, a11y, schema), not ready-made layouts. Glassmorphism, neon glows, purple-to-blue gradients and default bento or three-card grids are automatic fails on our bar.
+
 # Landing — Premium HTML Landing Page Generator
 
 > **Distinct from `product-team/skills/landing-page-generator/`.** That skill outputs Next.js TSX components optimized for conversion / lead-gen. THIS skill outputs a single self-contained `.html` file optimized for premium visual experience with GSAP animations. Pick by use case.
