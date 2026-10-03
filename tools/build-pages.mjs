@@ -24,6 +24,14 @@ const rewrite = s => s
   .replace(/(url\(\s*["']?)\/(?!\/)/g, `$1${prefix}`)
   .replace(/(srcset=["'][^"']*)/g, m => m.replace(/(^|,\s*|=["'])\/(?!\/)/g, `$1${prefix}`));
 
+// This copy must never compete with groundwork-web.com in search: noindex every page and point
+// its canonical at the live URL (pages that already name one keep theirs).
+const seo = (html, rel) => {
+  const live = "https://groundwork-web.com/" + rel.replace(/(^|\/)index\.html$/, "$1");
+  html = html.replace(/<meta\s+name=["']robots["'][^>]*>\s*/gi, "");
+  const tags = '<meta name="robots" content="noindex, nofollow">' + (/rel=["']canonical["']/i.test(html) ? "" : `<link rel="canonical" href="${live}">`);
+  return html.replace(/<head([^>]*)>/i, `<head$1>${tags}`);
+};
 const pages = [];
 function copy(src, dst) {
   for (const name of readdirSync(src)) {
@@ -33,7 +41,7 @@ function copy(src, dst) {
     if (statSync(from).isDirectory()) { mkdirSync(to, { recursive: true }); copy(from, to); continue; }
     if (TEXT.has(extname(name))) {
       const text = readFileSync(from, "utf8");
-      writeFileSync(to, rewrite(text));
+      writeFileSync(to, name.endsWith(".html") ? seo(rewrite(text), relative(join(root, "public"), from)) : rewrite(text));
       if (name === "index.html") pages.push({ path: relative(join(root, "public"), src), title: (text.match(/<title>([^<]*)<\/title>/) || [, ""])[1] });
     } else copyFileSync(from, to);
   }
