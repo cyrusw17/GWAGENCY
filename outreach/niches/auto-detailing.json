@@ -96,10 +96,6 @@
     "correction|polish|swirl|buff",
     "ceramic|coating"
   ],
-  "pricing": {
-    "headline": "Clear prices, up front.",
-    "sub": "Sample prices for this mockup. Your site shows your real prices."
-  },
   "packages": [
     {
       "name": "Exterior",

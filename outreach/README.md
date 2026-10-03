@@ -32,6 +32,8 @@ Niches: `auto-detailing`, `exterior-cleaning`, `landscaping-lawn-care` (a `niche
 | `mockups/<shop>-<hash>/` | Static mockup site; upload the folder to the mockup host |
 | `report.md`, `review.html` | Cost per prospect, rejection reasons, and a 10% (min 20) sample for a person to check before loading |
 
+Templates: `--template <dir>` (or `"template"` in a niche file) renders mockups from any folder with `render.mjs` exporting `render(site, { css })`, plus optional `funnel.css`/`funnel.js`. QA works the same for every template: sample sections (services, pricing, how, work, faq) must be wrapped in `<section id="...">` with a visible "Sample" label, or the mockup fails.
+
 Mockups hold Google Places data, which we may keep only 30 days: each row has `mockup_expires`, and by then the mockup must be taken down or rebuilt from a fresh export.
 
 Mockup links are `--mockup-base` + `<shop>-<hash>/`; the hash comes from `MOCKUP_SALT` and the place ID, so links are stable but can't be guessed. With no `--mockup-base` (no host approved yet) `mockup_url` is empty and copy must not link to mockups. Team lead decision: host mockups on one of the secondary cold email domains, never on groundwork-web.com.

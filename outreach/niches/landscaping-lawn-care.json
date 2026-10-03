@@ -131,5 +131,39 @@
   "final": {
     "headline": "Ready for a yard you're proud of?",
     "sub": "Tell us what you need and we'll send an estimate."
-  }
+  },
+  "packages": [
+    {
+      "name": "Weekly mowing",
+      "price": 45,
+      "note": "Sample price per visit",
+      "features": [
+        "Mow, edge and trim",
+        "Clippings blown off hard surfaces",
+        "Same day each week"
+      ]
+    },
+    {
+      "name": "Spring cleanup",
+      "price": 249,
+      "popular": true,
+      "popularLabel": "Most requested",
+      "note": "Sample price",
+      "features": [
+        "Leaves and debris cleared",
+        "Beds edged and weeded",
+        "First mow of the season"
+      ]
+    },
+    {
+      "name": "Mulch refresh",
+      "price": 350,
+      "note": "Sample price",
+      "features": [
+        "Beds weeded and edged",
+        "Fresh mulch installed",
+        "Clean-up and haul-away"
+      ]
+    }
+  ]
 }

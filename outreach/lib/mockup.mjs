@@ -3,9 +3,9 @@
 // shop's real public facts and clearly labeled sample content. Always noindex, never shows
 // invented reviews or claims, and is never the shop's live site until they buy.
 
-import { mkdirSync, writeFileSync, cpSync, readFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, cpSync, readFileSync, existsSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 import { join } from "node:path";
-import { render } from "../../template/render.mjs";
 import { hash } from "./lines.mjs";
 
 const slugify = s => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48);
@@ -70,11 +70,12 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
       headlineEm: fill(hero.headlineEm, f),
       sub: fill(hero.sub, f),
       cta: niche.heroCta,
+      caption: niche.heroCaption,
     },
     trust: [`${facts.rating}★ on Google`, `${facts.review_count} Google reviews`, `Based in ${p.city}, ${p.state}`],
     servicesHeadline: realServices.length ? `What ${p.shop} does` : "Sample services. Your real list goes here.",
     services: realServices.length ? realServices : pickServices(p, niche),
-    pricing: niche.packages ? { headline: "Sample packages and prices", sub: "Your site shows your real packages and prices." } : undefined,
+    pricing: niche.packages ? { headline: "Sample packages and prices", sub: "Your site shows your real packages and starting prices." } : undefined,
     packages: niche.packages,
     stepsHeadline: "How booking could work (sample)",
     steps: niche.steps,
@@ -93,13 +94,23 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
   return site;
 }
 
-export function writeMockup(site, outDir, templateDir, today) {
+// A template is a folder with render.mjs (export render(site, { css })) plus optional funnel.css
+// and funnel.js, like template/. New designs plug in with --template <dir>, per niche or per run.
+export async function loadTemplate(dir) {
+  const { render } = await import(pathToFileURL(join(dir, "render.mjs")).href);
+  if (typeof render !== "function") throw new Error(`${dir}/render.mjs doesn't export render()`);
+  const css = existsSync(join(dir, "funnel.css")) ? readFileSync(join(dir, "funnel.css"), "utf8") : "";
+  const assets = ["funnel.js"].filter(f => existsSync(join(dir, f)));
+  return { dir, render, css, assets };
+}
+
+export function writeMockup(site, outDir, tpl, today) {
   site.builtAt = today;
   mkdirSync(outDir, { recursive: true });
   // CSS inlined like tools/build.mjs does, so the first screen paints without a second request.
-  const html = render(site, { css: readFileSync(join(templateDir, "funnel.css"), "utf8") });
+  const html = tpl.render(site, { css: tpl.css });
   writeFileSync(join(outDir, "index.html"), html);
   writeFileSync(join(outDir, "robots.txt"), "User-agent: *\nDisallow: /\n");
-  cpSync(join(templateDir, "funnel.js"), join(outDir, "funnel.js"));
+  for (const f of tpl.assets) cpSync(join(tpl.dir, f), join(outDir, f));
   return html;
 }

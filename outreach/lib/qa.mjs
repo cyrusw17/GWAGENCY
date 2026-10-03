@@ -51,6 +51,17 @@ export function checkMockup(html, p, site) {
     if (!/\bsample\b/i.test(textOf(sec[0]))) r.push(`mockup section "${id}" uses sample content without a "Sample" label`);
     rest = rest.replace(sec[0], " ");
   }
+  // Sample content must not survive outside a labeled section, whatever template drew it.
+  const leftover = textOf(rest.replace(/<form[\s\S]*?<\/form>/gi, " ")); // the form's service picker may list sample names
+  // Full sentences, not names: a name like "Ceramic coating" can also be the shop's real service elsewhere on the page.
+  const samples = {
+    services: (site.services || []).map(x => x.desc), pricing: (site.packages || []).flatMap(x => x.features || []),
+    how: (site.steps || []).map(x => x.body), faq: (site.faq || []).map(x => x.a),
+  };
+  for (const id of site.sampleSections || []) {
+    const hit = (samples[id] || []).find(t => t && leftover.includes(t));
+    if (hit) r.push(`mockup shows sample "${hit}" outside a labeled "${id}" section (templates must wrap it in <section id="${id}">)`);
+  }
   // Allowed numbers: the shop's own facts, plus the copyright year.
   const allowed = new Set([p.rating?.toFixed(1), String(p.review_count), p.review_count?.toLocaleString("en-US"), p.zip, String(new Date(site.builtAt || Date.now()).getFullYear()), "5"].filter(Boolean));
   const own = [p.shop, p.city, p.phone, p.hours_text, ...p.reviews.map(x => `${x.text} ${x.date}`)].join(" ");

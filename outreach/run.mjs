@@ -6,7 +6,7 @@
 //   node outreach/run.mjs --in leads.csv --out /path/outside/repo
 //        [--pipeline /mnt/project-files/sales/pipeline.csv] [--suppress suppress.txt]
 //        [--check-sites] [--niche auto-detailing] [--today 2026-10-03] [--send-date 2026-10-06]
-//        [--mockup-base https://mockup.example.com/] [--list-cost 0.004] [--sample 20]
+//        [--mockup-base https://mockup.example.com/] [--template template/] [--list-cost 0.004] [--sample 20]
 //
 // Env: MOCKUP_SALT (makes mockup links unguessable; required unless --dry), PSI_API_KEY (optional, slow-site check).
 
@@ -18,7 +18,7 @@ import { normalize } from "./lib/normalize.mjs";
 import { qualify, loadSuppression, loadPipeline, DEFAULT_RULES } from "./lib/qualify.mjs";
 import { checkSite } from "./lib/sitecheck.mjs";
 import { factsFor, firstLine, segmentOf, hash } from "./lib/lines.mjs";
-import { siteJson, writeMockup, mockupId } from "./lib/mockup.mjs";
+import { siteJson, writeMockup, mockupId, loadTemplate } from "./lib/mockup.mjs";
 import { checkLine, checkShop, checkMockup } from "./lib/qa.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -65,6 +65,12 @@ export async function run(opts) {
   // No mockup host is approved yet: until one is, mockup_url stays empty and copy must not link to it.
   const mockupBase = opts.mockupBase ? opts.mockupBase.replace(/\/?$/, "/") : "";
   const rules = { ...DEFAULT_RULES, ...(opts.rules || {}) };
+  // Template per niche: niches/<niche>.json "template" (a folder under the repo), else --template, else template/.
+  const templates = {};
+  const templateFor = async niche => {
+    const dir = resolve(repoRoot, niche.template || opts.template || "template");
+    return (templates[dir] ||= await loadTemplate(dir));
+  };
   // Google lets us keep Places data (name, rating, review text) for 30 days, so every mockup built
   // from it must be taken down or rebuilt from a fresh export by this date.
   const expires = new Date(Date.parse(today) + 30 * 86400000).toISOString().slice(0, 10);
@@ -111,7 +117,7 @@ export async function run(opts) {
     if (!x.reasons.length) {
       id = mockupId(p, salt || "dry-run");
       const site = siteJson(p, facts, { niche, palettes, id, demoCtaHref: `https://groundwork-web.com/start/?mockup=${id}` });
-      const html = writeMockup(site, join(out, "mockups", id), join(repoRoot, "template"), today);
+      const html = writeMockup(site, join(out, "mockups", id), await templateFor(niche), today);
       mockupBytes += html.length;
       x.reasons.push(...checkMockup(html, p, site));
       if (x.reasons.length) rmSync(join(out, "mockups", id), { recursive: true });
@@ -209,9 +215,9 @@ ${sample.map(a => `<tr><td><b>${e(a.company_name)}</b><br><small>${e(a.city)}, $
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const a = args(process.argv.slice(2));
-  if (!a.in || !a.out) { console.error("usage: node outreach/run.mjs --in leads.csv --out <dir outside repo> --pipeline sales/pipeline.csv | --no-pipeline [--suppress file] [--check-sites] [--niche slug] [--today YYYY-MM-DD] [--send-date YYYY-MM-DD] [--mockup-base URL] [--list-cost N] [--dry]"); process.exit(2); }
+  if (!a.in || !a.out) { console.error("usage: node outreach/run.mjs --in leads.csv --out <dir outside repo> --pipeline sales/pipeline.csv | --no-pipeline [--suppress file] [--check-sites] [--niche slug] [--today YYYY-MM-DD] [--send-date YYYY-MM-DD] [--mockup-base URL] [--template dir] [--list-cost N] [--dry]"); process.exit(2); }
   run({
-    in: a.in, out: a.out, suppress: a.suppress, pipeline: a.pipeline, noPipeline: a.flags.has("no-pipeline"), today: a.today, sendDate: a["send-date"], mockupBase: a["mockup-base"], listCost: a["list-cost"], sample: a.sample, niche: a.niche,
+    in: a.in, out: a.out, suppress: a.suppress, pipeline: a.pipeline, noPipeline: a.flags.has("no-pipeline"), today: a.today, sendDate: a["send-date"], mockupBase: a["mockup-base"], listCost: a["list-cost"], sample: a.sample, niche: a.niche, template: a.template,
     checkSites: a.flags.has("check-sites"), dry: a.flags.has("dry"), salt: process.env.MOCKUP_SALT, psiKey: process.env.PSI_API_KEY,
   }).then(({ cost }) => {
     console.log(`${cost.rows_in} in, ${cost.approved} approved, ${cost.rejected} rejected. $${cost.total_usd} total, $${cost.per_approved_usd ?? "n/a"} per approved prospect. Report: ${join(resolve(a.out), "report.md")}`);

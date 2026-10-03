@@ -134,5 +134,40 @@
   "final": {
     "headline": "Ready for a cleaner house?",
     "sub": "Tell us what needs cleaning and we'll send a quote."
-  }
+  },
+  "packages": [
+    {
+      "name": "Driveway and walks",
+      "price": 129,
+      "note": "Sample price",
+      "features": [
+        "Driveway, sidewalk and front walk",
+        "Surface cleaner, no stripes",
+        "Rinse-down of beds and siding"
+      ]
+    },
+    {
+      "name": "House wash",
+      "price": 249,
+      "popular": true,
+      "popularLabel": "Most requested",
+      "note": "Sample price",
+      "features": [
+        "Low-pressure soft wash, all sides",
+        "Mildew and algae treatment",
+        "Windows rinsed, beds protected"
+      ]
+    },
+    {
+      "name": "Roof soft wash",
+      "price": 399,
+      "note": "Sample price",
+      "features": [
+        "Black streaks and moss removed",
+        "Gentle soft wash, no high pressure",
+        "Gutters faces brightened"
+      ]
+    }
+  ],
+  "heroCaption": "Sample before and after. Your own photos go here."
 }

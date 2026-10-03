@@ -1,7 +1,7 @@
 // node --test outreach/test/*.test.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, existsSync } from "node:fs";
+import { mkdtempSync, readFileSync, existsSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -118,6 +118,8 @@ test("end to end on the fixture list", async () => {
   const ext = readFileSync(join(out, by["fx-015"].mockup_dir, "index.html"), "utf8");
   assert.match(ext, /House washing in Jacksonville/);
   assert.match(ext, /What Coastal Soft Wash does/);
+  assert.match(ext, /Sample packages and prices/); // labeled sample prices: our contrast with priceless sites
+  assert.match(ext, /Sample before and after/);
   assert.match(ext, /Get my quote/);
   const land = readFileSync(join(out, by["fx-016"].mockup_dir, "index.html"), "utf8");
   assert.match(land, /Sample services/); // no services in the row, so the defaults are labeled
@@ -178,6 +180,23 @@ test("suppression: every opt-out status in the pipeline, plus bounces, beats any
 test("accepts the lead list builder's column names", () => {
   const p = normalizeRow({ company_name: "Shine Pros", reviews: "31", maps_url: "https://maps.google.com/?cid=9", rating: "4.7" });
   assert.deepEqual([p.shop, p.review_count, p.gbp_url], ["Shine Pros", 31, "https://maps.google.com/?cid=9"]);
+});
+
+test("renders mockups with any template folder", async () => {
+  const tpl = mkdtempSync(join(tmpdir(), "gw-tpl-"));
+  writeFileSync(join(tpl, "render.mjs"), `export const render = s => '<!doctype html><meta name="robots" content="noindex"><h1>' + s.business.name + '</h1><a href="tel:' + s.business.phone.replace(/\\D/g, "") + '">Call</a>';`);
+  const out = mkdtempSync(join(tmpdir(), "gw-run-"));
+  const { approved } = await run({ in: join(fx, "sample-leads.csv"), out, noPipeline: true, today: "2026-10-03", salt: "s", template: tpl });
+  assert.ok(approved.length);
+  assert.match(readFileSync(join(out, approved[0].mockup_dir, "index.html"), "utf8"), /^<!doctype html><meta name="robots"/);
+
+  // A template that prints sample FAQs without a labeled section is caught.
+  const tpl2 = mkdtempSync(join(tmpdir(), "gw-tpl-"));
+  writeFileSync(join(tpl2, "render.mjs"), `export const render = s => '<!doctype html><meta name="robots" content="noindex"><h1>' + s.business.name + '</h1><a href="tel:' + s.business.phone.replace(/\\D/g, "") + '">Call</a><p>' + s.faq[0].a + '</p>';`);
+  const out2 = mkdtempSync(join(tmpdir(), "gw-run-"));
+  const r2 = await run({ in: join(fx, "sample-leads.csv"), out: out2, noPipeline: true, today: "2026-10-03", salt: "s", template: tpl2 });
+  assert.equal(r2.approved.length, 0);
+  assert.match(r2.rejected.find(x => x.place_id === "fx-001").reasons, /outside a labeled "faq" section/);
 });
 
 test("refuses to run without the sales pipeline", async () => {
