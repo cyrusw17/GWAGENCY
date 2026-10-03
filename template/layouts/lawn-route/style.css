@@ -95,6 +95,18 @@ p{margin:0}
 .addon h3{font-size:1.2rem}.addon .amt{font-size:1.2rem}
 .sheet-fine{margin-top:14px;font-size:.92rem;color:var(--muted)}
 
+.cut{padding-block:8px 48px}
+.cut-in{display:grid;gap:22px;align-items:end}
+.cut-note{color:var(--muted);margin-top:10px;max-width:46ch}
+.ruler{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end;height:220px;padding:0 0 0 34px;position:relative;
+  background:repeating-linear-gradient(0deg,var(--ink) 0 1px,transparent 1px 48.9px) left bottom/14px 100% no-repeat,repeating-linear-gradient(0deg,var(--muted) 0 1px,transparent 1px 12.2px) left bottom/8px 100% no-repeat;border-bottom:3px solid var(--ink)}
+.tuft-col{height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.tuft{height:calc(var(--h) * 100%);background:repeating-linear-gradient(100deg,var(--stripe-a) 0 10px,var(--stripe-b) 10px 20px);border-radius:3px 3px 0 0;position:relative;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;color:#fff;padding-top:8px;
+  -webkit-mask:linear-gradient(#000,#000) bottom/100% calc(100% - 10px) no-repeat,repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px) top/100% 10px no-repeat;mask:linear-gradient(#000,#000) bottom/100% calc(100% - 10px) no-repeat,repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px) top/100% 10px no-repeat}
+.tuft b{font:800 1.9rem/1 var(--display);margin-top:8px}
+.tuft b small{font-size:.9rem;margin-left:2px}
+.tuft-col span{position:absolute;bottom:-30px;left:0;right:0;text-align:center;color:var(--ink);font:600 .85rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.06em}
+.cut .ruler{margin-bottom:34px}
 .work{background:var(--turf);color:#fff;padding-block:48px}
 .work .label{color:#BFD8AE}
 .work-in{display:grid;gap:26px}
@@ -217,6 +229,7 @@ p{margin:0}
   .clip{justify-self:end}
   .checks{grid-template-columns:repeat(4,1fr)}
   .work-in{grid-template-columns:1fr 1.4fr;align-items:center}
+  .cut-in{grid-template-columns:1fr 1.2fr}
   .ticket{grid-template-columns:repeat(3,1fr)}
   .ticket li{border-bottom:0;border-right:1px dashed var(--rule)}
   .ticket li:last-child{border-right:0}

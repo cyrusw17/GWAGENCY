@@ -332,5 +332,23 @@
   "final": {
     "headline": "Want Tuesdays?",
     "sub": "There's room on the Dublin route this season. Free estimate, written price, no contract."
+  },
+  "heights": {
+    "title": "How tall we leave it",
+    "note": "Tall fescue and bluegrass in central Ohio. Taller in summer heat shades the soil and keeps crabgrass out.",
+    "rows": [
+      {
+        "when": "April - May",
+        "in": 3
+      },
+      {
+        "when": "June - August",
+        "in": 3.75
+      },
+      {
+        "when": "September - October",
+        "in": 3.25
+      }
+    ]
   }
 }

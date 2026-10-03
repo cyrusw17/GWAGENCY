@@ -67,6 +67,13 @@ ${when(s.trust?.length, `<ul class="checks wrap" aria-label="Why customers stay"
   </div>
 </section>
 
+${when(s.heights?.rows?.length, `<section class="cut" aria-labelledby="cut-h">
+  <div class="wrap cut-in">
+    <div><p class="label">Mowing height</p><h2 id="cut-h">${esc(s.heights.title)}</h2><p class="cut-note">${esc(s.heights.note || "")}</p></div>
+    <div class="ruler" role="list">${s.heights.rows.map(r => `<div class="tuft-col" role="listitem" style="--h:${(Number(r.in) || 3) / 4.5}"><div class="tuft"><b>${esc(r.in)}<small>in</small></b></div><span>${esc(r.when)}</span></div>`).join("")}</div>
+  </div>
+</section>`)}
+
 <section class="work" id="work">
   <div class="wrap work-in">
     <div><p class="label">Before / after</p><h2>${esc(s.work?.headline || "Recent work")}</h2>${when(s.guarantee, `<div class="promise"><h3>${esc(s.guarantee.title)}</h3><p>${esc(s.guarantee.body)}</p>${k.text("guarantee", "Text us a photo", "btn btn-line-dark")}</div>`)}</div>
