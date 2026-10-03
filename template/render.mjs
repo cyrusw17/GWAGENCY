@@ -32,7 +32,10 @@ function media(src, alt, cap, demo, cls = "f-media", eager = false) {
 export const headline = s => s.hero?.headline || `${s.business?.service || ""} in ${s.business?.area || s.business?.address?.city || ""}`;
 
 const head = (eyebrow, title, sub) =>
-  `<div class="f-head"><p class="f-eyebrow">${esc(eyebrow)}</p><h2>${esc(title)}</h2>${when(sub, `<p>${esc(sub)}</p>`)}</div>`;
+  `<div class="f-head">${when(eyebrow, `<p class="f-eyebrow">${esc(eyebrow)}</p>`)}<h2>${esc(title)}</h2>${when(sub, `<p>${esc(sub)}</p>`)}</div>`;
+const paras = body => (Array.isArray(body) ? body : [body]).filter(Boolean).map(x => `<p>${esc(x)}</p>`).join("");
+// A key/value list: spec rows, kit lists, readings, seasons. Used by hero.card and blocks.
+const rows = items => `<dl class="f-rows">${(items || []).map(x => `<div><dt>${esc(x.k)}</dt><dd>${esc(x.v)}${when(x.note, `<small>${esc(x.note)}</small>`)}</dd></div>`).join("")}</dl>`;
 
 function schema(s) {
   const b = s.business, a = b.address || {};
@@ -70,7 +73,7 @@ function theme(t = {}) {
   return `${fonts.join("")}:root{${rules.join(";")}}`;
 }
 
-export function render(s, { css = "", assetBase = "" } = {}) {
+export function render(s, { css = "", design = "", assetBase = "" } = {}) {
   const b = s.business, demo = !!s.demo;
   const tel = digits(b.phone), sms = digits(b.sms || b.phone);
   const bookLabel = s.booking?.cta || "Book now";
@@ -85,7 +88,8 @@ export function render(s, { css = "", assetBase = "" } = {}) {
   const callBtn = (where, inner = `${ICON.phone}Call ${esc(b.phone)}`, extra = "") =>
     when(tel, `<a class="f-btn f-btn-ghost" href="tel:${tel}" data-ev="call" data-label="${esc(where)}"${extra}>${inner}</a>`);
 
-  const heroLayout = ["compare", "overlay"].includes(s.layout?.hero) ? s.layout.hero : "split";
+  const heroLayout = ["compare", "overlay", "type", "stack"].includes(s.layout?.hero) ? s.layout.hero : "split";
+  const eb = (id, dflt) => s.eyebrows?.[id] ?? dflt; // per-site section labels; "" hides one
   const r = s.reviews, w = s.work, members = (s.packages || []).some(p => p.member != null);
   const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo, '<span class="f-tag">sample</span>')}`;
   // Newest first, and "Latest review: N days ago" (recency is what visitors weigh most).
@@ -104,7 +108,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
     { id: "services", nav: "Services", show: s.services?.length, html: () => `
 <section id="services">
   <div class="f-wrap">
-    ${head("Services", s.servicesHeadline || "What we do")}
+    ${head(eb("services", "Services"), s.servicesHeadline || "What we do")}
     <div class="f-services">
       ${s.services.map(x => `<div class="f-svc"><div class="top"><h3>${esc(x.name)}</h3>${when(x.from != null, `<span class="price">from ${money(x.from)}</span>`)}</div><p>${esc(x.desc)}</p></div>`).join("\n      ")}
     </div>
@@ -113,7 +117,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
     { id: "pricing", nav: "Pricing", show: s.packages?.length, html: () => `
 <section class="f-band f-pricing" id="pricing">
   <div class="f-wrap">
-    ${head("Pricing", s.pricing?.headline || "Clear prices, up front", s.pricing?.sub)}
+    ${head(eb("pricing", "Pricing"), s.pricing?.headline || "Clear prices, up front", s.pricing?.sub)}
     ${when(members, `<fieldset class="f-toggle"><legend class="sr-only">Price type</legend>
       <label><input type="radio" name="bill" value="once" checked><span>${esc(s.pricing?.onceLabel || "One-time")}</span></label>
       <label><input type="radio" name="bill" value="member" id="bill-member"><span>${esc(s.pricing?.memberLabel || "Member")}</span></label>
@@ -134,14 +138,14 @@ export function render(s, { css = "", assetBase = "" } = {}) {
     { id: "how", show: s.steps?.length, html: () => `
 <section id="how">
   <div class="f-wrap">
-    ${head("How it works", s.stepsHeadline || "Booked in under a minute")}
+    ${head(eb("how", "How it works"), s.stepsHeadline || "Booked in under a minute")}
     <ol class="f-steps">${s.steps.map(x => `<li><div><h3>${esc(x.title)}</h3><p>${esc(x.body)}</p></div></li>`).join("")}</ol>
   </div>
 </section>` },
     { id: "work", nav: "Our work", show: w, html: () => `
 <section class="f-band" id="work">
   <div class="f-wrap">
-    ${head("Our work", w.headline || "Recent jobs", w.sub)}
+    ${head(eb("work", "Our work"), w.headline || "Recent jobs", w.sub)}
     ${when(w.compare && heroLayout !== "compare", () => compare("work"))}
     ${when(w.gallery?.length, `<div class="f-gallery">${(w.gallery || []).map(g => media(g.image, g.alt || g.caption || "", g.caption, false)).join("")}</div>`)}
   </div>
@@ -149,7 +153,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
     { id: "reviews", nav: "Reviews", show: r?.items?.length, html: () => `
 <section id="reviews">
   <div class="f-wrap">
-    ${head("Reviews", r.headline || "What customers say")}
+    ${head(eb("reviews", "Reviews"), r.headline || "What customers say")}
     ${when(demo && r.sampleNote !== "", `<p class="f-sample">${esc(r.sampleNote || "Sample reviews for this demo. Real sites show the business's own Google reviews.")}</p>`)}
     ${when(ratingLine, `<p class="f-rating">${ratingLine}${when(reviews[0]?.date, () => `<span class="f-muted">· Latest review <span data-since="${esc(reviews[0].date)}">${esc(monthYear(reviews[0].date))}</span></span>`)}</p>`)}
   </div>
@@ -170,18 +174,51 @@ export function render(s, { css = "", assetBase = "" } = {}) {
 <section class="f-band" id="areas">
   <div class="f-wrap f-areas-grid">
     <div>
-      <p class="f-eyebrow">Service area</p><h2>${esc(s.areas.headline || "Where we work")}</h2>
+      ${when(eb("areas", "Service area"), () => `<p class="f-eyebrow">${esc(eb("areas", "Service area"))}</p>`)}<h2>${esc(s.areas.headline || "Where we work")}</h2>
       ${when(s.areas.body, `<p class="f-muted f-lead">${esc(s.areas.body)}</p>`)}
       <ul class="f-areas" aria-label="Areas we serve">${(s.areas.cities || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul>
     </div>
     ${s.areas.mapEmbed ? `<div class="f-map"><iframe src="${url(s.areas.mapEmbed)}" title="Service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : when(demo, media("", "", "Real sites embed a Google map of the service area here.", demo, "f-map"))}
   </div>
 </section>` },
+    { id: "book", show: true, html: () => `
+<section id="book">
+  <div class="f-wrap f-book">
+    <div>
+      ${when(s.booking?.eyebrow !== "", `<p class="f-eyebrow">${esc(s.booking?.eyebrow || "Book")}</p>`)}
+      <h2 id="book-h">${esc(s.booking?.headline || "Get your price and a time")}</h2>
+      ${when(s.booking?.body, `<p class="f-muted f-lead">${esc(s.booking?.body)}</p>`)}
+      ${when(sms, `<p class="f-alt">Rather talk? ${when(tel, `<a href="tel:${tel}" data-ev="call" data-label="book section">Call ${esc(b.phone)}</a> or `)}<a href="sms:${sms}" data-ev="text" data-label="book section">send a text</a>.</p>`)}
+    </div>
+    ${bookWidget}
+  </div>
+</section>` },
+    { id: "faq", nav: "FAQ", show: s.faq?.length, html: () => `
+<section class="f-band" id="faq">
+  <div class="f-wrap">
+    ${head(eb("faq", "FAQ"), s.faqHeadline || "Questions, answered")}
+    <div class="f-faq">${(s.faq || []).map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div>
+  </div>
+</section>` },
+    // Free-form sections for what makes this business itself: the owner's note, the van kit, a spec sheet, a season calendar.
+    ...(s.blocks || []).map(x => ({ id: x.id, nav: x.nav, show: true, html: () => `
+<section class="f-block f-block-${esc(x.kind || "text")}${x.band ? " f-band" : ""}" id="${esc(x.id)}">
+  <div class="f-wrap">
+    <div class="f-block-copy">
+      ${when(x.eyebrow, `<p class="f-eyebrow">${esc(x.eyebrow)}</p>`)}
+      ${when(x.title, `<h2>${esc(x.title)}</h2>`)}
+      ${paras(x.body)}
+      ${when(x.sign, `<p class="f-sign">${esc(x.sign)}</p>`)}
+    </div>
+    ${when(x.items?.length, () => rows(x.items))}
+    ${when(x.image, () => media(x.image, x.imageAlt || "", x.caption, demo))}
+  </div>
+</section>` })),
   ];
   const order = s.layout?.order;
   if (order) sections.sort((a, b) => (order.indexOf(a.id) + 1 || 99) - (order.indexOf(b.id) + 1 || 99));
   const shown = sections.filter(x => x.show);
-  const nav = shown.filter(x => x.nav).concat(s.faq?.length ? [{ id: "faq", nav: "FAQ" }] : []);
+  const nav = shown.filter(x => x.nav);
 
   const multi = !!s.lead?.multi;
   const choices = s.lead?.options || (s.packages?.length ? s.packages.map(p => p.name) : (s.services || []).map(x => x.name)).concat("Not sure yet");
@@ -226,11 +263,11 @@ ${when(s.seo?.ogImage, `<meta property="og:image" content="${url(s.seo.ogImage)}
 <link rel="icon" href="${b.favicon ? url(b.favicon) : `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="${cssStr(s.theme?.accent || "#C2410C")}"/><text x="16" y="23" font-family="system-ui,sans-serif" font-size="19" font-weight="700" text-anchor="middle" fill="${cssStr(s.theme?.accentInk || "#fff")}">${esc((b.name || "?")[0])}</text></svg>`)}`}">
 ${when(s.hero?.image, `<link rel="preload" as="image" href="${url(s.hero.image)}" fetchpriority="high">`)}
 ${(s.theme?.fontFaces || []).filter(f => f.preload).map(f => `<link rel="preload" as="font" type="font/woff2" href="${url(f.src)}" crossorigin>`).join("\n")}
-<style>${css}${theme(s.theme)}</style>
+<style>${css}${theme(s.theme)}${design}</style>
 ${css ? "" : `<link rel="stylesheet" href="${assetBase}funnel.css">`}
 ${schema(s)}
 </head>
-<body${demo ? ' class="has-demo"' : ""}>
+<body class="f-hero-is-${heroLayout}${demo ? " has-demo" : ""}">
 <a class="skip" href="#main">Skip to content</a>
 ${when(demo, `<div class="f-demo" role="region" aria-label="Demo notice"><div class="f-wrap"><b>${esc(s.demoLabel || "GroundWork demo")}</b><span>${esc(s.demoNote || "Fictional business. Yours gets your name, photos and prices.")}</span><a href="${url(s.demoCta?.href || "https://groundwork-web.com/start/")}">${esc(s.demoCta?.label || "Get this site")}</a></div></div>`)}
 ${when(s.offer?.bar, `<div class="f-offerbar">${esc(s.offer.bar)} ${bookBtn("offer bar", s.offer.barCta || "Claim it", "")}</div>`)}
@@ -259,31 +296,14 @@ ${when(s.offer?.bar, `<div class="f-offerbar">${esc(s.offer.bar)} ${bookBtn("off
       </div>
       ${when(s.hero.proof?.length, `<ul class="f-proof">${(s.hero.proof || []).map(p => `<li><b>${esc(p.value)}</b>${p.href ? `<a href="${url(p.href)}" rel="noopener" target="_blank">${esc(p.label)}</a>` : esc(p.label)}</li>`).join("")}</ul>`)}
     </div>
-    ${heroLayout === "compare" && w?.compare ? compare("hero") : heroLayout === "overlay" ? "" : media(s.hero.image, s.hero.imageAlt || "", s.hero.caption, demo, "f-media", true)}
+    ${heroLayout === "compare" && w?.compare ? compare("hero")
+      : s.hero.card ? `<aside class="f-hero-card">${when(s.hero.card.title, `<p class="f-eyebrow">${esc(s.hero.card.title)}</p>`)}${rows(s.hero.card.rows)}${when(s.hero.card.note, `<p class="f-fine">${esc(s.hero.card.note)}</p>`)}</aside>`
+      : ["overlay", "type"].includes(heroLayout) ? "" : media(s.hero.image, s.hero.imageAlt || "", s.hero.caption, demo, "f-media", true)}
   </div>
 </section>
 
 ${when(s.trust?.length, `<ul class="f-trust" aria-label="Why customers trust us">${(s.trust || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>`)}
 ${shown.map(x => x.html()).join("\n")}
-
-<section id="book">
-  <div class="f-wrap f-book">
-    <div>
-      <p class="f-eyebrow">${esc(s.booking?.eyebrow || "Book")}</p>
-      <h2 id="book-h">${esc(s.booking?.headline || "Get your price and a time")}</h2>
-      ${when(s.booking?.body, `<p class="f-muted f-lead">${esc(s.booking?.body)}</p>`)}
-      ${when(sms, `<p class="f-alt">Rather talk? ${when(tel, `<a href="tel:${tel}" data-ev="call" data-label="book section">Call ${esc(b.phone)}</a> or `)}<a href="sms:${sms}" data-ev="text" data-label="book section">send a text</a>.</p>`)}
-    </div>
-    ${bookWidget}
-  </div>
-</section>
-
-${when(s.faq?.length, `<section class="f-band" id="faq">
-  <div class="f-wrap">
-    ${head("FAQ", s.faqHeadline || "Questions, answered")}
-    <div class="f-faq">${(s.faq || []).map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div>
-  </div>
-</section>`)}
 
 <section class="f-final">
   <div class="f-wrap">
