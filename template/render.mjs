@@ -157,7 +157,7 @@ export function render(s, { css = "", design = "", mapSvg = "", assetBase = "" }
     ${when(demo && r.sampleNote !== "", `<p class="f-sample">${esc(r.sampleNote || "Sample reviews for this demo. Real sites show the business's own Google reviews.")}</p>`)}
     ${when(ratingLine, `<p class="f-rating">${ratingLine}${when(reviews[0]?.date, () => `<span class="f-muted">· Latest review <span data-since="${esc(reviews[0].date)}">${esc(monthYear(reviews[0].date))}</span></span>`)}</p>`)}
   </div>
-  <div class="f-reviews" role="list" tabindex="0" aria-label="Customer reviews">
+  <div class="f-reviews" role="list" tabindex="0" aria-label="Customer reviews${demo ? " (sample)" : ""}">
     ${reviews.map(x => `<figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b>${esc(x.detail || "")}${when(x.date, `<time datetime="${esc(x.date)}">${esc(monthYear(x.date))}</time>`)}</figcaption></figure>`).join("\n    ")}
   </div>
 </section>` },
