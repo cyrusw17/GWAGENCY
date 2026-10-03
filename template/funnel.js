@@ -38,6 +38,8 @@
       document.querySelectorAll("#lead input[name=service]").forEach(function (i) {
         if (i.value === a.getAttribute("data-pick")) i.checked = true;
       });
+      var sel = document.querySelector("#lead select[name=service]"); // layout forms use a select
+      if (sel) sel.value = a.getAttribute("data-pick");
     });
   });
 
