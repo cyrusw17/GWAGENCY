@@ -66,7 +66,7 @@ Sources (pinned commits): freshtechbro/claudedesignskills @ 1da73fe, jeffallan/c
 | secure-code-guardian | OWASP-safe input handling and headers | The lead form and any PHP endpoint |
 
 ## Safety check (done before install)
-Every script was read and every file was scanned for shell or subprocess calls, network calls, credential and env access, auto-installs, hidden Unicode and hidden instructions. Changes made:
+Every file was scanned (and every flagged script read) for shell or subprocess calls, network calls, credential and env access, auto-installs, hidden Unicode and hidden instructions. Changes made:
 - Removed barba-js `scripts/project_setup.py` (it ran `npm install` by itself) and updated the two docs that mentioned it.
 - Removed `full-page-screenshot` entirely (shell calls to macOS `sips`, a local browser proxy, writes and runs a generated Python file). Use Playwright or the built-in run skill for screenshots.
 - Removed the aeo plugin manifest (`.claude-plugin/`), not needed for a repo skill.
