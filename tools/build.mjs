@@ -39,7 +39,7 @@ function check(s) {
       need(s.reviews.url, "reviews.url is required: link to where these real reviews live (Google profile)");
       need(s.reviews.items.every(r => r.verified === true), "every review needs \"verified\": true after you copy it from the real source");
     }
-    need(s.lead?.endpoint || s.booking?.embedUrl, "real sites need lead.endpoint or booking.embedUrl; without one the form falls back to SMS only");
+    need(s.lead?.endpoint || s.booking?.embedUrl || s.tracking === "groundwork", "real sites need lead.endpoint or booking.embedUrl; without one the form falls back to SMS only");
     if (!s.hero?.image) warns.push("hero.image missing: real job photos convert far better than the placeholder");
     if (s.work && !(s.work.gallery || []).some(g => g.image)) warns.push("work.gallery has no real photos yet");
     if (!s.areas?.mapEmbed) warns.push("areas.mapEmbed missing (Google Maps embed of the business)");

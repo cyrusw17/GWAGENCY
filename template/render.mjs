@@ -66,7 +66,10 @@ export function render(s, { assetBase = "" } = {}) {
   const bookLabel = s.booking?.cta || "Book now";
   const services = s.packages?.length ? s.packages.map(p => p.name) : (s.services || []).map(x => x.name);
   const thanks = s.lead?.thanks || `Got it. ${b.name} will text you back shortly${b.hoursText ? " (" + b.hoursText + ")" : ""}.`;
-  const cfg = { slug: s.slug, demo, phone: tel, sms, lead: s.lead?.endpoint || "", analytics: s.analytics?.endpoint || "", thanks };
+  // "tracking": "groundwork" sends counts and leads to our collector (public/api/sites.php) for the monthly results text.
+  const gw = s.tracking === "groundwork" ? (s.trackingBase || "https://groundwork-web.com") + "/api/sites.php?a=" : "";
+  const cfg = { slug: s.slug, demo, phone: tel, sms, thanks,
+    lead: s.lead?.endpoint || (gw && gw + "lead"), analytics: s.analytics?.endpoint || (gw && !demo ? gw + "event" : ""), plain: !!gw && !s.lead?.endpoint };
 
   const nav = [["#services", "Services"], ["#pricing", "Pricing"], ["#work", "Our work"], ["#reviews", "Reviews"], ["#areas", "Areas"], ["#faq", "FAQ"]]
     .filter(([id]) => ({ "#services": s.services?.length, "#pricing": s.packages?.length, "#work": s.work, "#reviews": s.reviews?.items?.length, "#areas": s.areas, "#faq": s.faq?.length })[id]);

@@ -36,6 +36,10 @@ Set `"demo": true` for sales demos: it adds the GroundWork bar, `noindex`, and l
 
 `lead.endpoint` gets a JSON POST (`name, phone, service, zip, notes, site, page`). Formspree, Getform or our own `api/lead.php`-style endpoint all work. If no endpoint is set, or sending fails, the form opens a pre-filled text message to the business so a lead is never lost. Or set `booking.embedUrl` to show the client's booking tool instead of the form.
 
+## Results tracking (for the monthly results text and the 60-day guarantee)
+
+Set `"tracking": "groundwork"` in site.json. The page then reports visits, call taps, text taps, booking clicks and quote requests to `groundwork-web.com/api/sites.php`, and quote requests are emailed to the client and to us. Add the site to `GW_CLIENT_SITES` in the server's `api/config.php` (slug, owner email, the site's origins); unknown sites and other origins are refused. Read results at `/api/site-report.php?key=<GW_STATS_KEY>&site=<slug>&days=60`. Lead details stay in the database above the web root, never in git. No cookies; GPC and Do Not Track are honored for counts.
+
 ## SEO and AI search, built in
 
 LocalBusiness JSON-LD (set `business.schemaType`, e.g. `AutoWash`, `HousePainter`, `Plumber`), FAQPage, WebPage with date and publisher, `robots.txt` that welcomes AI crawlers, `sitemap.xml`, `llms.txt`, and a Markdown copy (`index.md`). The non-demo sample scores 90% on the AEOTester audit before any client-specific content.

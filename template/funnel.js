@@ -10,8 +10,8 @@
     if (!C.analytics || quiet) return;
     var body = JSON.stringify({ type: ev, label: String(label || "").slice(0, 60), path: location.pathname, site: C.slug, w: innerWidth });
     try {
-      if (navigator.sendBeacon) navigator.sendBeacon(C.analytics, new Blob([body], { type: "application/json" }));
-      else fetch(C.analytics, { method: "POST", body: body, keepalive: true }).catch(function () {});
+      // text/plain keeps the request "simple", so a collector on another domain needs no CORS preflight.
+      if (!(navigator.sendBeacon && navigator.sendBeacon(C.analytics, body))) fetch(C.analytics, { method: "POST", body: body, keepalive: true }).catch(function () {});
     } catch (_) {}
   }
   if (C.analytics && !quiet) track("pageview");
@@ -60,12 +60,12 @@
     data.site = C.slug; data.page = location.pathname;
     var btn = form.querySelector("button[type=submit]");
     btn.disabled = true;
-    track("lead", data.service);
+    if (!C.plain) track("lead", data.service); // our collector records the lead itself
 
     if (C.demo) { done("Demo only: on a real site this request goes straight to the owner's phone and email."); return; }
     if (!C.lead) { if (!smsFallback(data)) { btn.disabled = false; } return; }
 
-    fetch(C.lead, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
+    fetch(C.lead, { method: "POST", headers: C.plain ? {} : { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
       .then(function (r) { if (!r.ok) throw 0; done(C.thanks); })
       .catch(function () {
         btn.disabled = false;
