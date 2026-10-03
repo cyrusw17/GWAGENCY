@@ -132,7 +132,7 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
         ${bookBtn("package " + p.name, p.cta || "Choose " + p.name, `f-btn ${p.popular ? "f-btn-primary" : "f-btn-ghost"} f-btn-block`, ` data-pick="${esc(p.name)}"`)}
       </div>`).join("\n      ")}
     </div>
-    ${when(s.pricing?.fine, `<p class="f-fine">${esc(s.pricing?.fine)}</p>`)}
+    ${when(s.pricing?.fine || demo, `<p class="f-fine">${when(demo, "Sample prices for this demo. ")}${esc(s.pricing?.fine || "")}</p>`)}
   </div>
 </section>` },
     { id: "how", show: s.steps?.length, html: () => `
@@ -200,6 +200,8 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
     <div class="f-faq">${(s.faq || []).map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("")}</div>
   </div>
 </section>` },
+    // A price picker that does a job: answer two or three questions, see the price, book it with that package picked.
+    { id: s.estimator?.id || "estimate", nav: s.estimator?.nav, show: s.estimator?.questions?.length, html: () => estimator(s.estimator) },
     // Free-form sections for what makes this business itself: the owner's note, the van kit, a spec sheet, a season calendar.
     ...(s.blocks || []).map(x => ({ id: x.id, nav: x.nav, show: true, html: () => `
 <section class="f-block f-block-${esc(x.kind || "text")}${x.band ? " f-band" : ""}" id="${esc(x.id)}">
@@ -219,6 +221,35 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
   if (order) sections.sort((a, b) => (order.indexOf(a.id) + 1 || 99) - (order.indexOf(b.id) + 1 || 99));
   const shown = sections.filter(x => x.show);
   const nav = shown.filter(x => x.nav);
+
+  function estimator(e) {
+    const pkg = name => (s.packages || []).find(p => p.name === name);
+    const opt = (o, qi, oi) => `<label><input type="radio" name="est${qi}" value="${oi}"${oi === 0 ? " checked" : ""}${when(o.pick, () => ` data-pick-pkg="${esc(o.pick)}" data-price="${Number(pkg(o.pick)?.price) || 0}"`)}${when(o.add, ` data-add="${Number(o.add) || 0}"`)} data-text="${esc(o.say || o.label)}"><span>${esc(o.label)}${when(o.hint, `<small>${esc(o.hint)}</small>`)}</span></label>`;
+    // The first option of each question is the starting answer, so the page shows a real price before any script runs.
+    const first = e.questions.map(q => q.options[0]);
+    const start = first.reduce((n, o) => n + (Number(pkg(o.pick)?.price) || 0) + (Number(o.add) || 0), 0);
+    const startPick = first.find(o => o.pick)?.pick || "";
+    return `
+<section class="f-est-sec${e.band ? " f-band" : ""}" id="${esc(e.id || "estimate")}">
+  <div class="f-wrap f-est-grid">
+    <div class="f-block-copy">
+      ${when(e.eyebrow, `<p class="f-eyebrow">${esc(e.eyebrow)}</p>`)}
+      <h2>${esc(e.title || "Price your job")}</h2>
+      ${paras(e.body)}
+    </div>
+    <form class="f-est" data-est>
+      ${e.questions.map((q, qi) => `<fieldset class="f-chips"><legend>${esc(q.q)}</legend>${q.options.map((o, oi) => opt(o, qi, oi)).join("")}</fieldset>`).join("\n      ")}
+      <div class="f-est-out" aria-live="polite">
+        <span class="f-est-label">${esc(e.totalLabel || "Your price")}${when(demo, ' <span class="f-tag">sample</span>')}</span>
+        <output class="f-est-total" data-est-total>${money(start)}</output>
+        <span class="f-est-sum" data-est-sum>${esc(first.map(o => o.say || o.label).join(" · "))}</span>
+      </div>
+      ${bookBtn("estimator", e.cta || bookLabel, "f-btn f-btn-primary f-btn-block", ` data-pick="${esc(startPick)}" data-est-book`)}
+      ${when(e.fine, `<p class="f-fine">${esc(e.fine)}</p>`)}
+    </form>
+  </div>
+</section>`;
+  }
 
   const multi = !!s.lead?.multi;
   const choices = s.lead?.options || (s.packages?.length ? s.packages.map(p => p.name) : (s.services || []).map(x => x.name)).concat("Not sure yet");

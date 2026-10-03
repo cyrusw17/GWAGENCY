@@ -41,6 +41,28 @@
     });
   });
 
+  // Price picker: package price plus add-ons, and its Book button carries the answers into the form.
+  document.querySelectorAll("[data-est]").forEach(function (est) {
+    var total = est.querySelector("[data-est-total]"), sum = est.querySelector("[data-est-sum]"), book = est.querySelector("[data-est-book]");
+    function update() {
+      var n = 0, pick = "", words = [];
+      est.querySelectorAll("input:checked").forEach(function (i) {
+        n += Number(i.getAttribute("data-price") || 0) + Number(i.getAttribute("data-add") || 0);
+        if (i.hasAttribute("data-pick-pkg")) pick = i.getAttribute("data-pick-pkg");
+        words.push(i.getAttribute("data-text"));
+      });
+      total.textContent = "$" + n.toLocaleString("en-US");
+      sum.textContent = words.join(" · ");
+      if (book) book.setAttribute("data-pick", pick);
+    }
+    est.addEventListener("change", update);
+    est.addEventListener("submit", function (e) { e.preventDefault(); });
+    if (book) book.addEventListener("click", function () {
+      var notes = document.querySelector("#lead textarea[name=notes]");
+      if (notes && !notes.value) notes.value = "From the price picker: " + sum.textContent + " (" + total.textContent + ")";
+    });
+  });
+
   // Lead form. Sends JSON to the site's lead endpoint. If there is no endpoint, or sending fails,
   // it falls back to a pre-filled text message so the lead is never lost.
   var form = document.getElementById("lead");

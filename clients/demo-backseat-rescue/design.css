@@ -1,0 +1,70 @@
+/* Backseat Rescue: the note a mom sticks on the fridge. Lilac and plum like a kid's backpack,
+   pickle green for go, a yellow sticky note with tape, speech-bubble reviews, chunky rounded type. */
+:root{--note:#FFE36E;--note-ink:#3A2A00}
+h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1}
+h1{font-size:clamp(40px,11vw,84px);max-width:13ch}
+h1::after{content:"";display:block;width:min(260px,60%);height:14px;margin-top:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 14'%3E%3Cpath d='M2 9c20-7 38 5 58-1s38-6 58 0 38 6 58 0 38-6 58 0 22 3 24 2' fill='none' stroke='%232F6B1F' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") left/100% 100% no-repeat}
+.f-eyebrow{text-transform:none;letter-spacing:0;font-size:16px;color:var(--f-muted);font-weight:700}
+.f-header{background:var(--f-bg);border-bottom:0}
+.f-logo{font-size:21px;letter-spacing:-.02em}
+.f-offerbar{background:var(--f-text);color:var(--f-bg)}
+.f-btn{border-radius:999px}
+.f-btn-ghost{border-color:var(--f-text);border-width:2px}
+
+.f-hero{padding-block:36px 48px}
+.f-hero .lede{color:var(--f-text);font-size:19px;max-width:52ch}
+.f-hero .f-wrap{gap:36px}
+.f-pill{background:var(--f-surface);border:0}
+.f-pill .stars,.stars{color:#E0A100}
+.f-proof b{font-size:22px}
+
+/* the sticky note */
+.f-hero-card{background:var(--note);color:var(--note-ink);border:0;border-radius:2px;padding:30px 22px 18px;transform:rotate(-1.6deg);box-shadow:0 14px 24px -16px rgba(42,23,64,.55);position:relative;max-width:440px;justify-self:center;width:100%}
+.f-hero-card::before{content:"";position:absolute;top:-12px;left:50%;width:110px;height:26px;transform:translateX(-50%) rotate(2deg);background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.06)}
+.f-hero-card .f-eyebrow{color:var(--note-ink);font-size:17px}
+.f-hero-card .f-rows>div{border-top:1px solid rgba(58,42,0,.18)}
+.f-hero-card dd{font:800 24px var(--f-display)}
+.f-hero-card small,.f-hero-card .f-fine{color:rgba(58,42,0,.75)}
+
+.f-trust{background:transparent;border:0;justify-content:flex-start;padding-inline:var(--f-gutter);max-width:var(--f-max);margin:0 auto}
+.f-trust li{background:var(--f-surface);padding:8px 14px;border-radius:999px}
+.f-trust li::before{background-color:var(--f-accent)}
+
+/* reviews as speech bubbles, right after the hero */
+#reviews{background:var(--f-text);color:var(--f-bg)}
+#reviews h2{color:var(--f-bg)}
+#reviews .f-rating,#reviews .f-muted{color:var(--f-surface-2)}
+#reviews .f-rating a{color:var(--f-bg)}
+.f-rev{background:var(--f-surface);color:var(--f-text);border:0;border-radius:22px 22px 22px 4px;position:relative}
+.f-rev blockquote{font-size:19px;line-height:1.4}
+
+/* price picker */
+.f-est{border:0;border-radius:24px;background:var(--f-surface)}
+.f-est-total{color:var(--f-accent);font-size:60px}
+.f-chips span{border-width:2px}
+
+.f-pricing{background:var(--f-surface-2);border:0}
+.f-pkg{border:0;border-radius:24px}
+.f-pkg.pop{border:3px solid var(--f-accent);box-shadow:none}
+.f-pkg .tag{border-radius:999px;left:auto;right:18px;transform:rotate(4deg);background:var(--note);color:var(--note-ink)}
+.f-pkg .pn{font:800 24px var(--f-display);color:var(--f-text)}
+.f-toggle{background:var(--f-surface);border:0}
+
+/* car seat list: a checklist on lined paper */
+.f-block-list .f-rows{background:var(--f-surface);border-radius:20px;padding:6px 20px}
+.f-block-list dd{font-weight:700}
+.f-sign{font:800 30px var(--f-display);color:var(--f-accent);transform:rotate(-2deg);display:inline-block}
+.f-guarantee{background:var(--f-accent);border-radius:28px}
+.f-guarantee .f-btn{color:var(--f-accent)}
+.f-areas li{border:0;background:var(--f-surface)}
+.f-form{border:0;border-radius:24px}
+.f-form input,.f-form textarea{border-radius:14px}
+.f-faq summary::after{color:var(--f-accent)}
+.f-final h2{font-size:clamp(36px,9vw,64px)}
+.f-footer{background:var(--f-text);color:var(--f-surface-2);border:0}
+.f-footer b{color:var(--f-bg)}
+
+@media (min-width:1024px){
+  .f-hero .f-wrap{grid-template-columns:1.3fr 1fr!important;align-items:center}
+  .f-hero-card{transform:rotate(2.5deg)}
+}
