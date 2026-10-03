@@ -46,15 +46,17 @@ PROVIDERS = {
 }
 
 
-def run(db, niche, provider, max_checks, check=None):
+def run(db, niche, provider, max_checks, check=None, sample_only=False):
     fn, env = PROVIDERS[provider]
     key = os.environ.get(env)
     if not key and check is None:
         raise SystemExit(f"Set {env} to verify with {provider}.")
     check = check or (lambda e: fn(e, key))
     rows = db.execute(
-        """SELECT DISTINCT e.email FROM emails e JOIN places p ON p.domain = e.domain
-           WHERE p.niche = ? AND e.verify_status IS NULL LIMIT ?""", (niche, max_checks)).fetchall()
+        f"""SELECT DISTINCT e.email FROM emails e JOIN places p ON p.domain = e.domain
+           WHERE p.niche = ? AND e.verify_status IS NULL
+           {"AND p.place_id IN (SELECT place_id FROM sample WHERE niche = p.niche)" if sample_only else ""}
+           LIMIT ?""", (niche, max_checks)).fetchall()
     counts = Counter()
     for row in rows:
         email = row["email"]

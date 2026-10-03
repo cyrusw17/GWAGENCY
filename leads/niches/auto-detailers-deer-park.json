@@ -1,0 +1,36 @@
+{
+  "name": "auto-detailers-deer-park",
+  "queries": [
+    "auto detailing",
+    "mobile auto detailing"
+  ],
+  "exclude_types": [
+    "car_dealer",
+    "gas_station",
+    "car_rental",
+    "parking",
+    "auto_parts_store"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Deer Park, TX (about 25 miles around)",
+      "bbox": [
+        29.4,
+        -95.45,
+        30.0,
+        -94.8
+      ]
+    }
+  ],
+  "slug": "auto-detailing",
+  "name_exclude": [
+    "ziebart",
+    "tint world",
+    "maaco",
+    "take 5",
+    "mister car wash",
+    "quick quack",
+    "tommy's express"
+  ]
+}

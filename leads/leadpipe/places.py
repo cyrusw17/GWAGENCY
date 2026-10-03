@@ -55,10 +55,12 @@ def split(r):
 
 
 class Searcher:
-    def __init__(self, db, api_key, niche, max_requests, post=http.post_json, get=http.get_json, sleep=time.sleep):
+    def __init__(self, db, api_key, niche, max_requests, post=http.post_json, get=http.get_json, sleep=time.sleep,
+                 max_pages=MAX_PER_QUERY // PAGE_SIZE):
         self.db, self.key, self.niche = db, api_key, niche
-        self.max_requests = max_requests
+        self.max_requests, self.max_pages = max_requests, max_pages
         self.spent = 0
+        self.area = None
         self._post, self._get, self._sleep = post, get, sleep
 
     def _charge(self, sku):
@@ -98,7 +100,7 @@ class Searcher:
             self.db.commit()
             out.extend(page)
             token = res.get("nextPageToken")
-            if not token or len(out) >= MAX_PER_QUERY:
+            if not token or len(out) >= MAX_PER_QUERY or requests >= self.max_pages:
                 break
             body = {**body, "pageToken": token}
             self._sleep(1)
@@ -112,24 +114,28 @@ class Searcher:
             site = p.get("websiteUri")
             self.db.execute(
                 """INSERT INTO places (place_id, niche, name, address, city, state, phone, website, rating,
-                       reviews, primary_type, business_status, maps_url, fetched_at, domain)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                       reviews, primary_type, business_status, maps_url, fetched_at, domain, area)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                    ON CONFLICT(place_id, niche) DO UPDATE SET
                        name=excluded.name, address=excluded.address, city=excluded.city, state=excluded.state,
                        phone=excluded.phone, website=excluded.website, rating=excluded.rating,
                        reviews=excluded.reviews, primary_type=excluded.primary_type,
                        business_status=excluded.business_status, maps_url=excluded.maps_url,
-                       fetched_at=excluded.fetched_at, domain=excluded.domain""",
+                       fetched_at=excluded.fetched_at, domain=excluded.domain,
+                       area=COALESCE(places.area, excluded.area)""",
                 (p["id"], self.niche["name"], (p.get("displayName") or {}).get("text"), addr, city, state,
                  p.get("nationalPhoneNumber"), site, p.get("rating"), p.get("userRatingCount"),
-                 p.get("primaryType"), p.get("businessStatus"), p.get("googleMapsUri"), t, domain_of(site)))
+                 p.get("primaryType"), p.get("businessStatus"), p.get("googleMapsUri"), t, domain_of(site),
+                 self.area))
 
-    def cover(self, query, r, min_deg):
+    def cover(self, query, r, min_deg, split_full=True):
         """Search a tile; split it into four when it comes back full.
 
         Tiles searched within the caching window are skipped, so runs resume and later runs refresh.
         """
-        key = (self.niche["name"], query, rect_key(r))
+        # Capped-page sample searches are cached separately so a later full search still splits.
+        tag = query if self.max_pages * PAGE_SIZE >= MAX_PER_QUERY else f"{query}|pages={self.max_pages}"
+        key = (self.niche["name"], tag, rect_key(r))
         done = self.db.execute("SELECT results FROM tiles WHERE niche=? AND query=? AND rect=? AND done_at >= ?",
                                (*key, store.fresh_cutoff())).fetchone()
         if done is not None:
@@ -141,16 +147,18 @@ class Searcher:
                             (*key, results, requests, store.now()))
             self.db.commit()
         s, w, n, e = r
-        if results >= MAX_PER_QUERY and min(n - s, e - w) / 2 >= min_deg:
+        if split_full and results >= MAX_PER_QUERY and min(n - s, e - w) / 2 >= min_deg:
             for sub in split(r):
                 self.cover(query, sub, min_deg)
 
-    def run(self, areas):
+    def run(self, areas, split_full=True, queries=None):
+        """For samples: split_full=False searches each area once per query, and max_pages caps pages per search."""
         min_deg = self.niche.get("min_tile_deg", 0.03)
         try:
             for area in areas:
+                self.area = area["name"]
                 r = self.viewport(area)
-                for q in self.niche["queries"]:
-                    self.cover(q, r, min_deg)
+                for q in queries or self.niche["queries"]:
+                    self.cover(q, r, min_deg, split_full)
         finally:
             self.db.commit()

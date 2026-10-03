@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS places (
     name TEXT, address TEXT, city TEXT, state TEXT, phone TEXT, website TEXT,
     rating REAL, reviews INTEGER, primary_type TEXT, business_status TEXT, maps_url TEXT,
     fetched_at INTEGER,
-    -- Our own derived data, kept.
-    domain TEXT,
+    -- Our own data, kept: the website's domain and the configured area it was found in.
+    domain TEXT, area TEXT,
     PRIMARY KEY (place_id, niche)
 );
 CREATE INDEX IF NOT EXISTS places_domain ON places(domain);
@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS usage (
     month TEXT, sku TEXT, count INTEGER, PRIMARY KEY (month, sku)
 );
 CREATE TABLE IF NOT EXISTS crawls (
-    domain TEXT PRIMARY KEY, status TEXT, pages INTEGER, note TEXT, crawled_at INTEGER
+    domain TEXT PRIMARY KEY, status TEXT, pages INTEGER, note TEXT, crawled_at INTEGER,
+    signals TEXT  -- JSON from extract.site_signals() for the home page
 );
 CREATE TABLE IF NOT EXISTS emails (
     email TEXT PRIMARY KEY, domain TEXT, source_url TEXT, found_at INTEGER,
@@ -37,6 +38,9 @@ CREATE TABLE IF NOT EXISTS emails (
     verify_status TEXT, verify_provider TEXT, verify_raw TEXT, verified_at INTEGER
 );
 CREATE INDEX IF NOT EXISTS emails_domain ON emails(domain);
+CREATE TABLE IF NOT EXISTS sample (
+    niche TEXT, place_id TEXT, PRIMARY KEY (niche, place_id)
+);
 CREATE TABLE IF NOT EXISTS suppression (
     value TEXT PRIMARY KEY, kind TEXT, reason TEXT, added_at INTEGER
 );
@@ -65,6 +69,9 @@ def connect(path=None):
     db = sqlite3.connect(path or data_dir() / "leads.db")
     db.row_factory = sqlite3.Row
     db.executescript(SCHEMA)
+    for table, col in (("places", "area"), ("crawls", "signals")):  # databases created before these columns
+        if col not in {r["name"] for r in db.execute(f"PRAGMA table_info({table})")}:
+            db.execute(f"ALTER TABLE {table} ADD COLUMN {col} TEXT")
     return db
 
 

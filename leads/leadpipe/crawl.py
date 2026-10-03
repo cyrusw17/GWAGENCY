@@ -6,6 +6,7 @@ marketplace sites are never crawled (their terms ban automated collection);
 they are marked so a person can look them up by hand.
 """
 import functools
+import json
 import time
 import urllib.parse
 import urllib.robotparser
@@ -28,7 +29,11 @@ def is_platform(domain):
 
 def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.request, public_only=True),
                sleep=time.sleep):
-    """Crawl one site. Returns dict(status, pages, emails={email: page_url}, note)."""
+    """Crawl one site. Returns dict(status, pages, emails={email: page_url}, note, signals).
+
+    status: ok, no_email, form_only (a contact form but no printed address),
+    robots_blocked, error, no_transfer_notice.
+    """
     parts = urllib.parse.urlsplit(website if "://" in website else "http://" + website)
     root = f"{parts.scheme}://{parts.netloc}"
     robots = urllib.robotparser.RobotFileParser()
@@ -40,7 +45,7 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
         robots.disallow_all = e.status in (401, 403)  # access denied: stay out
     except Exception:
         robots.parse([])
-    queue, seen, emails, pages = [website], set(), {}, 0
+    queue, seen, emails, pages, signals, has_form = [website], set(), {}, 0, None, False
     while queue and pages < max_pages:
         url = queue.pop(0)
         if url in seen:
@@ -48,7 +53,7 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
         seen.add(url)
         if not robots.can_fetch(http.USER_AGENT, url):
             if pages == 0:
-                return {"status": "robots_blocked", "pages": 0, "emails": {}, "note": url}
+                return {"status": "robots_blocked", "pages": 0, "emails": {}, "note": url, "signals": None}
             continue
         if pages:
             sleep(delay)
@@ -56,36 +61,41 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
             _, final_url, ctype, body = fetch(url, timeout=15, retries=1)
         except Exception as e:
             if pages == 0:
-                return {"status": "error", "pages": 0, "emails": {}, "note": str(e)[:200]}
+                return {"status": "error", "pages": 0, "emails": {}, "note": str(e)[:200], "signals": None}
             continue
         pages += 1
         if ctype not in ("text/html", "application/xhtml+xml", "text/plain"):
             continue
         if extract.has_no_transfer_notice(body):
-            return {"status": "no_transfer_notice", "pages": pages, "emails": {}, "note": url}
+            return {"status": "no_transfer_notice", "pages": pages, "emails": {}, "note": url, "signals": signals}
         for email in extract.emails_in(body):
             emails.setdefault(email, url)
+        page_signals = extract.site_signals(body)
+        has_form = has_form or page_signals["has_form"]
         if pages == 1:
+            signals = page_signals
             queue.extend(extract.same_site_links(body, final_url))
-    return {"status": "ok" if emails else "no_email", "pages": pages, "emails": emails, "note": None}
+    status = "ok" if emails else ("form_only" if has_form else "no_email")
+    return {"status": status, "pages": pages, "emails": emails, "note": None, "signals": signals}
 
 
-def pending_sites(db, niche, limit):
+def pending_sites(db, niche, limit, sample_only=False):
+    sample = "AND p.place_id IN (SELECT place_id FROM sample WHERE niche = p.niche)" if sample_only else ""
     return db.execute(
-        """SELECT p.domain, MIN(p.website) AS website FROM places p
+        f"""SELECT p.domain, MIN(p.website) AS website FROM places p
            LEFT JOIN crawls c ON c.domain = p.domain
            WHERE p.niche = ? AND p.domain IS NOT NULL AND p.website IS NOT NULL AND c.domain IS NULL
-             AND (p.business_status IS NULL OR p.business_status = 'OPERATIONAL')
+             AND (p.business_status IS NULL OR p.business_status = 'OPERATIONAL') {sample}
            GROUP BY p.domain LIMIT ?""", (niche, limit)).fetchall()
 
 
-def run(db, niche, limit=1000, workers=8, **kw):
+def run(db, niche, limit=1000, workers=8, sample_only=False, **kw):
     todo, counts = [], Counter()
-    for row in pending_sites(db, niche, limit):
+    for row in pending_sites(db, niche, limit, sample_only):
         dom = row["domain"]
         status = "platform" if is_platform(dom) else "suppressed" if store.is_suppressed(db, domain=dom) else None
         if status:
-            db.execute("INSERT INTO crawls VALUES (?, ?, 0, NULL, ?)", (dom, status, store.now()))
+            db.execute("INSERT INTO crawls VALUES (?, ?, 0, NULL, ?, NULL)", (dom, status, store.now()))
             counts[status] += 1
         else:
             todo.append(row)
@@ -94,8 +104,9 @@ def run(db, niche, limit=1000, workers=8, **kw):
         futures = {pool.submit(fetch_site, r["website"], **kw): r["domain"] for r in todo}
         for fut in as_completed(futures):
             dom, res = futures[fut], fut.result()
-            db.execute("INSERT OR REPLACE INTO crawls VALUES (?, ?, ?, ?, ?)",
-                       (dom, res["status"], res["pages"], res["note"], store.now()))
+            db.execute("INSERT OR REPLACE INTO crawls VALUES (?, ?, ?, ?, ?, ?)",
+                       (dom, res["status"], res["pages"], res["note"], store.now(),
+                        json.dumps(res["signals"]) if res["signals"] else None))
             for email, url in res["emails"].items():
                 c = extract.classify(email, dom)
                 db.execute("INSERT OR IGNORE INTO emails (email, domain, source_url, found_at, is_free, is_role) "

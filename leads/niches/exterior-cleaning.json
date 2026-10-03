@@ -1,0 +1,79 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing",
+    "house washing",
+    "roof cleaning",
+    "window cleaning service",
+    "gutter cleaning service",
+    "exterior cleaning"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Tampa, FL"
+    },
+    {
+      "name": "Orlando, FL"
+    },
+    {
+      "name": "Jacksonville, FL"
+    },
+    {
+      "name": "Houston, TX"
+    },
+    {
+      "name": "Atlanta, GA"
+    },
+    {
+      "name": "Charlotte, NC"
+    },
+    {
+      "name": "Raleigh, NC"
+    },
+    {
+      "name": "Nashville, TN"
+    },
+    {
+      "name": "Phoenix, AZ"
+    },
+    {
+      "name": "Dallas, TX"
+    },
+    {
+      "name": "Ocala, FL"
+    },
+    {
+      "name": "Mobile, AL"
+    },
+    {
+      "name": "Greenville, SC"
+    },
+    {
+      "name": "Tyler, TX"
+    },
+    {
+      "name": "Dothan, AL"
+    }
+  ]
+}

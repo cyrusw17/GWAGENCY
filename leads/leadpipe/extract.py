@@ -115,3 +115,35 @@ def rank(email, site_domain):
     if c["on_site"]:
         return 1 if c["is_role"] else 0
     return 2 if c["is_free"] else 3
+
+
+BODY_RE = re.compile(r"<body[^>]*>(.*)", re.I | re.S)
+CTA_RE = re.compile(r"<(a|button)\b[^>]*>[^<]{0,60}\b(book|quote|estimate|schedule|appointment)", re.I)
+REVIEWS_RE = re.compile(r"\breviews?\b|testimonial|★|google rating", re.I)
+COPYRIGHT_RE = re.compile(r"(?:©|&copy;|copyright)[^<]{0,40}?((?:19|20)\d\d)(?:\s*[-–]\s*((?:19|20)\d\d))?", re.I)
+FORM_RE = re.compile(r"<form\b.*?</form>", re.I | re.S)
+FIRST_SCREEN_CHARS = 8000  # rough stand-in for the first phone screen of markup
+
+
+def site_signals(page_html):
+    """Home page signals behind marketing's "weak site" test. Lighthouse is measured separately."""
+    body = (BODY_RE.search(page_html) or [None, page_html])[1]
+    years = [int(y) for pair in COPYRIGHT_RE.findall(page_html) for y in pair if y]
+    return {
+        "tel_link": 'href="tel:' in page_html.lower() or "href='tel:" in page_html.lower(),
+        "cta_first_screen": bool(CTA_RE.search(body[:FIRST_SCREEN_CHARS])),
+        "reviews_shown": bool(REVIEWS_RE.search(html.unescape(TAG_RE.sub(" ", body)))),
+        "copyright_year": max(years) if years else None,
+        "has_form": any(re.search(r"type=[\"']?email|<textarea", f, re.I) for f in FORM_RE.findall(page_html)),
+    }
+
+
+def weak_site(signals, lighthouse=None):
+    """Marketing's definition: fails 2+ of tap-to-call, early CTA, reviews, Lighthouse >= 50, copyright > 2023.
+
+    Unknown values (no copyright line, Lighthouse not measured) don't count as fails.
+    """
+    fails = [not signals.get("tel_link"), not signals.get("cta_first_screen"), not signals.get("reviews_shown"),
+             lighthouse is not None and lighthouse < 50,
+             signals.get("copyright_year") is not None and signals["copyright_year"] <= 2023]
+    return sum(fails) >= 2

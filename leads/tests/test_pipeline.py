@@ -53,6 +53,14 @@ class PlacesTest(unittest.TestCase):
         s2.run(NICHE["areas"])
         self.assertEqual(g.calls, 7)  # finished tiles are not re-billed
 
+    def test_capped_sample_search_does_not_block_full_search(self):
+        g = FakeGoogle()
+        places.Searcher(self.db, "k", NICHE, 100, post=g.post, sleep=lambda _: None, max_pages=1).run(
+            NICHE["areas"], split_full=False)
+        self.assertEqual(g.calls, 1)
+        places.Searcher(self.db, "k", NICHE, 100, post=g.post, sleep=lambda _: None).run(NICHE["areas"])
+        self.assertEqual(g.calls, 1 + 3 + 4)
+
     def test_budget_stops_cleanly_and_keeps_paid_pages(self):
         g = FakeGoogle()
         s = places.Searcher(self.db, "k", NICHE, max_requests=2, post=g.post, sleep=lambda _: None)

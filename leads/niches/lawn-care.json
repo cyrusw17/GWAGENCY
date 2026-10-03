@@ -1,0 +1,79 @@
+{
+  "name": "lawn-care",
+  "slug": "lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper",
+    "lawn mowing service",
+    "landscape design",
+    "yard cleanup"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Dallas, TX"
+    },
+    {
+      "name": "Atlanta, GA"
+    },
+    {
+      "name": "Charlotte, NC"
+    },
+    {
+      "name": "Nashville, TN"
+    },
+    {
+      "name": "Columbus, OH"
+    },
+    {
+      "name": "Indianapolis, IN"
+    },
+    {
+      "name": "Kansas City, MO"
+    },
+    {
+      "name": "Raleigh, NC"
+    },
+    {
+      "name": "Oklahoma City, OK"
+    },
+    {
+      "name": "Louisville, KY"
+    },
+    {
+      "name": "Lawton, OK"
+    },
+    {
+      "name": "Murfreesboro, TN"
+    },
+    {
+      "name": "Tyler, TX"
+    },
+    {
+      "name": "Bowling Green, KY"
+    },
+    {
+      "name": "Billings, MT"
+    }
+  ]
+}

@@ -1,19 +1,61 @@
 {
   "name": "auto-detailers",
-  "queries": ["auto detailing", "mobile auto detailing", "ceramic coating"],
-  "exclude_types": ["car_dealer", "gas_station", "car_rental", "parking", "auto_parts_store"],
+  "queries": [
+    "auto detailing",
+    "mobile auto detailing",
+    "ceramic coating"
+  ],
+  "exclude_types": [
+    "car_dealer",
+    "gas_station",
+    "car_rental",
+    "parking",
+    "auto_parts_store"
+  ],
   "min_tile_deg": 0.03,
   "areas": [
-    {"name": "Houston, TX"},
-    {"name": "Dallas, TX"},
-    {"name": "Fort Worth, TX"},
-    {"name": "San Antonio, TX"},
-    {"name": "Austin, TX"},
-    {"name": "El Paso, TX"},
-    {"name": "Corpus Christi, TX"},
-    {"name": "McAllen, TX"},
-    {"name": "Lubbock, TX"},
-    {"name": "Baton Rouge, LA"},
-    {"name": "New Orleans, LA"}
+    {
+      "name": "Houston, TX"
+    },
+    {
+      "name": "Dallas, TX"
+    },
+    {
+      "name": "Fort Worth, TX"
+    },
+    {
+      "name": "San Antonio, TX"
+    },
+    {
+      "name": "Austin, TX"
+    },
+    {
+      "name": "El Paso, TX"
+    },
+    {
+      "name": "Corpus Christi, TX"
+    },
+    {
+      "name": "McAllen, TX"
+    },
+    {
+      "name": "Lubbock, TX"
+    },
+    {
+      "name": "Baton Rouge, LA"
+    },
+    {
+      "name": "New Orleans, LA"
+    }
+  ],
+  "slug": "auto-detailing",
+  "name_exclude": [
+    "ziebart",
+    "tint world",
+    "maaco",
+    "take 5",
+    "mister car wash",
+    "quick quack",
+    "tommy's express"
   ]
 }

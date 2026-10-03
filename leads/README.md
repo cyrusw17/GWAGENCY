@@ -26,13 +26,28 @@ python3 -m leadpipe --niche $N search --area "Houston, TX" --max-requests 200   
 python3 -m leadpipe --niche $N crawl --limit 500                                # websites found by search
 python3 -m leadpipe --niche $N verify --max 300                                 # paid verifications, hard cap
 python3 -m leadpipe --niche $N export email                                     # verified, one per shop
-python3 -m leadpipe --niche $N export calls                                     # phone, no real website, 5+ reviews
+python3 -m leadpipe --niche $N export prospects --file /path/prospects.csv      # every shop, for personalization
+python3 -m leadpipe --niche $N export calls --limit 100 --file /path/calls.csv --pipeline /path/pipeline.csv
 python3 -m leadpipe --niche $N stats                                            # counts and this month's Google bill
 python3 -m leadpipe --niche $N suppress optouts.txt --reason opt-out            # emails, domains or place IDs
 python3 -m leadpipe --niche $N purge                                            # run daily, see below
 ```
 
 Every step is resumable: finished search tiles, crawled domains and verified emails are skipped on the next run.
+
+### Niche samples
+
+Marketing's metric definitions (has website, social-only, findable, form-only, verifiable, catch-all or unknown, own-domain vs free, weak site) are built into `sample report`. A cheap sample searches each area once with one page per query:
+
+```sh
+python3 -m leadpipe --niche $N search --no-split --max-pages 1 --query "lawn care service" --query "landscaper" --max-requests 40
+python3 -m leadpipe --niche $N sample pick -n 200     # spread evenly across areas, repeatable
+python3 -m leadpipe --niche $N crawl --sample-only
+python3 -m leadpipe --niche $N verify --sample-only --max 250
+python3 -m leadpipe --niche $N sample report --lighthouse   # PageSpeed mobile score; PAGESPEED_API_KEY optional
+```
+
+Page 1 of a Google search favors prominent shops, so a one-page sample overstates websites and reviews a little.
 
 ## How each step works
 
@@ -44,13 +59,13 @@ Every step is resumable: finished search tiles, crawled domains and verified ema
 
 **Verify.** Results are normalized to `valid`, `catch_all`, `invalid` or `unknown`. Only `valid` is exported.
 
-**Export.** One email per shop, preferring a personal address on the shop's own domain, then a role address (`info@`), then a free mailbox. Suppressed emails, domains and place IDs are always skipped, as are closed businesses and `exclude_types` from the niche file.
+**Export.** One email per shop, preferring a personal address on the shop's own domain, then a role address (`info@`), then a free mailbox. Suppressed emails, domains and place IDs are always skipped, as are closed businesses and the niche file's `exclude_types`, `name_exclude` (franchises) and `min_reviews`. The calls export lists shops with no website first, then social-only ones, by review count; `--pipeline` appends them to the sales pipeline CSV, skipping any shop already in it under any status, `do-not-contact` included (matched by phone, or by name and city).
 
 **Purge.** Google's Places policy allows storing place IDs indefinitely but not other Places content. `purge` clears every Google field older than 30 days and keeps the place ID and our own crawl results. Exports only include places fetched in the last 30 days, so export, load the campaign, then re-search when you need fresh rows.
 
 ## Adding a niche
 
-Copy `niches/auto-detailers.json`, change `name`, `queries`, `exclude_types` and `areas` (`{"name": "City, ST"}` is geocoded; `{"name": ..., "bbox": [south, west, north, east]}` skips geocoding).
+Copy `niches/auto-detailers.json`, change `name`, `slug` (the pipeline's niche value), `queries`, `exclude_types`, `name_exclude`, `min_reviews` and `areas` (`{"name": "City, ST"}` is geocoded; `{"name": ..., "bbox": [south, west, north, east]}` skips geocoding).
 
 ## Tests
 
