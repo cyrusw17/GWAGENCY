@@ -1,7 +1,7 @@
 {
   "_note": "Auto detailers. Qualifying rules, site-check flaws and mockup defaults. Mockup content is only what is true of any detailer, or clearly labeled as a sample. Never a claim about the shop (insured, warranty, water on board) and never a review.",
   "label": "auto detailing",
-  "categoryPattern": "detail|ceramic|coating|paint correction|paint protection|auto spa|car care",
+  "categoryPattern": "detail|ceramic|coating|paint correction|paint protection|\\bppf\\b|auto spa|car care",
   "minReviews": 15,
   "flawOrder": [
     "no_booking",
