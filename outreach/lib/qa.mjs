@@ -41,7 +41,7 @@ export function checkMockup(html, p, site) {
   if (!html.includes('<meta name="robots" content="noindex">')) r.push("mockup is missing noindex");
   if (!html.includes(`tel:${p.phone.replace(/\D/g, "")}`)) r.push("mockup is missing the shop's tap-to-call");
   if (/Harbor Line|555-01\d\d|Fictional business|Sample customer|\{\w+\}/.test(textOf(html))) r.push("mockup has leftover template text");
-  if (site.reviews?.items?.some(i => !p.reviews.some(rv => rv.text === i.text))) r.push("mockup shows a review that isn't from the shop's profile");
+  if (site.reviews?.items?.some(i => !p.reviews.some(rv => rv.text === i.text && rv.name === i.name))) r.push("mockup shows a review that isn't, word for word, from the shop's Google profile");
   if (html.length > 200000) r.push(`mockup HTML is ${Math.round(html.length / 1024)} KB`);
 
   let rest = html.replace(/<div class="f-demo"[\s\S]*?<\/div><\/div>/, " ");
@@ -61,6 +61,16 @@ export function checkMockup(html, p, site) {
   for (const id of site.sampleSections || []) {
     const hit = (samples[id] || []).find(t => t && leftover.includes(t));
     if (hit) r.push(`mockup shows sample "${hit}" outside a labeled "${id}" section (templates must wrap it in <section id="${id}">)`);
+  }
+  // Structured data is a claim too (Google reads it): every value must match the row, or be absent.
+  for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let ld; try { ld = JSON.parse(m[1]); } catch { r.push("mockup has invalid JSON-LD"); continue; }
+    const a = ld.address || {};
+    const want = { telephone: [ld.telephone, p.phone], postalCode: [a.postalCode, p.zip], addressLocality: [a.addressLocality, p.city], addressRegion: [a.addressRegion, p.state] };
+    const same = (k, a, b) => k === "telephone" ? String(a).replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "") === String(b).replace(/\D/g, "") : String(a) === String(b);
+    for (const [k, [got, row]] of Object.entries(want)) if (got != null && got !== "" && !same(k, got, row)) r.push(`mockup schema ${k} "${got}" isn't the row's value`);
+    if (ld.name && ld["@type"] !== "WebPage" && ld["@type"] !== "FAQPage" && ld.name !== p.shop) r.push(`mockup schema name "${ld.name}" isn't the shop`);
+    if (ld.aggregateRating || ld.review) r.push("mockup schema has rating or review markup (not allowed on a mockup)");
   }
   // Allowed numbers: the shop's own facts, plus the copyright year.
   const allowed = new Set([p.rating?.toFixed(1), String(p.review_count), p.review_count?.toLocaleString("en-US"), p.zip, String(new Date(site.builtAt || Date.now()).getFullYear()), "5"].filter(Boolean));

@@ -81,8 +81,10 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
     steps: niche.steps,
     work: { headline: "Your work goes here", sub: "Sample images. Your own before and after photos go here.", compare: { caption: "" }, gallery: [{}, {}, {}].map(() => ({ caption: "" })) },
     // The rating badge always shows (real data); review cards only when the list gave real review text.
-    reviews: { headline: "What customers say", source: "Google", url: reviewsUrl, rating: facts.rating, count: facts.review_count, sampleNote: "Real reviews from your Google profile.",
-      items: realReviews.map(r => ({ name: r.name.split(" ")[0], detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) },
+    // Google's attribution terms: "Reviews from Google", the reviewer's name exactly as Google gives it,
+    // a link to the listing, and the review text unedited (long reviews are skipped, never trimmed).
+    reviews: { headline: "Reviews from Google", source: "Google", url: reviewsUrl, rating: facts.rating, count: facts.review_count, sampleNote: "",
+      items: realReviews.map(r => ({ name: r.name, detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) },
     areas: { headline: `Based in ${p.city}`, body: "Your full service area goes here.", cities: [p.city] },
     booking: { cta: niche.cta, eyebrow: niche.packages ? "Book" : "Quote", headline: niche.booking.headline, body: `Tell us what you need and ${p.shop} will get back to you.` },
     lead: { endpoint: "", submit: niche.booking.submit, notesHint: niche.booking.notesHint },

@@ -105,6 +105,7 @@ export async function run(opts) {
   mkdirSync(join(out, "mockups"), { recursive: true });
   const approved = [], rejected = [];
   let mockupBytes = 0;
+  const factsRows = [];
   for (const x of rows) {
     const { p, niche } = x;
     let line = "", variant = "", id = "", facts;
@@ -120,6 +121,10 @@ export async function run(opts) {
       const html = writeMockup(site, join(out, "mockups", id), await templateFor(niche), today);
       mockupBytes += html.length;
       x.reasons.push(...checkMockup(html, p, site));
+      // Audit trail: every shop fact the mockup used, straight from the row, so a reviewer can check it.
+      factsRows.push({ place_id: p.place_id, mockup_dir: `mockups/${id}/`, shop: p.shop, raw_name: p.raw_name, phone: p.phone, city: p.city, state: p.state, zip: p.zip,
+        hours_text: p.hours_text, services: p.services.join("|"), rating: facts.rating, review_count: facts.review_count, gbp_url: p.gbp_url,
+        reviews: p.reviews.length, sample_sections: site.sampleSections.join("|") });
       if (x.reasons.length) rmSync(join(out, "mockups", id), { recursive: true });
     }
     if (x.reasons.length) {
@@ -148,6 +153,7 @@ export async function run(opts) {
   };
 
   writeFileSync(join(out, "approved.csv"), toCsv(approved));
+  writeFileSync(join(out, "mockup-facts.csv"), toCsv(factsRows.filter(f => approved.some(a => a.place_id === f.place_id))));
   writeFileSync(join(out, "rejected.csv"), toCsv(rejected, ["place_id", "niche", "name", "email", "city", "state", "reasons"]));
   writeFileSync(join(out, "run.json"), JSON.stringify({ today, sendDate, mockupBase, cost, rules }, null, 2));
   const sample = pickSample(approved, Number(opts.sample) || 20);

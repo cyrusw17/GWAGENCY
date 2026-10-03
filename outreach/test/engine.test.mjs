@@ -114,6 +114,8 @@ test("end to end on the fixture list", async () => {
   assert.match(html, /Sample questions and answers/);
   assert.match(html, /Mobile detailing in Tampa/);
   assert.match(html, /kids&#39; juice stains/);
+  assert.match(html, /Reviews from Google/);
+  assert.match(html, /Dana R\./); // reviewer name exactly as Google gives it
   assert.doesNotMatch(html, /Fictional business|Sample customer|Harbor Line/);
   const ext = readFileSync(join(out, by["fx-015"].mockup_dir, "index.html"), "utf8");
   assert.match(ext, /House washing in Jacksonville/);
@@ -154,6 +156,13 @@ test("QA fails a mockup with an unlabeled sample section or a stray price", () =
   assert.deepEqual(checkMockup(render(site), p, site), []);
   site.faqHeadline = "Questions, answered";
   assert.match(checkMockup(render(site), p, site).join(), /section "faq" uses sample content/);
+  // No ZIP in the row: no ZIP anywhere, including the schema Google reads.
+  const noZip = normalizeRow({ place_id: "q2", name: "Test Detail", phone: "8135550000", city: "Tampa", state: "FL", rating: "4.8", review_count: "40", category: "Car detailing" });
+  const s2 = siteJson(noZip, facts, { niche, palettes: [{}], id: "t2", demoCtaHref: "#" });
+  const h2 = render(s2);
+  assert.doesNotMatch(h2, /postalCode|33602/);
+  assert.deepEqual(checkMockup(h2, noZip, s2), []);
+  assert.match(checkMockup(render({ ...s2, business: { ...s2.business, address: { city: "Tampa", region: "FL", postal: "32202" } } }), noZip, s2).join(), /schema postalCode "32202"/);
   site.faqHeadline = "Sample questions and answers";
   site.hero.sub = "Full details from $189.";
   assert.match(checkMockup(render(site), p, site).join(), /"\$189" outside a sample section/);
