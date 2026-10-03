@@ -37,6 +37,9 @@ def eligible_places(db, niche):
     excluded = set(niche.get("exclude_types", []))
     names = [n.lower() for n in niche.get("name_exclude", [])]
     min_reviews = niche.get("min_reviews", 0)
+    # Google files most detailers under car_wash, so the niche can require a word in the name
+    # (e.g. "detail") to keep tunnel washes out.
+    required = [n.lower() for n in niche.get("name_require_any", [])]
     rows = db.execute(
         """SELECT p.*, c.signals FROM places p LEFT JOIN crawls c ON c.domain = p.domain
            WHERE p.niche = ? AND p.fetched_at >= ?
@@ -45,6 +48,7 @@ def eligible_places(db, niche):
     return [r for r in rows if r["primary_type"] not in excluded
             and (r["reviews"] or 0) >= min_reviews
             and not any(n in (r["name"] or "").lower() for n in names)
+            and (not required or any(n in (r["name"] or "").lower() for n in required))
             and not store.is_suppressed(db, domain=r["domain"], place_id=r["place_id"], phone=r["phone"])]
 
 

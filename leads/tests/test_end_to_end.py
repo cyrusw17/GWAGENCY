@@ -20,7 +20,7 @@ def fixture_places():
         kind = ("no_site", "social", "site", "site", "site")[i % 5]
         site = {"no_site": None, "social": f"https://facebook.com/fixture{i}",
                 "site": f"https://www.fixture{i}.example/"}[kind]
-        out.append({"id": f"ChIJfixture{i:02d}", "displayName": {"text": f"Fixture Shine {i:02d}"},
+        out.append({"id": f"ChIJfixture{i:02d}", "displayName": {"text": f"Fixture Shine {i:02d} Detailing"},
                     "formattedAddress": f"{100 + i} Main St, Deer Park, TX 77536, USA",
                     "nationalPhoneNumber": f"(281) 555-01{i:02d}", "websiteUri": site, "rating": 4.5 + (i % 5) / 10,
                     "userRatingCount": 10 + i * 3, "primaryType": "car_wash", "businessStatus": "OPERATIONAL",
@@ -48,6 +48,7 @@ def fixture_fetch(url, **kw):
 class EndToEndTest(unittest.TestCase):
     def test_fixture_run_into_preview_engine_format(self):
         niche = {"name": "auto-detailers", "slug": "auto-detailing", "queries": ["auto detailing"],
+                 "name_require_any": ["detail"],
                  "areas": [{"name": "Deer Park, TX", "bbox": [29.6, -95.2, 29.8, -95.0]}]}
         db = store.connect(":memory:")
         s = places.Searcher(db, "k", niche, 10, post=lambda url, body, headers=None: {"places": fixture_places()},
@@ -69,6 +70,9 @@ class EndToEndTest(unittest.TestCase):
                     (out / f"fixture-{k}.csv").write_text(f.read_text())
 
         self.assertEqual(len(prospects), N_SHOPS)
+        self.assertTrue(all("Detailing" in p["name"] for p in prospects))
+        s.save([{**fixture_places()[0], "id": "ChIJtunnelwash", "displayName": {"text": "Quick Tunnel Car Wash"}}])
+        self.assertNotIn("ChIJtunnelwash", [p["place_id"] for p in export.prospect_rows(db, niche)])
         self.assertEqual(list(prospects[0]), export.PROSPECT_COLUMNS)
         self.assertEqual({p["segment"] for p in prospects}, {"no_site", "social_only", "has_site"})
         self.assertTrue(all(p["review_1_text"] and p["hours_text"] and p["niche"] == "auto-detailing"

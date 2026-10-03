@@ -57,5 +57,12 @@
     "mister car wash",
     "quick quack",
     "tommy's express"
+  ],
+  "name_require_any": [
+    "detail",
+    "ceramic",
+    "coating",
+    "paint correction",
+    "ppf"
   ]
 }
