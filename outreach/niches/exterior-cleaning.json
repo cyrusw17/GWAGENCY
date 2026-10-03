@@ -1,0 +1,173 @@
+{
+  "_note": "Exterior cleaning (pressure washing, soft washing, windows, gutters). Email only to shops with a website (no-site shops go to the call list, per the cold email specialist's sequence).",
+  "label": "exterior cleaning",
+  "categoryPattern": "pressure wash|power wash|soft wash|exterior clean|house wash|window clean|gutter|roof clean|paver",
+  "minReviews": 10,
+  "flawOrder": [
+    "no_quote",
+    "no_prices",
+    "no_photos",
+    "no_reviews",
+    "no_tap_to_call",
+    "slow_mobile"
+  ],
+  "serviceRules": [
+    [
+      "roof",
+      "roof soft washing"
+    ],
+    [
+      "window",
+      "window cleaning"
+    ],
+    [
+      "gutter",
+      "gutter cleaning"
+    ],
+    [
+      "soft wash|house wash",
+      "house washing"
+    ]
+  ],
+  "serviceDefault": "pressure washing",
+  "serviceWords": [
+    "house wash",
+    "soft wash",
+    "roof",
+    "driveway",
+    "concrete",
+    "deck",
+    "fence",
+    "window",
+    "gutter",
+    "paver",
+    "patio",
+    "siding"
+  ],
+  "schemaType": "HomeAndConstructionBusiness",
+  "hero": {
+    "default": {
+      "headline": "{Service} in {city},",
+      "headlineEm": "done right the first time.",
+      "sub": "{shop} handles {service} around {city}. Tell us what needs cleaning and get a quote back fast."
+    }
+  },
+  "cta": "Get my quote",
+  "heroCta": "Get my quote",
+  "services": [
+    {
+      "key": "house|soft wash|siding",
+      "name": "House washing",
+      "desc": "Low-pressure soft wash that lifts dirt, mildew and algae without damaging siding."
+    },
+    {
+      "key": "roof",
+      "name": "Roof cleaning",
+      "desc": "Black streaks and moss removed with a gentle soft wash."
+    },
+    {
+      "key": "driveway|concrete|sidewalk|pressure",
+      "name": "Driveways and concrete",
+      "desc": "Oil, rust and grime lifted from driveways, sidewalks and patios."
+    },
+    {
+      "key": "deck|fence",
+      "name": "Decks and fences",
+      "desc": "Wood and composite cleaned and brightened, ready to seal or stain."
+    },
+    {
+      "key": "window",
+      "name": "Window cleaning",
+      "desc": "Streak-free glass inside and out, frames and sills included."
+    },
+    {
+      "key": "gutter",
+      "name": "Gutter cleaning",
+      "desc": "Gutters cleared and downspouts flushed so water goes where it should."
+    },
+    {
+      "key": "paver|patio",
+      "name": "Paver cleaning",
+      "desc": "Pavers cleaned and joints refreshed."
+    }
+  ],
+  "defaultServiceKeys": [
+    "house|soft wash|siding",
+    "driveway|concrete|sidewalk|pressure",
+    "roof",
+    "deck|fence"
+  ],
+  "steps": [
+    {
+      "title": "Tell us what needs cleaning",
+      "body": "A few details and a photo if you have one."
+    },
+    {
+      "title": "Get your quote",
+      "body": "We text or email you a price, usually the same day."
+    },
+    {
+      "title": "We do the work",
+      "body": "You come home to a clean house."
+    }
+  ],
+  "workHeadline": "Before and after around {city}",
+  "booking": {
+    "headline": "Get your free quote",
+    "submit": "Get my quote",
+    "notesHint": "What needs cleaning, rough size"
+  },
+  "faq": [
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the short form or call {phone}. We'll get back to you with a price."
+    },
+    {
+      "q": "Do I need to be home?",
+      "a": "Usually not for outdoor work. We'll confirm access and water when we schedule."
+    },
+    {
+      "q": "Where do you work?",
+      "a": "We serve {city} and nearby areas. Send your ZIP code in the form and we'll confirm."
+    }
+  ],
+  "final": {
+    "headline": "Ready for a cleaner house?",
+    "sub": "Tell us what needs cleaning and we'll send a quote."
+  },
+  "packages": [
+    {
+      "name": "Driveway and walks",
+      "price": 129,
+      "note": "Sample price",
+      "features": [
+        "Driveway, sidewalk and front walk",
+        "Surface cleaner, no stripes",
+        "Rinse-down of beds and siding"
+      ]
+    },
+    {
+      "name": "House wash",
+      "price": 249,
+      "popular": true,
+      "popularLabel": "Most requested",
+      "note": "Sample price",
+      "features": [
+        "Low-pressure soft wash, all sides",
+        "Mildew and algae treatment",
+        "Windows rinsed, beds protected"
+      ]
+    },
+    {
+      "name": "Roof soft wash",
+      "price": 399,
+      "note": "Sample price",
+      "features": [
+        "Black streaks and moss removed",
+        "Gentle soft wash, no high pressure",
+        "Gutters faces brightened"
+      ]
+    }
+  ],
+  "heroCaption": "Sample before and after. Your own photos go here."
+}

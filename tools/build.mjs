@@ -70,11 +70,15 @@ function build(dir) {
   const out = resolve(root, outArg || join("dist", s.slug));
   mkdirSync(out, { recursive: true });
   // CSS is inlined: one page per site, so a separate file only adds a render-blocking round trip.
-  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8") }));
+  // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
+  const designFile = join(srcDir, "design.css");
+  const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
+  if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
+  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design }));
   const md = llms(s);
   writeFileSync(join(out, "index.md"), md); // Markdown copy of the page's facts for AI agents
   cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
-  if (existsSync(join(srcDir, "img"))) cpSync(join(srcDir, "img"), join(out, "img"), { recursive: true });
+  for (const d of ["img", "fonts"]) if (existsSync(join(srcDir, d))) cpSync(join(srcDir, d), join(out, d), { recursive: true });
   // A demo inside our own site must not overwrite groundwork-web.com's robots.txt/sitemap.
   if (!outArg || !s.demo) {
     writeFileSync(join(out, "robots.txt"), robots(s));
