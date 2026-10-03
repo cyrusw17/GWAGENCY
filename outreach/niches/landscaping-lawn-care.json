@@ -1,0 +1,169 @@
+{
+  "_note": "Landscaping and lawn care. Email only to businesses with a website and 15+ reviews (cold email specialist's sequence).",
+  "label": "landscaping and lawn care",
+  "categoryPattern": "landscap|lawn|mowing|yard|hardscap|tree service|irrigation|sod",
+  "minReviews": 15,
+  "flawOrder": [
+    "no_quote",
+    "no_prices",
+    "no_services",
+    "no_photos",
+    "no_reviews",
+    "no_tap_to_call",
+    "slow_mobile"
+  ],
+  "serviceRules": [
+    [
+      "design",
+      "landscape design"
+    ],
+    [
+      "lawn|mow",
+      "lawn care"
+    ]
+  ],
+  "serviceDefault": "landscaping",
+  "serviceWords": [
+    "mowing",
+    "lawn",
+    "cleanup",
+    "mulch",
+    "planting",
+    "hardscape",
+    "patio",
+    "retaining wall",
+    "irrigation",
+    "sod",
+    "aeration",
+    "fertiliz",
+    "trimming",
+    "leaf",
+    "design",
+    "install"
+  ],
+  "schemaType": "HomeAndConstructionBusiness",
+  "hero": {
+    "default": {
+      "headline": "{Service} in {city},",
+      "headlineEm": "handled.",
+      "sub": "{shop} keeps yards looking their best. Tell us what you need and get an estimate back fast."
+    }
+  },
+  "cta": "Get my estimate",
+  "heroCta": "Get my estimate",
+  "services": [
+    {
+      "key": "mow|lawn",
+      "name": "Weekly mowing",
+      "desc": "Mowing, edging and blowing on a set schedule."
+    },
+    {
+      "key": "cleanup|leaf|spring|fall",
+      "name": "Spring and fall cleanups",
+      "desc": "Leaves, debris and beds cleared so the yard is ready for the season."
+    },
+    {
+      "key": "mulch|bed|planting|plant",
+      "name": "Mulch and planting",
+      "desc": "Fresh mulch, new plants and tidy beds."
+    },
+    {
+      "key": "hardscape|patio|wall|paver",
+      "name": "Patios and hardscapes",
+      "desc": "Patios, walkways and retaining walls built to last."
+    },
+    {
+      "key": "design|install",
+      "name": "Landscape design",
+      "desc": "A plan for your yard, then the install."
+    },
+    {
+      "key": "irrigation|sprinkler",
+      "name": "Irrigation",
+      "desc": "Sprinkler installs, repairs and seasonal start-ups."
+    },
+    {
+      "key": "aeration|fertiliz|seed|sod",
+      "name": "Lawn treatments",
+      "desc": "Aeration, seeding and feeding for a thicker lawn."
+    }
+  ],
+  "defaultServiceKeys": [
+    "mow|lawn",
+    "cleanup|leaf|spring|fall",
+    "mulch|bed|planting|plant",
+    "hardscape|patio|wall|paver"
+  ],
+  "steps": [
+    {
+      "title": "Tell us about your yard",
+      "body": "A few details about the job and your address."
+    },
+    {
+      "title": "Get your estimate",
+      "body": "We get back to you with a price, usually within a day."
+    },
+    {
+      "title": "We get it done",
+      "body": "On schedule, and we clean up after ourselves."
+    }
+  ],
+  "workHeadline": "Recent yards around {city}",
+  "booking": {
+    "headline": "Get your free estimate",
+    "submit": "Get my estimate",
+    "notesHint": "What you need, yard size, timing"
+  },
+  "faq": [
+    {
+      "q": "How do I get an estimate?",
+      "a": "Send the short form or call {phone}. We'll get back to you with a price."
+    },
+    {
+      "q": "Do you offer ongoing service?",
+      "a": "Ask about a regular schedule when you request your estimate."
+    },
+    {
+      "q": "Where do you work?",
+      "a": "We serve {city} and nearby areas. Send your ZIP code in the form and we'll confirm."
+    }
+  ],
+  "final": {
+    "headline": "Ready for a yard you're proud of?",
+    "sub": "Tell us what you need and we'll send an estimate."
+  },
+  "packages": [
+    {
+      "name": "Weekly mowing",
+      "price": 45,
+      "note": "Sample price per visit",
+      "features": [
+        "Mow, edge and trim",
+        "Clippings blown off hard surfaces",
+        "Same day each week"
+      ]
+    },
+    {
+      "name": "Spring cleanup",
+      "price": 249,
+      "popular": true,
+      "popularLabel": "Most requested",
+      "note": "Sample price",
+      "features": [
+        "Leaves and debris cleared",
+        "Beds edged and weeded",
+        "First mow of the season"
+      ]
+    },
+    {
+      "name": "Mulch refresh",
+      "price": 350,
+      "note": "Sample price",
+      "features": [
+        "Beds weeded and edged",
+        "Fresh mulch installed",
+        "Clean-up and haul-away"
+      ]
+    }
+  ]
+}
