@@ -74,7 +74,13 @@ function build(dir) {
   const designFile = join(srcDir, "design.css");
   const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
   if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
-  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design }));
+  // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
+  let mapSvg = "";
+  if (s.areas?.mapSvg) {
+    mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
+    if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
+  }
+  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design, mapSvg }));
   const md = llms(s);
   writeFileSync(join(out, "index.md"), md); // Markdown copy of the page's facts for AI agents
   cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));

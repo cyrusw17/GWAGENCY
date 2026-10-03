@@ -80,3 +80,16 @@ h3{font-family:var(--f-body);font-weight:800}
 .f-est{border:2px solid var(--f-text);border-radius:var(--f-radius);background:var(--f-bg);box-shadow:6px 6px 0 var(--f-accent-2)}
 .f-est-total{font-weight:400;color:var(--f-accent);font-size:56px}
 #price .f-block-copy h2{font-size:clamp(30px,7vw,48px)}
+/* Rudy's route sketch */
+.route-map .rm-1604{stroke:var(--f-accent);stroke-width:5}
+.route-map .rm-410{stroke:var(--f-accent-2);stroke-width:3.5;stroke-dasharray:1 9}
+.route-map .rm-hwy{stroke:var(--f-muted);stroke-width:2}
+.route-map text{font-family:var(--f-body);fill:var(--f-text)}
+.route-map .rm-road{font-size:17px;font-weight:800;letter-spacing:.08em;fill:var(--f-accent)}
+.route-map .rm-town{font-size:23px;font-weight:600;paint-order:stroke;stroke:var(--f-surface);stroke-width:6px;stroke-linejoin:round}
+.route-map .rm-home{font-family:var(--f-display);font-weight:400;font-size:26px}
+.route-map .rm-dot{fill:var(--f-accent)}
+.route-map .rm-note{font-size:19px;font-style:italic;fill:var(--f-muted)}
+/* sections now open without eyebrows: give headings room */
+#pricing .f-head,#reviews .f-head,#areas h2{margin-top:0}
+.f-guarantee p{font-size:18px;max-width:58ch}
