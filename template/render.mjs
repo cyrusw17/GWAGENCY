@@ -5,14 +5,14 @@
 // and every link or image address goes through url().
 
 export const digits = s => String(s || "").replace(/[^\d+]/g, "");
-const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const when = (cond, html) => (cond ? html : "");
+export const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+export const when = (cond, html) => (cond ? html : "");
 const cssStr = (v = "") => String(v).replace(/[\\"'<>;{}\n\r]/g, ""); // values inside <style>, where HTML escapes don't decode
 export const price = n => (typeof n === "number" ? "$" + n.toLocaleString("en-US") : String(n ?? ""));
-const money = n => esc(price(n));
+export const money = n => esc(price(n));
 // Only web links and site-relative paths; anything else (javascript:, data:) becomes "#".
 export const safeUrl = u => { u = String(u || "").trim(); return /^(https?:)?\/\//i.test(u) || !/^[a-z][\w+.-]*:/i.test(u) ? u : "#"; };
-const url = u => esc(safeUrl(u));
+export const url = u => esc(safeUrl(u));
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, "").split(".")[0]; } catch { return u; } };
 
 const ICON = {
@@ -31,7 +31,7 @@ function media(src, alt, cap, demo, cls = "f-media", eager = false) {
 const head = (eyebrow, title, sub) =>
   `<div class="f-head"><p class="f-eyebrow">${esc(eyebrow)}</p><h2>${esc(title)}</h2>${when(sub, `<p>${esc(sub)}</p>`)}</div>`;
 
-function schema(s) {
+export function schema(s) {
   const b = s.business, a = b.address || {};
   const biz = {
     "@context": "https://schema.org",

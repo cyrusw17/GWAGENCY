@@ -47,7 +47,16 @@ function check(s) {
   return { errs, warns };
 }
 
-function build(dir) {
+// A designed layout (template/layouts/<name>/) owns its markup, CSS and fonts; kit.mjs keeps
+// the head, form, tracking and demo labels the same underneath. No "layout" = the default page.
+const layouts = {};
+async function layoutFor(name) {
+  if (!name) return null;
+  if (!/^[a-z0-9-]+$/.test(name) || !existsSync(join(root, "template", "layouts", name, "render.mjs"))) throw new Error(`unknown layout "${name}"`);
+  return (layouts[name] ??= await import(`../template/layouts/${name}/render.mjs`));
+}
+
+async function build(dir) {
   const srcDir = resolve(root, dir);
   const s = JSON.parse(readFileSync(join(srcDir, "site.json"), "utf8"));
   const { errs, warns } = check(s);
@@ -58,10 +67,20 @@ function build(dir) {
   const out = resolve(root, outArg || join("dist", s.slug));
   mkdirSync(out, { recursive: true });
   // CSS is inlined: one page per site, so a separate file only adds a render-blocking round trip.
-  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8") }));
+  let layout;
+  try { layout = await layoutFor(s.layout); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
+  if (layout) {
+    const lay = join(root, "template", "layouts", s.layout);
+    writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
+    if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
+  } else {
+    writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8") }));
+  }
   const md = llms(s);
   writeFileSync(join(out, "index.md"), md); // Markdown copy of the page's facts for AI agents
-  cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
+  // A layout's own behavior (layout.js) rides in the same file, so it's still one request.
+  const extraJs = s.layout && join(root, "template", "layouts", s.layout, "layout.js");
+  writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", "funnel.js"), "utf8") + (extraJs && existsSync(extraJs) ? "\n" + readFileSync(extraJs, "utf8") : ""));
   if (existsSync(join(srcDir, "img"))) cpSync(join(srcDir, "img"), join(out, "img"), { recursive: true });
   // A demo inside our own site must not overwrite groundwork-web.com's robots.txt/sitemap.
   if (!outArg || !s.demo) {
@@ -82,5 +101,7 @@ if (args.includes("--all")) {
 }
 if (outArg && dirs.length > 1) { console.error("--out builds one site; leave it off to build several into dist/<slug>/"); process.exit(2); }
 if (!dirs.length) { console.error("usage: node tools/build.mjs clients/<slug> [--out dir] | --all"); process.exit(2); }
-const ok = dirs.map(build).every(Boolean);
+const results = [];
+for (const d of dirs) results.push(await build(d));
+const ok = results.every(Boolean);
 process.exit(ok ? 0 : 1);
