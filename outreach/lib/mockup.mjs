@@ -5,7 +5,7 @@
 
 import { mkdirSync, writeFileSync, cpSync, readFileSync, existsSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-import { join } from "node:path";
+import { join, basename } from "node:path";
 import { hash } from "./lines.mjs";
 
 const slugify = s => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48);
@@ -83,7 +83,7 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
     // The rating badge always shows (real data); review cards only when the list gave real review text.
     // Google's attribution terms: "Reviews from Google", the reviewer's name exactly as Google gives it,
     // a link to the listing, and the review text unedited (long reviews are skipped, never trimmed).
-    reviews: { headline: "Reviews from Google", source: "Google", url: reviewsUrl, rating: facts.rating, count: facts.review_count, sampleNote: "",
+    reviews: { headline: "Reviews from Google", source: "Google", url: reviewsUrl, real: true, rating: facts.rating, count: facts.review_count, sampleNote: "",
       items: realReviews.map(r => ({ name: r.name, detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) },
     areas: { headline: `Based in ${p.city}`, body: "Your full service area goes here.", cities: [p.city] },
     booking: { cta: niche.cta, eyebrow: niche.packages ? "Book" : "Quote", headline: niche.booking.headline, body: `Tell us what you need and ${p.shop} will get back to you.` },
@@ -98,21 +98,36 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
 
 // A template is a folder with render.mjs (export render(site, { css })) plus optional funnel.css
 // and funnel.js, like template/. New designs plug in with --template <dir>, per niche or per run.
+// A design folder (clients/<demo>/ with site.json and design.css, built on template/) works too:
+// the mockup takes its look (theme, fonts, hero layout, section order, hidden labels, design.css)
+// and none of its content, since that demo's story, prices and route are another shop's facts.
 export async function loadTemplate(dir) {
-  const { render } = await import(pathToFileURL(join(dir, "render.mjs")).href);
-  if (typeof render !== "function") throw new Error(`${dir}/render.mjs doesn't export render()`);
-  const css = existsSync(join(dir, "funnel.css")) ? readFileSync(join(dir, "funnel.css"), "utf8") : "";
-  const assets = ["funnel.js"].filter(f => existsSync(join(dir, f)));
-  return { dir, render, css, assets };
+  const design = !existsSync(join(dir, "render.mjs")) && existsSync(join(dir, "site.json"));
+  const base = design ? join(dir, "../../template") : dir;
+  const { render } = await import(pathToFileURL(join(base, "render.mjs")).href);
+  if (typeof render !== "function") throw new Error(`${base}/render.mjs doesn't export render()`);
+  const read = f => existsSync(f) ? readFileSync(f, "utf8") : "";
+  const css = read(join(base, "funnel.css"));
+  const assets = ["funnel.js"].filter(f => existsSync(join(base, f))).map(f => join(base, f));
+  if (!design) return { dir, render, css, assets };
+  const d = JSON.parse(readFileSync(join(dir, "site.json"), "utf8"));
+  const look = {
+    theme: d.theme,
+    layout: d.layout && { ...d.layout, order: (d.layout.order || []).filter(id => ["services", "pricing", "how", "work", "reviews", "areas", "book", "faq"].includes(id)) },
+    eyebrows: Object.fromEntries(Object.entries(d.eyebrows || {}).filter(([, v]) => v === "")), // keep hidden labels only; wording is the demo's own
+  };
+  if (existsSync(join(dir, "fonts"))) assets.push(join(dir, "fonts"));
+  return { dir, render, css, design: read(join(dir, "design.css")), look, assets };
 }
 
 export function writeMockup(site, outDir, tpl, today) {
   site.builtAt = today;
+  if (tpl.look) Object.assign(site, tpl.look);
   mkdirSync(outDir, { recursive: true });
   // CSS inlined like tools/build.mjs does, so the first screen paints without a second request.
-  const html = tpl.render(site, { css: tpl.css });
+  const html = tpl.render(site, { css: tpl.css, design: tpl.design || "" });
   writeFileSync(join(outDir, "index.html"), html);
   writeFileSync(join(outDir, "robots.txt"), "User-agent: *\nDisallow: /\n");
-  for (const f of tpl.assets) cpSync(join(tpl.dir, f), join(outDir, f));
+  for (const f of tpl.assets) cpSync(f, join(outDir, basename(f)), { recursive: true });
   return html;
 }

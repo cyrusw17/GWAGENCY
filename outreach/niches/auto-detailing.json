@@ -167,5 +167,6 @@
   "final": {
     "headline": "Ready when you are.",
     "sub": "Pick a package and send a request."
-  }
+  },
+  "template": "clients/demo-ramirez-mobile"
 }
