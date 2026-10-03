@@ -20,7 +20,7 @@ def pick(db, niche, n):
     for p in export.eligible_places(db, niche):
         by_area[p["area"]].append(p["place_id"])
     for ids in by_area.values():  # stable pseudo-random order, so re-picking gives the same sample
-        ids.sort(key=lambda i: hashlib.sha1(i.encode()).hexdigest())
+        ids.sort(key=lambda i: hashlib.sha1(i.encode(), usedforsecurity=False).hexdigest())
     chosen, i = [], 0
     while len(chosen) < n and any(i < len(v) for v in by_area.values()):
         chosen += [v[i] for v in by_area.values() if i < len(v)][: n - len(chosen)]

@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS places (
     -- Google Places content: must be purged within the caching window (see purge()).
     name TEXT, address TEXT, city TEXT, state TEXT, phone TEXT, website TEXT,
     rating REAL, reviews INTEGER, primary_type TEXT, business_status TEXT, maps_url TEXT,
+    review_samples TEXT, hours_text TEXT,  -- only with search --with-reviews (Atmosphere fields)
     fetched_at INTEGER,
     -- Our own data, kept: the website's domain and the configured area it was found in.
     domain TEXT, area TEXT,
@@ -69,7 +70,8 @@ def connect(path=None):
     db = sqlite3.connect(path or data_dir() / "leads.db")
     db.row_factory = sqlite3.Row
     db.executescript(SCHEMA)
-    for table, col in (("places", "area"), ("crawls", "signals")):  # databases created before these columns
+    for table, col in (("places", "area"), ("crawls", "signals"), ("places", "review_samples"),
+                       ("places", "hours_text")):  # databases created before these columns
         if col not in {r["name"] for r in db.execute(f"PRAGMA table_info({table})")}:
             db.execute(f"ALTER TABLE {table} ADD COLUMN {col} TEXT")
     return db
@@ -100,7 +102,7 @@ def usage(db, sku):
 
 
 GOOGLE_FIELDS = ("name", "address", "city", "state", "phone", "website", "rating", "reviews",
-                 "primary_type", "business_status", "maps_url", "fetched_at")
+                 "primary_type", "business_status", "maps_url", "review_samples", "hours_text", "fetched_at")
 
 
 def purge(db, days=CACHE_DAYS):

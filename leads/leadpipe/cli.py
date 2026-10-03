@@ -10,6 +10,7 @@ from . import crawl, export, places, report, store, verify
 # USD per 1,000 requests and free requests per month (Google Maps Platform, 2026).
 PRICES = {
     places.SKU: (35.0, 1000),
+    places.ATMOSPHERE_SKU: (40.0, 1000),
     places.GEOCODE_SKU: (5.0, 10000),
 }
 
@@ -24,7 +25,7 @@ def cmd_search(db, niche, a):
     if not key:
         raise SystemExit("Set GOOGLE_MAPS_API_KEY (Places API (New) and Geocoding API enabled).")
     areas = [x for x in niche["areas"] if not a.area or x["name"] in a.area]
-    s = places.Searcher(db, key, niche, a.max_requests, max_pages=a.max_pages)
+    s = places.Searcher(db, key, niche, a.max_requests, max_pages=a.max_pages, with_reviews=a.with_reviews)
     try:
         s.run(areas, split_full=not a.no_split, queries=a.query)
     except places.BudgetExceeded as e:
@@ -116,6 +117,8 @@ def main(argv=None):
     s.add_argument("--no-split", action="store_true", help="one search per area and query (samples)")
     s.add_argument("--max-pages", type=int, default=3, help="pages of 20 per search, 1 to 3")
     s.add_argument("--query", action="append", help="use only these queries (repeatable)")
+    s.add_argument("--with-reviews", action="store_true",
+                   help="also fetch 3 review samples and hours for prospects (Atmosphere SKU, ~$40 per 1,000 pages)")
 
     c = sub.add_parser("crawl", help="find published emails on business websites")
     c.add_argument("--limit", type=int, default=1000)

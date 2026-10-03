@@ -146,6 +146,25 @@ class SalesTest(unittest.TestCase):
             self.assertTrue(all("dnc_checked" in r for r in got))
             self.assertEqual(export.CALL_COLUMNS[-1], "dnc_checked")
 
+    def test_review_samples_and_hours_in_prospects_and_purged(self):
+        p = named(20, "Reviewed Lawn", reviews=50)
+        p["reviews"] = [{"rating": 5, "text": {"text": "Great job"}, "authorAttribution": {"displayName": "Ann"},
+                         "publishTime": "2026-09-01T10:00:00Z"}]
+        p["regularOpeningHours"] = {"weekdayDescriptions": ["Monday: 8 AM to 5 PM", "Tuesday: Closed"]}
+        s = places.Searcher(self.db, "k", NICHE, 10, post=None, with_reviews=True)
+        self.assertIn("places.reviews", s.field_mask)
+        self.assertEqual(s.sku, places.ATMOSPHERE_SKU)
+        s.save([p])
+        row = {r["name"]: r for r in export.prospect_rows(self.db, NICHE)}["Reviewed Lawn"]
+        self.assertEqual((row["review_1_author"], row["review_1_text"], row["review_1_stars"], row["review_1_date"],
+                          row["review_2_text"], row["hours_text"], row["niche"]),
+                         ("Ann", "Great job", 5, "2026-09-01", None, "Monday: 8 AM to 5 PM; Tuesday: Closed",
+                          "lawn-care"))
+        self.db.execute("UPDATE places SET fetched_at = fetched_at - 31 * 86400")
+        store.purge(self.db)
+        left = self.db.execute("SELECT review_samples, hours_text FROM places WHERE place_id='ChIJ20'").fetchone()
+        self.assertEqual(tuple(left), (None, None))
+
     def test_lighthouse_score(self):
         res = {"lighthouseResult": {"categories": {"performance": {"score": 0.42}}}}
         self.assertEqual(report.lighthouse("https://a.com", get=lambda u, **k: res), 42)

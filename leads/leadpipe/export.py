@@ -17,9 +17,10 @@ EMAIL_COLUMNS = ["email", "first_name", "company_name", "name_source", "niche", 
 CALL_COLUMNS = ["company_name", "phone", "city", "state", "rating", "reviews", "web_presence",
                 "place_id", "maps_url", "dnc_checked"]
 # Agreed with the personalization thread, 2026-10-03.
-PROSPECT_COLUMNS = ["place_id", "name", "email", "email_status", "email_type", "email_source_url", "segment",
-                    "phone", "website", "gbp_url", "category", "city", "state", "zip", "rating", "review_count",
-                    "source", "fetched_at"]
+REVIEW_COLUMNS = [f"review_{i}_{k}" for i in (1, 2, 3) for k in ("author", "text", "stars", "date")]
+PROSPECT_COLUMNS = ["place_id", "name", "niche", "email", "email_status", "email_type", "email_source_url",
+                    "segment", "phone", "website", "gbp_url", "category", "city", "state", "zip", "rating",
+                    "review_count", *REVIEW_COLUMNS, "hours_text", "source", "fetched_at"]
 ZIP_RE = re.compile(r"\b[A-Z]{2}\s+(\d{5})(?:-\d{4})?,\s*USA$")
 DEFAULT_SALES_PIPELINE = "/mnt/project-files/sales/pipeline.csv"
 
@@ -104,8 +105,12 @@ def prospect_rows(db, niche):
     for p in eligible_places(db, niche):
         e = best_email(db, p, statuses=("valid", "catch_all", "unknown")) if p["domain"] else None
         m = ZIP_RE.search(p["address"] or "")
+        reviews = {f"review_{i}_{k}": v for i, rev in enumerate(json.loads(p["review_samples"] or "[]"), 1)
+                   for k, v in rev.items()}
         out.append({
-            "place_id": p["place_id"], "name": p["name"], "email": e and e["email"],
+            **dict.fromkeys(REVIEW_COLUMNS, None), **reviews, "hours_text": p["hours_text"],
+            "place_id": p["place_id"], "name": p["name"], "niche": niche.get("slug", niche["name"]),
+            "email": e and e["email"],
             "email_status": e and e["verify_status"], "email_type": e and email_type(e["email"], p["domain"]),
             "email_source_url": e and e["source_url"], "segment": segment(p),
             "phone": p["phone"], "website": p["website"], "gbp_url": p["maps_url"], "category": p["primary_type"],
