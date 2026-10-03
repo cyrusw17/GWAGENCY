@@ -38,7 +38,9 @@
     "social": [
       "https://instagram.com/example",
       "https://facebook.com/example"
-    ]
+    ],
+    "service": "Ceramic coating and paint correction",
+    "area": "Dallas"
   },
   "theme": {
     "bg": "#0C0E11",
@@ -56,15 +58,13 @@
     "description": "Indoor ceramic coating and paint correction studio in Dallas. Prices shown, written warranty, book a free paint inspection online."
   },
   "offer": {
-    "bar": "October: free 1-year maintenance wash with any ceramic package.",
-    "barCta": "Book an inspection"
+    "bar": "Free maintenance wash with any coating.",
+    "barCta": "Book"
   },
   "hero": {
     "eyebrow": "Dallas · Uptown · Highland Park · Plano",
-    "headline": "Paint that looks wet,",
-    "headlineEm": "for years.",
-    "sub": "Machine paint correction and pro-grade ceramic coatings, done indoors and backed in writing. See the price for your car before you book.",
-    "cta": "See packages and book",
+    "headlineEm": "Paint that looks wet for years.",
+    "sub": "Machine paint correction and pro-grade coatings, done indoors and backed in writing. See the price for your car before you book.",
     "proof": [
       {
         "value": "5 yr",
@@ -122,16 +122,16 @@
   "pricing": {
     "headline": "Pick your level of protection",
     "sub": "Sedan prices shown. SUVs and trucks are quoted after a free inspection.",
-    "fine": "Every coating includes a one-step polish, panel prep and a written warranty.",
+    "fine": "12 payments means full price ÷ 12, no interest, nothing added. Every coating includes panel prep and a written warranty.",
     "onceLabel": "Pay in full",
-    "memberLabel": "Monthly",
-    "memberUnit": "/mo for 12 mo"
+    "memberLabel": "12 payments",
+    "memberUnit": "/mo"
   },
   "packages": [
     {
       "name": "Gloss",
       "price": 899,
-      "member": 79,
+      "member": 74.91,
       "note": "2-year coating · 1 day",
       "features": [
         "One-step polish",
@@ -143,7 +143,7 @@
     {
       "name": "Signature",
       "price": 1499,
-      "member": 129,
+      "member": 124.91,
       "note": "5-year coating · 2 days",
       "popular": true,
       "popularLabel": "Most chosen",
@@ -158,7 +158,7 @@
     {
       "name": "Concours",
       "price": 2499,
-      "member": 215,
+      "member": 208.25,
       "note": "9-year coating · 3 days",
       "features": [
         "Multi-step correction",
@@ -215,17 +215,20 @@
       {
         "name": "Sample customer",
         "detail": " · Model 3, Signature",
-        "text": "They showed me the swirl marks under the light before quoting. Same price on the site as in the shop."
+        "text": "They showed me the swirl marks under the light before quoting. Same price on the site as in the shop.",
+        "date": "2026-09-29"
       },
       {
         "name": "Sample customer",
         "detail": " · Tahoe, correction",
-        "text": "Progress photos every day and the truck looks better than when I bought it."
+        "text": "Progress photos every day and the truck looks better than when I bought it.",
+        "date": "2026-09-11"
       },
       {
         "name": "Sample customer",
         "detail": " · 911, Concours",
-        "text": "Careful, clean, and the warranty paperwork was waiting at pickup."
+        "text": "Careful, clean, and the warranty paperwork was waiting at pickup.",
+        "date": "2026-08-22"
       }
     ]
   },
@@ -249,7 +252,7 @@
     ]
   },
   "booking": {
-    "cta": "Book inspection",
+    "cta": "Book a free inspection",
     "eyebrow": "Book",
     "headline": "Book a free paint inspection",
     "body": "Tell us your car and what bugs you about the paint. We'll text back with a time, usually the same day."
@@ -257,7 +260,8 @@
   "lead": {
     "endpoint": "",
     "submit": "Request my inspection",
-    "notesHint": "Year, make, model and what you'd like fixed"
+    "notesHint": "Year, make, model and what you'd like fixed",
+    "question": "Which package interests you?"
   },
   "faq": [
     {
@@ -277,8 +281,8 @@
       "a": "Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash."
     },
     {
-      "q": "Do you offer payment plans?",
-      "a": "Yes. Every package can be paid monthly over 12 months, shown under the Monthly toggle above."
+      "q": "Can I pay over time?",
+      "a": "Yes. Any package can be split into 12 equal payments with no interest; the monthly prices are under the 12 payments toggle above."
     }
   ],
   "final": {

@@ -1,0 +1,305 @@
+{
+  "slug": "demo-exterior-wash",
+  "demo": true,
+  "niche": "exterior cleaning",
+  "tracking": "groundwork",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/exterior-cleaning/?demo=exterior"
+  },
+  "layout": {
+    "hero": "compare",
+    "order": [
+      "pricing",
+      "how",
+      "reviews",
+      "work",
+      "promise",
+      "areas",
+      "services"
+    ]
+  },
+  "business": {
+    "name": "Brightside Exterior Wash",
+    "tagline": "House, roof and driveway washing · Charlotte",
+    "service": "House and driveway washing",
+    "area": "Charlotte",
+    "schemaType": "HomeAndConstructionBusiness",
+    "phone": "(704) 555-0163",
+    "sms": "(704) 555-0163",
+    "email": "quotes@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Sat 7am-7pm",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "07:00",
+        "closes": "19:00"
+      }
+    ],
+    "address": {
+      "city": "Charlotte",
+      "region": "NC",
+      "postal": "28202"
+    },
+    "footerLine": "Licensed and insured · Plant-safe soft wash"
+  },
+  "theme": {
+    "bg": "#F4F8FC",
+    "surface": "#FFFFFF",
+    "surface2": "#E3EDF7",
+    "text": "#0B1F33",
+    "muted": "#4A5D70",
+    "line": "#D3E0EC",
+    "accent": "#0B63CE",
+    "accentInk": "#FFFFFF",
+    "accent2": "#0B2E4F",
+    "display": "ui-rounded,\"SF Pro Rounded\",\"Nunito\",\"Varela Round\",system-ui,sans-serif",
+    "radius": "14px"
+  },
+  "seo": {
+    "title": "Brightside Exterior Wash | House, Roof and Driveway Washing in Charlotte",
+    "description": "Soft washing and pressure washing in Charlotte. House, roof, driveway, windows and gutters. Prices shown, free quote by text."
+  },
+  "offer": {
+    "bar": "Book 2 services, gutters free.",
+    "barCta": "Quote"
+  },
+  "hero": {
+    "eyebrow": "Charlotte · Matthews · Huntersville · Mint Hill",
+    "headlineEm": "Drag to see the difference.",
+    "sub": "Soft washing that's safe for siding, roofs and plants, and pressure washing for concrete. Prices up front, a photo quote by text the same day.",
+    "proof": [
+      {
+        "value": "Same day",
+        "label": "photo quotes"
+      },
+      {
+        "value": "Insured",
+        "label": "$2M liability"
+      },
+      {
+        "value": "Plant-safe",
+        "label": "soft wash"
+      }
+    ]
+  },
+  "trust": [
+    "Licensed and insured",
+    "Plant-safe soft wash",
+    "Prices shown up front",
+    "Not happy? We rewash free"
+  ],
+  "servicesHeadline": "Everything outside, washed right",
+  "services": [
+    {
+      "name": "Driveway and walkways",
+      "from": 149,
+      "desc": "Surface-cleaned concrete, front walk and steps. Oil and rust spots treated."
+    },
+    {
+      "name": "House soft wash",
+      "from": 249,
+      "desc": "Siding, soffits and trim cleaned at low pressure so nothing gets damaged."
+    },
+    {
+      "name": "Roof soft wash",
+      "from": 399,
+      "desc": "Black streaks and moss removed, safe for shingles and the warranty."
+    },
+    {
+      "name": "Gutter cleaning",
+      "from": 99,
+      "desc": "Gutters cleared and downspouts flushed. Bagged and hauled away."
+    },
+    {
+      "name": "Window cleaning",
+      "from": 129,
+      "desc": "Exterior glass, frames and screens, streak-free."
+    },
+    {
+      "name": "Decks and fences",
+      "from": 179,
+      "desc": "Wood and composite cleaned and brightened before sealing."
+    }
+  ],
+  "pricing": {
+    "headline": "See your price before we come out",
+    "sub": "Prices for a typical single-story home. Send a photo and we'll confirm the exact number by text.",
+    "fine": "Add gutter cleaning to any package from $99."
+  },
+  "packages": [
+    {
+      "name": "Driveway & Walkways",
+      "price": 149,
+      "note": "from · about 2 hours",
+      "features": [
+        "Driveway, front walk and steps",
+        "Surface cleaner, no stripes",
+        "Oil and rust spot treatment",
+        "Rinse of nearby siding"
+      ]
+    },
+    {
+      "name": "House Soft Wash",
+      "price": 249,
+      "note": "from · single-story home",
+      "popular": true,
+      "popularLabel": "Most booked",
+      "features": [
+        "Siding, soffits and trim",
+        "Low-pressure soft wash",
+        "Mildew and algae treated",
+        "Plants pre-wet and rinsed",
+        "Windows rinsed spot-free"
+      ]
+    },
+    {
+      "name": "Roof Soft Wash",
+      "price": 399,
+      "note": "from · asphalt shingles",
+      "features": [
+        "Black streaks removed",
+        "Moss and lichen treated",
+        "No pressure on shingles",
+        "Gutters flushed after"
+      ]
+    }
+  ],
+  "stepsHeadline": "A clean house in 3 steps",
+  "steps": [
+    {
+      "title": "Text a photo",
+      "body": "Send a picture of what needs washing and we text back an exact price."
+    },
+    {
+      "title": "Pick a day",
+      "body": "You don't need to be home. We just need an outdoor water tap."
+    },
+    {
+      "title": "See it clean",
+      "body": "We send after photos before we leave. Not happy? We rewash free."
+    }
+  ],
+  "work": {
+    "headline": "Recent jobs around Charlotte",
+    "sub": "Real sites show the owner's own before and after photos.",
+    "compare": {
+      "caption": "Driveway, Matthews. Sample imagery in this demo."
+    },
+    "gallery": [
+      {
+        "caption": "Huntersville · house soft wash"
+      },
+      {
+        "caption": "Mint Hill · roof streaks removed"
+      },
+      {
+        "caption": "Ballantyne · paver patio"
+      },
+      {
+        "caption": "NoDa · fence brightening"
+      }
+    ]
+  },
+  "reviews": {
+    "headline": "Charlotte homeowners say",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 132,
+    "items": [
+      {
+        "name": "Sample customer",
+        "detail": " · House soft wash",
+        "date": "2026-09-30",
+        "text": "Texted a photo at breakfast, had a price by lunch, and the siding looks new."
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Driveway",
+        "date": "2026-09-19",
+        "text": "No stripes on the driveway like the last company left. On time and fair price."
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Roof soft wash",
+        "date": "2026-09-02",
+        "text": "The black streaks are gone and they explained exactly why soft wash is safe for the shingles."
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Not spotless? We come back and rewash free.",
+    "body": "If anything isn't right, text us within 7 days and we fix it at no charge."
+  },
+  "areas": {
+    "headline": "Serving Charlotte and nearby towns",
+    "body": "No trip fee inside our area. Just outside it, a flat $25, quoted up front.",
+    "cities": [
+      "Charlotte",
+      "Matthews",
+      "Mint Hill",
+      "Huntersville",
+      "Cornelius",
+      "Pineville",
+      "Ballantyne",
+      "Indian Trail",
+      "Concord"
+    ]
+  },
+  "booking": {
+    "cta": "Get my quote",
+    "eyebrow": "Free quote",
+    "headline": "Get your price by text",
+    "body": "Pick what needs washing and your ZIP. We text back a price, usually within the hour during business hours."
+  },
+  "lead": {
+    "endpoint": "",
+    "question": "What needs washing?",
+    "multi": true,
+    "options": [
+      "House",
+      "Driveway",
+      "Roof",
+      "Windows",
+      "Gutters",
+      "Deck or fence"
+    ],
+    "submit": "Text me my price",
+    "notesHint": "Rough size of the house, stories, anything stained"
+  },
+  "faq": [
+    {
+      "q": "What's the difference between soft washing and pressure washing?",
+      "a": "Soft washing uses low pressure and a cleaning solution, which is safe for siding, roofs and paint. Pressure washing is for hard surfaces like concrete driveways and walks."
+    },
+    {
+      "q": "Will the cleaner hurt my plants?",
+      "a": "No. We wet plants before and rinse them after, and the solution is diluted to plant-safe levels."
+    },
+    {
+      "q": "Do I need to be home?",
+      "a": "No. We need an outdoor water tap and the gate unlocked. We text before and after photos."
+    },
+    {
+      "q": "How often should I wash my house?",
+      "a": "Once a year for most homes. Shaded sides with mildew may need it every 9 to 12 months."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "Card or cash after the job, once you've seen the after photos."
+    }
+  ],
+  "final": {
+    "headline": "See your house clean again.",
+    "sub": "Text a photo, get a price, pick a day."
+  }
+}

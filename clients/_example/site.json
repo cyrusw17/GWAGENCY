@@ -38,7 +38,9 @@
     "social": [
       "https://instagram.com/example",
       "https://facebook.com/example"
-    ]
+    ],
+    "service": "Mobile car detailing",
+    "area": "Tampa Bay"
   },
   "theme": {
     "bg": "#F5F4F0",
@@ -56,15 +58,13 @@
     "description": "Mobile car detailing across Tampa Bay. We bring water and power to your driveway. Prices shown, book online in a minute."
   },
   "offer": {
-    "bar": "New customers: $20 off your first Inside + Out this month.",
-    "barCta": "Book it"
+    "bar": "$20 off your first Inside + Out.",
+    "barCta": "Book"
   },
   "hero": {
     "eyebrow": "Tampa · Brandon · Riverview · Westchase",
-    "headline": "A showroom clean car,",
-    "headlineEm": "without leaving home.",
-    "sub": "We come to your driveway or office with our own water and power. Pick a package, pick a time, and get your car back cleaner than the day you bought it.",
-    "cta": "See prices and book",
+    "headlineEm": "at your door.",
+    "sub": "A showroom clean car without leaving home. We bring our own water and power, show prices up front, and text when we're 15 minutes out.",
     "proof": [
       {
         "value": "7 days",
@@ -213,17 +213,20 @@
       {
         "name": "Sample customer",
         "detail": " · Tahoe, Inside + Out",
-        "text": "Booked from my phone at lunch and came home to a clean car. Exactly the price on the site."
+        "text": "Booked from my phone at lunch and came home to a clean car. Exactly the price on the site.",
+        "date": "2026-09-27"
       },
       {
         "name": "Sample customer",
         "detail": " · Office fleet day",
-        "text": "They did eight cars in our lot on a Tuesday. Nobody had to leave their desk."
+        "text": "They did eight cars in our lot on a Tuesday. Nobody had to leave their desk.",
+        "date": "2026-09-14"
       },
       {
         "name": "Sample customer",
         "detail": " · Odyssey, Interior Deep",
-        "text": "Texted when they were 15 out, showed up on time, and the dog hair is finally gone."
+        "text": "Texted when they were 15 out, showed up on time, and the dog hair is finally gone.",
+        "date": "2026-08-30"
       }
     ],
     "url": "https://www.google.com/maps"
@@ -249,15 +252,16 @@
     ]
   },
   "booking": {
-    "cta": "Book now",
+    "cta": "See prices and book",
     "eyebrow": "Book",
     "headline": "Get your price and a time",
-    "body": "Tell us what you need and we'll text you a confirmed time, usually within the hour."
+    "body": "Pick a package and we'll text you a confirmed time, usually within the hour."
   },
   "lead": {
     "endpoint": "",
     "submit": "Text me a time",
-    "notesHint": "Vehicle, condition, best days"
+    "notesHint": "Vehicle, condition, best days",
+    "question": "Which package?"
   },
   "faq": [
     {
