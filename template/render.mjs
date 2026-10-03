@@ -91,7 +91,7 @@ export function render(s, { css = "", design = "", mapSvg = "", assetBase = "" }
   const heroLayout = ["compare", "overlay", "type", "stack"].includes(s.layout?.hero) ? s.layout.hero : "split";
   const eb = (id, dflt) => s.eyebrows?.[id] ?? dflt; // per-site section labels; "" hides one
   const r = s.reviews, w = s.work, members = (s.packages || []).some(p => p.member != null);
-  const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo, '<span class="f-tag">sample</span>')}`;
+  const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo && !r.real, '<span class="f-tag">sample</span>')}`;
   // Newest first, and "Latest review: N days ago" (recency is what visitors weigh most).
   const reviews = [...(r?.items || [])].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
   const monthYear = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });

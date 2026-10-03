@@ -65,10 +65,10 @@ export async function run(opts) {
   // No mockup host is approved yet: until one is, mockup_url stays empty and copy must not link to it.
   const mockupBase = opts.mockupBase ? opts.mockupBase.replace(/\/?$/, "/") : "";
   const rules = { ...DEFAULT_RULES, ...(opts.rules || {}) };
-  // Template per niche: niches/<niche>.json "template" (a folder under the repo), else --template, else template/.
+  // Template: --template for the whole run, else niches/<niche>.json "template" (a folder under the repo), else template/.
   const templates = {};
   const templateFor = async niche => {
-    const dir = resolve(repoRoot, niche.template || opts.template || "template");
+    const dir = resolve(repoRoot, opts.template || niche.template || "template");
     return (templates[dir] ||= await loadTemplate(dir));
   };
   // Google lets us keep Places data (name, rating, review text) for 30 days, so every mockup built
