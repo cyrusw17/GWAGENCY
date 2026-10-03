@@ -4,7 +4,6 @@
 // services, before/after, the primos, reviews, estimate, area, FAQ.
 import { kit, esc, when, money } from "../_kit.mjs";
 
-const fmtDate = d => { const t = new Date(d + "T12:00:00Z"); return isNaN(t) ? esc(d || "") : t.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }); };
 const banner = (en, es, id = "") => `<h2 class="banner"${id ? ` id="${id}"` : ""}><span class="banner-en">${esc(en)}</span>${when(es, `<span class="banner-es" lang="es">${esc(es)}</span>`)}</h2>`;
 // Papel picado: one string of cut-paper flags. Cut-outs are drawn per flag in CSS.
 const picado = n => `<div class="picado" aria-hidden="true">${Array.from({ length: n }, (_, i) => `<span class="pf c${i % 5}"></span>`).join("")}</div>`;
@@ -106,7 +105,7 @@ ${when(s.owner, `<section class="primos">
   <div class="wrap">
     ${banner(s.reviews?.headline || "Reviews", s.reviews?.headlineEs)}
     <div class="revs-meta">${k.rating("rating")}${k.reviewNote("sample-note")}</div>
-    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}${"☆".repeat(5 - (Number(x.stars) || 5))}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")} · <time datetime="${esc(x.date || "")}">${fmtDate(x.date)}</time></figcaption></figure>`).join("")}</div>
+    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")} · <time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure>`).join("")}</div>
   </div>
 </section>
 

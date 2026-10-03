@@ -3,7 +3,6 @@
 // reviews, owner, areas by day, estimate form, FAQ.
 import { kit, esc, when, url } from "../_kit.mjs";
 
-const fmtDate = d => { const t = new Date(d + "T12:00:00Z"); return isNaN(t) ? esc(d || "") : t.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }); };
 
 export function render(s, { css = "" } = {}) {
   const k = kit(s), b = k.b, rt = s.route || {};
@@ -87,7 +86,7 @@ ${when(s.trust?.length, `<ul class="checks wrap" aria-label="Why customers stay"
   <div class="wrap">
     <div class="rev-head"><div><p class="label">Reviews</p><h2>${esc(s.reviews?.headline || "Reviews")}</h2></div>${k.rating("rating")}</div>
     ${k.reviewNote("sample-note")}
-    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}${"☆".repeat(5 - (Number(x.stars) || 5))}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")}<time datetime="${esc(x.date || "")}">${fmtDate(x.date)}</time></figcaption></figure>`).join("")}</div>
+    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")}<time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure>`).join("")}</div>
   </div>
 </section>
 

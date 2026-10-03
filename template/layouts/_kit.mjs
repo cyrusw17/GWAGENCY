@@ -71,6 +71,8 @@ ${schema(s)}
   k.rating = (cls = "rating") => when(r.rating, `<p class="${cls}"><span class="stars" aria-hidden="true">★★★★★</span> <b>${esc(r.rating)}</b> <span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo, ' <span class="sample-tag">(sample)</span>')}</p>`);
   k.reviewNote = cls => when(demo, `<p class="${cls || "sample-note"}">${esc(s.reviews?.sampleNote || "Sample reviews for this demo. Your site shows your own Google reviews, newest first, with names and dates.")}</p>`);
   // Reviews newest first; dates and names come from site.json.
+  k.date = (d, month = "short") => { const t = new Date(d + "T12:00:00Z"); return isNaN(t) ? esc(d || "") : t.toLocaleDateString("en-US", { month, day: "numeric", year: "numeric", timeZone: "UTC" }); };
+  k.stars = (n, hollow = true) => { n = Number(n) || 5; return `<div class="stars" role="img" aria-label="${n} out of 5 stars">${"★".repeat(n)}${hollow ? "☆".repeat(5 - n) : ""}</div>`; };
   k.reviews = () => [...(r.items || [])].sort((a, z) => String(z.date || "").localeCompare(String(a.date || "")));
 
   k.demoBar = () => when(demo, `<div class="demo-bar" role="region" aria-label="Demo notice"><b>GroundWork demo</b> <span>${esc(s.demoNote || "Fictional business with sample photos and reviews.")}</span> <a href="${url(s.demoCta?.href || "https://groundwork-web.com/start/")}">${esc(s.demoCta?.label || "Get this site")}</a></div>`);

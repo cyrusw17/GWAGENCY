@@ -4,7 +4,6 @@
 // letter from the owner, neighbor notes, where we garden, estimate, FAQ.
 import { kit, esc, when, money } from "../_kit.mjs";
 
-const fmtDate = d => { const t = new Date(d + "T12:00:00Z"); return isNaN(t) ? esc(d || "") : t.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }); };
 
 // A pen-drawn fern frond: a curved stem with paired leaflets that shrink toward the tip.
 // Deterministic, so every build draws the same plant.
@@ -121,7 +120,7 @@ ${when(s.owner, `<section class="letter">
   <div class="wrap">
     <div class="notes-head"><h2 class="sec-h">${sprig()}${esc(s.reviews?.headline || "Reviews")}</h2>${k.rating("rating")}</div>
     ${k.reviewNote("sample-note")}
-    <div class="cards" role="list">${k.reviews().map(x => `<figure class="card" role="listitem"><figcaption><time datetime="${esc(x.date || "")}">${fmtDate(x.date)}</time> · ${esc(x.where || "")}</figcaption><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}</div><blockquote>${esc(x.text)}</blockquote><p class="who">${esc(x.name)}</p></figure>`).join("")}</div>
+    <div class="cards" role="list">${k.reviews().map(x => `<figure class="card" role="listitem"><figcaption><time datetime="${esc(x.date || "")}">${k.date(x.date, "long")}</time> · ${esc(x.where || "")}</figcaption>${k.stars(x.stars, false)}<blockquote>${esc(x.text)}</blockquote><p class="who">${esc(x.name)}</p></figure>`).join("")}</div>
   </div>
 </section>
 
