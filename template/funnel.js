@@ -50,11 +50,48 @@
   }
   function done(msg) { form.classList.add("sent"); status.textContent = msg; status.focus(); }
 
+  // Multi-step form (layouts): one easy question first, contact details last.
+  // Only runs when the form has data-steps; the default template's one-page form is untouched.
+  var steps = form.hasAttribute("data-steps") ? form.querySelectorAll("[data-step]") : [];
+  var at = 0, progress = form.querySelector("[data-progress]");
+  function show(i) {
+    at = Math.max(0, Math.min(i, steps.length - 1));
+    steps.forEach(function (st, n) { st.classList.toggle("on", n === at); });
+    if (progress) progress.textContent = "Step " + (at + 1) + " of " + steps.length;
+    var first = steps[at].querySelector("input:not([type=hidden]),select,textarea,button");
+    if (first && i > 0) first.focus({ preventScroll: false });
+  }
+  function stepOk() {
+    var fields = steps[at].querySelectorAll("input,select,textarea");
+    for (var n = 0; n < fields.length; n++) if (!fields[n].reportValidity()) return false;
+    return true;
+  }
+  if (steps.length) {
+    form.addEventListener("change", function (e) { if (e.target.name === "kind" && at === 0) show(1); });
+    form.addEventListener("click", function (e) {
+      if (e.target.closest("[data-next]") && stepOk()) show(at + 1);
+      if (e.target.closest("[data-back]")) show(at - 1);
+    });
+    // A package button jumps past the first question, since the visitor already picked.
+    document.querySelectorAll("[data-pick]").forEach(function (a) { a.addEventListener("click", function () { if (at === 0) show(1); }); });
+  }
+  var phone = form.querySelector("[name=phone]"), email = form.querySelector("[name=email]");
+  function contactOk() {
+    if (!email || !phone) return true;
+    var none = !phone.value.trim() && !email.value.trim();
+    phone.setCustomValidity(none ? "Add a mobile number or an email so we can reply." : "");
+    return !none;
+  }
+  if (email) [phone, email].forEach(function (el) { el && el.addEventListener("input", contactOk); });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (steps.length && at < steps.length - 1) { if (stepOk()) show(at + 1); return; } // Enter on an early step
+    contactOk();
     if (!form.reportValidity()) return;
     var fd = new FormData(form), data = {};
     fd.forEach(function (v, k) { data[k] = String(v).trim(); });
+    if (data.kind) { data.service = data.kind + ": " + (data.service || ""); delete data.kind; }
     if (data.company_url) { done(C.thanks); return; } // honeypot
     delete data.company_url;
     data.site = C.slug; data.page = location.pathname;
