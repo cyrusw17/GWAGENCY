@@ -1,0 +1,3 @@
+shop,city,state,niche,segment,channel,contact_email,contact_phone,email_source,first_contacted,last_contacted,touches,replied,reply_date,interested,start_99_date,approved_300_date,content_complete_date,preview_sent_date,launch_date,plan,plan_start_date,status,lost_reason,notes
+Optout Detail Co,Nashville,TN,auto-detailing,no-site,email,sam@optout-example.com,615-555-2012,vendor:fixture,2026-09-20,2026-09-22,2,yes,2026-09-22,no,,,,,,,,do-not-contact,,fixture
+Hilltop Mobile Detail,Portland,OR,auto-detailing,no-site,call,,(503) 555-2018,,2026-09-28,2026-09-28,1,no,,,,,,,,,,contacted,,fixture

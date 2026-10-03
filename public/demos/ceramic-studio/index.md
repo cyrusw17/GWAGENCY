@@ -7,9 +7,9 @@
 - Service area: Dallas, Uptown, Highland Park, University Park, Plano, Frisco, Richardson, Irving
 
 ## Prices
-- Gloss: $899 (members $79) (2-year coating · 1 day)
-- Signature: $1,499 (members $129) (5-year coating · 2 days)
-- Concours: $2,499 (members $215) (9-year coating · 3 days)
+- Gloss: $899 (members $74.91) (2-year coating · 1 day)
+- Signature: $1,499 (members $124.91) (5-year coating · 2 days)
+- Concours: $2,499 (members $208.25) (9-year coating · 3 days)
 
 ## Services
 - Ceramic coating (from $899): Years of gloss, easier washing and protection from sun, sap and bird droppings.
@@ -24,4 +24,4 @@
 - Do I need paint correction before coating? Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs.
 - How long will you have my car? One to three days depending on the package. We send progress photos and can arrange a loaner ride.
 - Can I still wash it myself? Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash.
-- Do you offer payment plans? Yes. Every package can be paid monthly over 12 months, shown under the Monthly toggle above.
+- Can I pay over time? Yes. Any package can be split into 12 equal payments with no interest; the monthly prices are under the 12 payments toggle above.

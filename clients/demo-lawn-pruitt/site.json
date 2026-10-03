@@ -1,7 +1,7 @@
 {
   "slug": "demo-lawn-pruitt",
   "demo": true,
-  "layout": "lawn-route",
+  "design": "lawn-route",
   "niche": "lawn care",
   "demoCta": {
     "label": "Get this site",
@@ -80,8 +80,7 @@
   "hero": {
     "kicker": "Est. 1994 · second generation",
     "headline": "Weekly lawn mowing in Dublin, Ohio.",
-    "sub": "Same crew, same day, every week from April to October. Mowed, edged, trimmed and blown off. You'll know we were there by the stripes.",
-    "cta": "Get a free estimate"
+    "sub": "Same crew, same day, every week from April to October. Mowed, edged, trimmed and blown off. You'll know we were there by the stripes."
   },
   "route": {
     "title": "This week's route",

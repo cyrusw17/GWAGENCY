@@ -1,0 +1,2 @@
+# bounces and complaints, one per line
+@bounced-example.com

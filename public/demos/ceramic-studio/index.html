@@ -14,7 +14,7 @@
 <meta property="og:title" content="Northline Ceramic &amp; Detail | Ceramic Coating and Paint Correction in Dallas">
 <meta property="og:description" content="Indoor ceramic coating and paint correction studio in Dallas. Prices shown, written warranty, book a free paint inspection online.">
 
-
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23D4A84F%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2219%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%2317120A%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E">
 
 
 <style>/* GroundWork Funnel Template: mobile-first conversion site for local service businesses.
@@ -25,7 +25,7 @@
   --f-line:#DAD6CC; --f-accent:#C2410C; --f-accent-ink:#FFFFFF; --f-accent-2:#1E3A5F;
   --f-display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-radius:10px; --f-max:1120px; --f-gutter:16px; --f-bar:68px;
+  --f-radius:10px; --f-accent-light:#C7E59A; --f-max:1120px; --f-gutter:16px; --f-bar:68px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -47,7 +47,7 @@ h2{font-size:clamp(28px,6.5vw,44px)}
 h3{font-size:20px}
 p{margin:0 0 1em}
 .f-muted{color:var(--f-muted)}
-.f-eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--f-accent);margin:0 0 10px}
+.f-eyebrow{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--f-accent);margin:0 0 10px}
 section{padding-block:56px}
 .f-band{background:var(--f-surface);border-block:1px solid var(--f-line)}
 .f-head{margin-bottom:28px;max-width:640px}
@@ -71,7 +71,7 @@ section{padding-block:56px}
 .f-demo a{background:#E5A00D;color:#1A1200;padding:6px 10px;border-radius:5px;font-weight:700;text-decoration:none;white-space:nowrap}
 
 /* offer bar */
-.f-offerbar{background:var(--f-accent-2);color:#fff;font-size:14px;text-align:center;padding:9px var(--f-gutter)}
+.f-offerbar{background:var(--f-accent-2);color:#fff;font-size:14px;line-height:1.3;text-align:center;padding:9px var(--f-gutter)}
 .f-offerbar a{font-weight:700;text-underline-offset:3px}
 
 /* header */
@@ -79,7 +79,7 @@ section{padding-block:56px}
 body.has-demo .f-header{top:40px}
 .f-header .f-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
 .f-logo{font-family:var(--f-display);font-weight:800;font-size:18px;text-decoration:none;line-height:1.1;min-width:0}
-.f-logo small{display:block;font:500 12px/1.2 var(--f-body);color:var(--f-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.f-logo small{display:none;font:500 12px/1.2 var(--f-body);color:var(--f-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .f-logo img{max-height:40px;width:auto}
 .f-nav{display:none}
 .f-header .f-actions{display:flex;gap:8px;align-items:center;flex:none}
@@ -89,7 +89,7 @@ body.has-demo .f-header{top:40px}
 /* hero */
 .f-hero{padding-block:28px 40px}
 .f-hero .f-wrap{display:grid;gap:24px}
-.f-hero h1 em{font-style:normal;color:var(--f-accent);background:linear-gradient(100deg,var(--f-accent),color-mix(in srgb,var(--f-accent) 55%,var(--f-accent-2)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.f-hero h1 em{display:block;font-style:normal;color:var(--f-accent);background:linear-gradient(100deg,var(--f-accent),color-mix(in srgb,var(--f-accent) 55%,var(--f-accent-2)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .f-hero .lede{font-size:18px;color:var(--f-muted);margin:14px 0 22px;max-width:46ch}
 .f-ctas{display:grid;gap:10px}
 .f-proof{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px;font-size:14px;color:var(--f-muted);padding:0;list-style:none}
@@ -162,7 +162,7 @@ body.has-demo .f-header{top:40px}
 .f-gallery .f-media{aspect-ratio:1}
 
 /* rating pill above the headline (21st.dev badge-over-headline pattern) */
-.f-pill{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px;padding:6px 12px;border-radius:999px;background:var(--f-surface);border:1px solid var(--f-line);font-size:14px;color:var(--f-muted)}
+.f-pill{display:inline-flex;align-items:center;gap:6px 8px;flex-wrap:wrap;margin:0 0 14px;padding:6px 12px;border-radius:18px;background:var(--f-surface);border:1px solid var(--f-line);font-size:14px;color:var(--f-muted)}
 .f-pill b{color:var(--f-text)}
 .f-lead{margin-top:12px}
 
@@ -231,10 +231,50 @@ body.has-demo .f-header{top:40px}
 /* sticky mobile action bar: the thumb path */
 .f-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--f-bg);box-shadow:0 -6px 20px -12px rgba(0,0,0,.25);border-top:1px solid var(--f-line)}
 .f-sticky .f-btn{min-height:50px;padding:10px 8px;font-size:16px}
-.f-sticky .f-btn-primary{grid-column:span 2}
+.f-sticky{display:flex}
+.f-sticky .f-btn-ghost{flex:none;padding-inline:14px}
+.f-sticky .f-btn-primary{flex:1}
+.f-sticky .f-btn{gap:6px}
+
+/* small labels */
+.f-tag{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:#FFF3CD;color:#5C4400;border-radius:4px;padding:2px 6px}
+.f-pill a{color:inherit}
+.f-rev time{display:block;font-size:13px;margin-top:2px}
+.f-rating .f-muted{font-size:14px}
+
+/* two-step lead form */
+.f-step{font-size:13px;font-weight:700;color:var(--f-muted);margin:0;display:none}
+.f-form.js-steps .f-step{display:block}
+.f-form .s1,.f-form .s2{display:grid;gap:14px}
+.f-form.js-steps:not(.step2) .s2,.f-form.js-steps.step2 .s1{display:none}
+.f-chips{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.f-chips legend{font-size:15px;font-weight:600;margin-bottom:8px;padding:0}
+.f-chips label{position:relative;display:block}
+.f-chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.f-chips span{display:flex;align-items:center;min-height:48px;padding:10px 16px;border:1.5px solid var(--f-line);border-radius:999px;background:var(--f-bg);font-weight:600;font-size:16px}
+.f-chips input:checked+span{background:var(--f-accent);border-color:var(--f-accent);color:var(--f-accent-ink)}
+.f-chips input:focus-visible+span{outline:3px solid var(--f-accent);outline-offset:2px}
+.f-form details summary{cursor:pointer;font-weight:600;font-size:15px;min-height:44px;display:flex;align-items:center}
+.f-form details textarea{margin-top:8px}
+
+/* hero variants: "compare" puts the before/after slider in the hero; "overlay" sets the headline over a full-width photo */
+.f-hero-compare .f-compare{margin-bottom:6px;aspect-ratio:16/9}
+.f-hero-compare .f-compare-wrap{order:-1}
+.f-hero-compare .f-compare-wrap .f-fine{margin-top:4px}
+.f-hero-overlay{position:relative;color:#fff;background:var(--hero-img,none) center/cover,radial-gradient(120% 80% at 80% 0%,color-mix(in srgb,var(--f-accent) 55%,transparent),transparent 60%),linear-gradient(160deg,#25331f,#0d140b);padding-block:56px 64px}
+.f-hero-overlay::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.6))}
+.f-hero-overlay .f-wrap{position:relative}
+.f-hero-overlay .lede,.f-hero-overlay .f-proof{color:rgba(255,255,255,.88)}
+.f-hero-overlay .f-proof b{color:#fff}
+.f-hero-overlay .f-eyebrow{color:#fff}
+.f-hero-overlay h1 em{-webkit-text-fill-color:currentColor;background:none;color:var(--f-accent-light,#C7E59A)}
+.f-hero-overlay .f-btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.f-hero-overlay .f-pill b{color:#fff}
+.f-hero-overlay .f-pill{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.25);color:#fff}
 
 /* ---------- upgrades for wider screens ---------- */
 @media (min-width:480px){
+  .f-logo small{display:block}
   .f-ctas{grid-auto-flow:column;justify-content:start}
   .f-ctas .f-btn{white-space:nowrap}
   .f-gallery{grid-template-columns:repeat(3,1fr)}
@@ -265,6 +305,9 @@ body.has-demo .f-header{top:40px}
   .f-hero{padding-block:64px 80px}
   .f-hero .f-wrap{grid-template-columns:1.15fr 1fr;align-items:center;gap:56px}
   .f-hero .f-media{aspect-ratio:4/5}
+  .f-hero-compare .f-compare-wrap{order:0}
+  .f-hero-overlay{padding-block:120px 130px}
+  .f-hero-overlay .f-wrap{grid-template-columns:minmax(0,760px)}
   .f-pkgs{grid-template-columns:repeat(3,1fr)}
   .f-services{grid-template-columns:repeat(3,1fr)}
   .f-book{grid-template-columns:1fr 1.1fr;align-items:start;gap:56px}
@@ -276,33 +319,33 @@ body.has-demo .f-header{top:40px}
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoWash","name":"Northline Ceramic & Detail","description":"Indoor ceramic coating and paint correction studio in Dallas. Prices shown, written warranty, book a free paint inspection online.","telephone":"(214) 555-0187","email":"studio@example.com","priceRange":"$$$","address":{"@type":"PostalAddress","streetAddress":"","addressLocality":"Dallas","addressRegion":"TX","postalCode":"75207","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Dallas"},{"@type":"City","name":"Uptown"},{"@type":"City","name":"Highland Park"},{"@type":"City","name":"University Park"},{"@type":"City","name":"Plano"},{"@type":"City","name":"Frisco"},{"@type":"City","name":"Richardson"},{"@type":"City","name":"Irving"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}],"sameAs":["https://instagram.com/example","https://facebook.com/example"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","name":"Gloss","price":899,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Gloss"}},{"@type":"Offer","name":"Signature","price":1499,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Signature"}},{"@type":"Offer","name":"Concours","price":2499,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Concours"}}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Northline Ceramic & Detail | Ceramic Coating and Paint Correction in Dallas","dateModified":"2026-10-03","author":{"@type":"Organization","name":"Northline Ceramic & Detail"},"publisher":{"@type":"Organization","name":"Northline Ceramic & Detail"},"about":{"@type":"AutoWash","name":"Northline Ceramic & Detail"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a ceramic coating last?","acceptedAnswer":{"@type":"Answer","text":"Our packages are rated 2, 5 or 9 years with the maintenance washes in your care guide, and each comes with a written warranty."}},{"@type":"Question","name":"Do I need paint correction before coating?","acceptedAnswer":{"@type":"Answer","text":"Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs."}},{"@type":"Question","name":"How long will you have my car?","acceptedAnswer":{"@type":"Answer","text":"One to three days depending on the package. We send progress photos and can arrange a loaner ride."}},{"@type":"Question","name":"Can I still wash it myself?","acceptedAnswer":{"@type":"Answer","text":"Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash."}},{"@type":"Question","name":"Do you offer payment plans?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every package can be paid monthly over 12 months, shown under the Monthly toggle above."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a ceramic coating last?","acceptedAnswer":{"@type":"Answer","text":"Our packages are rated 2, 5 or 9 years with the maintenance washes in your care guide, and each comes with a written warranty."}},{"@type":"Question","name":"Do I need paint correction before coating?","acceptedAnswer":{"@type":"Answer","text":"Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs."}},{"@type":"Question","name":"How long will you have my car?","acceptedAnswer":{"@type":"Answer","text":"One to three days depending on the package. We send progress photos and can arrange a loaner ride."}},{"@type":"Question","name":"Can I still wash it myself?","acceptedAnswer":{"@type":"Answer","text":"Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash."}},{"@type":"Question","name":"Can I pay over time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any package can be split into 12 equal payments with no interest; the monthly prices are under the 12 payments toggle above."}}]}</script>
 </head>
 <body class="has-demo">
 <a class="skip" href="#main">Skip to content</a>
 <div class="f-demo" role="region" aria-label="Demo notice"><div class="f-wrap"><b>GroundWork demo</b><span>Fictional business. Yours gets your name, photos and prices.</span><a href="https://groundwork-web.com/start/?demo=ceramic">Get this site</a></div></div>
-<div class="f-offerbar">October: free 1-year maintenance wash with any ceramic package. <a class="" href="#book" data-ev="book" data-label="offer bar">Book an inspection</a></div>
+<div class="f-offerbar">Free maintenance wash with any coating. <a class="" href="#book" data-ev="book" data-label="offer bar">Book</a></div>
 <header class="f-header">
   <div class="f-wrap">
-    <a class="f-logo" href="#main">Northline Ceramic &amp; Detail<small>Paint correction · Ceramic coating · Dallas</small></a>
+    <a class="f-logo" href="#main">Northline Ceramic &amp; Detail<small class="f-tagline">Paint correction · Ceramic coating · Dallas</small></a>
     <nav class="f-nav" aria-label="Sections"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></nav>
     <div class="f-actions">
       <a class="f-btn f-btn-ghost" href="tel:2145550187" data-ev="call" data-label="header" aria-label="Call (214) 555-0187"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="f-call-text">(214) 555-0187</span></a>
-      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="header">Book inspection</a>
+      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="header">Book a free inspection</a>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="f-hero">
+<section class="f-hero f-hero-split">
   <div class="f-wrap">
-    <div>
-      <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>94 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span></p>
+    <div class="f-hero-copy">
+      <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>94 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span></p>
       <p class="f-eyebrow">Dallas · Uptown · Highland Park · Plano</p>
-      <h1>Paint that looks wet, <em>for years.</em></h1>
-      <p class="lede">Machine paint correction and pro-grade ceramic coatings, done indoors and backed in writing. See the price for your car before you book.</p>
+      <h1>Ceramic coating and paint correction in Dallas <em>Paint that looks wet for years.</em></h1>
+      <p class="lede">Machine paint correction and pro-grade coatings, done indoors and backed in writing. See the price for your car before you book.</p>
       <div class="f-ctas">
-        <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="hero">See packages and book</a>
+        <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="hero">Book a free inspection</a>
         <a class="f-btn f-btn-ghost" href="tel:2145550187" data-ev="call" data-label="hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call (214) 555-0187</a>
       </div>
       <ul class="f-proof"><li><b>5 yr</b>written coating warranty</li><li><b>Indoor</b>climate-controlled bay</li><li><b>Free</b>paint inspection</li></ul>
@@ -332,13 +375,13 @@ body.has-demo .f-header{top:40px}
     <div class="f-head"><p class="f-eyebrow">Pricing</p><h2>Pick your level of protection</h2><p>Sedan prices shown. SUVs and trucks are quoted after a free inspection.</p></div>
     <fieldset class="f-toggle"><legend class="sr-only">Price type</legend>
       <label><input type="radio" name="bill" value="once" checked><span>Pay in full</span></label>
-      <label><input type="radio" name="bill" value="member" id="bill-member"><span>Monthly</span></label>
+      <label><input type="radio" name="bill" value="member" id="bill-member"><span>12 payments</span></label>
     </fieldset>
     <div class="f-pkgs">
       <div class="f-pkg">
         
         <div class="pn">Gloss</div>
-        <div class="pp"><span class="once">$899</span><span class="member">$79<small> /mo for 12 mo</small></span></div>
+        <div class="pp"><span class="once">$899</span><span class="member">$74.91<small> /mo</small></span></div>
         <div class="pt">2-year coating · 1 day</div>
         <ul><li>One-step polish</li><li>2-year ceramic coating</li><li>Wheels faces coated</li><li>Glass coating</li></ul>
         <a class="f-btn f-btn-ghost f-btn-block" href="#book" data-ev="book" data-label="package Gloss" data-pick="Gloss">Choose Gloss</a>
@@ -346,7 +389,7 @@ body.has-demo .f-header{top:40px}
       <div class="f-pkg pop">
         <div class="tag" aria-hidden="true">Most chosen</div>
         <div class="pn">Signature<span class="sr-only">, Most chosen</span></div>
-        <div class="pp"><span class="once">$1,499</span><span class="member">$129<small> /mo for 12 mo</small></span></div>
+        <div class="pp"><span class="once">$1,499</span><span class="member">$124.91<small> /mo</small></span></div>
         <div class="pt">5-year coating · 2 days</div>
         <ul><li>Two-step paint correction</li><li>5-year ceramic coating</li><li>Wheels and calipers coated</li><li>Glass and trim coating</li><li>Free first maintenance wash</li></ul>
         <a class="f-btn f-btn-primary f-btn-block" href="#book" data-ev="book" data-label="package Signature" data-pick="Signature">Choose Signature</a>
@@ -354,13 +397,13 @@ body.has-demo .f-header{top:40px}
       <div class="f-pkg">
         
         <div class="pn">Concours</div>
-        <div class="pp"><span class="once">$2,499</span><span class="member">$215<small> /mo for 12 mo</small></span></div>
+        <div class="pp"><span class="once">$2,499</span><span class="member">$208.25<small> /mo</small></span></div>
         <div class="pt">9-year coating · 3 days</div>
         <ul><li>Multi-step correction</li><li>9-year ceramic coating</li><li>Front-end paint protection film</li><li>Interior coating</li><li>Annual inspection</li></ul>
         <a class="f-btn f-btn-ghost f-btn-block" href="#book" data-ev="book" data-label="package Concours" data-pick="Concours">Choose Concours</a>
       </div>
     </div>
-    <p class="f-fine">Every coating includes a one-step polish, panel prep and a written warranty.</p>
+    <p class="f-fine">12 payments means full price ÷ 12, no interest, nothing added. Every coating includes panel prep and a written warranty.</p>
   </div>
 </section>
 
@@ -374,12 +417,12 @@ body.has-demo .f-header{top:40px}
 <section class="f-band" id="work">
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">Our work</p><h2>Recent studio work</h2><p>Real sites show the owner&#39;s own before and after photos.</p></div>
-    <div class="f-compare" data-compare>
+    <div class="f-compare-wrap"><div class="f-compare" data-compare>
       <div class="pane before ph"></div><div class="pane after ph"></div>
       <span class="tag l">Before</span><span class="tag r">After</span><div class="handle"></div>
       <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
     </div>
-    <p class="f-fine">Drag to compare. Sample imagery in this demo.</p>
+    <p class="f-fine">Drag to compare. Sample imagery in this demo.</p></div>
     <div class="f-gallery"><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Uptown · Model 3, Signature</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Plano · Tahoe, paint correction</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Highland Park · 911, Concours</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Frisco · F-150, new car prep</div></div></div>
   </div>
 </section>
@@ -387,13 +430,13 @@ body.has-demo .f-header{top:40px}
 <section id="reviews">
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">Reviews</p><h2>What Dallas owners say</h2></div>
-    <p class="f-sample">Sample reviews for this demo. Real sites show the business's own Google reviews.</p>
-    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>94 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span></p>
+    <p class="f-sample">Sample reviews for this demo. Real sites show the business&#39;s own Google reviews.</p>
+    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>94 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span><span class="f-muted">· Latest review <span data-since="2026-09-29">Sep 2026</span></span></p>
   </div>
   <div class="f-reviews" role="list">
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>They showed me the swirl marks under the light before quoting. Same price on the site as in the shop.</blockquote><figcaption><b>Sample customer</b> · Model 3, Signature</figcaption></figure>
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Progress photos every day and the truck looks better than when I bought it.</blockquote><figcaption><b>Sample customer</b> · Tahoe, correction</figcaption></figure>
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Careful, clean, and the warranty paperwork was waiting at pickup.</blockquote><figcaption><b>Sample customer</b> · 911, Concours</figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>They showed me the swirl marks under the light before quoting. Same price on the site as in the shop.</blockquote><figcaption><b>Sample customer</b> · Model 3, Signature<time datetime="2026-09-29">Sep 2026</time></figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Progress photos every day and the truck looks better than when I bought it.</blockquote><figcaption><b>Sample customer</b> · Tahoe, correction<time datetime="2026-09-11">Sep 2026</time></figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Careful, clean, and the warranty paperwork was waiting at pickup.</blockquote><figcaption><b>Sample customer</b> · 911, Concours<time datetime="2026-08-22">Aug 2026</time></figcaption></figure>
   </div>
 </section>
 
@@ -426,16 +469,25 @@ body.has-demo .f-header{top:40px}
       <p class="f-alt">Rather talk? <a href="tel:2145550187" data-ev="call" data-label="book section">Call (214) 555-0187</a> or <a href="sms:2145550187" data-ev="text" data-label="book section">send a text</a>.</p>
     </div>
     <form class="f-form" id="lead" aria-labelledby="book-h" novalidate>
-      <label>Your name<input name="name" autocomplete="name" required></label>
-      <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="We text you back"></label>
-      <div class="row">
-        <label>What do you need?<select name="service"><option>Gloss</option><option>Signature</option><option>Concours</option><option>Not sure yet</option></select></label>
+      <p class="f-step" aria-live="polite">Step <span data-step>1</span> of 2</p>
+      <div class="s1">
+        <fieldset class="f-chips"><legend>Which package interests you?</legend>
+          <label><input type="radio" name="service" value="Gloss" checked><span>Gloss</span></label>
+          <label><input type="radio" name="service" value="Signature"><span>Signature</span></label>
+          <label><input type="radio" name="service" value="Concours"><span>Concours</span></label>
+          <label><input type="radio" name="service" value="Not sure yet"><span>Not sure yet</span></label>
+        </fieldset>
         <label>ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10"></label>
+        <button class="f-btn f-btn-primary f-btn-block" type="button" data-next>Next</button>
       </div>
-      <label>Anything we should know? <span class="opt">(optional)</span><textarea name="notes" maxlength="1000" placeholder="Year, make, model and what you&#39;d like fixed"></textarea></label>
-      <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
-      <button class="f-btn f-btn-primary f-btn-block" type="submit">Request my inspection</button>
-      <p class="note">No spam. We only use your number to reply about this request.</p>
+      <div class="s2">
+        <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="We text you back"></label>
+        <label>Your name <span class="opt">(optional)</span><input name="name" autocomplete="name"></label>
+        <details><summary>Add details <span class="opt">(optional)</span></summary><textarea name="notes" maxlength="1000" aria-label="Details" placeholder="Year, make, model and what you&#39;d like fixed"></textarea></details>
+        <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
+        <button class="f-btn f-btn-primary f-btn-block" type="submit">Request my inspection</button>
+        <p class="note">No spam. We only use your number to reply about this request.</p>
+      </div>
       <p role="status" aria-live="polite" tabindex="-1"></p>
     </form>
   </div>
@@ -444,7 +496,7 @@ body.has-demo .f-header{top:40px}
 <section class="f-band" id="faq">
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">FAQ</p><h2>Questions, answered</h2></div>
-    <div class="f-faq"><details><summary>How long does a ceramic coating last?</summary><p>Our packages are rated 2, 5 or 9 years with the maintenance washes in your care guide, and each comes with a written warranty.</p></details><details><summary>Do I need paint correction before coating?</summary><p>Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs.</p></details><details><summary>How long will you have my car?</summary><p>One to three days depending on the package. We send progress photos and can arrange a loaner ride.</p></details><details><summary>Can I still wash it myself?</summary><p>Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash.</p></details><details><summary>Do you offer payment plans?</summary><p>Yes. Every package can be paid monthly over 12 months, shown under the Monthly toggle above.</p></details></div>
+    <div class="f-faq"><details><summary>How long does a ceramic coating last?</summary><p>Our packages are rated 2, 5 or 9 years with the maintenance washes in your care guide, and each comes with a written warranty.</p></details><details><summary>Do I need paint correction before coating?</summary><p>Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs.</p></details><details><summary>How long will you have my car?</summary><p>One to three days depending on the package. We send progress photos and can arrange a loaner ride.</p></details><details><summary>Can I still wash it myself?</summary><p>Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash.</p></details><details><summary>Can I pay over time?</summary><p>Yes. Any package can be split into 12 equal payments with no interest; the monthly prices are under the 12 payments toggle above.</p></details></div>
   </div>
 </section>
 
@@ -453,7 +505,7 @@ body.has-demo .f-header{top:40px}
     <h2>See what your paint could look like.</h2>
     <p class="f-muted f-lead">Free inspection, no pressure, price shown before we start.</p>
     <div class="f-ctas">
-      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="final">Book inspection</a>
+      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="final">Book a free inspection</a>
       <a class="f-btn f-btn-ghost" href="tel:2145550187" data-ev="call" data-label="final"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call now</a>
     </div>
   </div>
@@ -470,7 +522,8 @@ body.has-demo .f-header{top:40px}
 
 <nav class="f-sticky" aria-label="Quick actions">
   <a class="f-btn f-btn-ghost" href="tel:2145550187" data-ev="call" data-label="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-  <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="sticky">Book inspection</a>
+  <a class="f-btn f-btn-ghost" href="sms:2145550187" data-ev="text" data-label="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a>
+  <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="sticky">Book a free inspection</a>
 </nav>
 
 <script>window.FUNNEL={"slug":"demo-ceramic-studio","demo":true,"sms":"2145550187","thanks":"Got it. Northline Ceramic & Detail will text you back shortly (Tue-Sat 8am-6pm).","lead":"https://groundwork-web.com/api/sites.php?a=lead","analytics":"","plain":true};</script>

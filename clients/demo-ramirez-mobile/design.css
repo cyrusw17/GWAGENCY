@@ -1,0 +1,82 @@
+/* Ramirez & Son: sign-painter van door. White van, red and navy pinstripe, slab lettering,
+   a black menu board for prices. Square corners, nothing glossy. */
+h1,h2,h3{font-weight:400;letter-spacing:0;line-height:1.02}
+h3{font-family:var(--f-body);font-weight:800}
+.f-eyebrow{color:var(--f-accent-2);letter-spacing:.08em}
+
+.f-header{border-bottom:0;box-shadow:0 4px 0 var(--f-accent),0 7px 0 var(--f-bg),0 10px 0 var(--f-accent-2)}
+.f-logo{font-weight:400;font-size:17px}
+.f-offerbar{background:var(--f-accent-2);font-weight:600}
+
+.f-hero{padding-block:44px 52px}
+.f-hero h1{font-size:clamp(38px,10.5vw,80px);text-transform:uppercase}
+.f-hero h1 em{color:var(--f-accent);margin-top:.12em;font-size:.62em}
+.f-hero .lede{color:var(--f-text)}
+.f-proof{border-top:2px solid var(--f-text);padding-top:14px}
+.f-proof b{font-weight:400}
+
+/* van door panel */
+.f-hero-card{background:var(--f-accent-2);color:var(--f-bg);border:0;border-radius:6px;padding:22px 20px;position:relative;box-shadow:inset 0 0 0 4px var(--f-accent-2),inset 0 0 0 6px var(--f-bg)}
+.f-hero-card .f-eyebrow{color:var(--f-bg);opacity:.75;font-size:12px}
+.f-hero-card .f-rows>div{border-top-color:rgba(255,255,255,.22)}
+.f-hero-card .f-rows>div:first-child{display:block;text-align:left;padding-bottom:16px}
+.f-hero-card .f-rows>div:first-child dd{text-align:left;font:400 clamp(30px,8vw,44px)/1 var(--f-display);margin-top:6px;color:var(--f-bg)}
+.f-hero-card dt{font-weight:600}
+.f-hero-card small{color:rgba(255,255,255,.7)}
+
+.f-trust{background:var(--f-bg);border-block:0;justify-content:flex-start;padding-inline:var(--f-gutter);max-width:var(--f-max);margin:0 auto;font-weight:600}
+.f-trust li::before{border-radius:0;background-color:var(--f-accent)}
+
+/* the menu board */
+#services{background:var(--f-text);color:var(--f-bg)}
+#services .f-eyebrow{color:#F0B429}
+#services h2{color:var(--f-bg)}
+.f-services{gap:0;grid-template-columns:1fr!important;max-width:760px}
+.f-svc{background:none;border:0;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:16px 0}
+.f-svc .top{align-items:baseline}
+.f-svc .top::after{content:"";order:1;flex:1;border-bottom:2px dotted rgba(255,255,255,.4);transform:translateY(-5px)}
+.f-svc h3{font:400 20px/1.2 var(--f-display);order:0}
+.f-svc .price{order:2;color:#F0B429;font:400 22px var(--f-display)}
+.f-svc p{color:rgba(255,255,255,.72)}
+
+/* packages as order tickets */
+.f-pricing{background:var(--f-bg);border:0}
+.f-pkg{border:2px solid var(--f-text);border-radius:var(--f-radius);padding-top:0;overflow:visible}
+.f-pkg .pn{background:var(--f-text);color:var(--f-bg);margin:0 -20px 14px;padding:12px 20px;font:400 22px var(--f-display)}
+.f-pkg.pop{border-color:var(--f-accent);box-shadow:6px 6px 0 var(--f-accent)}
+.f-pkg.pop .pn{background:var(--f-accent)}
+.f-pkg .tag{top:-14px;right:14px;left:auto;transform:rotate(3deg);background:#F0B429;color:var(--f-text)}
+.f-pkg .pp{font-weight:400}
+.f-pkg li::before{border-color:var(--f-accent)}
+
+/* owner's note */
+.f-block-note{background:var(--f-surface)}
+.f-block-note h2{font-size:clamp(28px,6vw,42px)}
+.f-sign{font:400 22px var(--f-display);color:var(--f-accent);margin-top:8px}
+.f-block-note .f-rows{background:var(--f-bg);border:2px solid var(--f-text);padding:6px 18px}
+.f-block-note dd{font-weight:800}
+
+.f-rev{border:0;border-left:4px solid var(--f-accent);border-radius:0;background:var(--f-surface)}
+.f-rev .stars{color:var(--f-accent)}
+.f-steps li::before{border-radius:0;background:var(--f-text);color:var(--f-bg);font-weight:400}
+.f-guarantee{background:var(--f-accent);border-radius:var(--f-radius)}
+.f-guarantee h2{font-size:clamp(28px,6vw,42px)}
+.f-guarantee .f-btn{color:var(--f-accent)}
+.f-areas li{border-radius:0;border-color:var(--f-text)}
+.f-form{border:2px solid var(--f-text);border-radius:var(--f-radius)}
+.f-chips span{border-radius:var(--f-radius)}
+.f-final h2{text-transform:uppercase}
+.f-footer{border-top:4px solid var(--f-accent)}
+
+@media (min-width:1024px){
+  .f-hero .f-wrap{grid-template-columns:1.5fr 1fr;align-items:end}
+  .f-block-note .f-wrap{grid-template-columns:1.2fr 1fr!important}
+}
+.f-pill{border-radius:0;border:2px solid var(--f-text);background:var(--f-bg)}
+.f-pill .stars,.f-rating .stars{color:var(--f-accent)}
+/* "We come to you" painted as a red stamp, not accent-colored text */
+.f-hero h1 em{display:inline-block;background:var(--f-accent);color:var(--f-accent-ink);padding:.14em .3em .08em;transform:rotate(-2deg);margin-top:.3em}
+/* price picker: a counter ticket */
+.f-est{border:2px solid var(--f-text);border-radius:var(--f-radius);background:var(--f-bg);box-shadow:6px 6px 0 var(--f-accent-2)}
+.f-est-total{font-weight:400;color:var(--f-accent);font-size:56px}
+#price .f-block-copy h2{font-size:clamp(30px,7vw,48px)}
