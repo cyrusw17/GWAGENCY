@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GroundWork Work Log</title>
-<meta name="description" content="The running record of what has been built for GroundWork-Web: 15 demo sites, the offer, outreach, sales and how each piece is graded.">
+<title>GroundWork Status</title>
+<meta name="description" content="Where GroundWork-Web stands: the offer, the finished demo site and the launch status.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="assets/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,48 +17,23 @@
 <header class="top">
   <div class="wrap top__row">
     <p class="mark" translate="no"><span class="mark__dot" aria-hidden="true"></span>GroundWork-Web</p>
-    <p class="top__meta">Work log · updated {{UPDATED}}</p>
+    <p class="top__meta">Status · updated {{UPDATED}}</p>
   </div>
 </header>
 
-<div class="wrap layout">
-  <nav class="rail" aria-label="Sections">
-    <ul>
-      <li><a href="#grades">Grades</a></li>
-      <li><a href="#demos">Demo site</a></li>
-      <li><a href="#offer">Offer and prices</a></li>
-      <li><a href="#trades">Trades</a></li>
-      <li><a href="#outreach">Cold email</a></li>
-      <li><a href="#leads">Lead lists</a></li>
-      <li><a href="#mockups">Mockups</a></li>
-      <li><a href="#sales">Sales path</a></li>
-      <li><a href="#design">Design bar</a></li>
-      <li><a href="#gate">How work is graded</a></li>
-      <li><a href="#decisions">Decisions</a></li>
-      <li><a href="#waiting">Waiting on sign-off</a></li>
-    </ul>
-  </nav>
-
+<div class="wrap layout layout--single">
   <main id="main">
     <section class="intro">
-      <h1>Everything built for GroundWork so far</h1>
-      <p class="lede">GroundWork-Web builds websites for owner-run local service businesses: auto detailers first, then exterior cleaning and landscaping crews. This page is the running record of the work: the demo sites, the offer, how outreach and sales will run, and the grade each piece has earned.</p>
-      <dl class="facts">
+      <h1>GroundWork-Web, where things stand</h1>
+      <p class="lede">GroundWork-Web builds websites for owner-run local service businesses, starting with auto detailers. This page shows the offer, the finished demo site and where the business is today.</p>
+      <dl class="facts facts--3">
         <div><dt>Paying clients</dt><dd>0</dd></div>
-        <div><dt>Emails sent</dt><dd>0</dd></div>
-        <div><dt>Live deploys</dt><dd>0</dd></div>
-        <div><dt>Boards at A+</dt><dd>{{APLUS}}<small>/{{BOARD_COUNT}}</small></dd></div>
+        <div><dt>Demo sites</dt><dd>{{DEMO_TOTAL}}</dd></div>
+        <div><dt>Sites live</dt><dd>0</dd></div>
       </dl>
-      <p class="note">Nothing here has gone to a customer yet. Spending money, emailing real people and deploying the live site all wait for the owner's sign-off.</p>
+      <p class="note">Status: getting ready to launch. The first demo site is finished and in review; nothing has gone live yet.</p>
     </section>
 
-    <section id="grades" class="sec">
-      <h2>Grades</h2>
-      <p class="sec__lede">Every area of the business is a board. An independent reviewer grades each one by checking the work directly: building the sites, running the speed and accessibility tests, re-doing the math. A board counts as done only at A+. "Inc." means it hasn't been submitted for grading yet.</p>
-      <ul class="boards">{{BOARDS}}
-      </ul>
-      <p class="legend"><span class="key key--top">A+</span> done <span class="key key--a">A</span> one gap left <span class="key key--low">B to F</span> sent back with fixes <span class="key key--inc">Inc.</span> not graded yet</p>
-    </section>
 
     <section id="demos" class="sec">
       <h2>The demo site</h2>
@@ -68,15 +43,15 @@
 
     <section id="offer" class="sec">
       <h2>Offer and prices</h2>
-      <p class="sec__lede">One price list covers all three trades. The site is built before the client pays the bulk of the build fee, so the risk sits with us.</p>
+      <p class="sec__lede">One price list for every trade. The site is built before the client pays the bulk of the build fee, so the risk sits with us.</p>
       <div class="ticket" role="group" aria-label="Price list">
         <div class="ticket__row"><span>Start the build</span><b>$99</b><em>Refunded if they don't like the preview</em></div>
         <div class="ticket__row"><span>Approve the preview</span><b>$300</b><em>Paid only once they've seen their site</em></div>
         <div class="ticket__row"><span>Host plan</span><b>$99<small>/mo</small></b><em>Hosting, edits, the site kept running</em></div>
-        <div class="ticket__row ticket__row--pick"><span>Grow plan</span><b>$199<small>/mo</small></b><em>The default pitch</em></div>
-        <div class="ticket__row"><span>Pay a year up front</span><b>12 for 10</b><em>Lawn care is pitched annual first</em></div>
+        <div class="ticket__row ticket__row--pick"><span>Grow plan</span><b>$199<small>/mo</small></b><em>Our recommended plan</em></div>
+        <div class="ticket__row"><span>Pay a year up front</span><b>12 for 10</b><em>Two months free on either plan</em></div>
       </div>
-      <div class="cols">
+      <div class="cols cols--one">
         <div>
           <h3>Rules that come with it</h3>
           <ul class="list">
@@ -85,196 +60,23 @@
             <li>Leave any month with 30 days' notice. No year-long contract.</li>
           </ul>
         </div>
-        <div>
-          <h3>Approved, switched on later</h3>
-          <ul class="list">
-            <li><b>Rank, $299/mo</b> (site plus local search work): a 3 to 5 client pilot after client 3, with hours logged.</li>
-            <li><b>Results guarantee:</b> "At least one call, text or quote request started from your site in 60 days, or your $300 back." Starts once tracking is live.</li>
-            <li><b>Switch offer</b> for shops paying another agency: the $300 and first month waived. After client 3.</li>
-          </ul>
-        </div>
       </div>
     </section>
 
-    <section id="trades" class="sec">
-      <h2>Trades</h2>
-      <p class="sec__lede">Picked for owner-run shops, jobs big enough that one extra booking pays for the plan, and a site shape close to what detailers need. Counts are US Google Maps listings from a public dataset updated April 2026.</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th scope="col">Trade</th><th scope="col" class="num">Listings</th><th scope="col" class="num">Emails listed</th><th scope="col">Typical job</th><th scope="col">Why it's in</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Auto detailing</th><td class="num">72,811</td><td class="num">11,219</td><td>$150 to $400, ceramic $1,000+</td><td>The original niche; 86% single-owner</td></tr>
-            <tr><th scope="row">Exterior cleaning</th><td class="num">68,000+ offer it</td><td class="num">18,000 to 25,000 est.</td><td>$275 to $425</td><td>Closest to detailing; two-thirds are solo operators</td></tr>
-            <tr><th scope="row">Landscaping and lawn care</th><td class="num">129,175</td><td class="num">26,973</td><td>Mowing $40 to $60; installs $3,000+</td><td>The biggest reachable list; winter is when they fix their marketing</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="fine">House cleaning is held as the alternate, painters second. Each trade gets a 200-business sample first, measured the same way (verified email rate, Gmail share, share with no site), and has to show a 2%+ reply rate and one paid start within 30 days of the first send.</p>
-    </section>
 
-    <section id="outreach" class="sec">
-      <h2>Cold email</h2>
-      <p class="sec__lede">Email is the main growth channel, run for deliverability first. Owners of local shops reply far less than office buyers, so volume comes from three trades and clean sending, not from blasting one list.</p>
-      <div class="cols">
-        <div>
-          <h3>How it sends</h3>
-          <ul class="list">
-            <li>Never from groundwork-web.com. Three separate sending domains with two named inboxes each, warmed for 3 to 4 weeks first.</li>
-            <li>15 to 20 cold emails per inbox per day, about 2,000 to 2,500 a month once warm.</li>
-            <li>SPF, DKIM and DMARC on every domain. Open tracking off.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>What it says</h3>
-          <ul class="list">
-            <li>Under 80 words, plain text, one real fact about their shop and one easy question.</li>
-            <li>The ask is a free mockup of their site, not a price.</li>
-            <li>Four to six touches over about three weeks, then stop.</li>
-            <li>A real postal address and a one-word opt-out in every email.</li>
-          </ul>
-        </div>
-      </div>
-      <h3>Sequences written</h3>
-      <ul class="chips">
-        <li>Detailers with reviews and no site</li>
-        <li>Detailers whose site is losing jobs</li>
-        <li>Exterior cleaning</li>
-        <li>Landscaping and lawn care</li>
-      </ul>
-      <h3>Numbers it is judged on</h3>
-      <dl class="gauges">
-        <div><dt>Bounce</dt><dd>under 2%</dd><span>stop and re-verify at 3%</span></div>
-        <div><dt>Reply rate</dt><dd>3%+</dd><span>kill the angle under 1% after 500 to 1,000 contacts</span></div>
-        <div><dt>Spam complaints</dt><dd>under 0.1%</dd><span>Google and Yahoo cut off at 0.3%</span></div>
-      </dl>
-    </section>
 
-    <section id="leads" class="sec">
-      <h2>Lead lists</h2>
-      <p class="sec__lede">Lists are built in-house rather than bought: cheaper, fresher, and inside the rules that scraped or bought lists break.</p>
-      <ol class="steps">
-        <li><b>Find the businesses</b> through Google's official Places API: name, phone, website, rating.</li>
-        <li><b>Read their own website</b> politely for an address they publish. Robots.txt is honored, one page a second, five pages at most. Facebook, Yelp and similar platforms are never crawled.</li>
-        <li><b>Verify every address</b> and keep only the ones that pass. Addresses are never guessed.</li>
-        <li><b>Split the output</b> into an email list and a call list of shops with a phone, 5+ reviews and no real website.</li>
-      </ol>
-      <p class="fine">Opt-outs, bounces and clients are suppressed before anything is verified or exported. Google's data is purged after 30 days, as its terms require. Contact data never enters this repository. The code is written and tested; the first sample run waits on an API key.</p>
-    </section>
 
-    <section id="mockups" class="sec">
-      <h2>Mockups</h2>
-      <p class="sec__lede">The third email in each sequence links a free mockup of the shop's own site, built from its public facts. A script makes them at no extra cost per prospect.</p>
-      <div class="cols">
-        <div>
-          <h3>What goes on a mockup</h3>
-          <ul class="list">
-            <li>The shop's real name, town, phone, rating and up to three of its own Google reviews, with Google's attribution.</li>
-            <li>Prices, photos and service area marked "Sample".</li>
-            <li>A bar on top: "Mockup for this shop. Made by GroundWork. Not published." Never indexed.</li>
-          </ul>
-        </div>
-        <div>
-          <h3>What stops a mockup</h3>
-          <ul class="list">
-            <li>Any number or claim that isn't one of the shop's facts.</li>
-            <li>An unlabelled sample section, an unfilled variable, or a first line over 240 characters.</li>
-            <li>A shop on the do-not-contact list.</li>
-          </ul>
-        </div>
-      </div>
-      <p class="fine">A person reads a sample of every batch against the Google listings before it can be sent, and one wrong fact holds the batch. Mockups will render from the new demo designs, so none go out until those pass.</p>
-    </section>
 
-    <section id="sales" class="sec">
-      <h2>Sales path</h2>
-      <p class="sec__lede">From a reply to a paying monthly client, with no dead ends. Replies get an answer within an hour.</p>
-      <ol class="path">
-        <li><b>Reply</b><span>Sorted into one of 14 labels, each with a template</span></li>
-        <li><b>15-minute call</b><span>Booked on the calendar</span></li>
-        <li><b>$99 start</b><span>Paid by card</span></li>
-        <li><b>Content in</b><span>One onboarding form collects everything</span></li>
-        <li><b>Private preview</b><span>Their real site, built and shown</span></li>
-        <li><b>Approval</b><span>$300 plus the first month</span></li>
-        <li><b>Launch</b><span>Linked from their Google profile</span></li>
-        <li><b>Monthly results text</b><span>Calls, texts and quote requests the site started</span></li>
-      </ol>
-      <p class="fine">If a client goes quiet after the $99: reminders on day 7, 14 and 21, then the $99 is refunded on day 30. Calls are hand-dialed after a Do Not Call scrub, texts go one at a time and only with consent, and other states' calling rules are checked before calling outside Texas.</p>
-    </section>
 
-    <section id="design" class="sec">
-      <h2>Design bar</h2>
-      <p class="sec__lede">Every site gets a "does this look generic?" check before it counts. One tell fails it outright; it needs 6 of 8 signs that a person made it for one business.</p>
-      <div class="cols">
-        <div>
-          <h3>Fails on sight</h3>
-          <ul class="list list--x">
-            <li>A centered headline over a blurred photo with two pill buttons</li>
-            <li>Purple-to-blue gradients, glass cards, neon glows</li>
-            <li>A row of three icon cards</li>
-            <li>Copy that fits any business: "elevate", "seamless", "your trusted partner"</li>
-            <li>Empty boxes where photos go</li>
-            <li>Sample reviews that read like ad copy</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Signs a person made it</h3>
-          <ul class="list list--check">
-            <li>One clear idea running through the site</li>
-            <li>Trade details only an insider would add</li>
-            <li>A deliberate type pairing with one typographic moment</li>
-            <li>Texture: a caption in the owner's voice, an asymmetric grid</li>
-            <li>The owner's own voice and local streets</li>
-            <li>A layout built for this buyer</li>
-            <li>One interaction that does a job, like a quote estimator</li>
-            <li>A palette from the trade's own world</li>
-          </ul>
-        </div>
-      </div>
-      <p class="fine">Every site also needs a headline naming the service and town, call and booking within thumb reach, a 2-step quote form, a mobile speed score of 90+, full accessibility marks and structured data for local search. The builders work from a library of 37 vetted design, motion, copy and search skills kept in this repository; this bar overrides all of them.</p>
-    </section>
 
-    <section id="gate" class="sec">
-      <h2>How work is graded</h2>
-      <ol class="path path--short">
-        <li><b>Owner submits</b><span>With screenshots at phone and desktop width</span></li>
-        <li><b>A second desk verifies</b><span>Copy by the email desk, prices by the pricing desk, funnels by marketing</span></li>
-        <li><b>Independent grade</b><span>The reviewer re-runs every check</span></li>
-        <li><b>Done at A+</b><span>Anything less goes back with a fix list</span></li>
-      </ol>
-    </section>
 
-    <section id="decisions" class="sec">
-      <h2>Decisions</h2>
-      <p class="sec__lede">The calls that shape the work, all made on October 3, 2026.</p>
-      <ul class="log">
-        <li><b>Cold email is the main channel.</b> Every choice is weighed against cost per client and deliverability.</li>
-        <li><b>One finished demo for now.</b> The auto detailing site; exterior cleaning and landscaping demos are paused.</li>
-        <li><b>One price list for all trades.</b> Lawn care pitches annual first and has no winter pause.</li>
-        <li><b>Mockup links never point at the main domain,</b> so outreach can't hurt groundwork-web.com's reputation.</li>
-        <li><b>No mockup goes out</b> until it renders from a design that passed the design bar.</li>
-        <li><b>Real proof only.</b> No invented reviews, ratings or results, ever.</li>
-        <li><b>Nothing is done below A+.</b> Work that passed earlier went back for grading.</li>
-      </ul>
-    </section>
 
-    <section id="waiting" class="sec">
-      <h2>Waiting on sign-off</h2>
-      <p class="sec__lede">Everything below is ready to go once the owner says yes. Each has a recommended option queued.</p>
-      <ul class="list">
-        <li>Buying the sending domains and inboxes, then starting warmup</li>
-        <li>A postal address for email footers (required before the first send)</li>
-        <li>Payment links for "Go live" ($300 plus the first month) and the customer portal</li>
-        <li>An API key and an open network for the first lead list run</li>
-        <li>Do Not Call registry access for the Houston area codes</li>
-        <li>Pointing the live site at this repository</li>
-      </ul>
-    </section>
   </main>
 </div>
 
 <footer class="foot">
   <div class="wrap">
-    <p>Internal work log for GroundWork-Web. Rebuilt from <code>hub/data.json</code> on every push. Not indexed by search engines.</p>
+    <p>GroundWork-Web status page. Not indexed by search engines.</p>
   </div>
 </footer>
 </body>

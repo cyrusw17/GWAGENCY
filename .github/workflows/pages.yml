@@ -1,10 +1,13 @@
-# Builds the work-log hub and its linked demos (tools/build-hub.mjs) and publishes them to GitHub Pages.
-# One-time setup: Settings > Pages > Build and deployment > Source: "GitHub Actions".
+# Builds the status page and its linked demos (tools/build-hub.mjs) on every push as a check.
+# Publishing to GitHub Pages runs only when started by hand (Actions > Run workflow), after
+# Settings > Pages > Build and deployment > Source is set to "GitHub Actions". Going public needs Cyrus's yes.
 name: Work log on Pages
 
 on:
   push:
     branches: [claude/site-builder-vp2yex]
+    paths: [hub/**, clients/**, template/**, tools/**, .github/workflows/pages.yml]
+  pull_request:
     paths: [hub/**, clients/**, template/**, tools/**, .github/workflows/pages.yml]
   workflow_dispatch:
 
@@ -14,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,12 +29,15 @@ jobs:
         with:
           node-version: 20
       - run: node tools/build-hub.mjs
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - if: github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+      - if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
+    if: github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     environment:

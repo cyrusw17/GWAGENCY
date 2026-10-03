@@ -88,6 +88,9 @@ main{min-width:0;display:grid;gap:72px}
 .fine{max-width:44rem;font-size:.95rem;color:var(--ink-3)}
 .cols{display:grid;gap:28px}
 @media (min-width:720px){.cols{grid-template-columns:1fr 1fr;gap:40px}}
+@media (min-width:561px){.facts--3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cols--one{grid-template-columns:1fr!important}
+.layout--single{grid-template-columns:minmax(0,1fr)!important;max-width:52rem}
 .cols>div{display:grid;gap:12px;align-content:start;min-width:0}
 
 .list{padding-left:1.1em;display:grid;gap:8px}

@@ -1,62 +1,6 @@
 {
   "updated": "2026-10-03",
   "perTrade": 1,
-  "boards": [
-    {
-      "name": "Strategy",
-      "owner": "Strategy lead",
-      "grade": "Inc.",
-      "note": "Playbook, decision log and scoreboard"
-    },
-    {
-      "name": "Pricing",
-      "owner": "Pricing desk",
-      "grade": "Inc.",
-      "note": "Final price list and offers"
-    },
-    {
-      "name": "Niche research",
-      "owner": "Marketing",
-      "grade": "Inc.",
-      "note": "Three trades picked, samples pending"
-    },
-    {
-      "name": "Cold email",
-      "owner": "Cold email desk",
-      "grade": "Inc.",
-      "note": "Playbook, setup and four sequences"
-    },
-    {
-      "name": "Lead lists",
-      "owner": "Lead list desk",
-      "grade": "Inc.",
-      "note": "Pipeline built, first run pending"
-    },
-    {
-      "name": "Mockup engine",
-      "owner": "Mockup desk",
-      "grade": "Inc.",
-      "note": "Waits for the new designs"
-    },
-    {
-      "name": "Sales ops",
-      "owner": "Sales ops",
-      "grade": "Inc.",
-      "note": "Replies, call script, onboarding"
-    },
-    {
-      "name": "Detailing site",
-      "owner": "Web developer",
-      "grade": "Inc.",
-      "note": "The one finished demo"
-    },
-    {
-      "name": "This work log",
-      "owner": "Hub desk",
-      "grade": "Inc.",
-      "note": "The page you are reading"
-    }
-  ],
   "niches": [
     {
       "id": "detailing",
@@ -74,5 +18,5 @@
       ]
     }
   ],
-  "demoNote": "Cyrus cut the build to one finished site for now: the auto detailing demo. Exterior cleaning and landscaping demos are paused; their sequences and research stay ready."
+  "demoNote": "Our first finished demo, made for an auto detailer."
 }
