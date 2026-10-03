@@ -26,6 +26,12 @@
     if (rg) rg.addEventListener("input", function () { el.style.setProperty("--pos", rg.value + "%"); });
   });
 
+  // "Latest review N days ago", counted from today rather than from the build date.
+  document.querySelectorAll("[data-since]").forEach(function (el) {
+    var d = Math.round((Date.now() - Date.parse(el.getAttribute("data-since") + "T12:00:00Z")) / 864e5);
+    if (d >= 0) el.textContent = d < 1 ? "today" : d < 2 ? "yesterday" : d < 60 ? d + " days ago" : Math.round(d / 30) + " months ago";
+  });
+
   // "Choose <package>" buttons pre-select that package in step 1 of the form.
   document.querySelectorAll("[data-pick]").forEach(function (a) {
     a.addEventListener("click", function () {
@@ -48,7 +54,8 @@
     var picked = [].filter.call(form.querySelectorAll("input[name=service]"), function (i) { return i.checked; });
     return picked.map(function (i) { return i.value; }).join(", ");
   }
-  form.querySelector("[data-next]").addEventListener("click", function () {
+  var next = form.querySelector("[data-next]");
+  next.addEventListener("click", function () {
     if (!choice()) { status.textContent = "Pick at least one option."; return; }
     status.textContent = "";
     form.classList.add("step2");
@@ -68,6 +75,7 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (!form.classList.contains("step2")) { next.click(); return; } // Enter on step 1 means "Next"
     if (!form.reportValidity()) return;
     var fd = new FormData(form), data = {};
     fd.forEach(function (v, k) { if (k !== "service") data[k] = String(v).trim(); });

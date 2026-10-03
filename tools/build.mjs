@@ -24,7 +24,8 @@ function check(s) {
   need(s.hero?.headline || (s.business?.service && s.business?.area), "business.service and business.area are required (they build the H1: \"{service} in {area}\")");
   const town = s.business?.area || s.business?.address?.city;
   need(town && headline(s).toLowerCase().includes(String(town).toLowerCase()), `the H1 must name the town ("${town}"): "${headline(s)}"`);
-  (s.reviews?.items || []).forEach((r, i) => { if (r.date) need(!isNaN(Date.parse(r.date)), `reviews.items[${i}].date must be YYYY-MM-DD`); });
+  (s.reviews?.items || []).forEach((r, i) => { if (r.date) need(/^\d{4}-\d{2}-\d{2}$/.test(r.date) && !isNaN(Date.parse(r.date)), `reviews.items[${i}].date must be YYYY-MM-DD`); });
+  if (s.hero?.cta || s.guarantee?.cta) warns.push("hero.cta and guarantee.cta are ignored: every booking button uses booking.cta so one action has one name");
   need(s.seo?.title && s.seo?.description, "seo.title and seo.description are required");
   const isHttps = u => { try { return new URL(u).protocol === "https:"; } catch { return false; } };
   if (s.seo?.canonical) need(isHttps(s.seo.canonical), "seo.canonical must be a full URL starting with https://");

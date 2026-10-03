@@ -90,8 +90,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
   const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo, '<span class="f-tag">sample</span>')}`;
   // Newest first, and "Latest review: N days ago" (recency is what visitors weigh most).
   const reviews = [...(r?.items || [])].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
-  const ageDays = reviews[0]?.date && s.builtAt ? Math.max(0, Math.round((Date.parse(s.builtAt) - Date.parse(reviews[0].date)) / 864e5)) : null;
-  const ago = d => (d === 0 ? "today" : d === 1 ? "yesterday" : d < 60 ? `${d} days ago` : `${Math.round(d / 30)} months ago`);
+  const monthYear = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
   const compare = where => `<div class="f-compare-wrap"><div class="f-compare" data-compare>
       ${pane("before", w.compare.before)}${pane("after", w.compare.after)}
       <span class="tag l">Before</span><span class="tag r">After</span><div class="handle"></div>
@@ -152,10 +151,10 @@ export function render(s, { css = "", assetBase = "" } = {}) {
   <div class="f-wrap">
     ${head("Reviews", r.headline || "What customers say")}
     ${when(demo && r.sampleNote !== "", `<p class="f-sample">${esc(r.sampleNote || "Sample reviews for this demo. Real sites show the business's own Google reviews.")}</p>`)}
-    ${when(ratingLine, `<p class="f-rating">${ratingLine}${when(ageDays != null, `<span class="f-muted">· Latest review ${ago(ageDays)}</span>`)}</p>`)}
+    ${when(ratingLine, `<p class="f-rating">${ratingLine}${when(reviews[0]?.date, () => `<span class="f-muted">· Latest review <span data-since="${esc(reviews[0].date)}">${esc(monthYear(reviews[0].date))}</span></span>`)}</p>`)}
   </div>
   <div class="f-reviews" role="list">
-    ${reviews.map(x => `<figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b>${esc(x.detail || "")}${when(x.date, `<time datetime="${esc(x.date)}">${esc(new Date(x.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }))}</time>`)}</figcaption></figure>`).join("\n    ")}
+    ${reviews.map(x => `<figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b>${esc(x.detail || "")}${when(x.date, `<time datetime="${esc(x.date)}">${esc(monthYear(x.date))}</time>`)}</figcaption></figure>`).join("\n    ")}
   </div>
 </section>` },
     { id: "promise", show: s.guarantee, html: () => `

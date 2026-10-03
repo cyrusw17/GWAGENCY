@@ -44,6 +44,15 @@ $event = fn(string $type, string $label) => $db->prepare('INSERT INTO site_event
 
 $action = $_GET['a'] ?? '';
 
+// Caps keep a flood of fake requests out of the owner's inbox and out of the guarantee count.
+$count = function (string $table, string $where, array $p) use ($db): int {
+    $s = $db->prepare("SELECT COUNT(*) FROM $table WHERE $where"); $s->execute($p); return (int)$s->fetchColumn();
+};
+$tooMany = fn(int $perVisitorHour, int $perSiteDay) =>
+    $count('site_events', 'site = ? AND type = ? AND vhash = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), $vhash, time() - 3600]) >= $perVisitorHour
+    || $count('site_events', 'site = ? AND type = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), time() - 86400]) >= $perSiteDay;
+
+
 if ($action === 'event') {
     if (($_SERVER['HTTP_SEC_GPC'] ?? '') === '1' || ($_SERVER['HTTP_DNT'] ?? '') === '1') { http_response_code(204); exit; }
     $type = (string)($in['type'] ?? '');
@@ -53,14 +62,6 @@ if ($action === 'event') {
     http_response_code(204);
     exit;
 }
-
-// Caps keep a flood of fake requests out of the owner's inbox and out of the guarantee count.
-$count = function (string $table, string $where, array $p) use ($db): int {
-    $s = $db->prepare("SELECT COUNT(*) FROM $table WHERE $where"); $s->execute($p); return (int)$s->fetchColumn();
-};
-$tooMany = fn(int $perVisitorHour, int $perSiteDay) =>
-    $count('site_events', 'site = ? AND type = ? AND vhash = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), $vhash, time() - 3600]) >= $perVisitorHour
-    || $count('site_events', 'site = ? AND type = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), time() - 86400]) >= $perSiteDay;
 
 if ($action === 'lead') {
     header('Content-Type: application/json');

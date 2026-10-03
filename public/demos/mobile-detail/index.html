@@ -231,8 +231,9 @@ body.has-demo .f-header{top:40px}
 /* sticky mobile action bar: the thumb path */
 .f-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--f-bg);box-shadow:0 -6px 20px -12px rgba(0,0,0,.25);border-top:1px solid var(--f-line)}
 .f-sticky .f-btn{min-height:50px;padding:10px 8px;font-size:16px}
-.f-sticky{grid-template-columns:auto auto 1fr;grid-auto-flow:row}
-.f-sticky .f-btn-ghost{padding-inline:14px}
+.f-sticky{display:flex}
+.f-sticky .f-btn-ghost{flex:none;padding-inline:14px}
+.f-sticky .f-btn-primary{flex:1}
 .f-sticky .f-btn{gap:6px}
 
 /* small labels */
@@ -430,7 +431,7 @@ body.has-demo .f-header{top:40px}
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">Reviews</p><h2>Tampa Bay drivers say</h2></div>
     <p class="f-sample">Sample reviews for this demo. Real sites show the business&#39;s own Google reviews.</p>
-    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span><span class="f-muted">· Latest review 6 days ago</span></p>
+    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span><span class="f-muted">· Latest review <span data-since="2026-09-27">Sep 2026</span></span></p>
   </div>
   <div class="f-reviews" role="list">
     <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Booked from my phone at lunch and came home to a clean car. Exactly the price on the site.</blockquote><figcaption><b>Sample customer</b> · Tahoe, Inside + Out<time datetime="2026-09-27">Sep 2026</time></figcaption></figure>
