@@ -37,7 +37,11 @@ ${k.demoBar()}
         <p class="clip-week">${esc(rt.week || "")}</p>
         <h2 id="route-h">${esc(rt.title || "This week's route")}</h2>
         <ol class="route">${rt.days.map(d => `<li><b>${esc(d.day)}</b><span><strong>${esc(d.town)}</strong>${esc(d.streets)}</span></li>`).join("")}</ol>
-        <p class="clip-note">${esc(rt.note || "")}</p>
+        <form class="zip-check" data-route="${esc(JSON.stringify(rt.days.map(d => [d.day, d.town, d.zips || []])))}">
+          <label for="route-zip">${esc(rt.note || "Is your street on a route?")}</label>
+          <div class="zip-row"><input id="route-zip" inputmode="numeric" maxlength="5" placeholder="Your ZIP" autocomplete="postal-code"><button type="submit">Check</button></div>
+          <p class="zip-out" aria-live="polite"></p>
+        </form>
       </div>
     </aside>`)}
   </div>
@@ -131,6 +135,12 @@ ${when(s.faq?.length, `<section class="faq-sec" id="faq"><div class="wrap narrow
 </footer>
 ${k.sticky("sticky")}
 ${k.scripts()}
+<script>
+// Route checker: ZIP in, mow day out. Unknown ZIPs are pointed at the estimate form instead of a dead end.
+(function(){var f=document.querySelector(".zip-check");if(!f)return;var days=JSON.parse(f.getAttribute("data-route")),out=f.querySelector(".zip-out");
+f.addEventListener("submit",function(e){e.preventDefault();var z=f.querySelector("input").value.trim().slice(0,5),hit=days.filter(function(d){return d[2].indexOf(z)>-1})[0];
+out.textContent=hit?"Yes. We're in "+hit[1]+" every "+({Mon:"Monday",Tue:"Tuesday",Wed:"Wednesday",Thu:"Thursday",Fri:"Friday"}[hit[0]]||hit[0])+".":/^[0-9]{5}$/.test(z)?"Not on a route yet. Ask anyway: we add streets when three neighbors sign up.":"Type a 5-digit ZIP.";});})();
+</script>
 </body>
 </html>
 `;

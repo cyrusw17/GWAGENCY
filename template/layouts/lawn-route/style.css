@@ -64,7 +64,12 @@ p{margin:0}
 .route li{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--rule);font-size:.95rem;line-height:1.3}
 .route b{font:800 1.25rem/1.1 var(--display);text-transform:uppercase;color:var(--go)}
 .route strong{display:block}
-.clip-note{margin-top:10px;font-style:italic;color:var(--muted);font-size:.95rem}
+.zip-check{margin-top:12px;padding-top:12px;border-top:2px solid var(--ink)}
+.zip-check label{display:block;font-weight:600;font-size:.95rem;margin-bottom:6px}
+.zip-row{display:flex;gap:6px}
+.zip-row input{flex:1;min-width:0;font:inherit;font-size:16px;padding:10px;border:2px solid var(--rule);border-radius:6px}
+.zip-row button{font:800 1.05rem/1 var(--display);text-transform:uppercase;background:var(--turf);color:#fff;border:0;border-radius:6px;padding:0 16px;cursor:pointer}
+.zip-out{margin-top:8px;font-weight:600;color:var(--turf-2);min-height:1.4em}
 
 .checks{list-style:none;margin:0 auto;padding-block:18px;display:grid;grid-template-columns:1fr;gap:8px}
 .checks li{display:flex;gap:10px;align-items:baseline;font-weight:600}

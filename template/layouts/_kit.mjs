@@ -70,7 +70,7 @@ ${schema(s)}
   // Reviews newest first; dates and names come from site.json.
   k.reviews = () => [...(r.items || [])].sort((a, z) => String(z.date || "").localeCompare(String(a.date || "")));
 
-  k.demoBar = () => when(demo, `<div class="demo-bar" role="region" aria-label="Demo notice"><b>GroundWork demo</b> <span>${esc(s.demoNote || "Fictional business. Yours gets your name, photos and prices.")}</span> <a href="${url(s.demoCta?.href || "https://groundwork-web.com/start/")}">${esc(s.demoCta?.label || "Get this site")}</a></div>`);
+  k.demoBar = () => when(demo, `<div class="demo-bar" role="region" aria-label="Demo notice"><b>GroundWork demo</b> <span>${esc(s.demoNote || "Fictional business with sample photos and reviews.")}</span> <a href="${url(s.demoCta?.href || "https://groundwork-web.com/start/")}">${esc(s.demoCta?.label || "Get this site")}</a></div>`);
 
   // A placeholder that doubles as the shot list for the owner: says which photo goes here.
   k.shot = (src, alt, note, cls = "shot", eager = false) => src
