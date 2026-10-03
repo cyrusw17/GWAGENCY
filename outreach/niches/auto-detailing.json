@@ -1,0 +1,173 @@
+{
+  "_note": "Auto detailers. Qualifying rules, site-check flaws and mockup defaults. Mockup content is only what is true of any detailer, or clearly labeled as a sample. Never a claim about the shop (insured, warranty, water on board) and never a review.",
+  "label": "auto detailing",
+  "categoryPattern": "detail|ceramic|coating|paint correction|paint protection|auto spa|car care",
+  "minReviews": 15,
+  "flawOrder": [
+    "no_booking",
+    "no_prices",
+    "slow_mobile"
+  ],
+  "serviceRules": [
+    [
+      "ceramic|coating",
+      "ceramic coating"
+    ],
+    [
+      "mobile",
+      "mobile detailing"
+    ]
+  ],
+  "serviceDefault": "car detailing",
+  "serviceWords": [
+    "interior",
+    "exterior",
+    "ceramic",
+    "coating",
+    "paint correction",
+    "wax",
+    "polish",
+    "shampoo",
+    "headlight",
+    "engine bay"
+  ],
+  "schemaType": "AutoWash",
+  "hero": {
+    "mobile": {
+      "headline": "Mobile detailing in {city},",
+      "headlineEm": "right in your driveway.",
+      "sub": "{shop} comes to you. Pick a package, pick a time, and get your car back looking new."
+    },
+    "default": {
+      "headline": "Auto detailing in {city},",
+      "headlineEm": "done right.",
+      "sub": "{shop} brings back the shine inside and out. Pick a package, pick a time, and we'll take it from there."
+    }
+  },
+  "cta": "Book a detail",
+  "heroCta": "See prices and book",
+  "services": [
+    {
+      "key": "exterior|wash|wax|seal",
+      "name": "Exterior wash and protection",
+      "desc": "Hand wash, wheels, tires and trim, finished with a protective coat."
+    },
+    {
+      "key": "interior|shampoo|steam|upholstery|odor",
+      "name": "Interior detail",
+      "desc": "Vacuum, steam, shampoo and leather care for a cabin that feels new."
+    },
+    {
+      "key": "correction|polish|swirl|buff",
+      "name": "Paint correction",
+      "desc": "Swirl and scratch removal so the paint looks deep again."
+    },
+    {
+      "key": "ceramic|coating",
+      "name": "Ceramic coating",
+      "desc": "Long-lasting gloss and easier washing."
+    },
+    {
+      "key": "headlight",
+      "name": "Headlight restoration",
+      "desc": "Cloudy lenses cleared for better looks and better night driving."
+    },
+    {
+      "key": "fleet|commercial",
+      "name": "Fleet detailing",
+      "desc": "Work trucks and company cars kept clean on a schedule."
+    },
+    {
+      "key": "boat|marine|rv",
+      "name": "Boat and RV detailing",
+      "desc": "Washes, oxidation removal and interiors for boats and RVs."
+    },
+    {
+      "key": "ppf|paint protection film|tint",
+      "name": "Paint protection",
+      "desc": "Protection for the paint where chips and scratches hit first."
+    }
+  ],
+  "defaultServiceKeys": [
+    "exterior|wash|wax|seal",
+    "interior|shampoo|steam|upholstery|odor",
+    "correction|polish|swirl|buff",
+    "ceramic|coating"
+  ],
+  "pricing": {
+    "headline": "Clear prices, up front.",
+    "sub": "Sample prices for this mockup. Your site shows your real prices."
+  },
+  "packages": [
+    {
+      "name": "Exterior",
+      "price": 79,
+      "features": [
+        "Hand wash and dry",
+        "Wheels, tires and trim",
+        "Spray sealant",
+        "Glass inside and out"
+      ]
+    },
+    {
+      "name": "Inside + Out",
+      "price": 189,
+      "popular": true,
+      "popularLabel": "Most booked",
+      "features": [
+        "Everything in Exterior",
+        "Full vacuum and steam",
+        "Seat and carpet shampoo",
+        "Leather clean and condition"
+      ]
+    },
+    {
+      "name": "Interior Deep",
+      "price": 139,
+      "features": [
+        "Full interior reset",
+        "Pet hair removal",
+        "Stain treatment",
+        "Trunk and cargo area"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "title": "Pick a package",
+      "body": "Prices are right here, so there's no calling around for a quote."
+    },
+    {
+      "title": "Choose a time",
+      "body": "Send the form and we'll text you to confirm."
+    },
+    {
+      "title": "Get it back clean",
+      "body": "We take care of the rest."
+    }
+  ],
+  "workHeadline": "Recent jobs around {city}",
+  "booking": {
+    "headline": "Get your price and a time",
+    "submit": "Text me a time",
+    "notesHint": "Vehicle, condition, best days"
+  },
+  "faq": [
+    {
+      "q": "How do I book?",
+      "a": "Pick a package above and send the short form, or call {phone}. We'll text you to confirm a time."
+    },
+    {
+      "q": "How long does a detail take?",
+      "a": "It depends on the package and the vehicle's condition. We'll give you a time window when we confirm."
+    },
+    {
+      "q": "Where do you work?",
+      "a": "We serve {city} and nearby areas. Send your ZIP code in the form and we'll confirm."
+    }
+  ],
+  "final": {
+    "headline": "Your car, clean, this week.",
+    "sub": "Pick a package and we'll text you a time."
+  }
+}

@@ -1,1 +1,2 @@
-sam@optout-example.com
+# bounces and complaints, one per line
+@bounced-example.com

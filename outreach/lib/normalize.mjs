@@ -56,11 +56,12 @@ export function formatPhone(raw = "") {
 
 const num = v => { const n = Number(String(v ?? "").replace(/[^\d.]/g, "")); return String(v ?? "").trim() === "" || Number.isNaN(n) ? null : n; };
 
-export function normalize(row) {
+export function normalize(row, defaultNiche = "auto-detailing") {
   const city = String(row.city || "").trim().replace(/\s+/g, " ");
-  const reviews = [1, 2, 3].map(i => ({ name: (row[`review_${i}_author`] || "").trim(), text: (row[`review_${i}_text`] || "").trim(), stars: num(row[`review_${i}_stars`]) }))
+  const reviews = [1, 2, 3].map(i => ({ name: (row[`review_${i}_author`] || "").trim(), text: (row[`review_${i}_text`] || "").trim(), stars: num(row[`review_${i}_stars`]), date: (row[`review_${i}_date`] || "").trim() }))
     .filter(r => r.name && r.text);
   return {
+    niche: String(row.niche || defaultNiche).trim().toLowerCase(),
     place_id: String(row.place_id || "").trim(),
     raw_name: String(row.name || "").trim(),
     shop: cleanShopName(row.name, city),
