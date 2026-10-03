@@ -43,11 +43,14 @@ ${demo ? '<meta name="robots" content="noindex">' : when(s.seo?.canonical, `<lin
 <meta property="article:modified_time" content="${esc(s.builtAt || "")}">
 <link rel="alternate" type="text/markdown" href="index.md">
 <meta name="theme-color" content="${esc(s.theme?.themeColor || s.theme?.bg || "#ffffff")}">
+<meta property="article:published_time" content="${esc(s.published || s.builtAt || "")}">
 <meta property="og:type" content="website">
+${when(s.seo?.canonical && !demo, `<meta property="og:url" content="${url(s.seo.canonical)}">`)}
+<meta name="twitter:card" content="summary">
 <meta property="og:title" content="${esc(s.seo?.title || b.name)}">
 <meta property="og:description" content="${esc(s.seo?.description || "")}">
 ${when(s.seo?.ogImage, `<meta property="og:image" content="${url(s.seo.ogImage)}">`)}
-${when(b.favicon, `<link rel="icon" href="${url(b.favicon)}">`)}
+${b.favicon ? `<link rel="icon" href="${url(b.favicon)}">` : '<link rel="icon" href="data:,">'}
 ${when(s.hero?.image, `<link rel="preload" as="image" href="${url(s.hero.image)}" fetchpriority="high">`)}
 ${(s.theme?.fontFaces || []).filter(f => f.preload).map(f => `<link rel="preload" as="font" type="font/woff2" href="${url(f.src)}" crossorigin>`).join("\n")}
 <style>${theme({ fontFaces: s.theme?.fontFaces })}${BASE_CSS}${css}</style>
@@ -95,6 +98,7 @@ ${schema(s)}
   <fieldset data-step="1" class="on">
     <legend>${esc(start.question)}</legend>
     <div class="choices">${start.options.map((x, i) => `<label class="choice"><input type="radio" name="kind" value="${esc(x.value)}" id="kind-${i}"><span><b>${esc(x.label || x.value)}</b>${when(x.hint, `<small>${esc(x.hint)}</small>`)}</span></label>`).join("")}</div>
+    <div class="step-nav"><button type="button" class="btn btn-go" data-next>Next</button></div>
   </fieldset>
   <fieldset data-step="2">
     <legend>${esc(s.lead?.step2 || "Tell us about the yard")}</legend>
@@ -113,7 +117,7 @@ ${schema(s)}
     <label for="f-phone">Mobile number</label>
     <input name="phone" id="f-phone" type="tel" autocomplete="tel" inputmode="tel">
     <label for="f-email">or email</label>
-    <input name="email" id="f-email" type="email" autocomplete="email">
+    <input name="email" id="f-email" type="email" autocomplete="email" pattern="[^@\\s]+@[^@\\s]+\\.[^@\\s]+">
     <p class="hint">${esc(s.lead?.contactHint || "Phone or email, whichever you check first. You only need one.")}</p>
     <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
     <div class="step-nav"><button type="button" class="btn-back" data-back>Back</button><button class="btn btn-go" type="submit">${esc(s.lead?.submit || "Get my free estimate")}</button></div>
@@ -131,7 +135,8 @@ ${schema(s)}
 </nav>`;
 
   k.credit = () => `© ${(s.builtAt || "").slice(0, 4) || new Date().getFullYear()} ${esc(b.name)}${when(s.credit !== false, ' · Site by <a href="https://groundwork-web.com/">GroundWork</a>')}`;
-  k.addr = () => esc([b.address?.street, b.address?.city, [b.address?.region, b.address?.postal].filter(Boolean).join(" ")].filter(Boolean).join(", "));
+  k.addr = () => `<address style="font-style:normal;display:inline">${addrText()}</address>`;
+  const addrText = () => esc([b.address?.street, b.address?.city, [b.address?.region, b.address?.postal].filter(Boolean).join(" ")].filter(Boolean).join(", "));
 
   k.scripts = (assetBase = "") => `<script>window.FUNNEL=${JSON.stringify(cfg).replace(/</g, "\\u003c")};</script>
 <script src="${assetBase}funnel.js" defer></script>`;

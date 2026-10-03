@@ -1,8 +1,8 @@
 /* lawn-almanac: a horticulturist's field journal. Cool sage paper, pen-green ink, beet for the one
    action, ochre for rules and stamps. Caslon for headings, Karla for reading, Caveat for margin notes. */
 :root{
-  --paper:#EDF0E6;--sheet:#F8F9F3;--ink:#1D2A1F;--pen:#2F4A36;--muted:#5A665C;--rule:#C8CEBE;
-  --beet:#7A2B4E;--beet-ink:#FFFFFF;--ochre:#A87A26;--moss:#DCE3D0;
+  --paper:#EDF0E6;--sheet:#F8F9F3;--ink:#1D2A1F;--pen:#2F4A36;--muted:#4B564D;--rule:#C8CEBE;
+  --beet:#7A2B4E;--beet-ink:#FFFFFF;--ochre:#83601C;--moss:#DCE3D0;
   --display:"Libre Caslon Display","Iowan Old Style",Georgia,serif;--body:Karla,"Segoe UI",Helvetica,Arial,sans-serif;--hand:Caveat,"Bradley Hand","Segoe Print",cursive;
   color-scheme:light
 }
@@ -98,7 +98,7 @@ p{margin:0}
 .packet.pop{background:#EBDDC0}
 .flap{position:absolute;left:0;right:0;top:0;height:20px;background:linear-gradient(to bottom right,transparent 49%,#DCCFB2 50%,transparent 51%) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent 49%,#DCCFB2 50%,transparent 51%) right/50% 100% no-repeat}
 .stamp{position:absolute;right:14px;top:30px;font:700 .72rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--beet);border:1.5px solid var(--beet);padding:6px 8px;transform:rotate(6deg);border-radius:3px}
-.latin{font:italic 400 .95rem/1.2 var(--display);color:var(--ochre)}
+.latin{font:italic 400 .95rem/1.2 var(--display);color:#6A4C12}
 .packet h3{font-size:1.6rem;margin-top:4px}
 .pk-price{font:400 2rem/1.1 var(--display);margin-top:10px}
 .pk-price small{font:400 .9rem var(--body);color:var(--muted)}

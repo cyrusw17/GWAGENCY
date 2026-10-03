@@ -58,17 +58,24 @@
     at = Math.max(0, Math.min(i, steps.length - 1));
     steps.forEach(function (st, n) { st.classList.toggle("on", n === at); });
     if (progress) progress.textContent = "Step " + (at + 1) + " of " + steps.length;
-    var first = steps[at].querySelector("input:not([type=hidden]),select,textarea,button");
-    if (first && i > 0) first.focus({ preventScroll: false });
+    // Move focus into the step shown, so Back and Next never leave it on a hidden control.
+    var first = steps[at].querySelector("input:checked") || steps[at].querySelector("input:not([type=hidden]),select,textarea,button");
+    if (first) first.focus();
   }
   function stepOk() {
+    var kind = steps[at].querySelector("[name=kind]");
+    if (kind && !steps[at].querySelector("[name=kind]:checked")) {
+      kind.setCustomValidity("Pick one to continue."); kind.reportValidity(); kind.setCustomValidity(""); return false;
+    }
     var fields = steps[at].querySelectorAll("input,select,textarea");
     for (var n = 0; n < fields.length; n++) if (!fields[n].reportValidity()) return false;
     return true;
   }
   if (steps.length) {
-    form.addEventListener("change", function (e) { if (e.target.name === "kind" && at === 0) show(1); });
     form.addEventListener("click", function (e) {
+      // A tap or mouse click on a first-step choice moves on. Keyboard selection (detail 0) waits for Next,
+      // so arrow keys can move between choices.
+      if (at === 0 && e.detail > 0 && e.target.closest(".choice")) { setTimeout(function () { show(1); }, 120); return; }
       if (e.target.closest("[data-next]") && stepOk()) show(at + 1);
       if (e.target.closest("[data-back]")) show(at - 1);
     });

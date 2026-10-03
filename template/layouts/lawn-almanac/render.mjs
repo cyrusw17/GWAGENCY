@@ -152,7 +152,7 @@ ${when(s.faq?.length, `<section class="qa" id="faq"><div class="wrap narrow"><h2
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <p><i class="foot-name">${esc(b.name)}</i><br>${k.addr()} · ${esc(b.hoursText || "")}</p>
+    <div><i class="foot-name">${esc(b.name)}</i><br>${k.addr()} · ${esc(b.hoursText || "")}</div>
     <p>${k.call("footer", k.phone, "link")}${when(b.email, ` · <a class="link" href="mailto:${esc(b.email)}">${esc(b.email)}</a>`)}<br>${esc(b.license || "")}</p>
     <p class="credit">${k.credit()}</p>
   </div>

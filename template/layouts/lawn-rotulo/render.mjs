@@ -140,7 +140,7 @@ ${when(s.faq?.length, `<section class="qa" id="preguntas"><div class="wrap narro
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <p><b class="foot-name">${esc(b.name)}</b><br>${k.addr()}<br>${esc(b.hoursText || "")}</p>
+    <div><b class="foot-name">${esc(b.name)}</b><br>${k.addr()}<br>${esc(b.hoursText || "")}</div>
     <p>${k.call("footer", k.phone, "foot-link")}${when(b.email, `<br><a class="foot-link" href="mailto:${esc(b.email)}">${esc(b.email)}</a>`)}<br>${esc(b.license || "")}</p>
     <p class="credit">${k.credit()}</p>
   </div>

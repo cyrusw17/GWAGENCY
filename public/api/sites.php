@@ -60,8 +60,8 @@ if ($action === 'lead') {
     $lead = ['name' => $f('name', 100), 'phone' => $f('phone', 40), 'service' => $f('service', 100), 'zip' => $f('zip', 10), 'notes' => $f('notes', 1000)];
     // Layout forms ask for phone or email (marketing checklist 7). Email rides in notes so the table stays as is.
     $email = $f('email', 200);
-    if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) $email = '';
-    if ($email !== '') $lead['notes'] = trim('Email: ' . $email . "\n" . $lead['notes']);
+    // A malformed address is kept (flagged) rather than dropped, so the lead still reaches the owner.
+    if ($email !== '') $lead['notes'] = trim('Email: ' . $email . (filter_var($email, FILTER_VALIDATE_EMAIL) ? '' : ' (check spelling)') . "\n" . $lead['notes']);
     if ($lead['name'] === '' || ($lead['phone'] === '' && $email === '')) { http_response_code(422); echo '{"ok":false}'; exit; }
 
     $db->exec('CREATE TABLE IF NOT EXISTS site_leads (
