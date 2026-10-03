@@ -1,0 +1,311 @@
+{
+  "slug": "demo-lawn-care",
+  "demo": true,
+  "niche": "landscaping and lawn care",
+  "tracking": "groundwork",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/landscaping/?demo=lawn"
+  },
+  "layout": {
+    "hero": "overlay",
+    "order": [
+      "services",
+      "work",
+      "reviews",
+      "pricing",
+      "how",
+      "areas",
+      "promise"
+    ]
+  },
+  "business": {
+    "name": "Cedar Row Lawn & Landscape",
+    "tagline": "Lawn care and landscaping · Raleigh",
+    "service": "Lawn care and landscaping",
+    "area": "Raleigh",
+    "schemaType": "HomeAndConstructionBusiness",
+    "phone": "(919) 555-0124",
+    "sms": "(919) 555-0124",
+    "email": "hello@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Fri 7am-6pm, Sat 8am-2pm",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "days": [
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "address": {
+      "city": "Raleigh",
+      "region": "NC",
+      "postal": "27601"
+    },
+    "footerLine": "Licensed and insured · Family owned"
+  },
+  "theme": {
+    "bg": "#F7F5EE",
+    "surface": "#FFFFFF",
+    "surface2": "#E9E5D6",
+    "text": "#1C2418",
+    "muted": "#5B6354",
+    "line": "#DCD7C5",
+    "accent": "#2F6B2A",
+    "accentInk": "#FFFFFF",
+    "accent2": "#22361E",
+    "display": "\"Iowan Old Style\",\"Palatino Linotype\",Palatino,Georgia,serif",
+    "radius": "6px"
+  },
+  "seo": {
+    "title": "Cedar Row Lawn & Landscape | Lawn Care and Landscaping in Raleigh",
+    "description": "Weekly mowing, cleanups, aeration and landscaping in Raleigh. Prices shown, free estimates by text."
+  },
+  "offer": {
+    "bar": "Fall aeration: booking now.",
+    "barCta": "Estimate"
+  },
+  "hero": {
+    "eyebrow": "Raleigh · Cary · Wake Forest · Garner",
+    "headlineEm": "A yard you're proud of, all season.",
+    "sub": "Weekly mowing, seasonal cleanups and landscaping projects, with prices shown and the same crew every visit.",
+    "proof": [
+      {
+        "value": "Same crew",
+        "label": "every visit"
+      },
+      {
+        "value": "No contracts",
+        "label": "on weekly mowing"
+      },
+      {
+        "value": "Free",
+        "label": "estimates"
+      }
+    ]
+  },
+  "trust": [
+    "Licensed and insured",
+    "Same crew every visit",
+    "No long-term contracts",
+    "Prices shown up front"
+  ],
+  "servicesHeadline": "From weekly mowing to a whole new yard",
+  "services": [
+    {
+      "name": "Weekly mowing",
+      "from": 45,
+      "desc": "Mow, edge, trim and blow, on the same day each week."
+    },
+    {
+      "name": "Aeration and overseeding",
+      "from": 149,
+      "desc": "Core aeration plus seed for a thicker lawn. Best in fall."
+    },
+    {
+      "name": "Spring and fall cleanup",
+      "from": 199,
+      "desc": "Leaves, beds, branches and the first or last cut of the season."
+    },
+    {
+      "name": "Fertilization",
+      "from": 69,
+      "desc": "Seasonal feeding and weed control, per application."
+    },
+    {
+      "name": "Mulch and bed refresh",
+      "from": 249,
+      "desc": "Beds edged, weeded and topped with fresh mulch."
+    },
+    {
+      "name": "Landscape projects",
+      "from": 1500,
+      "desc": "Planting, sod, stone borders and drainage, designed with you."
+    }
+  ],
+  "pricing": {
+    "headline": "Straightforward prices",
+    "sub": "Prices for a typical quarter-acre lot. Bigger yards get an exact price after a quick look.",
+    "fine": "Add fertilization to any plan from $69 per application."
+  },
+  "packages": [
+    {
+      "name": "Weekly Mowing",
+      "price": "$45",
+      "note": "per visit · quarter-acre",
+      "features": [
+        "Mow, edge and trim",
+        "Clippings blown off hard surfaces",
+        "Same day each week",
+        "Skip a week anytime"
+      ]
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "price": 149,
+      "note": "from · best in fall",
+      "popular": true,
+      "popularLabel": "Booking now",
+      "features": [
+        "Core aeration",
+        "Seed matched to your lawn",
+        "Starter fertilizer",
+        "Watering plan by text"
+      ]
+    },
+    {
+      "name": "Spring Cleanup",
+      "price": 199,
+      "note": "from · one visit",
+      "features": [
+        "Leaves and debris removed",
+        "Beds weeded and edged",
+        "Shrubs shaped",
+        "First cut of the season"
+      ]
+    }
+  ],
+  "stepsHeadline": "How it works",
+  "steps": [
+    {
+      "title": "Tell us about your yard",
+      "body": "Weekly mowing or a one-time project. Two quick questions."
+    },
+    {
+      "title": "Get a price by text",
+      "body": "Most estimates are sent the same day. Bigger projects get a free visit."
+    },
+    {
+      "title": "We take it from there",
+      "body": "Same crew, same day each week, and a text when we're done."
+    }
+  ],
+  "work": {
+    "headline": "Recent yards around Raleigh",
+    "sub": "Real sites show the owner's own project photos.",
+    "gallery": [
+      {
+        "caption": "Cary · fall overseeding"
+      },
+      {
+        "caption": "Wake Forest · new beds and mulch"
+      },
+      {
+        "caption": "Five Points · weekly mowing"
+      },
+      {
+        "caption": "Garner · stone border"
+      },
+      {
+        "caption": "North Hills · sod install"
+      },
+      {
+        "caption": "Apex · spring cleanup"
+      }
+    ]
+  },
+  "reviews": {
+    "headline": "Raleigh neighbors say",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.8",
+    "count": 78,
+    "items": [
+      {
+        "name": "Sample customer",
+        "detail": " · Weekly mowing",
+        "date": "2026-09-28",
+        "text": "Same guys every week, always on the same day, and they text when they're done."
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Aeration",
+        "date": "2026-09-16",
+        "text": "The estimate came by text the same afternoon and matched the bill exactly."
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Bed refresh",
+        "date": "2026-08-25",
+        "text": "Our front beds look like a magazine now. Fair price and very tidy."
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "If we miss something, we come back free.",
+    "body": "Text us within 48 hours of a visit and we fix it, no questions asked."
+  },
+  "areas": {
+    "headline": "Serving Raleigh and Wake County",
+    "body": "Weekly mowing routes cover these areas. Projects anywhere in Wake County.",
+    "cities": [
+      "Raleigh",
+      "Cary",
+      "Apex",
+      "Wake Forest",
+      "Garner",
+      "Knightdale",
+      "Morrisville",
+      "Holly Springs"
+    ]
+  },
+  "booking": {
+    "cta": "Get a free estimate",
+    "eyebrow": "Free estimate",
+    "headline": "Get your estimate by text",
+    "body": "Two quick questions and we text you a price, usually the same day."
+  },
+  "lead": {
+    "endpoint": "",
+    "question": "Weekly mowing or a one-time project?",
+    "options": [
+      "Weekly mowing",
+      "Aeration & overseeding",
+      "Cleanup",
+      "Mulch or beds",
+      "Landscape project",
+      "Not sure yet"
+    ],
+    "submit": "Text me my estimate",
+    "notesHint": "Yard size, gate code, what you'd like done"
+  },
+  "faq": [
+    {
+      "q": "Do I have to sign a contract for weekly mowing?",
+      "a": "No. Weekly mowing is month to month, and you can skip a week anytime by text."
+    },
+    {
+      "q": "When is the best time to aerate and overseed?",
+      "a": "Early fall, from September to October, for the cool-season grasses common around Raleigh."
+    },
+    {
+      "q": "Do I need to be home?",
+      "a": "No. Leave the gate unlocked or text us the code. We text you when we're done."
+    },
+    {
+      "q": "Do you haul away leaves and debris?",
+      "a": "Yes. Cleanups include bagging and hauling everything away."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "Card on file after each visit, or by invoice for projects."
+    }
+  ],
+  "final": {
+    "headline": "Your best-looking yard starts this week.",
+    "sub": "Two questions, a price by text, and we handle the rest."
+  }
+}

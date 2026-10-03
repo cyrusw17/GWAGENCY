@@ -44,10 +44,20 @@ $event = fn(string $type, string $label) => $db->prepare('INSERT INTO site_event
 
 $action = $_GET['a'] ?? '';
 
+// Caps keep a flood of fake requests out of the owner's inbox and out of the guarantee count.
+$count = function (string $table, string $where, array $p) use ($db): int {
+    $s = $db->prepare("SELECT COUNT(*) FROM $table WHERE $where"); $s->execute($p); return (int)$s->fetchColumn();
+};
+$tooMany = fn(int $perVisitorHour, int $perSiteDay) =>
+    $count('site_events', 'site = ? AND type = ? AND vhash = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), $vhash, time() - 3600]) >= $perVisitorHour
+    || $count('site_events', 'site = ? AND type = ? AND ts > ?', [$slug, $action === 'lead' ? 'lead' : (string)($in['type'] ?? ''), time() - 86400]) >= $perSiteDay;
+
+
 if ($action === 'event') {
     if (($_SERVER['HTTP_SEC_GPC'] ?? '') === '1' || ($_SERVER['HTTP_DNT'] ?? '') === '1') { http_response_code(204); exit; }
     $type = (string)($in['type'] ?? '');
     if (!in_array($type, ['pageview', 'call', 'text', 'book'], true)) { http_response_code(400); exit; }
+    if ($tooMany(30, 5000)) { http_response_code(429); exit; }
     $event($type, (string)($in['label'] ?? ''));
     http_response_code(204);
     exit;
@@ -55,10 +65,12 @@ if ($action === 'event') {
 
 if ($action === 'lead') {
     header('Content-Type: application/json');
+    if ($origin === '') { http_response_code(403); echo '{"ok":false}'; exit; } // forms come from the site's own page
     if (!empty($in['company_url'])) { echo '{"ok":true}'; exit; } // honeypot
+    if ($tooMany(5, 50)) { http_response_code(429); echo '{"ok":false,"error":"rate"}'; exit; }
     $f = fn(string $k, int $max) => gw_trim((string)($in[$k] ?? ''), $max);
     $lead = ['name' => $f('name', 100), 'phone' => $f('phone', 40), 'service' => $f('service', 100), 'zip' => $f('zip', 10), 'notes' => $f('notes', 1000)];
-    if ($lead['name'] === '' || $lead['phone'] === '') { http_response_code(422); echo '{"ok":false}'; exit; }
+    if (strlen(preg_replace('/\D/', '', $lead['phone'])) < 10) { http_response_code(422); echo '{"ok":false}'; exit; }
 
     $db->exec('CREATE TABLE IF NOT EXISTS site_leads (
         id INTEGER PRIMARY KEY, ts INTEGER NOT NULL, site TEXT NOT NULL,
@@ -74,7 +86,9 @@ if ($action === 'lead') {
     $host = gw_own_host() ?: 'localhost';
     $headers = "From: " . ($site['name'] ?? 'Website') . " website <no-reply@$host>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
     $to = array_filter([(string)($site['email'] ?? ''), GW_LEAD_EMAIL]);
-    @mail(implode(',', $to), 'New quote request: ' . ($lead['service'] ?: 'website') . ' - ' . $lead['name'], $body, $headers);
+    // Names and phone numbers are kept only as long as analytics (GW_RETENTION_DAYS).
+    if (random_int(1, 50) === 1) $db->prepare('DELETE FROM site_leads WHERE ts < ?')->execute([time() - GW_RETENTION_DAYS * 86400]);
+    @mail(implode(',', $to), 'New quote request: ' . ($lead['service'] ?: 'website') . ' - ' . ($lead['name'] ?: $lead['phone']), $body, $headers);
     echo '{"ok":true}';
     exit;
 }

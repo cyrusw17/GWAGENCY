@@ -74,11 +74,14 @@ export function checkMockup(html, p, site) {
   }
   // Allowed numbers: the shop's own facts, plus the copyright year.
   const allowed = new Set([p.rating?.toFixed(1), String(p.review_count), p.review_count?.toLocaleString("en-US"), p.zip, String(new Date(site.builtAt || Date.now()).getFullYear()), "5"].filter(Boolean));
-  const own = [p.shop, p.city, p.phone, p.hours_text, ...p.reviews.map(x => `${x.text} ${x.date}`)].join(" ");
-  const text = textOf(rest).split(p.phone).join(" ");
-  for (const m of text.match(/\$\s?\d[\d,.]*|\d[\d,.:]*\d|\d/g) || []) {
+  const NUM = /\$\s?\d[\d,.]*|\d[\d,.:]*\d|\d/g;
+  const own = [p.shop, p.city, p.hours_text, ...p.reviews.map(x => `${x.text} ${x.date}`)].join(" ");
+  for (const m of own.match(NUM) || []) allowed.add(m.replace(/[.,:]$/, ""));
+  // The form's step counter ("Step 1 of 2") is interface, not a claim.
+  const text = textOf(rest.replace(/<form[\s\S]*?<\/form>/gi, " ")).split(p.phone).join(" ");
+  for (const m of text.match(NUM) || []) {
     const n = m.replace(/[.,:]$/, "");
-    if (!allowed.has(n) && !own.includes(n)) { r.push(`mockup shows "${n}" outside a sample section, and it isn't one of the shop's facts`); break; }
+    if (!allowed.has(n)) { r.push(`mockup shows "${n}" outside a sample section, and it isn't one of the shop's facts`); break; }
   }
   return r;
 }

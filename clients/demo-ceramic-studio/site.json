@@ -1,0 +1,292 @@
+{
+  "slug": "demo-ceramic-studio",
+  "demo": true,
+  "niche": "auto detailing",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=ceramic"
+  },
+  "business": {
+    "name": "Northline Ceramic & Detail",
+    "tagline": "Paint correction · Ceramic coating · Dallas",
+    "schemaType": "AutoWash",
+    "phone": "(214) 555-0187",
+    "sms": "(214) 555-0187",
+    "email": "studio@example.com",
+    "priceRange": "$$$",
+    "hoursText": "Tue-Sat 8am-6pm",
+    "hours": [
+      {
+        "days": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "address": {
+      "street": "",
+      "city": "Dallas",
+      "region": "TX",
+      "postal": "75207"
+    },
+    "footerLine": "Indoor studio · Fully insured · Written coating warranty",
+    "social": [
+      "https://instagram.com/example",
+      "https://facebook.com/example"
+    ],
+    "service": "Ceramic coating and paint correction",
+    "area": "Dallas"
+  },
+  "theme": {
+    "bg": "#0C0E11",
+    "surface": "#14171C",
+    "surface2": "#1C2026",
+    "text": "#EEF0F2",
+    "muted": "#9AA3AE",
+    "line": "#262B33",
+    "accent": "#D4A84F",
+    "accentInk": "#17120A",
+    "accent2": "#22303F"
+  },
+  "seo": {
+    "title": "Northline Ceramic & Detail | Ceramic Coating and Paint Correction in Dallas",
+    "description": "Indoor ceramic coating and paint correction studio in Dallas. Prices shown, written warranty, book a free paint inspection online."
+  },
+  "offer": {
+    "bar": "Free maintenance wash with any coating.",
+    "barCta": "Book"
+  },
+  "hero": {
+    "eyebrow": "Dallas · Uptown · Highland Park · Plano",
+    "headlineEm": "Paint that looks wet for years.",
+    "sub": "Machine paint correction and pro-grade coatings, done indoors and backed in writing. See the price for your car before you book.",
+    "proof": [
+      {
+        "value": "5 yr",
+        "label": "written coating warranty"
+      },
+      {
+        "value": "Indoor",
+        "label": "climate-controlled bay"
+      },
+      {
+        "value": "Free",
+        "label": "paint inspection"
+      }
+    ]
+  },
+  "trust": [
+    "Written warranty",
+    "Prices shown up front",
+    "Indoor, dust-free bay",
+    "Loaner rides available"
+  ],
+  "servicesHeadline": "Protection, correction, and everything between",
+  "services": [
+    {
+      "name": "Ceramic coating",
+      "from": 899,
+      "desc": "Years of gloss, easier washing and protection from sun, sap and bird droppings."
+    },
+    {
+      "name": "Paint correction",
+      "from": 449,
+      "desc": "Machine polishing that removes swirls and light scratches before protection goes on."
+    },
+    {
+      "name": "Paint protection film",
+      "from": 1200,
+      "desc": "Clear film on the front end to stop rock chips on the highway."
+    },
+    {
+      "name": "New car prep",
+      "from": 599,
+      "desc": "Dealer swirls removed and coated before the first wash ruins the finish."
+    },
+    {
+      "name": "Interior coating",
+      "from": 249,
+      "desc": "Leather and fabric protection against spills, dye transfer and kids."
+    },
+    {
+      "name": "Maintenance washes",
+      "from": 79,
+      "desc": "Coating-safe hand washes that keep the warranty valid."
+    }
+  ],
+  "pricing": {
+    "headline": "Pick your level of protection",
+    "sub": "Sedan prices shown. SUVs and trucks are quoted after a free inspection.",
+    "fine": "12 payments means full price ÷ 12, no interest, nothing added. Every coating includes panel prep and a written warranty.",
+    "onceLabel": "Pay in full",
+    "memberLabel": "12 payments",
+    "memberUnit": "/mo"
+  },
+  "packages": [
+    {
+      "name": "Gloss",
+      "price": 899,
+      "member": 74.91,
+      "note": "2-year coating · 1 day",
+      "features": [
+        "One-step polish",
+        "2-year ceramic coating",
+        "Wheels faces coated",
+        "Glass coating"
+      ]
+    },
+    {
+      "name": "Signature",
+      "price": 1499,
+      "member": 124.91,
+      "note": "5-year coating · 2 days",
+      "popular": true,
+      "popularLabel": "Most chosen",
+      "features": [
+        "Two-step paint correction",
+        "5-year ceramic coating",
+        "Wheels and calipers coated",
+        "Glass and trim coating",
+        "Free first maintenance wash"
+      ]
+    },
+    {
+      "name": "Concours",
+      "price": 2499,
+      "member": 208.25,
+      "note": "9-year coating · 3 days",
+      "features": [
+        "Multi-step correction",
+        "9-year ceramic coating",
+        "Front-end paint protection film",
+        "Interior coating",
+        "Annual inspection"
+      ]
+    }
+  ],
+  "stepsHeadline": "How it works",
+  "steps": [
+    {
+      "title": "Free paint inspection",
+      "body": "We measure your paint and show you what correction it needs. No pressure."
+    },
+    {
+      "title": "Drop off for 1-3 days",
+      "body": "Your car stays indoors. We send progress photos and a loaner ride if you need one."
+    },
+    {
+      "title": "Pick up and drive",
+      "body": "Walk-around, care guide and your written warranty in hand."
+    }
+  ],
+  "work": {
+    "headline": "Recent studio work",
+    "sub": "Real sites show the owner's own before and after photos.",
+    "compare": {
+      "caption": ""
+    },
+    "gallery": [
+      {
+        "caption": "Uptown · Model 3, Signature"
+      },
+      {
+        "caption": "Plano · Tahoe, paint correction"
+      },
+      {
+        "caption": "Highland Park · 911, Concours"
+      },
+      {
+        "caption": "Frisco · F-150, new car prep"
+      }
+    ]
+  },
+  "reviews": {
+    "headline": "What Dallas owners say",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "5.0",
+    "count": 94,
+    "items": [
+      {
+        "name": "Sample customer",
+        "detail": " · Model 3, Signature",
+        "text": "They showed me the swirl marks under the light before quoting. Same price on the site as in the shop.",
+        "date": "2026-09-29"
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · Tahoe, correction",
+        "text": "Progress photos every day and the truck looks better than when I bought it.",
+        "date": "2026-09-11"
+      },
+      {
+        "name": "Sample customer",
+        "detail": " · 911, Concours",
+        "text": "Careful, clean, and the warranty paperwork was waiting at pickup.",
+        "date": "2026-08-22"
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Written warranty, honored in house.",
+    "body": "If your coating fails within the warranty, we fix it free. Keep up the maintenance washes and it's covered."
+  },
+  "areas": {
+    "headline": "Studio in the Design District",
+    "body": "Drop off at our indoor bay. Pick-up and return available inside the Dallas loop.",
+    "cities": [
+      "Dallas",
+      "Uptown",
+      "Highland Park",
+      "University Park",
+      "Plano",
+      "Frisco",
+      "Richardson",
+      "Irving"
+    ]
+  },
+  "booking": {
+    "cta": "Book a free inspection",
+    "eyebrow": "Book",
+    "headline": "Book a free paint inspection",
+    "body": "Tell us your car and what bugs you about the paint. We'll text back with a time, usually the same day."
+  },
+  "lead": {
+    "endpoint": "",
+    "submit": "Request my inspection",
+    "notesHint": "Year, make, model and what you'd like fixed",
+    "question": "Which package interests you?"
+  },
+  "faq": [
+    {
+      "q": "How long does a ceramic coating last?",
+      "a": "Our packages are rated 2, 5 or 9 years with the maintenance washes in your care guide, and each comes with a written warranty."
+    },
+    {
+      "q": "Do I need paint correction before coating?",
+      "a": "Usually yes. A coating locks in whatever is under it, so we polish out swirls first. The free inspection tells you how much your paint needs."
+    },
+    {
+      "q": "How long will you have my car?",
+      "a": "One to three days depending on the package. We send progress photos and can arrange a loaner ride."
+    },
+    {
+      "q": "Can I still wash it myself?",
+      "a": "Yes, with a pH-neutral soap. Your care guide shows how, or book our coating-safe maintenance wash."
+    },
+    {
+      "q": "Can I pay over time?",
+      "a": "Yes. Any package can be split into 12 equal payments with no interest; the monthly prices are under the 12 payments toggle above."
+    }
+  ],
+  "final": {
+    "headline": "See what your paint could look like.",
+    "sub": "Free inspection, no pressure, price shown before we start."
+  },
+  "tracking": "groundwork"
+}
