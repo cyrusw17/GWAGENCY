@@ -18,13 +18,13 @@ Set `"demo": true` for sales demos: it adds the GroundWork bar, `noindex`, and l
 |---------|-----|
 | Offer bar (optional) | One time-bound reason to act now. |
 | Header | Tap-to-call and Book always visible; sticky. |
-| Hero | Outcome headline, the area, one primary CTA, call as second. Proof numbers under it. |
+| Hero | Rating pill (from `reviews`), outcome headline, the area, one primary CTA, call as second. Proof numbers under it. |
 | Trust strip | Insured, prices shown, guarantee: kill the top fears early. |
 | Services | What they do, each with a "from" price. |
-| Pricing | 3 packages, middle one highlighted. Each button pre-selects that package in the form. |
+| Pricing | 3 packages, middle one highlighted. Add `member` prices to get a One-time / Member toggle (sells the client's recurring plan). Each button pre-selects that package in the form. |
 | How it works | 3 steps, to make booking feel small. |
 | Our work | Before/after slider + gallery of real jobs. |
-| Reviews | Real reviews only, linked to the Google profile. |
+| Reviews | Real reviews only, linked to the Google profile. Swipeable row on phones, grid on desktop. |
 | Guarantee | Risk reversal with a CTA. |
 | Service area | City list + map, so out-of-area visitors don't waste a lead. |
 | Book | Booking embed (Square, Booksy, Calendly, Google) or a 4-field quote form. Call/text option next to it. |
@@ -32,9 +32,17 @@ Set `"demo": true` for sales demos: it adds the GroundWork bar, `noindex`, and l
 | Final CTA, footer | Last chance + consistent name/phone/area for local SEO. |
 | Sticky bar (phones) | Call + Book under the thumb on every scroll position. |
 
+## Design references
+
+Layout patterns are adapted from [21st.dev](https://21st.dev) (rating badge over the headline, gradient emphasis text, swipeable testimonial row, pricing toggle), rebuilt as plain HTML/CSS so pages stay fast with no framework. CSS is inlined into each page; the only other file is the 4KB `funnel.js`.
+
 ## Leads
 
 `lead.endpoint` gets a JSON POST (`name, phone, service, zip, notes, site, page`). Formspree, Getform or our own `api/lead.php`-style endpoint all work. If no endpoint is set, or sending fails, the form opens a pre-filled text message to the business so a lead is never lost. Or set `booking.embedUrl` to show the client's booking tool instead of the form.
+
+## Results tracking (for the monthly results text and the 60-day guarantee)
+
+Set `"tracking": "groundwork"` in site.json. The page then reports visits, call taps, text taps, booking clicks and quote requests to `groundwork-web.com/api/sites.php`, and quote requests are emailed to the client and to us. Add the site to `GW_CLIENT_SITES` in the server's `api/config.php` (slug, owner email, the site's origins); unknown sites and other origins are refused. Read results at `/api/site-report.php?key=<GW_STATS_KEY>&site=<slug>&days=60`. Lead details stay in the database above the web root, never in git. No cookies; GPC and Do Not Track are honored for counts.
 
 ## SEO and AI search, built in
 

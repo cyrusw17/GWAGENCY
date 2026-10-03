@@ -23,3 +23,10 @@ define('GW_LEAD_EMAIL', 'groundworkweb@proton.me');
 // Optional. Fixed secret for the daily visitor hash. If unset, one is generated
 // and stored in GW_DATA_DIR/secret.txt.
 // define('GW_HASH_SECRET', '');
+
+// Client sites built from the Funnel Template that report to /api/sites.php.
+// Only these slugs are accepted, only from their own origins. Lead emails go to "email" and GW_LEAD_EMAIL.
+// define('GW_CLIENT_SITES', [
+//     'harbor-line' => ['name' => 'Harbor Line Mobile Detail', 'email' => 'owner@example.com',
+//                       'origins' => ['https://harborlinedetail.com', 'https://www.harborlinedetail.com']],
+// ]);
