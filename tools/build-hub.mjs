@@ -6,13 +6,20 @@
 // A slot with "client" is built from clients/<client>/site.json into demos/<slug>/.
 // Exits non-zero when a demo fails its build checks or a slot is malformed.
 import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, existsSync } from "node:fs";
-import { join, resolve, dirname } from "node:path";
+import { join, resolve, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outFlag = process.argv.indexOf("--out");
-const out = resolve(root, outFlag >= 0 ? process.argv[outFlag + 1] : "_site");
+const out = resolve(root, outFlag >= 0 ? process.argv[outFlag + 1] || "" : "_site");
+// The output folder is wiped first, so only allow a fresh folder: _site/ or dist/... in the repo, or anywhere outside it.
+const up = relative(out, root); // "" or no leading ".." means out is the repo or a folder above it
+const inRepo = (out + "/").startsWith(root + "/") || !up.startsWith("..");
+if (inRepo && !/^(_site|dist\/.+)$/.test(relative(root, out))) {
+  console.error(`--out must be _site, a folder under dist/, or a folder outside the repo (got "${out}")`);
+  process.exit(2);
+}
 const data = JSON.parse(readFileSync(join(root, "hub", "data.json"), "utf8"));
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
