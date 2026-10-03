@@ -14,7 +14,7 @@
 <meta property="og:title" content="Harbor Line Mobile Detail | Car Detailing at Your Home in Tampa">
 <meta property="og:description" content="Mobile car detailing across Tampa Bay. We bring water and power to your driveway. Prices shown, book online in a minute.">
 
-
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230E7C86%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2219%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%3EH%3C%2Ftext%3E%3C%2Fsvg%3E">
 
 
 <style>/* GroundWork Funnel Template: mobile-first conversion site for local service businesses.
@@ -25,7 +25,7 @@
   --f-line:#DAD6CC; --f-accent:#C2410C; --f-accent-ink:#FFFFFF; --f-accent-2:#1E3A5F;
   --f-display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-radius:10px; --f-max:1120px; --f-gutter:16px; --f-bar:68px;
+  --f-radius:10px; --f-accent-light:#C7E59A; --f-max:1120px; --f-gutter:16px; --f-bar:68px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -47,7 +47,7 @@ h2{font-size:clamp(28px,6.5vw,44px)}
 h3{font-size:20px}
 p{margin:0 0 1em}
 .f-muted{color:var(--f-muted)}
-.f-eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--f-accent);margin:0 0 10px}
+.f-eyebrow{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--f-accent);margin:0 0 10px}
 section{padding-block:56px}
 .f-band{background:var(--f-surface);border-block:1px solid var(--f-line)}
 .f-head{margin-bottom:28px;max-width:640px}
@@ -71,7 +71,7 @@ section{padding-block:56px}
 .f-demo a{background:#E5A00D;color:#1A1200;padding:6px 10px;border-radius:5px;font-weight:700;text-decoration:none;white-space:nowrap}
 
 /* offer bar */
-.f-offerbar{background:var(--f-accent-2);color:#fff;font-size:14px;text-align:center;padding:9px var(--f-gutter)}
+.f-offerbar{background:var(--f-accent-2);color:#fff;font-size:14px;line-height:1.3;text-align:center;padding:9px var(--f-gutter)}
 .f-offerbar a{font-weight:700;text-underline-offset:3px}
 
 /* header */
@@ -79,7 +79,7 @@ section{padding-block:56px}
 body.has-demo .f-header{top:40px}
 .f-header .f-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
 .f-logo{font-family:var(--f-display);font-weight:800;font-size:18px;text-decoration:none;line-height:1.1;min-width:0}
-.f-logo small{display:block;font:500 12px/1.2 var(--f-body);color:var(--f-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.f-logo small{display:none;font:500 12px/1.2 var(--f-body);color:var(--f-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .f-logo img{max-height:40px;width:auto}
 .f-nav{display:none}
 .f-header .f-actions{display:flex;gap:8px;align-items:center;flex:none}
@@ -89,7 +89,7 @@ body.has-demo .f-header{top:40px}
 /* hero */
 .f-hero{padding-block:28px 40px}
 .f-hero .f-wrap{display:grid;gap:24px}
-.f-hero h1 em{font-style:normal;color:var(--f-accent);background:linear-gradient(100deg,var(--f-accent),color-mix(in srgb,var(--f-accent) 55%,var(--f-accent-2)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.f-hero h1 em{display:block;font-style:normal;color:var(--f-accent);background:linear-gradient(100deg,var(--f-accent),color-mix(in srgb,var(--f-accent) 55%,var(--f-accent-2)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .f-hero .lede{font-size:18px;color:var(--f-muted);margin:14px 0 22px;max-width:46ch}
 .f-ctas{display:grid;gap:10px}
 .f-proof{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px;font-size:14px;color:var(--f-muted);padding:0;list-style:none}
@@ -162,7 +162,7 @@ body.has-demo .f-header{top:40px}
 .f-gallery .f-media{aspect-ratio:1}
 
 /* rating pill above the headline (21st.dev badge-over-headline pattern) */
-.f-pill{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px;padding:6px 12px;border-radius:999px;background:var(--f-surface);border:1px solid var(--f-line);font-size:14px;color:var(--f-muted)}
+.f-pill{display:inline-flex;align-items:center;gap:6px 8px;flex-wrap:wrap;margin:0 0 14px;padding:6px 12px;border-radius:18px;background:var(--f-surface);border:1px solid var(--f-line);font-size:14px;color:var(--f-muted)}
 .f-pill b{color:var(--f-text)}
 .f-lead{margin-top:12px}
 
@@ -231,10 +231,50 @@ body.has-demo .f-header{top:40px}
 /* sticky mobile action bar: the thumb path */
 .f-sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--f-bg);box-shadow:0 -6px 20px -12px rgba(0,0,0,.25);border-top:1px solid var(--f-line)}
 .f-sticky .f-btn{min-height:50px;padding:10px 8px;font-size:16px}
-.f-sticky .f-btn-primary{grid-column:span 2}
+.f-sticky{display:flex}
+.f-sticky .f-btn-ghost{flex:none;padding-inline:14px}
+.f-sticky .f-btn-primary{flex:1}
+.f-sticky .f-btn{gap:6px}
+
+/* small labels */
+.f-tag{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:#FFF3CD;color:#5C4400;border-radius:4px;padding:2px 6px}
+.f-pill a{color:inherit}
+.f-rev time{display:block;font-size:13px;margin-top:2px}
+.f-rating .f-muted{font-size:14px}
+
+/* two-step lead form */
+.f-step{font-size:13px;font-weight:700;color:var(--f-muted);margin:0;display:none}
+.f-form.js-steps .f-step{display:block}
+.f-form .s1,.f-form .s2{display:grid;gap:14px}
+.f-form.js-steps:not(.step2) .s2,.f-form.js-steps.step2 .s1{display:none}
+.f-chips{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.f-chips legend{font-size:15px;font-weight:600;margin-bottom:8px;padding:0}
+.f-chips label{position:relative;display:block}
+.f-chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.f-chips span{display:flex;align-items:center;min-height:48px;padding:10px 16px;border:1.5px solid var(--f-line);border-radius:999px;background:var(--f-bg);font-weight:600;font-size:16px}
+.f-chips input:checked+span{background:var(--f-accent);border-color:var(--f-accent);color:var(--f-accent-ink)}
+.f-chips input:focus-visible+span{outline:3px solid var(--f-accent);outline-offset:2px}
+.f-form details summary{cursor:pointer;font-weight:600;font-size:15px;min-height:44px;display:flex;align-items:center}
+.f-form details textarea{margin-top:8px}
+
+/* hero variants: "compare" puts the before/after slider in the hero; "overlay" sets the headline over a full-width photo */
+.f-hero-compare .f-compare{margin-bottom:6px;aspect-ratio:16/9}
+.f-hero-compare .f-compare-wrap{order:-1}
+.f-hero-compare .f-compare-wrap .f-fine{margin-top:4px}
+.f-hero-overlay{position:relative;color:#fff;background:var(--hero-img,none) center/cover,radial-gradient(120% 80% at 80% 0%,color-mix(in srgb,var(--f-accent) 55%,transparent),transparent 60%),linear-gradient(160deg,#25331f,#0d140b);padding-block:56px 64px}
+.f-hero-overlay::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.6))}
+.f-hero-overlay .f-wrap{position:relative}
+.f-hero-overlay .lede,.f-hero-overlay .f-proof{color:rgba(255,255,255,.88)}
+.f-hero-overlay .f-proof b{color:#fff}
+.f-hero-overlay .f-eyebrow{color:#fff}
+.f-hero-overlay h1 em{-webkit-text-fill-color:currentColor;background:none;color:var(--f-accent-light,#C7E59A)}
+.f-hero-overlay .f-btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.f-hero-overlay .f-pill b{color:#fff}
+.f-hero-overlay .f-pill{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.25);color:#fff}
 
 /* ---------- upgrades for wider screens ---------- */
 @media (min-width:480px){
+  .f-logo small{display:block}
   .f-ctas{grid-auto-flow:column;justify-content:start}
   .f-ctas .f-btn{white-space:nowrap}
   .f-gallery{grid-template-columns:repeat(3,1fr)}
@@ -265,6 +305,9 @@ body.has-demo .f-header{top:40px}
   .f-hero{padding-block:64px 80px}
   .f-hero .f-wrap{grid-template-columns:1.15fr 1fr;align-items:center;gap:56px}
   .f-hero .f-media{aspect-ratio:4/5}
+  .f-hero-compare .f-compare-wrap{order:0}
+  .f-hero-overlay{padding-block:120px 130px}
+  .f-hero-overlay .f-wrap{grid-template-columns:minmax(0,760px)}
   .f-pkgs{grid-template-columns:repeat(3,1fr)}
   .f-services{grid-template-columns:repeat(3,1fr)}
   .f-book{grid-template-columns:1fr 1.1fr;align-items:start;gap:56px}
@@ -281,26 +324,26 @@ body.has-demo .f-header{top:40px}
 <body class="has-demo">
 <a class="skip" href="#main">Skip to content</a>
 <div class="f-demo" role="region" aria-label="Demo notice"><div class="f-wrap"><b>GroundWork demo</b><span>Fictional business. Yours gets your name, photos and prices.</span><a href="https://groundwork-web.com/start/?demo=template">Get this site</a></div></div>
-<div class="f-offerbar">New customers: $20 off your first Inside + Out this month. <a class="" href="#book" data-ev="book" data-label="offer bar">Book it</a></div>
+<div class="f-offerbar">$20 off your first Inside + Out. <a class="" href="#book" data-ev="book" data-label="offer bar">Book</a></div>
 <header class="f-header">
   <div class="f-wrap">
-    <a class="f-logo" href="#main">Harbor Line Mobile Detail<small>Mobile detailing · Tampa Bay</small></a>
+    <a class="f-logo" href="#main">Harbor Line Mobile Detail<small class="f-tagline">Mobile detailing · Tampa Bay</small></a>
     <nav class="f-nav" aria-label="Sections"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></nav>
     <div class="f-actions">
       <a class="f-btn f-btn-ghost" href="tel:8135550142" data-ev="call" data-label="header" aria-label="Call (813) 555-0142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="f-call-text">(813) 555-0142</span></a>
-      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="header">Book now</a>
+      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="header">See prices and book</a>
     </div>
   </div>
 </header>
 
 <main id="main">
-<section class="f-hero">
+<section class="f-hero f-hero-split">
   <div class="f-wrap">
-    <div>
-      <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span></p>
+    <div class="f-hero-copy">
+      <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span></p>
       <p class="f-eyebrow">Tampa · Brandon · Riverview · Westchase</p>
-      <h1>A showroom clean car, <em>without leaving home.</em></h1>
-      <p class="lede">We come to your driveway or office with our own water and power. Pick a package, pick a time, and get your car back cleaner than the day you bought it.</p>
+      <h1>Mobile car detailing in Tampa Bay <em>at your door.</em></h1>
+      <p class="lede">A showroom clean car without leaving home. We bring our own water and power, show prices up front, and text when we&#39;re 15 minutes out.</p>
       <div class="f-ctas">
         <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="hero">See prices and book</a>
         <a class="f-btn f-btn-ghost" href="tel:8135550142" data-ev="call" data-label="hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call (813) 555-0142</a>
@@ -374,12 +417,12 @@ body.has-demo .f-header{top:40px}
 <section class="f-band" id="work">
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">Our work</p><h2>Recent jobs around Tampa Bay</h2><p>Real sites show the owner&#39;s own before and after photos.</p></div>
-    <div class="f-compare" data-compare>
+    <div class="f-compare-wrap"><div class="f-compare" data-compare>
       <div class="pane before ph"></div><div class="pane after ph"></div>
       <span class="tag l">Before</span><span class="tag r">After</span><div class="handle"></div>
       <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
     </div>
-    <p class="f-fine">Drag to compare. Sample imagery in this demo.</p>
+    <p class="f-fine">Drag to compare. Sample imagery in this demo.</p></div>
     <div class="f-gallery"><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Brandon · Tahoe, Inside + Out</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Westchase · Model Y, ceramic</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Riverview · F-150, interior</div></div><div class="f-media"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Downtown · Office fleet day</div></div></div>
   </div>
 </section>
@@ -387,13 +430,13 @@ body.has-demo .f-header{top:40px}
 <section id="reviews">
   <div class="f-wrap">
     <div class="f-head"><p class="f-eyebrow">Reviews</p><h2>Tampa Bay drivers say</h2></div>
-    <p class="f-sample">Sample reviews for this demo. Real sites show the business's own Google reviews.</p>
-    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span></p>
+    <p class="f-sample">Sample reviews for this demo. Real sites show the business&#39;s own Google reviews.</p>
+    <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>186 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span><span class="f-muted">· Latest review <span data-since="2026-09-27">Sep 2026</span></span></p>
   </div>
   <div class="f-reviews" role="list">
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Booked from my phone at lunch and came home to a clean car. Exactly the price on the site.</blockquote><figcaption><b>Sample customer</b> · Tahoe, Inside + Out</figcaption></figure>
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>They did eight cars in our lot on a Tuesday. Nobody had to leave their desk.</blockquote><figcaption><b>Sample customer</b> · Office fleet day</figcaption></figure>
-    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Texted when they were 15 out, showed up on time, and the dog hair is finally gone.</blockquote><figcaption><b>Sample customer</b> · Odyssey, Interior Deep</figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Booked from my phone at lunch and came home to a clean car. Exactly the price on the site.</blockquote><figcaption><b>Sample customer</b> · Tahoe, Inside + Out<time datetime="2026-09-27">Sep 2026</time></figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>They did eight cars in our lot on a Tuesday. Nobody had to leave their desk.</blockquote><figcaption><b>Sample customer</b> · Office fleet day<time datetime="2026-09-14">Sep 2026</time></figcaption></figure>
+    <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Texted when they were 15 out, showed up on time, and the dog hair is finally gone.</blockquote><figcaption><b>Sample customer</b> · Odyssey, Interior Deep<time datetime="2026-08-30">Aug 2026</time></figcaption></figure>
   </div>
 </section>
 
@@ -401,7 +444,7 @@ body.has-demo .f-header{top:40px}
   <div class="f-wrap">
     <div class="f-guarantee">
       <div><p class="f-eyebrow">Our promise</p><h2>Not happy? We come back and fix it free.</h2><p>If anything&#39;s missed, text us within 48 hours and we re-clean it at no charge. No arguments.</p></div>
-      <a class="f-btn" href="#book" data-ev="book" data-label="guarantee">Book with confidence</a>
+      <a class="f-btn" href="#book" data-ev="book" data-label="guarantee">See prices and book</a>
     </div>
   </div>
 </section>
@@ -422,20 +465,29 @@ body.has-demo .f-header{top:40px}
     <div>
       <p class="f-eyebrow">Book</p>
       <h2 id="book-h">Get your price and a time</h2>
-      <p class="f-muted f-lead">Tell us what you need and we&#39;ll text you a confirmed time, usually within the hour.</p>
+      <p class="f-muted f-lead">Pick a package and we&#39;ll text you a confirmed time, usually within the hour.</p>
       <p class="f-alt">Rather talk? <a href="tel:8135550142" data-ev="call" data-label="book section">Call (813) 555-0142</a> or <a href="sms:8135550142" data-ev="text" data-label="book section">send a text</a>.</p>
     </div>
     <form class="f-form" id="lead" aria-labelledby="book-h" novalidate>
-      <label>Your name<input name="name" autocomplete="name" required></label>
-      <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="We text you back"></label>
-      <div class="row">
-        <label>What do you need?<select name="service"><option>Exterior</option><option>Inside + Out</option><option>Interior Deep</option><option>Not sure yet</option></select></label>
+      <p class="f-step" aria-live="polite">Step <span data-step>1</span> of 2</p>
+      <div class="s1">
+        <fieldset class="f-chips"><legend>Which package?</legend>
+          <label><input type="radio" name="service" value="Exterior" checked><span>Exterior</span></label>
+          <label><input type="radio" name="service" value="Inside + Out"><span>Inside + Out</span></label>
+          <label><input type="radio" name="service" value="Interior Deep"><span>Interior Deep</span></label>
+          <label><input type="radio" name="service" value="Not sure yet"><span>Not sure yet</span></label>
+        </fieldset>
         <label>ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10"></label>
+        <button class="f-btn f-btn-primary f-btn-block" type="button" data-next>Next</button>
       </div>
-      <label>Anything we should know? <span class="opt">(optional)</span><textarea name="notes" maxlength="1000" placeholder="Vehicle, condition, best days"></textarea></label>
-      <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
-      <button class="f-btn f-btn-primary f-btn-block" type="submit">Text me a time</button>
-      <p class="note">No spam. We only use your number to reply about this request.</p>
+      <div class="s2">
+        <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="We text you back"></label>
+        <label>Your name <span class="opt">(optional)</span><input name="name" autocomplete="name"></label>
+        <details><summary>Add details <span class="opt">(optional)</span></summary><textarea name="notes" maxlength="1000" aria-label="Details" placeholder="Vehicle, condition, best days"></textarea></details>
+        <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
+        <button class="f-btn f-btn-primary f-btn-block" type="submit">Text me a time</button>
+        <p class="note">No spam. We only use your number to reply about this request.</p>
+      </div>
       <p role="status" aria-live="polite" tabindex="-1"></p>
     </form>
   </div>
@@ -453,7 +505,7 @@ body.has-demo .f-header{top:40px}
     <h2>Your car, clean, this week.</h2>
     <p class="f-muted f-lead">Pick a package and we&#39;ll text you a time.</p>
     <div class="f-ctas">
-      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="final">Book now</a>
+      <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="final">See prices and book</a>
       <a class="f-btn f-btn-ghost" href="tel:8135550142" data-ev="call" data-label="final"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call now</a>
     </div>
   </div>
@@ -470,7 +522,8 @@ body.has-demo .f-header{top:40px}
 
 <nav class="f-sticky" aria-label="Quick actions">
   <a class="f-btn f-btn-ghost" href="tel:8135550142" data-ev="call" data-label="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-  <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="sticky">Book now</a>
+  <a class="f-btn f-btn-ghost" href="sms:8135550142" data-ev="text" data-label="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a>
+  <a class="f-btn f-btn-primary" href="#book" data-ev="book" data-label="sticky">See prices and book</a>
 </nav>
 
 <script>window.FUNNEL={"slug":"example-mobile-detail","demo":true,"sms":"8135550142","thanks":"Got it. Harbor Line Mobile Detail will text you back shortly (Mon-Sat 7am-7pm).","lead":"","analytics":"","plain":false};</script>
