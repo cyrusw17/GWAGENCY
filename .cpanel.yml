@@ -1,0 +1,31 @@
+---
+# groundwork-web.com — cPanel deploy
+# Git source on server: ~/repositories/offer1/   Live web root: ~/public_html/
+# Everything under public/ is copied to public_html/. Analytics data lives in
+# ~/gw-data/ (above the web root, created automatically by api/_lib.php).
+
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/mkdir -p $DEPLOYPATH
+
+    # Remove the old Launch Partner app (its files would otherwise shadow the new site)
+    - /bin/rm -f  $DEPLOYPATH/index.php $DEPLOYPATH/parking-page.shtml
+    - /bin/rm -rf $DEPLOYPATH/css $DEPLOYPATH/js $DEPLOYPATH/images
+    - /bin/rm -rf $HOME/config $HOME/lib $HOME/includes
+
+    # Sync the site. Whole folders are replaced so deleted files don't linger;
+    # api/ is overlaid (not replaced) so api/config.php on the server survives.
+    - /bin/rm -rf $DEPLOYPATH/assets $DEPLOYPATH/kit $DEPLOYPATH/demos $DEPLOYPATH/guides $DEPLOYPATH/pricing $DEPLOYPATH/audit $DEPLOYPATH/start $DEPLOYPATH/thanks $DEPLOYPATH/privacy $DEPLOYPATH/offer $DEPLOYPATH/before-you-pay
+    - /bin/cp -R public/. $DEPLOYPATH/
+
+    # First deploy only: create api/config.php with a random dashboard key
+    - if [ ! -f $DEPLOYPATH/api/config.php ]; then KEY=$(/usr/bin/openssl rand -hex 24 2>/dev/null || /bin/date +%s%N | /usr/bin/sha256sum | /usr/bin/cut -c1-48); /usr/bin/printf '<?php\ndefine("GW_STATS_KEY", "%s");\ndefine("GW_LEAD_EMAIL", "groundworkweb@proton.me");\n' "$KEY" > $DEPLOYPATH/api/config.php; fi
+
+    # Keep lead destination current without touching the dashboard key
+    - /bin/sed -i 's/define("GW_LEAD_EMAIL".*/define("GW_LEAD_EMAIL", "groundworkweb@proton.me");/' $DEPLOYPATH/api/config.php
+
+    # Analytics + leads database folder, above the web root
+    - /bin/mkdir -p $HOME/gw-data
+    - /bin/chmod 750 $HOME/gw-data
+    - /bin/chmod 600 $DEPLOYPATH/api/config.php

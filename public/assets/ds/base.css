@@ -1,0 +1,32 @@
+/* GroundWork-Web design system v3. Reset, type, layout primitives. Needs tokens.css first. */
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.55 var(--font-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg,video{display:block;max-width:100%}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.skip{position:absolute;left:-999px;top:8px;background:var(--btn);color:var(--on-btn);padding:10px 16px;border-radius:var(--pill);z-index:100}
+.skip:focus{left:8px}
+
+.wrap{width:min(100% - 2 * var(--gutter),var(--max));margin-inline:auto}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(2.6rem,8.2vw,5.4rem);text-transform:uppercase}
+h2{font-size:clamp(2rem,5.2vw,3.4rem);text-transform:uppercase}
+h3{font-size:1.35rem}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--accent)}
+.lead{font-size:clamp(1.1rem,2.2vw,1.3rem);color:var(--ink-2);max-width:34em}
+.fine{font-size:.9rem;color:var(--ink-3)}
+
+section{padding:clamp(64px,10vw,128px) 0}
+.cream{background:var(--cream)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:760px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}

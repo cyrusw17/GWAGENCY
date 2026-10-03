@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/
+Disallow: /thanks/
+Allow: /
+
+Sitemap: https://groundwork-web.com/sitemap.xml

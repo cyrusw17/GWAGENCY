@@ -1,0 +1,5 @@
+.DS_Store
+public/api/config.php
+gw-data/
+*.sqlite
+*.log

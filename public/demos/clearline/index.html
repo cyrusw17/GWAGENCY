@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clearline Detail | Paint Correction in Austin, TX</title>
+<meta name="description" content="Fictional Austin paint-correction bay. Drag the before and after slider, see prices, and book a sample appointment.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/kit/kit.css?v=3.1">
+<style>
+  @font-face{font-family:"Oswald";font-style:normal;font-weight:600;font-display:swap;src:url("/assets/fonts/oswald-600.woff2") format("woff2")}
+  @font-face{font-family:"Oswald";font-style:normal;font-weight:700;font-display:swap;src:url("/assets/fonts/oswald-700.woff2") format("woff2")}
+  @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/source-sans-400.woff2") format("woff2")}
+  @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url("/assets/fonts/source-sans-600.woff2") format("woff2")}
+  @property --split{syntax:"<percentage>";inherits:true;initial-value:46%}
+  :root{
+    --k-bg:#090B10; --k-panel:#12151C; --k-panel-2:#1A2030; --k-text:#F3F6FA; --k-mute:#A8B3C4;
+    --k-line:#2A3344; --k-accent:#E7EEF8; --k-accent-ink:#10141C; --k-accent-2:#7D9BB8;
+  }
+  html{overflow-x:clip}
+  body{overflow-x:clip}
+  .k-btn{text-transform:none;letter-spacing:0;font-family:var(--k-body);font-size:16px;font-weight:600;min-height:44px;width:auto;max-width:100%;align-self:flex-start;justify-self:start}
+  .k-sticky .k-btn{width:100%}
+  .k-embed .slot{min-height:44px}
+  .k-faq summary{min-height:44px;align-items:center}
+  .ba{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;border:1px solid var(--k-line);background:#0c0e14;touch-action:pan-y;user-select:none;--split:46%}
+  .ba-after,.ba-before{position:absolute;inset:0}
+  .ba-before{clip-path:inset(0 calc(100% - var(--split)) 0 0)}
+  .ba .paint,.ba .swirl,.ba .beads{position:absolute;inset:0;pointer-events:none}
+  .ba-after .paint{background:
+    radial-gradient(90% 55% at 72% 18%, rgba(231,238,248,.55), transparent 58%),
+    radial-gradient(70% 50% at 18% 88%, rgba(125,155,184,.28), transparent 62%),
+    linear-gradient(168deg, #243044 0%, #0c1018 62%, #07090d 100%)}
+  .ba-after .beads{background-image:radial-gradient(circle at 30% 40%, rgba(255,255,255,.7) 0 1px, transparent 2px),radial-gradient(circle at 62% 58%, rgba(255,255,255,.45) 0 1.4px, transparent 2.8px);background-size:42px 42px,78px 78px;opacity:.55;mix-blend-mode:screen}
+  .ba-before .paint{background:
+    linear-gradient(160deg, #4a463f 0%, #2a2723 48%, #161411 100%)}
+  .ba-before .swirl{background:
+    repeating-linear-gradient(118deg, transparent 0 7px, rgba(255,255,255,.07) 7px 8px),
+    repeating-linear-gradient(28deg, transparent 0 13px, rgba(0,0,0,.18) 13px 14px),
+    radial-gradient(40% 28% at 35% 40%, rgba(90,80,60,.35), transparent 70%);
+    opacity:.9}
+  .ba-sheen{position:absolute;inset:-30% -60%;pointer-events:none;opacity:0;background:linear-gradient(105deg, transparent 36%, rgba(255,255,255,.08) 44%, rgba(255,255,255,.55) 50%, rgba(255,255,255,.08) 56%, transparent 64%);mix-blend-mode:screen}
+  .ba-tag{position:absolute;top:14px;left:14px;z-index:2;pointer-events:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-family:var(--k-display);background:rgba(0,0,0,.5);color:#d5dbe6;padding:6px 9px;border-radius:6px}
+  .ba-after .ba-tag{left:auto;right:14px}
+  .cl-mark,.cl-price{position:absolute;right:16px;z-index:2;pointer-events:none;text-align:right}
+  .cl-mark{bottom:58px;margin:0;font-family:var(--k-display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(20px,3vw,32px);color:#f7fbff}
+  .cl-price{bottom:18px;margin:0;font-size:14px;color:#c5d0df}
+  .cl-price b{display:block;font-family:var(--k-display);font-size:28px;line-height:1;color:#fff;font-weight:600}
+  .ba-handle{position:absolute;top:0;bottom:0;left:var(--split);width:44px;transform:translateX(-50%);border:0;padding:0;background:transparent;z-index:4;cursor:ew-resize;min-height:44px}
+  .ba-handle::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  .ba-knob{position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;color:#12141a;display:grid;place-items:center;font-family:var(--k-display);font-size:16px;letter-spacing:-.08em;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+  @media (max-width:900px){.ba{aspect-ratio:16/11;max-width:100%}}
+  @media (prefers-reduced-motion:no-preference){
+    .cl-boot .ba{animation:splitSettle 1.15s cubic-bezier(.22,.8,.24,1) forwards}
+    .cl-boot .ba-after .paint{animation:panelSettle 1.2s ease forwards}
+    .cl-boot .ba-sheen{animation:sheenPass 1.2s ease-in-out forwards}
+    .cl-boot .cl-mark,.cl-boot .cl-price{animation:markIn .5s ease .45s forwards;opacity:0}
+  }
+  @keyframes splitSettle{from{--split:94%}to{--split:46%}}
+  @keyframes panelSettle{from{transform:scale(1.06)}to{transform:none}}
+  @keyframes sheenPass{
+    0%{transform:translateX(-42%);opacity:0}
+    18%{opacity:1}
+    100%{transform:translateX(42%);opacity:0}
+  }
+  @keyframes markIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body class="cl-boot">
+<script>
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) document.body.classList.remove("cl-boot");
+</script>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="gw-bar" role="region" aria-label="GroundWork demo notice">
+  <div class="k-wrap">
+    <b><i></i>GroundWork demo</b>
+    <span>Fictional Austin paint bay. Drag the slider. That’s the feature.</span>
+    <div class="gw-actions">
+      <a class="gw-cta" href="/audit/?demo=clearline">Book the audit</a>
+      <a class="gw-cta p" href="/start/?demo=clearline">Start for $99</a>
+    </div>
+  </div>
+</div>
+
+<header class="k-nav">
+  <div class="k-wrap">
+    <a class="k-logo" href="#main">Clearline <small>Detail · Austin, TX</small></a>
+    <nav class="k-links" aria-label="Site"><a href="#services">Services</a><a href="#packages">Packages</a><a href="#compare">Compare</a><a href="#work">Work</a><a href="#reviews">Reviews</a></nav>
+    <div class="k-actions"><a class="k-btn k-btn-ghost" href="tel:5125550168">(512) 555‑0168</a><a class="k-btn k-btn-primary" href="#book">Book now</a></div>
+  </div>
+</header>
+
+<main id="main">
+<section class="k-hero">
+  <div class="k-wrap">
+    <div>
+      <div class="k-eyebrow">Austin · Round Rock · Cedar Park · Lakeway</div>
+      <h1>See the correction <em>before you book it.</em></h1>
+      <p class="lede">A paint bay for swirls, haze, and neglected clearcoat. Drag the compare handle across a real panel pairing, then pick a package with the price already on it.</p>
+      <div class="k-ctas"><a class="k-btn k-btn-primary" href="#compare">Compare a panel</a><a class="k-btn k-btn-ghost" href="#packages">See packages</a></div>
+      <div class="k-proof"><div><b>5.0</b>Sample rating</div><div><b>2‑step</b>before coatings</div><div><b>Sat</b>appointments</div></div>
+    </div>
+    <div class="ba" id="compare" data-ba role="group" aria-label="Before and after paint correction">
+      <div class="ba-after">
+        <div class="paint"></div>
+        <div class="beads"></div>
+        <div class="ba-sheen" aria-hidden="true"></div>
+        <span class="ba-tag">After</span>
+        <p class="cl-mark">Clearline</p>
+        <p class="cl-price"><b>$185</b>one-step, shown</p>
+      </div>
+      <div class="ba-before">
+        <div class="paint"></div>
+        <div class="swirl"></div>
+        <span class="ba-tag">Before</span>
+      </div>
+      <button type="button" class="ba-handle" aria-label="Compare before and after" aria-orientation="horizontal" aria-valuemin="4" aria-valuemax="96" aria-valuenow="46" aria-valuetext="46 percent before" role="slider"><span class="ba-knob" aria-hidden="true">↔</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="k-wrap">
+    <h2 class="k-eyebrow">What we do</h2>
+    <div class="k-services">
+      <div><div class="n">01</div><h3>Paint inspection</h3><p>We read the clearcoat under a light before anything touches the panel. You see the same pairing the slider shows.</p></div>
+      <div><div class="n">02</div><h3>One-step correction</h3><p>Machine polish for wash marks and light swirls. The everyday reset before a sealant.</p></div>
+      <div><div class="n">03</div><h3>Two-step correction</h3><p>Cut then refine for deeper haze. Needed when the paint has been neglected, not just dusty.</p></div>
+      <div><div class="n">04</div><h3>Finish protection</h3><p>Sealant after the correction so the finish you just paid for doesn’t go back to a dull cloth.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="k-band" id="packages">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Packages</div><h2>Correction prices, <br>posted before drop-off.</h2></div>
+      <p>Car pricing shown. Truck and SUV +$40. We confirm paint condition in the bay before any cut compound.</p>
+    </div>
+    <div class="k-pkgs">
+      <div class="k-pkg">
+        <div class="pn">Maintenance wash</div><div class="pp">$85</div><div class="pt">About 90 minutes</div>
+        <ul><li>Two-bucket hand wash + dry</li><li>Wheels, tires, jambs</li><li>Interior vacuum + wipe</li><li>Glass inside and out</li></ul>
+        <a class="k-btn k-btn-ghost" href="#book">Book a wash</a>
+      </div>
+      <div class="k-pkg pop">
+        <div class="tag" aria-hidden="true">Most booked</div>
+        <div class="pn">One-step <span class="sr-only">, most booked</span></div><div class="pp">$185</div><div class="pt">About half a day</div>
+        <ul><li>Hand wash + decontamination</li><li>One-step machine polish</li><li>Panel wipe + sealant</li><li>Before and after photos</li></ul>
+        <a class="k-btn k-btn-primary" href="#book">Book one-step</a>
+      </div>
+      <div class="k-pkg">
+        <div class="pn">Two-step + seal</div><div class="pp">$365</div><div class="pt">About a full day</div>
+        <ul><li>Everything in one-step</li><li>Cut compound, then refine</li><li>12-month sealant</li><li>Written care notes</li></ul>
+        <a class="k-btn k-btn-ghost" href="#book">Book two-step</a>
+      </div>
+    </div>
+    <p class="k-fine">Demo prices for a fictional shop. Heavy oxidation or a respray is quoted in person, before work starts.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">On the page</div><h2>The same slider, on the work.</h2></div>
+      <p>Placeholder paint only. On a real shop site this is that truck’s hood, photographed in the bay.</p>
+    </div>
+    <div class="k-gallery">
+      <div class="g w t h1"><div class="paint"></div><div class="beads"></div><div class="cap"><b>After</b>Hood · one-step</div></div>
+      <div class="g h2"><div class="paint"></div><div class="cap"><b>Before</b>Same hood · swirls</div></div>
+      <div class="g h3"><div class="paint"></div><div class="beads"></div><div class="cap"><b>Light</b>Inspection lamp</div></div>
+      <div class="g h2"><div class="paint"></div><div class="cap"><b>Detail</b>Door edge</div></div>
+      <div class="g h1"><div class="paint"></div><div class="beads"></div><div class="cap"><b>After</b>Quarter panel</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="k-band" id="reviews">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Reviews</div><h2>Sample notes</h2></div>
+      <p>Sample reviews for the demo. Yours pull from Google.</p>
+    </div>
+    <div class="k-reviews">
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"I dragged the before and after on my phone before I booked. The truck matched the after side."</p><div class="who"><b>Elena V.</b>Sample · Mustang · one-step</div></div>
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"Price was on the site. He showed me the panel under the lamp before he started."</p><div class="who"><b>Andre K.</b>Sample · Golf · two-step</div></div>
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"Saturday drop-off, same-day one-step. Wash marks from the tunnel are gone."</p><div class="who"><b>Priya S.</b>Sample · CR-V · one-step</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="k-wrap k-book">
+    <div>
+      <div class="k-eyebrow">Book online</div>
+      <h2 id="book-heading">Drop it off. <br>Pick it up corrected.</h2>
+      <p class="k-mute" style="margin-top:20px">Under a minute, no phone call. You’ll get a text confirmation and a reminder the day before.</p>
+      <div id="areas">
+        <div class="k-eyebrow" style="margin-top:34px">Around the bay</div>
+        <ul class="k-areas" aria-label="Service areas"><li>Austin</li><li>Round Rock</li><li>Cedar Park</li><li>Pflugerville</li><li>Lakeway</li><li>Georgetown</li></ul>
+      </div>
+    </div>
+    <form class="k-embed" aria-labelledby="book-heading">
+      <div class="row">
+        <label>Package<select><option>One-step, $185</option><option>Maintenance wash, $85</option><option>Two-step + seal, $365</option></select></label>
+        <label>Vehicle<select><option>Car</option><option>Truck / SUV (+$40)</option></select></label>
+      </div>
+      <label>Day<input type="date" value="2026-10-03"></label>
+      <fieldset><legend>Time</legend>
+        <div class="slots" role="radiogroup" aria-label="Time">
+          <button type="button" class="slot" role="radio" aria-checked="false">8:00</button>
+          <button type="button" class="slot" role="radio" aria-checked="true">10:00</button>
+          <button type="button" class="slot" role="radio" aria-checked="false">1:00</button>
+          <button type="button" class="slot" role="radio" aria-checked="false">3:00</button>
+        </div>
+      </fieldset>
+      <div class="row"><label>Name<input placeholder="Your name"></label><label>Phone<input placeholder="(512) 555‑0100"></label></div>
+      <button class="k-btn k-btn-primary" type="submit">Confirm booking</button>
+      <p role="status" aria-live="polite"></p>
+      <div class="note">Demo widget · real sites embed your booking tool here</div>
+    </form>
+  </div>
+</section>
+
+<section class="k-band" id="faq">
+  <div class="k-wrap k-faq" style="max-width:820px">
+    <h2 class="k-eyebrow">Questions</h2>
+    <details><summary>Do you come to the driveway?</summary><p>No. Correction needs a controlled bay and an inspection lamp. Drop off in Austin. Mobile washes are a different shop.</p></details>
+    <details><summary>Will one-step remove every scratch?</summary><p>It clears wash marring and light swirls. Deep scratches and rock chips stay. We say so at drop-off, not at pickup.</p></details>
+    <details><summary>Do you take a deposit?</summary><p>$40 on a wash, $60 on one-step, $100 on two-step, applied to the total. Reschedule free with 24 hours notice.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="k-footer">
+  <div class="k-wrap">
+    <div><b>Clearline Detail</b>Paint bay · Austin, TX<br>Tue-Sat 8am-6pm · Sun/Mon closed</div>
+    <div><b>Contact</b><a href="tel:5125550168">(512) 555‑0168</a><br><a href="#">book@clearlinedetail.example</a></div>
+    <div><b>Follow</b>Instagram · Facebook · Google<br><br><span style="font-size:12px">Demo site by <a href="/">GroundWork</a> · <a href="/privacy/">Privacy</a></span></div>
+  </div>
+</footer>
+
+<nav class="k-sticky" aria-label="Quick actions"><a class="k-btn k-btn-ghost" href="tel:5125550168">Call</a><a class="k-btn k-btn-primary" href="#book">Book now</a></nav>
+
+<script src="/kit/kit.js?v=3.1"></script>
+<script>
+(function () {
+  var root = document.querySelector("[data-ba]");
+  if (!root) return;
+  var handle = root.querySelector(".ba-handle");
+
+  function readSplit() {
+    var n = parseFloat(getComputedStyle(root).getPropertyValue("--split"));
+    return isNaN(n) ? 46 : n;
+  }
+
+  function releaseBoot() {
+    if (!document.body.classList.contains("cl-boot")) return;
+    document.body.classList.remove("cl-boot");
+    root.style.setProperty("--split", "46%");
+    handle.setAttribute("aria-valuenow", "46");
+    handle.setAttribute("aria-valuetext", "46 percent before");
+  }
+
+  if (document.body.classList.contains("cl-boot")) {
+    window.setTimeout(releaseBoot, 1200);
+  }
+
+  function setPct(pct) {
+    pct = Math.max(4, Math.min(96, Math.round(pct)));
+    root.style.setProperty("--split", pct + "%");
+    handle.setAttribute("aria-valuenow", String(pct));
+    handle.setAttribute("aria-valuetext", pct + " percent before");
+  }
+
+  function fromX(clientX) {
+    var rect = root.getBoundingClientRect();
+    if (!rect.width) return;
+    setPct(((clientX - rect.left) / rect.width) * 100);
+  }
+
+  root.addEventListener("pointerdown", function (e) {
+    if (e.button != null && e.button !== 0) return;
+    releaseBoot();
+    root.setPointerCapture(e.pointerId);
+    fromX(e.clientX);
+  });
+  root.addEventListener("pointermove", function (e) {
+    if (!root.hasPointerCapture(e.pointerId)) return;
+    fromX(e.clientX);
+  });
+
+  handle.addEventListener("keydown", function (e) {
+    var now = parseFloat(handle.getAttribute("aria-valuenow"));
+    if (isNaN(now)) now = readSplit();
+    var step = e.shiftKey ? 12 : 4;
+    var next = null;
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") next = now - step;
+    if (e.key === "ArrowRight" || e.key === "ArrowUp") next = now + step;
+    if (e.key === "Home") next = 4;
+    if (e.key === "End") next = 96;
+    if (next == null) return;
+    e.preventDefault();
+    releaseBoot();
+    setPct(next);
+  });
+})();
+</script>
+<script src="/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>

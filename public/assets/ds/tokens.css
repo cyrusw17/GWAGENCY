@@ -1,0 +1,46 @@
+/* GroundWork-Web design system v3. Tokens only. Fonts are self-hosted, nothing calls another domain. */
+@font-face{font-family:"Oswald";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/oswald-600.woff2") format("woff2")}
+@font-face{font-family:"Oswald";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/oswald-700.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/source-sans-400.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/source-sans-600.woff2") format("woff2")}
+
+/* Light is the default. Dark applies only when the device asks for it. No toggle, nothing stored. */
+:root{
+  --bg:#FFFFFF; --cream:#F7F4EE; --card:#FFFFFF;
+  --ink:#111214; --ink-2:#4B5563; --ink-3:#5F6672;
+  --line:#E5E2DB; --line-2:#CFCBC2;
+
+  /* Price and compare blocks: near-black in both themes */
+  --block:#0A0A0A; --block-2:#17171A; --block-line:#2C2C31; --block-ink:#FFFFFF; --block-mute:#A9A9B2;
+
+  --accent:#E5A00D; --accent-deep:#B07400; --accent-text:#7A5206; --accent-soft:#FCF1D9; --on-accent:#1A1200;
+  --btn:#0A0A0A; --on-btn:#FFFFFF;
+  --danger:#B42318; --ok:#1F7A46;
+
+  --font-display:"Oswald","Arial Narrow",sans-serif;
+  --font-body:"Source Sans 3",system-ui,sans-serif;
+
+  /* 4px scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+  --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:24px; --r-2xl:32px; --pill:999px;
+
+  --max:1160px;
+  --gutter:16px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --t-fast:.2s; --t-reveal:.7s;
+
+  color-scheme:light;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0E0F12; --cream:#14161A; --card:#1A1C21;
+    --ink:#F4F1EA; --ink-2:#B7BBC3; --ink-3:#9AA0AA;
+    --line:#26292F; --line-2:#383C45;
+    --block:#050506; --block-2:#101013;
+    --accent-text:#E5A00D; --accent-deep:#E5A00D; --accent-soft:rgba(229,160,13,.14);
+    --btn:#F4F1EA; --on-btn:#0A0A0A;
+    --danger:#FFB4A8; --ok:#5CC98A;
+    color-scheme:dark;
+  }
+}

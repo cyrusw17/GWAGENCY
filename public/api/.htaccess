@@ -1,0 +1,9 @@
+# Never serve config or any database file from this folder
+<FilesMatch "^(config\.php|config\.sample\.php|_lib\.php|.*\.sqlite.*|.*\.txt)$">
+  Require all denied
+</FilesMatch>
+
+# The collector is POST-only and is called by our own pages
+<Files "track.php">
+  Header always set Cache-Control "no-store"
+</Files>
