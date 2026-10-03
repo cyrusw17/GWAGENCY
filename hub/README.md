@@ -8,7 +8,7 @@ A short public status page for GitHub Pages: the offer, the finished demo site a
 | `index.html` | The page. `{{DEMOS}}` and the other placeholders are filled from `data.json`. |
 | `hub.css` | Styles, on the GroundWork brand faces and amber. |
 
-Build locally with `node tools/build-hub.mjs` (writes `_site/`). `.github/workflows/pages.yml` runs the same build on every push to the default branch as a check. It publishes only when run by hand (Actions > Work log on Pages > Run workflow), after Pages is turned on in Settings > Pages > Source: GitHub Actions.
+Build locally with `node tools/build-hub.mjs` (writes `_site/`). `node tools/build-pages.mjs` adds every page of groundwork-web.com (`public/`, links rewritten for the `/GWAGENCY/` path) and every demo, with an "Every page" directory on the status page. `.github/workflows/pages.yml` runs it on every push to the default branch and force-pushes the result to the `gh-pages` branch, which GitHub Pages serves (Settings > Pages > Deploy from a branch: `gh-pages`, `/ (root)`).
 
 ## Updating a demo slot
 A slot shows an "Open the demo" link once it has `"client"` (a folder in `clients/` whose `site.json` has `"demo": true`) and `"slug"` (the folder under `demos/`). The build runs `tools/build.mjs` on it with the usual checks, so a demo that fails its checks fails the Pages build.
