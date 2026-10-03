@@ -91,10 +91,12 @@
           "slug": "mobile-detail"
         },
         {
-          "business": "Version 3",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
+          "business": "Ramirez & Son Mobile Detail",
+          "town": "San Antonio, TX",
+          "concept": "Family mobile detailer: an owner's note, a kit list and a spec card in the hero",
+          "status": "review",
+          "client": "demo-ramirez-mobile",
+          "slug": "ramirez-mobile"
         },
         {
           "business": "Version 4",
