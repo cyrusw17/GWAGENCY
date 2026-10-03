@@ -58,6 +58,12 @@ def cmd_export(db, niche, a):
         if a.kind != "calls":
             raise SystemExit("--pipeline only applies to calls exports.")
         rows = export.not_in_pipeline(a.pipeline, rows)  # so --limit picks the next shops, not repeats
+    if a.kind == "calls":
+        if a.dnc_file:
+            rows, removed = export.dnc_scrub(db, rows, a.dnc_file)
+            print(f"DNC scrub: removed {removed} registered numbers; the rest are marked ok_to_dial=yes.")
+        else:
+            print("No --dnc-file: every row is ok_to_dial=no until scrubbed against the Do Not Call Registry.")
     rows = rows[: a.limit]
     path = Path(a.file) if a.file else store.data_dir() / f"{niche['name']}-{a.kind}.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -137,6 +143,7 @@ def main(argv=None):
     e.add_argument("--limit", type=int, help="keep only the first N rows")
     e.add_argument("--min-reviews", type=int, default=5, help="calls only")
     e.add_argument("--pipeline", help="calls only: also append new shops to this sales pipeline CSV")
+    e.add_argument("--dnc-file", help="calls only: National Do Not Call Registry download to scrub against")
 
     sm = sub.add_parser("sample", help="pick a sample, or report its metrics")
     sm.add_argument("action", choices=["pick", "report"])

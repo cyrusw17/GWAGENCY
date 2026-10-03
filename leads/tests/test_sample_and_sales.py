@@ -144,7 +144,20 @@ class SalesTest(unittest.TestCase):
             got = list(csv.DictReader(path.open()))
             self.assertEqual((got[0]["shop"], got[0]["notes"], got[0]["dnc_checked"]), ("Acme", "x", ""))
             self.assertTrue(all("dnc_checked" in r for r in got))
-            self.assertEqual(export.CALL_COLUMNS[-1], "dnc_checked")
+            self.assertIn("dnc_checked", export.CALL_COLUMNS)
+
+    def test_calls_not_dialable_until_dnc_scrub(self):
+        rows = export.call_rows(self.db, NICHE)
+        self.assertTrue(rows and all(r["ok_to_dial"] == "no" and r["dnc_checked"] == "" for r in rows))
+        with tempfile.TemporaryDirectory() as d:
+            reg = Path(d) / "dnc-903.txt"
+            reg.write_text("9035550001\n")  # Green Acres is on the registry
+            kept, removed = export.dnc_scrub(self.db, rows, reg)
+        self.assertEqual(removed, 1)
+        self.assertNotIn("Green Acres", [r["company_name"] for r in kept])
+        self.assertTrue(all(r["ok_to_dial"] == "yes" and r["dnc_checked"] and r["dnc_source"] == "dnc-903.txt"
+                            for r in kept))
+        self.assertNotIn("Green Acres", [r["company_name"] for r in export.call_rows(self.db, NICHE)])
 
     def test_review_samples_and_hours_in_prospects_and_purged(self):
         p = named(20, "Reviewed Lawn", reviews=50)

@@ -75,7 +75,9 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
         if pages == 1:
             signals = page_signals
             queue.extend(extract.same_site_links(body, final_url))
-    status = "ok" if emails else ("form_only" if has_form else "no_email")
+    site = (parts.hostname or "").removeprefix("www.")
+    sendable = any(extract.rank(e, site) is not None for e in emails)  # a designer credit alone doesn't count
+    status = "ok" if sendable else ("form_only" if has_form else "no_email")
     return {"status": status, "pages": pages, "emails": emails, "note": None, "signals": signals}
 
 

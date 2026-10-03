@@ -13,9 +13,10 @@ from . import crawl, extract, store
 EMAIL_COLUMNS = ["email", "first_name", "company_name", "name_source", "niche", "segment", "service", "flaw",
                  "email_type", "email_source", "email_source_url", "website", "phone", "city", "state", "rating",
                  "reviews", "site_launch_estimate", "place_id", "maps_url"]
-# dnc_checked stays empty until the number is scrubbed against the National Do Not Call Registry.
-CALL_COLUMNS = ["company_name", "phone", "city", "state", "rating", "reviews", "web_presence",
-                "place_id", "maps_url", "dnc_checked"]
+# Nobody dials a number until it is scrubbed against the National Do Not Call Registry:
+# without a scrub file every row says ok_to_dial=no and dnc_checked stays empty.
+CALL_COLUMNS = ["company_name", "phone", "ok_to_dial", "dnc_checked", "dnc_source", "city", "state", "rating",
+                "reviews", "web_presence", "place_id", "maps_url"]
 # Agreed with the personalization thread, 2026-10-03.
 REVIEW_COLUMNS = [f"review_{i}_{k}" for i in (1, 2, 3) for k in ("author", "text", "stars", "date")]
 PROSPECT_COLUMNS = ["place_id", "name", "niche", "email", "email_status", "email_type", "email_source_url",
@@ -121,6 +122,22 @@ def prospect_rows(db, niche):
     return out
 
 
+def dnc_scrub(db, rows, registry_path):
+    """Scrub call rows against a National Do Not Call Registry download (one number per line, any format).
+
+    Registered numbers are dropped and added to suppression; the rest are marked ok_to_dial=yes with the
+    scrub date and file. Returns (rows kept, numbers removed).
+    """
+    with open(registry_path) as f:
+        registered = {store.phone_key(line) for line in f} - {""}
+    hit = [r for r in rows if store.phone_key(r["phone"]) in registered]
+    store.add_suppression(db, [r["phone"] for r in hit], "dnc-registry")
+    today, source = time.strftime("%Y-%m-%d", time.gmtime()), os.path.basename(registry_path)
+    kept = [{**r, "ok_to_dial": "yes", "dnc_checked": today, "dnc_source": source}
+            for r in rows if store.phone_key(r["phone"]) not in registered]
+    return kept, len(hit)
+
+
 def call_rows(db, niche, min_reviews=5):
     """Shops with a phone and no real website: the playbook's main outbound list."""
     out = []
@@ -131,7 +148,8 @@ def call_rows(db, niche, min_reviews=5):
             "company_name": p["name"], "phone": p["phone"], "city": p["city"], "state": p["state"],
             "rating": p["rating"], "reviews": p["reviews"],
             "web_presence": "none" if not p["domain"] else p["domain"],
-            "place_id": p["place_id"], "maps_url": p["maps_url"], "dnc_checked": "",
+            "place_id": p["place_id"], "maps_url": p["maps_url"],
+            "ok_to_dial": "no", "dnc_checked": "", "dnc_source": "",
         })
     # No site first, then social-only; within each, most reviews, then best rating.
     out.sort(key=lambda r: (r["web_presence"] != "none", -(r["reviews"] or 0), -(r["rating"] or 0)))
@@ -178,7 +196,8 @@ def append_to_pipeline(path, rows, niche_slug, channel="call"):
             "shop": r["company_name"], "city": r["city"] or "", "state": r["state"] or "", "niche": niche_slug,
             "segment": "facebook-only" if web in ("facebook.com", "fb.com") or web.endswith(".facebook.com")
             else "no-site",
-            "channel": channel, "contact_phone": r["phone"], "touches": "0", "status": "new", "dnc_checked": "",
+            "channel": channel, "contact_phone": r["phone"], "touches": "0", "status": "new",
+            "dnc_checked": r.get("dnc_checked", ""),
             "notes": f"Google {r['rating']} stars, {r['reviews']} reviews"
                      + ("" if web in ("none", "facebook.com", "fb.com") else f"; only web presence: {web}")
                      + f"; {r['maps_url']}",
