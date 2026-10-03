@@ -1,0 +1,23 @@
+{
+  "_owner": "Cold email specialist thread. Edit wording here; the engine only fills {variables} with checked facts.",
+  "_rules": "Every {variable} must come from the lead row or our own site check. A variant is used only when all its 'requires' facts exist. Keep each line under 240 characters (the QA gate rejects longer ones).",
+  "segments": {
+    "no_site": [
+      { "id": "ns-reviews", "requires": ["review_count", "rating"], "line": "{shop} has {review_count} reviews at {rating} stars, which is a lot of happy customers." },
+      { "id": "ns-city", "requires": ["review_count", "rating", "city"], "line": "I was looking at detailers in {city}, and {shop}'s {review_count} reviews at {rating} stars stood out." },
+      { "id": "ns-recent", "requires": ["review_count", "rating", "recent_review"], "line": "I saw {shop} picked up a new Google review {recent_review}, on top of {review_count} at {rating} stars." }
+    ],
+    "social_only": [
+      { "id": "so-reviews", "requires": ["review_count", "rating", "social_name"], "line": "{shop} has {review_count} reviews at {rating} stars, but your Google listing sends people to {social_name} instead of a website." }
+    ],
+    "has_site": [
+      { "id": "hs-flaw", "requires": ["city", "flaw"], "line": "I was looking at detailers in {city} and checked out {shop}'s site. One thing stood out: {flaw}." }
+    ]
+  },
+  "flaws": {
+    "no_prices": "your site doesn't list prices, so people who want a quote have to call or message first",
+    "no_booking": "there's no way to book or request a time on your site, so visitors have to call and hope you pick up",
+    "slow_mobile": "your site takes a while to load on a phone, and most people looking up a detailer are on their phone"
+  },
+  "banned": ["free!", "guarantee", "act now", "$$", "100%", "!!!", "click here", "limited time", "risk-free", "AI"]
+}
