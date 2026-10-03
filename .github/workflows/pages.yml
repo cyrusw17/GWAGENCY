@@ -1,0 +1,48 @@
+# Builds the status page and its linked demos (tools/build-hub.mjs) on every push as a check.
+# Publishing to GitHub Pages runs only when started by hand (Actions > Run workflow), after
+# Settings > Pages > Build and deployment > Source is set to "GitHub Actions". Going public needs Cyrus's yes.
+name: Work log on Pages
+
+on:
+  push:
+    branches: [claude/site-builder-vp2yex]
+    paths: [hub/**, clients/**, template/**, tools/**, .github/workflows/pages.yml]
+  pull_request:
+    paths: [hub/**, clients/**, template/**, tools/**, .github/workflows/pages.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/build-hub.mjs
+      - if: github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+      - if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
