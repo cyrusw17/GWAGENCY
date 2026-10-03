@@ -42,6 +42,10 @@ def cmd_verify(db, niche, a):
 
 
 def cmd_export(db, niche, a):
+    pipeline = a.pipeline or export.sales_pipeline_path()
+    if pipeline:
+        n = store.load_pipeline_suppression(db, pipeline)
+        print(f"Suppression refreshed from {pipeline} ({n} do-not-contact or bounced values).")
     kinds = {
         "email": (export.EMAIL_COLUMNS, lambda: export.email_rows(db, niche)),
         "prospects": (export.PROSPECT_COLUMNS, lambda: export.prospect_rows(db, niche)),

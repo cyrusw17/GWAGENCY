@@ -1,14 +1,14 @@
 """Email verification through Reoon (power mode) or MillionVerifier.
 
-Statuses are normalized to: valid, catch_all, invalid, unknown, plus suppressed
-(never sent to a provider). Only `valid` is exported for sending.
+Statuses are normalized to: valid, catch_all, invalid, unknown, plus suppressed and
+off_domain (neither is sent to a provider). Only `valid` is exported for sending.
 """
 import json
 import os
 import urllib.parse
 from collections import Counter
 
-from . import http, store
+from . import extract, http, store
 
 REOON = {
     "safe": "valid", "role_account": "valid",
@@ -53,7 +53,7 @@ def run(db, niche, provider, max_checks, check=None, sample_only=False):
         raise SystemExit(f"Set {env} to verify with {provider}.")
     check = check or (lambda e: fn(e, key))
     rows = db.execute(
-        f"""SELECT DISTINCT e.email FROM emails e JOIN places p ON p.domain = e.domain
+        f"""SELECT DISTINCT e.email, e.domain FROM emails e JOIN places p ON p.domain = e.domain
            WHERE p.niche = ? AND e.verify_status IS NULL
            {"AND p.place_id IN (SELECT place_id FROM sample WHERE niche = p.niche)" if sample_only else ""}
            LIMIT ?""", (niche, max_checks)).fetchall()
@@ -62,6 +62,8 @@ def run(db, niche, provider, max_checks, check=None, sample_only=False):
         email = row["email"]
         if store.is_suppressed(db, email=email, domain=email.rsplit("@", 1)[1]):
             status, raw, used = "suppressed", {}, None
+        elif extract.rank(email, row["domain"]) is None:
+            status, raw, used = "off_domain", {}, None  # never exported, so don't pay to verify it
         else:
             status, raw = check(email)
             used = provider

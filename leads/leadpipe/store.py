@@ -116,8 +116,15 @@ def purge(db, days=CACHE_DAYS):
     return cur.rowcount
 
 
-def is_suppressed(db, email=None, domain=None, place_id=None):
+def phone_key(phone):
+    """Last 10 digits, so (713) 555-0100 and +1 713-555-0100 match."""
+    return "".join(ch for ch in phone or "" if ch.isdigit())[-10:]
+
+
+def is_suppressed(db, email=None, domain=None, place_id=None, phone=None):
     vals = [v.lower() for v in (email, domain, place_id) if v]
+    if phone_key(phone):
+        vals.append(phone_key(phone))
     if not vals:
         return False
     q = "SELECT 1 FROM suppression WHERE value IN (%s) LIMIT 1" % ",".join("?" * len(vals))
@@ -125,13 +132,32 @@ def is_suppressed(db, email=None, domain=None, place_id=None):
 
 
 def add_suppression(db, values, reason):
+    """Add emails, domains, place IDs or phone numbers (one per value). Returns how many were read."""
     rows = []
     for v in values:
         v = v.strip().lower()
         if not v or v.startswith("#"):
             continue
-        kind = "email" if "@" in v else ("place_id" if v.startswith("chij") else "domain")
+        if "@" in v:
+            kind = "email"
+        elif v.startswith("chij"):
+            kind = "place_id"
+        elif not any(ch.isalpha() for ch in v) and len(phone_key(v)) == 10:
+            kind, v = "phone", phone_key(v)
+        else:
+            kind = "domain"
         rows.append((v, kind, reason, now()))
     db.executemany("INSERT OR IGNORE INTO suppression VALUES (?, ?, ?, ?)", rows)
     db.commit()
     return len(rows)
+
+
+def load_pipeline_suppression(db, path):
+    """Suppress the email and phone of every do-not-contact or lost-to-bounce row in the sales pipeline."""
+    import csv
+    values = []
+    with open(path, newline="") as f:
+        for r in csv.DictReader(f):
+            if r.get("status") == "do-not-contact" or "bounce" in (r.get("lost_reason") or "").lower():
+                values += [r.get("contact_email") or "", r.get("contact_phone") or ""]
+    return add_suppression(db, values, f"pipeline:{path}")

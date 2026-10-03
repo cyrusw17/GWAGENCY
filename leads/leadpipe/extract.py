@@ -110,16 +110,23 @@ def classify(email, site_domain):
 
 
 def rank(email, site_domain):
-    """Lower is better: personal on-domain, role on-domain, free mailbox, anything else."""
+    """Lower is better: personal on-domain, free mailbox, role on-domain (info@ only when nothing else).
+
+    None means never send: an address on some other business's domain is usually the web
+    designer's "site by" credit, a supplier or a booking platform, not the shop.
+    """
     c = classify(email, site_domain)
     if c["on_site"]:
-        return 1 if c["is_role"] else 0
-    return 2 if c["is_free"] else 3
+        return 2 if c["is_role"] else 0
+    return 1 if c["is_free"] else None
 
 
 BODY_RE = re.compile(r"<body[^>]*>(.*)", re.I | re.S)
 CTA_RE = re.compile(r"<(a|button)\b[^>]*>[^<]{0,60}\b(book|quote|estimate|schedule|appointment)", re.I)
 REVIEWS_RE = re.compile(r"\breviews?\b|testimonial|★|google rating", re.I)
+TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
+OG_SITE_RE = re.compile(r"<meta[^>]+property=[\"']og:site_name[\"'][^>]+content=[\"']([^\"']+)", re.I)
+TEL_RE = re.compile(r"href=[\"']tel:([+\d().\s-]{7,20})", re.I)
 COPYRIGHT_RE = re.compile(r"(?:©|&copy;|copyright)[^<]{0,40}?((?:19|20)\d\d)(?:\s*[-–]\s*((?:19|20)\d\d))?", re.I)
 FORM_RE = re.compile(r"<form\b.*?</form>", re.I | re.S)
 FIRST_SCREEN_CHARS = 8000  # rough stand-in for the first phone screen of markup
@@ -129,13 +136,30 @@ def site_signals(page_html):
     """Home page signals behind marketing's "weak site" test. Lighthouse is measured separately."""
     body = (BODY_RE.search(page_html) or [None, page_html])[1]
     years = [int(y) for pair in COPYRIGHT_RE.findall(page_html) for y in pair if y]
+    tel = TEL_RE.search(page_html)
+    og, title = OG_SITE_RE.search(page_html), TITLE_RE.search(page_html)
+    name = og.group(1) if og else (re.split(r"\s+[|\u2013\u2014-]\s+", title.group(1).strip())[0] if title else "")
     return {
-        "tel_link": 'href="tel:' in page_html.lower() or "href='tel:" in page_html.lower(),
+        "site_name": html.unescape(name).strip()[:120] or None,
+        "site_phone": tel.group(1).strip() if tel else None,
+        "tel_link": bool(tel),
         "cta_first_screen": bool(CTA_RE.search(body[:FIRST_SCREEN_CHARS])),
         "reviews_shown": bool(REVIEWS_RE.search(html.unescape(TAG_RE.sub(" ", body)))),
         "copyright_year": max(years) if years else None,
+        "copyright_first": min(years) if years else None,
         "has_form": any(re.search(r"type=[\"']?email|<textarea", f, re.I) for f in FORM_RE.findall(page_html)),
     }
+
+
+FLAW_ORDER = [("no_booking", "cta_first_screen"), ("no_tap_to_call", "tel_link"), ("no_reviews", "reviews_shown")]
+
+
+def flaws(signals):
+    """Flaw ids (cold email specialist's list) that were actually checked and failed, most persuasive first."""
+    out = [fid for fid, key in FLAW_ORDER if key in signals and not signals[key]]
+    if signals.get("lighthouse") is not None and signals["lighthouse"] < 50:
+        out.append("slow_mobile")
+    return out
 
 
 def weak_site(signals, lighthouse=None):

@@ -95,7 +95,8 @@ def report(db, niche):
             weak += extract.weak_site(sig, sig.get("lighthouse"))
         if r["crawl_status"] == "form_only":
             form_only += 1
-        emails = db.execute("SELECT email, verify_status FROM emails WHERE domain = ?", (r["domain"],)).fetchall()
+        emails = [e for e in db.execute("SELECT email, verify_status FROM emails WHERE domain = ?", (r["domain"],))
+                  if extract.rank(e["email"], r["domain"]) is not None]  # off-domain addresses aren't the shop's
         if not emails:
             continue
         findable += 1

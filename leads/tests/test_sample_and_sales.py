@@ -87,7 +87,7 @@ class SalesTest(unittest.TestCase):
         self.assertEqual(set(rows), {"Green Acres", "FB Lawn", "Has Site", "Old Friend"})
         self.assertEqual((rows["Has Site"]["email"], rows["Has Site"]["email_type"], rows["Has Site"]["zip"]),
                          ("owner@gmail.com", "free", "77002"))
-        self.assertEqual(rows["FB Lawn"]["segment"], "social-only")
+        self.assertEqual(rows["FB Lawn"]["segment"], "social_only")
 
         self.assertEqual(report.pick(self.db, NICHE, 200), (4, 1))
         text = report.report(self.db, NICHE)
@@ -104,6 +104,47 @@ class SalesTest(unittest.TestCase):
         got = [r["area"] for r in self.db.execute(
             "SELECT p.area FROM sample s JOIN places p USING (place_id) WHERE s.niche = 'lawn-care'")]
         self.assertEqual((n, areas, sorted(got)), (4, 2, ["Lawton, OK", "Lawton, OK", "Tyler, TX", "Tyler, TX"]))
+
+    def test_designer_credit_never_exported_or_verified(self):
+        self.db.execute("INSERT INTO crawls VALUES ('hassite.com', 'ok', 1, NULL, 0, ?)",
+                        (json.dumps({"site_name": "Has Site Lawn", "site_phone": "903-555-7777", "tel_link": True,
+                                     "cta_first_screen": False, "reviews_shown": True, "copyright_first": 2018}),))
+        self.db.execute("INSERT INTO emails (email, domain, source_url, is_free, is_role) "
+                        "VALUES ('jane@somestudio.com', 'hassite.com', 'https://hassite.com/', 0, 0)")
+        checked = []
+        counts = verify.run(self.db, NICHE["name"], "reoon", 10, check=lambda e: checked.append(e) or ("valid", {}))
+        self.assertEqual((checked, counts), ([], {"off_domain": 1}))
+        self.db.execute("UPDATE emails SET verify_status = 'valid'")  # even if verified elsewhere
+        self.assertEqual(export.email_rows(self.db, NICHE), [])
+        self.db.execute("INSERT INTO emails (email, domain, source_url, is_free, is_role, verify_status) "
+                        "VALUES ('mike@hassite.com', 'hassite.com', 'https://hassite.com/contact', 0, 0, 'valid')")
+        [row] = export.email_rows(self.db, NICHE)
+        self.assertEqual({k: row[k] for k in ("email", "company_name", "name_source", "phone", "flaw", "segment",
+                                              "niche", "email_source", "email_source_url", "site_launch_estimate")},
+                         {"email": "mike@hassite.com", "company_name": "Has Site Lawn", "name_source": "website",
+                          "phone": "903-555-7777", "flaw": "no_booking", "segment": "has_site", "niche": "lawn-care",
+                          "email_source": "website", "email_source_url": "https://hassite.com/contact",
+                          "site_launch_estimate": 2018})
+
+    def test_pipeline_do_not_contact_suppresses_email_and_phone(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "pipeline.csv"
+            path.write_text(PIPELINE_HEADER + "\nGreen Acres,Tyler,TX,lawn-care,no-site,call,,(903) 555-0001,,,,,,,,,,,,,"
+                            ",,do-not-contact,,\nX,Tyler,TX,lawn-care,has-site,email,a@hassite.com,,website,,,,,,,,,,,,"
+                            ",,lost,bounced,\n")
+            store.load_pipeline_suppression(self.db, path)
+        self.assertNotIn("Green Acres", [r["company_name"] for r in export.call_rows(self.db, NICHE)])
+        self.assertTrue(store.is_suppressed(self.db, email="a@hassite.com"))
+
+    def test_pipeline_gets_dnc_checked_column(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "pipeline.csv"
+            path.write_text(PIPELINE_HEADER + "\nAcme,Tyler,TX,lawn-care,no-site,call,,,,,,,,,,,,,,,,,new,,x\n")
+            export.append_to_pipeline(path, export.call_rows(self.db, NICHE), "lawn-care")
+            got = list(csv.DictReader(path.open()))
+            self.assertEqual((got[0]["shop"], got[0]["notes"], got[0]["dnc_checked"]), ("Acme", "x", ""))
+            self.assertTrue(all("dnc_checked" in r for r in got))
+            self.assertEqual(export.CALL_COLUMNS[-1], "dnc_checked")
 
     def test_lighthouse_score(self):
         res = {"lighthouseResult": {"categories": {"performance": {"score": 0.42}}}}

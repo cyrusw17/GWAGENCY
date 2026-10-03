@@ -36,10 +36,20 @@ class LinksAndRankTest(unittest.TestCase):
         self.assertEqual(extract.same_site_links(page, "https://shineco.com/"),
                          ["https://shineco.com/contact-us"])
 
-    def test_rank_prefers_personal_on_domain(self):
-        emails = ["shineco@gmail.com", "info@shineco.com", "joe@shineco.com", "x@other.com"]
+    def test_rank_order_and_off_domain_dropped(self):
+        emails = ["info@shineco.com", "shineco@gmail.com", "joe@shineco.com"]
         self.assertEqual(sorted(emails, key=lambda e: extract.rank(e, "shineco.com")),
-                         ["joe@shineco.com", "info@shineco.com", "shineco@gmail.com", "x@other.com"])
+                         ["joe@shineco.com", "shineco@gmail.com", "info@shineco.com"])
+        self.assertIsNone(extract.rank("jane@somestudio.com", "shineco.com"))  # "site by" credit
+
+    def test_site_signals_name_phone_flaws(self):
+        page = """<html><head><title>Shine Co | Mobile Detailing Tyler TX</title></head><body>
+                  <a href="tel:+1 903-555-0100">Call</a><footer>&copy; 2019 - 2024 Shine Co</footer></body>"""
+        sig = extract.site_signals(page)
+        self.assertEqual((sig["site_name"], sig["site_phone"], sig["copyright_first"]),
+                         ("Shine Co", "+1 903-555-0100", 2019))
+        self.assertEqual(extract.flaws(sig), ["no_booking", "no_reviews"])
+        self.assertEqual(extract.flaws(dict(sig, lighthouse=31))[-1], "slow_mobile")
 
 
 if __name__ == "__main__":
