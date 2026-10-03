@@ -1,0 +1,10 @@
+# Contact data never lives in this public repo. The pipeline writes to
+# $LEADS_DATA_DIR (default ~/gw-leads) and refuses a path inside a git checkout.
+*.db
+*.db-*
+*.sqlite*
+*.csv
+*.jsonl
+.env
+data/
+__pycache__/
