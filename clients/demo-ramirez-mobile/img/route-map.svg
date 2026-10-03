@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" class="route-map">
+  <defs>
+    <filter id="rm-hand" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+  </defs>
+  <g filter="url(#rm-hand)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="rm-1604" d="M300 48C420 50 540 130 552 262C562 392 450 494 300 498C150 500 52 402 46 270C42 140 170 46 300 48Z"/>
+    <path class="rm-410" d="M302 168C366 170 412 214 410 276C408 336 360 376 300 374C238 372 192 332 194 272C196 210 240 166 302 168Z"/>
+    <path class="rm-hwy" d="M120 470L218 352L300 272L392 186L482 92"/>
+    <path class="rm-hwy" d="M88 132L196 206L300 272L404 316L540 386"/>
+  </g>
+  <g class="rm-labels">
+    <text x="300" y="34" text-anchor="middle" class="rm-road">LOOP 1604</text>
+    <text x="300" y="158" text-anchor="middle" class="rm-road">410</text>
+    <text x="478" y="78" class="rm-road">I-35</text>
+    <text x="70" y="118" class="rm-road">I-10</text>
+    <circle cx="300" cy="272" r="8" class="rm-dot"/>
+    <text x="318" y="304" class="rm-town rm-home">Downtown</text>
+    <text x="318" y="222" class="rm-town">Alamo Heights</text>
+    <text x="370" y="104" text-anchor="middle" class="rm-town">Stone Oak</text>
+    <text x="196" y="126" text-anchor="middle" class="rm-town">Shavano Park</text>
+    <text x="236" y="190" text-anchor="end" class="rm-town">Medical Center</text>
+    <text x="62" y="258" class="rm-town">Helotes</text>
+    <text x="80" y="330" class="rm-town">Leon Valley</text>
+    <text x="430" y="160" class="rm-town">Live Oak</text>
+    <text x="440" y="262" class="rm-town">Converse</text>
+    <text x="300" y="448" text-anchor="middle" class="rm-town">Southside</text>
+    <text x="300" y="530" text-anchor="middle" class="rm-note">Boerne and New Braunfels on Saturdays, $25 trip fee</text>
+  </g>
+</svg>

@@ -322,3 +322,5 @@ body.has-demo .f-header{top:40px}
   .f-areas-grid .f-map{margin-top:0}
   .f-gallery{grid-template-columns:repeat(4,1fr)}
 }
+.f-map-drawn{aspect-ratio:auto;background:none;border:0;border-radius:0;overflow:visible}
+.f-map-drawn svg{display:block;width:100%;height:auto}
