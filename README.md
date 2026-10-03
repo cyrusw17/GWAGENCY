@@ -1,3 +1,18 @@
+# GWAGENCY: GroundWork agency repo
+
+Home for groundwork-web.com and the client sites we build.
+
+| Path | What it is |
+|------|------------|
+| `public/` | groundwork-web.com, ported as-is from cyrusw17/offer1 (fca2a33). Includes the Detailer Kit (`public/kit/`) and its demos. The private cold-call list was left out on purpose because this repo is public. |
+| `template/` | The GroundWork Funnel Template: mobile-first conversion site for any local service business. See `template/README.md`. |
+| `clients/<slug>/site.json` | One file per client or niche demo. `clients/_example/` is a fictional detailer showing every option. |
+| `tools/build.mjs` | `node tools/build.mjs clients/<slug>` builds a site into `dist/<slug>/`. No dependencies, Node 18+. |
+
+The live site still deploys from cyrusw17/offer1 until cPanel is pointed here. Notes from that repo follow.
+
+---
+
 # offer1 — groundwork-web.com production deploy
 
 This repo is the **cPanel deploy mirror** for [groundwork-web.com](https://groundwork-web.com). Everything under `public/` becomes `~/public_html/` on the server.

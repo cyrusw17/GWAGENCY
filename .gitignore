@@ -3,3 +3,7 @@ public/api/config.php
 gw-data/
 *.sqlite
 *.log
+dist/
+graphify-out/
+node_modules/
+aeotester-report.md

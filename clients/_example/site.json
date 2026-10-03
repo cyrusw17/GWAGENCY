@@ -1,0 +1,134 @@
+{
+  "slug": "example-mobile-detail",
+  "demo": true,
+  "niche": "auto detailing",
+  "demoCta": { "label": "Get this site", "href": "https://groundwork-web.com/start/?demo=template" },
+
+  "business": {
+    "name": "Harbor Line Mobile Detail",
+    "tagline": "Mobile detailing · Tampa Bay",
+    "schemaType": "AutoWash",
+    "phone": "(813) 555-0142",
+    "sms": "(813) 555-0142",
+    "email": "book@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Sat 7am-7pm",
+    "hours": [{ "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "07:00", "closes": "19:00" }],
+    "address": { "city": "Tampa", "region": "FL", "postal": "33602" },
+    "footerLine": "Fully insured · Water and power on board",
+    "social": ["https://instagram.com/example", "https://facebook.com/example"]
+  },
+
+  "theme": {
+    "bg": "#F5F4F0", "surface": "#FFFFFF", "surface2": "#E8E6DF", "text": "#121821", "muted": "#58606C",
+    "line": "#D9D5CB", "accent": "#0E7C86", "accentInk": "#FFFFFF", "accent2": "#13263B"
+  },
+
+  "seo": {
+    "title": "Harbor Line Mobile Detail | Car Detailing at Your Home in Tampa",
+    "description": "Mobile car detailing across Tampa Bay. We bring water and power to your driveway. Prices shown, book online in a minute."
+  },
+
+  "offer": { "bar": "New customers: $20 off your first Inside + Out this month.", "barCta": "Book it" },
+
+  "hero": {
+    "eyebrow": "Tampa · Brandon · Riverview · Westchase",
+    "headline": "A showroom clean car,",
+    "headlineEm": "without leaving home.",
+    "sub": "We come to your driveway or office with our own water and power. Pick a package, pick a time, and get your car back cleaner than the day you bought it.",
+    "cta": "See prices and book",
+    "proof": [
+      { "value": "4.9★", "label": "Google rating" },
+      { "value": "7 days", "label": "a week" },
+      { "value": "$0", "label": "travel fee in zone" }
+    ]
+  },
+
+  "trust": ["Fully insured", "Prices shown up front", "Re-clean free if anything's missed", "Text updates on the way"],
+
+  "servicesHeadline": "Everything your car needs, at your door",
+  "services": [
+    { "name": "Exterior wash and seal", "from": 79, "desc": "Hand wash, wheels, tires, trim and a 3-month sealant." },
+    { "name": "Interior reset", "from": 129, "desc": "Vacuum, steam, shampoo and leather care. Kid and pet messes welcome." },
+    { "name": "Paint correction", "from": 349, "desc": "Swirl and scratch removal so the paint looks deep again." },
+    { "name": "Ceramic coating", "from": 699, "desc": "Years of gloss and easy washing, with a written warranty." },
+    { "name": "Fleet and office days", "from": 59, "desc": "We set up in your lot and work through the whole team's cars." },
+    { "name": "Maintenance plans", "from": 69, "desc": "Every 2 or 4 weeks, same crew, priority booking." }
+  ],
+
+  "pricing": {
+    "headline": "Flat prices. No surprises.",
+    "sub": "Sedan prices shown. SUVs and trucks add $30. We confirm before we start.",
+    "fine": "Maintenance members save 20% on every visit."
+  },
+  "packages": [
+    { "name": "Exterior", "price": 79, "note": "About 1 hour", "features": ["Hand wash and dry", "Wheels, tires, trim", "3-month spray sealant", "Glass inside and out"] },
+    { "name": "Inside + Out", "price": 189, "note": "About 3 hours", "popular": true, "popularLabel": "Most booked", "features": ["Everything in Exterior", "Full vacuum and steam", "Seat and carpet shampoo", "Leather clean and condition", "Odor treatment"] },
+    { "name": "Interior Deep", "price": 139, "note": "About 2 hours", "features": ["Full interior reset", "Pet hair removal", "Headliner spot clean", "Trunk and cargo area"] }
+  ],
+
+  "stepsHeadline": "Booked in under a minute",
+  "steps": [
+    { "title": "Pick a package", "body": "Prices are right here. No calling around for a quote." },
+    { "title": "Choose a time", "body": "We text to confirm and again when we're 15 minutes out." },
+    { "title": "We come to you", "body": "Driveway, office or apartment lot. You don't lift a finger." }
+  ],
+
+  "work": {
+    "headline": "Recent jobs around Tampa Bay",
+    "sub": "Real sites show the owner's own before and after photos.",
+    "compare": { "caption": "" },
+    "gallery": [
+      { "caption": "Brandon · Tahoe, Inside + Out" },
+      { "caption": "Westchase · Model Y, ceramic" },
+      { "caption": "Riverview · F-150, interior" },
+      { "caption": "Downtown · Office fleet day" }
+    ]
+  },
+
+  "reviews": {
+    "headline": "Tampa Bay drivers say",
+    "source": "Google",
+    "rating": "4.9",
+    "count": 186,
+    "items": [
+      { "name": "Sample customer", "detail": " · Tahoe, Inside + Out", "text": "Booked from my phone at lunch and came home to a clean car. Exactly the price on the site." },
+      { "name": "Sample customer", "detail": " · Office fleet day", "text": "They did eight cars in our lot on a Tuesday. Nobody had to leave their desk." },
+      { "name": "Sample customer", "detail": " · Odyssey, Interior Deep", "text": "Texted when they were 15 out, showed up on time, and the dog hair is finally gone." }
+    ]
+  },
+
+  "guarantee": {
+    "title": "Not happy? We come back and fix it free.",
+    "body": "If anything's missed, text us within 48 hours and we re-clean it at no charge. No arguments.",
+    "cta": "Book with confidence"
+  },
+
+  "areas": {
+    "headline": "We come to you across Tampa Bay",
+    "body": "No travel fee inside our zone. Just outside it, a flat $15. We'll tell you before you book.",
+    "cities": ["Tampa", "Brandon", "Riverview", "Westchase", "Carrollwood", "Temple Terrace", "Wesley Chapel", "Apollo Beach", "Valrico"]
+  },
+
+  "booking": {
+    "cta": "Book now",
+    "eyebrow": "Book",
+    "headline": "Get your price and a time",
+    "body": "Tell us what you need and we'll text you a confirmed time, usually within the hour."
+  },
+  "lead": {
+    "endpoint": "",
+    "submit": "Text me a time",
+    "notesHint": "Vehicle, condition, best days"
+  },
+
+  "faq": [
+    { "q": "Do I need to provide water or power?", "a": "No. Our van carries its own water and power, so we can work in driveways, office lots and most apartment complexes." },
+    { "q": "How long does a detail take?", "a": "Exterior takes about an hour, Inside + Out about three. We'll give you a window when we confirm." },
+    { "q": "Do I need to be home?", "a": "No. Leave the car unlocked or the keys somewhere safe and we'll text you when it's done." },
+    { "q": "What if it rains?", "a": "We reschedule at no charge and text you the first open slot." },
+    { "q": "How do I pay?", "a": "Card, Apple Pay or cash after the job is done. Nothing is charged up front." }
+  ],
+
+  "final": { "headline": "Your car, clean, this week.", "sub": "Pick a package and we'll text you a time." }
+}
