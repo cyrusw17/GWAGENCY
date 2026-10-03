@@ -305,7 +305,7 @@ ${when(s.offer?.bar, `<div class="f-offerbar">${esc(s.offer?.bar)} ${bookBtn("of
 <header class="f-header">
   <div class="f-wrap">
     <a class="f-logo" href="#main">${b.logo ? `<img src="${url(b.logo)}" alt="${esc(b.name)}">` : `${esc(b.name)}${when(b.tagline, `<small class="f-tagline">${esc(b.tagline)}</small>`)}`}</a>
-    ${when(nav.length, `<nav class="f-nav" aria-label="Sections">${nav.map(x => `<a href="#${x.id}">${x.nav}</a>`).join("")}</nav>`)}
+    ${when(nav.length, `<nav class="f-nav" aria-label="Sections">${nav.map(x => `<a href="#${esc(x.id)}">${esc(x.nav)}</a>`).join("")}</nav>`)}
     <div class="f-actions">
       ${callBtn("header", `${ICON.phone}<span class="f-call-text">${esc(b.phone)}</span>`, ` aria-label="Call ${esc(b.phone)}"`)}
       ${bookBtn("header")}

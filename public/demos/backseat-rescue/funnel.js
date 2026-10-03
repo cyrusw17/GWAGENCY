@@ -59,7 +59,10 @@
     est.addEventListener("submit", function (e) { e.preventDefault(); });
     if (book) book.addEventListener("click", function () {
       var notes = document.querySelector("#lead textarea[name=notes]");
-      if (notes && !notes.value) notes.value = "From the price picker: " + sum.textContent + " (" + total.textContent + ")";
+      if (!notes) return;
+      // Replace an earlier picker line rather than stacking old picks next to new ones.
+      var line = "From the price picker: " + sum.textContent + " (" + total.textContent + ")";
+      notes.value = /^From the price picker: .*$/m.test(notes.value) ? notes.value.replace(/^From the price picker: .*$/m, line) : (notes.value ? line + "\n" + notes.value : line);
     });
   });
 
