@@ -1,0 +1,49 @@
+{
+  "_note": "Color palettes for mockups, picked per shop so a batch doesn't look identical.",
+  "palettes": [
+    {
+      "bg": "#F5F4F0",
+      "surface": "#FFFFFF",
+      "surface2": "#E8E6DF",
+      "text": "#121821",
+      "muted": "#58606C",
+      "line": "#D9D5CB",
+      "accent": "#0E7C86",
+      "accentInk": "#FFFFFF",
+      "accent2": "#13263B"
+    },
+    {
+      "bg": "#F4F5F7",
+      "surface": "#FFFFFF",
+      "surface2": "#E6E9EE",
+      "text": "#0F1720",
+      "muted": "#566070",
+      "line": "#D5DAE1",
+      "accent": "#C2410C",
+      "accentInk": "#FFFFFF",
+      "accent2": "#1E293B"
+    },
+    {
+      "bg": "#F6F5F2",
+      "surface": "#FFFFFF",
+      "surface2": "#ECE8E1",
+      "text": "#16161A",
+      "muted": "#5C5A63",
+      "line": "#DCD6CC",
+      "accent": "#1D4ED8",
+      "accentInk": "#FFFFFF",
+      "accent2": "#111827"
+    },
+    {
+      "bg": "#F3F6F4",
+      "surface": "#FFFFFF",
+      "surface2": "#E3EAE5",
+      "text": "#101814",
+      "muted": "#53615A",
+      "line": "#D2DCD5",
+      "accent": "#15803D",
+      "accentInk": "#FFFFFF",
+      "accent2": "#14231B"
+    }
+  ]
+}

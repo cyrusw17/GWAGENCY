@@ -128,7 +128,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
         ${bookBtn("package " + p.name, p.cta || "Choose " + p.name, `f-btn ${p.popular ? "f-btn-primary" : "f-btn-ghost"} f-btn-block`, ` data-pick="${esc(p.name)}"`)}
       </div>`).join("\n      ")}
     </div>
-    ${when(s.pricing?.fine, `<p class="f-fine">${esc(s.pricing.fine)}</p>`)}
+    ${when(s.pricing?.fine, `<p class="f-fine">${esc(s.pricing?.fine)}</p>`)}
   </div>
 </section>` },
     { id: "how", show: s.steps?.length, html: () => `
@@ -161,7 +161,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
 <section>
   <div class="f-wrap">
     <div class="f-guarantee">
-      <div><p class="f-eyebrow">${esc(s.guarantee.eyebrow || "Our promise")}</p><h2>${esc(s.guarantee.title)}</h2><p>${esc(s.guarantee.body)}</p></div>
+      <div><p class="f-eyebrow">${esc(s.guarantee?.eyebrow || "Our promise")}</p><h2>${esc(s.guarantee?.title)}</h2><p>${esc(s.guarantee?.body)}</p></div>
       ${bookBtn("guarantee", bookLabel, "f-btn")}
     </div>
   </div>
@@ -170,11 +170,11 @@ export function render(s, { css = "", assetBase = "" } = {}) {
 <section class="f-band" id="areas">
   <div class="f-wrap f-areas-grid">
     <div>
-      <p class="f-eyebrow">Service area</p><h2>${esc(s.areas.headline || "Where we work")}</h2>
-      ${when(s.areas.body, `<p class="f-muted f-lead">${esc(s.areas.body)}</p>`)}
-      <ul class="f-areas" aria-label="Areas we serve">${(s.areas.cities || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul>
+      <p class="f-eyebrow">Service area</p><h2>${esc(s.areas?.headline || "Where we work")}</h2>
+      ${when(s.areas?.body, `<p class="f-muted f-lead">${esc(s.areas?.body)}</p>`)}
+      <ul class="f-areas" aria-label="Areas we serve">${(s.areas?.cities || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul>
     </div>
-    ${s.areas.mapEmbed ? `<div class="f-map"><iframe src="${url(s.areas.mapEmbed)}" title="Service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : when(demo, media("", "", "Real sites embed a Google map of the service area here.", demo, "f-map"))}
+    ${s.areas?.mapEmbed ? `<div class="f-map"><iframe src="${url(s.areas?.mapEmbed)}" title="Service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : when(demo, media("", "", "Real sites embed a Google map of the service area here.", demo, "f-map"))}
   </div>
 </section>` },
   ];
@@ -186,7 +186,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
   const multi = !!s.lead?.multi;
   const choices = s.lead?.options || (s.packages?.length ? s.packages.map(p => p.name) : (s.services || []).map(x => x.name)).concat("Not sure yet");
   const bookWidget = s.booking?.embedUrl
-    ? `<div class="f-embed"><iframe src="${url(s.booking.embedUrl)}" title="Book with ${esc(b.name)}" loading="lazy"></iframe></div>`
+    ? `<div class="f-embed"><iframe src="${url(s.booking?.embedUrl)}" title="Book with ${esc(b.name)}" loading="lazy"></iframe></div>`
     : `<form class="f-form" id="lead" aria-labelledby="book-h" novalidate>
       <p class="f-step" aria-live="polite">Step <span data-step>1</span> of 2</p>
       <div class="s1">
@@ -214,7 +214,7 @@ export function render(s, { css = "", assetBase = "" } = {}) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(s.seo?.title || b.name)}</title>
 <meta name="description" content="${esc(s.seo?.description || "")}">
-${demo ? '<meta name="robots" content="noindex">' : when(s.seo?.canonical, `<link rel="canonical" href="${url(s.seo.canonical)}">`)}
+${demo ? '<meta name="robots" content="noindex">' : when(s.seo?.canonical, `<link rel="canonical" href="${url(s.seo?.canonical)}">`)}
 <meta name="author" content="${esc(b.name)}">
 <meta property="article:modified_time" content="${esc(s.builtAt || "")}">
 <link rel="alternate" type="text/markdown" href="index.md">
@@ -222,7 +222,7 @@ ${demo ? '<meta name="robots" content="noindex">' : when(s.seo?.canonical, `<lin
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(s.seo?.title || b.name)}">
 <meta property="og:description" content="${esc(s.seo?.description || "")}">
-${when(s.seo?.ogImage, `<meta property="og:image" content="${url(s.seo.ogImage)}">`)}
+${when(s.seo?.ogImage, `<meta property="og:image" content="${url(s.seo?.ogImage)}">`)}
 <link rel="icon" href="${b.favicon ? url(b.favicon) : `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="${cssStr(s.theme?.accent || "#C2410C")}"/><text x="16" y="23" font-family="system-ui,sans-serif" font-size="19" font-weight="700" text-anchor="middle" fill="${cssStr(s.theme?.accentInk || "#fff")}">${esc((b.name || "?")[0])}</text></svg>`)}`}">
 ${when(s.hero?.image, `<link rel="preload" as="image" href="${url(s.hero.image)}" fetchpriority="high">`)}
 ${(s.theme?.fontFaces || []).filter(f => f.preload).map(f => `<link rel="preload" as="font" type="font/woff2" href="${url(f.src)}" crossorigin>`).join("\n")}
@@ -233,7 +233,7 @@ ${schema(s)}
 <body${demo ? ' class="has-demo"' : ""}>
 <a class="skip" href="#main">Skip to content</a>
 ${when(demo, `<div class="f-demo" role="region" aria-label="Demo notice"><div class="f-wrap"><b>${esc(s.demoLabel || "GroundWork demo")}</b><span>${esc(s.demoNote || "Fictional business. Yours gets your name, photos and prices.")}</span><a href="${url(s.demoCta?.href || "https://groundwork-web.com/start/")}">${esc(s.demoCta?.label || "Get this site")}</a></div></div>`)}
-${when(s.offer?.bar, `<div class="f-offerbar">${esc(s.offer.bar)} ${bookBtn("offer bar", s.offer.barCta || "Claim it", "")}</div>`)}
+${when(s.offer?.bar, `<div class="f-offerbar">${esc(s.offer?.bar)} ${bookBtn("offer bar", s.offer?.barCta || "Claim it", "")}</div>`)}
 <header class="f-header">
   <div class="f-wrap">
     <a class="f-logo" href="#main">${b.logo ? `<img src="${url(b.logo)}" alt="${esc(b.name)}">` : `${esc(b.name)}${when(b.tagline, `<small class="f-tagline">${esc(b.tagline)}</small>`)}`}</a>
@@ -320,12 +320,12 @@ ${when(s.faq?.length, `<section class="f-band" id="faq">
 
 export function robots(s) {
   if (s.demo) return "User-agent: *\nDisallow: /\n";
-  return `# Search engines and AI answer engines are welcome.\nUser-agent: *\nAllow: /\n${s.seo?.canonical ? `\nSitemap: ${new URL("sitemap.xml", s.seo.canonical).href}\n` : ""}`;
+  return `# Search engines and AI answer engines are welcome.\nUser-agent: *\nAllow: /\n${s.seo?.canonical ? `\nSitemap: ${new URL("sitemap.xml", s.seo?.canonical).href}\n` : ""}`;
 }
 
 export function sitemap(s) {
   if (!s.seo?.canonical) return "";
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${esc(s.seo.canonical)}</loc><lastmod>${esc(s.builtAt)}</lastmod></url>\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${esc(s.seo?.canonical)}</loc><lastmod>${esc(s.builtAt)}</lastmod></url>\n</urlset>\n`;
 }
 
 // Plain-text summary for AI answer engines (llms.txt and index.md). Facts only, straight from site.json.
@@ -334,7 +334,7 @@ export function llms(s) {
   const lines = [`# ${b.name}`, "", `> ${s.seo?.description || b.tagline || ""}`, ""];
   if (b.phone) lines.push(`- Phone: ${b.phone}`);
   if (b.hoursText) lines.push(`- Hours: ${b.hoursText}`);
-  if (s.areas?.cities?.length) lines.push(`- Service area: ${s.areas.cities.join(", ")}`);
+  if (s.areas?.cities?.length) lines.push(`- Service area: ${s.areas?.cities.join(", ")}`);
   if (s.packages?.length) { lines.push("", "## Prices"); s.packages.forEach(p => lines.push(`- ${p.name}: ${price(p.price)}${p.member != null ? ` (members ${price(p.member)})` : ""}${p.note ? ` (${p.note})` : ""}`)); }
   if (s.services?.length) { lines.push("", "## Services"); s.services.forEach(x => lines.push(`- ${x.name}${x.from != null ? ` (from ${price(x.from)})` : ""}: ${x.desc}`)); }
   if (s.faq?.length) { lines.push("", "## FAQ"); s.faq.forEach(f => lines.push(`- ${f.q} ${f.a}`)); }
