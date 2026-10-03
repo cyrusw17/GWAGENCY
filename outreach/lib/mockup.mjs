@@ -39,7 +39,7 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
   const reviewsUrl = p.gbp_url || undefined;
   // Services the listing names are real; otherwise the niche's list, labeled as a sample.
   const realServices = p.services.slice(0, 6).map(name => ({ name, desc: "" }));
-  const sampleSections = ["pricing", "how", "work", "faq"].concat(realServices.length ? [] : ["services"]);
+  const sampleSections = ["pricing", "work", "faq"].concat(realServices.length ? [] : ["services"]);
 
   const site = {
     slug: id,
@@ -70,22 +70,21 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
       headlineEm: fill(hero.headlineEm, f),
       sub: fill(hero.sub, f),
       cta: niche.heroCta,
-      caption: niche.heroCaption,
+      caption: niche.heroCaption && fill(niche.heroCaption, f),
     },
     trust: [`${facts.rating}★ on Google`, `${facts.review_count} Google reviews`, `Based in ${p.city}, ${p.state}`],
     servicesHeadline: realServices.length ? `What ${p.shop} does` : "Sample services. Your real list goes here.",
     services: realServices.length ? realServices : pickServices(p, niche),
     pricing: niche.packages ? { headline: "Sample packages and prices", sub: "Your site shows your real packages and starting prices." } : undefined,
     packages: niche.packages,
-    stepsHeadline: "How booking could work (sample)",
-    steps: niche.steps,
+    // No stock "how it works" steps: the booking section says it in one line.
     work: { headline: "Your work goes here", sub: "Sample images. Your own before and after photos go here.", compare: { caption: "" }, gallery: [{}, {}, {}].map(() => ({ caption: "" })) },
     // The rating badge always shows (real data); review cards only when the list gave real review text.
     // Google's attribution terms: "Reviews from Google", the reviewer's name exactly as Google gives it,
     // a link to the listing, and the review text unedited (long reviews are skipped, never trimmed).
     reviews: { headline: "Reviews from Google", source: "Google", url: reviewsUrl, real: true, rating: facts.rating, count: facts.review_count, sampleNote: "",
       items: realReviews.map(r => ({ name: r.name, detail: r.date ? ` · ${r.date}` : "", text: r.text, stars: r.stars ?? 5 })) },
-    areas: { headline: `Based in ${p.city}`, body: "Your full service area goes here.", cities: [p.city] },
+    areas: { headline: `Based in ${p.city}`, body: "Your full service area goes here.", cities: [p.city], mapAlt: `Sketch of ${p.city}. Your real service area goes here.` },
     booking: { cta: niche.cta, eyebrow: niche.packages ? "Book" : "Quote", headline: niche.booking.headline, body: `Tell us what you need and ${p.shop} will get back to you.` },
     lead: { endpoint: "", submit: niche.booking.submit, notesHint: niche.booking.notesHint },
     faqHeadline: "Sample questions and answers",
@@ -113,19 +112,30 @@ export async function loadTemplate(dir) {
   const d = JSON.parse(readFileSync(join(dir, "site.json"), "utf8"));
   const look = {
     theme: d.theme,
-    layout: d.layout && { ...d.layout, order: (d.layout.order || []).filter(id => ["services", "pricing", "how", "work", "reviews", "areas", "book", "faq"].includes(id)) },
+    // hero "type": no photo slot, since an empty box reads as a template (the owner's photos come later).
+    layout: d.layout && { ...d.layout, hero: "type", order: (d.layout.order || []).filter(id => ["services", "pricing", "how", "work", "reviews", "areas", "book", "faq"].includes(id)) },
     eyebrows: Object.fromEntries(Object.entries(d.eyebrows || {}).filter(([, v]) => v === "")), // keep hidden labels only; wording is the demo's own
   };
   if (existsSync(join(dir, "fonts"))) assets.push(join(dir, "fonts"));
   return { dir, render, css, design: read(join(dir, "design.css")), look, assets };
 }
 
+// A hand-drawn map with one pin on the shop's city, in the design's own map style. Nothing else
+// on it: the real route and towns come from the owner.
+const xml = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+export const cityMap = city => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" class="route-map">
+  <defs><filter id="rm-hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter></defs>
+  <g filter="url(#rm-hand)" fill="none" stroke-linecap="round"><path class="rm-1604" d="M300 40C430 42 548 112 552 214C556 318 440 384 300 386C160 388 46 320 48 212C50 110 170 38 300 40Z"/></g>
+  <g class="rm-labels"><circle cx="300" cy="212" r="9" class="rm-dot"/><text x="300" y="256" text-anchor="middle" class="rm-town rm-home">${xml(city)}</text>
+  <text x="300" y="300" text-anchor="middle" class="rm-note">Your route goes here</text></g>
+</svg>`;
+
 export function writeMockup(site, outDir, tpl, today) {
   site.builtAt = today;
   if (tpl.look) Object.assign(site, tpl.look);
   mkdirSync(outDir, { recursive: true });
   // CSS inlined like tools/build.mjs does, so the first screen paints without a second request.
-  const html = tpl.render(site, { css: tpl.css, design: tpl.design || "" });
+  const html = tpl.render(site, { css: tpl.css, design: tpl.design || "", mapSvg: tpl.look ? cityMap(site.areas.cities[0]) : "" });
   writeFileSync(join(outDir, "index.html"), html);
   writeFileSync(join(outDir, "robots.txt"), "User-agent: *\nDisallow: /\n");
   for (const f of tpl.assets) cpSync(f, join(outDir, basename(f)), { recursive: true });

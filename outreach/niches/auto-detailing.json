@@ -168,5 +168,6 @@
     "headline": "Ready when you are.",
     "sub": "Pick a package and send a request."
   },
-  "template": "clients/demo-ramirez-mobile"
+  "template": "clients/demo-ramirez-mobile",
+  "heroCaption": "Your best detail in the {city} sun goes here. Sample photo."
 }
