@@ -95,7 +95,7 @@ const aplus = data.boards.filter(b => b.grade === "A+").length;
 const updated = new Date(data.updated + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 let html = readFileSync(join(root, "hub", "index.html"), "utf8");
-const fill = { BOARDS: boards, DEMOS: demos, UPDATED: esc(updated), APLUS: String(aplus), BOARD_COUNT: String(data.boards.length), DEMO_TOTAL: String(total), PER_TRADE: String(data.perTrade) };
+const fill = { BOARDS: boards, DEMOS: demos, UPDATED: esc(updated), APLUS: String(aplus), BOARD_COUNT: String(data.boards.length), DEMO_TOTAL: String(total), PER_TRADE: String(data.perTrade), DEMO_NOTE: esc(data.demoNote || "") };
 html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in fill)) { errors.push(`hub/index.html: unknown placeholder ${m}`); return m; }
   return fill[k];

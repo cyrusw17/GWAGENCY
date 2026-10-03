@@ -1,6 +1,6 @@
 # Work log hub
 
-The internal work log published to GitHub Pages: grades for every board, the demo sites (`perTrade` per trade, 3 since the 2026-10-03 usage cut), and a plain explanation of the offer, outreach, lead lists, mockups, sales path, design bar and decisions.
+The internal work log published to GitHub Pages: grades for every board, the demo site (one detailer demo since Cyrus's 2026-10-03 scope cut; `perTrade` sets slots per trade), and a plain explanation of the offer, outreach, lead lists, mockups, sales path, design bar and decisions.
 
 | File | What it is |
 |---|---|

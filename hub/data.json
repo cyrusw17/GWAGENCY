@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-03",
-  "perTrade": 3,
+  "perTrade": 1,
   "boards": [
     {
       "name": "Strategy",
@@ -45,22 +45,10 @@
       "note": "Replies, call script, onboarding"
     },
     {
-      "name": "Detailing sites",
+      "name": "Detailing site",
       "owner": "Web developer",
       "grade": "Inc.",
-      "note": "3 sites, graded on the lowest"
-    },
-    {
-      "name": "Exterior cleaning sites",
-      "owner": "Exterior design desk",
-      "grade": "Inc.",
-      "note": "3 sites, graded on the lowest"
-    },
-    {
-      "name": "Landscaping sites",
-      "owner": "Landscaping design desk",
-      "grade": "Inc.",
-      "note": "3 sites, graded on the lowest"
+      "note": "The one finished demo"
     },
     {
       "name": "This work log",
@@ -76,22 +64,6 @@
       "owner": "Web developer",
       "slots": [
         {
-          "business": "Northline Ceramic & Detail",
-          "town": "Dallas, TX",
-          "concept": "Ceramic coating and paint correction studio",
-          "status": "draft",
-          "client": "demo-ceramic-studio",
-          "slug": "ceramic-studio"
-        },
-        {
-          "business": "Harbor Line Mobile Detail",
-          "town": "Tampa, FL",
-          "concept": "Mobile detailing at your home",
-          "status": "draft",
-          "client": "_example",
-          "slug": "mobile-detail"
-        },
-        {
           "business": "Ramirez & Son Mobile Detail",
           "town": "San Antonio, TX",
           "concept": "Family mobile detailer: an owner's note, a kit list and a spec card in the hero",
@@ -100,58 +72,7 @@
           "slug": "ramirez-mobile"
         }
       ]
-    },
-    {
-      "id": "exterior",
-      "name": "Exterior cleaning",
-      "owner": "Exterior design desk",
-      "slots": [
-        {
-          "business": "Brightside Exterior Wash",
-          "town": "Charlotte, NC",
-          "concept": "House, roof and driveway washing",
-          "status": "draft",
-          "client": "demo-exterior-wash",
-          "slug": "exterior-wash"
-        },
-        {
-          "business": "Version 2",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
-        },
-        {
-          "business": "Version 3",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
-        }
-      ]
-    },
-    {
-      "id": "landscaping",
-      "name": "Landscaping and lawn care",
-      "owner": "Landscaping design desk",
-      "slots": [
-        {
-          "business": "Pruitt Lawn Co.",
-          "town": "Dublin, OH",
-          "concept": "Route sheet: mowing stripes, a clipboard route card, a printed price sheet",
-          "status": "building"
-        },
-        {
-          "business": "Fernhollow Gardens",
-          "town": "Asheville, NC",
-          "concept": "Field journal: plant line art, margin notes, seed-packet price cards",
-          "status": "building"
-        },
-        {
-          "business": "Los Primos Landscaping",
-          "town": "San Antonio, TX",
-          "concept": "Sign painter: drop-shaded lettering, painted banners, bilingual labels",
-          "status": "building"
-        }
-      ]
     }
-  ]
+  ],
+  "demoNote": "Cyrus cut the build to one finished site for now: the auto detailing demo. Exterior cleaning and landscaping demos are paused; their sequences and research stay ready."
 }
