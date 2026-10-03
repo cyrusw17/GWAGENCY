@@ -1,5 +1,6 @@
 {
   "updated": "2026-10-03",
+  "perTrade": 3,
   "boards": [
     {
       "name": "Strategy",
@@ -47,19 +48,19 @@
       "name": "Detailing sites",
       "owner": "Web developer",
       "grade": "Inc.",
-      "note": "5 sites, graded on the lowest"
+      "note": "3 sites, graded on the lowest"
     },
     {
       "name": "Exterior cleaning sites",
       "owner": "Exterior design desk",
       "grade": "Inc.",
-      "note": "5 sites, graded on the lowest"
+      "note": "3 sites, graded on the lowest"
     },
     {
       "name": "Landscaping sites",
       "owner": "Landscaping design desk",
       "grade": "Inc.",
-      "note": "5 sites, graded on the lowest"
+      "note": "3 sites, graded on the lowest"
     },
     {
       "name": "This work log",
@@ -97,18 +98,6 @@
           "status": "review",
           "client": "demo-ramirez-mobile",
           "slug": "ramirez-mobile"
-        },
-        {
-          "business": "Version 4",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
-        },
-        {
-          "business": "Version 5",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
         }
       ]
     },
@@ -136,18 +125,6 @@
           "town": "",
           "concept": "Concept line due before building",
           "status": "concept"
-        },
-        {
-          "business": "Version 4",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
-        },
-        {
-          "business": "Version 5",
-          "town": "",
-          "concept": "Concept line due before building",
-          "status": "concept"
         }
       ]
     },
@@ -172,18 +149,6 @@
           "business": "Los Primos Landscaping",
           "town": "San Antonio, TX",
           "concept": "Sign painter: drop-shaded lettering, painted banners, bilingual labels",
-          "status": "building"
-        },
-        {
-          "business": "Halvorsen Grounds",
-          "town": "Edina, MN",
-          "concept": "Site plan: a drawn lot plan, spec-sheet pricing, a four-season year line",
-          "status": "building"
-        },
-        {
-          "business": "Dale's Mowing",
-          "town": "Hixson, TN",
-          "concept": "Corkboard flyer: canary paper, taped photos, tear-off phone tabs",
           "status": "building"
         }
       ]

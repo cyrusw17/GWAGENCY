@@ -1,10 +1,10 @@
 # Work log hub
 
-The internal work log published to GitHub Pages: grades for every board, the 15 demo sites (5 per trade), and a plain explanation of the offer, outreach, lead lists, mockups, sales path, design bar and decisions.
+The internal work log published to GitHub Pages: grades for every board, the demo sites (`perTrade` per trade, 3 since the 2026-10-03 usage cut), and a plain explanation of the offer, outreach, lead lists, mockups, sales path, design bar and decisions.
 
 | File | What it is |
 |---|---|
-| `data.json` | The only file to edit when work moves: board grades and the 15 demo slots. |
+| `data.json` | The only file to edit when work moves: board grades, `perTrade` and the demo slots. |
 | `index.html` | The page. `{{BOARDS}}`, `{{DEMOS}}` and the other placeholders are filled from `data.json`. |
 | `hub.css` | Styles, on the GroundWork brand faces and amber. |
 

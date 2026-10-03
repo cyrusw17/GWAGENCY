@@ -38,7 +38,7 @@ mkdirSync(join(out, "assets", "fonts"), { recursive: true });
 
 // Demos: build each linked slot with the same checks a client site gets.
 for (const niche of data.niches) {
-  if (niche.slots.length !== 5) errors.push(`${niche.id}: needs exactly 5 slots, has ${niche.slots.length}`);
+  if (niche.slots.length !== data.perTrade) errors.push(`${niche.id}: needs exactly ${data.perTrade} slots (perTrade), has ${niche.slots.length}`);
   for (const slot of niche.slots) {
     if (!STATUS[slot.status]) errors.push(`${slot.business}: unknown status "${slot.status}"`);
     if (slot.grade && !GRADES.includes(slot.grade)) errors.push(`${slot.business}: unknown grade "${slot.grade}"`);
@@ -84,7 +84,7 @@ const demos = data.niches.map(n => `
       <section class="trade" aria-labelledby="trade-${esc(n.id)}">
         <header class="trade__head">
           <h3 id="trade-${esc(n.id)}">${esc(n.name)}</h3>
-          <p>${n.slots.filter(s => s.client).length} of 5 viewable · built by the ${esc(n.owner.toLowerCase())}</p>
+          <p>${n.slots.filter(s => s.client).length} of ${data.perTrade} viewable · built by the ${esc(n.owner.toLowerCase())}</p>
         </header>
         <ol class="slots">${n.slots.map(slotCard).join("")}
         </ol>
@@ -95,7 +95,7 @@ const aplus = data.boards.filter(b => b.grade === "A+").length;
 const updated = new Date(data.updated + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 let html = readFileSync(join(root, "hub", "index.html"), "utf8");
-const fill = { BOARDS: boards, DEMOS: demos, UPDATED: esc(updated), APLUS: String(aplus), BOARD_COUNT: String(data.boards.length), DEMO_TOTAL: String(total) };
+const fill = { BOARDS: boards, DEMOS: demos, UPDATED: esc(updated), APLUS: String(aplus), BOARD_COUNT: String(data.boards.length), DEMO_TOTAL: String(total), PER_TRADE: String(data.perTrade) };
 html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in fill)) { errors.push(`hub/index.html: unknown placeholder ${m}`); return m; }
   return fill[k];
