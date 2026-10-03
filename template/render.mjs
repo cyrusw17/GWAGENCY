@@ -7,6 +7,8 @@ const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<":
 const digits = s => String(s || "").replace(/[^\d+]/g, "");
 const money = n => (typeof n === "number" ? "$" + n.toLocaleString("en-US") : esc(n));
 const when = (cond, html) => (cond ? html : "");
+const cssStr = (v = "") => String(v).replace(/[\\"<>\n\r]/g, ""); // for values inside CSS quotes; HTML escapes don't decode in <style>
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, "").split(".")[0]; } catch { return u; } };
 
 const ICON = {
   phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
@@ -53,7 +55,7 @@ function schema(s) {
 function theme(t = {}) {
   const map = { bg: "--f-bg", surface: "--f-surface", surface2: "--f-surface-2", text: "--f-text", muted: "--f-muted", line: "--f-line", accent: "--f-accent", accentInk: "--f-accent-ink", accent2: "--f-accent-2", display: "--f-display", body: "--f-body", radius: "--f-radius" };
   const rules = Object.entries(map).filter(([k]) => t[k]).map(([k, v]) => `${v}:${String(t[k]).replace(/[;{}<>]/g, "")}`);
-  const fonts = (t.fontFaces || []).map(f => `@font-face{font-family:"${esc(f.family)}";font-weight:${Number(f.weight) || 400};font-style:normal;font-display:swap;src:url("${esc(f.src)}") format("woff2")}`);
+  const fonts = (t.fontFaces || []).map(f => `@font-face{font-family:"${cssStr(f.family)}";font-weight:${Number(f.weight) || 400};font-style:normal;font-display:swap;src:url("${cssStr(f.src)}") format("woff2")}`);
   return `<style>${fonts.join("")}:root{${rules.join(";")}}</style>`;
 }
 
@@ -260,7 +262,7 @@ ${when(s.faq?.length, `<section class="f-band" id="faq">
   <div class="f-wrap">
     <div><b>${esc(b.name)}</b>${esc(b.footerLine || b.tagline || "")}${when(b.address?.city, `<br>${esc([b.address.street, b.address.city, [b.address.region, b.address.postal].filter(Boolean).join(" ")].filter(Boolean).join(", "))}`)}${when(b.license, `<br>${esc(b.license)}`)}</div>
     <div><b>Contact</b>${when(tel, `<a href="tel:${tel}" data-ev="call" data-label="footer">${esc(b.phone)}</a><br>`)}${when(b.email, `<a href="mailto:${esc(b.email)}">${esc(b.email)}</a><br>`)}${esc(b.hoursText || "")}</div>
-    <div><b>Follow</b>${(b.social || []).map(u => `<a href="${esc(u)}" rel="noopener" target="_blank">${esc(new URL(u).hostname.replace(/^www\./, "").split(".")[0])}</a>`).join(" · ") || "&nbsp;"}<p class="credit" style="margin-top:14px">© ${new Date().getFullYear()} ${esc(b.name)}${when(s.credit !== false, ` · Site by <a href="https://groundwork-web.com/">GroundWork</a>`)}</p></div>
+    <div><b>Follow</b>${(b.social || []).map(u => `<a href="${esc(u)}" rel="noopener" target="_blank">${esc(host(u))}</a>`).join(" · ") || "&nbsp;"}<p class="credit" style="margin-top:14px">© ${new Date().getFullYear()} ${esc(b.name)}${when(s.credit !== false, ` · Site by <a href="https://groundwork-web.com/">GroundWork</a>`)}</p></div>
   </div>
 </footer>
 
