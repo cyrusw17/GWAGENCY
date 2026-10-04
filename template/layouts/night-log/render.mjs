@@ -2,10 +2,11 @@
 // A drawn 3D office floor (Zdog, loaded after first paint) where the crew's cart goes room to room and
 // each room's lights go off as it's done, next to the night log a client gets by email. The page
 // follows the company's clock: during the night shift it shows which room the crew would be in.
-// Then a bid estimator (square feet, nights, building type), what happens to your keys, the bid sheet,
-// before/after, reviews, the owner, where the crews go, the walkthrough form and FAQ.
+// Then the credentials a facility manager checks, a night planner (building, square feet, cleanings a
+// week -> crew and hours, no prices: these are bid per building), what we clean,
+// before/after, reviews, the owner, where the crews go, the walkthrough request and FAQ.
 // log.js only adds behavior; without it the page shows a drawn floor plan and the full log.
-import { kit, esc, when, money } from "../_kit.mjs";
+import { kit, esc, when } from "../_kit.mjs";
 export const behavior = "funnel.js"; // the step form and tracking from template/funnel.js
 export const scripts = ["zdog.min.js", "log.js"]; // log.js pulls in zdog.min.js itself, after first paint
 
@@ -18,10 +19,10 @@ const poster = `<svg class="floor-still" viewBox="0 0 520 400" role="img" aria-l
 </svg>`;
 
 export function render(s, { css = "" } = {}) {
-  const k = kit(s), b = k.b, lg = s.log || {}, est = s.estimator || {};
-  const nav = [["#log", "The night log"], ["#bid", "Prices"], ["#reviews", "Reviews"], ["#areas", "Area"], ["#faq", "FAQ"]];
+  const k = kit(s), b = k.b, lg = s.log || {}, pl = s.planner || {}, ld = s.lead || {}, cr = s.credentials;
+  const nav = [["#log", "Night log"], ["#trust", "Credentials"], ["#bid", "Services"], ["#faq", "FAQ"]];
   const logJson = JSON.stringify({ tz: lg.tz || "America/New_York", rooms: (lg.rooms || []).map(r => [r.key, r.name, r.t]) }).replace(/</g, "\\u003c");
-  const estJson = JSON.stringify({ types: est.types || [], min: est.min || 0 }).replace(/</g, "\\u003c");
+  const planJson = JSON.stringify({ types: pl.types || [] }).replace(/</g, "\\u003c");
 
   return `${k.head(css)}
 <body class="no-js${k.demo ? " has-demo" : ""}">
@@ -31,7 +32,7 @@ ${k.demoBar()}
   <div class="wrap top-in">
     <a class="logo" href="#main"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="14" cy="20" r="8"/><path d="M22 20h14M30 20v6M35 20v4"/></svg><span>${esc(b.name)}<small>${esc(b.tagline || "")}</small></span></a>
     <nav class="nav" aria-label="Sections">${nav.map(([h, t]) => `<a href="${h}">${t}</a>`).join("")}</nav>
-    <div class="top-act">${k.call("header", `<span class="top-num">${k.phone}</span>`, "top-call", ` aria-label="Call ${k.phone}"`)}${k.book("header", "Free walkthrough", "btn btn-go btn-sm")}</div>
+    <div class="top-act">${k.call("header", `<span class="top-num">${k.phone}</span>`, "top-call", ` aria-label="Call ${k.phone}"`)}${k.book("header", "Request a walkthrough", "btn btn-go btn-sm")}</div>
   </div>
 </header>
 
@@ -64,38 +65,46 @@ ${k.demoBar()}
   </div>
 </section>
 
-<ul class="trust wrap" aria-label="Why buildings stay with us">${(s.trust || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+<ul class="trust wrap" aria-label="At a glance">${(s.trust || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+
+${when(cr, `<section class="creds wrap" id="trust" aria-labelledby="cred-h">
+  <h2 id="cred-h">${esc(cr?.headline || "")}</h2>
+  <dl class="cred-list">${(cr?.items || []).map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl>
+  <p class="ind-h">Buildings we clean</p>
+  <ul class="towns inds">${(cr?.industries || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul>
+  <p class="fine">${esc(cr?.note || "")}</p>
+</section>`)}
 
 <section class="est-sec wrap" aria-labelledby="est-h">
   <div class="est">
     <div class="est-in">
-      <h2 id="est-h">${esc(est.title || "What does it cost?")}</h2>
-      <form class="est-form" data-bid="${esc(estJson)}">
-        <label for="est-sqft">Square feet <output for="est-sqft" data-sqft-out>2,000</output></label>
-        <input type="range" id="est-sqft" min="500" max="20000" step="500" value="2000">
-        <fieldset class="nights"><legend>Nights a week</legend>${[1, 2, 3, 5].map(n => `<label><input type="radio" name="nights" value="${n}"${n === 3 ? " checked" : ""}><span>${n}</span></label>`).join("")}</fieldset>
+      <h2 id="est-h">${esc(pl.title || "Plan your building's night")}</h2>
+      <p class="est-sub">${esc(pl.sub || "")}</p>
+      <form class="est-form" data-plan="${esc(planJson)}">
         <label for="est-type">Building</label>
-        <select id="est-type">${(est.types || []).map((t, i) => `<option value="${i}">${esc(t.name)}</option>`).join("")}</select>
+        <select id="est-type">${(pl.types || []).map((t, i) => `<option value="${i}">${esc(t.name)}</option>`).join("")}</select>
+        <label for="est-sqft">Square feet <output for="est-sqft" data-sqft-out>4,000</output></label>
+        <input type="range" id="est-sqft" min="500" max="30000" step="500" value="4000">
+        <fieldset class="nights"><legend>Cleanings a week</legend>${[1, 2, 3, 5].map(n => `<label><input type="radio" name="nights" value="${n}"${n === 5 ? " checked" : ""}><span>${n}</span></label>`).join("")}</fieldset>
       </form>
     </div>
     <div class="est-out" aria-live="polite">
-      <p class="est-label">Ballpark <span class="sample-tag">(sample pricing)</span></p>
-      <p class="est-num"><span data-est-num>$650</span><small> a month</small></p>
-      <p class="est-note">${esc(est.note || "")}</p>
-      ${k.book("estimator", "Book the walkthrough", "btn btn-go", ` data-pick="${esc(s.packages?.[0]?.name || "")}"`)}
+      <p class="est-label">A night at your building <span class="sample-tag">(for illustration)</span></p>
+      <p class="est-num"><span data-plan-crew>1 cleaner</span><small data-plan-hours> · about 1.5 hours</small></p>
+      <p class="est-line" data-plan-line>6:00 pm to 7:30 pm, 5 nights a week.</p>
+      <p class="est-note">${esc(pl.note || "")}</p>
+      ${k.book("planner", "Request a walkthrough", "btn btn-go", " data-plan-book")}
     </div>
   </div>
 </section>
 
 <section class="bid wrap" id="bid" aria-labelledby="bid-h">
-  <div class="bid-head"><h2 id="bid-h">${esc(s.pricing?.headline || "Prices")}${when(k.demo, ' <span class="sample-tag">(sample prices)</span>')}</h2><p>${esc(s.pricing?.sub || "")}</p></div>
-  <ol class="sheet">${(s.packages || []).map((p, i) => `<li class="row${p.popular ? " pop" : ""}">
+  <div class="bid-head"><h2 id="bid-h">${esc(s.pricing?.headline || "What we clean")}</h2><p>${esc(s.pricing?.sub || "")}</p></div>
+  <ol class="sheet">${(s.packages || []).map((p, i) => `<li class="row">
     <p class="row-no" aria-hidden="true">${String(i + 1).padStart(2, "0")}</p>
-    <div class="row-main"><h3>${esc(p.name)}</h3><p class="row-note">${esc(p.note || "")}${when(p.popular, ` · <em>${esc(p.popularLabel || "Most popular")}</em>`)}</p>
+    <div class="row-main"><h3>${esc(p.name)}</h3><p class="row-note">${esc(p.note || "")}</p>
     <ul class="incl">${(p.features || []).map(f => `<li>${esc(f)}</li>`).join("")}</ul></div>
-    <p class="row-amt">${esc(p.price)} <small>${esc(p.unit || "")}</small></p>
-    ${k.book("bid " + p.name, "Bid my building", "row-btn", ` data-pick="${esc(p.name)}"`)}
-  </li>`).join("")}${(s.services || []).map(x => `<li class="row"><p class="row-no" aria-hidden="true">—</p><div class="row-main"><h3>${esc(x.name)}</h3><p class="row-note">${esc(x.desc)}</p></div><p class="row-amt small">${x.from != null ? `from ${money(x.from)}` : esc(x.priceText || "")}</p></li>`).join("")}</ol>
+  </li>`).join("")}${(s.services || []).map(x => `<li class="row"><p class="row-no" aria-hidden="true">—</p><div class="row-main"><h3>${esc(x.name)}</h3><p class="row-note">${esc(x.desc)}</p></div></li>`).join("")}</ol>
   <p class="fine">${esc(s.pricing?.fine || "")}</p>
 </section>
 
@@ -129,11 +138,43 @@ ${when(s.owner, `<section class="owner" aria-labelledby="owner-h">
 <section class="book" id="book" aria-labelledby="book-h">
   <div class="wrap book-in">
     <div class="book-copy">
-      <h2 id="book-h">${esc(s.booking?.headline || "Book a free walkthrough")}</h2>
+      <h2 id="book-h">${esc(s.booking?.headline || "Request a walkthrough")}</h2>
       <p>${esc(s.booking?.body || "")}</p>
       <p class="alt">Rather talk? ${k.call("book section", k.phone, "alt-link")} or ${k.text("book section", "send a text", "alt-link")}.</p>
     </div>
-    ${k.form({ cls: "quote" })}
+    <form class="quote" id="lead" data-steps novalidate aria-labelledby="book-h">
+      <p class="k-progress" aria-live="polite"><span data-progress>Step 1 of 3</span></p>
+      <fieldset data-step="1" class="on">
+        <legend>${esc(ld.facility?.question || "What kind of facility?")}</legend>
+        <div class="choices two">${(ld.facility?.options || []).map((x, i) => `<label class="choice"><input type="radio" name="kind" value="${esc(x)}" id="kind-${i}"><span><b>${esc(x)}</b></span></label>`).join("")}</div>
+        <div class="step-nav"><button type="button" class="btn btn-go" data-next>Next</button></div>
+      </fieldset>
+      <fieldset data-step="2">
+        <legend>${esc(ld.step2 || "About the building")}</legend>
+        <label for="f-service">Approximate square feet</label>
+        <select name="service" id="f-service">${(ld.sizes || []).map(n => `<option>${esc(n)}</option>`).join("")}</select>
+        <fieldset class="nights f-nights"><legend>Cleanings a week</legend>${(ld.nights || []).map((n, i) => `<label><input type="radio" name="per_week" value="${esc(n)}"${i === 2 ? " checked" : ""}><span>${esc(n)}</span></label>`).join("")}</fieldset>
+        <label for="f-notes">Anything we should know? <span class="opt">(optional)</span></label>
+        <textarea name="notes" id="f-notes" maxlength="1000" rows="3" placeholder="${esc(ld.notesHint || "")}"></textarea>
+        <div class="step-nav"><button type="button" class="btn-back" data-back>Back</button><button type="button" class="btn btn-go" data-next>Next</button></div>
+      </fieldset>
+      <fieldset data-step="3">
+        <legend>${esc(ld.step3 || "Where should we send the bid?")}</legend>
+        <label for="f-name">Your name</label>
+        <input name="name" id="f-name" autocomplete="name" required>
+        <label for="f-org">Company or building <span class="opt">(optional)</span></label>
+        <input name="company" id="f-org" autocomplete="organization">
+        <label for="f-phone">Phone</label>
+        <input name="phone" id="f-phone" type="tel" autocomplete="tel" inputmode="tel">
+        <label for="f-email">or email</label>
+        <input name="email" id="f-email" type="email" autocomplete="email" pattern="[^@\\s]+@[^@\\s]+\\.[^@\\s]+">
+        <p class="hint">${esc(ld.contactHint || "")}</p>
+        <div class="hp" aria-hidden="true"><label>Leave empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="step-nav"><button type="button" class="btn-back" data-back>Back</button><button class="btn btn-go" type="submit">${esc(ld.submit || "Request a walkthrough")}</button></div>
+        <p class="note">${esc(ld.privacy || "")}</p>
+      </fieldset>
+      <p class="k-status" role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
   </div>
 </section>
 

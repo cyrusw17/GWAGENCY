@@ -1,5 +1,5 @@
 /* night-log behavior: the company clock (where tonight's crew would be right now, on the building's
-   time zone), the bid estimator, and the 3D office floor (Zdog). Zdog loads only after the page has
+   time zone), the night planner, and the 3D office floor (Zdog). Zdog loads only after the page has
    painted and the floor is on screen. The cart only moves by itself on wide screens with motion
    allowed; "Pause motion" stops it, and reduced-motion visitors start paused. funnel.js keeps
    tracking and the walkthrough form. Everything here is extra: the page works without it. */
@@ -47,23 +47,38 @@
   }
   tick(); setInterval(tick, 30000);
 
-  /* ---------- the estimator ---------- */
-  var est = $("[data-bid]");
-  if (est) {
-    var cfg = { types: [], min: 0 };
-    try { cfg = JSON.parse(est.getAttribute("data-bid")); } catch (_) {}
-    var range = est.querySelector("#est-sqft"), type = est.querySelector("#est-type");
-    var sqOut = est.querySelector("[data-sqft-out]"), num = $("[data-est-num]");
+  /* ---------- the night planner ---------- */
+  // Building, square feet and cleanings a week -> crew size and hours. No prices: these are bid per building.
+  var plan = $("[data-plan]");
+  if (plan) {
+    var cfg = { types: [] };
+    try { cfg = JSON.parse(plan.getAttribute("data-plan")); } catch (_) {}
+    var range = plan.querySelector("#est-sqft"), type = plan.querySelector("#est-type"), sqOut = plan.querySelector("[data-sqft-out]");
+    var clock12 = function (m) { var h = Math.floor(m / 60) % 24, mm = m % 60; return (h % 12 || 12) + ":" + (mm < 10 ? "0" : "") + mm + (h < 12 ? " am" : " pm"); };
+    var nightsOf = function () { return Number((plan.querySelector("input[name=nights]:checked") || { value: 5 }).value); };
     var calc = function () {
-      var sq = Number(range.value), t = cfg.types[Number(type.value)] || { rate: 0.025 };
-      var n = Number((est.querySelector("input[name=nights]:checked") || { value: 3 }).value);
-      var visit = Math.max(sq * t.rate, cfg.min), month = Math.round(visit * n * 4.33 / 10) * 10;
+      var sq = Number(range.value), t = cfg.types[Number(type.value)] || { rate: 2500 }, n = nightsOf();
+      var hours = Math.max(1, Math.round(sq / t.rate * 2) / 2), crew = Math.max(1, Math.ceil(hours / 4)), each = Math.round(hours / crew * 2) / 2;
       sqOut.textContent = sq.toLocaleString("en-US");
-      num.textContent = "$" + month.toLocaleString("en-US");
+      $("[data-plan-crew]").textContent = crew + (crew === 1 ? " cleaner" : " cleaners");
+      $("[data-plan-hours]").textContent = " · about " + each + (each === 1 ? " hour" : " hours") + " a night";
+      $("[data-plan-line]").textContent = "Starting 6:00 pm, done by " + clock12(18 * 60 + each * 60) + ", " + n + (n === 1 ? " night" : " nights") + " a week.";
     };
-    est.addEventListener("input", calc); est.addEventListener("change", calc);
-    est.addEventListener("submit", function (e) { e.preventDefault(); });
+    plan.addEventListener("input", calc); plan.addEventListener("change", calc);
+    plan.addEventListener("submit", function (e) { e.preventDefault(); });
     calc();
+    // "Request a walkthrough" from the planner carries its answers into the form.
+    var book = $("[data-plan-book]");
+    if (book) book.addEventListener("click", function () {
+      var name = (cfg.types[Number(type.value)] || {}).name, sq = Number(range.value), n = String(nightsOf());
+      document.querySelectorAll("#lead input[name=kind]").forEach(function (i) { if (i.value === name) i.checked = true; });
+      var sel = document.querySelector("#lead select[name=service]");
+      if (sel) {
+        var pick = sq < 2000 ? 0 : sq <= 5000 ? 1 : sq <= 10000 ? 2 : sq <= 25000 ? 3 : 4;
+        if (sel.options[pick]) sel.selectedIndex = pick;
+      }
+      document.querySelectorAll("#lead input[name=per_week]").forEach(function (i) { if (i.value === n) i.checked = true; });
+    });
   }
 
   /* ---------- the log list ---------- */
