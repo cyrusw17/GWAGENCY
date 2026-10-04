@@ -128,7 +128,7 @@ main{min-width:0;display:grid;gap:72px}
 .slot{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:10px;padding:14px;background:var(--sheet);border:1px solid var(--rule-2);border-radius:4px;min-width:0}
 .slot--concept{background:transparent;border-style:dashed}
 .slot__no{font:700 2rem/1 var(--display);color:var(--rule-2);font-variant-numeric:tabular-nums}
-.slot--building .slot__no,.slot--review .slot__no,.slot--graded .slot__no{color:var(--amber)}
+.slot--building .slot__no,.slot--finished .slot__no{color:var(--amber)}
 .slot__body{display:grid;gap:4px;align-content:start;min-width:0}
 .slot__name{font-size:1.05rem;text-transform:none;letter-spacing:0;font-weight:600;overflow-wrap:anywhere}
 .slot--concept .slot__name{color:var(--ink-3)}
