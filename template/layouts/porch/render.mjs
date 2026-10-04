@@ -17,7 +17,7 @@ export function render(s, { css }) {
   const built = new Date(s.builtAt || Date.now()).getMonth();
   const cta = s.booking?.cta || "Get my quote";
   // The live strip and the sky read this; everything else about "now" is filled in by house.js.
-  const live = { ...(s.live || {}), hours: b.hours || [], months: (a?.months || []).map(m => ({ m: m.m, note: m.note, tags: (m.tags || []).map(t => legend[t] || t) })) };
+  const live = { ...(s.live || {}), owner: s.owner?.name?.split(" ")[0] || "", hours: b.hours || [], months: (a?.months || []).map(m => ({ m: m.m, note: m.note, tags: (m.tags || []).map(t => legend[t] || t) })) };
 
   return `<!doctype html>
 <html lang="en" class="no-js">
@@ -48,6 +48,7 @@ ${k.demoBar(s)}
       ${when(r?.rating, `<p class="pc-rating">${k.rating(s)}</p>`)}
     </div>
     <figure class="pc-stage">
+      <noscript><style>.pc-house,.pc-wash,.pc-pause,.pc-hint{display:none}</style>${when(cmp, () => k.img(cmp.after, h.houseAlt || cmp.caption || "", { w: 1200, h: 900, cls: "pc-house-still" }))}</noscript>
       <canvas class="pc-house" data-house width="520" height="440" role="img" aria-label="${esc(h.houseAlt || "A drawing of a raised house with a haint blue porch ceiling")}"></canvas>
       <div class="pc-wash">
         <label for="wash">${esc(h.washLabel || "Slide to wash the house")}</label>

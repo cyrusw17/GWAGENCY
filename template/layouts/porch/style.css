@@ -66,6 +66,7 @@ section{padding:72px 20px}
 .pc-stage{margin:0;position:relative}
 .pc-house{display:block;width:100%;max-width:520px;aspect-ratio:520/440;height:auto;margin:0 auto;cursor:grab;touch-action:pan-y;border-radius:var(--r)}
 .pc-house:active{cursor:grabbing}
+.pc-house-still{border-radius:var(--r);max-width:520px;margin:0 auto}
 .pc-wash{max-width:420px;margin:4px auto 10px;padding:12px 16px;border-radius:999px;background:rgba(243,238,228,.1);border:1px solid rgba(143,211,207,.35)}
 .pc-wash label{display:block;font-size:14px;font-weight:600;color:var(--haint);margin-bottom:2px}
 .pc-wash input,.pc-gauge input{width:100%;accent-color:var(--haint);height:28px}

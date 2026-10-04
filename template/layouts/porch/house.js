@@ -27,12 +27,15 @@
     var clean = "#F6F2EA", cleanShade = "#E2DCCF", grime = "#9DA584", grimeShade = "#7F8A6A";
     var roofClean = "#6F7A80", roofDirty = "#2C302B", haint = "#8FD3CF", trim = "#FFFDF8", shutter = "#2E4A3A", pile = "#5B4A3A";
     // The slow turn is for big screens; on a phone the house waits for a finger, which keeps the page quick.
-    var spinning = !paused && matchMedia("(min-width: 900px)").matches, visible = true, looping = false, turned = 0;
-    var box = cv.getBoundingClientRect();
+    var wide = matchMedia("(min-width: 900px)").matches, dragged = false;
+    var spinning = !paused && wide, visible = true, looping = false, turned = 0;
+    // Size from the column, not the canvas: Zdog pins the canvas width in pixels, so it would never shrink back.
+    var fit = function () { return Math.min(cv.parentNode.getBoundingClientRect().width, 520); };
+    var box = { width: fit() }; box.height = box.width * 440 / 520;
     var illo = new Z.Illustration({ element: cv, zoom: box.width / 270, rotate: { x: -0.24, y: -0.6 }, dragRotate: true,
-      onDragStart: function () { spinning = false; }, onDragMove: function () { draw(); } });
+      onDragStart: function () { spinning = false; dragged = true; }, onDragMove: function () { draw(); } });
     illo.setSize(Math.round(box.width), Math.round(box.height));
-    addEventListener("resize", function () { var w = cv.getBoundingClientRect().width; if (!w) return; illo.setSize(Math.round(w), Math.round(w * 440 / 520)); illo.zoom = w / 270; draw(); });
+    addEventListener("resize", function () { var w = fit(); if (!w) return; illo.setSize(Math.round(w), Math.round(w * 440 / 520)); illo.zoom = w / 270; draw(); });
     var house = new Z.Anchor({ addTo: illo, translate: { y: 6 } });
     // washable: a shape that goes from dirty to clean as the slider moves
     function wash(shape, dirty, cleanC) { washes.push({ s: shape, d: dirty, c: cleanC }); shape.color = dirty; return shape; }
@@ -103,11 +106,11 @@
     function go() { if (spinning && visible && !looping && !paused) { looping = true; requestAnimationFrame(tick); } }
     addEventListener("load", function () { setTimeout(go, 1500); });
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; go(); }).observe(cv);
-    onPause.push(function (p) { spinning = !p; if (!p) turned = 0; go(); });
+    onPause.push(function (p) { spinning = !p && wide && !dragged; if (spinning) turned = 0; go(); });
     cv.tabIndex = 0;
     cv.addEventListener("keydown", function (e) {
       if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-      e.preventDefault(); spinning = false; illo.rotate.y += e.key === "ArrowLeft" ? -0.2 : 0.2; draw();
+      e.preventDefault(); spinning = false; dragged = true; illo.rotate.y += e.key === "ArrowLeft" ? -0.2 : 0.2; draw();
     });
   })();
 
@@ -122,16 +125,18 @@
   function tickClock() { if (clock) clock.textContent = fmt(new Date(), { hour: "numeric", minute: "2-digit" }).toLowerCase(); }
   tickClock(); setInterval(tickClock, 30000);
   var openEl = document.querySelector("[data-open]");
-  if (openEl && L.hours) {
+  if (openEl && L.hours && L.hours.length) {
     var today = (L.hours || []).find(function (h) { return h.days.indexOf(P.weekday) > -1; });
     var hm = function (s) { var a = s.split(":"); return a[0] * 60 + Number(a[1]); };
     var t12 = function (s) { var h = Number(s.split(":")[0]), m = s.split(":")[1]; return (h % 12 || 12) + (m === "00" ? "" : ":" + m) + (h < 12 ? " am" : " pm"); };
     if (today && mins >= hm(today.opens) && mins < hm(today.closes)) { openEl.textContent = "Open now. Crews out until " + t12(today.closes) + "."; openEl.classList.add("is-open"); }
-    else openEl.textContent = "Closed right now. Text anytime and Rhea replies when we open.";
+    else openEl.textContent = "Closed right now. Text anytime and " + (L.owner || "we") + " will reply when we open.";
   }
   // Sunset from the sunrise equation (good to a couple of minutes, plenty for "crews pack up before dark").
+  // n is the local calendar day (days since J2000 noon), so the answer is today's sunset all day long.
   function sun(d, lat, lon) {
-    var rad = Math.PI / 180, J = d.getTime() / 864e5 + 2440587.5, n = Math.ceil(J - 2451545 + 0.0008), Js = n - lon / 360;
+    var ymd = {}; new Intl.DateTimeFormat("en-US", { timeZone: tz, year: "numeric", month: "numeric", day: "numeric" }).formatToParts(d).forEach(function (x) { ymd[x.type] = Number(x.value); });
+    var rad = Math.PI / 180, n = Math.round(Date.UTC(ymd.year, ymd.month - 1, ymd.day, 12) / 864e5 + 2440587.5 - 2451545), Js = n - lon / 360;
     var M = (357.5291 + 0.98560028 * Js) % 360, C = 1.9148 * Math.sin(M * rad) + 0.02 * Math.sin(2 * M * rad) + 0.0003 * Math.sin(3 * M * rad);
     var lam = (M + C + 282.9372) % 360, Jt = 2451545 + Js + 0.0053 * Math.sin(M * rad) - 0.0069 * Math.sin(2 * lam * rad);
     var dec = Math.asin(Math.sin(lam * rad) * Math.sin(23.4397 * rad));
