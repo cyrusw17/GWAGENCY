@@ -222,7 +222,7 @@ footer a{margin-right:14px}
     $("fixes").innerHTML = misses.length ? misses.map(function (q) {
       return "<li><b>" + q.fix + "</b><span class=ex>" + q.ex(t) + "</span><small>Why: " + q.src + "</small></li>";
     }).join("") : '<li class="allgood"><b>Every item you answered passed.</b></li>';
-    $("demo").innerHTML = 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>Rather skip the report? <a href="/start/?niche=' + {detailing:"auto-detailing",exterior:"exterior-cleaning",lawn:"landscaping"}[trade()] + '">Start for $99</a>, refunded if you decline the preview.";
+    $("demo").innerHTML = 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>Rather skip the report? <a href=\"/start/?niche=" + { detailing: "auto-detailing", exterior: "exterior-cleaning", lawn: "landscaping" }[trade()] + "\">Start for $99</a>, refunded if you decline the preview.";
   }
 
   form.addEventListener("change", function (e) {
