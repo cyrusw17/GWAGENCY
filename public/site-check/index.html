@@ -24,7 +24,7 @@ body{margin:0;background:var(--desk);color:var(--ink);font:400 16px/1.55 var(--m
 a{color:inherit}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px;z-index:9}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:760px;margin:0 auto;padding:14px 16px;color:var(--manila);font-size:.85rem}
-.top a{text-decoration:none}.top .logo{font-family:var(--disp);font-size:1.35rem;letter-spacing:.02em;text-transform:uppercase}
+.top a{text-decoration:none}.top .logo{white-space:nowrap;font-family:var(--disp);font-size:1.35rem;letter-spacing:.02em;text-transform:uppercase}
 .top nav a{margin-left:14px;text-decoration:underline;text-underline-offset:3px}
 main{max-width:760px;margin:0 auto;padding:0 16px 120px}
 .tag{position:relative;background:var(--card);border-radius:6px 6px 4px 4px;padding:56px 22px 28px;box-shadow:0 1px 0 #fff8 inset,0 18px 40px -18px #000;
@@ -92,7 +92,7 @@ footer a{margin-right:14px}
 <a class="skip" href="#main">Skip to the check</a>
 <header class="top">
   <a class="logo" href="/" translate="no">GroundWork-Web</a>
-  <nav aria-label="Primary"><a href="/pricing/">Pricing</a><a href="/start/">Start</a></nav>
+  <nav aria-label="Primary"><a href="/pricing/">Pricing</a><a href="/start/">Start for $99</a></nav>
 </header>
 
 <main id="main">
@@ -148,7 +148,7 @@ footer a{margin-right:14px}
     <li>Personizely 2026 and FoundryCRO 2026, via Garrett Handley, contractor website conversion rates.</li>
     <li>FoundryCRO, form length and quote form studies.</li>
     <li>BrightLocal Local Consumer Review Survey 2026; Spiegel Research Center, reviews and purchase likelihood.</li>
-    <li>CallRail 2026, response time and conversion.</li>
+    <li>Velocify response-time study, as cited by CallRail 2026.</li>
   </ul>
 </section>
 </main>
@@ -173,7 +173,7 @@ footer a{margin-right:14px}
       src: "About 40% of conversions from email traffic to home service sites are phone calls (Ruler Analytics)." },
     { id: "reply", q: "When someone sends your form, does your phone buzz within a minute?", how: "Think about the last one. Did you get a text, or find it in an inbox later?",
       fix: "Send every form straight to your phone as a text.", ex: function () { return "Then you can reply while they're still on your site."; },
-      src: "Replying within 60 seconds lifts conversion 391% (CallRail 2026)." },
+      src: "Replying within 60 seconds lifts conversion 391% (Velocify study, cited by CallRail 2026)." },
     { id: "named", q: "Is your form named for the job, not “Contact us”?", how: "Look at the button or the heading above your form.",
       fix: "Rename the form for what they want.", ex: function (t) { return "For example " + t.form + " instead of “Contact us”."; },
       src: "Quote request forms convert 8 to 12%; generic contact forms 1 to 3% (FoundryCRO)." },
