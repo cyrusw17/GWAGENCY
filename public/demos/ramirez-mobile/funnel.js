@@ -38,6 +38,8 @@
       document.querySelectorAll("#lead input[name=service]").forEach(function (i) {
         if (i.value === a.getAttribute("data-pick")) i.checked = true;
       });
+      var sel = document.querySelector("#lead select[name=service]"); // layout forms use a select
+      if (sel) sel.value = a.getAttribute("data-pick");
     });
   });
 
@@ -71,16 +73,18 @@
   var form = document.getElementById("lead");
   if (!form) return;
   var status = form.querySelector("[role=status]");
-  var stepNo = form.querySelector("[data-step]");
+  // Layout forms (data-steps) run their own steps below; this two-step flow is the default template's.
+  var layered = form.hasAttribute("data-steps");
+  var stepNo = !layered && form.querySelector("[data-step]");
 
   // Two steps: an easy first question, contact details last. Without JS both steps simply show.
-  form.classList.add("js-steps");
+  if (!layered) form.classList.add("js-steps");
   function choice() {
     var picked = [].filter.call(form.querySelectorAll("input[name=service]"), function (i) { return i.checked; });
     return picked.map(function (i) { return i.value; }).join(", ");
   }
-  var next = form.querySelector("[data-next]");
-  next.addEventListener("click", function () {
+  var next = !layered && form.querySelector("[data-next]");
+  if (next) next.addEventListener("click", function () {
     if (!choice()) { status.textContent = "Pick at least one option."; return; }
     status.textContent = "";
     form.classList.add("step2");
@@ -98,13 +102,58 @@
   }
   function done(msg) { form.classList.add("sent"); status.textContent = msg; status.focus(); }
 
+  // Multi-step form (layouts): one easy question first, contact details last.
+  // Only runs when the form has data-steps; the default template's one-page form is untouched.
+  var steps = layered ? form.querySelectorAll("[data-step]") : [];
+  var at = 0, progress = form.querySelector("[data-progress]");
+  function show(i) {
+    at = Math.max(0, Math.min(i, steps.length - 1));
+    steps.forEach(function (st, n) { st.classList.toggle("on", n === at); });
+    if (progress) progress.textContent = "Step " + (at + 1) + " of " + steps.length;
+    // Move focus into the step shown, so Back and Next never leave it on a hidden control.
+    var first = steps[at].querySelector("input:checked") || steps[at].querySelector("input:not([type=hidden]),select,textarea,button");
+    if (first) first.focus();
+  }
+  function stepOk() {
+    var kind = steps[at].querySelector("[name=kind]");
+    if (kind && !steps[at].querySelector("[name=kind]:checked")) {
+      kind.setCustomValidity("Pick one to continue."); kind.reportValidity(); kind.setCustomValidity(""); return false;
+    }
+    var fields = steps[at].querySelectorAll("input,select,textarea");
+    for (var n = 0; n < fields.length; n++) if (!fields[n].reportValidity()) return false;
+    return true;
+  }
+  if (steps.length) {
+    form.addEventListener("click", function (e) {
+      // A tap or mouse click on a first-step choice moves on. Keyboard selection (detail 0) waits for Next,
+      // so arrow keys can move between choices.
+      if (at === 0 && e.detail > 0 && e.target.closest(".choice")) { setTimeout(function () { show(1); }, 120); return; }
+      if (e.target.closest("[data-next]") && stepOk()) show(at + 1);
+      if (e.target.closest("[data-back]")) show(at - 1);
+    });
+    // A package button jumps past the first question, since the visitor already picked.
+    document.querySelectorAll("[data-pick]").forEach(function (a) { a.addEventListener("click", function () { if (at === 0) show(1); }); });
+  }
+  var phone = form.querySelector("[name=phone]"), email = form.querySelector("[name=email]");
+  function contactOk() {
+    if (!email || !phone) return true;
+    var none = !phone.value.trim() && !email.value.trim();
+    phone.setCustomValidity(none ? "Add a mobile number or an email so we can reply." : "");
+    return !none;
+  }
+  if (email) [phone, email].forEach(function (el) { el && el.addEventListener("input", contactOk); });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (!form.classList.contains("step2")) { next.click(); return; } // Enter on step 1 means "Next"
+    if (steps.length) {
+      if (at < steps.length - 1) { if (stepOk()) show(at + 1); return; } // Enter on an early step
+      contactOk();
+    } else if (!form.classList.contains("step2")) { next.click(); return; } // Enter on step 1 means "Next"
     if (!form.reportValidity()) return;
     var fd = new FormData(form), data = {};
-    fd.forEach(function (v, k) { if (k !== "service") data[k] = String(v).trim(); });
-    data.service = choice();
+    fd.forEach(function (v, k) { if (steps.length || k !== "service") data[k] = String(v).trim(); });
+    if (!steps.length) data.service = choice();
+    else if (data.kind) { data.service = data.kind + ": " + (data.service || ""); delete data.kind; }
     if (data.company_url) { done(C.thanks); return; } // honeypot
     delete data.company_url;
     data.site = C.slug; data.page = location.pathname;

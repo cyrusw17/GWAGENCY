@@ -81,27 +81,29 @@ async function build(dir) {
   const out = resolve(root, outArg || join("dist", s.slug));
   mkdirSync(out, { recursive: true });
   // CSS is inlined: one page per site, so a separate file only adds a render-blocking round trip.
+  // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
+  let mapSvg = "";
+  if (s.areas?.mapSvg) {
+    mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
+    if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
+  }
   // A designed layout (template/layouts/<name>/) owns the whole page: markup, CSS, fonts, and
   // template/kit.js for behavior (tracking, slider, step form) in place of funnel.js.
   let layout;
   try { layout = await layoutFor(s.renderer); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
   if (layout) {
     const lay = join(root, "template", "layouts", s.renderer);
-    writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
+    writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8"), mapSvg }));
     if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
     // A layout built on layouts/_kit.mjs exports behavior = "funnel.js" (its 3-step form lives there).
     writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", layout.behavior || "kit.js"), "utf8"));
+    // Extra scripts the layout ships (a 3D hero, small interactions), copied next to funnel.js.
+    for (const f of layout.scripts || []) cpSync(join(lay, f), join(out, f));
   } else {
     // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
     const designFile = join(srcDir, "design.css");
     const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
     if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
-    // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
-    let mapSvg = "";
-    if (s.areas?.mapSvg) {
-      mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
-      if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
-    }
     writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design, mapSvg }));
     cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
   }
