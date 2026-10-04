@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commercial Cleaning and Janitorial Website Design | GroundWork-Web</title>
+<meta name="description" content="Websites for commercial cleaning and janitorial companies: a walkthrough request form that facility managers use, your insurance and background checks up front, and the industries you clean. $99 to start, $300 when you approve.">
+<link rel="canonical" href="https://groundwork-web.com/commercial-cleaning/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:title" content="Commercial cleaning websites that win the walkthrough">
+<meta property="og:image" content="https://groundwork-web.com/assets/og.png">
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Website design for commercial cleaning and janitorial companies","provider":{"@id":"https://groundwork-web.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"offers":{"@type":"Offer","price":"399","priceCurrency":"USD","description":"$99 to start, $300 when you approve the preview"}}</script>
+<style>
+@font-face{font-family:"Schibsted";src:url(/assets/fonts/schibsted-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Schibsted";src:url(/assets/fonts/schibsted-grotesk-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Fragment Mono";src:url(/assets/fonts/fragment-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{--night:#0f1d30;--night-2:#172a43;--line:#2c4566;--paper:#f4f6f8;--ink:#14202e;--ink-2:#4d5b6b;--pale:#b9c7d8;--bucket:#f2c230;--bucket-d:#d9a90f;--rule:#d6dde5;
+  --sans:"Schibsted",system-ui,sans-serif;--mono:"Fragment Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans)}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px;z-index:9}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.btn{display:inline-flex;flex-direction:column;justify-content:center;font:800 1rem var(--sans);background:var(--bucket);color:var(--night);text-decoration:none;border-radius:6px;padding:12px 20px;min-height:48px;border:0;cursor:pointer}
+.btn small{font-weight:400;font-size:.78rem}
+.btn:hover{background:var(--bucket-d)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.sm{min-height:40px;padding:8px 14px;font-size:.9rem}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--bucket);outline-offset:3px}
+.mono{font-family:var(--mono)}
+
+/* Night hero with a blueprint floor plan */
+.night{background:var(--night);color:var(--pale)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;max-width:1080px;margin:0 auto}
+.logo{font-weight:800;text-decoration:none;color:#fff;font-size:1.1rem}
+.top nav{display:flex;gap:16px;align-items:center;font-size:.92rem}
+.top nav a:not(.btn){display:none}
+@media (min-width:720px){.top nav a:not(.btn){display:inline}}
+.hero{padding:22px 0 50px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
+.hero-grid{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:1fr 1fr}}
+.clock{font-family:var(--mono);font-size:.82rem;color:var(--bucket);margin:0 0 12px;background:var(--night);display:inline-block;padding:4px 8px}
+h1{color:#fff;font-weight:800;font-size:clamp(2.3rem,7.6vw,4.1rem);line-height:1.02;letter-spacing:-.03em;margin:0 0 16px;max-width:15ch}
+.lede{font-size:1.06rem;max-width:32em;margin:0 0 22px;background:var(--night);color:#d6e0ec}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.plan{background:var(--night-2);border:1px solid var(--line);border-radius:8px;padding:12px}
+.plan svg{display:block;width:100%;height:auto}
+.plan figcaption{font-family:var(--mono);font-size:.74rem;color:var(--pale);margin-top:8px}
+
+section{padding:58px 0}
+h2{font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 12px;max-width:20ch}
+.p{max-width:38em;color:var(--ink-2);margin:0 0 20px}
+
+/* Route legend */
+.route{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0}
+@media (min-width:820px){.route{grid-template-columns:1fr 1fr;column-gap:40px}}
+.route li{padding:16px 0;border-top:1px solid var(--rule)}
+.route li::before{content:attr(data-room);display:inline-block;margin-bottom:6px;font:400 .74rem var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--night);color:var(--bucket);padding:3px 7px}
+.route b{display:block}
+.route span{color:var(--ink-2)}
+
+/* Form preview */
+.form-demo{display:grid;gap:26px;align-items:start}
+@media (min-width:860px){.form-demo{grid-template-columns:1fr 380px}}
+.card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:18px;box-shadow:0 14px 30px -22px #0f1d30}
+.card h3{margin:0 0 4px;font-size:1.1rem}
+.card .step{font-family:var(--mono);font-size:.74rem;color:var(--ink-2);margin:0 0 12px}
+.fld{border:1px solid var(--rule);border-radius:6px;padding:9px 11px;margin:0 0 8px;font-size:.88rem;color:var(--ink-2);display:flex;justify-content:space-between}
+.fld b{color:var(--ink);font-weight:800}
+.fake{display:block;text-align:center;background:var(--bucket);color:var(--night);font-weight:800;border-radius:6px;padding:10px;margin-top:10px}
+.cap{font-size:.8rem;color:var(--ink-2);margin:8px 0 0}
+
+/* Calculator */
+.calc{display:grid;gap:26px;align-items:start}
+@media (min-width:860px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-weight:800;margin-bottom:6px}
+.money{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.8rem}
+.money input{font:800 1.8rem var(--sans);width:5.2em;padding:6px 10px;border:2px solid var(--ink);border-radius:6px;background:#fff}
+.money span{font-size:1rem;font-weight:400;color:var(--ink-2)}
+.hint{font-size:.84rem;color:var(--ink-2);margin:6px 0 0}
+.readout{background:var(--night);color:var(--pale);border-radius:10px;padding:22px}
+.readout p{margin:0 0 12px}
+.big{display:block;font-weight:800;font-size:clamp(2.6rem,10vw,4rem);line-height:1;color:var(--bucket);letter-spacing:-.03em}
+.readout b{color:#fff}
+.readout .fine{font-size:.8rem;margin:0}
+
+/* Rates */
+.rates{display:grid;gap:14px;margin-top:20px}
+@media (min-width:760px){.rates{grid-template-columns:repeat(4,1fr)}}
+.rate{border-top:3px solid var(--night);padding:12px 0 0}
+.rate .lbl{font-family:var(--mono);font-size:.76rem;color:var(--ink-2)}
+.rate .amt{font-weight:800;font-size:2.1rem;letter-spacing:-.03em;line-height:1.1;margin:4px 0}
+.rate p{margin:0;font-size:.92rem;color:var(--ink-2)}
+.rate.rec{border-top-color:var(--bucket-d)}
+.after{font-size:.88rem;color:var(--ink-2);margin:18px 0 0;max-width:48em}
+.plan-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+details{border-top:1px solid var(--rule);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{font-weight:800;cursor:pointer}
+details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
+.letter{max-width:40em}
+.letter .sig{font-weight:800}
+.soft{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border:2px dashed var(--pale);border-radius:8px;padding:16px;margin-top:26px}
+.soft p{margin:0;flex:1 1 260px}
+footer{padding:30px 0 100px;font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--rule)}
+footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
+.dock{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--night);z-index:5}
+.dock .btn{align-items:center}
+.dock .btn.ghost{color:#fff}
+@media (min-width:760px){.dock{display:none}footer{padding-bottom:30px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="night">
+<header class="top">
+  <a class="logo" href="/" translate="no">GroundWork-Web</a>
+  <nav aria-label="Primary"><a href="/demos/keyholder/">Demo</a><a href="#walkthrough">How it works</a><a href="#money">Pricing</a><a class="btn sm" href="/start/?niche=commercial-cleaning">Start for $99</a></nav>
+</header>
+</div>
+<main id="main">
+<section class="night hero" style="padding-top:18px">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="clock">After hours &middot; your crew's shift starts at 6:00 p.m.</p>
+      <h1>Commercial cleaning websites that win the walkthrough.</h1>
+      <p class="lede">A facility manager isn't shopping for a price list. They want to know you're insured, bonded and background-checked, that you clean buildings like theirs, and how to get you in for a walkthrough. Your site should answer all three before they call.</p>
+      <div class="ctas">
+        <a class="btn" href="/start/?niche=commercial-cleaning">Start for $99<small>Refunded if you don't want the site</small></a>
+        <a class="btn ghost" href="/demos/keyholder/">Open the demo site</a>
+      </div>
+    </div>
+    <figure class="plan" style="margin:0">
+      <svg viewBox="0 0 400 270" role="img" aria-labelledby="fp-t">
+        <title id="fp-t">A floor plan of a small office with the walkthrough route drawn through it: lobby, offices, restrooms and break room.</title>
+        <g fill="none" stroke="#b9c7d8" stroke-width="3">
+          <rect x="10" y="10" width="380" height="250"/>
+          <path d="M150 10v95M150 135v125M150 120h90M270 120h120M270 10v80M270 115v5M240 120v140M330 120v60M330 200v60"/>
+        </g>
+        <g fill="none" stroke="#b9c7d8" stroke-width="1.5" opacity=".55"><path d="M30 40h40v24h-40zM90 40h40v24h-40zM30 190h40v24h-40zM90 190h40v24h-40zM170 30h80v50h-80z"/></g>
+        <path d="M80 248 C 80 150, 120 130, 190 110 S 300 70, 330 60 S 360 150, 300 160 S 220 200, 190 220" fill="none" stroke="#f2c230" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
+        <g font-family="Fragment Mono, monospace" font-size="12" fill="#ffffff">
+          <text x="60" y="140">OFFICES</text><text x="168" y="200">LOBBY</text><text x="282" y="40">CONF.</text><text x="276" y="172">RESTROOMS</text><text x="342" y="235">BREAK</text>
+        </g>
+        <g fill="#f2c230"><circle cx="80" cy="248" r="6"/><circle cx="190" cy="220" r="6"/></g>
+      </svg>
+      <figcaption>Walkthrough route, sample floor plan. The site walks a facility manager through the same rooms you would. See it built for <a href="/demos/keyholder/">Keyholder Commercial Cleaning</a>, a fictional company.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="walkthrough" aria-labelledby="wt-h">
+  <div class="wrap">
+    <h2 id="wt-h">The site follows your walkthrough, room by room.</h2>
+    <p class="p">You win contracts on the walkthrough. The website's job is to get you there: show the buyer you're a safe pair of hands, then make booking the walkthrough the easy next step.</p>
+    <ol class="route">
+      <li data-room="Front door"><b>Credentials first</b><span>Insured and bonded, background-checked staff, and certificates of insurance on request, near the top. We only list what you can show us.</span></li>
+      <li data-room="Lobby"><b>Buildings you clean</b><span>Medical offices, schools, churches, warehouses, retail: a short section for each type you take, with the scope you cover.</span></li>
+      <li data-room="Offices"><b>Scope by area</b><span>Lobbies, offices, restrooms, break rooms and floors, written as a scope sheet, so a manager can match it to their bid spec.</span></li>
+      <li data-room="Conference room"><b>Request a walkthrough</b><span>The main button on every screen. A short form for facility type, square feet and cleanings per week, then a phone number or email.</span></li>
+      <li data-room="Loading dock"><b>Hours and area</b><span>After-hours and weekend service, and the cities you cover, so you stop getting requests you can't staff.</span></li>
+      <li data-room="Street sign"><b>Local search setup</b><span>Your services, area and hours marked up so Google can read them, and linked to your Google Business Profile.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="form-h" style="padding-top:10px">
+  <div class="wrap form-demo">
+    <div>
+      <h2 id="form-h">A walkthrough request, not a price list.</h2>
+      <p class="p">You bid per building, so there's no menu to show. What the buyer gets instead is a two-step request that takes under a minute and asks the questions you'd ask on the phone. You get the details you need to price the walkthrough before you drive out.</p>
+      <p class="p">Bigger buyers send an RFP instead. The site gives them a clear email to send it to and a short capabilities section to check you against.</p>
+    </div>
+    <div>
+      <div class="card" aria-hidden="true">
+        <h3>Request a walkthrough</h3>
+        <p class="step">Step 1 of 2</p>
+        <div class="fld"><span>Facility type</span><b>Medical office</b></div>
+        <div class="fld"><span>Square feet</span><b>8,000</b></div>
+        <div class="fld"><span>Cleanings per week</span><b>3</b></div>
+        <span class="fake">Next: your contact details</span>
+      </div>
+      <p class="cap">Mock-up of the form on a client site. Step 2 asks for a name and a phone number or email.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="calc-h" style="padding-top:10px">
+  <div class="wrap calc">
+    <div>
+      <h2 id="calc-h">How many contracts pay for it?</h2>
+      <p class="p">Put in what one small account bills a month. The math is that contract divided by the plan.</p>
+      <label for="contract">One account, per month</label>
+      <div class="money">$<input id="contract" type="number" inputmode="numeric" min="100" max="50000" value="1200"><span>/mo</span></div>
+      <p class="hint">$1,200 a month is used here for illustration, roughly a small office cleaned a few nights a week.</p>
+    </div>
+    <div class="readout" aria-live="polite">
+      <p>One account at that rate covers Grow ($199 a month)<span class="big" id="grow-n">6.0&times;</span>over.</p>
+      <p>It covers Host ($99 a month) <b id="host-n">12.1&times;</b>, and pays for the whole $399 build in <b id="build-n">about 10 days</b> of billing.</p>
+      <p class="fine">For illustration. This counts the cost only. It doesn't promise any contracts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="money" aria-labelledby="money-h" style="padding-top:10px">
+  <div class="wrap">
+    <h2 id="money-h">What it costs</h2>
+    <div class="rates">
+      <div class="rate"><div class="lbl">Today</div><div class="amt">$99</div><p>Secure checkout and a short brief: buildings you clean, scope, area, credentials and a few photos.</p></div>
+      <div class="rate"><div class="lbl">About a week later</div><div class="amt">Preview</div><p>A private link to the finished site and one round of changes. Don't want it? The $99 comes back.</p></div>
+      <div class="rate"><div class="lbl">When you approve</div><div class="amt">$300</div><p>$399 total for the build. We register the domain in your name and go live.</p></div>
+      <div class="rate rec"><div class="lbl">Monthly, once live</div><div class="amt">$199</div><p>Grow, which we recommend: updates 2 to 3 times a month and a monthly Google Business Profile check-in. Or Host at $99 to keep it online.</p></div>
+    </div>
+    <div class="plan-ctas"><a class="btn" href="/start/?plan=grow&amp;niche=commercial-cleaning">Start on Grow</a><a class="btn ghost" href="/start/?plan=host&amp;niche=commercial-cleaning">Start on Host</a></div>
+    <p class="after">Or pay a year up front: 12 months for the price of 10. The $399 build and these monthly rates are our founding prices for the first 25 clients, kept for as long as you stay. After that the build is $499. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h" style="padding-top:10px">
+  <div class="wrap">
+    <h2 id="faq-h">Questions cleaning companies ask</h2>
+    <details><summary>Should my prices be on the site?</summary><p>For commercial work, usually not. You bid per building, so the site sells the walkthrough instead. If you have a flat rate for small offices, we can show a starting price for that.</p></details>
+    <details><summary>Can the site list my certifications?</summary><p>Yes, any you hold and can show us, plus your insurance and bonding. We don't list anything you can't back up.</p></details>
+    <details><summary>I'm a franchisee. Can I have my own site?</summary><p>Check your franchise agreement first. Many franchisors control the website and the name, and we won't build something that breaks your agreement.</p></details>
+    <details><summary>Why not build it myself on a site builder?</summary><p>You can. You'd pay a builder every month and do it after hours. What you'd still have to work out is the walkthrough form, the scope sheets, the industry sections and the local search setup. That's the part we do.</p></details>
+    <details><summary>Who owns the domain and the site?</summary><p>You own the domain. We register it in your name when you approve the site. If you leave, we hand over the site files after your final invoice.</p></details>
+    <details><summary>How long does it take?</summary><p>About 7 days from the day we get your scope, area, credentials and photos.</p></details>
+  </div>
+</section>
+
+<section aria-labelledby="note-h" style="padding-top:10px">
+  <div class="wrap">
+    <h2 id="note-h">A note from me</h2>
+    <div class="letter">
+      <p>I build these one at a time from Deer Park, Texas. Your crew works when everyone else has gone home, and most buyers never see the work, only the website and the walkthrough. I'd like the website to do half of that job for you.</p>
+      <p class="sig">Cyrus Wilburn, GroundWork-Web</p>
+    </div>
+    <div class="soft">
+      <p><b>Not ready to start?</b> Email me your website and I'll send back what a facility manager sees first, and what I'd change. Free, no call needed.</p>
+      <a class="btn ghost" href="mailto:groundworkweb@proton.me?subject=Commercial%20cleaning%20site%20review&amp;body=My%20website%3A%20">Email me my site</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/exterior-cleaning/">Pressure washing sites</a><a href="/landscaping/">Lawn care sites</a><a href="/auto-detailing/">Detailing sites</a><a href="/privacy/">Privacy</a></nav>
+    <p>&copy; 2026 GroundWork-Web, Deer Park, TX. <a href="mailto:groundworkweb@proton.me">groundworkweb@proton.me</a></p>
+  </div>
+</footer>
+<aside class="dock" aria-label="Get started"><a class="btn" href="/start/?niche=commercial-cleaning">Start for $99</a><a class="btn ghost" href="/demos/keyholder/">See the demo</a></aside>
+
+<script>
+(function () {
+  var c = document.getElementById("contract");
+  function calc() {
+    var v = Math.max(1, parseFloat(c.value) || 0), r = function (n) { return (Math.round(n * 10) / 10).toFixed(1) + "×"; };
+    document.getElementById("grow-n").textContent = r(v / 199);
+    document.getElementById("host-n").textContent = r(v / 99);
+    var days = Math.round(399 / (v / 30));
+    document.getElementById("build-n").textContent = days <= 31 ? "about " + days + (days === 1 ? " day" : " days") : "about " + Math.round(days / 30) + " months";
+  }
+  c.addEventListener("input", calc); calc();
+})();
+</script>
+<script src="/assets/js/config.js?v=3.1"></script>
+<script src="/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>
