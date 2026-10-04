@@ -1,5 +1,5 @@
 {
-  "renderer": "almanac",
+  "renderer": "porch",
   "slug": "demo-haint-blue",
   "demo": true,
   "niche": "exterior cleaning",
@@ -51,13 +51,17 @@
   },
   "seo": {
     "title": "Haint Blue Soft Wash | Soft Washing in Mount Pleasant, SC",
-    "description": "Soft washing for houses, roofs, porches and docks in Mount Pleasant, Daniel Island and Charleston. Pollen, mildew and salt film off without pressure damage."
+    "description": "Soft washing for houses, roofs, porches and docks in Mount Pleasant, Daniel Island and Charleston. Pollen, mildew and salt film off without pressure damage.",
+    "ogImage": "img/siding-after.webp"
   },
   "hero": {
     "eyebrow": "Mount Pleasant · Daniel Island · the islands",
     "headline": "Soft washing for Lowcountry houses in Mount Pleasant and Charleston",
     "sub": "Pollen, mildew and salt film come off with a gentle cleaner, not a pressure blast. Safe on Hardie, stucco, old heart pine and the haint blue porch ceiling.",
-    "image": "img/siding-before.webp"
+    "houseAlt": "A drawing of a raised Lowcountry house on pilings with a haint blue porch ceiling. Drag the house to turn it, and slide the wash bar to clean the siding and roof.",
+    "washLabel": "Slide to wash the house",
+    "houseHint": "Drag the house to turn it",
+    "houseNote": "The green is mildew. It grows on the side that never gets sun."
   },
   "work": {
     "compare": {
@@ -372,5 +376,68 @@
   "tracking": "groundwork",
   "booking": {
     "cta": "Get my quote"
+  },
+  "live": {
+    "tz": "America/New_York",
+    "lat": 32.794,
+    "lon": -79.862,
+    "place": "Mount Pleasant"
+  },
+  "pressure": {
+    "headline": "Why we wash soft",
+    "sub": "Most damage we fix came from a pressure washer. Slide the dial to see what pressure does to lap siding.",
+    "stops": [
+      {
+        "psi": 0,
+        "say": "Garden-hose pressure. The cleaner kills mildew and algae at the root, then a gentle rinse carries it off. This is how we wash.",
+        "tone": "ok"
+      },
+      {
+        "psi": 900,
+        "say": "Fine on a driveway. On siding it only knocks off the top layer, and the green is back by summer.",
+        "tone": "warn"
+      },
+      {
+        "psi": 1800,
+        "say": "Paint starts to lift at the seams and old pine trim goes fuzzy.",
+        "tone": "bad"
+      },
+      {
+        "psi": 2700,
+        "say": "Water gets driven up behind the lap siding and into the wall. That's how you end up with rot you can't see.",
+        "tone": "bad"
+      }
+    ]
+  },
+  "process": {
+    "headline": "A wash day, by the clock",
+    "sub": "A one-story house, start to finish. Bigger houses run longer, same order.",
+    "steps": [
+      {
+        "at": "8:00",
+        "t": "We soak every bed",
+        "d": "Every bed and shrub gets a good soak before any cleaner goes on."
+      },
+      {
+        "at": "8:15",
+        "t": "Cleaner on, at garden-hose pressure",
+        "d": "A mild cleaner, sprayed from the ground. No ladders against your siding."
+      },
+      {
+        "at": "8:25",
+        "t": "It sits",
+        "d": "The cleaner does the work. Mildew and algae die at the root, so they don't come right back."
+      },
+      {
+        "at": "8:35",
+        "t": "Rinse, top to bottom",
+        "d": "A gentle rinse for the house, and another for the plants."
+      },
+      {
+        "at": "9:00",
+        "t": "Walk-around with you",
+        "d": "We walk the house together before we pack up. If a spot's missed, we fix it then."
+      }
+    ]
   }
 }
