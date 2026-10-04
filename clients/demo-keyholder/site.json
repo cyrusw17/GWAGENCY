@@ -1,0 +1,359 @@
+{
+  "slug": "demo-keyholder",
+  "demo": true,
+  "renderer": "night-log",
+  "niche": "commercial cleaning",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=night-log"
+  },
+  "business": {
+    "name": "Keyholder Commercial Cleaning",
+    "tagline": "After-hours office cleaning · Greensboro & the Triad",
+    "schemaType": "ProfessionalService",
+    "phone": "(336) 555-0142",
+    "sms": "(336) 555-0142",
+    "email": "office@example.com",
+    "priceRange": "$$",
+    "hoursText": "Office Mon-Fri 9am-5pm. Crews out 6pm-2am.",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "address": {
+      "city": "Greensboro",
+      "region": "NC",
+      "postal": "27401"
+    },
+    "license": "Bonded and insured · Every cleaner background-checked before their first key"
+  },
+  "theme": {
+    "themeColor": "#16191D",
+    "fontFaces": [
+      {
+        "family": "Archivo",
+        "weight": 500,
+        "src": "fonts/archivo-latin-wght-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Archivo",
+        "weight": 800,
+        "src": "fonts/archivo-latin-wght-normal.woff2"
+      },
+      {
+        "family": "JetBrains Mono",
+        "weight": 400,
+        "src": "fonts/jetbrains-mono-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "JetBrains Mono",
+        "weight": 700,
+        "src": "fonts/jetbrains-mono-latin-700-normal.woff2"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Keyholder Commercial Cleaning | Office Cleaning in Greensboro, NC",
+    "description": "After-hours office, medical and retail cleaning in Greensboro and the Triad. Background-checked crews, a nightly log and a free walkthrough."
+  },
+  "hero": {
+    "headline": "After-hours office cleaning in Greensboro, NC.",
+    "sub": "Your staff leaves at five. We come in at six, clean to a checklist, lock up and set the alarm. In the morning there's a log of every room we did."
+  },
+  "log": {
+    "title": "Last night at a 6,000 sq ft office (sample)",
+    "tz": "America/New_York",
+    "rooms": [
+      {
+        "key": "lobby",
+        "name": "Lobby",
+        "t": "6:12 pm",
+        "did": "Glass doors, mats shaken, floor vacuumed"
+      },
+      {
+        "key": "open",
+        "name": "Open office",
+        "t": "6:40 pm",
+        "did": "Trash and recycling out, desks wiped, carpet vacuumed"
+      },
+      {
+        "key": "conf",
+        "name": "Conference room",
+        "t": "7:35 pm",
+        "did": "Table and chairs wiped, whiteboard cleaned"
+      },
+      {
+        "key": "kitchen",
+        "name": "Break room",
+        "t": "8:05 pm",
+        "did": "Counters, sink, microwave inside, floor mopped"
+      },
+      {
+        "key": "rest",
+        "name": "Restrooms",
+        "t": "8:40 pm",
+        "did": "Sanitized, restocked, floors mopped"
+      },
+      {
+        "key": "offices",
+        "name": "Private offices",
+        "t": "9:25 pm",
+        "did": "Trash, dusting, vacuum, doors locked"
+      }
+    ],
+    "close": "10:02 pm. Lights off, doors checked, alarm set."
+  },
+  "trust": [
+    "Bonded and insured",
+    "Background-checked staff",
+    "Same crew on your building",
+    "A log of every night"
+  ],
+  "pricing": {
+    "headline": "What we clean",
+    "sub": "Every building is bid after a walkthrough, because square feet, restrooms, floors and traffic change the work. The bid comes in writing within two business days.",
+    "fine": "Month to month. 30 days notice to stop."
+  },
+  "packages": [
+    {
+      "name": "Nightly office cleaning",
+      "note": "Office, medical, school and retail. One to six nights a week.",
+      "features": [
+        "Trash, recycling and liners",
+        "Desks, counters and touch points wiped",
+        "Restrooms sanitized and restocked",
+        "Vacuum and mop every visit"
+      ]
+    },
+    {
+      "name": "Floor strip and wax",
+      "note": "VCT and vinyl, done on a weekend night so the floor is dry by Monday.",
+      "features": [
+        "Old finish stripped",
+        "Four coats of finish",
+        "Furniture moved and put back"
+      ]
+    },
+    {
+      "name": "Carpet extraction",
+      "note": "Hot-water extraction, dry by morning.",
+      "features": [
+        "Spots pre-treated",
+        "Traffic lanes done twice",
+        "Fans left running overnight"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "Post-construction cleanup",
+      "desc": "Dust, stickers and paint off every surface before move-in.",
+      "priceText": ""
+    },
+    {
+      "name": "Day porter",
+      "desc": "A cleaner on site during business hours for restrooms, spills and the lobby.",
+      "priceText": ""
+    }
+  ],
+  "work": {
+    "headline": "Break room, one night apart",
+    "compare": {
+      "before": "img/before.svg",
+      "after": "img/after.svg",
+      "caption": "Illustration. Your site shows your own before and after photos."
+    }
+  },
+  "guarantee": {
+    "title": "Something missed? We're back the next night.",
+    "body": "Text or email the office before noon. The crew fixes it that night, and the fix goes in the log."
+  },
+  "owner": {
+    "name": "Tanya Reeves",
+    "role": "Owner. Still does every walkthrough.",
+    "story": "I started in 2012 cleaning two dental offices at night while my kids slept. Now there are fourteen of us. Every building has its own crew, and I meet every new client at their door before we take a key.",
+    "photo": "",
+    "sign": "Tanya",
+    "shot": "Shot list: Tanya at a client's front desk at dusk, key ring in hand, lobby lights on."
+  },
+  "reviews": {
+    "headline": "From the office managers",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 38,
+    "items": [
+      {
+        "name": "Sample customer",
+        "where": "Office manager, downtown Greensboro",
+        "date": "2026-09-18",
+        "stars": 5,
+        "text": "The log is the thing. I used to walk the floor every morning to see what got done. Now I just read the email."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Dental practice, High Point",
+        "date": "2026-08-27",
+        "stars": 5,
+        "text": "Same two people every night for a year. They know which ops get the extra wipe-down."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Property manager, Winston-Salem",
+        "date": "2026-08-02",
+        "stars": 4,
+        "text": "Floors came out great. Took two nights instead of one because of the old wax, but they told us before they started."
+      }
+    ]
+  },
+  "areas": {
+    "headline": "Where the crews go",
+    "body": "Buildings in Greensboro, High Point and Winston-Salem, plus the towns between. Further out? Ask.",
+    "cities": [
+      "Greensboro",
+      "High Point",
+      "Winston-Salem",
+      "Jamestown",
+      "Oak Ridge",
+      "Kernersville"
+    ]
+  },
+  "booking": {
+    "headline": "Request a walkthrough",
+    "body": "Three quick questions about the building. Tanya calls or emails to set a time, walks it with you, and sends a written bid within two business days.",
+    "cta": "Request a walkthrough"
+  },
+  "lead": {
+    "endpoint": "",
+    "facility": {
+      "question": "What kind of facility?",
+      "options": [
+        "Office",
+        "Medical or dental",
+        "School or daycare",
+        "Warehouse or industrial",
+        "Retail or showroom",
+        "Something else"
+      ]
+    },
+    "step2": "About the building",
+    "sizes": [
+      "Under 2,000 sq ft",
+      "2,000 to 5,000 sq ft",
+      "5,000 to 10,000 sq ft",
+      "10,000 to 25,000 sq ft",
+      "Over 25,000 sq ft",
+      "Not sure"
+    ],
+    "nights": [
+      "1",
+      "2",
+      "3",
+      "5",
+      "Other"
+    ],
+    "notesHint": "Restrooms, floor types, alarm or key setup, start date...",
+    "step3": "Where should we send the bid?",
+    "submit": "Request a walkthrough",
+    "contactHint": "Phone or email, whichever you check first. You only need one.",
+    "privacy": "We only use this to set up your walkthrough.",
+    "thanks": "Got it. Tanya will call or email within one business day to set up the walkthrough."
+  },
+  "faq": [
+    {
+      "q": "How is a cleaning contract priced?",
+      "a": "After a free walkthrough. Square feet, nights a week, restrooms and floor types set the crew hours, and the bid comes in writing within two business days. Month to month, 30 days notice."
+    },
+    {
+      "q": "How do you handle keys and alarm codes?",
+      "a": "Keys are logged and kept on a numbered ring, never labelled with your address. Each crew gets its own alarm code so you can see who came and went."
+    },
+    {
+      "q": "Are your cleaners background-checked?",
+      "a": "Yes, every cleaner, before their first key. We're also bonded and insured, and we send a certificate of insurance before we start."
+    },
+    {
+      "q": "Is there a long contract?",
+      "a": "No. Month to month with 30 days notice to stop."
+    },
+    {
+      "q": "Do you bring the supplies?",
+      "a": "Yes. We bring chemicals, equipment and liners. Restroom paper and soap can be ours or yours; we restock either way."
+    }
+  ],
+  "final": {
+    "headline": "Walk your building with us.",
+    "sub": "Free walkthrough, a written bid in two business days, no long contract."
+  },
+  "sticky": {
+    "book": "Walkthrough"
+  },
+  "planner": {
+    "title": "Plan your building's night",
+    "sub": "Pick your building and see roughly what a night looks like. The walkthrough turns it into a written bid.",
+    "types": [
+      {
+        "name": "Office",
+        "rate": 2500
+      },
+      {
+        "name": "Medical or dental",
+        "rate": 1800
+      },
+      {
+        "name": "School or daycare",
+        "rate": 2200
+      },
+      {
+        "name": "Warehouse or industrial",
+        "rate": 4000
+      },
+      {
+        "name": "Retail or showroom",
+        "rate": 2500
+      }
+    ],
+    "note": "For illustration. Real crew size and hours come from the walkthrough."
+  },
+  "credentials": {
+    "headline": "Before you hand over a key",
+    "items": [
+      [
+        "Insured and bonded",
+        "General liability and a janitorial bond. A certificate of insurance goes to you before the first night, on request any time."
+      ],
+      [
+        "Background-checked staff",
+        "Every cleaner, before their first key. Uniforms and photo badges on site."
+      ],
+      [
+        "Keys and alarm codes",
+        "Keys logged on numbered rings, never labelled with your address. Each crew gets its own alarm code, so you see who came and went."
+      ],
+      [
+        "Written checklist per building",
+        "Agreed at the walkthrough, signed off nightly in the log you get by email."
+      ]
+    ],
+    "industries": [
+      "Offices",
+      "Medical and dental",
+      "Schools and daycares",
+      "Banks",
+      "Showrooms",
+      "Warehouses"
+    ],
+    "note": "Sample credentials for this demo. Your site lists only what you hold, and certifications only when you confirm them."
+  }
+}
