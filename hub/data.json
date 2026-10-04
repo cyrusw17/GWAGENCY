@@ -15,6 +15,21 @@
           "client": "demo-ramirez-mobile",
           "slug": "ramirez-mobile"
         }
+      ],
+      "page": "auto-detailing/",
+      "candidates": [
+        {
+          "label": "A, Inspection light",
+          "href": "auto-detailing/a/"
+        },
+        {
+          "label": "B, Finished to spec",
+          "href": "auto-detailing/b/"
+        },
+        {
+          "label": "C, Route day",
+          "href": "auto-detailing/c/"
+        }
       ]
     },
     {
@@ -31,7 +46,8 @@
           "client": "demo-haint-blue",
           "slug": "haint-blue"
         }
-      ]
+      ],
+      "page": "exterior-cleaning/"
     },
     {
       "id": "landscaping",
@@ -47,7 +63,8 @@
           "client": "demo-lawn-pruitt",
           "slug": "pruitt-lawn"
         }
-      ]
+      ],
+      "page": "landscaping/"
     },
     {
       "id": "commercial-cleaning",
@@ -63,7 +80,8 @@
           "slug": "keyholder",
           "grade": "A+"
         }
-      ]
+      ],
+      "page": "commercial-cleaning/"
     }
   ],
   "demoNote": "Finished demos, one per trade."

@@ -82,6 +82,7 @@ const demos = data.niches.map(n => `
         </header>
         <ol class="slots">${n.slots.map(slotCard).join("")}
         </ol>
+        ${n.page ? `<p class="trade__links"><span>Selling page</span><a href="site/${esc(n.page)}">${esc(n.name)} websites<span class="sr-only">, the page that sells them</span></a>${(n.candidates || []).length ? `<span>Redesign candidates</span>${n.candidates.map(c => `<a href="site/${esc(c.href)}">${esc(c.label)}</a>`).join("")}` : ""}</p>` : ""}
       </section>`).join("");
 
 const total = data.niches.reduce((a, n) => a + n.slots.length, 0);
