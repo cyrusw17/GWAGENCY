@@ -78,6 +78,22 @@
         }
       ],
       "page": "commercial-cleaning/"
+    },
+    {
+      "id": "real-estate",
+      "name": "Real estate agents",
+      "owner": "Real estate designer",
+      "slots": [
+        {
+          "business": "Nadia Brooks, real estate agent",
+          "town": "Chattanooga, TN",
+          "concept": "A neighborhood map she drew: tap a neighborhood for her field note on the houses, the drive downtown and what to check before an offer, then selling and buying timelines, a rough seller net sheet and a recently-sold notebook",
+          "status": "review",
+          "client": "demo-nadia-brooks",
+          "slug": "nadia-brooks"
+        }
+      ],
+      "page": "real-estate/"
     }
   ],
   "demoNote": "Finished demos, one per trade."
