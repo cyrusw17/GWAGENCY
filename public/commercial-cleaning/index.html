@@ -54,10 +54,10 @@ h2{font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.05;letter-sp
 .p{max-width:38em;color:var(--ink-2);margin:0 0 20px}
 
 /* Route legend */
-.route{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;counter-reset:r}
+.route{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0}
 @media (min-width:820px){.route{grid-template-columns:1fr 1fr;column-gap:40px}}
-.route li{counter-increment:r;position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--rule)}
-.route li::before{content:counter(r);position:absolute;left:0;top:14px;width:30px;height:30px;border-radius:50%;background:var(--night);color:var(--bucket);font:800 .95rem/30px var(--sans);text-align:center}
+.route li{padding:16px 0;border-top:1px solid var(--rule)}
+.route li::before{content:attr(data-room);display:inline-block;margin-bottom:6px;font:400 .74rem var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--night);color:var(--bucket);padding:3px 7px}
 .route b{display:block}
 .route span{color:var(--ink-2)}
 
@@ -103,6 +103,8 @@ summary{font-weight:800;cursor:pointer}
 details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
 .letter{max-width:40em}
 .letter .sig{font-weight:800}
+.soft{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border:2px dashed var(--pale);border-radius:8px;padding:16px;margin-top:26px}
+.soft p{margin:0;flex:1 1 260px}
 footer{padding:30px 0 100px;font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--rule)}
 footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
 .dock{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--night);z-index:5}
@@ -155,12 +157,12 @@ footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
     <h2 id="wt-h">The site follows your walkthrough, room by room.</h2>
     <p class="p">You win contracts on the walkthrough. The website's job is to get you there: show the buyer you're a safe pair of hands, then make booking the walkthrough the easy next step.</p>
     <ol class="route">
-      <li><b>Credentials first</b><span>Insured and bonded, background-checked staff, and certificates of insurance on request, near the top. We only list what you can show us.</span></li>
-      <li><b>Buildings you clean</b><span>Medical offices, schools, churches, warehouses, retail: a short section for each type you take, with the scope you cover.</span></li>
-      <li><b>Scope by area</b><span>Lobbies, offices, restrooms, break rooms and floors, written as a scope sheet, so a manager can match it to their bid spec.</span></li>
-      <li><b>Request a walkthrough</b><span>The main button on every screen. A short form for facility type, square feet and cleanings per week, then a phone number or email.</span></li>
-      <li><b>Hours and area</b><span>After-hours and weekend service, and the cities you cover, so you stop getting requests you can't staff.</span></li>
-      <li><b>Local search setup</b><span>Your services, area and hours marked up so Google can read them, and linked to your Google Business Profile.</span></li>
+      <li data-room="Front door"><b>Credentials first</b><span>Insured and bonded, background-checked staff, and certificates of insurance on request, near the top. We only list what you can show us.</span></li>
+      <li data-room="Lobby"><b>Buildings you clean</b><span>Medical offices, schools, churches, warehouses, retail: a short section for each type you take, with the scope you cover.</span></li>
+      <li data-room="Offices"><b>Scope by area</b><span>Lobbies, offices, restrooms, break rooms and floors, written as a scope sheet, so a manager can match it to their bid spec.</span></li>
+      <li data-room="Conference room"><b>Request a walkthrough</b><span>The main button on every screen. A short form for facility type, square feet and cleanings per week, then a phone number or email.</span></li>
+      <li data-room="Loading dock"><b>Hours and area</b><span>After-hours and weekend service, and the cities you cover, so you stop getting requests you can't staff.</span></li>
+      <li data-room="Street sign"><b>Local search setup</b><span>Your services, area and hours marked up so Google can read them, and linked to your Google Business Profile.</span></li>
     </ol>
   </div>
 </section>
@@ -235,6 +237,10 @@ footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
     <div class="letter">
       <p>I build these one at a time from Deer Park, Texas. Your crew works when everyone else has gone home, and most buyers never see the work, only the website and the walkthrough. I'd like the website to do half of that job for you.</p>
       <p class="sig">Cyrus Wilburn, GroundWork-Web</p>
+    </div>
+    <div class="soft">
+      <p><b>Not ready to start?</b> Email me your website and I'll send back what a facility manager sees first, and what I'd change. Free, no call needed.</p>
+      <a class="btn ghost" href="mailto:groundworkweb@proton.me?subject=Commercial%20cleaning%20site%20review&amp;body=My%20website%3A%20">Email me my site</a>
     </div>
   </div>
 </section>
