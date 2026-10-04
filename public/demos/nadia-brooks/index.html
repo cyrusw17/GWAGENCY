@@ -162,13 +162,14 @@ body:not(.no-js) .fnote:not(.on){display:none}
 .sold{padding-top:72px;padding-bottom:60px}
 .nb{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:26px}
 @media (min-width:720px){.nb{grid-template-columns:1fr 1fr}.nb li:nth-child(even){transform:translateY(34px)}}
-.nb li{background:var(--card);border:1px solid var(--line);padding:12px 12px 18px;box-shadow:0 14px 24px -20px rgba(28,37,34,.6)}
+.nb li{background:var(--card);border:1px solid var(--line);padding:14px;box-shadow:0 14px 24px -20px rgba(28,37,34,.6);display:grid;grid-template-columns:112px 1fr;grid-template-areas:"pic txt" "cap cap";gap:10px 16px;align-items:start}
 .nb li:nth-child(odd){transform:rotate(-.5deg)}
-.nb-shot{margin:0}
-.nb-shot img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.nb-shot.is-ph .ph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#E7E0D0 0 12px,#EFE9DC 12px 24px);border:1px solid var(--line)}
-.nb-shot figcaption,.owner-shot figcaption{font-size:13px;color:var(--muted);margin-top:6px}
-.nb-txt{padding:10px 6px 0}
+.nb-shot{display:contents}
+.nb-shot img,.nb-shot .ph{grid-area:pic;width:112px;aspect-ratio:1;object-fit:cover}
+.nb-shot.is-ph .ph{background:repeating-linear-gradient(135deg,#E7E0D0 0 10px,#EFE9DC 10px 20px);border:1px solid var(--line)}
+.nb-shot figcaption{grid-area:cap;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.owner-shot figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.nb-txt{grid-area:txt;padding:0;min-width:0}
 .nb-where{font-size:13px;font-weight:700;color:var(--river);margin:0}
 .nb-txt h3{font-size:22px;margin:2px 0 4px}
 .nb-meta{margin:0;font-size:15px;color:var(--muted)}
@@ -277,7 +278,7 @@ legend{font:600 24px/1.2 var(--display);margin-bottom:14px;padding:0}
       <h1 id="h1">Chattanooga real estate, street by street.</h1>
       <p class="lede">I&#39;ve sold houses here for eleven years, mostly in the neighborhoods on this map. Tap one and you get what I&#39;d tell you on the drive over: the houses, the commute, and the one thing to check before you write an offer.</p>
       <div class="ctas"><a class="btn btn-go" href="#book" data-ev="book" data-label="hero">What&#39;s my home worth?</a><a class="btn btn-line" href="sms:4235550168" data-ev="text" data-label="hero">Text Nadia</a></div>
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <b>5.0</b> <span>47 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span> <span class="sample-tag">(sample)</span></p>
+      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <b>4.9</b> <span>47 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span> <span class="sample-tag">(sample)</span></p>
     </div>
     <div class="guide" id="guide">
       <div class="map-wrap">
@@ -401,7 +402,7 @@ legend{font:600 24px/1.2 var(--display);margin-bottom:14px;padding:0}
 
 <section class="reviews" id="reviews" aria-labelledby="rev-h">
   <div class="wrap">
-    <div class="rev-head"><h2 id="rev-h">What clients said</h2><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <b>5.0</b> <span>47 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span> <span class="sample-tag">(sample)</span></p></div>
+    <div class="rev-head"><h2 id="rev-h">What clients said</h2><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <b>4.9</b> <span>47 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span> <span class="sample-tag">(sample)</span></p></div>
     <p class="sample-note">Sample reviews for this demo. Your site shows your own Google reviews, newest first, with names and dates.</p>
     <div class="rev-row" role="list"><div role="listitem"><figure class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>She told us to get the sewer scoped before we listed. Buyer&#39;s inspector found nothing to argue about. Closed on time.</blockquote><figcaption><b>Sample client</b> · Sold in St. Elmo · <time datetime="2026-09-12">Sep 12, 2026</time></figcaption></figure></div><div role="listitem"><figure class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>We were moving from Atlanta and could only come up once. Nadia FaceTimed us through four houses and drove the commute for us at rush hour.</blockquote><figcaption><b>Sample client</b> · Bought in Highland Park · <time datetime="2026-08-20">Aug 20, 2026</time></figcaption></figure></div><div role="listitem"><figure class="rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>First house. I asked a hundred questions and she answered every text, usually within the hour.</blockquote><figcaption><b>Sample client</b> · Bought in Red Bank · <time datetime="2026-07-29">Jul 29, 2026</time></figcaption></figure></div></div>
   </div>
