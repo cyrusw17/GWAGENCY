@@ -55,6 +55,8 @@ img{max-width:100%;display:block}
 .rating .stars{color:#B9830A;letter-spacing:2px}
 .rating b{color:var(--ink)}
 .sample-tag{font-size:.85rem}
+h2 .sample-tag{font:400 .9rem/1 var(--body);color:var(--muted);letter-spacing:0;white-space:nowrap}
+.plan-offer .sample-tag{color:#D5E5DD}
 
 .yard-tile{background:var(--spruce);color:#fff;border-radius:calc(var(--r) + 6px);padding:12px;display:grid;gap:12px;position:relative;overflow:hidden}
 .yard-tile::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-28deg,rgba(255,255,255,.035) 0 26px,transparent 26px 52px);pointer-events:none}

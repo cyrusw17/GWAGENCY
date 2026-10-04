@@ -69,7 +69,7 @@ ${k.demoBar()}
         <div class="plan" aria-live="polite">
           <p class="plan-when"><span data-today hidden>This month</span> <b data-plan-month>${esc(yr[9]?.m || "")}</b></p>
           <p class="plan-line" data-plan-line>${esc(yr[9]?.line || "")}</p>
-          <p class="plan-offer"><span data-plan-offer>${esc(yr[9]?.offer || "")}</span> <b data-plan-price>${esc(pk(yr[9]?.offer).price || "")}</b> <small data-plan-unit>${esc(pk(yr[9]?.offer).unit || "")}</small></p>
+          <p class="plan-offer"><span data-plan-offer>${esc(yr[9]?.offer || "")}</span> <b data-plan-price>${esc(pk(yr[9]?.offer).price || "")}</b> <small data-plan-unit>${esc(pk(yr[9]?.offer).unit || "")}</small>${when(k.demo, ' <span class="sample-tag">(sample price)</span>')}</p>
           ${k.book("month plan", "Price this for my yard", "btn btn-go plan-btn", ` data-plan-pick data-pick="${esc(yr[9]?.offer || "")}"`)}
         </div>
       </div>
@@ -102,7 +102,7 @@ ${k.demoBar()}
 </section>
 
 <section class="prices wrap" id="prices" aria-labelledby="prices-h">
-  <div class="prices-head"><h2 id="prices-h">${esc(s.pricing?.headline || "Prices")}</h2><p>${esc(s.pricing?.sub || "")}</p></div>
+  <div class="prices-head"><h2 id="prices-h">${esc(s.pricing?.headline || "Prices")}${when(k.demo, ' <span class="sample-tag">(sample prices)</span>')}</h2><p>${esc(s.pricing?.sub || "")}</p></div>
   <ul class="tags">${(s.packages || []).map(p => `<li class="tag-card${p.popular ? " pop" : ""}">
     <div class="tag-hole" aria-hidden="true"></div>
     <h3>${esc(p.name)}</h3>
