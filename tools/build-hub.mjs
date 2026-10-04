@@ -31,6 +31,10 @@ const STATUS = {
   review: "In review",
   graded: "Graded",
 };
+// Review states and grades are internal (they live in the internal report); the public page
+// only says a finished demo is finished.
+const pub = status => (status === "review" || status === "graded" ? "finished" : status);
+STATUS.finished = "Finished";
 const errors = [];
 
 rmSync(out, { recursive: true, force: true });
@@ -64,7 +68,7 @@ const slotCard = (slot, i) => {
             <p class="slot__concept">${esc(slot.concept)}</p>
           </div>
           <div class="slot__foot">
-            <span class="pill pill--${esc(slot.status)}">${esc(STATUS[slot.status] || slot.status)}${slot.grade ? ` · ${esc(slot.grade)}` : ""}</span>
+            <span class="pill pill--${esc(pub(slot.status))}">${esc(STATUS[pub(slot.status)])}</span>
             ${link}
           </div>
         </li>`;
