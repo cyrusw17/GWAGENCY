@@ -28,7 +28,8 @@ const rewrite = s => s
 // its canonical at the live URL (pages that already name one keep theirs).
 // A thin bar at the top of every page in this copy, so a visitor can always get back to the hub.
 const bar = `<nav aria-label="Preview copy" style="all:initial;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;padding:4px 16px;background:#141412;color:#F6F3EC;font:600 14px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;position:relative;z-index:2147483647"><a href="${base}/" style="font:600 13px/1.4 system-ui,sans-serif;text-decoration:underline;color:#F0B53A;padding:6px 0">&larr; All pages</a><a href="${base}/#demos" style="font:600 13px/1.4 system-ui,sans-serif;text-decoration:underline;color:#F6F3EC;padding:6px 0">Demos</a><a href="${base}/#selling" style="font:600 13px/1.4 system-ui,sans-serif;text-decoration:underline;color:#F6F3EC;padding:6px 0">Sales pages</a><a href="${prefix}" style="font:600 13px/1.4 system-ui,sans-serif;text-decoration:underline;color:#F6F3EC;padding:6px 0">Agency site</a></nav>`;
-const withBar = html => html.replace(/<body([^>]*)>/i, `<body$1>${bar}`);
+// Keep each page's skip link as the first tab stop: put the bar after it when the body opens with one.
+const withBar = html => html.replace(/<body([^>]*)>(\s*<a\b[^>]*href=["']#[^"']*["'][^>]*>[\s\S]*?<\/a>)?/i, (m, attrs, skip = "") => `<body${attrs}>${skip}${bar}`);
 const seo = (html, rel) => {
   const live = "https://groundwork-web.com/" + rel.replace(/(^|\/)index\.html$/, "$1");
   html = html.replace(/<meta\s+name=["']robots["'][^>]*>\s*/gi, "");
@@ -45,7 +46,7 @@ function copy(src, dst) {
     if (TEXT.has(extname(name))) {
       const text = readFileSync(from, "utf8");
       writeFileSync(to, name.endsWith(".html") ? seo(rewrite(text), relative(join(root, "public"), from)) : rewrite(text));
-      if (name === "index.html") pages.push({ path: relative(join(root, "public"), src), title: (text.match(/<title>([^<]*)<\/title>/) || [, ""])[1] });
+      if (name === "index.html" && !/http-equiv=["']refresh/i.test(text)) pages.push({ path: relative(join(root, "public"), src), title: (text.match(/<title>([^<]*)<\/title>/) || [, ""])[1] });
     } else copyFileSync(from, to);
   }
 }
@@ -62,7 +63,7 @@ const demos = pages.filter(p => p.path.startsWith("demos/") && p.path !== "demos
 // Group the agency pages by what a visitor is looking for; anything new lands in "Other pages".
 const GROUPS = [
   ["Selling pages, one per trade", p => /^(auto-detailing|exterior-cleaning|landscaping|commercial-cleaning)$/.test(p)],
-  ["Auto detailing redesign candidates", p => /^auto-detailing\/./.test(p)],
+  ["Auto detailing, other versions", p => /^auto-detailing\/[ab]$/.test(p)],
   ["Free tools and guides", p => /^(site-check|audit|guides\/.*)$/.test(p)],
   ["Offer, prices and checkout", p => /^(offer|pricing|before-you-pay|start|thanks)$/.test(p)],
   ["Company", p => /^(|privacy|demos)$/.test(p)],

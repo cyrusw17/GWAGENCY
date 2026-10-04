@@ -60,7 +60,7 @@ for (const niche of data.niches) {
 const slotCard = (slot, i) => {
   const link = slot.client ? `<a class="slot__open" href="demos/${esc(slot.slug)}/">Open the demo<span class="sr-only"> of ${esc(slot.business)}</span></a>` : `<span class="slot__open slot__open--none">Not built yet</span>`;
   return `
-        <li class="slot slot--${esc(slot.status)}">
+        <li class="slot slot--${esc(pub(slot.status))}">
           <span class="slot__no">${i + 1}</span>
           <div class="slot__body">
             <h4 class="slot__name">${esc(slot.business)}</h4>
@@ -82,7 +82,7 @@ const demos = data.niches.map(n => `
         </header>
         <ol class="slots">${n.slots.map(slotCard).join("")}
         </ol>
-        ${n.page ? `<p class="trade__links"><span>Selling page</span><a href="site/${esc(n.page)}">${esc(n.name)} websites<span class="sr-only">, the page that sells them</span></a>${(n.candidates || []).length ? `<span>Redesign candidates</span>${n.candidates.map(c => `<a href="site/${esc(c.href)}">${esc(c.label)}</a>`).join("")}` : ""}</p>` : ""}
+        ${n.page ? `<p class="trade__links"><span>Selling page</span><a href="site/${esc(n.page)}">${esc(n.name)} websites<span class="sr-only">, the page that sells them</span></a>${(n.candidates || []).length ? `<span>Other versions</span>${n.candidates.map(c => `<a href="site/${esc(c.href)}">${esc(c.label)}</a>`).join("")}` : ""}</p>` : ""}
       </section>`).join("");
 
 const total = data.niches.reduce((a, n) => a + n.slots.length, 0);
