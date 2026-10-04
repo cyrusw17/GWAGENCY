@@ -7,6 +7,7 @@ const { esc, when, money } = k;
 export function render(s, { css }) {
   const b = s.business, h = s.hero, r = s.reviews, a = s.almanac, demo = !!s.demo;
   const cmp = s.work?.compare;
+  const first = s.owner?.name?.split(" ")[0] || "we";
   // Licensed/insured is a claim the owner must confirm; demos show it as sample copy.
   const insured = demo || b.insuredConfirmed === true ? b.insured || "" : "";
   const legend = Object.fromEntries((a?.legend || []).map(x => [x.key, x.label]));
@@ -21,9 +22,9 @@ ${k.head(s, { css: k.baseCss + css, preloadFonts: ["young-serif-400.woff2", "kar
 <a class="skip" href="#main">Skip to content</a>
 ${k.demoBar(s)}
 <header class="al-head">
-  <a class="al-mark" href="#main"><span>${esc(b.name.replace(/ Soft Wash$/, ""))}</span><small>Soft Wash · ${esc(b.address?.city || "")}</small></a>
+  <a class="al-mark" href="#main"><span>${esc(b.short || b.name)}</span><small>${esc([b.trade, b.address?.city].filter(Boolean).join(" · "))}</small></a>
   <nav aria-label="Sections"><a href="#calendar">Calendar</a><a href="#prices">Prices</a><a href="#reviews">Reviews</a></nav>
-  <div class="al-head-act">${k.textLink(s, "header", "Text Rhea", "al-link")}${k.callLink(s, "header", esc(b.phone), "al-pill")}${k.bookLink("header", s.booking?.cta || "Get my quote", "al-btn al-head-book")}</div>
+  <div class="al-head-act">${k.textLink(s, "header", `Text ${esc(first)}`, "al-link")}${k.callLink(s, "header", esc(b.phone), "al-pill")}${k.bookLink("header", s.booking?.cta || "Get my quote", "al-btn al-head-book")}</div>
 </header>
 
 <main id="main">
@@ -107,7 +108,7 @@ ${when(r?.items?.length, () => `<section class="al-reviews" id="reviews" aria-la
 <section class="al-quote" id="quote" aria-labelledby="quote-h">
   <div class="al-quote-head">
     <h2 id="quote-h">Get your price</h2>
-    <p>Three short steps. Or text a photo of the house to ${k.textLink(s, "quote section", esc(b.sms || b.phone))} and Rhea will price it from that.</p>
+    <p>Three short steps. Or text a photo of the house to ${k.textLink(s, "quote section", esc(b.sms || b.phone))} and ${esc(first)} will price it from that.</p>
     <p class="al-small">${esc(b.hoursText)}</p>
   </div>
   ${k.quoteForm(s, { cls: "al-form", nextCls: "al-btn", submitCls: "al-btn" })}

@@ -1,7 +1,7 @@
 {
+  "design": "almanac",
   "slug": "demo-haint-blue",
   "demo": true,
-  "layout": "almanac",
   "niche": "exterior cleaning",
   "demoCta": {
     "label": "Get this site",
@@ -46,7 +46,8 @@
       "https://instagram.com/example"
     ],
     "short": "Haint Blue",
-    "favicon": "img/favicon.svg"
+    "favicon": "img/favicon.svg",
+    "trade": "Soft Wash"
   },
   "seo": {
     "title": "Haint Blue Soft Wash | Soft Washing in Mount Pleasant, SC",
