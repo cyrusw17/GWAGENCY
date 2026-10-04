@@ -32,6 +32,22 @@
           "slug": "haint-blue"
         }
       ]
+    },
+    {
+      "id": "landscaping",
+      "name": "Landscaping and lawn care",
+      "owner": "Landscaping designer",
+      "slots": [
+        {
+          "business": "Pruitt Lawn Co.",
+          "town": "Dublin, OH",
+          "concept": "A mow crew's route sheet: this week's streets on a clipboard with a ZIP route checker, a printed price sheet, and mowing heights by season",
+          "status": "graded",
+          "grade": "A+",
+          "client": "demo-lawn-pruitt",
+          "slug": "pruitt-lawn"
+        }
+      ]
     }
   ],
   "demoNote": "Finished demos, one per trade."

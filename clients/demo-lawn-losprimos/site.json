@@ -1,0 +1,316 @@
+{
+  "slug": "demo-lawn-losprimos",
+  "demo": true,
+  "renderer": "lawn-rotulo",
+  "niche": "lawn care",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=lawn-rotulo"
+  },
+  "business": {
+    "name": "Los Primos Landscaping",
+    "tagline": "Lawn care · San Antonio · Se habla español",
+    "schemaType": "HomeAndConstructionBusiness",
+    "phone": "(210) 555-0129",
+    "sms": "(210) 555-0129",
+    "email": "losprimos@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Sat 7am-6pm",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ],
+    "address": {
+      "city": "San Antonio",
+      "region": "TX",
+      "postal": "78209"
+    },
+    "license": "Insured · Texas irrigator license on staff for sprinkler work",
+    "social": [
+      "https://facebook.com/example",
+      "https://instagram.com/example"
+    ]
+  },
+  "theme": {
+    "themeColor": "#0E5E59",
+    "fontFaces": [
+      {
+        "family": "Bowlby One",
+        "weight": 400,
+        "src": "fonts/bowlby-one-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Chivo",
+        "weight": 400,
+        "src": "fonts/chivo-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Chivo",
+        "weight": 700,
+        "src": "fonts/chivo-latin-700-normal.woff2"
+      },
+      {
+        "family": "Chivo",
+        "weight": 900,
+        "src": "fonts/chivo-latin-900-normal.woff2"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Los Primos Landscaping | Lawn Mowing and Yard Care in San Antonio",
+    "description": "Lawn mowing, cleanups and aeration in San Antonio, Alamo Heights, Stone Oak and Helotes. Mowing from $45 a visit. Bilingual crew, free estimates."
+  },
+  "hero": {
+    "es": "Corte de zacate y jardinería",
+    "headline": "Lawn mowing and yard care in San Antonio.",
+    "sub": "Two cousins, one crew, and a truck you'll recognize on your street. We mow St. Augustine the way it likes it, keep your beds clean and set your sprinkler clock to your SAWS watering day."
+  },
+  "trust": [
+    {
+      "en": "Insured",
+      "es": "Asegurados"
+    },
+    {
+      "en": "Prices on the site",
+      "es": "Precios claros"
+    },
+    {
+      "en": "We answer texts fast",
+      "es": "Contestamos rápido"
+    },
+    {
+      "en": "English y español",
+      "es": "Bilingües"
+    }
+  ],
+  "servicesHeadline": "What we do",
+  "servicesHeadlineEs": "Lo que hacemos",
+  "services": [
+    {
+      "name": "Weekly Mowing",
+      "es": "Corte semanal",
+      "from": 45,
+      "desc": "Mow, edge, trim and blow. St. Augustine kept tall so it holds water in August."
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "es": "Aireación",
+      "from": 149,
+      "desc": "Core aeration in late spring so water gets past the caliche. Bare spots plugged or seeded."
+    },
+    {
+      "name": "Spring Cleanup",
+      "es": "Limpieza",
+      "from": 199,
+      "desc": "Cedar elm and live oak leaves, beds, branches and the first cut of the season."
+    },
+    {
+      "name": "Fertilization",
+      "es": "Fertilizante",
+      "from": 69,
+      "desc": "Per application, timed for South Texas, not a national calendar."
+    },
+    {
+      "name": "Sprinkler checks",
+      "es": "Riego",
+      "from": null,
+      "priceText": "free with weekly mowing",
+      "desc": "We fix the heads we hit and set your clock to your SAWS day."
+    }
+  ],
+  "pricing": {
+    "headline": "Prices",
+    "headlineEs": "Precios",
+    "sub": "Quarter-acre lot. Bigger yard or a lot of slope? We measure and send the price by text before we start.",
+    "fine": "No contract. Mowing runs all year, every week in summer and every two weeks in winter."
+  },
+  "packages": [
+    {
+      "name": "Weekly Mowing",
+      "es": "Corte semanal",
+      "price": "$45",
+      "pre": "from",
+      "unit": "per visit",
+      "note": "Mow, edge, trim and blow, quarter-acre lot",
+      "popular": true,
+      "popularLabel": "Most yards",
+      "features": [
+        "Same day every week",
+        "Edges on every curb and walk",
+        "Clippings off the drive"
+      ]
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "es": "Aireación",
+      "price": "$149",
+      "pre": "from",
+      "unit": "once",
+      "note": "Core aeration plus seed for bare spots",
+      "features": [
+        "Core aeration",
+        "Bare spots plugged or seeded",
+        "Watering plan for your SAWS day"
+      ]
+    },
+    {
+      "name": "Spring Cleanup",
+      "es": "Limpieza",
+      "price": "$199",
+      "pre": "from",
+      "unit": "once",
+      "note": "Leaves, beds, branches and the first cut of the season",
+      "features": [
+        "Leaves and branches hauled",
+        "Beds cleared and edged",
+        "First cut of the season"
+      ]
+    }
+  ],
+  "addon": {
+    "name": "Fertilization",
+    "es": "Fertilizante",
+    "price": "from $69",
+    "unit": "per application"
+  },
+  "water": {
+    "title": "We mow to your watering day",
+    "es": "Su día de riego",
+    "body": "SAWS sets your watering day by the last digit of your address. We schedule your mow the day before, so the grass is cut dry and watered right after. Tell us your address and we'll look it up."
+  },
+  "work": {
+    "headline": "A yard in Alamo Heights, before and after",
+    "headlineEs": "Antes y después",
+    "compare": {
+      "before": "img/before.svg",
+      "after": "img/after.svg",
+      "caption": "Illustration. Your site shows your own before and after photos."
+    }
+  },
+  "owner": {
+    "name": "Rubén & Mateo Garza",
+    "role": "Primos. Owners. On the crew.",
+    "story": "Our uncle mowed lawns on the West Side for thirty years. We started Los Primos in 2016 with his old trailer and a Honda mower. Now there are six of us. One of us is at every job, and we both answer the phone.",
+    "photo": ""
+  },
+  "reviews": {
+    "headline": "What the neighbors say",
+    "headlineEs": "Lo que dicen",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.8",
+    "count": 132,
+    "items": [
+      {
+        "name": "Sample customer",
+        "where": "Alamo Heights",
+        "date": "2026-09-26",
+        "stars": 5,
+        "text": "They noticed our sprinkler clock was set to the wrong SAWS day and fixed it. Lawn looks better and the bill went down."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Stone Oak",
+        "date": "2026-09-12",
+        "stars": 5,
+        "text": "Excelente servicio. Llegan el mismo día cada semana y siempre limpian todo."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Helotes",
+        "date": "2026-08-30",
+        "stars": 4,
+        "text": "Texted for a price on Saturday, got it in an hour. Cleanup took one afternoon. Would be 5 stars if they had more Saturday slots."
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "If it's not right, text us. We come back.",
+    "es": "Garantía",
+    "body": "Missed edge, clippings on the drive, a broken sprinkler head we hit: text a photo and we fix it within two days, free."
+  },
+  "areas": {
+    "headline": "Where we work",
+    "headlineEs": "Dónde trabajamos",
+    "body": "Inside 1604 and a little past it. If you're close, ask.",
+    "cities": [
+      "San Antonio",
+      "Alamo Heights",
+      "Terrell Hills",
+      "Olmos Park",
+      "Stone Oak",
+      "Helotes",
+      "Leon Valley",
+      "Converse",
+      "Shavano Park"
+    ]
+  },
+  "booking": {
+    "eyebrow": "Free estimate · Presupuesto gratis",
+    "headline": "Get your price by text",
+    "body": "Three quick questions. Rubén or Mateo texts you a price, usually the same day. Español o inglés, como guste.",
+    "cta": "Get a free estimate"
+  },
+  "lead": {
+    "endpoint": "",
+    "start": {
+      "question": "Weekly mowing or a one-time project?",
+      "options": [
+        {
+          "value": "Weekly mowing",
+          "label": "Weekly mowing · Corte semanal",
+          "hint": "Same day every week"
+        },
+        {
+          "value": "One-time project",
+          "label": "One-time project · Un trabajo",
+          "hint": "Cleanup, aeration, beds"
+        }
+      ]
+    },
+    "zipHint": "78209",
+    "notesHint": "Back yard gate code, dogs, slope... / Portón, perros...",
+    "submit": "Text me a price",
+    "contactHint": "Phone or email, whichever you check first. Teléfono o correo.",
+    "thanks": "Got it. Rubén or Mateo will text you a price today (Mon-Sat). ¡Gracias!"
+  },
+  "faq": [
+    {
+      "q": "How much is lawn mowing in San Antonio?",
+      "a": "From $45 a visit for a quarter-acre lot. We measure on the free estimate and text you the price before we start."
+    },
+    {
+      "q": "How short should St. Augustine be cut?",
+      "a": "About 3 to 4 inches. Cutting it short in summer burns it and invites chinch bugs, so we keep it tall."
+    },
+    {
+      "q": "Do you work around SAWS watering rules?",
+      "a": "Yes. We schedule your mow the day before your watering day and set your sprinkler clock if it's wrong."
+    },
+    {
+      "q": "¿Hablan español?",
+      "a": "Sí. Los dos dueños y la mayoría del equipo hablan español e inglés."
+    },
+    {
+      "q": "Is there a contract?",
+      "a": "No. Mowing is weekly in summer and every two weeks in winter, and you can stop with a text."
+    }
+  ],
+  "final": {
+    "headline": "Text us a photo of your yard.",
+    "es": "Mándenos una foto",
+    "sub": "We'll send a price back, usually the same day."
+  }
+}

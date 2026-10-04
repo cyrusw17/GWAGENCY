@@ -1,0 +1,338 @@
+{
+  "slug": "demo-lawn-fernhollow",
+  "demo": true,
+  "renderer": "lawn-almanac",
+  "niche": "lawn care",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=lawn-almanac"
+  },
+  "business": {
+    "name": "Fernhollow Gardens",
+    "tagline": "Lawn & garden care · Asheville",
+    "schemaType": "HomeAndConstructionBusiness",
+    "phone": "(828) 555-0163",
+    "sms": "(828) 555-0163",
+    "email": "hello@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Fri 8am-5pm",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "address": {
+      "city": "Asheville",
+      "region": "NC",
+      "postal": "28801"
+    },
+    "license": "Fully insured · NC Certified Plant Professional on every crew",
+    "social": [
+      "https://instagram.com/example"
+    ]
+  },
+  "theme": {
+    "themeColor": "#EEF1E7",
+    "fontFaces": [
+      {
+        "family": "Libre Caslon Display",
+        "weight": 400,
+        "src": "fonts/libre-caslon-display-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Karla",
+        "weight": 400,
+        "src": "fonts/karla-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Karla",
+        "weight": 700,
+        "src": "fonts/karla-latin-700-normal.woff2"
+      },
+      {
+        "family": "Caveat",
+        "weight": 500,
+        "src": "fonts/caveat-latin-500-normal.woff2"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Fernhollow Gardens | Lawn Care and Garden Care in Asheville, NC",
+    "description": "Lawn mowing, aeration, overseeding and garden bed care in Asheville, Weaverville and Black Mountain. Mowing from $45 a visit. Free estimates."
+  },
+  "hero": {
+    "headline": "Lawn care and garden care in Asheville, NC.",
+    "sub": "Weekly mowing for the lawn, and someone who actually knows plants for the beds around it. We work with the mountains' clay and the short fall seeding window, not against them.",
+    "note": "Montford, last September. Year two of a native border: little bluestem, asters, Joe Pye.",
+    "imageAlt": "A front yard in Montford with a native perennial border along the lawn"
+  },
+  "calendar": {
+    "headline": "This month in Asheville yards",
+    "current": 10,
+    "months": [
+      {
+        "m": "Jan",
+        "do": "Prune dormant shrubs. Plan beds."
+      },
+      {
+        "m": "Feb",
+        "do": "Cut back grasses and perennials."
+      },
+      {
+        "m": "Mar",
+        "do": "Spring cleanup. Pre-emergent on lawns."
+      },
+      {
+        "m": "Apr",
+        "do": "First mows. Edge and mulch beds."
+      },
+      {
+        "m": "May",
+        "do": "Weekly mowing. Plant warm-season annuals."
+      },
+      {
+        "m": "Jun",
+        "do": "Mow high, water deep, watch for drought."
+      },
+      {
+        "m": "Jul",
+        "do": "Raise the mower. Deadhead."
+      },
+      {
+        "m": "Aug",
+        "do": "Book fall aeration. Soil test."
+      },
+      {
+        "m": "Sep",
+        "do": "Aerate and overseed fescue. Divide perennials."
+      },
+      {
+        "m": "Oct",
+        "do": "Last good week to seed. Plant bulbs. Shred leaves into beds."
+      },
+      {
+        "m": "Nov",
+        "do": "Leaf cleanup. Final mow."
+      },
+      {
+        "m": "Dec",
+        "do": "Rest. Order seed catalogs."
+      }
+    ]
+  },
+  "trust": [
+    "Fully insured",
+    "NC Certified Plant Professional on every crew",
+    "Prices written down before we start",
+    "We text the day before we come"
+  ],
+  "servicesHeadline": "What we do, and when it matters",
+  "services": [
+    {
+      "name": "Weekly Mowing",
+      "from": 45,
+      "desc": "Mow, edge, trim and blow. Mower set at 3.5 inches for fescue so it shades out weeds.",
+      "note": "Mowing high is the cheapest weed control there is."
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "from": 149,
+      "desc": "Core aeration plus seed, best in fall. Our clay soils pack hard, and seed needs the holes.",
+      "note": "Seed by mid-October here or wait until spring."
+    },
+    {
+      "name": "Spring Cleanup",
+      "from": 199,
+      "desc": "Leaves, beds, branches and the first cut of the season.",
+      "note": "We leave stems standing until April for overwintering bees."
+    },
+    {
+      "name": "Garden bed care",
+      "from": null,
+      "priceText": "priced per bed",
+      "desc": "Weeding, edging, mulching and pruning, by the visit or monthly.",
+      "note": "Natives first. Fewer chemicals, more birds."
+    }
+  ],
+  "pricing": {
+    "headline": "Seed-packet pricing",
+    "sub": "Quarter-acre lot prices. Steep slopes and big beds are priced on the estimate, in writing, before anything starts.",
+    "fine": "No contracts. Weekly mowing runs April through November."
+  },
+  "packages": [
+    {
+      "name": "Weekly Mowing",
+      "price": "from $45",
+      "unit": "per visit",
+      "note": "Mow, edge, trim and blow, quarter-acre lot",
+      "season": "Apr - Nov",
+      "latin": "Festuca arundinacea",
+      "features": [
+        "Same day each week",
+        "Mowed high for fescue",
+        "Clippings off walks and beds"
+      ]
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "price": "from $149",
+      "unit": "once",
+      "note": "Core aeration plus seed, best in fall",
+      "season": "Sep - mid Oct",
+      "latin": "Festuca × Poa blend",
+      "popular": true,
+      "popularLabel": "Book now for fall",
+      "features": [
+        "Core aeration",
+        "Tall fescue blend for mountain shade",
+        "Starter fertilizer and watering card"
+      ]
+    },
+    {
+      "name": "Spring Cleanup",
+      "price": "from $199",
+      "unit": "once",
+      "note": "Leaves, beds, branches and the first cut of the season",
+      "season": "Mar - Apr",
+      "latin": "Anno novo",
+      "features": [
+        "Beds cleared and edged",
+        "Branches hauled",
+        "First mow of the year"
+      ]
+    }
+  ],
+  "addon": {
+    "name": "Fertilization",
+    "price": "from $69",
+    "unit": "per application",
+    "note": "Slow-release, timed to the soil test."
+  },
+  "work": {
+    "headline": "A lawn we took on in West Asheville",
+    "body": "Thin fescue, bare clay under the oak, leaves left over winter. One fall aeration and overseed, then weekly mowing at 3.5 inches.",
+    "compare": {
+      "before": "img/before.svg",
+      "after": "img/after.svg",
+      "caption": "Illustration. Your site shows your own before and after photos."
+    }
+  },
+  "owner": {
+    "name": "Ruth Okafor",
+    "role": "Owner and horticulturist",
+    "story": "I studied horticulture at NC State and spent six years at a public garden before I started Fernhollow in 2017. I still walk every new yard myself. Most lawns here don't need more chemicals. They need the right grass, mowed high, and seed in the ground before Halloween.",
+    "sign": "Ruth",
+    "photo": ""
+  },
+  "reviews": {
+    "headline": "Notes from neighbors",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 47,
+    "items": [
+      {
+        "name": "Sample customer",
+        "where": "Kenilworth",
+        "date": "2026-09-28",
+        "stars": 5,
+        "text": "Ruth told us not to seed in June and to wait for September. She was right. The bare patch under the oak finally filled in."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Weaverville",
+        "date": "2026-08-19",
+        "stars": 5,
+        "text": "They mow, but they also notice things. Caught the boxwood blight on our hedge before it spread."
+      },
+      {
+        "name": "Sample customer",
+        "where": "West Asheville",
+        "date": "2026-07-02",
+        "stars": 5,
+        "text": "Clear price in writing, crew shows up on the day they say. The native border is the best part of our yard now."
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "If the seed doesn't take, we reseed.",
+    "body": "Follow the watering card for three weeks. If the overseeding doesn't come up, we come back and reseed the thin spots at no charge."
+  },
+  "areas": {
+    "headline": "Where we garden",
+    "body": "Asheville and the towns a short drive up the valleys. Not sure if you're in? Send your ZIP.",
+    "cities": [
+      "Asheville",
+      "Montford",
+      "West Asheville",
+      "Kenilworth",
+      "North Asheville",
+      "Weaverville",
+      "Black Mountain",
+      "Fletcher"
+    ]
+  },
+  "booking": {
+    "eyebrow": "Free estimate",
+    "headline": "Tell us about your yard",
+    "body": "Three short questions. Ruth or the office replies within one business day with a written price, or a time to walk the yard.",
+    "cta": "Get a free estimate"
+  },
+  "lead": {
+    "endpoint": "",
+    "start": {
+      "question": "Weekly mowing or a one-time project?",
+      "options": [
+        {
+          "value": "Weekly mowing",
+          "hint": "April through November, same day each week"
+        },
+        {
+          "value": "One-time project",
+          "hint": "Aeration, overseeding, cleanup, garden beds"
+        }
+      ]
+    },
+    "step2": "What's going on in the yard?",
+    "zipHint": "28801",
+    "notesHint": "Shady under oaks, slope out back, deer...",
+    "submit": "Send to Ruth",
+    "thanks": "Thank you. Ruth or the office will reply within one business day with a price or a time to walk the yard."
+  },
+  "faq": [
+    {
+      "q": "When should I overseed a lawn in Asheville?",
+      "a": "September to mid-October for tall fescue. Seed sown in spring usually dies in the July heat, so we only spring-seed bare spots."
+    },
+    {
+      "q": "Do you use chemicals?",
+      "a": "As little as we can. Mowing high and fall seeding do most of the weed control. When a treatment is needed we tell you what it is first."
+    },
+    {
+      "q": "How much does weekly mowing cost?",
+      "a": "From $45 a visit for a quarter-acre lot. Steep yards and big lots are priced on the free estimate, in writing."
+    },
+    {
+      "q": "Can you deal with deer?",
+      "a": "We can't stop them, but we plant what they skip: bluestem, mountain mint, coneflower, ferns. Ask for the list."
+    },
+    {
+      "q": "Is there a contract?",
+      "a": "No. Weekly mowing runs April through November, and you can pause with a text."
+    }
+  ],
+  "final": {
+    "headline": "Fall seeding closes mid-October.",
+    "sub": "If the lawn is thin, now is the window. Free estimate, written price."
+  }
+}

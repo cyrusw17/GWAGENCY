@@ -89,7 +89,8 @@ async function build(dir) {
     const lay = join(root, "template", "layouts", s.renderer);
     writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
     if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
-    writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", "kit.js"), "utf8"));
+    // A layout built on layouts/_kit.mjs exports behavior = "funnel.js" (its 3-step form lives there).
+    writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", layout.behavior || "kit.js"), "utf8"));
   } else {
     // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
     const designFile = join(srcDir, "design.css");

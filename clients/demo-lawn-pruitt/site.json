@@ -1,0 +1,340 @@
+{
+  "slug": "demo-lawn-pruitt",
+  "demo": true,
+  "renderer": "lawn-route",
+  "niche": "lawn care",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=lawn-route"
+  },
+  "business": {
+    "name": "Pruitt Lawn Co.",
+    "tagline": "Weekly mowing · Dublin & NW Columbus",
+    "schemaType": "HomeAndConstructionBusiness",
+    "phone": "(614) 555-0187",
+    "sms": "(614) 555-0187",
+    "email": "office@example.com",
+    "priceRange": "$$",
+    "hoursText": "Mon-Fri 7am-6pm, Sat 8am-noon",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "days": [
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "address": {
+      "city": "Dublin",
+      "region": "OH",
+      "postal": "43017"
+    },
+    "license": "Insured: $1M general liability · Ohio pesticide applicator license on file",
+    "social": [
+      "https://facebook.com/example"
+    ]
+  },
+  "theme": {
+    "themeColor": "#1D4A2A",
+    "fontFaces": [
+      {
+        "family": "Barlow Condensed",
+        "weight": 800,
+        "src": "fonts/barlow-condensed-latin-800-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Barlow Condensed",
+        "weight": 600,
+        "src": "fonts/barlow-condensed-latin-600-normal.woff2"
+      },
+      {
+        "family": "Barlow",
+        "weight": 400,
+        "src": "fonts/barlow-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Barlow",
+        "weight": 600,
+        "src": "fonts/barlow-latin-600-normal.woff2"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Pruitt Lawn Co. | Weekly Lawn Mowing in Dublin, Ohio",
+    "description": "Weekly lawn mowing in Dublin, Hilliard, Worthington, Powell and Upper Arlington. Mowing from $45 a visit, same day every week. Free estimates."
+  },
+  "hero": {
+    "kicker": "Est. 1994 · second generation",
+    "headline": "Weekly lawn mowing in Dublin, Ohio.",
+    "sub": "Same crew, same day, every week from April to October. Mowed, edged, trimmed and blown off. You'll know we were there by the stripes."
+  },
+  "route": {
+    "title": "This week's route",
+    "week": "Week of Sep 29",
+    "note": "Your street's probably on it. Ask which day.",
+    "days": [
+      {
+        "day": "Mon",
+        "town": "Hilliard",
+        "streets": "Scioto Darby, Heritage Lakes",
+        "zips": [
+          "43026"
+        ]
+      },
+      {
+        "day": "Tue",
+        "town": "Dublin",
+        "streets": "Muirfield, Brand Rd, Coffman",
+        "zips": [
+          "43016",
+          "43017"
+        ]
+      },
+      {
+        "day": "Wed",
+        "town": "Worthington",
+        "streets": "Colonial Hills, Rush Creek",
+        "zips": [
+          "43085",
+          "43235"
+        ]
+      },
+      {
+        "day": "Thu",
+        "town": "Upper Arlington",
+        "streets": "Tremont, Mallway, Northam",
+        "zips": [
+          "43220",
+          "43221"
+        ]
+      },
+      {
+        "day": "Fri",
+        "town": "Powell",
+        "streets": "Golf Village, Liberty Rd",
+        "zips": [
+          "43065"
+        ]
+      }
+    ]
+  },
+  "trust": [
+    "Insured, $1M liability",
+    "Prices printed, not \"call for quote\"",
+    "Text when we're 10 minutes out"
+  ],
+  "pricing": {
+    "headline": "The price sheet",
+    "sub": "Quarter-acre lot prices. Bigger lots, steep hills or a fenced back yard? We measure on the estimate and write it down before we start.",
+    "fine": "Weekly mowing runs April through October. No contract; skip a week with a text."
+  },
+  "packages": [
+    {
+      "name": "Weekly Mowing",
+      "price": "from $45",
+      "unit": "per visit",
+      "note": "Mow, edge, trim and blow, quarter-acre lot",
+      "features": [
+        "Same day every week",
+        "Clippings blown off drive and walks",
+        "Height set for the season"
+      ],
+      "popular": true,
+      "popularLabel": "What most of our customers have",
+      "how": "we walk the lot and text a written price, usually the next morning. Your street gets a day, and we text when we're 10 minutes out."
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "price": "from $149",
+      "unit": "once",
+      "note": "Core aeration plus seed, best in fall",
+      "features": [
+        "Core plugs left to break down",
+        "Tall fescue blend for central Ohio",
+        "Watering schedule on a card"
+      ]
+    },
+    {
+      "name": "Spring Cleanup",
+      "price": "from $199",
+      "unit": "once",
+      "note": "Leaves, beds, branches and the first cut of the season",
+      "features": [
+        "Winter debris hauled off",
+        "Beds edged and cleared",
+        "First mow of the year"
+      ]
+    }
+  ],
+  "addon": {
+    "name": "Fertilization",
+    "price": "from $69",
+    "unit": "per application"
+  },
+  "services": [
+    {
+      "name": "Weekly Mowing",
+      "from": 45,
+      "desc": "Mow, edge, trim and blow, same day every week."
+    },
+    {
+      "name": "Aeration & Overseeding",
+      "from": 149,
+      "desc": "Core aeration plus seed, best in fall."
+    },
+    {
+      "name": "Spring Cleanup",
+      "from": 199,
+      "desc": "Leaves, beds, branches and first cut."
+    },
+    {
+      "name": "Fertilization",
+      "from": 69,
+      "desc": "Per application, five-step program available."
+    }
+  ],
+  "work": {
+    "headline": "Same yard, one Tuesday apart",
+    "compare": {
+      "before": "img/before.svg",
+      "after": "img/after.svg",
+      "caption": "Illustration. Your site shows your own before and after photos."
+    }
+  },
+  "owner": {
+    "name": "Denny Pruitt",
+    "role": "Owner. Still on the mower Tuesdays.",
+    "story": "My dad started this with one push mower and a Ford Ranger in 1994. I took over his routes in 2011. Most of our Dublin customers have been on the Tuesday route longer than I've been driving.",
+    "photo": ""
+  },
+  "reviews": {
+    "headline": "From the route",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.8",
+    "count": 61,
+    "items": [
+      {
+        "name": "Sample customer",
+        "where": "Muirfield, Dublin",
+        "date": "2026-09-23",
+        "stars": 5,
+        "text": "Same guys every Tuesday for four years. They close the gate every time, which matters with our dog."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Tremont, Upper Arlington",
+        "date": "2026-09-09",
+        "stars": 5,
+        "text": "Got a price by text the morning after the estimate. It was the price on the website. Booked the aeration too."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Hilliard",
+        "date": "2026-08-14",
+        "stars": 4,
+        "text": "Missed the strip by the mailbox once. I texted, they were back the next day."
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Missed a spot? We're back in 48 hours.",
+    "body": "Text us a photo. If we missed it, we come back and fix it within two days, no charge."
+  },
+  "areas": {
+    "headline": "Where the trucks go",
+    "body": "If you're between I-270 and the Scioto, you're probably on a route already. Outside it? Ask anyway.",
+    "cities": [
+      "Dublin",
+      "Hilliard",
+      "Worthington",
+      "Upper Arlington",
+      "Powell",
+      "Plain City"
+    ]
+  },
+  "booking": {
+    "eyebrow": "Free estimate",
+    "headline": "Get on the route",
+    "body": "Three quick questions. We text back a written price, usually by the next morning.",
+    "cta": "Get a free estimate"
+  },
+  "lead": {
+    "endpoint": "",
+    "start": {
+      "question": "Weekly mowing or a one-time project?",
+      "options": [
+        {
+          "value": "Weekly mowing",
+          "hint": "Same day every week, April to October"
+        },
+        {
+          "value": "One-time project",
+          "hint": "Spring cleanup, aeration, overseeding"
+        }
+      ]
+    },
+    "zipHint": "43017",
+    "notesHint": "Corner lot, fenced back yard, dog in the yard...",
+    "submit": "Get my free estimate",
+    "thanks": "Got it. Denny or the office will text you a price by tomorrow morning (Mon-Sat)."
+  },
+  "faq": [
+    {
+      "q": "Do I have to sign a contract?",
+      "a": "No. Weekly mowing runs April to October and you can stop or skip a week with a text."
+    },
+    {
+      "q": "What if it rains on my day?",
+      "a": "We mow the next dry day and text you when. Wet grass tears and ruts the lawn, so we wait."
+    },
+    {
+      "q": "How much is mowing for my yard?",
+      "a": "From $45 a visit for a quarter-acre lot. We measure on the free estimate and write down your price before the first mow."
+    },
+    {
+      "q": "When should I aerate in central Ohio?",
+      "a": "Late August through September is best for tall fescue lawns here. We book aeration and overseeding through early October."
+    },
+    {
+      "q": "Are you insured?",
+      "a": "Yes, $1M general liability. We can email the certificate to you or your HOA."
+    }
+  ],
+  "final": {
+    "headline": "Want Tuesdays?",
+    "sub": "There's room on the Dublin route this season. Free estimate, written price, no contract."
+  },
+  "heights": {
+    "title": "How tall we leave it",
+    "note": "Tall fescue and bluegrass in central Ohio. Taller in summer heat shades the soil and keeps crabgrass out.",
+    "rows": [
+      {
+        "when": "April - May",
+        "in": 3
+      },
+      {
+        "when": "June - August",
+        "in": 3.75
+      },
+      {
+        "when": "September - October",
+        "in": 3.25
+      }
+    ]
+  }
+}
