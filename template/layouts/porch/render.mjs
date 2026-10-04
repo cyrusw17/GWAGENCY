@@ -149,8 +149,8 @@ ${when(cmp || roof, () => `<section class="pc-proof" aria-labelledby="proof-h">
 </section>
 
 ${when(pr?.steps?.length, () => `<section class="pc-process" aria-labelledby="proc-h">
-  <div class="pc-sec-head"><h2 id="proc-h">${esc(pr.headline)}</h2></div>
-  <ol class="pc-beam">${pr.steps.map(x => `<li><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></li>`).join("")}</ol>
+  <div class="pc-sec-head"><h2 id="proc-h">${esc(pr.headline)}</h2>${when(pr.sub, `<p>${esc(pr.sub)}</p>`)}</div>
+  <ol class="pc-beam">${pr.steps.map(x => `<li>${when(x.at, `<time class="pc-at">${esc(x.at)}</time>`)}<h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></li>`).join("")}</ol>
 </section>`)}
 
 <section class="pc-letter" aria-labelledby="letter-h">

@@ -410,23 +410,33 @@
     ]
   },
   "process": {
-    "headline": "How a wash day goes",
+    "headline": "A wash day, by the clock",
+    "sub": "A one-story house, start to finish. Bigger houses run longer, same order.",
     "steps": [
       {
-        "t": "We soak your plants",
-        "d": "Every bed and shrub gets a good soak before any cleaner goes on, and a rinse at the end."
+        "at": "8:00",
+        "t": "We soak every bed",
+        "d": "Every bed and shrub gets a good soak before any cleaner goes on."
       },
       {
-        "t": "Cleaner goes on low",
-        "d": "A mild cleaner, sprayed at about garden-hose pressure, from the ground. No ladders against your siding."
+        "at": "8:15",
+        "t": "Cleaner on, at garden-hose pressure",
+        "d": "A mild cleaner, sprayed from the ground. No ladders against your siding."
       },
       {
-        "t": "It sits for ten minutes",
+        "at": "8:25",
+        "t": "It sits",
         "d": "The cleaner does the work. Mildew and algae die at the root, so they don't come right back."
       },
       {
-        "t": "Gentle rinse, then a walk-around",
-        "d": "We rinse top to bottom and walk the house with you before we pack up."
+        "at": "8:35",
+        "t": "Rinse, top to bottom",
+        "d": "A gentle rinse for the house, and another for the plants."
+      },
+      {
+        "at": "9:00",
+        "t": "Walk-around with you",
+        "d": "We walk the house together before we pack up. If a spot's missed, we fix it then."
       }
     ]
   }
