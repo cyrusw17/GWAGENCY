@@ -106,7 +106,7 @@ ${when(s.owner, `<section class="primos">
   <div class="wrap">
     ${banner(s.reviews?.headline || "Reviews", s.reviews?.headlineEs)}
     <div class="revs-meta">${k.rating("rating")}${k.reviewNote("sample-note")}</div>
-    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")} · <time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure>`).join("")}</div>
+    <div class="rev-row" role="list" tabindex="0" aria-label="Customer reviews (sample)">${k.reviews().map(x => `<div role="listitem"><figure class="rev">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")} · <time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure></div>`).join("")}</div>
   </div>
 </section>
 

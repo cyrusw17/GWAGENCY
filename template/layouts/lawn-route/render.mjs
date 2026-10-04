@@ -88,7 +88,7 @@ ${when(s.heights?.rows?.length, `<section class="cut" aria-labelledby="cut-h">
   <div class="wrap">
     <div class="rev-head"><div><h2>${esc(s.reviews?.headline || "Reviews")}</h2></div>${k.rating("rating")}</div>
     ${k.reviewNote("sample-note")}
-    <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")}<time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure>`).join("")}</div>
+    <div class="rev-row" role="list" tabindex="0" aria-label="Customer reviews (sample)">${k.reviews().map(x => `<div role="listitem"><figure class="rev">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")}<time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure></div>`).join("")}</div>
   </div>
 </section>
 

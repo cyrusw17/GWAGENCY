@@ -158,6 +158,8 @@ p{margin:0}
 .revs .rating{margin-top:0}
 .sample-note{font-size:.88rem;color:var(--muted)}
 .rev-row{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 6px 12px 2px}
+.rev-row>div{display:flex;scroll-snap-align:start}.rev-row>div>.rev{flex:1}
+.rev-row:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
 .rev{margin:0;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:18px;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;box-shadow:5px 5px 0 var(--teal)}
 .rev .stars{color:var(--chile);letter-spacing:2px}
 .rev blockquote{margin:0;font-size:1.04rem}
