@@ -6,6 +6,7 @@ const { esc, when, money } = k;
 
 export function render(s, { css }) {
   const b = s.business, h = s.hero, r = s.reviews, a = s.almanac, demo = !!s.demo;
+  const cmp = s.work?.compare;
   const legend = Object.fromEntries((a?.legend || []).map(x => [x.key, x.label]));
   const now = new Date(s.builtAt || Date.now()).getMonth();
 
@@ -30,30 +31,30 @@ ${k.demoBar(s)}
     <h1>${esc(h.headline)}</h1>
     <p class="al-lede">${esc(h.sub)}</p>
     <div class="al-ctas">
-      ${k.bookLink("hero", h.cta || "Get my quote", "al-btn")}
+      ${k.bookLink("hero", s.booking?.cta || "Get my quote", "al-btn")}
       ${k.callLink(s, "hero", `or call ${esc(b.phone)}`, "al-link")}
     </div>
     ${when(r?.rating, `<p class="al-rating">${k.rating(s)}</p>`)}
   </div>
-  <figure class="al-hero-fig">
-    ${k.compare(s.work.compare, { cls: "al-compare", eager: true })}
-    <figcaption>${k.sampleTag(s, "Sample photo")} ${esc(s.work.compare.caption)}. Drag to compare.</figcaption>
-  </figure>
+  ${when(cmp, () => `<figure class="al-hero-fig">
+    ${k.compare(cmp, { cls: "al-compare", eager: true })}
+    <figcaption>${k.sampleTag(s, "Sample photo")} ${esc(cmp.caption || "")}. Drag to compare.</figcaption>
+  </figure>`)}
 </section>
 
-${when(a, `<section class="al-cal" id="calendar" aria-labelledby="cal-h">
+${when(a, () => `<section class="al-cal" id="calendar" aria-labelledby="cal-h">
   <div class="al-cal-head">
     <h2 id="cal-h">${esc(a.headline)}</h2>
     <p>${esc(a.sub)}</p>
     <ul class="al-legend">${a.legend.map(x => `<li><i class="t-${esc(x.key)}"></i>${esc(x.label)}</li>`).join("")}</ul>
   </div>
   <ol class="al-months">
-    ${a.months.map((m, i) => `<li class="${i === now ? "now" : ""}">
+    ${a.months.map((m, i) => { const tags = m.tags || []; return `<li class="${i === now ? "now" : ""}">
       <b>${esc(m.m)}</b>
-      <span class="bars">${["pollen", "mildew", "storm", "best"].map(t => `<i class="t-${t}${m.tags.includes(t) ? " on" : ""}"${m.tags.includes(t) ? ` title="${esc(legend[t] || t)}"` : ""}></i>`).join("")}</span>
-      <span class="sr-only">${esc(m.tags.map(t => legend[t] || t).join(", "))}.</span>
+      <span class="bars">${["pollen", "mildew", "storm", "best"].map(t => `<i class="t-${t}${tags.includes(t) ? " on" : ""}"${tags.includes(t) ? ` title="${esc(legend[t] || t)}"` : ""}></i>`).join("")}</span>
+      <span class="sr-only">${esc(tags.map(t => legend[t] || t).join(", "))}.</span>
       <p>${esc(m.note)}</p>
-    </li>`).join("")}
+    </li>`; }).join("")}
   </ol>
 </section>`)}
 
@@ -61,12 +62,13 @@ ${when(a, `<section class="al-cal" id="calendar" aria-labelledby="cal-h">
   <div class="al-prices-head">
     <h2 id="prices-h">Prices, posted like the tides</h2>
     <p>Starting prices for a typical house east of the Cooper. Raised and two-story homes run about a third more.</p>
+    ${when(demo, `<p class="al-small">${k.sampleTag(s, "Sample prices")} Real sites show the owner's own price list.</p>`)}
   </div>
   <div class="al-table" role="table" aria-label="Services and starting prices">
     <div class="al-tr al-th" role="row"><span role="columnheader">Service</span><span role="columnheader">From</span><span role="columnheader">Best month</span></div>
     ${s.services.map(x => `<div class="al-tr" role="row">
       <span role="cell"><b>${esc(x.name)}</b><small>${esc(x.desc)} Price for ${esc(x.unit)}.</small></span>
-      <span role="cell" class="al-num">${money(x.from)}</span>
+      <span role="cell" class="al-num"><small>from</small> ${money(x.from)}</span>
       <span role="cell" class="al-when">${esc(x.when || "")}</span>
     </div>`).join("")}
   </div>
@@ -81,24 +83,24 @@ ${when(a, `<section class="al-cal" id="calendar" aria-labelledby="cal-h">
     <p class="al-sign">${esc(s.owner.sign)}</p>
     <p class="al-small">${esc(s.owner.name)}, ${esc(s.owner.role)}. ${esc(b.insured || "")}</p>
   </div>
-  <div class="al-portrait" aria-hidden="true"><span>${demo ? "Rhea's photo, on her porch" : ""}</span></div>
+  <figure class="al-portrait">${s.owner.image ? k.img(s.owner.image, s.owner.photo || s.owner.name, { w: 600, h: 800 }) : ""}<figcaption>${esc(s.owner.photo || "")}${when(demo && !s.owner.image, ". Sample photo slot: the real site shows the owner here.")}</figcaption></figure>
 </section>
 
-${when(s.work.second, `<section class="al-second" aria-labelledby="roof-h">
+${when(s.work?.second, () => `<section class="al-second" aria-labelledby="roof-h">
   <h2 id="roof-h">Roofs, in the cool months</h2>
   <p>Streaks on the north and west slopes are algae feeding on the shingles. Soft wash kills it, and the roof stays clean for years.</p>
   ${k.compare(s.work.second, { cls: "al-compare wide" })}
   <p class="al-small">${k.sampleTag(s, "Sample photo")} ${esc(s.work.second.caption)}</p>
 </section>`)}
 
-<section class="al-reviews" id="reviews" aria-labelledby="rev-h">
+${when(r?.items?.length, () => `<section class="al-reviews" id="reviews" aria-labelledby="rev-h">
   <h2 id="rev-h">From the neighbors</h2>
   ${when(r?.rating, `<p class="al-rating">${k.rating(s)}</p>`)}
   ${k.sampleReviewsNote(s)}
   <div class="al-quotes">
-    ${r.items.map(x => `<figure><blockquote>${esc(x.text)}</blockquote><figcaption>${esc(x.name)}, ${esc(x.detail || "")}${when(x.date, `, <time>${esc(x.date)}</time>`)}</figcaption></figure>`).join("")}
+    ${k.newestFirst(r.items).map(x => `<figure><blockquote>${esc(x.text)}</blockquote><figcaption>${esc(x.name)}, ${esc(x.detail || "")}${when(x.date, `, <time datetime="${esc(x.date)}">${esc(k.monthYear(x.date))}</time>`)}</figcaption></figure>`).join("")}
   </div>
-</section>
+</section>`)}
 
 <section class="al-quote" id="quote" aria-labelledby="quote-h">
   <div class="al-quote-head">
@@ -132,7 +134,7 @@ ${when(s.work.second, `<section class="al-second" aria-labelledby="roof-h">
 <nav class="al-sticky" aria-label="Quick actions">
   ${k.callLink(s, "sticky", "Call", "al-sbtn")}
   ${k.textLink(s, "sticky", "Text", "al-sbtn")}
-  ${k.bookLink("sticky", "Get my quote", "al-btn")}
+  ${k.bookLink("sticky", s.booking?.cta || "Get my quote", "al-btn")}
 </nav>
 ${k.script(s)}
 </body>

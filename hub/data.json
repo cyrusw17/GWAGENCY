@@ -1,0 +1,22 @@
+{
+  "updated": "2026-10-03",
+  "perTrade": 1,
+  "niches": [
+    {
+      "id": "detailing",
+      "name": "Auto detailing",
+      "owner": "Web developer",
+      "slots": [
+        {
+          "business": "Ramirez & Son Mobile Detail",
+          "town": "San Antonio, TX",
+          "concept": "Price-your-car picker, a two-step booking form, and Call, Text and Book buttons that stay on screen",
+          "status": "review",
+          "client": "demo-ramirez-mobile",
+          "slug": "ramirez-mobile"
+        }
+      ]
+    }
+  ],
+  "demoNote": "Our first finished demo, made for an auto detailer."
+}

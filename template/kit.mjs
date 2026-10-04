@@ -22,8 +22,11 @@ export function rating(s, { stars = "★★★★★" } = {}) {
   const r = s.reviews;
   if (!r?.rating) return "";
   const src = r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google");
-  return `<span class="k-stars" aria-hidden="true">${stars}</span> <b>${esc(r.rating)}</b> <span>${r.count ? esc(r.count) + " reviews on " : "on "}${src}</span>`;
+  return `<span class="k-stars" aria-hidden="true">${stars}</span> <b>${esc(r.rating)}</b> <span>${r.count ? esc(r.count) + " reviews on " : "on "}${src}${when(s.demo, " (sample)")}</span>`;
 }
+
+export const monthYear = d => { const t = new Date(d + "T12:00:00Z"); return isNaN(t) ? d : t.toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }); };
+export const newestFirst = items => [...(items || [])].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
 
 export const sampleTag = (s, text = "Sample") => when(s.demo, `<span class="k-sample">${esc(text)}</span>`);
 export const sampleReviewsNote = (s, text = "Sample reviews for this demo. Real sites show the owner's own Google reviews, newest first.") =>
@@ -154,7 +157,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:599px){.k-demo span{display:none}}
 .k-demo a{margin-left:auto;color:#111;background:#f2c94c;padding:5px 10px;border-radius:4px;font-weight:700;text-decoration:none}
 .k-sample{display:inline-block;font:600 11px/1 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:4px 6px;border-radius:3px;background:rgba(0,0,0,.72);color:#fff}
-.k-sample-note{font-size:14px;opacity:.8}
+.k-sample-note{font-size:14px}
 [data-compare]{position:relative;overflow:hidden;touch-action:pan-y}
 [data-compare] .pane{position:absolute;inset:0}
 [data-compare] .pane img{width:100%;height:100%;object-fit:cover}

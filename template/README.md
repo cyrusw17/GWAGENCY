@@ -42,7 +42,7 @@ Layout patterns are adapted from [21st.dev](https://21st.dev) (rating badge over
 
 ## Results tracking (for the monthly results text and the 60-day guarantee)
 
-Set `"tracking": "groundwork"` in site.json. The page then reports visits, call taps, text taps, booking clicks and quote requests to `groundwork-web.com/api/sites.php`, and quote requests are emailed to the client and to us. Add the site to `GW_CLIENT_SITES` in the server's `api/config.php` (slug, owner email, the site's origins); unknown sites and other origins are refused. Read results at `/api/site-report.php?key=<GW_STATS_KEY>&site=<slug>&days=60`. Lead details stay in the database above the web root, never in git. No cookies; GPC and Do Not Track are honored for counts.
+Set `"tracking": "groundwork"` in site.json. The page then reports visits, call taps, text taps, booking clicks and quote requests to `groundwork-web.com/api/sites.php`, and quote requests are emailed to the client and to us. Add the site to `GW_CLIENT_SITES` in the server's `api/config.php` (slug, owner email, the site's origins); unknown sites and other origins are refused. Read results with `curl -H 'X-GW-Key: <GW_STATS_KEY>' 'https://groundwork-web.com/api/site-report.php?site=<slug>&days=60'`. Requests are capped (5 quote requests per visitor per hour, 50 per site per day) so fake floods can't inflate the guarantee count, and lead details are purged after the retention window. Lead details stay in the database above the web root, never in git. No cookies; GPC and Do Not Track are honored for counts.
 
 ## SEO and AI search, built in
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Results for one client site, for the monthly results text and the 60-day guarantee.
- * Private: /api/site-report.php?key=GW_STATS_KEY&site=<slug>&days=60
+ * Private: curl -H 'X-GW-Key: <GW_STATS_KEY>' 'https://groundwork-web.com/api/site-report.php?site=<slug>&days=60'
  * Returns counts only (visits, calls, texts, booking clicks, quote requests), never lead details.
  */
 declare(strict_types=1);
@@ -9,7 +9,8 @@ require __DIR__ . '/_lib.php';
 
 header('Cache-Control: no-store');
 header('Content-Type: application/json');
-if (GW_STATS_KEY === '' || !hash_equals(GW_STATS_KEY, (string)($_GET['key'] ?? ''))) { http_response_code(403); echo '{"ok":false}'; exit; }
+// Key in a header so it stays out of server logs and browser history: curl -H "X-GW-Key: ..." ...
+if (GW_STATS_KEY === '' || !hash_equals(GW_STATS_KEY, (string)($_SERVER['HTTP_X_GW_KEY'] ?? ''))) { http_response_code(403); echo '{"ok":false}'; exit; }
 
 $site = (string)($_GET['site'] ?? '');
 $days = max(1, min(400, (int)($_GET['days'] ?? 30)));

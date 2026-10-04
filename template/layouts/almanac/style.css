@@ -75,8 +75,9 @@ section{padding-block:56px;padding-inline:max(var(--g),calc((100% - 1120px)/2))}
 .al-tr span:first-child{display:grid;gap:4px}
 .al-tr b{font:400 21px/1.2 var(--serif)}
 .al-tr small{font-size:15px;color:var(--mute);line-height:1.45}
-.al-num{font:500 22px/1.2 var(--mono);text-align:right}
-.al-when{grid-column:1/-1;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mildew)}
+.al-num{font:500 22px/1.2 var(--mono);text-align:right;white-space:nowrap}
+.al-num small{font-size:13px;color:var(--mute);font-weight:400}
+.al-when{grid-column:1/-1;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#4A5E2C}
 .al-when::before{content:"Best: "}
 .al-th{display:none}
 .al-prices > .al-btn{justify-self:start}
@@ -86,7 +87,9 @@ section{padding-block:56px;padding-inline:max(var(--g),calc((100% - 1120px)/2))}
 .al-ceiling{position:absolute;inset:0 0 auto 0;height:14px;background:repeating-linear-gradient(90deg,rgba(23,48,41,.12) 0 2px,transparent 2px 64px)}
 .al-letter-body{display:grid;gap:14px;max-width:62ch}
 .al-sign{font:400 34px/1 var(--serif);font-style:italic}
-.al-portrait{aspect-ratio:3/4;max-width:300px;border-radius:150px 150px 4px 4px;background:repeating-linear-gradient(-45deg,rgba(23,48,41,.08) 0 10px,transparent 10px 20px),var(--white);display:grid;place-items:end center;padding:16px;font:400 13px/1.3 var(--mono);color:var(--mute);text-align:center}
+.al-portrait{margin:0;aspect-ratio:3/4;max-width:300px;width:100%;border-radius:150px 150px 4px 4px;overflow:hidden;position:relative;background:linear-gradient(180deg,var(--haint) 0 18%,var(--white) 18%);border:2px solid var(--pine);display:grid;align-content:end}
+.al-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.al-portrait figcaption{position:relative;margin:12px;padding:10px 12px;background:var(--white);font:400 13px/1.4 var(--mono);color:var(--mute);border-left:3px solid var(--pollen)}
 
 /* second compare */
 .al-second{display:grid;gap:14px}
@@ -187,3 +190,4 @@ section{padding-block:56px;padding-inline:max(var(--g),calc((100% - 1120px)/2))}
 }
 .al-compare .tag{top:auto;bottom:12px}
 .al-second .al-compare.wide{max-width:900px}
+.al-letter .al-small{color:var(--pine-2)}
