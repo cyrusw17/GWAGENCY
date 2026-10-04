@@ -44,40 +44,30 @@
     ]
   },
   "theme": {
-    "bg": "#FFFFFF",
-    "surface": "#F6F4EF",
-    "surface2": "#ECE8DF",
-    "text": "#151515",
-    "muted": "#55524C",
-    "line": "#E2DDD2",
-    "accent": "#B3121E",
-    "accentInk": "#FFFFFF",
-    "accent2": "#1C3557",
-    "display": "\"Alfa Slab One\", Rockwell, \"Roboto Slab\", Georgia, serif",
-    "body": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
-    "radius": "4px",
+    "bg": "#FBF5EA",
+    "themeColor": "#FBF5EA",
     "fontFaces": [
       {
-        "family": "Alfa Slab One",
-        "weight": 400,
-        "src": "fonts/alfa-slab-one-latin-400-normal.woff2",
-        "preload": true
-      },
-      {
-        "family": "Archivo",
-        "weight": 400,
-        "src": "fonts/archivo-latin-400-normal.woff2",
-        "preload": true
-      },
-      {
-        "family": "Archivo",
-        "weight": 600,
-        "src": "fonts/archivo-latin-600-normal.woff2"
-      },
-      {
-        "family": "Archivo",
+        "family": "Bricolage Grotesque",
         "weight": 800,
-        "src": "fonts/archivo-latin-800-normal.woff2"
+        "src": "fonts/bricolage-grotesque-latin-800-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Bricolage Grotesque",
+        "weight": 400,
+        "src": "fonts/bricolage-grotesque-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Bricolage Grotesque",
+        "weight": 700,
+        "src": "fonts/bricolage-grotesque-latin-700-normal.woff2"
+      },
+      {
+        "family": "Gochi Hand",
+        "weight": 400,
+        "src": "fonts/gochi-hand-latin-400-normal.woff2"
       }
     ]
   },
@@ -85,76 +75,15 @@
     "title": "Mobile Car Detailing in San Antonio | Ramirez & Son",
     "description": "Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español."
   },
-  "offer": {
-    "bar": "October: free odor treatment with La Completa.",
-    "barCta": "Book"
-  },
-  "layout": {
-    "hero": "split",
-    "order": [
-      "services",
-      "price",
-      "pricing",
-      "story",
-      "reviews",
-      "promise",
-      "areas",
-      "book",
-      "faq"
-    ]
-  },
-  "eyebrows": {
-    "services": "The board",
-    "faq": "Preguntas",
-    "pricing": "",
-    "reviews": "",
-    "areas": "",
-    "how": "",
-    "work": ""
-  },
   "hero": {
-    "eyebrow": "Since 2011 · Se habla español",
+    "kicker": "Since 2011 · se habla español",
+    "headline": "Mobile car detailing in San Antonio",
     "headlineEm": "We come to you.",
-    "sub": "Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The prices on our board are the prices you pay.",
-    "card": {
-      "title": "Painted on the van door",
-      "rows": [
-        {
-          "k": "Call or text",
-          "v": "(210) 555-0142"
-        },
-        {
-          "k": "Hours",
-          "v": "Mon-Sat, 7 to 6"
-        },
-        {
-          "k": "Summer start",
-          "v": "6:30 am",
-          "note": "before the heat"
-        },
-        {
-          "k": "We cover",
-          "v": "Inside Loop 1604"
-        }
-      ]
-    },
-    "proof": [
-      {
-        "value": "14 years",
-        "label": "same family, same van"
-      },
-      {
-        "value": "Nothing",
-        "label": "needed from you, not even a hose"
-      }
-    ]
+    "sub": "Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The price on our board is the price you pay.",
+    "vanAlt": "A drawing of our white Ford Transit with the red shade tent set up beside it. Drag it, or use the arrow keys, to spin it around.",
+    "vanHint": "Drag the van to spin it",
+    "vanNote": "100 gal of water on board"
   },
-  "trust": [
-    "Insured",
-    "Prices posted",
-    "One of us two at your door",
-    "Español o inglés"
-  ],
   "servicesHeadline": "Everything we do, and what it costs",
   "services": [
     {
@@ -298,9 +227,9 @@
     ]
   },
   "guarantee": {
-    "eyebrow": "",
     "title": "Missed a spot? We come back.",
-    "body": "Text me a photo of the car and I'll send a price. We pull up with our own water and power, and you walk the car with me before you pay. If you find something later, text a photo within 48 hours and we come back and fix it, free. — Rudy"
+    "body": "Text me a photo of the car and I'll send a price. We pull up with our own water and power, and you walk the car with me before you pay. If you find something later, text a photo within 48 hours and we come back and fix it, free.",
+    "sign": "Rudy"
   },
   "areas": {
     "headline": "Our route, inside 1604",
@@ -322,15 +251,40 @@
   },
   "booking": {
     "cta": "Book a time",
-    "eyebrow": "",
     "headline": "Pick a package, get a time",
-    "body": "Two quick steps. Rudy texts you back with a time, usually within the hour."
+    "body": "Three short steps. Rudy texts you back with a time, usually within the hour."
   },
   "lead": {
     "endpoint": "",
-    "question": "What does the car need?",
+    "start": {
+      "question": "What does the car need?",
+      "options": [
+        {
+          "value": "La Completa",
+          "hint": "inside and out, $189"
+        },
+        {
+          "value": "Quick Shine",
+          "hint": "outside, $89"
+        },
+        {
+          "value": "Showroom",
+          "hint": "most of a day, $299"
+        },
+        {
+          "value": "Not sure yet",
+          "hint": "Rudy will help you pick"
+        }
+      ]
+    },
+    "step2": "Tell us about the car",
+    "serviceLabel": "Package or service",
+    "zipHint": "78209",
+    "notesHint": "Year, make and model, and anything we should know (dog hair, kid stuff)",
+    "step3": "Where should Rudy text you?",
     "submit": "Text me a time",
-    "notesHint": "Year, make and model, and anything we should know (dog hair, kid stuff)"
+    "contactHint": "A mobile number is best. Rudy texts, he doesn't email much.",
+    "privacy": "We only use this to set up your detail. No spam."
   },
   "faqHeadline": "Questions we get on the driveway",
   "faq": [
@@ -432,5 +386,70 @@
     "totalLabel": "Rudy's price",
     "cta": "Book this price",
     "fine": "Pay after you've checked the car. Cash, card, Zelle or Venmo."
+  },
+  "renderer": "van-door",
+  "marquee": [
+    "Alamo Heights",
+    "Stone Oak",
+    "Helotes",
+    "Leon Valley",
+    "Live Oak",
+    "Converse",
+    "Southside",
+    "Medical Center",
+    "Shavano Park",
+    "Terrell Hills"
+  ],
+  "route": {
+    "title": "Where the van is today",
+    "body": [
+      "This is how a Tuesday looks. The list follows the real San Antonio clock, so you can see which driveway we're in right now."
+    ],
+    "fallback": "Text any time. Rudy answers between cars.",
+    "stops": [
+      {
+        "from": "06:30",
+        "to": "09:30",
+        "label": "6:30",
+        "where": "Alamo Heights",
+        "job": "Tahoe, La Completa"
+      },
+      {
+        "from": "09:30",
+        "to": "12:00",
+        "label": "9:30",
+        "where": "Stone Oak",
+        "job": "F-150, Quick Shine and engine bay"
+      },
+      {
+        "from": "12:00",
+        "to": "15:00",
+        "label": "12:30",
+        "where": "Medical Center",
+        "job": "Office lot, three Camrys"
+      },
+      {
+        "from": "15:00",
+        "to": "18:00",
+        "label": "3:30",
+        "where": "Southside",
+        "job": "Odyssey, Showroom with dog hair"
+      }
+    ]
+  },
+  "servicesNote": "Car and small SUV prices. Trucks add $30.",
+  "wash": {
+    "title": "Go ahead, wash it yourself",
+    "body": [
+      "This Camry just did a week of Hill Country back roads. Drag your finger over it, or tap the button and let the sponge do it."
+    ],
+    "meter": "clean",
+    "auto": "Wash it for me",
+    "done": "Looks good, right? That's La Completa, $189. Rudy does the inside too.",
+    "pick": "La Completa",
+    "cta": "Book La Completa"
+  },
+  "sticky": {
+    "book": "Book a time"
   }
 }
