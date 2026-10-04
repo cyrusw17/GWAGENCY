@@ -77,7 +77,7 @@ ${when(rt.stops?.length, `<section class="today" id="today" aria-labelledby="tod
 <section class="board" id="board" aria-labelledby="board-h">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="board-h">${esc(s.servicesHeadline)}</h2>
+      <h2 id="board-h">${esc(s.servicesHeadline)}${when(demo, ' <span class="sample-tag">(sample prices)</span>')}</h2>
       <p class="hand note-r">${esc(s.servicesNote || "")}</p>
     </div>
     <ul class="bento">${tiles}</ul>

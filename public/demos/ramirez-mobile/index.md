@@ -12,7 +12,7 @@
 - Showroom: $299 (Most of a day)
 
 ## Services
-- Hand wash and spray wax (from $69): Body, wheels, tires and windows. About an hour.
+- Outside hand wash (from $69): Body, wheels and outside glass, about 45 minutes. No wax or tire shine; Quick Shine adds both for $89.
 - Interior shampoo (from $129): Seats and carpet shampooed and extracted. Dry by dinner in summer.
 - Full detail, inside and out (from $189): Our most booked job. See La Completa below.
 - Headlight restore (from $59): Yellow, foggy lenses sanded, polished and sealed.
