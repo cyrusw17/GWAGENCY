@@ -4,123 +4,308 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pressure Washing Website Design | GroundWork-Web</title>
-<meta name="description" content="Websites for pressure washing and soft washing companies, with prices on the page and a quote form that gets used. $99 today, $300 when you approve, then $99 or $199 a month.">
-<meta name="color-scheme" content="light dark">
-<link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/ds/tokens.css?v=3.1">
-<link rel="stylesheet" href="/assets/ds/base.css?v=3.1">
-<link rel="stylesheet" href="/assets/ds/components.css?v=3.2">
+<meta name="description" content="Websites for pressure washing and soft washing companies: starting prices on the page, a quote form that asks what needs washing, and call and text buttons on every phone screen. $99 to start, $300 when you approve.">
 <link rel="canonical" href="https://groundwork-web.com/exterior-cleaning/">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
-<meta property="og:title" content="Pressure Washing Website Design | GroundWork-Web">
+<meta property="og:title" content="Pressure washing websites that show the price and take the quote">
 <meta property="og:image" content="https://groundwork-web.com/assets/og.png">
+<link rel="preload" href="/assets/fonts/chivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Website design for pressure washing and soft washing companies","provider":{"@id":"https://groundwork-web.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"offers":{"@type":"Offer","price":"399","priceCurrency":"USD","description":"$99 to start, $300 when you approve the preview"}}</script>
+<style>
+@font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--slab:#a9a59c;--slab-d:#6e6a62;--grime:#585247;--clean:#e9e7e1;--ink:#1a1c1d;--ink-2:#4b4f52;--orange:#e2551b;--orange-d:#b8410f;--hose:#24704a;--line:#cfccc4;
+  --f:"Chivo",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--clean);color:var(--ink);font:400 17px/1.55 var(--f)}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px;z-index:9}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.bar-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;max-width:1080px;margin:0 auto}
+.logo{font-weight:800;text-decoration:none;letter-spacing:-.01em;font-size:1.1rem}
+.bar-top nav{display:flex;gap:16px;align-items:center;font-size:.92rem}
+.bar-top nav a:not(.btn){display:none}
+@media (min-width:720px){.bar-top nav a:not(.btn){display:inline}}
+.btn{display:inline-flex;flex-direction:column;justify-content:center;font:800 1rem var(--f);background:var(--orange);color:#fff;text-decoration:none;border-radius:4px;padding:12px 18px;min-height:48px;border:0;cursor:pointer}
+.btn small{font-weight:400;font-size:.78rem;opacity:.92}
+.btn:hover{background:var(--orange-d)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.sm{min-height:40px;padding:8px 14px;font-size:.9rem}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--hose);outline-offset:3px}
+
+/* Hero: dirty slab with one clean test stripe through it */
+.slab{position:relative;background:var(--grime);
+  background-image:radial-gradient(circle at 12% 30%,#0003 0 2px,transparent 3px),radial-gradient(circle at 70% 80%,#0002 0 1.5px,transparent 2.5px),radial-gradient(ellipse at 30% 60%,#3d382f 0,transparent 55%),radial-gradient(ellipse at 85% 20%,#4a5236 0,transparent 45%),linear-gradient(170deg,#6d675b,#4f4a40);
+  background-size:23px 23px,31px 31px,100% 100%,100% 100%,100% 100%;padding:26px 0 30px;overflow:hidden}
+.slab::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 179px,#0002 179px 181px);pointer-events:none}
+.stripe{position:relative;z-index:1;background:var(--slab);background-image:linear-gradient(180deg,#b9b5ac,#a8a49b);padding:24px 0 26px;box-shadow:0 0 0 1px #0001}
+.stripe .wrap{position:relative}
+.stripe::before,.stripe::after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 6px 0,var(--slab) 5px,transparent 6px) 0 0/12px 10px}
+.stripe::before{top:-9px;transform:scaleY(-1)}.stripe::after{bottom:-9px}
+.kicker{color:var(--clean);font-size:.82rem;letter-spacing:.04em;margin:0 0 14px;max-width:30em}
+.kicker b{color:#fff}
+h1{font-weight:800;font-size:clamp(2.1rem,7.4vw,4rem);line-height:1;letter-spacing:-.025em;margin:0;max-width:17ch}
+.under{color:var(--clean);margin:18px 0 0;max-width:34em}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.slab .btn.ghost{color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.deal{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;padding:0;list-style:none;color:#fff;font-size:.9rem}
+.deal b{font-size:1.15rem}
+
+section{padding:56px 0}
+h2{font-weight:800;font-size:clamp(1.7rem,5vw,2.6rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 12px;max-width:22ch}
+.p{max-width:38em;color:var(--ink-2);margin:0 0 20px}
+
+/* Compare slider */
+.compare{display:grid;gap:26px;align-items:center}
+@media (min-width:860px){.compare{grid-template-columns:1fr 400px}}
+.cmp{position:relative;width:min(100%,360px);margin:0 auto;aspect-ratio:9/15;border-radius:28px;border:10px solid var(--ink);overflow:hidden;background:#fff;touch-action:pan-y;user-select:none}
+.scr{position:absolute;inset:0;padding:16px 14px;font-size:.8rem;line-height:1.4}
+.old{background:#f2f2f2;color:#555;font-family:Georgia,serif}
+.old .ban{height:34%;margin:-16px -14px 12px;background:linear-gradient(135deg,#9db4c9,#c7d3dd);display:grid;place-items:center;color:#fff;font:700 1.25rem Georgia,serif;text-shadow:0 1px 3px #0005;text-align:center;padding:10px}
+.old p{margin:0 0 8px}
+.old .tiny{font-size:.68rem;color:#888}
+.new{background:var(--clean);color:var(--ink);clip-path:inset(0 0 0 var(--x,50%))}
+.new .h{font-weight:800;font-size:1.05rem;line-height:1.1;margin:0 0 4px}
+.new .t{font-size:.7rem;color:var(--ink-2);margin:0 0 10px}
+.new .rows{border-top:2px solid var(--ink);margin:0 0 10px}
+.new .rows div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.new .rows b{font-weight:800}
+.new .q{font-weight:800;margin:4px 0 6px}
+.new .chips{display:flex;flex-wrap:wrap;gap:5px}
+.new .chips span{border:1.5px solid var(--ink);border-radius:3px;padding:3px 7px;font-size:.7rem}
+.new .dock{position:absolute;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr 2fr;gap:5px}
+.new .dock span{background:#fff;border-radius:4px;text-align:center;padding:7px 0;font-weight:800;font-size:.7rem;box-shadow:0 0 0 1.5px var(--ink)}
+.new .dock span:last-child{background:var(--orange);color:#fff;box-shadow:none}
+.handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:0;border-left:3px solid var(--orange)}
+.handle::after{content:"";position:absolute;top:50%;left:-19px;width:35px;height:35px;margin-top:-18px;border-radius:50%;background:var(--orange);box-shadow:0 2px 6px #0004;
+  background-image:linear-gradient(90deg,transparent 9px,#fff 9px 11px,transparent 11px 24px,#fff 24px 26px,transparent 26px)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp:focus-within{outline:3px solid var(--hose);outline-offset:4px}
+.lbls{display:flex;justify-content:space-between;width:min(100%,360px);margin:10px auto 0;font-size:.8rem;color:var(--ink-2)}
+.cap{font-size:.84rem;color:var(--ink-2);margin:10px 0 0}
+
+/* Surface sheet */
+.dark{background:var(--ink);color:var(--clean)}
+.dark .p{color:#b9bcbe}
+.sheet{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}
+.sheet th,.sheet td{text-align:left;vertical-align:top;padding:14px 10px 14px 0;border-top:1px solid #ffffff26}
+.sheet th{font-weight:800;width:32%;color:#fff}
+.sheet th small{display:block;font-weight:400;color:#9da1a3;font-size:.78rem;margin-top:2px}
+.sheet td q{quotes:"\201C" "\201D";color:#fff}
+@media (max-width:600px){.sheet,.sheet tbody,.sheet tr,.sheet th,.sheet td{display:block;width:100%}.sheet td{border-top:0;padding-top:0}}
+
+/* Calculator */
+.calc{display:grid;gap:24px;align-items:start}
+@media (min-width:860px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-weight:800;margin-bottom:6px}
+.money{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.6rem}
+.money input{font:800 1.6rem var(--f);width:7ch;padding:6px 10px;border:2px solid var(--ink);border-radius:4px;background:#fff}
+.calc input[type=range]{width:100%;accent-color:var(--orange);margin:14px 0 4px;height:32px}
+.readout{border:2px solid var(--ink);border-radius:6px;padding:18px;background:#fff}
+.readout p{margin:0 0 12px}
+.big{font-weight:800;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1;letter-spacing:-.03em;display:block;color:var(--hose)}
+.readout .fine{font-size:.8rem;color:var(--ink-2);margin:0}
+
+/* Money */
+.steps{display:grid;gap:0;border-top:3px solid var(--ink);margin:18px 0 26px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:16px 16px 16px 0;border-bottom:1px solid var(--line)}
+.step b{display:block;font-size:2.2rem;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.step span{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.step p{margin:6px 0 0;font-size:.92rem;color:var(--ink-2)}
+.plans{display:grid;gap:14px}
+@media (min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plan{border:2px solid var(--ink);border-radius:6px;padding:20px;background:#fff}
+.plan.rec{box-shadow:6px 6px 0 var(--orange)}
+.plan h3{margin:0;font-size:1.15rem;font-weight:800}
+.plan .amt{font-weight:800;font-size:2.4rem;letter-spacing:-.03em;margin:6px 0}
+.plan .amt small{font-size:1rem;font-weight:400}
+.plan ul{margin:0 0 16px;padding-left:18px;color:var(--ink-2);font-size:.94rem}
+.note{font-size:.88rem;color:var(--ink-2);margin:16px 0 0}
+
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{font-weight:800;cursor:pointer;min-height:28px}
+details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
+
+.letter{max-width:40em;font-size:1.05rem}
+.letter .sig{font-weight:800;margin-top:14px}
+.check-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border:2px dashed var(--slab-d);border-radius:6px;padding:16px;margin-top:26px}
+.check-cta p{margin:0;flex:1 1 260px}
+
+footer{padding:30px 0 100px;font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--line)}
+footer nav a{margin-right:14px}
+.dock-m{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--clean);box-shadow:0 -1px 0 var(--line);z-index:5}
+.dock-m .btn{align-items:center}
+@media (min-width:760px){.dock-m{display:none}footer{padding-bottom:30px}}
+</style>
 </head>
-<body class="has-bar">
+<body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap">
-    <a class="logo" href="/" translate="no"><span class="dot" aria-hidden="true"></span>GroundWork-Web</a>
-    <nav class="links" id="primary-nav" aria-label="Primary"><a href="/demos/haint-blue/">Demo</a><a href="#pricing">Pricing</a><a href="/audit/">Free audit</a></nav>
-    <div class="header-end"><a class="btn btn-buy btn-sm" href="/start/?niche=exterior-cleaning">Start now</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button></div>
-  </div>
+<header class="bar-top">
+  <a class="logo" href="/" translate="no">GroundWork-Web</a>
+  <nav aria-label="Primary"><a href="/demos/haint-blue/">Demo</a><a href="#money">Pricing</a><a href="/site-check/?niche=exterior-cleaning">Free site check</a><a class="btn sm" href="/start/?niche=exterior-cleaning">Start for $99</a></nav>
 </header>
 
 <main id="main">
-<section class="hero">
+<div class="slab">
   <div class="wrap">
+    <p class="kicker"><b>For pressure washing and soft washing companies.</b> You run a test stripe before you quote a driveway. This is ours.</p>
+  </div>
+  <div class="stripe">
+    <div class="wrap">
+      <h1>Pressure washing websites that show the price and take the quote.</h1>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="under">Starting prices on the first screen, a quote form that asks what needs washing, and Call and Text buttons that stay on every phone screen. Live in about a week.</p>
+    <div class="ctas">
+      <a class="btn" href="/start/?niche=exterior-cleaning">Start for $99<small>Refunded if you don't want the site</small></a>
+      <a class="btn ghost" href="/demos/haint-blue/">Open the demo site</a>
+    </div>
+    <ul class="deal"><li><b>$99</b> today</li><li><b>$300</b> when you approve it</li><li><b>$99 or $199</b> a month once it's live</li></ul>
+  </div>
+</div>
+
+<section aria-labelledby="cmp-h">
+  <div class="wrap compare">
     <div>
-      <span class="eyebrow">Founding rate. $99 today, $300 when you approve.</span>
-      <h1>Pressure washing websites that get <em>jobs booked.</em></h1>
-      <p class="lead">Your prices on the page, a before-and-after slider up top, and a quote form that asks what needs washing. Live in about a week.</p>
-      <dl class="deal">
-        <div><dt>$99</dt><dd>today, to start</dd></div>
-        <div><dt>$300</dt><dd>when you approve it</dd></div>
-        <div><dt>$99 or $199</dt><dd>a month, once it is live</dd></div>
-      </dl>
-      <div class="ctas">
-        <a class="btn btn-buy" href="/start/?niche=exterior-cleaning">Start now<small>$99 today. We start this week.</small></a>
-        <a class="btn btn-ghost" href="/demos/haint-blue/">See the demo<small>A fictional company, fully working.</small></a>
+      <h2 id="cmp-h">Drag the handle. Same company, two websites.</h2>
+      <p class="p">On the left is the site most washing companies have: a stock banner, &ldquo;family owned since&rdquo;, and &ldquo;call for a free estimate&rdquo;. On the right is what a homeowner sees on ours, before they have to call anyone.</p>
+      <p class="p">In a sample of 62 local service websites we checked this month, 57 showed no clear price. A homeowner comparing three companies at 9 p.m. texts the one that answered the question.</p>
+    </div>
+    <div>
+      <div class="cmp" id="cmp" style="--x:50%">
+        <div class="scr old" aria-hidden="true">
+          <div class="ban">Welcome to Sample Pressure Washing!</div>
+          <p>We are a family owned and operated business serving the area. We take pride in our work and customer satisfaction is our number one priority.</p>
+          <p>Services: pressure washing, house washing, roof cleaning, and more.</p>
+          <p><u>Contact us</u> for a free estimate!</p>
+          <p class="tiny">&copy; 2019 All rights reserved.</p>
+        </div>
+        <div class="scr new" aria-hidden="true">
+          <p class="h">Soft washing and pressure washing in Mount Pleasant</p>
+          <p class="t">Licensed and insured &middot; Reply by text same day</p>
+          <div class="rows"><div><span>House soft wash</span><b>from $249</b></div><div><span>Driveway and walks</span><b>from $149</b></div><div><span>Roof soft wash</span><b>from $399</b></div></div>
+          <p class="q">What needs washing?</p>
+          <div class="chips"><span>House</span><span>Driveway</span><span>Roof</span><span>Gutters</span><span>Deck or fence</span></div>
+          <div class="dock"><span>Call</span><span>Text</span><span>Get my quote</span></div>
+        </div>
+        <div class="handle" aria-hidden="true"></div>
+        <input type="range" min="0" max="100" value="50" id="cmp-r" aria-label="Compare a typical washing company website with ours. Slide right to show more of the typical site.">
       </div>
-      <p class="trust"><strong>No risk.</strong> You see the site before the $300. Don't want it? The $99 comes back.</p>
-    </div>
-    <div class="phone-stage">
-      <div class="phone"><img class="shot" src="/assets/img/demo-haint-blue.png" width="390" height="844" alt="The top of our pressure washing and exterior cleaning demo site on a phone." decoding="async"></div>
-      <p class="demo-cap">Haint Blue Soft Wash, our exterior cleaning demo. Fictional company, fully working. <a href="/demos/haint-blue/">Open it</a>.</p>
+      <div class="lbls" aria-hidden="true"><span>&larr; Typical site</span><span>Ours &rarr;</span></div>
+      <p class="cap">Both are mock-ups for comparison. Prices are sample prices from our demo.</p>
     </div>
   </div>
 </section>
 
-<section class="cream">
+<section class="dark" aria-labelledby="sheet-h">
   <div class="wrap">
-    <div class="sec-head rv"><span class="eyebrow">Why jobs go to the other company</span><h2>Homeowners want a price before they call.</h2><p class="lead">They want to see the driveway clean, not read about it. When the site has neither, they text the next company on the map.</p></div>
+    <h2 id="sheet-h">Built surface by surface, the way you quote.</h2>
+    <p class="p">Every washing company gets the same three questions: will it hurt my plants, will it ruin my roof, and how much is it. The site answers them before the phone rings.</p>
+    <table class="sheet">
+      <tbody>
+        <tr><th scope="row">House<small>Siding, soffits, trim</small></th><td>A short soft-wash section in your words: low pressure, the right mix, plants rinsed before and after. It answers <q>will this hurt my plants?</q> before they ask, with your starting price beside it.</td></tr>
+        <tr><th scope="row">Roof<small>Black streaks, moss</small></th><td>A plain line that the streaks are algae and come off with a soft wash, not a pressure blast, so shingle owners stop worrying about warranty damage. This is where you list your roof minimum.</td></tr>
+        <tr><th scope="row">Concrete<small>Driveways, walks, pool decks</small></th><td>A before-and-after slider from your own job photos, right at the top. A clean driveway sells itself faster than any paragraph.</td></tr>
+        <tr><th scope="row">Add-ons<small>Gutters, windows, decks, fences</small></th><td>Check boxes on the quote form, so a driveway lead can turn into a driveway plus gutters ticket without a second phone call.</td></tr>
+        <tr><th scope="row">Your area<small>Towns and drive limit</small></th><td>The towns you actually drive to, so you stop getting quote requests from forty minutes out.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section>
-  <div class="wrap two-col">
-    <div class="rv">
-      <span class="eyebrow">What you get for the $399</span>
-      <h2 style="margin:16px 0 var(--s4)">A site built for pressure washing and exterior cleaning.</h2>
-      <p class="lead">A homeowner can see your price, pick what they need, and send a quote request in under a minute, or tap to call or text.</p>
-      <div class="ctas"><a class="btn btn-buy" href="/start/?niche=exterior-cleaning">Start now<small>$99 today</small></a><a class="btn btn-ghost" href="/demos/haint-blue/">Open the demo</a></div>
+<section aria-labelledby="calc-h">
+  <div class="wrap calc">
+    <div>
+      <h2 id="calc-h">How many jobs pay for it?</h2>
+      <p class="p">Put in your average ticket. The math is just the monthly plan divided by one job.</p>
+      <label for="ticket">My average job</label>
+      <div class="money">$<input id="ticket" type="number" inputmode="numeric" min="50" max="3000" step="1" value="249" aria-describedby="ticket-hint"></div>
+      <input type="range" id="ticket-r" min="50" max="1200" step="1" value="249" aria-label="Average job, slider">
+      <p class="note" id="ticket-hint">$249 is a typical single-story house soft wash.</p>
     </div>
-    <ul class="check-list rv">
-      <li><b>Before-and-after slider</b>front and center, built from your own job photos.</li>
-      <li><b>&quot;What needs washing?&quot; quote form</b>: house, driveway, roof, windows, gutters, in two quick steps.</li>
-      <li><b>Starting prices shown</b> for your main services, so tire-kickers sort themselves out.</li>
-      <li><b>Call and text buttons</b> stuck to the bottom of every phone screen.</li>
-      <li><b>Service-area section</b> with the towns you drive to, so out-of-area requests stop.</li>
-      <li><b>Local search setup</b>: your services, towns and hours marked up so Google can read them, and linked to your Google Business Profile.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="price-block" id="pricing">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="eyebrow">How the money works</span><h2>You pay in two parts. You see the site between them.</h2></div>
-    <div class="timeline rv">
-      <div class="step"><div class="when">Step 1. Today</div><div class="amt">$99</div><p>Secure Stripe checkout and a short brief: logo, photos, services and prices. We start this week.</p></div>
-      <div class="step"><div class="when">Step 2. Private preview</div><div class="amt">Still $99</div><p>Preview link in about a week. One revision. Don't want it? We refund the $99.</p></div>
-      <div class="step live"><div class="when">Step 3. Approve and launch</div><div class="amt">$300</div><p>$399 total for the build. We register the domain in your name and go live.</p></div>
+    <div class="readout" aria-live="polite">
+      <p>Grow ($199 a month) is paid for by<span class="big" id="grow-n">0.8 jobs</span>a month.</p>
+      <p>Host ($99 a month) is paid for by <b id="host-n">0.4 jobs</b> a month, and the whole $399 build by <b id="build-n">1.6 jobs</b>.</p>
+      <p class="fine">This counts the cost only. It doesn't promise any number of jobs.</p>
     </div>
-    <div class="plan-grid two rv" style="margin-top:var(--s6)">
-      <div class="plan"><p class="cap">Host</p><h3>Keep the site live</h3><div class="amt">$99<small>/mo</small></div><p class="sub">Starts the month you go live.</p><ul><li>Hosting, SSL, uptime monitoring</li><li>Quote form and booking kept working</li><li>Cancel with 30 days notice</li></ul><a class="btn btn-ghost" href="/start/?plan=host&amp;niche=exterior-cleaning">Start now<span class="sr-only"> on Host</span></a></div>
-      <div class="plan featured"><span class="rec">Recommended</span><p class="cap">Grow</p><h3>We keep it selling</h3><div class="amt">$199<small>/mo</small></div><p class="sub">Starts the month you go live.</p><ul><li>Everything in Host</li><li>2 to 3 updates a month: offers, prices, photos</li><li>Monthly Google Business Profile and SEO check-in</li></ul><a class="btn btn-buy" href="/start/?plan=grow&amp;niche=exterior-cleaning">Start now<span class="sr-only"> on Grow</span></a></div>
+  </div>
+</section>
+
+<section id="money" aria-labelledby="money-h" style="padding-top:20px">
+  <div class="wrap">
+    <h2 id="money-h">You pay in two parts, and you see the site in between.</h2>
+    <div class="steps">
+      <div class="step"><span>Today</span><b>$99</b><p>Secure checkout and a short brief: your services, prices, towns and a few job photos.</p></div>
+      <div class="step"><span>About a week later</span><b>Preview</b><p>A private link to your finished site. One round of changes. Don't want it? The $99 comes back.</p></div>
+      <div class="step"><span>When you approve</span><b>$300</b><p>$399 total for the build. We register the domain in your name and go live.</p></div>
     </div>
-    <p class="price-note"><a href="/before-you-pay/">Preview, refund, and how you leave</a>, spelled out.</p>
+    <div class="plans">
+      <div class="plan"><h3>Host</h3><div class="amt">$99<small>/mo</small></div><ul><li>Hosting, SSL and uptime checks</li><li>Quote form and buttons kept working</li><li>Fits a one-truck operation that rarely changes prices</li></ul><a class="btn ghost" href="/start/?plan=host&amp;niche=exterior-cleaning">Start on Host</a></div>
+      <div class="plan rec"><h3>Grow, the one we recommend</h3><div class="amt">$199<small>/mo</small></div><ul><li>Everything in Host</li><li>2 to 3 updates a month: new prices, spring pollen specials, fresh job photos</li><li>A monthly Google Business Profile and local search check-in</li></ul><a class="btn" href="/start/?plan=grow&amp;niche=exterior-cleaning">Start on Grow</a></div>
+    </div>
+    <p class="note">Monthly billing starts the month you go live. Or pay a year up front and get 12 months for the price of 10. Founding rate for our first 25 clients, kept for as long as you stay. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
   </div>
 </section>
 
-<section>
+<section aria-labelledby="faq-h" style="padding-top:20px">
   <div class="wrap">
-    <div class="sec-head rv"><span class="eyebrow">Honest answers</span><h2>Questions</h2></div>
-    <div class="faq"><details><summary>Can customers send photos for a quote?</summary><p>Yes. The quote form leads with what needs washing and your ZIP, then their number, so you can text back for photos and a price.</p></details><details><summary>Do you work with soft washing and window cleaning companies?</summary><p>Yes. The site lists whatever you offer: house and roof soft washing, concrete, windows, gutters, decks and fences.</p></details><details><summary>What if I don't like the site?</summary><p>You get one revision on a private preview. If you still don't want it, we refund the $99 and nothing else is charged.</p></details><details><summary>How long does it take?</summary><p>About 7 days from the day we receive your logo, photos, services and prices.</p></details><details><summary>Who owns the domain?</summary><p>You do. We register it in your name when you approve the site.</p></details></div>
+    <h2 id="faq-h">Questions washing companies ask</h2>
+    <details><summary>Why not build it myself on a site builder?</summary><p>You can. You'd pay a builder every month and spend your evenings writing it. What you'd still have to work out is the price list, the quote form that asks the right questions, the call bar and the local search setup. That's the part we do, and on Grow we keep changing it for you.</p></details>
+    <details><summary>Who owns the domain and the site?</summary><p>You own the domain. We register it in your name when you approve the site. If you leave, we hand over the site files after your final invoice.</p></details>
+    <details><summary>Who updates my prices when they change?</summary><p>On Grow, we do: send a text and it's changed, up to 2 to 3 updates a month. On Host, the site stays as built, and changes are quoted.</p></details>
+    <details><summary>Can customers send photos for a quote?</summary><p>Yes. The form asks what needs washing and their ZIP, then their phone, so you can text back for photos and a price.</p></details>
+    <details><summary>I do soft washing and windows, not just pressure washing. Does that fit?</summary><p>Yes. The site lists what you offer: house and roof soft washing, concrete, windows, gutters, decks and fences.</p></details>
+    <details><summary>How long does it take?</summary><p>About 7 days from the day we get your services, prices and photos.</p></details>
   </div>
 </section>
 
-<section class="cream" id="contact">
+<section aria-labelledby="note-h" style="padding-top:10px">
   <div class="wrap">
-    <div class="sec-head rv"><span class="eyebrow">Next step</span><h2>Two ways in.</h2><p class="lead">Start now for $99, or <a href="/audit/">book the free 15-minute audit</a> first. Both are fine.</p></div>
-    <div class="ctas"><a class="btn btn-buy" href="/start/?niche=exterior-cleaning">Start now</a><a class="btn btn-ghost" href="/audit/">Book the audit</a></div>
+    <h2 id="note-h">A note from me</h2>
+    <div class="letter">
+      <p>I build these one at a time from Deer Park, Texas. I'm not going to tell you a website washes houses. What it can do is stop losing the homeowner who wanted a price at 9 p.m. and couldn't find one. That's the job.</p>
+      <p class="sig">Cyrus Wilburn, GroundWork-Web</p>
+    </div>
+    <div class="check-cta">
+      <p><b>Not ready to start?</b> Run the free 1-minute check on the site you have now. You'll get a score and the three fixes worth doing first, with no form.</p>
+      <a class="btn ghost" href="/site-check/?niche=exterior-cleaning">Check my site</a>
+    </div>
   </div>
 </section>
 </main>
 
-<footer class="site-footer">
+<footer>
   <div class="wrap">
-    <div><div class="logo" translate="no"><span class="dot" aria-hidden="true"></span>GroundWork-Web</div><p>Websites for pressure washing and soft washing companies, with prices and a quote form that gets used.</p></div>
-    <div class="footer-contact"><a href="mailto:groundworkweb@proton.me">groundworkweb@proton.me</a><a href="/before-you-pay/">Preview, refund, and how you leave</a></div>
-    <nav class="footer-nav" aria-label="Footer"><a href="/">Home</a><a href="/pricing/">Pricing</a><a href="/audit/">Audit</a><a href="/start/">Start</a><a href="/privacy/">Privacy</a></nav>
-    <span class="fine">&copy; <span data-year>2026</span> GroundWork-Web. Deer Park, TX.</span>
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/landscaping/">Lawn care sites</a><a href="/pricing/">Pricing</a><a href="/audit/">Free audit</a><a href="/privacy/">Privacy</a></nav>
+    <p>&copy; 2026 GroundWork-Web, Deer Park, TX. <a href="mailto:groundworkweb@proton.me">groundworkweb@proton.me</a></p>
   </div>
 </footer>
+<div class="dock-m"><a class="btn" href="/start/?niche=exterior-cleaning">Start for $99</a><a class="btn ghost" href="/demos/haint-blue/">See the demo</a></div>
 
-<div class="bar" aria-label="Quick actions"><a class="btn btn-buy" href="/start/?niche=exterior-cleaning">Start now</a><a class="btn btn-ghost" href="/demos/haint-blue/">See the demo</a></div>
-
+<script>
+(function () {
+  var cmp = document.getElementById("cmp"), r = document.getElementById("cmp-r");
+  r.addEventListener("input", function () { cmp.style.setProperty("--x", r.value + "%"); });
+  var t = document.getElementById("ticket"), tr = document.getElementById("ticket-r");
+  var fmt = function (n) { return (Math.round(n * 10) / 10).toString() + (Math.round(n * 10) / 10 === 1 ? " job" : " jobs"); };
+  function calc(src) {
+    var v = Math.max(1, Math.min(3000, parseFloat(src.value) || 0));
+    if (src === t) tr.value = Math.min(1200, v); else t.value = v;
+    document.getElementById("grow-n").textContent = fmt(199 / v);
+    document.getElementById("host-n").textContent = fmt(99 / v);
+    document.getElementById("build-n").textContent = fmt(399 / v);
+  }
+  t.addEventListener("input", function () { calc(t); });
+  tr.addEventListener("input", function () { calc(tr); });
+  calc(t);
+})();
+</script>
 <script src="/assets/js/config.js?v=3.1"></script>
-<script src="/assets/ds/ui.js?v=3.1"></script>
-<script src="/assets/ds/site.js?v=3.1"></script>
 <script src="/assets/js/analytics.js?v=3.1" defer></script>
 </body>
 </html>
