@@ -191,3 +191,6 @@ section{padding-block:56px;padding-inline:max(var(--g),calc((100% - 1120px)/2))}
 .al-compare .tag{top:auto;bottom:12px}
 .al-second .al-compare.wide{max-width:900px}
 .al-letter .al-small{color:var(--pine-2)}
+.al-portrait.empty{aspect-ratio:auto;max-width:none;border-radius:10px;min-height:0;padding-top:72px;background:repeating-linear-gradient(90deg,var(--haint) 0 26px,#93C4BF 26px 28px)}
+.al-head-book{display:none}
+@media (min-width:900px){.al-head-book{display:inline-flex;min-height:44px;padding:10px 18px;font-size:16px}.al-portrait.empty{padding-top:180px}}

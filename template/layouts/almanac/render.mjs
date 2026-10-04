@@ -7,6 +7,8 @@ const { esc, when, money } = k;
 export function render(s, { css }) {
   const b = s.business, h = s.hero, r = s.reviews, a = s.almanac, demo = !!s.demo;
   const cmp = s.work?.compare;
+  // Licensed/insured is a claim the owner must confirm; demos show it as sample copy.
+  const insured = demo || b.insuredConfirmed === true ? b.insured || "" : "";
   const legend = Object.fromEntries((a?.legend || []).map(x => [x.key, x.label]));
   const now = new Date(s.builtAt || Date.now()).getMonth();
 
@@ -21,7 +23,7 @@ ${k.demoBar(s)}
 <header class="al-head">
   <a class="al-mark" href="#main"><span>${esc(b.name.replace(/ Soft Wash$/, ""))}</span><small>Soft Wash · ${esc(b.address?.city || "")}</small></a>
   <nav aria-label="Sections"><a href="#calendar">Calendar</a><a href="#prices">Prices</a><a href="#reviews">Reviews</a></nav>
-  <div class="al-head-act">${k.textLink(s, "header", "Text Rhea", "al-link")}${k.callLink(s, "header", esc(b.phone), "al-pill")}</div>
+  <div class="al-head-act">${k.textLink(s, "header", "Text Rhea", "al-link")}${k.callLink(s, "header", esc(b.phone), "al-pill")}${k.bookLink("header", s.booking?.cta || "Get my quote", "al-btn al-head-book")}</div>
 </header>
 
 <main id="main">
@@ -81,9 +83,9 @@ ${when(a, () => `<section class="al-cal" id="calendar" aria-labelledby="cal-h">
     <h2 id="letter-h">Why we wait for the pollen</h2>
     <p>${esc(s.owner.story)}</p>
     <p class="al-sign">${esc(s.owner.sign)}</p>
-    <p class="al-small">${esc(s.owner.name)}, ${esc(s.owner.role)}. ${esc(b.insured || "")}</p>
+    <p class="al-small">${esc(s.owner.name)}, ${esc(s.owner.role)}. ${esc(insured)}</p>
   </div>
-  <figure class="al-portrait">${s.owner.image ? k.img(s.owner.image, s.owner.photo || s.owner.name, { w: 600, h: 800 }) : ""}<figcaption>${esc(s.owner.photo || "")}${when(demo && !s.owner.image, ". Sample photo slot: the real site shows the owner here.")}</figcaption></figure>
+  <figure class="al-portrait${s.owner.image ? "" : " empty"}">${s.owner.image ? k.img(s.owner.image, s.owner.photo || s.owner.name, { w: 600, h: 800 }) : ""}<figcaption>${esc(s.owner.photo || "")}${when(demo && !s.owner.image, ". Sample photo slot: the real site shows the owner here.")}</figcaption></figure>
 </section>
 
 ${when(s.work?.second, () => `<section class="al-second" aria-labelledby="roof-h">
@@ -126,7 +128,7 @@ ${when(r?.items?.length, () => `<section class="al-reviews" id="reviews" aria-la
 </main>
 
 <footer class="al-foot">
-  <div><p class="al-foot-mark">${esc(b.name)}</p><p>${esc(b.tagline)}. ${esc(b.insured || "")}</p></div>
+  <div><p class="al-foot-mark">${esc(b.name)}</p><p>${esc(b.tagline)}. ${esc(insured)}</p></div>
   <div><p>${k.callLink(s, "footer", esc(b.phone))} · ${k.textLink(s, "footer", "Text")}</p><p>${esc(b.hoursText)}</p><p>${esc(k.addressLine(b))}</p></div>
   <p class="al-small">© ${k.year(s)} ${esc(b.name)} · ${k.credit(s)}</p>
 </footer>

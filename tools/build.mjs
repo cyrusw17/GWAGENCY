@@ -40,6 +40,7 @@ function check(s) {
   need(!fake(s.business?.phone), "business.phone is a 555 placeholder");
   need(!fake(s.business?.sms), "business.sms is a 555 placeholder");
     need(s.seo?.canonical, "seo.canonical (the live URL) is required for a real site");
+    if (s.business?.insured) need(s.business.insuredConfirmed === true, "business.insured is a licence/insurance claim: set business.insuredConfirmed: true once the owner has confirmed it");
     if (s.reviews?.items?.length) {
       need(s.reviews.url, "reviews.url is required: link to where these real reviews live (Google profile)");
       need(s.reviews.items.every(r => r.verified === true), "every review needs \"verified\": true after you copy it from the real source");
