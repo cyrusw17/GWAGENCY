@@ -14,7 +14,7 @@
 <style>
 @font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
-:root{--slab:#a9a59c;--slab-d:#6e6a62;--grime:#585247;--clean:#e9e7e1;--ink:#1a1c1d;--ink-2:#4b4f52;--orange:#e2551b;--orange-d:#b8410f;--hose:#24704a;--line:#cfccc4;
+:root{--slab:#a9a59c;--slab-d:#6e6a62;--grime:#585247;--clean:#e9e7e1;--ink:#1a1c1d;--ink-2:#4b4f52;--orange:#c2410c;--orange-d:#9a3412;--hose:#24704a;--line:#cfccc4;
   --f:"Chivo",system-ui,sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -37,7 +37,7 @@ a{color:inherit}
 
 /* Hero: dirty slab with one clean test stripe through it */
 .slab{position:relative;background:var(--grime);
-  background-image:radial-gradient(circle at 12% 30%,#0003 0 2px,transparent 3px),radial-gradient(circle at 70% 80%,#0002 0 1.5px,transparent 2.5px),radial-gradient(ellipse at 30% 60%,#3d382f 0,transparent 55%),radial-gradient(ellipse at 85% 20%,#4a5236 0,transparent 45%),linear-gradient(170deg,#6d675b,#4f4a40);
+  background-image:radial-gradient(circle at 12% 30%,#0003 0 2px,transparent 3px),radial-gradient(circle at 70% 80%,#0002 0 1.5px,transparent 2.5px),radial-gradient(ellipse at 30% 60%,#2f2a22 0,transparent 55%),radial-gradient(ellipse at 85% 20%,#3f4a2a 0,transparent 45%),linear-gradient(170deg,#6a6355,#433e34);
   background-size:23px 23px,31px 31px,100% 100%,100% 100%,100% 100%;padding:26px 0 30px;overflow:hidden}
 .slab::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 179px,#0002 179px 181px);pointer-events:none}
 .stripe{position:relative;z-index:1;background:var(--slab);background-image:linear-gradient(180deg,#b9b5ac,#a8a49b);padding:24px 0 26px;box-shadow:0 0 0 1px #0001}
@@ -136,7 +136,7 @@ details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
 .check-cta p{margin:0;flex:1 1 260px}
 
 footer{padding:30px 0 100px;font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--line)}
-footer nav a{margin-right:14px}
+footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
 .dock-m{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--clean);box-shadow:0 -1px 0 var(--line);z-index:5}
 .dock-m .btn{align-items:center}
 @media (min-width:760px){.dock-m{display:none}footer{padding-bottom:30px}}
@@ -248,7 +248,7 @@ footer nav a{margin-right:14px}
       <div class="plan"><h3>Host</h3><div class="amt">$99<small>/mo</small></div><ul><li>Hosting, SSL and uptime checks</li><li>Quote form and buttons kept working</li><li>Fits a one-truck operation that rarely changes prices</li></ul><a class="btn ghost" href="/start/?plan=host&amp;niche=exterior-cleaning">Start on Host</a></div>
       <div class="plan rec"><h3>Grow, the one we recommend</h3><div class="amt">$199<small>/mo</small></div><ul><li>Everything in Host</li><li>2 to 3 updates a month: new prices, spring pollen specials, fresh job photos</li><li>A monthly Google Business Profile and local search check-in</li></ul><a class="btn" href="/start/?plan=grow&amp;niche=exterior-cleaning">Start on Grow</a></div>
     </div>
-    <p class="note">Monthly billing starts the month you go live. Or pay a year up front and get 12 months for the price of 10. Founding rate for our first 25 clients, kept for as long as you stay. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
+    <p class="note">Monthly billing starts the month you go live. Or pay a year up front and get 12 months for the price of 10. The $399 build and these monthly rates are our founding prices for the first 25 clients, kept for as long as you stay. After that the build is $499. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
   </div>
 </section>
 

@@ -15,7 +15,7 @@
 @font-face{font-family:"Young Serif";src:url(/assets/fonts/young-serif-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Instrument Sans";src:url(/assets/fonts/instrument-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Instrument Sans";src:url(/assets/fonts/instrument-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
-:root{--paper:#f3ecdc;--paper-2:#e9dfc8;--ink:#23261c;--ink-2:#575a4b;--moss:#3e5a2b;--moss-d:#2c4220;--clay:#b2582f;--clay-d:#8f4321;--line:#cdbf9f;
+:root{--paper:#f3ecdc;--paper-2:#e9dfc8;--ink:#23261c;--ink-2:#575a4b;--moss:#3e5a2b;--moss-d:#2c4220;--clay:#9a4a26;--clay-d:#7d3b1d;--line:#cdbf9f;
   --serif:"Young Serif",Georgia,serif;--sans:"Instrument Sans",system-ui,sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -127,7 +127,7 @@ details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
 .check-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border:1.5px dashed var(--ink-2);padding:16px;margin-top:28px}
 .check-cta p{margin:0;flex:1 1 260px}
 footer{padding:30px 0 100px;font-size:.84rem;color:var(--ink-2);border-top:3px double var(--ink)}
-footer nav a{margin-right:14px}
+footer nav a{display:inline-block;margin-right:14px;padding:8px 0}
 .dock{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--paper);box-shadow:0 -1px 0 var(--line);z-index:5}
 .dock .btn{align-items:center}
 @media (min-width:760px){.dock{display:none}footer{padding-bottom:30px}}
@@ -160,7 +160,7 @@ footer nav a{margin-right:14px}
           <dt>$300</dt><dd>when you approve the preview. $399 total.</dd>
           <dt>$1,990</dt><dd>a year for Grow, or $199 a month. Starts when you go live.</dd>
         </dl>
-        <p>Founding rate for our first 25 clients.</p>
+        <p>Founding prices for our first 25 clients. After that the build is $499.</p>
       </aside>
     </div>
   </div>
@@ -238,7 +238,7 @@ footer nav a{margin-right:14px}
       <div><span>About a week later</span><b>Preview</b><p>A private link to your finished site and one round of changes. Don't want it? The $99 comes back.</p></div>
       <div><span>When you approve</span><b>$300</b><p>$399 total for the build. We register the domain in your name and go live.</p></div>
     </div>
-    <p class="note">Founding clients keep their rate for as long as they stay. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
+    <p class="note">Founding prices are for our first 25 clients and are kept for as long as you stay; after that the build is $499. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
   </div>
 </section>
 
