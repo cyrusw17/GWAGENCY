@@ -83,10 +83,9 @@ ${k.demoBar()}
     <h2>${esc(rt.ask || "Which day are we on your street?")}</h2>
     <form class="zip-check" data-route="${esc(routeJson)}">
       <label for="route-zip">Your ZIP</label>
-      <div class="zip-row"><input id="route-zip" inputmode="numeric" maxlength="5" placeholder="43017" autocomplete="postal-code"><button type="submit" class="btn btn-ink">Check</button></div>
+      <div class="zip-row"><input id="route-zip" inputmode="numeric" maxlength="5" placeholder="e.g. 43017" autocomplete="postal-code"><button type="submit" class="btn btn-ink">Check</button></div>
       <p class="zip-out" aria-live="polite">${esc(rt.note || "")}</p>
     </form>
-    <ol class="route">${(rt.days || []).map(d => `<li><b>${esc(d.day)}</b> ${esc(d.town)}</li>`).join("")}</ol>
   </div>
   <div class="tile t-height">
     <h2>${esc(s.heights?.title || "How tall we leave it")}</h2>
@@ -140,9 +139,9 @@ ${when(s.owner, `<section class="owner" aria-labelledby="owner-h">
 </section>`)}
 
 <section class="areas wrap" id="areas" aria-labelledby="areas-h">
-  <ul class="days" aria-label="Route days by ZIP">${(rt.days || []).map(d => `<li><b>${esc(d.day)}</b>${esc(d.town)}${when(d.zips?.length, `<small>${(d.zips || []).map(esc).join(" · ")}</small>`)}</li>`).join("")}${(s.areas?.cities || []).filter(c => !(rt.days || []).some(d => d.town === c)).map(c => `<li><b>Ask</b>${esc(c)}</li>`).join("")}</ul>
   <h2 id="areas-h">${esc(s.areas?.headline || "Where we work")}</h2>
   <p class="areas-body">${esc(s.areas?.body || "")}</p>
+  <ul class="days" aria-label="Route days by ZIP">${(rt.days || []).map(d => `<li><b>${esc(d.day)}</b>${esc(d.town)}${when(d.zips?.length, `<small>${(d.zips || []).map(esc).join(" · ")}</small>`)}</li>`).join("")}${(s.areas?.cities || []).filter(c => !(rt.days || []).some(d => d.town === c)).map(c => `<li><b>Ask</b>${esc(c)}</li>`).join("")}</ul>
 </section>
 
 <section class="book" id="book" aria-labelledby="book-h">

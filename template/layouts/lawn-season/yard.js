@@ -59,12 +59,10 @@
   if (f) {
     var days = JSON.parse(f.getAttribute("data-route") || "[]"), out = f.querySelector(".zip-out");
     var names = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5 }, full = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    var lis = [].slice.call(document.querySelectorAll(".route li"));
     f.addEventListener("submit", function (e) {
       e.preventDefault();
       var z = f.querySelector("input").value.replace(/[^0-9]/g, "").slice(0, 5), hit = -1;
       days.forEach(function (d, i) { if (hit < 0 && d[2].indexOf(z) > -1) hit = i; });
-      lis.forEach(function (li, i) { li.classList.toggle("hit", i === hit); });
       if (z.length !== 5) { out.textContent = "Type a 5-digit ZIP."; return; }
       if (hit < 0) { out.textContent = "Not on a route yet. Ask anyway: we add a street when three neighbors sign up."; return; }
       var d = days[hit], wd = names[d[0]], gap = (wd - today.getUTCDay() + 7) % 7 || 7;
