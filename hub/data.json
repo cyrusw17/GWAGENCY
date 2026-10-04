@@ -16,17 +16,7 @@
           "slug": "ramirez-mobile"
         }
       ],
-      "page": "auto-detailing/",
-      "candidates": [
-        {
-          "label": "A, Inspection light",
-          "href": "auto-detailing/a/"
-        },
-        {
-          "label": "B, Finished to spec",
-          "href": "auto-detailing/b/"
-        }
-      ]
+      "page": "auto-detailing/"
     },
     {
       "id": "exterior-cleaning",

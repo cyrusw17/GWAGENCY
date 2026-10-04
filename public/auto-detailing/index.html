@@ -282,6 +282,8 @@ footer p a{display:inline-block;padding:12px 0}
   .dock .d-x{order:2}
   .dock .d-go{order:3}
   footer{padding-bottom:110px}
+  .dock{transition:opacity .2s,visibility .2s}
+  .dock.is-away{opacity:0;visibility:hidden}
 }
 @media (prefers-reduced-motion:reduce){
   .phone{transition:none}.dock a,.btn{transition:none}
@@ -633,6 +635,19 @@ footer p a{display:inline-block;padding:12px 0}
   }
   pick.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { t.value = b.dataset.v; calc(); } });
   t.addEventListener("input", calc); calc();
+})();
+</script>
+<script>
+/* Desktop: keep the floating dock out of the way until the visitor scrolls past the hero and clock strip. */
+(function () {
+  var dock = document.querySelector(".dock"), now = document.getElementById("now");
+  if (!dock || !now || !window.IntersectionObserver) return;
+  var strip = now.closest("section") || now.parentNode, wide = window.matchMedia("(min-width:760px)");
+  var past = false;
+  function set() { dock.classList.toggle("is-away", wide.matches && !past); }
+  new IntersectionObserver(function (e) { past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; set(); }).observe(strip);
+  wide.addEventListener ? wide.addEventListener("change", set) : wide.addListener(set);
+  set();
 })();
 </script>
 <script src="/assets/js/config.js?v=3.1" defer></script>

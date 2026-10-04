@@ -46,7 +46,7 @@ function copy(src, dst) {
     if (TEXT.has(extname(name))) {
       const text = readFileSync(from, "utf8");
       writeFileSync(to, name.endsWith(".html") ? seo(rewrite(text), relative(join(root, "public"), from)) : rewrite(text));
-      if (name === "index.html") pages.push({ path: relative(join(root, "public"), src), title: (text.match(/<title>([^<]*)<\/title>/) || [, ""])[1] });
+      if (name === "index.html" && !/http-equiv=["']refresh/i.test(text)) pages.push({ path: relative(join(root, "public"), src), title: (text.match(/<title>([^<]*)<\/title>/) || [, ""])[1] });
     } else copyFileSync(from, to);
   }
 }
@@ -63,7 +63,6 @@ const demos = pages.filter(p => p.path.startsWith("demos/") && p.path !== "demos
 // Group the agency pages by what a visitor is looking for; anything new lands in "Other pages".
 const GROUPS = [
   ["Selling pages, one per trade", p => /^(auto-detailing|exterior-cleaning|landscaping|commercial-cleaning)$/.test(p)],
-  ["Auto detailing, other versions", p => /^auto-detailing\/[ab]$/.test(p)],
   ["Free tools and guides", p => /^(site-check|audit|guides\/.*)$/.test(p)],
   ["Offer, prices and checkout", p => /^(offer|pricing|before-you-pay|start|thanks)$/.test(p)],
   ["Company", p => /^(|privacy|demos)$/.test(p)],
