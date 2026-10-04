@@ -70,7 +70,13 @@ if ($action === 'lead') {
     if ($tooMany(5, 50)) { http_response_code(429); echo '{"ok":false,"error":"rate"}'; exit; }
     $f = fn(string $k, int $max) => gw_trim((string)($in[$k] ?? ''), $max);
     $lead = ['name' => $f('name', 100), 'phone' => $f('phone', 40), 'service' => $f('service', 100), 'zip' => $f('zip', 10), 'notes' => $f('notes', 1000)];
-    if (strlen(preg_replace('/\D/', '', $lead['phone'])) < 10) { http_response_code(422); echo '{"ok":false}'; exit; }
+    // Phone or email: forms that ask for either one (funnel checklist item 7). Email rides in notes.
+    $email = $f('email', 120);
+    if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) $email = '';
+    $phoneOk = strlen(preg_replace('/\D/', '', $lead['phone'])) >= 10;
+    if (!$phoneOk) $lead['phone'] = '';
+    if ($lead['name'] === '' || (!$phoneOk && $email === '')) { http_response_code(422); echo '{"ok":false}'; exit; }
+    if ($email !== '') $lead['notes'] = gw_trim("Email: $email\n" . $lead['notes'], 1000);
 
     $db->exec('CREATE TABLE IF NOT EXISTS site_leads (
         id INTEGER PRIMARY KEY, ts INTEGER NOT NULL, site TEXT NOT NULL,
@@ -82,7 +88,7 @@ if ($action === 'lead') {
 
     $body = '';
     foreach ($lead as $k => $v) if ($v !== '') $body .= str_pad(ucfirst($k), 9) . ': ' . $v . "\n";
-    $body .= "\nReply fast: text them back at the number above.\n";
+    $body .= $lead['phone'] !== '' ? "\nReply fast: text them back at the number above.\n" : "\nReply fast: they left an email, no phone.\n";
     $host = gw_own_host() ?: 'localhost';
     $headers = "From: " . ($site['name'] ?? 'Website') . " website <no-reply@$host>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
     $to = array_filter([(string)($site['email'] ?? ''), GW_LEAD_EMAIL]);

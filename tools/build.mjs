@@ -40,6 +40,7 @@ function check(s) {
   need(!fake(s.business?.phone), "business.phone is a 555 placeholder");
   need(!fake(s.business?.sms), "business.sms is a 555 placeholder");
     need(s.seo?.canonical, "seo.canonical (the live URL) is required for a real site");
+    if (s.business?.insured) need(s.business.insuredConfirmed === true, "business.insured is a licence/insurance claim: set business.insuredConfirmed: true once the owner has confirmed it");
     if (s.reviews?.items?.length) {
       need(s.reviews.url, "reviews.url is required: link to where these real reviews live (Google profile)");
       need(s.reviews.items.every(r => r.verified === true), "every review needs \"verified\": true after you copy it from the real source");
@@ -53,7 +54,17 @@ function check(s) {
   return { errs, warns };
 }
 
-function build(dir) {
+// A designed layout (template/layouts/<name>/) owns its markup, CSS and fonts; kit.mjs keeps
+// the head, form, tracking and demo labels the same underneath. Picked by site.json "renderer";
+// no "renderer" = the default page ("layout" stays the default page's section settings).
+const layouts = {};
+async function layoutFor(name) {
+  if (!name) return null;
+  if (!/^[a-z0-9-]+$/.test(name) || !existsSync(join(root, "template", "layouts", name, "render.mjs"))) throw new Error(`unknown layout "${name}"`);
+  return (layouts[name] ??= await import(`../template/layouts/${name}/render.mjs`));
+}
+
+async function build(dir) {
   const srcDir = resolve(root, dir);
   const s = JSON.parse(readFileSync(join(srcDir, "site.json"), "utf8"));
   const { errs, warns } = check(s);
@@ -70,20 +81,31 @@ function build(dir) {
   const out = resolve(root, outArg || join("dist", s.slug));
   mkdirSync(out, { recursive: true });
   // CSS is inlined: one page per site, so a separate file only adds a render-blocking round trip.
-  // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
-  const designFile = join(srcDir, "design.css");
-  const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
-  if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
-  // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
-  let mapSvg = "";
-  if (s.areas?.mapSvg) {
-    mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
-    if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
+  // A designed layout (template/layouts/<name>/) owns the whole page: markup, CSS, fonts, and
+  // template/kit.js for behavior (tracking, slider, step form) in place of funnel.js.
+  let layout;
+  try { layout = await layoutFor(s.renderer); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
+  if (layout) {
+    const lay = join(root, "template", "layouts", s.renderer);
+    writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
+    if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
+    writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", "kit.js"), "utf8"));
+  } else {
+    // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
+    const designFile = join(srcDir, "design.css");
+    const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
+    if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
+    // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
+    let mapSvg = "";
+    if (s.areas?.mapSvg) {
+      mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
+      if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
+    }
+    writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design, mapSvg }));
+    cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
   }
-  writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design, mapSvg }));
   const md = llms(s);
   writeFileSync(join(out, "index.md"), md); // Markdown copy of the page's facts for AI agents
-  cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
   for (const d of ["img", "fonts"]) if (existsSync(join(srcDir, d))) cpSync(join(srcDir, d), join(out, d), { recursive: true });
   // A demo inside our own site must not overwrite groundwork-web.com's robots.txt/sitemap.
   if (!outArg || !s.demo) {
@@ -104,5 +126,7 @@ if (args.includes("--all")) {
 }
 if (outArg && dirs.length > 1) { console.error("--out builds one site; leave it off to build several into dist/<slug>/"); process.exit(2); }
 if (!dirs.length) { console.error("usage: node tools/build.mjs clients/<slug> [--out dir] | --all"); process.exit(2); }
-const ok = dirs.map(build).every(Boolean);
+const results = [];
+for (const d of dirs) results.push(await build(d));
+const ok = results.every(Boolean);
 process.exit(ok ? 0 : 1);
