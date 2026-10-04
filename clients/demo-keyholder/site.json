@@ -1,0 +1,312 @@
+{
+  "slug": "demo-keyholder",
+  "demo": true,
+  "renderer": "night-log",
+  "niche": "commercial cleaning",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?demo=night-log"
+  },
+  "business": {
+    "name": "Keyholder Commercial Cleaning",
+    "tagline": "After-hours office cleaning · Greensboro & the Triad",
+    "schemaType": "ProfessionalService",
+    "phone": "(336) 555-0142",
+    "sms": "(336) 555-0142",
+    "email": "office@example.com",
+    "priceRange": "$$",
+    "hoursText": "Office Mon-Fri 9am-5pm. Crews out 6pm-2am.",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "address": {
+      "city": "Greensboro",
+      "region": "NC",
+      "postal": "27401"
+    },
+    "license": "Bonded and insured · Every cleaner background-checked before their first key"
+  },
+  "theme": {
+    "themeColor": "#16191D",
+    "fontFaces": [
+      {
+        "family": "Archivo",
+        "weight": 500,
+        "src": "fonts/archivo-latin-wght-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Archivo",
+        "weight": 800,
+        "src": "fonts/archivo-latin-wght-normal.woff2"
+      },
+      {
+        "family": "JetBrains Mono",
+        "weight": 400,
+        "src": "fonts/jetbrains-mono-latin-400-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "JetBrains Mono",
+        "weight": 700,
+        "src": "fonts/jetbrains-mono-latin-700-normal.woff2"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Keyholder Commercial Cleaning | Office Cleaning in Greensboro, NC",
+    "description": "After-hours office, medical and retail cleaning in Greensboro and the Triad. Background-checked crews, a nightly log and a free walkthrough."
+  },
+  "hero": {
+    "headline": "After-hours office cleaning in Greensboro, NC.",
+    "sub": "Your staff leaves at five. We come in at six, clean to a checklist, lock up and set the alarm. In the morning there's a log of every room we did."
+  },
+  "log": {
+    "title": "Last night at a 6,000 sq ft office (sample)",
+    "tz": "America/New_York",
+    "rooms": [
+      {
+        "key": "lobby",
+        "name": "Lobby",
+        "t": "6:12 pm",
+        "did": "Glass doors, mats shaken, floor vacuumed"
+      },
+      {
+        "key": "open",
+        "name": "Open office",
+        "t": "6:40 pm",
+        "did": "Trash and recycling out, desks wiped, carpet vacuumed"
+      },
+      {
+        "key": "conf",
+        "name": "Conference room",
+        "t": "7:35 pm",
+        "did": "Table and chairs wiped, whiteboard cleaned"
+      },
+      {
+        "key": "kitchen",
+        "name": "Break room",
+        "t": "8:05 pm",
+        "did": "Counters, sink, microwave inside, floor mopped"
+      },
+      {
+        "key": "rest",
+        "name": "Restrooms",
+        "t": "8:40 pm",
+        "did": "Sanitized, restocked, floors mopped"
+      },
+      {
+        "key": "offices",
+        "name": "Private offices",
+        "t": "9:25 pm",
+        "did": "Trash, dusting, vacuum, doors locked"
+      }
+    ],
+    "close": "10:02 pm. Lights off, doors checked, alarm set."
+  },
+  "trust": [
+    "Bonded and insured",
+    "Background-checked cleaners",
+    "Same crew on your building",
+    "A log of every night"
+  ],
+  "estimator": {
+    "title": "What does nightly cleaning cost?",
+    "types": [
+      {
+        "name": "Office",
+        "rate": 0.025
+      },
+      {
+        "name": "Medical or dental",
+        "rate": 0.04
+      },
+      {
+        "name": "Retail or showroom",
+        "rate": 0.03
+      }
+    ],
+    "min": 50,
+    "note": "Sample pricing for this demo. A real bid comes after a free walkthrough, because restrooms, floors and traffic change it."
+  },
+  "pricing": {
+    "headline": "The bid sheet",
+    "sub": "Nightly and weekly cleaning is a monthly contract, priced after a walkthrough. Floors and carpets are priced per square foot.",
+    "fine": "30 days notice to stop. No long contract."
+  },
+  "packages": [
+    {
+      "name": "Nightly office cleaning",
+      "price": "from $650",
+      "unit": "a month",
+      "note": "2,000 sq ft office, 3 nights a week",
+      "popular": true,
+      "popularLabel": "Most of our buildings",
+      "features": [
+        "Trash, recycling and liners",
+        "Desks, counters and touch points wiped",
+        "Restrooms sanitized and restocked",
+        "Vacuum and mop every visit"
+      ]
+    },
+    {
+      "name": "Floor strip and wax",
+      "price": "from $0.35",
+      "unit": "per sq ft",
+      "note": "VCT and vinyl, done on a weekend night",
+      "features": [
+        "Old finish stripped",
+        "Four coats of finish",
+        "Furniture moved and put back"
+      ]
+    },
+    {
+      "name": "Carpet extraction",
+      "price": "from $0.25",
+      "unit": "per sq ft",
+      "note": "Hot-water extraction, dry by morning",
+      "features": [
+        "Spots pre-treated",
+        "Traffic lanes done twice",
+        "Fans left running overnight"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "Post-construction cleanup",
+      "from": null,
+      "priceText": "priced after a walkthrough",
+      "desc": "Dust, stickers and paint off every surface before move-in."
+    }
+  ],
+  "work": {
+    "headline": "Break room, one night apart",
+    "compare": {
+      "before": "img/before.svg",
+      "after": "img/after.svg",
+      "caption": "Illustration. Your site shows your own before and after photos."
+    }
+  },
+  "guarantee": {
+    "title": "Something missed? We're back the next night.",
+    "body": "Text or email the office before noon. The crew fixes it that night, and the fix goes in the log."
+  },
+  "owner": {
+    "name": "Tanya Reeves",
+    "role": "Owner. Still does every walkthrough.",
+    "story": "I started in 2012 cleaning two dental offices at night while my kids slept. Now there are fourteen of us. Every building has its own crew, and I meet every new client at their door before we take a key.",
+    "photo": "",
+    "sign": "Tanya",
+    "shot": "Shot list: Tanya at a client's front desk at dusk, key ring in hand, lobby lights on."
+  },
+  "reviews": {
+    "headline": "From the office managers",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 38,
+    "items": [
+      {
+        "name": "Sample customer",
+        "where": "Office manager, downtown Greensboro",
+        "date": "2026-09-18",
+        "stars": 5,
+        "text": "The log is the thing. I used to walk the floor every morning to see what got done. Now I just read the email."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Dental practice, High Point",
+        "date": "2026-08-27",
+        "stars": 5,
+        "text": "Same two people every night for a year. They know which ops get the extra wipe-down."
+      },
+      {
+        "name": "Sample customer",
+        "where": "Property manager, Winston-Salem",
+        "date": "2026-08-02",
+        "stars": 4,
+        "text": "Floors came out great. Took two nights instead of one because of the old wax, but they told us before they started."
+      }
+    ]
+  },
+  "areas": {
+    "headline": "Where the crews go",
+    "body": "Buildings in Greensboro, High Point and Winston-Salem, plus the towns between. Further out? Ask.",
+    "cities": [
+      "Greensboro",
+      "High Point",
+      "Winston-Salem",
+      "Jamestown",
+      "Oak Ridge",
+      "Kernersville"
+    ]
+  },
+  "booking": {
+    "headline": "Book a free walkthrough",
+    "body": "Three quick questions. Tanya calls to set a time, walks the building with you, and sends a written bid within two business days.",
+    "cta": "Book a free walkthrough"
+  },
+  "lead": {
+    "endpoint": "",
+    "start": {
+      "question": "Regular cleaning or a one-time job?",
+      "options": [
+        {
+          "value": "Regular cleaning",
+          "hint": "Nightly or weekly, after hours"
+        },
+        {
+          "value": "One-time job",
+          "hint": "Floors, carpets, move-in, post-construction"
+        }
+      ]
+    },
+    "step2": "Tell us about the building",
+    "serviceLabel": "What should we bid?",
+    "zipHint": "27401",
+    "notesHint": "Square feet, number of restrooms, nights you want, alarm or key setup...",
+    "submit": "Book my walkthrough",
+    "contactHint": "Phone or email, whichever you check first. You only need one.",
+    "thanks": "Got it. Tanya will call or email within one business day to set up the walkthrough."
+  },
+  "faq": [
+    {
+      "q": "How much does office cleaning cost in Greensboro?",
+      "a": "Most small offices land between a few hundred and a couple thousand dollars a month, depending on square feet, nights per week and restrooms. We bid after a free walkthrough and put the price in writing."
+    },
+    {
+      "q": "How do you handle keys and alarm codes?",
+      "a": "Keys are logged and kept on a numbered ring, never labelled with your address. Each crew gets its own alarm code so you can see who came and went."
+    },
+    {
+      "q": "Are your cleaners background-checked?",
+      "a": "Yes, every cleaner, before their first key. We're also bonded and insured, and we send a certificate of insurance before we start."
+    },
+    {
+      "q": "Is there a long contract?",
+      "a": "No. Month to month with 30 days notice to stop."
+    },
+    {
+      "q": "Do you bring the supplies?",
+      "a": "Yes. We bring chemicals, equipment and liners. Restroom paper and soap can be ours or yours; we restock either way."
+    }
+  ],
+  "final": {
+    "headline": "Walk your building with us.",
+    "sub": "Free walkthrough, written bid in two business days, no long contract."
+  },
+  "sticky": {
+    "book": "Free walkthrough"
+  }
+}

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commercial Cleaning Website Design | GroundWork-Web</title>
+<meta name="description" content="Websites for after-hours commercial and janitorial cleaning companies: the answers an office manager checks before a walkthrough, and a walkthrough request in three taps. $99 to start.">
+<link rel="canonical" href="https://groundwork-web.com/commercial-cleaning/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:title" content="Commercial cleaning websites that book walkthroughs">
+<meta property="og:image" content="https://groundwork-web.com/assets/og.png">
+<link rel="preload" href="/assets/fonts/chivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Website design for commercial and janitorial cleaning companies","provider":{"@id":"https://groundwork-web.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"offers":{"@type":"Offer","price":"399","priceCurrency":"USD","description":"$99 to start, $300 when you approve the preview"}}</script>
+<style>
+@font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Chivo";src:url(/assets/fonts/chivo-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{--night:#15181C;--night-2:#1F242A;--paper:#EFF1EF;--card:#fff;--ink:#15181C;--ink-2:#4B535C;--line:#CBD1D6;--exit:#2BB673;--exit-d:#11754A;--lamp:#F2E6B6;
+  --sans:"Chivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans)}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px;z-index:9}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.top{background:var(--night);color:#fff}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px}
+.logo{font-weight:800;text-decoration:none;letter-spacing:-.01em}
+.top nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.top nav a:not(.btn){display:none;text-decoration:none;opacity:.85}
+.top nav a:not(.btn):hover{opacity:1;text-decoration:underline}
+@media (min-width:760px){.top nav a:not(.btn){display:inline}}
+.btn{display:inline-flex;flex-direction:column;justify-content:center;font:800 1rem var(--sans);background:var(--exit);color:var(--night);text-decoration:none;border-radius:6px;padding:12px 22px;min-height:48px;border:2px solid var(--night);cursor:pointer}
+.btn small{font-weight:400;font-size:.78rem}
+.btn:hover{background:#45C987}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.sm{min-height:40px;padding:8px 16px;font-size:.9rem}
+.top .btn{border-color:var(--exit)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,label:focus-within{outline:3px solid var(--exit);outline-offset:3px}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.mono{font-family:var(--mono)}
+
+/* Hero: the building after five */
+.hero{background:var(--night);color:#E8ECEF;padding:34px 0 46px}
+.stamp{font:400 .8rem/1.4 var(--mono);color:#9FB0BF;display:flex;flex-wrap:wrap;gap:4px 18px;border-top:1px dashed #3A424C;border-bottom:1px dashed #3A424C;padding:8px 0;margin-bottom:24px}
+.stamp b{color:var(--exit);font-weight:600}
+h1{font-size:clamp(2.4rem,8vw,4.5rem);margin:0 0 18px;max-width:14ch}
+h1 i{font-style:normal;color:var(--exit)}
+.hero-grid{display:grid;gap:28px}
+@media (min-width:880px){.hero-grid{grid-template-columns:1.25fr 1fr;align-items:end}}
+.lede{font-size:1.1rem;max-width:32em;margin:0 0 22px;color:#C3CCD4}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.price-card{background:var(--night-2);border:1px solid #3A424C;border-radius:8px;padding:20px}
+.price-card h2{font:600 .82rem/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#9FB0BF;margin:0 0 14px}
+.price-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:baseline}
+.price-card dt{font-weight:800;font-size:1.6rem;line-height:1;color:#fff}
+.price-card dd{margin:0;font-size:.92rem;color:#C3CCD4}
+.price-card p{font-size:.82rem;color:#9FB0BF;margin:14px 0 0}
+
+section{padding:56px 0}
+h2{font-size:clamp(1.8rem,5vw,2.7rem);margin:0 0 12px;max-width:22ch}
+.p{max-width:40em;color:var(--ink-2);margin:0 0 20px}
+
+/* The office manager's checklist */
+.check{display:grid;gap:22px;align-items:start}
+@media (min-width:880px){.check{grid-template-columns:1.2fr 1fr}}
+.qs{list-style:none;margin:0;padding:0;border-top:2px solid var(--night)}
+.qs li{border-bottom:1px solid var(--line)}
+.qs label{display:grid;grid-template-columns:28px 1fr;gap:4px 14px;padding:14px 4px;cursor:pointer;align-items:start}
+.qs input{width:22px;height:22px;margin:3px 0 0;accent-color:var(--exit-d)}
+.qs b{display:block;font-weight:800;font-size:1.05rem}
+.qs span{display:block;color:var(--ink-2);font-size:.92rem;grid-column:2}
+.score{background:var(--night);color:#fff;border-radius:8px;padding:22px;position:sticky;top:16px}
+.score .lab{font:600 .8rem/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#9FB0BF;margin:0 0 10px}
+.score .num{font:800 clamp(3rem,12vw,4.4rem)/1 var(--sans);color:var(--exit);margin:0}
+.score .num small{font:400 1rem var(--sans);color:#C3CCD4}
+.score .say{margin:14px 0 0;color:#E8ECEF}
+.score .miss{margin:12px 0 0;padding:0;list-style:none;font:400 .86rem/1.5 var(--mono);color:#C3CCD4}
+.score .miss li::before{content:"○ ";color:var(--lamp)}
+.score .btn{margin-top:16px}
+
+/* What's on the page */
+.dark{background:var(--night);color:#E8ECEF}
+.dark .p{color:#C3CCD4}
+.ledger{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0 40px}
+@media (min-width:760px){.ledger{grid-template-columns:1fr 1fr}}
+.ledger li{padding:16px 0;border-top:1px dashed #3A424C;color:#C3CCD4}
+.ledger b{display:block;color:#fff;font-size:1.12rem;font-weight:800}
+.ledger .t{font:400 .78rem/1 var(--mono);color:var(--exit);display:block;margin-bottom:6px}
+.demo-link{margin-top:26px}
+
+/* Calculator */
+.calc{display:grid;gap:24px;align-items:start}
+@media (min-width:880px){.calc{grid-template-columns:1fr 1fr}}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:800;margin-bottom:6px}
+.field .in{display:flex;align-items:center;gap:8px;font:600 1.5rem var(--mono)}
+.field input{font:600 1.5rem var(--mono);width:7ch;padding:6px 10px;border:2px solid var(--night);border-radius:4px;background:#fff;color:var(--ink)}
+.field small{display:block;color:var(--ink-2);font-size:.84rem;margin-top:4px}
+.readout{border:2px solid var(--night);border-radius:8px;padding:22px;background:#fff}
+.readout p{margin:0 0 12px}
+.big{display:block;font:800 clamp(2.4rem,9vw,3.6rem)/1 var(--sans);color:var(--exit-d)}
+.readout .fine{font-size:.82rem;color:var(--ink-2);margin:0}
+
+/* Money */
+.plans{display:grid;gap:16px;margin-top:20px}
+@media (min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plan{border:2px solid var(--night);border-radius:8px;padding:22px;background:#fff}
+.plan.rec{border-top:8px solid var(--exit)}
+.plan h3{font-size:1.35rem;margin:0}
+.plan .yr{font-weight:800;font-size:2.4rem;line-height:1.1;margin:8px 0 0}
+.plan .yr small{font-weight:400;font-size:1rem}
+.plan .mo{color:var(--ink-2);margin:2px 0 12px;font-size:.92rem}
+.plan ul{margin:0 0 16px;padding-left:18px;color:var(--ink-2);font-size:.94rem}
+.build{display:grid;gap:0;border-top:2px solid var(--night);margin-top:26px}
+@media (min-width:760px){.build{grid-template-columns:repeat(3,1fr)}}
+.build div{padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
+.build b{font-weight:800;font-size:1.8rem;display:block;line-height:1.1}
+.build span{font:400 .78rem var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.build p{margin:4px 0 0;font-size:.92rem;color:var(--ink-2)}
+.note{font-size:.88rem;color:var(--ink-2);margin:16px 0 0;max-width:46em}
+
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font-weight:800;cursor:pointer}
+details p{margin:8px 0 0;color:var(--ink-2);max-width:42em}
+.letter{max-width:40em;font-size:1.12rem;line-height:1.55}
+.letter .sig{font:400 .92rem var(--mono);margin-top:12px}
+.check-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border:2px dashed var(--ink-2);border-radius:8px;padding:16px;margin-top:28px}
+.check-cta p{margin:0;flex:1 1 260px}
+footer{background:var(--night);color:#C3CCD4;padding:30px 0 100px;font-size:.84rem}
+footer nav a{display:inline-block;margin-right:14px;padding:8px 0;color:#fff}
+.dock{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--night);z-index:5}
+.dock .btn{align-items:center}
+.dock .ghost{color:#fff}
+@media (min-width:760px){.dock{display:none}footer{padding-bottom:30px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" translate="no">GroundWork-Web</a>
+    <nav aria-label="Primary"><a href="/demos/keyholder/">Demo</a><a href="#money">Pricing</a><a href="/site-check/?niche=commercial-cleaning">Free site check</a><a class="btn sm" href="/start/?niche=commercial-cleaning">Start for $99</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <p class="stamp"><span><b>●</b> Websites for after-hours cleaning crews</span><span>Office · medical · retail · janitorial</span></p>
+    <div class="hero-grid">
+      <div>
+        <h1>Commercial cleaning websites that <i>book walkthroughs.</i></h1>
+        <p class="lede">An office manager hiring a night crew is handing over keys and an alarm code. Your site answers what they check first: bonded, background-checked, who holds the keys, roughly what it costs. Then it books the walkthrough.</p>
+        <div class="ctas">
+          <a class="btn" href="/start/?niche=commercial-cleaning">Start for $99<small>Refunded if you don't want the site</small></a>
+          <a class="btn ghost" href="/demos/keyholder/">Open the demo site</a>
+        </div>
+      </div>
+      <aside class="price-card" aria-labelledby="pc-h">
+        <h2 id="pc-h">What it costs</h2>
+        <dl>
+          <dt>$99</dt><dd>today, to start. Refunded if you don't want the site.</dd>
+          <dt>$300</dt><dd>when you approve the preview. $399 total.</dd>
+          <dt>$1,990</dt><dd>a year for Grow, or $199 a month. Starts when you go live.</dd>
+        </dl>
+        <p>Founding prices for our first 25 clients. After that the build is $499.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="check-h">
+  <div class="wrap">
+    <h2 id="check-h">Check your site the way an office manager does.</h2>
+    <p class="p">Before anyone books a walkthrough, they look for these six things. Tick the ones your site answers today, on a phone, without calling you.</p>
+    <div class="check">
+      <ul class="qs" id="qs">
+        <li><label><input type="checkbox" value="Bonded and insured, said plainly"><span><b>Are you bonded and insured?</b><span>Said in plain words near the top, not buried in the footer.</span></span></label></li>
+        <li><label><input type="checkbox" value="Background checks on every cleaner"><span><b>Who's going to be in my building?</b><span>Background checks, uniforms, and whether it's the same crew every night.</span></span></label></li>
+        <li><label><input type="checkbox" value="What happens to keys and alarm codes"><span><b>What happens to my keys and alarm code?</b><span>Who holds them, how they're logged, and what happens if you part ways.</span></span></label></li>
+        <li><label><input type="checkbox" value="A price range or estimator"><span><b>Roughly what will this cost?</b><span>A "from" price or a square-foot estimator, so they know you're in budget.</span></span></label></li>
+        <li><label><input type="checkbox" value="How missed spots get fixed"><span><b>What if something gets missed?</b><span>A promise in writing: report it by noon, it's fixed that night.</span></span></label></li>
+        <li><label><input type="checkbox" value="A walkthrough request, not just a phone number"><span><b>Can I book a walkthrough right now?</b><span>A short form that asks about the building, not a "contact us" box.</span></span></label></li>
+      </ul>
+      <div class="score" aria-live="polite">
+        <p class="lab">Your site answers</p>
+        <p class="num"><span id="n">0</span><small> of 6</small></p>
+        <p class="say" id="say"></p>
+        <ul class="miss" id="miss" aria-label="Still missing"></ul>
+        <a class="btn" href="/demos/keyholder/">See all six on the demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" aria-labelledby="page-h">
+  <div class="wrap">
+    <h2 id="page-h">What's on the page, and why it wins the contract.</h2>
+    <p class="p">A cleaning contract is a monthly bill an office manager has to defend to their boss. Everything on the site is there to make that easy.</p>
+    <ul class="ledger">
+      <li><span class="t">Hero</span><b>Last night's log</b>A sample night in a client building, room by room with times. It shows what the client gets every morning, before they ask.</li>
+      <li><span class="t">Estimator</span><b>A square-foot ballpark</b>Square feet, nights a week and building type give a monthly range. It sorts out the bids you'd never win before you drive across town.</li>
+      <li><span class="t">Trust</span><b>Keys, alarm codes and background checks</b>Said plainly in your words, because that's the real worry behind every after-hours hire.</li>
+      <li><span class="t">Bid sheet</span><b>Nightly contracts and one-time jobs</b>Nightly cleaning, floor strip and wax, carpet extraction and post-construction, each with a "from" price you choose.</li>
+      <li><span class="t">Form</span><b>"Regular cleaning or a one-time job?"</b>The first question splits contracts from one-offs, then asks building type and size before it asks for a phone number.</li>
+      <li><span class="t">Search</span><b>Local search setup</b>Your services, building types and towns marked up so Google can read them, linked to your Google Business Profile.</li>
+    </ul>
+    <p class="demo-link"><a class="btn" href="/demos/keyholder/">Open the demo: Keyholder Commercial Cleaning</a></p>
+  </div>
+</section>
+
+<section aria-labelledby="calc-h">
+  <div class="wrap calc">
+    <div>
+      <h2 id="calc-h">How many contracts pay for it?</h2>
+      <p class="p">Put in what one of your nightly contracts bills a month. The math is the plan divided by that.</p>
+      <div class="field"><label for="contract">One contract, per month</label><div class="in">$<input id="contract" type="number" inputmode="numeric" min="100" max="20000" value="650"></div><small>Use your own number. $650 is the sample price on our demo for 2,000 sq ft, 3 nights a week.</small></div>
+    </div>
+    <div class="readout" aria-live="polite">
+      <p>Grow ($199 a month) is paid for by<span class="big" id="grow-n">0.3 of one contract</span></p>
+      <p>Host ($99 a month) by <b id="host-n">0.2</b> of one contract, and the whole $399 build by <b id="build-n">0.6</b> of one month.</p>
+      <p class="fine">This counts the cost only. It doesn't promise any number of contracts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="money" aria-labelledby="money-h" style="padding-top:20px">
+  <div class="wrap">
+    <h2 id="money-h">Pay for the year, or month to month.</h2>
+    <p class="p">12 months for the price of 10 if you pay for the year. Monthly works too. Neither starts until your site is live.</p>
+    <div class="plans">
+      <div class="plan rec"><h3>Grow, the one we recommend</h3><p class="yr">$1,990<small> a year</small></p><p class="mo">or $199 a month</p><ul><li>Hosting, SSL, uptime checks</li><li>2 to 3 updates a month: prices, building types, towns, photos</li><li>A monthly Google Business Profile and local search check-in</li></ul><a class="btn" href="/start/?plan=grow&amp;niche=commercial-cleaning">Start on Grow</a></div>
+      <div class="plan"><h3>Host</h3><p class="yr">$990<small> a year</small></p><p class="mo">or $99 a month</p><ul><li>Hosting, SSL, uptime checks</li><li>Forms and buttons kept working</li><li>Right for an owner-operator with a few steady buildings</li></ul><a class="btn ghost" href="/start/?plan=host&amp;niche=commercial-cleaning">Start on Host</a></div>
+    </div>
+    <div class="build">
+      <div><span>Today</span><b>$99</b><p>Secure checkout and a short brief: services, building types, towns and a few photos.</p></div>
+      <div><span>About a week later</span><b>Preview</b><p>A private link to your finished site and one round of changes. Don't want it? The $99 comes back.</p></div>
+      <div><span>When you approve</span><b>$300</b><p>$399 total for the build. We register the domain in your name and go live.</p></div>
+    </div>
+    <p class="note">Founding prices are for our first 25 clients and are kept for as long as you stay; after that the build is $499. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h" style="padding-top:20px">
+  <div class="wrap">
+    <h2 id="faq-h">Questions cleaning company owners ask</h2>
+    <details><summary>Do I have to show prices? Every building is different.</summary><p>No. The site can show a "from" price, a square-foot ballpark, or just "priced after a walkthrough". Most owners pick a range: it keeps the walkthrough requests coming from buildings that fit your budget.</p></details>
+    <details><summary>Will it work for janitorial, medical and post-construction?</summary><p>Yes. The site leads with whichever building types you clean, and the form asks which one, so a dental office and a contractor's turnover come to you labeled.</p></details>
+    <details><summary>Do I need real photos?</summary><p>A few help: your crew in uniform, a clean break room, a floor after a strip and wax. Until you have them, the site uses drawings that are clearly marked, never stock photos passed off as yours.</p></details>
+    <details><summary>Who owns the domain and the site?</summary><p>You own the domain. We register it in your name when you approve the site. If you leave, we hand over the site files after your final invoice.</p></details>
+    <details><summary>How long does it take?</summary><p>About 7 days from the day we get your services, prices, towns and photos.</p></details>
+  </div>
+</section>
+
+<section aria-labelledby="note-h" style="padding-top:10px">
+  <div class="wrap">
+    <h2 id="note-h">From the guy who builds them</h2>
+    <div class="letter">
+      <p>I build these one at a time, from Deer Park, Texas. A night crew's best work happens when nobody's watching, so the site has to show it: what you clean, who's in the building, and what the client finds in the morning.</p>
+      <p class="sig">Cyrus Wilburn, GroundWork-Web</p>
+    </div>
+    <div class="check-cta">
+      <p><b>Not ready to start?</b> Run the free 1-minute check on the site you have now. You'll get a score and the three fixes worth doing first, with no form.</p>
+      <a class="btn ghost" href="/site-check/?niche=commercial-cleaning">Check my site</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/landscaping/">Lawn care sites</a><a href="/exterior-cleaning/">Pressure washing sites</a><a href="/pricing/">Pricing</a><a href="/privacy/">Privacy</a></nav>
+    <p>&copy; 2026 GroundWork-Web, Deer Park, TX. <a href="mailto:groundworkweb@proton.me" style="color:#fff">groundworkweb@proton.me</a></p>
+  </div>
+</footer>
+<aside class="dock" aria-label="Get started"><a class="btn" href="/start/?niche=commercial-cleaning">Start for $99</a><a class="btn ghost" href="/demos/keyholder/">See the demo</a></aside>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var boxes = [].slice.call(document.querySelectorAll("#qs input"));
+  var SAY = ["Your site makes them call to find out anything. Most won't.", "A start. The missing answers are the ones they'd call to ask.", "A start. The missing answers are the ones they'd call to ask.", "Halfway. The gaps below are where a competitor's site wins.", "Close. Fill the gaps below and you're ahead of most bids.", "Close. One answer left to put on the page.", "All six. Your site does its job before the walkthrough."];
+  function score() {
+    var on = boxes.filter(function (b) { return b.checked; });
+    $("n").textContent = on.length;
+    $("say").textContent = SAY[on.length];
+    $("miss").innerHTML = "";
+    boxes.forEach(function (b) { if (!b.checked) { var li = document.createElement("li"); li.textContent = b.value; $("miss").appendChild(li); } });
+  }
+  boxes.forEach(function (b) { b.addEventListener("change", score); }); score();
+
+  var c = $("contract");
+  function calc() {
+    var m = Math.max(1, parseFloat(c.value) || 0), r = function (n) { return Math.round(n * 10) / 10; };
+    var g = r(199 / m);
+    $("grow-n").textContent = g >= 1 ? g + (g === 1 ? " contract" : " contracts") : g + " of one contract";
+    $("host-n").textContent = r(99 / m);
+    $("build-n").textContent = r(399 / m);
+  }
+  c.addEventListener("input", calc); calc();
+})();
+</script>
+<script src="/assets/js/config.js?v=3.1"></script>
+<script src="/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>

@@ -48,6 +48,21 @@
           "slug": "pruitt-lawn"
         }
       ]
+    },
+    {
+      "id": "commercial-cleaning",
+      "name": "Commercial and after-hours cleaning",
+      "owner": "Landscaping designer",
+      "slots": [
+        {
+          "business": "Keyholder Commercial Cleaning",
+          "town": "Greensboro, NC",
+          "concept": "One night in one office: a 3D floor where the crew's cart goes room to room and each light goes off, next to the morning log the client gets, a live clock on the company's time zone, and a square-foot bid estimator",
+          "status": "review",
+          "client": "demo-keyholder",
+          "slug": "keyholder"
+        }
+      ]
     }
   ],
   "demoNote": "Finished demos, one per trade."
