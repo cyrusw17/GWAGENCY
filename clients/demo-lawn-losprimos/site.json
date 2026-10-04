@@ -1,7 +1,7 @@
 {
   "slug": "demo-lawn-losprimos",
   "demo": true,
-  "design": "lawn-rotulo",
+  "renderer": "lawn-rotulo",
   "niche": "lawn care",
   "demoCta": {
     "label": "Get this site",

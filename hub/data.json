@@ -1,0 +1,38 @@
+{
+  "updated": "2026-10-04",
+  "perTrade": 1,
+  "niches": [
+    {
+      "id": "detailing",
+      "name": "Auto detailing",
+      "owner": "Web developer",
+      "slots": [
+        {
+          "business": "Ramirez & Son Mobile Detail",
+          "town": "San Antonio, TX",
+          "concept": "Price-your-car picker, a two-step booking form, and Call, Text and Book buttons that stay on screen",
+          "status": "review",
+          "client": "demo-ramirez-mobile",
+          "slug": "ramirez-mobile"
+        }
+      ]
+    },
+    {
+      "id": "exterior-cleaning",
+      "name": "Exterior cleaning",
+      "owner": "Exterior cleaning designer",
+      "slots": [
+        {
+          "business": "Haint Blue Soft Wash",
+          "town": "Mount Pleasant, SC",
+          "concept": "A Lowcountry wash calendar (pollen, mildew, storm months), prices set like a tide table, and a three-step quote with a live ballpark",
+          "status": "graded",
+          "grade": "A+",
+          "client": "demo-haint-blue",
+          "slug": "haint-blue"
+        }
+      ]
+    }
+  ],
+  "demoNote": "Our first finished demo, made for an auto detailer."
+}

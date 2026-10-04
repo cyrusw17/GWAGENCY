@@ -121,7 +121,7 @@ test("end to end on the fixture list", async () => {
   assert.match(ext, /House washing in Jacksonville/);
   assert.match(ext, /What Coastal Soft Wash does/);
   assert.match(ext, /Sample packages and prices/); // labeled sample prices: our contrast with priceless sites
-  assert.match(ext, /Sample before and after/);
+  assert.match(ext, /Your cleanest before and after in Jacksonville goes here. Sample photo./);
   assert.match(ext, /Get my quote/);
   const land = readFileSync(join(out, by["fx-016"].mockup_dir, "index.html"), "utf8");
   assert.match(land, /Sample services/); // no services in the row, so the defaults are labeled

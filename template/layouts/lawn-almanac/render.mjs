@@ -3,6 +3,7 @@
 // Order: journal hero, this month, services with margin notes, seed packets, the lawn we fixed,
 // letter from the owner, neighbor notes, where we garden, estimate, FAQ.
 import { kit, esc, when, money } from "../_kit.mjs";
+export const behavior = "funnel.js"; // the step form and tracking from template/funnel.js, not kit.js
 
 
 // A pen-drawn fern frond: a curved stem with paired leaflets that shrink toward the tip.

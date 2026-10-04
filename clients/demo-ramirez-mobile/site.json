@@ -97,7 +97,6 @@
       "pricing",
       "story",
       "reviews",
-      "how",
       "promise",
       "areas",
       "book",
@@ -106,13 +105,15 @@
   },
   "eyebrows": {
     "services": "The board",
-    "pricing": "Packages",
-    "reviews": "From the neighbors",
+    "faq": "Preguntas",
+    "pricing": "",
+    "reviews": "",
+    "areas": "",
     "how": "",
-    "faq": "Preguntas"
+    "work": ""
   },
   "hero": {
-    "eyebrow": "Family owned since 2011 · Se habla español",
+    "eyebrow": "Since 2011 · Se habla español",
     "headlineEm": "We come to you.",
     "sub": "Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The prices on our board are the prices you pay.",
     "card": {
@@ -231,28 +232,13 @@
       ]
     }
   ],
-  "stepsHeadline": "How a booking goes",
-  "steps": [
-    {
-      "title": "Text us a photo",
-      "body": "Of the car, inside and out. We reply with the price and two or three times that work."
-    },
-    {
-      "title": "We pull up",
-      "body": "Driveway, curb or your office lot. Shade tent goes up, generator stays quiet."
-    },
-    {
-      "title": "You check it before you pay",
-      "body": "Walk around it with us. If something's not right, we fix it right there."
-    }
-  ],
   "blocks": [
     {
       "id": "story",
       "nav": "About us",
       "kind": "note",
       "band": true,
-      "eyebrow": "Who's coming to your house",
+      "eyebrow": "",
       "title": "Rudy, Mateo, and a white Ford Transit",
       "body": [
         "I started washing cars at my uncle's lot on Zarzamora in 1998. In 2011 I bought a used van, a water tank and a generator, and painted our name on the door myself.",
@@ -312,9 +298,9 @@
     ]
   },
   "guarantee": {
-    "eyebrow": "Our word",
+    "eyebrow": "",
     "title": "Missed a spot? We come back.",
-    "body": "Text us a photo within 48 hours and we'll come back and fix it, free. That's been the deal since the first day."
+    "body": "Text me a photo of the car and I'll send a price. We pull up with our own water and power, and you walk the car with me before you pay. If you find something later, text a photo within 48 hours and we come back and fix it, free. — Rudy"
   },
   "areas": {
     "headline": "Our route, inside 1604",
@@ -330,11 +316,13 @@
       "Medical Center",
       "Terrell Hills",
       "Shavano Park"
-    ]
+    ],
+    "mapSvg": "img/route-map.svg",
+    "mapAlt": "Rudy's sketch of the route: Loop 1604 around San Antonio, with Loop 410, I-10 and I-35, and the neighborhoods we cover"
   },
   "booking": {
     "cta": "Book a time",
-    "eyebrow": "Book",
+    "eyebrow": "",
     "headline": "Pick a package, get a time",
     "body": "Two quick steps. Rudy texts you back with a time, usually within the hour."
   },

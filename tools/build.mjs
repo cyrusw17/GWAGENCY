@@ -6,7 +6,7 @@
 // Exits non-zero when a check fails, so a site with fake or missing basics never ships.
 import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 import { render, robots, sitemap, llms, digits, headline } from "../template/render.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -40,6 +40,7 @@ function check(s) {
   need(!fake(s.business?.phone), "business.phone is a 555 placeholder");
   need(!fake(s.business?.sms), "business.sms is a 555 placeholder");
     need(s.seo?.canonical, "seo.canonical (the live URL) is required for a real site");
+    if (s.business?.insured) need(s.business.insuredConfirmed === true, "business.insured is a licence/insurance claim: set business.insuredConfirmed: true once the owner has confirmed it");
     if (s.reviews?.items?.length) {
       need(s.reviews.url, "reviews.url is required: link to where these real reviews live (Google profile)");
       need(s.reviews.items.every(r => r.verified === true), "every review needs \"verified\": true after you copy it from the real source");
@@ -53,24 +54,20 @@ function check(s) {
   return { errs, warns };
 }
 
-// "design": "<name>" in site.json renders with template/layouts/<name>/ (its own markup and CSS)
-// on top of the same kit, checks, tracking and SEO files as the default template.
+// A designed layout (template/layouts/<name>/) owns its markup, CSS and fonts; kit.mjs keeps
+// the head, form, tracking and demo labels the same underneath. Picked by site.json "renderer";
+// no "renderer" = the default page ("layout" stays the default page's section settings).
 const layouts = {};
-async function layoutFor(s) {
-  const name = s.design;
+async function layoutFor(name) {
   if (!name) return null;
-  if (typeof name !== "string" || !/^[a-z0-9-]+$/.test(name) || !existsSync(join(root, "template", "layouts", name, "render.mjs"))) return { err: `design "${name}" not found in template/layouts/` };
-  const dir = join(root, "template", "layouts", name);
-  layouts[name] ||= { render: (await import(pathToFileURL(join(dir, "render.mjs")).href)).render, css: readFileSync(join(dir, "style.css"), "utf8") };
-  return layouts[name];
+  if (!/^[a-z0-9-]+$/.test(name) || !existsSync(join(root, "template", "layouts", name, "render.mjs"))) throw new Error(`unknown layout "${name}"`);
+  return (layouts[name] ??= await import(`../template/layouts/${name}/render.mjs`));
 }
 
 async function build(dir) {
   const srcDir = resolve(root, dir);
   const s = JSON.parse(readFileSync(join(srcDir, "site.json"), "utf8"));
   const { errs, warns } = check(s);
-  const layout = await layoutFor(s);
-  if (layout?.err) errs.push(layout.err);
   warns.forEach(w => console.warn(`  warn  ${s.slug}: ${w}`));
   if (errs.length) { errs.forEach(e => console.error(`  ERROR ${s.slug || dir}: ${e}`)); return false; }
 
@@ -84,17 +81,32 @@ async function build(dir) {
   const out = resolve(root, outArg || join("dist", s.slug));
   mkdirSync(out, { recursive: true });
   // CSS is inlined: one page per site, so a separate file only adds a render-blocking round trip.
-  // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
-  // A layout ("layout" in site.json) brings its own markup and CSS instead.
-  const designFile = join(srcDir, "design.css");
-  const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
-  if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
-  writeFileSync(join(out, "index.html"), layout
-    ? layout.render(s, { css: layout.css })
-    : render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design }));
+  // A designed layout (template/layouts/<name>/) owns the whole page: markup, CSS, fonts, and
+  // template/kit.js for behavior (tracking, slider, step form) in place of funnel.js.
+  let layout;
+  try { layout = await layoutFor(s.renderer); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
+  if (layout) {
+    const lay = join(root, "template", "layouts", s.renderer);
+    writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
+    if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
+    // A layout built on layouts/_kit.mjs exports behavior = "funnel.js" (its 3-step form lives there).
+    writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", layout.behavior || "kit.js"), "utf8"));
+  } else {
+    // design.css (optional) is this site's own art direction, layered over the shared funnel CSS.
+    const designFile = join(srcDir, "design.css");
+    const design = existsSync(designFile) ? readFileSync(designFile, "utf8") : "";
+    if (/<\/style/i.test(design)) { console.error(`  ERROR ${s.slug}: design.css must not contain "</style"`); return false; }
+    // areas.mapSvg: a drawn service-area map (an .svg file in the client folder), inlined so it uses the page's fonts.
+    let mapSvg = "";
+    if (s.areas?.mapSvg) {
+      mapSvg = readFileSync(join(srcDir, s.areas.mapSvg), "utf8").replace(/<\?xml[^>]*>/, "");
+      if (/<script|\son\w+\s*=|javascript:|<foreignObject/i.test(mapSvg)) { console.error(`  ERROR ${s.slug}: areas.mapSvg must be a plain drawing (no scripts or event handlers)`); return false; }
+    }
+    writeFileSync(join(out, "index.html"), render(s, { css: readFileSync(join(root, "template", "funnel.css"), "utf8"), design, mapSvg }));
+    cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
+  }
   const md = llms(s);
   writeFileSync(join(out, "index.md"), md); // Markdown copy of the page's facts for AI agents
-  cpSync(join(root, "template", "funnel.js"), join(out, "funnel.js"));
   for (const d of ["img", "fonts"]) if (existsSync(join(srcDir, d))) cpSync(join(srcDir, d), join(out, d), { recursive: true });
   // A demo inside our own site must not overwrite groundwork-web.com's robots.txt/sitemap.
   if (!outArg || !s.demo) {

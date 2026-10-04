@@ -2,6 +2,7 @@
 // streets, a printed price sheet. Order: route, price sheet, before/after, how it works,
 // reviews, owner, areas by day, estimate form, FAQ.
 import { kit, esc, when, url } from "../_kit.mjs";
+export const behavior = "funnel.js"; // the step form and tracking from template/funnel.js, not kit.js
 
 
 export function render(s, { css = "" } = {}) {

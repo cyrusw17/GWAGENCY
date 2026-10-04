@@ -9,7 +9,7 @@ export const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;
 export const when = (cond, html) => (cond ? (typeof html === "function" ? html() : html) : "");
 export const cssStr = (v = "") => String(v).replace(/[\\"'<>;{}\n\r]/g, ""); // values inside <style>, where HTML escapes don't decode
 export const price = n => (typeof n === "number" ? "$" + n.toLocaleString("en-US") : String(n ?? ""));
-const money = n => esc(price(n));
+export const money = n => esc(price(n));
 // Only web links and site-relative paths; anything else (javascript:, data:) becomes "#".
 export const safeUrl = u => { u = String(u || "").trim(); return /^(https?:)?\/\//i.test(u) || !/^[a-z][\w+.-]*:/i.test(u) ? u : "#"; };
 export const url = u => esc(safeUrl(u));
@@ -73,7 +73,7 @@ export function theme(t = {}) {
   return `${fonts.join("")}:root{${rules.join(";")}}`;
 }
 
-export function render(s, { css = "", design = "", assetBase = "" } = {}) {
+export function render(s, { css = "", design = "", mapSvg = "", assetBase = "" } = {}) {
   const b = s.business, demo = !!s.demo;
   const tel = digits(b.phone), sms = digits(b.sms || b.phone);
   const bookLabel = s.booking?.cta || "Book now";
@@ -91,7 +91,7 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
   const heroLayout = ["compare", "overlay", "type", "stack"].includes(s.layout?.hero) ? s.layout.hero : "split";
   const eb = (id, dflt) => s.eyebrows?.[id] ?? dflt; // per-site section labels; "" hides one
   const r = s.reviews, w = s.work, members = (s.packages || []).some(p => p.member != null);
-  const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo, '<span class="f-tag">sample</span>')}`;
+  const ratingLine = r?.rating && `<span class="stars" aria-hidden="true">★★★★★</span><b>${esc(r.rating)}</b><span>${esc(r.count ? r.count + " reviews on " : "on ")}${r.url ? `<a href="${url(r.url)}" rel="noopener" target="_blank">${esc(r.source || "Google")}</a>` : esc(r.source || "Google")}</span>${when(demo && !r.real, '<span class="f-tag">sample</span>')}`;
   // Newest first, and "Latest review: N days ago" (recency is what visitors weigh most).
   const reviews = [...(r?.items || [])].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
   const monthYear = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
@@ -157,7 +157,7 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
     ${when(demo && r.sampleNote !== "", `<p class="f-sample">${esc(r.sampleNote || "Sample reviews for this demo. Real sites show the business's own Google reviews.")}</p>`)}
     ${when(ratingLine, `<p class="f-rating">${ratingLine}${when(reviews[0]?.date, () => `<span class="f-muted">· Latest review <span data-since="${esc(reviews[0].date)}">${esc(monthYear(reviews[0].date))}</span></span>`)}</p>`)}
   </div>
-  <div class="f-reviews" role="list">
+  <div class="f-reviews" role="list" tabindex="0" aria-label="Customer reviews${demo ? " (sample)" : ""}">
     ${reviews.map(x => `<figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="${Number(x.stars) || 5} out of 5 stars">${"★".repeat(Number(x.stars) || 5)}</div><blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b>${esc(x.detail || "")}${when(x.date, `<time datetime="${esc(x.date)}">${esc(monthYear(x.date))}</time>`)}</figcaption></figure>`).join("\n    ")}
   </div>
 </section>` },
@@ -165,7 +165,7 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
 <section>
   <div class="f-wrap">
     <div class="f-guarantee">
-      <div><p class="f-eyebrow">${esc(s.guarantee?.eyebrow || "Our promise")}</p><h2>${esc(s.guarantee?.title)}</h2><p>${esc(s.guarantee?.body)}</p></div>
+      <div>${when(s.guarantee?.eyebrow !== "", () => `<p class="f-eyebrow">${esc(s.guarantee?.eyebrow || "Our promise")}</p>`)}<h2>${esc(s.guarantee?.title)}</h2><p>${esc(s.guarantee?.body)}</p></div>
       ${bookBtn("guarantee", bookLabel, "f-btn")}
     </div>
   </div>
@@ -178,7 +178,7 @@ export function render(s, { css = "", design = "", assetBase = "" } = {}) {
       ${when(s.areas?.body, `<p class="f-muted f-lead">${esc(s.areas?.body)}</p>`)}
       <ul class="f-areas" aria-label="Areas we serve">${(s.areas?.cities || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul>
     </div>
-    ${s.areas?.mapEmbed ? `<div class="f-map"><iframe src="${url(s.areas?.mapEmbed)}" title="Service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : when(demo, media("", "", "Real sites embed a Google map of the service area here.", demo, "f-map"))}
+    ${mapSvg ? `<div class="f-map f-map-drawn" role="img" aria-label="${esc(s.areas?.mapAlt || "Map of the service area")}">${mapSvg}</div>` : s.areas?.mapEmbed ? `<div class="f-map"><iframe src="${url(s.areas?.mapEmbed)}" title="Service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>` : when(demo, media("", "", "Real sites embed a Google map of the service area here.", demo, "f-map"))}
   </div>
 </section>` },
     { id: "book", show: true, html: () => `

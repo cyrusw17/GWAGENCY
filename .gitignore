@@ -7,6 +7,7 @@ dist/
 graphify-out/
 node_modules/
 aeotester-report.md
+_site/
 # Prospect data never goes in this public repo (outreach/run.mjs refuses --out inside it)
 outreach/runs/
 outreach/out*/

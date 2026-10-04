@@ -3,6 +3,7 @@
 // a taquería-style price board. Order: truck door, trust, price board, watering day,
 // services, before/after, the primos, reviews, estimate, area, FAQ.
 import { kit, esc, when, money } from "../_kit.mjs";
+export const behavior = "funnel.js"; // the step form and tracking from template/funnel.js, not kit.js
 
 const banner = (en, es, id = "") => `<h2 class="banner"${id ? ` id="${id}"` : ""}><span class="banner-en">${esc(en)}</span>${when(es, `<span class="banner-es" lang="es">${esc(es)}</span>`)}</h2>`;
 // Papel picado: one string of cut-paper flags. Cut-outs are drawn per flag in CSS.

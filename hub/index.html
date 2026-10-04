@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GroundWork Status</title>
+<meta name="description" content="Where GroundWork-Web stands: the offer, the finished demo site and the launch status.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="preload" href="assets/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/hub.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23E5A00D%22/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the work log</a>
+
+<header class="top">
+  <div class="wrap top__row">
+    <p class="mark" translate="no"><span class="mark__dot" aria-hidden="true"></span>GroundWork-Web</p>
+    <p class="top__meta">Status · updated {{UPDATED}}</p>
+  </div>
+</header>
+
+<div class="wrap layout layout--single">
+  <main id="main">
+    <section class="intro">
+      <h1>GroundWork-Web, where things stand</h1>
+      <p class="lede">GroundWork-Web builds websites for owner-run local service businesses, starting with auto detailers. This page shows the offer, the finished demo site and where the business is today.</p>
+      <dl class="facts facts--3">
+        <div><dt>Paying clients</dt><dd>0</dd></div>
+        <div><dt>Demo sites</dt><dd>{{DEMO_TOTAL}}</dd></div>
+        <div><dt>Sites live</dt><dd>0</dd></div>
+      </dl>
+      <p class="note">Status: getting ready to launch. The first demo site is finished and in review; nothing has gone live yet.</p>
+    </section>
+
+
+    <section id="demos" class="sec">
+      <h2>The demo site</h2>
+      <p class="sec__lede">{{DEMO_NOTE}} It is a made-up business in a real town, marked as a demo, with sample reviews and prices labelled as samples.</p>
+      {{DEMOS}}
+    </section>
+
+    <section id="offer" class="sec">
+      <h2>Offer and prices</h2>
+      <p class="sec__lede">One price list for every trade. The site is built before the client pays the bulk of the build fee, so the risk sits with us.</p>
+      <div class="ticket" role="group" aria-label="Price list">
+        <div class="ticket__row"><span>Start the build</span><b>$99</b><em>Refunded if they don't like the preview</em></div>
+        <div class="ticket__row"><span>Approve the preview</span><b>$300</b><em>Paid only once they've seen their site</em></div>
+        <div class="ticket__row"><span>Host plan</span><b>$99<small>/mo</small></b><em>Hosting, SSL, uptime monitoring, and broken link and form fixes</em></div>
+        <div class="ticket__row ticket__row--pick"><span>Grow plan</span><b>$199<small>/mo</small></b><em>Everything in Host, plus 2 to 3 updates a month (promos, prices, photos) and a monthly Google Business Profile and SEO check-in</em></div>
+        <div class="ticket__row"><span>Pay a year up front</span><b>12 for 10</b><em>Two months free on either plan</em></div>
+      </div>
+      <div class="cols cols--one">
+        <div>
+          <h3>Rules that come with it</h3>
+          <ul class="list">
+            <li>The first 25 paying clients keep the founding rate. After them the build is $499 total.</li>
+            <li>The first 10 clients get the founding rate in exchange for written consent to share their real results as a case study. Nothing is ever invented.</li>
+            <li>Leave any month with 30 days' notice. No year-long contract.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>GroundWork-Web status page. Not indexed by search engines.</p>
+  </div>
+</footer>
+</body>
+</html>

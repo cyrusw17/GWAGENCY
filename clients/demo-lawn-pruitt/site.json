@@ -1,7 +1,7 @@
 {
   "slug": "demo-lawn-pruitt",
   "demo": true,
-  "design": "lawn-route",
+  "renderer": "lawn-route",
   "niche": "lawn care",
   "demoCta": {
     "label": "Get this site",

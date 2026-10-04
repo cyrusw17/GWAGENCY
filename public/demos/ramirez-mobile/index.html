@@ -342,6 +342,8 @@ body.has-demo .f-header{top:40px}
   .f-areas-grid .f-map{margin-top:0}
   .f-gallery{grid-template-columns:repeat(4,1fr)}
 }
+.f-map-drawn{aspect-ratio:auto;background:none;border:0;border-radius:0;overflow:visible}
+.f-map-drawn svg{display:block;width:100%;height:auto}
 @font-face{font-family:"Alfa Slab One";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/alfa-slab-one-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Archivo";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Archivo";font-weight:600;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-600-normal.woff2") format("woff2")}@font-face{font-family:"Archivo";font-weight:800;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-800-normal.woff2") format("woff2")}:root{--f-bg:#FFFFFF;--f-surface:#F6F4EF;--f-surface-2:#ECE8DF;--f-text:#151515;--f-muted:#55524C;--f-line:#E2DDD2;--f-accent:#B3121E;--f-accent-ink:#FFFFFF;--f-accent-2:#1C3557;--f-display:"Alfa Slab One", Rockwell, "Roboto Slab", Georgia, serif;--f-body:Archivo, "Helvetica Neue", Arial, sans-serif;--f-radius:4px}/* Ramirez & Son: sign-painter van door. White van, red and navy pinstripe, slab lettering,
    a black menu board for prices. Square corners, nothing glossy. */
 h1,h2,h3{font-weight:400;letter-spacing:0;line-height:1.02}
@@ -424,6 +426,19 @@ h3{font-family:var(--f-body);font-weight:800}
 .f-est{border:2px solid var(--f-text);border-radius:var(--f-radius);background:var(--f-bg);box-shadow:6px 6px 0 var(--f-accent-2)}
 .f-est-total{font-weight:400;color:var(--f-accent);font-size:56px}
 #price .f-block-copy h2{font-size:clamp(30px,7vw,48px)}
+/* Rudy's route sketch */
+.route-map .rm-1604{stroke:var(--f-accent);stroke-width:5}
+.route-map .rm-410{stroke:var(--f-accent-2);stroke-width:3.5;stroke-dasharray:1 9}
+.route-map .rm-hwy{stroke:var(--f-muted);stroke-width:2}
+.route-map text{font-family:var(--f-body);fill:var(--f-text)}
+.route-map .rm-road{font-size:17px;font-weight:800;letter-spacing:.08em;fill:var(--f-accent)}
+.route-map .rm-town{font-size:23px;font-weight:600;paint-order:stroke;stroke:var(--f-surface);stroke-width:6px;stroke-linejoin:round}
+.route-map .rm-home{font-family:var(--f-display);font-weight:400;font-size:26px}
+.route-map .rm-dot{fill:var(--f-accent)}
+.route-map .rm-note{font-size:19px;font-style:italic;fill:var(--f-muted)}
+/* sections now open without eyebrows: give headings room */
+#pricing .f-head,#reviews .f-head,#areas h2{margin-top:0}
+.f-guarantee p{font-size:18px;max-width:58ch}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoWash","name":"Ramirez & Son Mobile Detail","description":"Family-owned mobile car detailing in San Antonio since 2011. We bring water and power to your driveway. Prices posted, se habla español.","telephone":"(210) 555-0142","email":"rudy@example.com","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"San Antonio","addressRegion":"TX","postalCode":"78209","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Alamo Heights"},{"@type":"City","name":"Stone Oak"},{"@type":"City","name":"Helotes"},{"@type":"City","name":"Leon Valley"},{"@type":"City","name":"Live Oak"},{"@type":"City","name":"Converse"},{"@type":"City","name":"Southside"},{"@type":"City","name":"Medical Center"},{"@type":"City","name":"Terrell Hills"},{"@type":"City","name":"Shavano Park"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"sameAs":["https://instagram.com/example","https://facebook.com/example"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","name":"Quick Shine","price":89,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Quick Shine"}},{"@type":"Offer","name":"La Completa","price":189,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"La Completa"}},{"@type":"Offer","name":"Showroom","price":299,"priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Showroom"}}]}}</script>
@@ -450,7 +465,7 @@ h3{font-family:var(--f-body);font-weight:800}
   <div class="f-wrap">
     <div class="f-hero-copy">
       <p class="f-pill"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>212 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span></p>
-      <p class="f-eyebrow">Family owned since 2011 · Se habla español</p>
+      <p class="f-eyebrow">Since 2011 · Se habla español</p>
       <h1>Mobile car detailing in San Antonio <em>We come to you.</em></h1>
       <p class="lede">Rudy and his son Mateo bring the water, the power and the shade tent to your driveway anywhere inside 1604. The prices on our board are the prices you pay.</p>
       <div class="f-ctas">
@@ -503,7 +518,7 @@ h3{font-family:var(--f-body);font-weight:800}
 
 <section class="f-band f-pricing" id="pricing">
   <div class="f-wrap">
-    <div class="f-head"><p class="f-eyebrow">Packages</p><h2>Three ways to book us</h2><p>Car and small SUV prices. Trucks and third-row SUVs add $30, and we tell you before we start.</p></div>
+    <div class="f-head"><h2>Three ways to book us</h2><p>Car and small SUV prices. Trucks and third-row SUVs add $30, and we tell you before we start.</p></div>
     
     <div class="f-pkgs">
       <div class="f-pkg">
@@ -538,7 +553,7 @@ h3{font-family:var(--f-body);font-weight:800}
 <section class="f-block f-block-note f-band" id="story">
   <div class="f-wrap">
     <div class="f-block-copy">
-      <p class="f-eyebrow">Who&#39;s coming to your house</p>
+      
       <h2>Rudy, Mateo, and a white Ford Transit</h2>
       <p>I started washing cars at my uncle&#39;s lot on Zarzamora in 1998. In 2011 I bought a used van, a water tank and a generator, and painted our name on the door myself.</p><p>Mateo joined me after he finished at Southwest High. He does the interiors, and he&#39;s pickier than I am.</p><p>We don&#39;t send crews we don&#39;t know. When you book, it&#39;s one of us two at your door, every time.</p>
       <p class="f-sign">Rudy Ramirez, owner</p>
@@ -550,28 +565,21 @@ h3{font-family:var(--f-body);font-weight:800}
 
 <section id="reviews">
   <div class="f-wrap">
-    <div class="f-head"><p class="f-eyebrow">From the neighbors</p><h2>What people on our route say</h2></div>
+    <div class="f-head"><h2>What people on our route say</h2></div>
     <p class="f-sample">Sample reviews for this demo. Real sites show the business&#39;s own Google reviews.</p>
     <p class="f-rating"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span>212 reviews on <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google</a></span><span class="f-tag">sample</span><span class="f-muted">· Latest review <span data-since="2026-09-28">Sep 2026</span></span></p>
   </div>
-  <div class="f-reviews" role="list">
+  <div class="f-reviews" role="list" tabindex="0" aria-label="Customer reviews (sample)">
     <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Mateo got three years of soccer season out of my back seat. Showed up at 6:30 like they said.</blockquote><figcaption><b>Sample customer</b> · Alamo Heights, Tahoe<time datetime="2026-09-28">Sep 2026</time></figcaption></figure>
     <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Price on the website is the price he charged. Truck was done before I finished my calls.</blockquote><figcaption><b>Sample customer</b> · Stone Oak, F-150<time datetime="2026-09-16">Sep 2026</time></figcaption></figure>
     <figure class="f-rev" role="listitem"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>Le hablé en español a Don Rudy y me explicó todo. Muy buen trabajo.</blockquote><figcaption><b>Sample customer</b> · Southside, Camry<time datetime="2026-08-30">Aug 2026</time></figcaption></figure>
   </div>
 </section>
 
-<section id="how">
-  <div class="f-wrap">
-    <div class="f-head"><h2>How a booking goes</h2></div>
-    <ol class="f-steps"><li><div><h3>Text us a photo</h3><p>Of the car, inside and out. We reply with the price and two or three times that work.</p></div></li><li><div><h3>We pull up</h3><p>Driveway, curb or your office lot. Shade tent goes up, generator stays quiet.</p></div></li><li><div><h3>You check it before you pay</h3><p>Walk around it with us. If something&#39;s not right, we fix it right there.</p></div></li></ol>
-  </div>
-</section>
-
 <section>
   <div class="f-wrap">
     <div class="f-guarantee">
-      <div><p class="f-eyebrow">Our word</p><h2>Missed a spot? We come back.</h2><p>Text us a photo within 48 hours and we&#39;ll come back and fix it, free. That&#39;s been the deal since the first day.</p></div>
+      <div><h2>Missed a spot? We come back.</h2><p>Text me a photo of the car and I&#39;ll send a price. We pull up with our own water and power, and you walk the car with me before you pay. If you find something later, text a photo within 48 hours and we come back and fix it, free. — Rudy</p></div>
       <a class="f-btn" href="#book" data-ev="book" data-label="guarantee">Book a time</a>
     </div>
   </div>
@@ -580,18 +588,50 @@ h3{font-family:var(--f-body);font-weight:800}
 <section class="f-band" id="areas">
   <div class="f-wrap f-areas-grid">
     <div>
-      <p class="f-eyebrow">Service area</p><h2>Our route, inside 1604</h2>
+      <h2>Our route, inside 1604</h2>
       <p class="f-muted f-lead">Outside the loop? Text us. We go to Boerne and New Braunfels on Saturdays for a $25 trip fee.</p>
       <ul class="f-areas" aria-label="Areas we serve"><li>Alamo Heights</li><li>Stone Oak</li><li>Helotes</li><li>Leon Valley</li><li>Live Oak</li><li>Converse</li><li>Southside</li><li>Medical Center</li><li>Terrell Hills</li><li>Shavano Park</li></ul>
     </div>
-    <div class="f-map"><div class="f-ph" aria-hidden="true"></div><div class="f-cap">Real sites embed a Google map of the service area here.</div></div>
+    <div class="f-map f-map-drawn" role="img" aria-label="Rudy&#39;s sketch of the route: Loop 1604 around San Antonio, with Loop 410, I-10 and I-35, and the neighborhoods we cover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" class="route-map">
+  <defs>
+    <filter id="rm-hand" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+  </defs>
+  <g filter="url(#rm-hand)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="rm-1604" d="M300 48C420 50 540 130 552 262C562 392 450 494 300 498C150 500 52 402 46 270C42 140 170 46 300 48Z"/>
+    <path class="rm-410" d="M302 168C366 170 412 214 410 276C408 336 360 376 300 374C238 372 192 332 194 272C196 210 240 166 302 168Z"/>
+    <path class="rm-hwy" d="M120 470L218 352L300 272L392 186L482 92"/>
+    <path class="rm-hwy" d="M88 132L196 206L300 272L404 316L540 386"/>
+  </g>
+  <g class="rm-labels">
+    <text x="300" y="34" text-anchor="middle" class="rm-road">LOOP 1604</text>
+    <text x="300" y="158" text-anchor="middle" class="rm-road">410</text>
+    <text x="478" y="78" class="rm-road">I-35</text>
+    <text x="70" y="118" class="rm-road">I-10</text>
+    <circle cx="300" cy="272" r="8" class="rm-dot"/>
+    <text x="318" y="304" class="rm-town rm-home">Downtown</text>
+    <text x="318" y="222" class="rm-town">Alamo Heights</text>
+    <text x="370" y="104" text-anchor="middle" class="rm-town">Stone Oak</text>
+    <text x="196" y="126" text-anchor="middle" class="rm-town">Shavano Park</text>
+    <text x="236" y="190" text-anchor="end" class="rm-town">Medical Center</text>
+    <text x="62" y="258" class="rm-town">Helotes</text>
+    <text x="80" y="330" class="rm-town">Leon Valley</text>
+    <text x="430" y="160" class="rm-town">Live Oak</text>
+    <text x="440" y="262" class="rm-town">Converse</text>
+    <text x="300" y="448" text-anchor="middle" class="rm-town">Southside</text>
+    <text x="300" y="530" text-anchor="middle" class="rm-note">Boerne and New Braunfels on Saturdays, $25 trip fee</text>
+  </g>
+</svg>
+</div>
   </div>
 </section>
 
 <section id="book">
   <div class="f-wrap f-book">
     <div>
-      <p class="f-eyebrow">Book</p>
+      
       <h2 id="book-h">Pick a package, get a time</h2>
       <p class="f-muted f-lead">Two quick steps. Rudy texts you back with a time, usually within the hour.</p>
       <p class="f-alt">Rather talk? <a href="tel:2105550142" data-ev="call" data-label="book section">Call (210) 555-0142</a> or <a href="sms:2105550142" data-ev="text" data-label="book section">send a text</a>.</p>
