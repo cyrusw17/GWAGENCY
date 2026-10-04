@@ -52,7 +52,7 @@ ${k.demoBar()}
     </div>
     <figure class="van-stage">
       <canvas class="van" data-van width="560" height="440" role="img" aria-label="${esc(h.vanAlt || "A drawing of our white van with the shade tent up. Drag it to spin it around.")}"></canvas>
-      <figcaption><span class="spin-hint" data-spin-hint>${esc(h.vanHint || "Drag the van to spin it")}</span>${when(h.vanNote, `<span class="hand">${esc(h.vanNote)}</span>`)}</figcaption>
+      <figcaption><button type="button" class="pause" data-pause aria-pressed="false">Pause motion</button><span class="spin-hint" data-spin-hint>${esc(h.vanHint || "Drag the van to spin it")}</span>${when(h.vanNote, `<span class="hand">${esc(h.vanNote)}</span>`)}</figcaption>
     </figure>
   </div>
   ${when(s.marquee?.length, `<div class="marquee" aria-label="Neighborhoods we cover">

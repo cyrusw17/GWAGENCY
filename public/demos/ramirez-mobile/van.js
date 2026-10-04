@@ -17,7 +17,7 @@
     var box = cv.getBoundingClientRect();
     // Zdog scales the canvas for the screen's pixel ratio itself; size it in CSS pixels.
     var illo = new Z.Illustration({ element: cv, zoom: box.width / 300, rotate: { x: -0.32, y: -0.7 }, dragRotate: true,
-      onDragStart: function () { spinning = false; hint && hint.classList.add("gone"); },
+      onDragStart: function () { spinning = false; if (hint) hint.classList.add("gone"); },
       onDragMove: function () { draw(); } });
     illo.setSize(Math.round(box.width), Math.round(box.height));
     addEventListener("resize", function () { var r = cv.parentNode.getBoundingClientRect(), w = Math.min(r.width, 560); illo.setSize(Math.round(w), Math.round(w * 440 / 560)); illo.zoom = w / 300; draw(); });
@@ -62,15 +62,28 @@
     // ground: a tile pad
     new Z.Rect({ addTo: illo, width: 250, height: 210, translate: { y: 35, z: -40 }, rotate: { x: TAU / 4 }, stroke: 0, fill: true, color: "rgba(35,64,168,.08)" });
 
-    var spinning = !still, visible = true, hint = document.querySelector("[data-spin-hint]");
+    var spinning = !still, visible = true, looping = false, turned = 0, hint = document.querySelector("[data-spin-hint]");
     var draw = function () { illo.updateRenderGraph(); };
+    // The loop only runs while the van spins and is on screen; scrolled away, it stops.
     var tick = function () {
-      if (spinning && visible) { illo.rotate.y += 0.004; draw(); }
-      if (spinning) requestAnimationFrame(tick);
+      if (!spinning || !visible) { looping = false; return; }
+      illo.rotate.y += 0.006; draw();
+      if ((turned += 0.006) >= TAU) { spinning = false; looping = false; return; } // one slow turn, then it rests
+      requestAnimationFrame(tick);
     };
-    draw();
-    if (spinning) requestAnimationFrame(tick);
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(cv);
+    var go = function () { if (spinning && visible && !looping) { looping = true; requestAnimationFrame(tick); } };
+    draw(); go();
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; go(); }).observe(cv);
+    // Pause motion (WCAG 2.2.2): stops the spin and the neighborhoods strip, for touch and keyboard too.
+    var pause = document.querySelector("[data-pause]");
+    if (pause) {
+      if (still) { pause.setAttribute("aria-pressed", "true"); document.body.classList.add("paused"); }
+      pause.addEventListener("click", function () {
+        var on = pause.getAttribute("aria-pressed") !== "true";
+        pause.setAttribute("aria-pressed", String(on)); document.body.classList.toggle("paused", on);
+        spinning = !on; if (!on) turned = 0; go();
+      });
+    }
     // keyboard: arrows turn it
     cv.tabIndex = 0;
     cv.addEventListener("keydown", function (e) {
