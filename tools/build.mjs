@@ -55,8 +55,8 @@ function check(s) {
 }
 
 // A designed layout (template/layouts/<name>/) owns its markup, CSS and fonts; kit.mjs keeps
-// the head, form, tracking and demo labels the same underneath. Picked by site.json "design";
-// no "design" = the default page ("layout" stays the default page's section settings).
+// the head, form, tracking and demo labels the same underneath. Picked by site.json "renderer";
+// no "renderer" = the default page ("layout" stays the default page's section settings).
 const layouts = {};
 async function layoutFor(name) {
   if (!name) return null;
@@ -84,9 +84,9 @@ async function build(dir) {
   // A designed layout (template/layouts/<name>/) owns the whole page: markup, CSS, fonts, and
   // template/kit.js for behavior (tracking, slider, step form) in place of funnel.js.
   let layout;
-  try { layout = await layoutFor(s.design); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
+  try { layout = await layoutFor(s.renderer); } catch (e) { console.error(`  ERROR ${s.slug}: ${e.message}`); return false; }
   if (layout) {
-    const lay = join(root, "template", "layouts", s.design);
+    const lay = join(root, "template", "layouts", s.renderer);
     writeFileSync(join(out, "index.html"), layout.render(s, { css: readFileSync(join(lay, "style.css"), "utf8") }));
     if (existsSync(join(lay, "fonts"))) cpSync(join(lay, "fonts"), join(out, "fonts"), { recursive: true });
     writeFileSync(join(out, "funnel.js"), readFileSync(join(root, "template", "kit.js"), "utf8"));
