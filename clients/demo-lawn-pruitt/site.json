@@ -1,11 +1,11 @@
 {
   "slug": "demo-lawn-pruitt",
   "demo": true,
-  "renderer": "lawn-route",
+  "renderer": "lawn-season",
   "niche": "lawn care",
   "demoCta": {
     "label": "Get this site",
-    "href": "https://groundwork-web.com/start/?demo=lawn-route"
+    "href": "https://groundwork-web.com/start/?demo=lawn-season"
   },
   "business": {
     "name": "Pruitt Lawn Co.",
@@ -47,29 +47,29 @@
     ]
   },
   "theme": {
-    "themeColor": "#1D4A2A",
+    "themeColor": "#12352E",
     "fontFaces": [
       {
-        "family": "Barlow Condensed",
+        "family": "Fraunces",
+        "weight": 600,
+        "src": "fonts/fraunces-latin-wght-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Fraunces",
         "weight": 800,
-        "src": "fonts/barlow-condensed-latin-800-normal.woff2",
-        "preload": true
+        "src": "fonts/fraunces-latin-wght-normal.woff2"
       },
       {
-        "family": "Barlow Condensed",
-        "weight": 600,
-        "src": "fonts/barlow-condensed-latin-600-normal.woff2"
-      },
-      {
-        "family": "Barlow",
+        "family": "Instrument Sans",
         "weight": 400,
-        "src": "fonts/barlow-latin-400-normal.woff2",
+        "src": "fonts/instrument-sans-latin-400-normal.woff2",
         "preload": true
       },
       {
-        "family": "Barlow",
+        "family": "Instrument Sans",
         "weight": 600,
-        "src": "fonts/barlow-latin-600-normal.woff2"
+        "src": "fonts/instrument-sans-latin-600-normal.woff2"
       }
     ]
   },
@@ -78,7 +78,6 @@
     "description": "Weekly lawn mowing in Dublin, Hilliard, Worthington, Powell and Upper Arlington. Mowing from $45 a visit, same day every week. Free estimates."
   },
   "hero": {
-    "kicker": "Est. 1994 · second generation",
     "headline": "Weekly lawn mowing in Dublin, Ohio.",
     "sub": "Same crew, same day, every week from April to October. Mowed, edged, trimmed and blown off. You'll know we were there by the stripes."
   },
@@ -155,7 +154,16 @@
       ],
       "popular": true,
       "popularLabel": "What most of our customers have",
-      "how": "we walk the lot and text a written price, usually the next morning. Your street gets a day, and we text when we're 10 minutes out."
+      "how": "we walk the lot and text a written price, usually the next morning. Your street gets a day, and we text when we're 10 minutes out.",
+      "months": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "name": "Aeration & Overseeding",
@@ -166,6 +174,11 @@
         "Core plugs left to break down",
         "Tall fescue blend for central Ohio",
         "Watering schedule on a card"
+      ],
+      "months": [
+        8,
+        9,
+        10
       ]
     },
     {
@@ -177,6 +190,10 @@
         "Winter debris hauled off",
         "Beds edged and cleared",
         "First mow of the year"
+      ],
+      "months": [
+        3,
+        4
       ]
     }
   ],
@@ -219,7 +236,8 @@
     "name": "Denny Pruitt",
     "role": "Owner. Still on the mower Tuesdays.",
     "story": "My dad started this with one push mower and a Ford Ranger in 1994. I took over his routes in 2011. Most of our Dublin customers have been on the Tuesday route longer than I've been driving.",
-    "photo": ""
+    "photo": "",
+    "sign": "Denny"
   },
   "reviews": {
     "headline": "From the route",
@@ -336,5 +354,106 @@
         "in": 3.25
       }
     ]
+  },
+  "yearTitle": "Pick a month. The yard, the mowing height and our plan change with it.",
+  "year": [
+    {
+      "m": "Jan",
+      "season": "winter",
+      "cut": null,
+      "offer": "Spring Cleanup",
+      "line": "Mowers are off. Spring cleanup slots open now, and the first ones fill by March."
+    },
+    {
+      "m": "Feb",
+      "season": "winter",
+      "cut": null,
+      "offer": "Spring Cleanup",
+      "line": "Snow on the lawn, so we stay off it. Book spring cleanup and keep your route day for April."
+    },
+    {
+      "m": "Mar",
+      "season": "spring",
+      "cut": null,
+      "offer": "Spring Cleanup",
+      "line": "Leaves and winter sticks out, beds edged, and the first cut once the grass reaches 3½ inches."
+    },
+    {
+      "m": "Apr",
+      "season": "spring",
+      "cut": 3,
+      "offer": "Weekly Mowing",
+      "line": "Weekly mowing starts. We cut at 3 inches while it's cool and growing fast."
+    },
+    {
+      "m": "May",
+      "season": "spring",
+      "cut": 3,
+      "offer": "Weekly Mowing",
+      "line": "Fastest growth of the year. Same day every week, so it never gets away from you."
+    },
+    {
+      "m": "Jun",
+      "season": "summer",
+      "cut": 3.75,
+      "offer": "Weekly Mowing",
+      "line": "We raise the deck to 3¾ inches. Taller grass shades the soil and keeps crabgrass out."
+    },
+    {
+      "m": "Jul",
+      "season": "summer",
+      "cut": 3.75,
+      "offer": "Weekly Mowing",
+      "line": "Heat and dry spells. We stay tall, keep the blades sharp and skip a week if the lawn goes dormant."
+    },
+    {
+      "m": "Aug",
+      "season": "summer",
+      "cut": 3.75,
+      "offer": "Aeration & Overseeding",
+      "line": "Late August opens the seeding window, so this is when we book aeration slots."
+    },
+    {
+      "m": "Sep",
+      "season": "fall",
+      "cut": 3.25,
+      "offer": "Aeration & Overseeding",
+      "line": "Best month to aerate and overseed tall fescue in central Ohio: warm soil, cool nights."
+    },
+    {
+      "m": "Oct",
+      "season": "fall",
+      "cut": 3.25,
+      "offer": "Weekly Mowing",
+      "line": "Leaves start. We mulch them into the lawn on the mow instead of hauling them off."
+    },
+    {
+      "m": "Nov",
+      "season": "fall",
+      "cut": 3,
+      "offer": "Spring Cleanup",
+      "line": "One last cut in early November at 3 inches, so snow doesn't mat it down. Then spring bookings open."
+    },
+    {
+      "m": "Dec",
+      "season": "winter",
+      "cut": null,
+      "offer": "Spring Cleanup",
+      "line": "Mowers are put away and the blades sharpened. Spring cleanup slots open in January."
+    }
+  ],
+  "texts": {
+    "title": "You'll hear from us",
+    "items": [
+      {
+        "time": "7:52 am",
+        "text": "Pruitt Lawn: crew is 10 minutes out. Gate code still the same?"
+      },
+      {
+        "time": "8:31 am",
+        "text": "All done. Gate closed, clippings off the drive. See you next Tuesday."
+      }
+    ],
+    "note": "Example texts. On a real site these are the crew's own words."
   }
 }
