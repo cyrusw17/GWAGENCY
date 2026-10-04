@@ -1,6 +1,6 @@
 // Layout "lawn-route": a mow crew's route sheet. Mowing stripes, a clipboard with this week's
-// streets, a printed price sheet. Order: route, price sheet, before/after, how it works,
-// reviews, owner, areas by day, estimate form, FAQ.
+// streets, a printed price sheet. Order: route, price sheet, mowing heights, before/after,
+// reviews, owner, route days by ZIP, estimate form, FAQ.
 import { kit, esc, when, url } from "../_kit.mjs";
 export const behavior = "funnel.js"; // the step form and tracking from template/funnel.js, not kit.js
 
@@ -59,6 +59,7 @@ ${when(s.trust?.length, `<ul class="checks wrap" aria-label="Why customers stay"
           <div class="line-row"><h3>${esc(p.name)}</h3><span class="dots" aria-hidden="true"></span><span class="amt">${esc(p.price)} <small>${esc(p.unit || "")}</small></span></div>
           <p>${esc(p.note || "")}${when(p.popular, ` <em class="pop-note">${esc(p.popularLabel || "Most popular")}</em>`)}</p>
           <p class="incl">${(p.features || []).map(esc).join(" · ")}</p>
+          ${when(p.how, `<p class="how-line"><b>How it starts:</b> ${esc(p.how)}</p>`)}
           ${k.book("price " + p.name, "Price my yard", "line-btn", ` data-pick="${esc(p.name)}"`)}
         </li>`).join("")}
         ${when(s.addon, `<li class="line addon"><div class="line-row"><h3>Add: ${esc(s.addon?.name)}</h3><span class="dots" aria-hidden="true"></span><span class="amt">${esc(s.addon?.price)} <small>${esc(s.addon?.unit || "")}</small></span></div></li>`)}
@@ -70,29 +71,22 @@ ${when(s.trust?.length, `<ul class="checks wrap" aria-label="Why customers stay"
 
 ${when(s.heights?.rows?.length, `<section class="cut" aria-labelledby="cut-h">
   <div class="wrap cut-in">
-    <div><p class="label">Mowing height</p><h2 id="cut-h">${esc(s.heights.title)}</h2><p class="cut-note">${esc(s.heights.note || "")}</p></div>
     <div class="ruler" role="list">${s.heights.rows.map(r => `<div class="tuft-col" role="listitem" style="--h:${(Number(r.in) || 3) / 4.5}"><div class="tuft"><b>${esc(r.in)}<small>in</small></b></div><span>${esc(r.when)}</span></div>`).join("")}</div>
+    <div><h2 id="cut-h">${esc(s.heights.title)}</h2><p class="cut-note">${esc(s.heights.note || "")}</p></div>
   </div>
 </section>`)}
 
 <section class="work" id="work">
   <div class="wrap work-in">
-    <div><p class="label">Before / after</p><h2>${esc(s.work?.headline || "Recent work")}</h2>${when(s.guarantee, `<div class="promise"><h3>${esc(s.guarantee.title)}</h3><p>${esc(s.guarantee.body)}</p>${k.text("guarantee", "Text us a photo", "btn btn-line-dark")}</div>`)}</div>
-    <div>${k.compare(s.work?.compare)}<p class="fine">${esc(s.work?.compare?.caption || "Drag to compare.")}</p></div>
-  </div>
-</section>
-
-<section class="how">
-  <div class="wrap">
-    <p class="label">How it works</p>
-    <h2>${esc(s.stepsHeadline || "From estimate to your first mow")}</h2>
-    <ol class="ticket">${(s.steps || []).map(x => `<li><h3>${esc(x.title)}</h3><p>${esc(x.body)}</p></li>`).join("")}</ol>
+    <div class="work-h"><p class="label">Before / after</p><h2>${esc(s.work?.headline || "Recent work")}</h2></div>
+    <div class="work-cmp">${k.compare(s.work?.compare)}<p class="fine">${esc(s.work?.compare?.caption || "Drag to compare.")}</p></div>
+    ${when(s.guarantee, `<div class="promise"><h3>${esc(s.guarantee.title)}</h3><p>${esc(s.guarantee.body)}</p>${k.text("guarantee", "Text us a photo", "btn btn-line-dark")}</div>`)}
   </div>
 </section>
 
 <section class="reviews" id="reviews">
   <div class="wrap">
-    <div class="rev-head"><div><p class="label">Reviews</p><h2>${esc(s.reviews?.headline || "Reviews")}</h2></div>${k.rating("rating")}</div>
+    <div class="rev-head"><div><h2>${esc(s.reviews?.headline || "Reviews")}</h2></div>${k.rating("rating")}</div>
     ${k.reviewNote("sample-note")}
     <div class="rev-row" role="list">${k.reviews().map(x => `<figure class="rev" role="listitem">${k.stars(x.stars)}<blockquote>${esc(x.text)}</blockquote><figcaption><b>${esc(x.name)}</b> · ${esc(x.where || "")}<time datetime="${esc(x.date || "")}">${k.date(x.date)}</time></figcaption></figure>`).join("")}</div>
   </div>
@@ -107,10 +101,9 @@ ${when(s.owner, `<section class="owner">
 
 <section class="areas" id="areas">
   <div class="wrap">
-    <p class="label">Service area</p>
+    <ul class="days" aria-label="Route days by ZIP">${(rt.days || []).map(d => `<li><b>${esc(d.day)}</b>${esc(d.town)}${when(d.zips?.length, `<small>${(d.zips || []).map(esc).join(" · ")}</small>`)}</li>`).join("")}${(s.areas?.cities || []).filter(c => !(rt.days || []).some(d => d.town === c)).map(c => `<li><b>Ask</b>${esc(c)}</li>`).join("")}</ul>
     <h2>${esc(s.areas?.headline || "Where we work")}</h2>
     <p class="areas-body">${esc(s.areas?.body || "")}</p>
-    <ul class="days">${(rt.days || []).map(d => `<li><b>${esc(d.day)}</b>${esc(d.town)}</li>`).join("")}${(s.areas?.cities || []).filter(c => !(rt.days || []).some(d => d.town === c)).map(c => `<li><b>Ask</b>${esc(c)}</li>`).join("")}</ul>
   </div>
 </section>
 
@@ -126,7 +119,7 @@ ${when(s.owner, `<section class="owner">
   </div>
 </section>
 
-${when(s.faq?.length, `<section class="faq-sec" id="faq"><div class="wrap narrow"><p class="label">Questions</p><h2>${esc(s.faqHeadline || "Things people ask on the estimate")}</h2>${k.faq()}</div></section>`)}
+${when(s.faq?.length, `<section class="faq-sec" id="faq"><div class="wrap narrow"><h2>${esc(s.faqHeadline || "Things people ask on the estimate")}</h2>${k.faq()}</div></section>`)}
 
 <section class="final">
   <div class="wrap final-in"><h2>${esc(s.final?.headline || "Ready?")}</h2><p>${esc(s.final?.sub || "")}</p><div class="ctas">${k.book("final")}${k.call("final", `Call ${k.phone}`, "btn btn-line")}</div></div>

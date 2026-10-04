@@ -135,7 +135,6 @@
   "trust": [
     "Insured, $1M liability",
     "Prices printed, not \"call for quote\"",
-    "Missed a spot? Back in 48 hours, free",
     "Text when we're 10 minutes out"
   ],
   "pricing": {
@@ -155,7 +154,8 @@
         "Height set for the season"
       ],
       "popular": true,
-      "popularLabel": "What most of our customers have"
+      "popularLabel": "What most of our customers have",
+      "how": "we walk the lot and text a written price, usually the next morning. Your street gets a day, and we text when we're 10 minutes out."
     },
     {
       "name": "Aeration & Overseeding",
@@ -215,20 +215,6 @@
       "caption": "Illustration. Your site shows your own before and after photos."
     }
   },
-  "steps": [
-    {
-      "title": "Free estimate",
-      "body": "Tell us the address. We walk the lot, measure it and text you a written price, usually the next morning."
-    },
-    {
-      "title": "You get a day",
-      "body": "Your street goes on the route. Same day every week, so you always know when we're coming."
-    },
-    {
-      "title": "We text, we mow",
-      "body": "A text when we're 10 minutes out and one when we leave. Gate closed, clippings off the drive."
-    }
-  ],
   "owner": {
     "name": "Denny Pruitt",
     "role": "Owner. Still on the mower Tuesdays.",

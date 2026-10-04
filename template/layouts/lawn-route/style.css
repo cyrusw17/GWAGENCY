@@ -107,10 +107,11 @@ p{margin:0}
 .tuft b small{font-size:.9rem;margin-left:2px}
 .tuft-col span{position:absolute;bottom:-30px;left:0;right:0;text-align:center;color:var(--ink);font:600 .85rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.06em}
 .cut .ruler{margin-bottom:34px}
+.how-line{font-size:.92rem;margin-top:8px;padding:8px 10px;background:#fff;border-left:3px solid var(--turf-2)}
 .work{background:var(--turf);color:#fff;padding-block:48px}
 .work .label{color:#BFD8AE}
 .work-in{display:grid;gap:26px}
-.promise{margin-top:22px;padding:18px;border:2px dashed rgba(255,255,255,.4);border-radius:6px;display:grid;gap:10px;justify-items:start}
+.promise{padding:18px;border:2px dashed rgba(255,255,255,.4);border-radius:6px;display:grid;gap:10px;justify-items:start}
 .promise h3{font-size:1.5rem}.promise p{color:#DCE8D4}
 .promise .btn-line-dark{border-color:#fff;color:#fff}
 .compare{--pos:50%;position:relative;aspect-ratio:800/520;max-width:100%;border-radius:6px;overflow:hidden;background:#3F7A3A;touch-action:pan-y}
@@ -123,13 +124,6 @@ p{margin:0}
 .compare .handle::after{content:"";position:absolute;top:50%;left:50%;width:36px;height:36px;margin:-18px;border-radius:50%;background:var(--go);border:3px solid #fff}
 .compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
 .fine{font-size:.88rem;opacity:.8;margin-top:8px}
-
-.how{padding-block:48px}
-.ticket{list-style:none;counter-reset:t;margin:20px 0 0;padding:0;display:grid;gap:0;background:var(--paper);border:1px solid var(--rule)}
-.ticket li{counter-increment:t;padding:20px 20px 20px 70px;position:relative;border-bottom:1px dashed var(--rule)}
-.ticket li:last-child{border-bottom:0}
-.ticket li::before{content:counter(t);position:absolute;left:20px;top:16px;font:800 2.4rem/1 var(--display);color:var(--go)}
-.ticket p{color:var(--muted);margin-top:6px}
 
 .reviews{padding-block:12px 48px}
 .rev-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px}
@@ -147,6 +141,7 @@ p{margin:0}
 .owner-shot{margin:0}
 .owner-shot .ph{aspect-ratio:4/3;background:repeating-linear-gradient(100deg,var(--stripe-a) 0 30px,var(--stripe-b) 30px 60px);border-radius:4px;position:relative}
 .owner-shot .ph::after{content:"Photo: Denny + trailer";position:absolute;inset:auto 12px 12px auto;background:#fff;color:var(--ink);font:800 1rem/1 var(--display);text-transform:uppercase;padding:6px 8px;transform:rotate(-2deg)}
+.has-demo .owner-shot .ph{aspect-ratio:auto;height:180px}
 .owner-shot figcaption{font-size:.88rem;color:var(--muted);margin-top:8px}
 .owner-role{font-weight:600;color:var(--turf-2);margin:6px 0 12px}
 .owner-story{font-size:1.15rem;max-width:52ch}
@@ -156,6 +151,9 @@ p{margin:0}
 .areas-body{color:var(--muted);margin-top:10px;max-width:56ch}
 .days{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .days li{background:var(--paper);border:1px solid var(--rule);padding:10px 12px;display:flex;gap:10px;align-items:baseline;font-weight:600}
+.days small{display:block;font:500 .82rem/1.3 var(--body,inherit);color:var(--muted);flex-basis:100%}
+.days li{flex-wrap:wrap}
+.areas h2{margin-top:22px}
 .days b{font:800 1.1rem/1 var(--display);text-transform:uppercase;color:var(--go-text);min-width:2.4em}
 
 .book{background:var(--turf);color:#fff;padding-block:48px}
@@ -215,6 +213,7 @@ p{margin:0}
   .rev-row{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}
   .days{grid-template-columns:repeat(3,1fr)}
   .owner-in{grid-template-columns:1fr 1.2fr}
+  .has-demo .owner-shot .ph{aspect-ratio:4/3;height:auto}
   .sheet{padding:36px 40px}
   .pop{margin-inline:-40px;padding-inline:40px}
 }
@@ -228,13 +227,11 @@ p{margin:0}
   .hero-in{grid-template-columns:1.25fr 1fr;align-items:center;padding-block:64px 72px}
   .clip{justify-self:end}
   .checks{grid-template-columns:repeat(4,1fr)}
-  .work-in{grid-template-columns:1fr 1.4fr;align-items:center}
-  .cut-in{grid-template-columns:1fr 1.2fr}
-  .ticket{grid-template-columns:repeat(3,1fr)}
-  .ticket li{border-bottom:0;border-right:1px dashed var(--rule)}
-  .ticket li:last-child{border-right:0}
+  .work-in{grid-template-columns:1fr 1.4fr;grid-template-areas:"h c" "p c";align-items:start}
+  .work-h{grid-area:h}.work-cmp{grid-area:c}.work-in .promise{grid-area:p}
+  .cut-in{grid-template-columns:1.2fr 1fr}
   .book-in{grid-template-columns:1fr 1fr;align-items:start}
   .days{grid-template-columns:repeat(6,1fr)}
-  .days li{flex-direction:column;gap:4px}
+  .days li{display:grid;gap:4px;align-content:start}
   .foot-in{grid-template-columns:1fr 1fr 1fr;align-items:end}
 }
