@@ -18,8 +18,9 @@ groundwork-web.com is served from Cyrus's cPanel host. Deploys run from GitHub A
 2. The result is committed to the `cpanel` branch.
 3. `tools/cpanel/publish.sh` calls the cPanel API: adds the subdomains (sharing public_html), clones the repo once
    into `~/repositories/gwagency-live`, pulls the `cpanel` branch and runs `.cpanel.yml`.
-4. On the server, `deploy.sh` saves `~/site-backups/public_html-<time>.tar.gz` (last 10 kept), then mirrors the site into
-   public_html. `api/config.php`, `.well-known`, `cgi-bin` and PHP settings are left alone.
+4. On the server, `deploy.sh` saves `~/site-backups/public_html-<time>.tar.gz` (last 10 kept), then copies the site in
+   the same way offer1's deploy did. Folders the site owns are replaced whole, and `api/` is overlaid so `api/config.php` survives.
+   Anything else in public_html is never deleted, including the private list folder, `.well-known` and `cgi-bin`.
 
 ## Rolling back
 cPanel File Manager: extract the newest `~/site-backups/public_html-*.tar.gz` over your home folder.
