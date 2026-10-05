@@ -5,6 +5,11 @@ name: Deploy to cPanel
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would change in public_html (nothing is changed)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -22,7 +27,15 @@ jobs:
         with:
           node-version: 20
       - run: node tools/build-cpanel.mjs
+      - name: Dry run (lists what would change, changes nothing)
+        if: inputs.dry_run
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_TOKEN: ${{ secrets.CPANEL_TOKEN }}
+        run: tools/cpanel/dry-run.sh
       - name: Push _cpanel to the cpanel branch
+        if: ${{ !inputs.dry_run }}
         working-directory: _cpanel
         run: |
           # Commit on top of the existing branch (no force push), so cPanel can pull it fast-forward.
@@ -35,6 +48,7 @@ jobs:
           git commit -q --allow-empty -m "cPanel build from ${GITHUB_SHA::7}"
           git push origin cpanel
       - name: Deploy on cPanel
+        if: ${{ !inputs.dry_run }}
         env:
           CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
           CPANEL_USER: ${{ secrets.CPANEL_USER }}
@@ -42,6 +56,7 @@ jobs:
           REPO_URL: https://github.com/${{ github.repository }}.git
         run: tools/cpanel/publish.sh
       - name: Check the live pages
+        if: ${{ !inputs.dry_run }}
         run: |
           for u in https://groundwork-web.com/ $(sed 's#.*#https://&.groundwork-web.com/#' _cpanel/subdomains.txt); do
             code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$u" || true)

@@ -11,6 +11,11 @@ groundwork-web.com is served from Cyrus's cPanel host. Deploys run from GitHub A
    - `CPANEL_TOKEN`: the token from step 1
 3. Make sure **SSL/TLS Status > Run AutoSSL** is on so the subdomains get certificates.
 
+## Run order
+1. **Run workflow** with "dry run" ticked (the default). The log lists every top-level item in public_html as
+   REPLACE, OVERWRITE, OVERLAY, ADD or KEEP. Nothing on the server changes.
+2. Run again with "dry run" unticked to go live.
+
 ## What a deploy does
 1. `tools/build-cpanel.mjs` copies `public/` to `_cpanel/site/` and moves each niche selling page to its subdomain
    (detailing., exterior., landscaping., commercial., realestate.groundwork-web.com): canonicals, sitemap and links change,
@@ -23,4 +28,7 @@ groundwork-web.com is served from Cyrus's cPanel host. Deploys run from GitHub A
    Anything else in public_html is never deleted, including the private list folder, `.well-known` and `cgi-bin`.
 
 ## Rolling back
-cPanel File Manager: extract the newest `~/site-backups/public_html-*.tar.gz` over your home folder.
+Every real run first saves `~/site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz` (the last 10 are kept). To restore one, in
+cPanel **Terminal**:
+
+    cd ~ && rm -rf public_html && tar -xzf site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz
