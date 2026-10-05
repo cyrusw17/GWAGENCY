@@ -38,6 +38,9 @@ function fixLinks(html, n) {
   html = html.replace(/href="\/blog\//g, `href="/${n.folder}/blog/`);
   html = html.replace(/href="(?:https:\/\/groundwork-web\.com)?\/work\/([a-z0-9-]+)\/"/g, (m, d) =>
     existsSync(join(root, "public", "work", d)) ? `href="/work/${d}/"` : `href="/demos/${d}/"`);
+  // Task-list checkboxes get the item's own text as their accessible name.
+  html = html.replace(/<li><input ([^>]*type="checkbox"[^>]*)>\s*([^<\n]*)/g, (m, attrs, text) =>
+    `<li><input ${attrs} aria-label="${text.trim().replace(/"/g, "&quot;")}"> ${text}`);
   return html.replaceAll(`href="${MAIN}/`, 'href="/');
 }
 
@@ -78,7 +81,7 @@ function page({ n, title, desc, canonical, body, schema, noindex, crumbs }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)} | GroundWork-Web</title>
+<title>${esc(title.length > 43 ? title : `${title} | GroundWork-Web`)}</title>
 <meta name="description" content="${esc(desc)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="/assets/ds/tokens.css?v=3.1">
@@ -92,6 +95,9 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta name="color-sc
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${MAIN}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>\n` : ""}<style>
 .post{padding:clamp(32px,6vw,72px) 0}
 .post .wrap{max-width:720px}
@@ -113,6 +119,7 @@ ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script
 .post-list{list-style:none;padding:0;display:grid;gap:var(--s5)}
 .post-list a{font-weight:600;font-size:1.15rem}
 .post-list p{color:var(--ink-2);margin-top:var(--s2)}
+.post-date{color:var(--ink-3);font-size:.92rem;margin:calc(-1 * var(--s3)) 0 var(--s5)}
 .more-guides{margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line)}
 .more-guides ul{padding-left:1.2em}
 .more-guides li{margin-top:var(--s2)}
@@ -153,6 +160,7 @@ ${body}
 `;
 }
 
+const UPDATED = "2026-10-05", UPDATED_TEXT = "October 5, 2026";
 const sitemapUrls = [];
 for (const [key, n] of Object.entries(NICHES)) {
   const dir = join(root, "content", "blog", key);
@@ -182,12 +190,13 @@ for (const [key, n] of Object.entries(NICHES)) {
     const url = `${blogUrl}${d.slug}/`;
     const title = d.fm.h1 || d.fm.title;
     const more = posts.filter((p) => p !== d).map((p) => `      <li><a href="/${n.folder}/blog/${p.slug}/">${esc(p.fm.h1 || p.fm.title)}</a></li>`).join("\n");
-    const body = `    <h1>${esc(title)}</h1>\n    <div class="prose">\n${fixLinks(marked.parse(md), n)}\n    </div>
+    const body = `    <h1>${esc(title)}</h1>\n    <p class="post-date">Updated <time datetime="${UPDATED}">${UPDATED_TEXT}</time></p>\n    <div class="prose">\n${fixLinks(marked.parse(md), n)}\n    </div>
     <nav class="more-guides no-print" aria-labelledby="more-h">\n      <h2 id="more-h">More ${esc(n.trade.toLowerCase())} guides</h2>\n      <ul>\n${more}\n      </ul>\n    </nav>`;
     const schema = { "@context": "https://schema.org", "@graph": [
       { "@type": "Article", headline: title, description: d.fm.meta_description, mainEntityOfPage: url,
         author: { "@id": `${MAIN}/#business` }, publisher: { "@id": `${MAIN}/#business` },
-        about: n.trade + " websites", inLanguage: "en-US", datePublished: "2026-10-05", dateModified: "2026-10-05" },
+        about: n.trade + " websites", inLanguage: "en-US", datePublished: UPDATED, dateModified: UPDATED,
+        image: { "@type": "ImageObject", url: `${MAIN}/assets/og.png`, width: 1200, height: 630 } },
       { "@type": "Organization", "@id": `${MAIN}/#business`, name: "GroundWork-Web", url: `${MAIN}/`,
         logo: { "@type": "ImageObject", url: `${MAIN}/assets/icon.svg` } },
       { "@type": "BreadcrumbList", itemListElement: [
@@ -204,7 +213,16 @@ for (const [key, n] of Object.entries(NICHES)) {
     const md = d.body.replace(/<!--[\s\S]*?-->\n?/g, "");
     const body = `    <div class="prose">\n${fixLinks(marked.parse(md), n)}\n    </div>\n    <p class="no-print"><button class="btn" type="button" onclick="print()">Print or save as PDF</button></p>`;
     mkdirSync(join(out, d.slug), { recursive: true });
-    writeFileSync(join(out, d.slug, "index.html"), page({ n, title: d.fm.title, desc: d.fm.title, canonical: `${blogUrl}${d.slug}/`, body, noindex: true,
+    const dlUrl = `${blogUrl}${d.slug}/`;
+    const dlSchema = { "@context": "https://schema.org", "@graph": [
+      { "@type": "Article", headline: d.fm.title, description: d.fm.meta_description || d.fm.title, mainEntityOfPage: dlUrl,
+        author: { "@id": `${MAIN}/#business` }, publisher: { "@id": `${MAIN}/#business` }, inLanguage: "en-US",
+        datePublished: UPDATED, dateModified: UPDATED, image: { "@type": "ImageObject", url: `${MAIN}/assets/og.png`, width: 1200, height: 630 } },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: `${n.trade} websites`, item: `${MAIN}/${n.folder}/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: blogUrl },
+        { "@type": "ListItem", position: 3, name: d.fm.title, item: dlUrl }] }] };
+    writeFileSync(join(out, d.slug, "index.html"), page({ n, title: d.fm.title, desc: d.fm.meta_description || d.fm.title, canonical: dlUrl, body, noindex: true, schema: dlSchema,
       crumbs: [[`${n.trade} websites`, `/${n.folder}/`], ["Blog", `/${n.folder}/blog/`], [d.fm.title]] }));
   }
 

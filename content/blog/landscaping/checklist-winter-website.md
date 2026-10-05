@@ -9,6 +9,7 @@ delivery: download shown on the page right after submit, then the nurture emails
 linked_from: /blog/lawn-care-marketing-off-season/
 status: draft
 format: one printable page (US Letter)
+meta_description: A printable winter checklist for lawn care owners: what to change on your website in the off season so spring signups start early.
 ---
 
 # The winter website checklist for lawn care
