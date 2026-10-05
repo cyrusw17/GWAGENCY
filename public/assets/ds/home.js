@@ -73,12 +73,13 @@
     if (drag || pos !== target) requestAnimationFrame(loop); else running = false;
   }
   function start() { if (!running) { running = true; requestAnimationFrame(loop); } }
-  function go(n) { target = Math.round(target) + n; start(); }
+  /* Keep the trade tab below on the same trade as the front card. */
+  function sync() { var t = document.getElementById(cards[front()].dataset.tab); if (t && t.getAttribute("aria-selected") !== "true") t.click(); }
+  function go(n) { target = Math.round(target) + n; start(); sync(); }
   cards.forEach(function (c, i) {
     c.addEventListener("click", function () {
       if (drag && drag.moved) return;
-      target = pos + wrap(i - pos); start();
-      var t = document.getElementById(c.dataset.tab); if (t) t.click();
+      target = pos + wrap(i - pos); start(); sync();
     });
   });
   stage.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, p: pos, moved: false }; start(); });
@@ -88,9 +89,9 @@
     if (Math.abs(dx) > 6) drag.moved = true;
     if (drag.moved) { pos = drag.p - dx / 120; target = pos; }
   });
-  function end() { if (!drag) return; var d = drag; target = Math.round(pos); setTimeout(function () { if (drag === d) drag = null; start(); }, 0); }
+  function end() { if (!drag) return; var d = drag; target = Math.round(pos); if (d.moved) sync(); setTimeout(function () { if (drag === d) drag = null; start(); }, 0); }
   addEventListener("pointerup", end); addEventListener("pointercancel", end);
-  stage.addEventListener("keydown", function (e) {
+  stage.parentNode.addEventListener("keydown", function (e) {
     if (e.key === "ArrowRight") { e.preventDefault(); go(1); } else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
   });
   var prev = document.getElementById("cf-prev"), next = document.getElementById("cf-next");
@@ -98,5 +99,5 @@
   prev.addEventListener("click", function () { go(-1); });
   next.addEventListener("click", function () { go(1); });
   render();
-  if (want) { var wt = document.getElementById(cards[pos].dataset.tab); if (wt) wt.click(); }
+  sync();
 })();
