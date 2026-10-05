@@ -109,7 +109,11 @@ def run(db, niche, limit=1000, workers=8, sample_only=False, **kw):
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futures = {pool.submit(fetch_site, r["website"], **kw): r["domain"] for r in todo}
         for fut in as_completed(futures):
-            dom, res = futures[fut], fut.result()
+            dom = futures[fut]
+            try:
+                res = fut.result()
+            except Exception as e:  # a malformed website URL must not stop the whole crawl
+                res = {"status": "error", "pages": 0, "emails": {}, "note": str(e)[:200], "signals": None}
             db.execute("INSERT OR REPLACE INTO crawls VALUES (?, ?, ?, ?, ?, ?)",
                        (dom, res["status"], res["pages"], res["note"], store.now(),
                         json.dumps(res["signals"]) if res["signals"] else None))
