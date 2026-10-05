@@ -125,3 +125,4 @@ h1{font-size:clamp(40px,5.8vw,76px);max-width:14ch}
 .faq-sec{padding-top:40px;padding-bottom:70px;max-width:880px}
 .faq{margin-top:18px}
 legend{font-family:var(--display);font-weight:400}
+@media (max-width:959px){.slides::after{background:linear-gradient(0deg,rgba(30,24,18,.75),rgba(30,24,18,.45))}}
