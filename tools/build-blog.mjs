@@ -202,7 +202,7 @@ for (const [key, n] of Object.entries(NICHES)) {
         about: n.trade + " websites", inLanguage: "en-US", datePublished: UPDATED, dateModified: UPDATED,
         image: { "@type": "ImageObject", url: `${MAIN}/assets/og.png`, width: 1200, height: 630 } },
       { "@type": "Organization", "@id": `${MAIN}/#business`, name: "GroundWork-Web", url: `${MAIN}/`,
-        logo: { "@type": "ImageObject", url: `${MAIN}/assets/icon.svg` } },
+        logo: { "@type": "ImageObject", url: `${MAIN}/assets/logo.png`, width: 512, height: 512 } },
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: `${n.trade} websites`, item: `${MAIN}/${n.folder}/` },
         { "@type": "ListItem", position: 2, name: "Blog", item: blogUrl },
