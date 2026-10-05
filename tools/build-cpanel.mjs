@@ -2,7 +2,7 @@
 // Build the copy of public/ that goes live on the cPanel host (tools/cpanel/README.md).
 //   node tools/build-cpanel.mjs   writes _cpanel/ (site/, .cpanel.yml, deploy.sh)
 // Every page lives in its own folder on groundwork-web.com (no subdomains), so public/ ships
-// as-is apart from the demos, which become the indexed /work/ portfolio (tools/build-work.mjs).
+// as-is apart from the demos, which become the /work/ portfolio (tools/build-work.mjs).
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, cpSync, rmSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,7 +17,7 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 cpSync(join(root, "public"), site, { recursive: true });
 for (const f of ["deploy.sh", ".cpanel.yml"]) cpSync(join(root, "tools", "cpanel", f), join(out, f));
-// Demos become the indexed /work/ portfolio on this host only (tools/build-work.mjs).
+// Demos become the /work/ portfolio (noindex pages, listed on /work/) on this host only (tools/build-work.mjs).
 const { indexed } = buildWork({ root, site, MAIN, walk });
 
 function walk(dir, ext, acc = []) {
@@ -38,4 +38,4 @@ ht = ht.replace(httpsRule, `${httpsRule}
     RewriteRule ^demos(?:/(.*))?$ /work/$1 [L,R=301]`);
 writeFileSync(htPath, ht);
 
-console.log(`_cpanel/ built; /work/ indexes ${indexed.map((w) => w.slug).join(", ")}`);
+console.log(`_cpanel/ built; /work/ lists ${indexed.map((w) => w.slug).join(", ")}`);
