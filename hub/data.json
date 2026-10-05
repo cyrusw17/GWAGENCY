@@ -102,6 +102,18 @@
         {
           "label": "Open house board, Boise ID",
           "href": "site/demos/foothill-team/"
+        },
+        {
+          "label": "Text thread, Tucson AZ",
+          "href": "site/demos/teresa-valdez/"
+        },
+        {
+          "label": "Magazine profile, Kansas City",
+          "href": "site/demos/marcus-bell/"
+        },
+        {
+          "label": "Family album, Asheville NC",
+          "href": "site/demos/hollis-family/"
         }
       ]
     }

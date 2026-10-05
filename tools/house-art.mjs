@@ -113,10 +113,24 @@ function house(o) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${sky(o.sky, r)}${trees}<rect y="${GROUND}" width="${W}" height="${H - GROUND}" fill="url(#gr)"/>${walk}${g}<rect y="${GROUND - 2}" width="${W}" height="4" fill="#4C6B36" opacity=".4"/></svg>`;
 }
 
+// Flat portrait illustrations for the people on a demo (agents, a team). Labeled as illustrations.
+// { "kind": "portrait", "skin": "#..", "hair": "#..", "hairStyle": "short|long|bun|curly|beard", "shirt": "#..", "bg": "#..", "glasses": true }
+function portrait(o) {
+  const S = 800, skin = o.skin || "#C99A76", hair = o.hair || "#3A2A20", shirt = o.shirt || "#3E6274", bg = o.bg || "#E8E1D3", sd = shade(skin, -.12);
+  const back = { long: `<path d="M262 330c0-120 70-190 138-190s138 70 138 190v230H262z" fill="${hair}"/>`, curly: Array.from({ length: 14 }, (_, i) => { const a = Math.PI * (0.95 + i / 13 * 1.1); return `<circle cx="${400 + Math.cos(a) * 150}" cy="${300 + Math.sin(a) * 150}" r="62" fill="${hair}"/>`; }).join("") + `<circle cx="400" cy="250" r="140" fill="${hair}"/>`, bun: `<circle cx="400" cy="140" r="62" fill="${hair}"/>` }[o.hairStyle] || "";
+  const front = { short: `<path d="M270 300c0-100 60-160 130-160s130 60 130 160c-20-60-70-80-130-80s-110 20-130 80z" fill="${hair}"/>`, long: `<path d="M268 320c0-110 62-170 132-170s132 60 132 170c-30-70-60-100-132-110-60 10-110 50-132 110z" fill="${hair}"/>`, bun: `<path d="M272 300c0-100 58-150 128-150s128 50 128 150c-20-50-60-90-128-90s-108 40-128 90z" fill="${hair}"/>`, curly: "", beard: `<path d="M276 290c0-90 56-140 124-140s124 50 124 140c-16-40-60-60-124-60s-108 20-124 60z" fill="${hair}"/><path d="M290 340c10 110 60 160 110 160s100-50 110-160c-20 50-60 60-110 60s-90-10-110-60z" fill="${hair}"/>` }[o.hairStyle || "short"] || "";
+  const glasses = o.glasses ? `<g fill="none" stroke="#2A2A2A" stroke-width="7"><circle cx="352" cy="330" r="34"/><circle cx="448" cy="330" r="34"/><path d="M386 330h28"/></g>` : "";
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${S} ${S}" width="${S}" height="${S}"><rect width="${S}" height="${S}" fill="${bg}"/><circle cx="640" cy="160" r="90" fill="${shade(bg, -.06)}"/>${back}
+<path d="M160 800c0-150 100-230 240-230s240 80 240 230z" fill="${shirt}"/><path d="M340 560h120v60c-20 30-100 30-120 0z" fill="${sd}"/><path d="M350 600l50 70 50-70" fill="${shade(shirt, .25)}"/>
+<ellipse cx="400" cy="330" rx="125" ry="150" fill="${skin}"/><ellipse cx="276" cy="340" rx="20" ry="32" fill="${sd}"/><ellipse cx="524" cy="340" rx="20" ry="32" fill="${sd}"/>${front}
+<circle cx="352" cy="330" r="9" fill="#2A2420"/><circle cx="448" cy="330" r="9" fill="#2A2420"/><path d="M330 300q22-12 44 0M426 300q22-12 44 0" stroke="${shade(hair, .1)}" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M398 340q-10 40 4 48" stroke="${sd}" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M360 410q40 30 80 0" stroke="#7A3B33" stroke-width="8" fill="none" stroke-linecap="round"/><ellipse cx="330" cy="390" rx="22" ry="12" fill="#E39A8A" opacity=".35"/><ellipse cx="470" cy="390" rx="22" ry="12" fill="#E39A8A" opacity=".35"/>${glasses}</svg>`;
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const [spec, out] = process.argv.slice(2);
   if (!spec || !out) { console.error("usage: node tools/house-art.mjs <spec.json> <out-dir>"); process.exit(2); }
   mkdirSync(out, { recursive: true });
-  for (const s of JSON.parse(readFileSync(spec, "utf8"))) { writeFileSync(join(out, s.file), house(s)); console.log("  drew", s.file); }
+  for (const s of JSON.parse(readFileSync(spec, "utf8"))) { writeFileSync(join(out, s.file), s.kind === "portrait" ? portrait(s) : house(s)); console.log("  drew", s.file); }
 }
-export { house };
+export { house, portrait };

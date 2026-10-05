@@ -1,0 +1,128 @@
+{
+ "slug": "demo-hollis-family",
+ "demo": true,
+ "renderer": "kitchen-table",
+ "niche": "real estate",
+ "demoNote": "Fictional agents, brokerage and homes. Pictures are illustrations.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=kitchen-table"},
+ "business": {
+  "name": "Hollis & Son",
+  "tagline": "A mother and son real estate team · Asheville, NC",
+  "brokerage": "Blue Ridge Hearth Realty (sample brokerage) · 828-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(828) 555-0119",
+  "sms": "(828) 555-0119",
+  "email": "hello@example.com",
+  "hoursText": "Calls and texts 8am to 7pm, Sundays by appointment",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "19:00"}],
+  "address": {"city": "Asheville", "region": "NC", "postal": "28801"},
+  "license": "North Carolina broker licenses #000000 and #000001 (sample)"
+ },
+ "theme": {
+  "themeColor": "#F4EDE1",
+  "fontFaces": [
+   {"family": "Libre Caslon Text", "weight": 700, "src": "fonts/libre-caslon-text-latin-700-normal.woff2", "preload": true},
+   {"family": "Kalam", "weight": 400, "src": "fonts/kalam-latin-400-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "Hollis & Son | Asheville Real Estate, a Mother and Son Team",
+  "description": "Ruth and Sam Hollis, a mother and son real estate team in Asheville, NC. Thirty years of selling mountain homes, honest advice on what to fix before you sell."
+ },
+ "artNote": "Pictures are illustrations, not photos.",
+ "hero": {
+  "hello": "Pull up a chair.",
+  "headline": "We're Ruth and Sam Hollis, a mother and son selling Asheville homes.",
+  "sub": "Ruth has sold houses in these mountains since 1996. Sam grew up riding along to showings and joined her in 2018. You get both of us, and we still argue about paint colors at Sunday dinner."
+ },
+ "album": [
+  {"img": "img/ruth.svg", "alt": "Illustrated portrait of Ruth Hollis with gray hair and glasses", "cap": "Mom, after her 500th closing", "tall": true},
+  {"img": "img/sam.svg", "alt": "Illustrated portrait of Sam Hollis with a beard", "cap": "Sam, first year licensed", "tall": true},
+  {"img": "img/first.svg", "alt": "Illustration of a white farmhouse with a rust red door", "cap": "The first house Mom ever sold. Still white, still that red door."}
+ ],
+ "story": {
+  "headline": "Our story, from the beginning",
+  "sub": "You'll be letting us into your home, so here's a bit of ours first.",
+  "items": [
+   ["1996", "Ruth gets her license", "A single mom with a seven-year-old, she sold her first house in Weaverville with Sam asleep in the back seat."],
+   ["2004", "Sam starts helping", "Fifteen and paid in pizza: setting out open house signs and fixing sticky doors before showings."],
+   ["2018", "Hollis & Son", "Sam gets his license after six years as a carpenter. Now there's someone on the team who can tell you what a repair really costs."],
+   ["2024", "After the storm", "When Helene hit, we spent months helping clients through insurance claims and repairs. Some we'd sold homes to twenty years before."],
+   ["Today", "Still at the table", "Over 600 homes between us. Most new clients come from someone we've already helped."]
+  ]
+ },
+ "fix": {
+  "headline": "Fix it or leave it?",
+  "sub": "The question every seller asks us at the kitchen table. Make your guess, then see what we'd tell you, and roughly what it costs around here.",
+  "cta": "Have us walk your house",
+  "items": [
+   {"thing": "Dated kitchen cabinets", "verdict": "leave", "why": "Buyers redo kitchens their own way. Paint or new hardware at most.", "cost": "Hardware: about $300"},
+   {"thing": "A dripping faucet and a running toilet", "verdict": "fix", "why": "Cheap to fix, and inspectors write up every one. Small items make buyers wonder about big ones.", "cost": "About $150 to $250"},
+   {"thing": "Bold paint colors", "verdict": "fix", "why": "A soft neutral photographs better and lets buyers picture their stuff. The best dollar you'll spend.", "cost": "About $2,000 to $4,000 for main rooms"},
+   {"thing": "An older roof that doesn't leak", "verdict": "leave", "why": "Price for it instead. Buyers will ask for a credit either way, and a new roof rarely pays back.", "cost": "Saves you $12,000 or more"},
+   {"thing": "Overgrown front yard", "verdict": "fix", "why": "It's the first photo and the first impression. Mulch, trim, and pots by the door.", "cost": "About $400 to $800"},
+   {"thing": "Worn carpet over hardwood", "verdict": "fix", "why": "Pull it up. Mountain buyers love original floors, even with a few scratches.", "cost": "About $500 to haul away"}
+  ]
+ },
+ "month": {
+  "kicker": "Listing of the month",
+  "img": "img/month.svg",
+  "alt": "Illustration of a green craftsman bungalow with an oak door",
+  "name": "1920s bungalow in West Asheville",
+  "price": 465000,
+  "line": "3 bd · 2 ba · 1,580 sq ft",
+  "body": "Original heart pine floors, a deep front porch, and a fenced backyard with raised garden beds. Walk to Haywood Road.",
+  "notes": [["Ruth", "The porch faces west. You'll have the best sunsets on the street."], ["Sam", "New electrical panel in 2023 and a dry crawlspace. I checked twice."]],
+  "cta": "Ask about this house"
+ },
+ "team": {
+  "headline": "Meet us properly",
+  "people": [
+   {"img": "img/ruth.svg", "alt": "Illustrated portrait of Ruth Hollis", "name": "Ruth Hollis", "role": "Broker · selling Asheville homes since 1996", "bio": "Ruth handles pricing, negotiating, and the hard conversations. She has seen every kind of market here, and she'll tell you which one you're in.", "aside": "Makes a mean pound cake for closings."},
+   {"img": "img/sam.svg", "alt": "Illustrated portrait of Sam Hollis", "name": "Sam Hollis", "role": "Broker · former carpenter", "bio": "Sam walks every house with you, reads the inspection report line by line, and knows which repairs are $200 and which are $20,000.", "aside": "Will crawl under your house so you don't have to."}
+  ]
+ },
+ "reviews": {
+  "headline": "From families we've helped",
+  "source": "Google", "url": "https://www.google.com/maps", "rating": "4.9", "count": 112,
+  "items": [
+   {"name": "Sample client", "where": "Sold in North Asheville", "date": "2026-09-03", "stars": 5, "text": "Sam told us to skip the new countertops and paint instead. Saved us thousands and it sold in a week."},
+   {"name": "Sample client", "where": "Bought in Black Mountain", "date": "2026-08-17", "stars": 5, "text": "Ruth sold my parents their house in 2001. Now she and Sam helped us buy ours. That says it all."},
+   {"name": "Sample client", "where": "Sold in Weaverville", "date": "2026-06-28", "stars": 4, "text": "The repairs after closing took longer than planned, but they stayed on it with us until it was done."}
+  ]
+ },
+ "booking": {
+  "headline": "Come sit at our table",
+  "body": "Answer three quick questions and Ruth or Sam will call you today. If you're selling, we'll come walk your house with a notepad and tell you what to fix and what to leave.",
+  "cta": "Talk with Ruth and Sam",
+  "headerCta": "Talk with us"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "What can we help with?", "options": [
+   {"value": "Selling", "hint": "What would ours sell for?"},
+   {"value": "Buying", "hint": "Starting to look"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "A family home", "hint": "A parent's or an estate"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Part of the area",
+  "areas": ["West Asheville", "North Asheville", "East Asheville", "South Asheville", "Black Mountain", "Weaverville"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just thinking about it"],
+  "notesHint": "Your address if you're selling, or what you need in a home",
+  "step3": "How should we reach you?",
+  "consent": "By sending this, you agree that Ruth or Sam Hollis may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with us.",
+  "submit": "Send to Ruth and Sam",
+  "privacy": "Your details go to Ruth and Sam only. Never sold or shared.",
+  "thanks": "Got it. One of us will call you today. Ruth and Sam"
+ },
+ "faqHeadline": "Questions from the kitchen table",
+ "faq": [
+  {"q": "Will we work with Ruth or Sam?", "a": "Both. Ruth leads on pricing and negotiating, Sam on the house itself. You'll have both cell numbers."},
+  {"q": "What's your commission?", "a": "It's negotiable and agreed in writing before any work starts. We'll explain what's included so you can compare us to anyone."},
+  {"q": "Do you help with homes damaged in the storm?", "a": "Yes. We've helped many families sell or buy after Helene, and we can point you to contractors and adjusters we trust."},
+  {"q": "Do I need to fix everything before we list?", "a": "No. Usually a few small things, and we'll tell you which ones are worth it. That's what the walk-through is for."}
+ ],
+ "eho": "Equal Housing Opportunity. Ruth and Sam Hollis are licensed with Blue Ridge Hearth Realty (sample brokerage).",
+ "sticky": {"book": "Talk with us"}
+}

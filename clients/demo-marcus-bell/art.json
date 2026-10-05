@@ -1,0 +1,7 @@
+[{"file":"marcus.svg","kind":"portrait","skin":"#6B4532","hair":"#1C1410","hairStyle":"beard","shirt":"#1F4E8C","bg":"#D9CFBC","glasses":true},
+{"file":"s1.svg","style":"craftsman","body":"#8A9B7E","trim":"#F3EFE6","roof":"#4A3F38","door":"#B5382A","sky":"day","trees":"oak","seed":61},
+{"file":"s2.svg","style":"colonial","body":"#B6604A","trim":"#FFFFFF","roof":"#33363B","door":"#1F4E8C","shutter":"#1F2A33","sky":"morning","trees":"oak","seed":67},
+{"file":"s3.svg","style":"ranch","body":"#E1D6C1","trim":"#FFFFFF","roof":"#5B5148","door":"#2E4A3B","sky":"overcast","trees":"round","seed":71},
+{"file":"s4.svg","style":"victorian","body":"#C9B6D3","trim":"#FFFDF6","roof":"#3E3A44","door":"#5A2E3A","sky":"day","trees":"oak","seed":73},
+{"file":"s5.svg","style":"modern","body":"#3E4A54","trim":"#C9A97A","roof":"#1D1D1D","door":"#C9A97A","glass":"#7A95A6","sky":"dusk","trees":"none","seed":79},
+{"file":"s6.svg","style":"farmhouse","body":"#F2EEE6","trim":"#1E1E1E","roof":"#2F3A42","door":"#B5382A","sky":"morning","trees":"pine","seed":83}]
