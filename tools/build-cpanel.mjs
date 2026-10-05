@@ -66,10 +66,13 @@ for (const file of walk(site, ".html")) {
   writeFileSync(file, html);
 }
 
-const sitemap = join(site, "sitemap.xml");
-let xml = readFileSync(sitemap, "utf8");
-for (const [sub, dir] of live) xml = xml.replaceAll(`${MAIN}/${dir}/`, `${subUrl(sub)}/`);
-writeFileSync(sitemap, xml);
+for (const name of ["sitemap.xml", "llms.txt"]) {
+  const f = join(site, name);
+  if (!existsSync(f)) continue;
+  let txt = readFileSync(f, "utf8");
+  for (const [sub, dir] of live) txt = txt.replaceAll(`${MAIN}/${dir}/`, `${subUrl(sub)}/`);
+  writeFileSync(f, txt);
+}
 
 // .htaccess: keep the host on the HTTPS redirect, then one block per subdomain.
 const htPath = join(site, ".htaccess");

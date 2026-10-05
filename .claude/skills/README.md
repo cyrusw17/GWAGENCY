@@ -52,6 +52,7 @@ Sources (pinned commits): freshtechbro/claudedesignskills @ 1da73fe, jeffallan/c
 | seo-audit | Technical and on-page SEO audit with checker scripts | Before handing off each site |
 | local-seo-manager | Local SEO for service-area businesses: NAP, service areas, LocalBusiness schema | Core to every detailer, exterior cleaning and landscaping site |
 | schema-markup | Implementing and validating schema.org JSON-LD | LocalBusiness, Service, FAQPage on each funnel |
+| seo-analysis | InfraNodus search-intent and content-gap method: demand (Google Suggest), supply (ranking pages), gaps. See its SOURCE.md | Picking the terms each selling page, blog post and demo targets (`node tools/seo-terms.mjs`) |
 | aeo | Getting cited by ChatGPT, Perplexity and other answer engines (E-E-A-T, structure) | Pairs with the aeotester:audit skill and llms.txt |
 | site-architecture | URL structure, navigation and internal linking | Multi-page Grow sites |
 | programmatic-seo | Templated pages at scale (city x service) | Service-area pages for clients later |
