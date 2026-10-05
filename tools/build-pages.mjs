@@ -32,7 +32,7 @@ const nav = JSON.parse(readFileSync(join(out, "nav.json"), "utf8"));
 const place = new Map(); // hub-relative folder ("site/x/" or "demos/slug/") -> { trade, i }
 for (const t of nav) t.pages.forEach((p, i) => place.set(p.href, { t, i }));
 const A = "display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:";
-const link = (href, html, label = "", color = "#F6F3EC", extra = "") => `<a href="${base}/${href}"${label ? ` aria-label="${label}"` : ""} style="${A}${color};${extra}">${html}</a>`;
+const link = (href, html, label = "", color = "#EDEBE5", extra = "") => `<a href="${base}/${href}"${label ? ` aria-label="${label}"` : ""} style="${A}${color};${extra}">${html}</a>`;
 const clean = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const icon = d => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block">${d}</svg>`;
 const off = `<span aria-hidden="true" style="${A}#5D5B55">`;
@@ -42,13 +42,13 @@ const barFor = key => {
   const parts = [link("", "&larr; All", "All GroundWork sites", "#F0B53A", "padding-right:4px")];
   if (at) {
     const { t, i } = at, prev = t.pages[i - 1], next = t.pages[i + 1];
-    parts.push(link(t.showcase || `#trade-${t.id}`, `<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${clean(t.short)}</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">${i + 1}/${t.pages.length}</span>`, `${clean(t.name)}, page ${i + 1} of ${t.pages.length}${t.showcase ? ". Open the showcase of every demo" : ""}`, "#F6F3EC", "min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"));
+    parts.push(link(t.showcase || `#trade-${t.id}`, `<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${clean(t.short)}</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">${i + 1}/${t.pages.length}</span>`, `${clean(t.name)}, page ${i + 1} of ${t.pages.length}${t.showcase ? ". Open the showcase of every demo" : ""}`, "#EDEBE5", "min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"));
     parts.push(`<span style="margin-left:auto;display:inline-flex">` +
       (prev ? link(prev.href, icon('<path d="M15 18l-6-6 6-6"/>'), `Previous: ${clean(prev.title)}`) : off + icon('<path d="M15 18l-6-6 6-6"/>') + "</span>") +
       (next ? link(next.href, icon('<path d="M9 18l6-6-6-6"/>'), `Next: ${clean(next.title)}`) : off + icon('<path d="M9 18l6-6-6-6"/>') + "</span>") +
       link("#search", icon('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>'), "Search all sites") + "</span>");
   } else parts.push(`<span style="margin-left:auto">${link("#search", icon('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>'), "Search all sites")}</span>`);
-  return `<nav aria-label="All GroundWork sites" style="all:initial;box-sizing:border-box;display:flex;flex-wrap:nowrap;gap:6px;align-items:center;width:100%;padding:0 8px 0 12px;background:#141412;color:#F6F3EC;font:600 13px/1 system-ui,sans-serif;position:relative;z-index:2147483647">${parts.join("")}</nav>`;
+  return `<nav aria-label="All GroundWork sites" style="all:initial;box-sizing:border-box;display:flex;flex-wrap:nowrap;gap:6px;align-items:center;width:100%;padding:0 8px 0 12px;background:#17181A;color:#EDEBE5;font:600 13px/1 system-ui,sans-serif;position:relative;z-index:2147483647">${parts.join("")}</nav>`;
 };
 // This copy is a preview: tracking and form posts to /api/ have nowhere to go on Pages, so answer them
 // locally instead of filling the console with failed requests.

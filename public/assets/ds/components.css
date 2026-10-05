@@ -1,10 +1,10 @@
-/* GroundWork-Web design system v3. Components. Needs tokens.css and base.css first. */
+/* GroundWork-Web design system v4. Components. Needs tokens.css and base.css first. */
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;padding:12px 28px;border-radius:var(--pill);border:1.5px solid transparent;text-decoration:none;font-weight:600;line-height:1.1;cursor:pointer;background:none;color:inherit;transition:transform var(--t-fast) var(--ease),background var(--t-fast),border-color var(--t-fast),box-shadow var(--t-fast)}
 .btn small{font-weight:400;font-size:.8rem;opacity:.8}
 .btn:hover{transform:translateY(-2px)}
-.btn-buy{background:var(--accent);color:var(--on-accent);box-shadow:0 10px 30px -10px rgba(229,160,13,.7)}
+.btn-buy{background:var(--accent);color:var(--on-accent);box-shadow:0 10px 30px -10px rgba(200,65,15,.0)}
 .btn-ghost{color:var(--ink);border-color:var(--line-2)}
 .btn-ghost:hover{border-color:var(--ink)}
 .btn-sm{min-height:44px;padding:8px 20px;flex-direction:row}
@@ -70,7 +70,7 @@
 .step .amt{font-family:var(--font-display);font-weight:600;font-size:clamp(3rem,6vw,4.4rem);line-height:1;margin:12px 0 10px;font-variant-numeric:tabular-nums}
 .step .amt small{font-size:1.1rem;color:var(--block-mute);margin-left:4px}
 .step p{color:var(--block-mute);font-size:.98rem}
-.step.live{border-color:var(--accent);background:linear-gradient(180deg,rgba(229,160,13,.12),var(--block-2))}
+.step.live{border-color:var(--accent);background:linear-gradient(180deg,color-mix(in srgb,var(--paint) 14%,transparent),var(--block-2))}
 .sum{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding:22px 28px;border-radius:var(--r-lg);border:1px dashed var(--block-line);color:var(--block-mute)}
 .sum b{color:var(--block-ink);font-family:var(--font-display);font-weight:600;font-size:1.6rem;font-variant-numeric:tabular-nums}
 .price-note{margin-top:20px;font-size:.92rem;color:var(--block-mute)}
@@ -206,7 +206,7 @@
 .card p{color:var(--ink-2)}
 .check-list{list-style:none;padding:0;display:grid;gap:var(--s3)}
 .check-list li{position:relative;padding-left:34px;color:var(--ink-2)}
-.check-list li::before{content:"";position:absolute;left:0;top:.2em;width:22px;height:22px;border-radius:50%;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23C98B0A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 7.5l3.2 3L12 3.5'/%3E%3C/svg%3E") center/14px no-repeat}
+.check-list li::before{content:"";position:absolute;left:0;top:.2em;width:22px;height:22px;border-radius:50%;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23C8410F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 7.5l3.2 3L12 3.5'/%3E%3C/svg%3E") center/14px no-repeat}
 .check-list b{color:var(--ink)}
 .check-list.no li::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%236B7280' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M3 3l8 8M11 3l-8 8'/%3E%3C/svg%3E");background-color:var(--line)}
 .two-col{display:grid;gap:var(--s6)}
@@ -293,7 +293,7 @@ button.btn{font:inherit;font-weight:600;flex-direction:row}
 .plan-grid{display:grid;gap:var(--s4)}
 @media(min-width:900px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
 .plan{display:flex;flex-direction:column;padding:28px;border-radius:var(--r-xl);background:var(--block-2);border:1px solid var(--block-line);color:var(--block-ink)}
-.plan.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(229,160,13,.12),var(--block-2))}
+.plan.featured{border-color:var(--accent);background:linear-gradient(180deg,color-mix(in srgb,var(--paint) 14%,transparent),var(--block-2))}
 .plan .cap{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--block-mute);font-weight:600;margin:0}
 .plan h3{margin:var(--s2) 0 var(--s3)}
 .plan .amt{font-family:var(--font-display);font-weight:600;font-size:clamp(3rem,5vw,3.8rem);line-height:1;font-variant-numeric:tabular-nums}
@@ -354,3 +354,69 @@ button.btn{font:inherit;font-weight:600;flex-direction:row}
 .price-block .price-note a{color:var(--block-ink)}
 .plan-grid.two{max-width:860px}
 @media(min-width:900px){.plan-grid.two{grid-template-columns:repeat(2,1fr)}}
+
+/* =====================================================================
+   Layer 3: marking-paint style, matching the homepage (home.css).
+   Scoped to inner pages so the homepage keeps its own rules untouched.
+   One solid paint button with an ink offset, 2px ink rules, square corners, mono labels.
+   ===================================================================== */
+body:not(.home) .btn{border-radius:6px;transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+body:not(.home) .btn:hover{transform:translate(-1px,-1px)}
+body:not(.home) .btn-buy{background:var(--paint);color:var(--on-paint);box-shadow:3px 3px 0 var(--ink)}
+body:not(.home) .btn-buy:hover{box-shadow:4px 4px 0 var(--ink)}
+body:not(.home) .btn-buy:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+body:not(.home) .btn-ghost{border:2px solid var(--ink);color:var(--ink);background:var(--card)}
+body:not(.home) .btn-ghost:hover{border-color:var(--ink);background:var(--bg)}
+body:not(.home) :is(.price-block,.final,.plan,.summary) .btn-buy{box-shadow:3px 3px 0 var(--block-ink)}
+body:not(.home) :is(.final,.plan) .btn-ghost{background:transparent;border-color:var(--block-ink);color:var(--block-ink)}
+
+body:not(.home) .site-header{background:var(--bg);backdrop-filter:none;border-bottom:2px solid var(--ink)}
+body:not(.home) .site-header .wrap{min-height:60px}
+body:not(.home) .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.03em}
+body:not(.home) .logo .dot{width:14px;height:14px;border-radius:0;background:var(--paint);box-shadow:none;transform:rotate(45deg)}
+body:not(.home) .menu-btn{border:2px solid var(--ink);border-radius:6px;font-family:var(--font-mono);font-size:.85rem}
+body:not(.home) .site-header.open .links{border-bottom:2px solid var(--ink)}
+body:not(.home) .site-footer{background:var(--cream);border-top:2px solid var(--ink)}
+body:not(.home) .bar{background:var(--bg);backdrop-filter:none;border-top:2px solid var(--ink)}
+
+body:not(.home) .hero::before{display:none}
+body:not(.home) .hero h1 em,body:not(.home) .page-hero h1 em{color:var(--paint-text)}
+body:not(.home) .crumbs{font-family:var(--font-mono);font-size:.8rem}
+
+body:not(.home) :is(.card,.fact,.radio-card,.frame){border:2px solid var(--ink);border-radius:8px}
+body:not(.home) .card-grid .card:first-child,body:not(.home) .fact:first-child{box-shadow:5px 5px 0 var(--paint)}
+body:not(.home) :is(.card .k,.problems .n,.steps li::before,.faq summary::after){color:var(--paint-text);font-family:var(--font-mono);font-weight:400}
+body:not(.home) .faq summary::after{font-size:1.4rem}
+body:not(.home) .faq details[open] summary::after{content:"\2212";transform:none}
+body:not(.home) .faq details{border-top:1px solid var(--line-2)}
+body:not(.home) .faq details:last-child{border-bottom:1px solid var(--line-2)}
+body:not(.home) :is(.problems li,.rule,.steps li,.checklist li){border-top:1px solid var(--line-2)}
+body:not(.home) :is(.problems li,.steps li,.checklist li):last-child{border-bottom:2px solid var(--ink)}
+body:not(.home) .check-list li::before{border-radius:0;background-color:transparent;border:2px solid var(--mark);width:18px;height:18px;border-radius:50%;background-image:none;top:.25em}
+body:not(.home) .check-list.no li::before{border-color:var(--line-2)}
+body:not(.home) .notice{background:var(--card);border-left:6px solid var(--paint);border-radius:0}
+body:not(.home) :is(.col-label,.step .when,.plan .cap,.cmp thead th,.prose th,.s-label){font-family:var(--font-mono);font-weight:400;letter-spacing:.04em}
+body:not(.home) .prose a,body:not(.home) .link{text-decoration-color:var(--paint);text-decoration-thickness:2px;text-underline-offset:4px}
+
+body:not(.home) :is(.price-block,.final,.summary,.intent div){background:var(--block);color:var(--block-ink)}
+body:not(.home) .price-block .eyebrow,body:not(.home) .summary .today dd{color:var(--block-paint)}
+body:not(.home) .final{border-radius:8px;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--paint)}
+body:not(.home) :is(.step,.plan){border-radius:8px}
+body:not(.home) :is(.step.live,.plan.featured){border:2px solid var(--block-paint);background:var(--block-2)}
+body:not(.home) .plan li::before{border-color:var(--block-paint)}
+body:not(.home) .plan .rec{background:var(--block-paint);color:#1A0A03;border-radius:4px;font-family:var(--font-mono);font-weight:400}
+body:not(.home) .picker{border-radius:6px}
+body:not(.home) .picker button{border-radius:4px}
+body:not(.home) .picker button[aria-checked="true"]{background:var(--block-paint);color:#1A0A03}
+body:not(.home) .tag.r{background:var(--paint);color:var(--on-paint)}
+body:not(.home) .tag{border-radius:4px;font-family:var(--font-mono);font-weight:400;letter-spacing:.04em}
+body:not(.home) .cmp .us{background:var(--accent-soft)}
+body:not(.home) .form input,body:not(.home) .form select,body:not(.home) .form textarea{border:2px solid var(--line-2);border-radius:6px}
+body:not(.home) .form :is(input,select,textarea):focus-visible{outline-color:var(--mark);border-color:var(--ink)}
+body:not(.home) .radio-card:has(input:checked){border-color:var(--paint);box-shadow:4px 4px 0 var(--paint)}
+body:not(.home) .site-header .btn{white-space:nowrap}
+@media (max-width:420px){body:not(.home) .logo{font-size:1rem}body:not(.home) .header-end{gap:8px}body:not(.home) .menu-btn{padding:0 10px}}
+body:not(.home) .logo{white-space:nowrap}
+body:not(.home) .site-header .btn-sm{min-height:44px;padding:8px 14px;font-size:.95rem;box-shadow:2px 2px 0 var(--ink)}
+/* Small print on paint buttons stays full strength: at 0.72-0.8 opacity it fell to 3.3:1 (light) and 4.3:1 (dark). */
+body .btn.btn-buy small{opacity:1}
