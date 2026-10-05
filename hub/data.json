@@ -93,7 +93,17 @@
           "slug": "nadia-brooks"
         }
       ],
-      "page": "real-estate/"
+      "page": "real-estate/",
+      "more": [
+        {
+          "label": "Listing book, Beaufort SC",
+          "href": "site/demos/june-pettiford/"
+        },
+        {
+          "label": "Open house board, Boise ID",
+          "href": "site/demos/foothill-team/"
+        }
+      ]
     }
   ],
   "demoNote": "Finished demos, one per trade."
