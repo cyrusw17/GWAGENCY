@@ -19,6 +19,8 @@ Options -Indexes
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
     Header unset X-Powered-By
+    # CSP in report-only mode first (SEO audit fix 19): check the browser console on every page, then enforce
+    Header always set Content-Security-Policy-Report-Only "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'self'"
     # Demo pages are embedded in iframes on our own pages only (SAMEORIGIN covers it)
 </IfModule>
 

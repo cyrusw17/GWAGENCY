@@ -10,6 +10,7 @@ delivery: download shown on the page right after submit, plus the follow-up emai
 linked_from: /blog/commercial-cleaning-website-what-to-include/
 status: draft
 format: one printable page (US Letter)
+meta_description: A printable checklist for cleaning companies: what facility managers look for on your website before they agree to a walkthrough or a bid.
 ---
 
 # The bid-ready website checklist for cleaning companies

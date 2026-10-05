@@ -5,6 +5,7 @@ type: gated checklist (main email offer for detailing.groundwork-web.com/blog/)
 format: one printable page (US Letter), checkboxes
 linked_from: /blog/what-to-put-on-a-car-detailing-website/
 status: draft
+meta_description: A one-page printable checklist for detailers: the things your booking page needs so a customer can see the price and book without calling.
 ---
 
 # The Detailer's Booking Page Checklist
