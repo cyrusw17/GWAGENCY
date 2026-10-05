@@ -1,0 +1,127 @@
+{
+ "slug": "demo-sloane-whitaker",
+ "demo": true,
+ "renderer": "mirage",
+ "niche": "real estate",
+ "demoNote": "Fictional agent, brokerage and listings. Photos are free stock images, not real listings.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=mirage"},
+ "business": {
+  "name": "Sloane Whitaker",
+  "tagline": "Scottsdale luxury real estate",
+  "brokerage": "Desert Light Properties (sample brokerage) · 480-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(480) 555-0191",
+  "sms": "(480) 555-0191",
+  "email": "sloane@example.com",
+  "hoursText": "By appointment, seven days",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "19:00"}],
+  "address": {"city": "Scottsdale", "region": "AZ", "postal": "85251"},
+  "license": "Arizona real estate license #SA000000000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#16130F",
+  "fontFaces": [
+   {"family": "Cormorant Garamond", "weight": 500, "src": "fonts/cormorant-garamond-latin-500-normal.woff2", "preload": true},
+   {"family": "Jost", "weight": 400, "src": "fonts/jost-latin-400-normal.woff2", "preload": true},
+   {"family": "Jost", "weight": 500, "src": "fonts/jost-latin-500-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "Sloane Whitaker | Scottsdale Luxury Homes and Real Estate",
+  "description": "Scottsdale luxury real estate with Sloane Whitaker: private showings and desert modern homes in Paradise Valley, North Scottsdale and Arcadia."
+ },
+ "hero": {
+  "img": "img/hero.jpg",
+  "kicker": "Sloane Whitaker · Scottsdale",
+  "headline": "Scottsdale homes, sold quietly and well.",
+  "sub": "Luxury real estate for buyers and sellers who'd rather not be marketed at. Private showings, honest pricing, and an agent who picks up the phone.",
+  "credit": ""
+ },
+ "me": {
+  "img": "img/sloane.svg",
+  "alt": "Illustrated portrait of Sloane Whitaker",
+  "kicker": "Meet Sloane",
+  "headline": "Twenty years in the desert, and still in love with the light.",
+  "story": ["I moved to Scottsdale from Chicago for one winter in 2006 and never went back. Before real estate I spent ten years as an interior designer, which is why I'll tell you exactly what a room needs before it's photographed, and what it doesn't.", "Most of my sales never hit a yard sign. My clients value discretion, and I protect it: private showings, qualified buyers only, and no surprises at the closing table."],
+  "note": "Illustration, not a photo. Your site uses your own portrait."
+ },
+ "stats": [[214, "$", "M", "in closed luxury sales"], [19, "", "", "years in Scottsdale"], [98.7, "", "%", "of list price, on average"], [31, "", "", "average days on market"]],
+ "story": {
+  "headline": "Inside a Sloane listing",
+  "sub": "How I present a home, room by room. Scroll and the house walks you through itself.",
+  "fine": "Sample rooms for this demo.",
+  "beats": [
+   {"img": "img/st1.jpg", "alt": "Great room with tall windows and a view", "room": "The great room", "title": "Sell the view, not the furniture", "text": "Buyers in this price range are buying the light and the mountains. We edit the room down until the windows do the talking."},
+   {"img": "img/st2.jpg", "alt": "Luxury kitchen with a large island", "room": "The kitchen", "title": "Every surface tells the truth", "text": "Appliance brands, stone type and the year of the remodel go on the sheet. Luxury buyers ask, and the answers should already be there."},
+   {"img": "img/st3.jpg", "alt": "Primary bedroom with soft light", "room": "The primary suite", "title": "Calm sells", "text": "We photograph it at golden hour with nothing on the nightstands. It's the room buyers picture themselves waking up in."},
+   {"img": "img/st4.jpg", "alt": "Backyard pool and fire pit in the desert", "room": "The yard", "title": "Evenings outside are the product", "text": "Scottsdale is lived outdoors from October to May. We show the yard at dusk, with the fire pit lit and the pool lights on."}
+  ]
+ },
+ "listings": {
+  "headline": "Currently offered",
+  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named.",
+  "items": [
+   {"img": "img/l1.jpg", "alt": "Desert modern home exterior", "name": "Desert modern on two acres", "area": "North Scottsdale", "price": 3450000, "beds": 5, "baths": 5.5, "sqft": 6120},
+   {"img": "img/l2.jpg", "alt": "Spanish colonial home with arches", "name": "Spanish colonial with courtyard", "area": "Arcadia", "price": 2195000, "beds": 4, "baths": 4, "sqft": 4380},
+   {"img": "img/l3.jpg", "alt": "Contemporary home with a pool", "name": "Contemporary with mountain views", "area": "Paradise Valley", "price": 5800000, "beds": 6, "baths": 7, "sqft": 8240},
+   {"img": "img/l4.jpg", "alt": "Santa Fe style home", "name": "Santa Fe style on a cul-de-sac", "area": "McCormick Ranch", "price": 1475000, "beds": 4, "baths": 3, "sqft": 3560},
+   {"img": "img/l5.jpg", "alt": "Hillside modern home", "name": "Hillside modern near the preserve", "area": "Troon", "price": 2890000, "beds": 4, "baths": 4.5, "sqft": 5010},
+   {"img": "img/l6.jpg", "alt": "Single-level luxury home with a pool", "name": "Single level on the golf course", "area": "Desert Mountain", "price": 1985000, "beds": 3, "baths": 3.5, "sqft": 3920}
+  ]
+ },
+ "bento": {
+  "headline": "The Scottsdale life",
+  "fine": "",
+  "items": [
+   {"img": "img/b1.jpg", "alt": "Desert golf course", "title": "Golf, twelve months a year", "text": "Over 200 courses in the valley. I can tell you which communities have the membership waitlists."},
+   {"img": "img/b2.jpg", "alt": "Desert hiking trail", "title": "Trails from the back gate", "text": "The McDowell Sonoran Preserve has more than 200 miles of trails."},
+   {"title": "300+ days of sun", "text": "And yes, summers are hot. I'll tell you honestly what July is like."},
+   {"img": "img/b3.jpg", "alt": "Patio dining in the evening", "title": "Old Town evenings", "text": "Galleries on Thursday nights, dinner on a patio almost any night of the year."},
+   {"img": "img/b4.jpg", "alt": "Saguaro cactus at sunset", "title": "Sunsets you'll stop for", "text": "Every listing photo gets a golden hour shoot. You'll see why."}
+  ]
+ },
+ "reviews": {
+  "headline": "In clients' words",
+  "source": "Google", "url": "https://www.google.com/maps", "rating": "5.0", "count": 58,
+  "items": [
+   {"name": "Sample client", "where": "Sold in Paradise Valley", "date": "2026-09-20", "stars": 5, "text": "Sloane sold our home without a single public open house. Exactly the discretion we needed."},
+   {"name": "Sample client", "where": "Bought in North Scottsdale", "date": "2026-08-30", "stars": 5, "text": "Her designer's eye saved us from two beautiful houses with terrible floor plans."},
+   {"name": "Sample client", "where": "Relocated from Seattle", "date": "2026-07-15", "stars": 5, "text": "We toured by video from Seattle and flew in once. Every detail she promised was true."},
+   {"name": "Sample client", "where": "Sold in Arcadia", "date": "2026-06-02", "stars": 5, "text": "Priced right the first day. Three offers by the weekend, and she negotiated like it was her own home."}
+  ]
+ },
+ "booking": {
+  "headline": "Request a private conversation",
+  "body": "Three quick questions, then Sloane will call you personally, usually the same day. Everything you share stays between us.",
+  "cta": "Request a conversation",
+  "headerCta": "Contact Sloane"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "How can I help?", "options": [
+   {"value": "Buying", "hint": "A home in the valley"},
+   {"value": "Selling", "hint": "A private valuation"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "Second home", "hint": "Winters in Scottsdale"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Area",
+  "areas": ["North Scottsdale", "Paradise Valley", "Arcadia", "McCormick Ranch", "Troon", "Desert Mountain"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just exploring"],
+  "notesHint": "Your address if you're selling, or what matters most in your next home",
+  "step3": "How should I reach you?",
+  "consent": "By sending this, you agree that Sloane Whitaker may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+  "submit": "Send to Sloane",
+  "privacy": "Your details go to Sloane only. Never sold or shared.",
+  "thanks": "Thank you. I'll call you personally today. Sloane"
+ },
+ "faqHeadline": "Questions",
+ "faq": [
+  {"q": "Can you sell my home without public marketing?", "a": "Yes. Many of my sales are private: showings only to qualified buyers, and no public open houses. We'll talk through what you give up and gain either way."},
+  {"q": "What's your commission?", "a": "It's negotiable and agreed in writing before any work starts."},
+  {"q": "Do I need to sign anything to tour homes?", "a": "Yes, a short written buyer agreement, as the rules now require. It spells out what I'm paid and who pays it."},
+  {"q": "Do you help with second homes?", "a": "Often. Many of my buyers winter here. I can connect you with property managers who look after a home while you're away."}
+ ],
+ "eho": "Equal Housing Opportunity. Sloane Whitaker is licensed with Desert Light Properties (sample brokerage).",
+ "sticky": {"book": "Contact Sloane"}
+}

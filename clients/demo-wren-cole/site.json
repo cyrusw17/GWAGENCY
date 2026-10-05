@@ -1,0 +1,126 @@
+{
+ "slug": "demo-wren-cole",
+ "demo": true,
+ "renderer": "music-row",
+ "niche": "real estate",
+ "demoNote": "Fictional team, brokerage and listings. Photos are free stock images, not real listings.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=music-row"},
+ "business": {
+  "name": "Wren & Cole",
+  "tagline": "Nashville real estate team",
+  "brokerage": "Cumberland Door Realty (sample brokerage) · 615-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(615) 555-0127",
+  "sms": "(615) 555-0127",
+  "email": "hello@example.com",
+  "hoursText": "Calls and texts 8am to 8pm, every day",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "20:00"}],
+  "address": {"city": "Nashville", "region": "TN", "postal": "37206"},
+  "license": "Tennessee real estate licenses #000000 and #000001 (sample)"
+ },
+ "theme": {
+  "themeColor": "#F8F4EC",
+  "fontFaces": [
+   {"family": "Bricolage Grotesque", "weight": 800, "src": "fonts/bricolage-grotesque-latin-800-normal.woff2", "preload": true},
+   {"family": "Public Sans", "weight": 400, "src": "fonts/public-sans-latin-400-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "Wren & Cole | Nashville Real Estate Team, Homes for Sale",
+  "description": "Nashville homes for sale and a free home value from Maggie Wren and Darius Cole, a real estate team in East Nashville, Germantown, 12 South and Sylvan Park."
+ },
+ "hero": {
+  "img": "img/hero.jpg",
+  "headline": "Nashville homes, found and sold by Maggie and Darius.",
+  "sub": "Two agents, one phone number, and a straight answer about every house on the block.",
+  "credit": ""
+ },
+ "sold": ["Fatherland St, East Nashville", "Overton St, 12 South", "Delray Dr, Sylvan Park", "5th Ave N, Germantown", "Porter Rd, Inglewood", "Lealand Ln, Green Hills", "Douglas Ave, East Nashville", "Gale Ln, Belmont"],
+ "team": {
+  "kicker": "Meet us",
+  "headline": "A songwriter and a contractor walk into real estate.",
+  "sub": "That's not a joke, it's our team. Between us we've lived in six Nashville neighborhoods and renovated two houses with our own hands.",
+  "note": "Illustrations, not photos. Your site uses your own portraits.",
+  "people": [
+   {"img": "img/maggie.svg", "alt": "Illustrated portrait of Maggie Wren", "name": "Maggie Wren", "role": "Listings and negotiation", "bio": "Ten years writing songs on Music Row taught her how to pitch, and how to hear a no. She prices homes from the last 90 days of real sales and negotiates like it's her own."},
+   {"img": "img/darius.svg", "alt": "Illustrated portrait of Darius Cole", "name": "Darius Cole", "role": "Buyers and inspections", "bio": "A licensed contractor for twelve years before real estate. He reads every inspection report line by line and knows what a fix really costs."}
+  ]
+ },
+ "listings": {
+  "headline": "Homes we're selling",
+  "sub": "Hover or tap a home to open it.",
+  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named.",
+  "items": [
+   {"img": "img/h1.jpg", "alt": "Tall, narrow modern home", "hood": "East Nashville", "name": "Tall and skinny on a quiet street", "price": 689000, "beds": 3, "baths": 3.5, "sqft": 2140},
+   {"img": "img/h2.jpg", "alt": "Red brick bungalow with a porch", "hood": "Sylvan Park", "name": "1920s brick bungalow", "price": 749000, "beds": 3, "baths": 2, "sqft": 1680},
+   {"img": "img/h3.jpg", "alt": "White modern farmhouse", "hood": "Inglewood", "name": "Modern farmhouse with a big yard", "price": 825000, "beds": 4, "baths": 3, "sqft": 2760},
+   {"img": "img/h4.jpg", "alt": "Craftsman home with a wide porch", "hood": "12 South", "name": "Craftsman with a porch swing", "price": 1150000, "beds": 4, "baths": 3.5, "sqft": 2980},
+   {"img": "img/h5.jpg", "alt": "Modern townhouse", "hood": "Germantown", "name": "Townhouse near the farmers market", "price": 595000, "beds": 2, "baths": 2.5, "sqft": 1420},
+   {"img": "img/h6.jpg", "alt": "Small cottage with a garden", "hood": "East Nashville", "name": "Cottage with a garden studio", "price": 515000, "beds": 2, "baths": 1, "sqft": 1110}
+  ]
+ },
+ "staging": {
+  "kicker": "Selling with us",
+  "headline": "Drag the line. That's what a weekend of staging does.",
+  "sub": "Most of our listings get light staging before photos, at no cost to you. Buyers scroll past empty rooms. They stop on ones they can picture living in.",
+  "points": ["A walk-through and a fix-or-leave list in week one", "Staging and pro photos before the home goes live", "A Friday text with every showing and every piece of feedback"],
+  "cta": "Plan my sale",
+  "before": "img/before.jpg", "beforeAlt": "Empty living room before staging",
+  "after": "img/after.jpg", "afterAlt": "Staged living room with furniture",
+  "fine": "Sample photos of two similar rooms."
+ },
+ "hoods": {
+  "headline": "Where we sell",
+  "fine": "",
+  "stat": ["14", "Nashville neighborhoods we've sold in this year (sample)"],
+  "items": [
+   {"img": "img/n1.jpg", "alt": "Porch-lined neighborhood street", "name": "East Nashville", "line": "Porches, five points, and the best tacos on Gallatin."},
+   {"img": "img/n2.jpg", "alt": "Downtown skyline at night", "name": "Downtown & the Gulch", "line": "High-rise condos a walk from Broadway."},
+   {"img": "img/n3.jpg", "alt": "Brick warehouse district street", "name": "Germantown", "line": "Brick rowhouses, restaurants and the farmers market."},
+   {"img": "img/n4.jpg", "alt": "Park with a walking path", "name": "Sylvan Park", "line": "Bungalows near McCabe Park and the greenway."}
+  ]
+ },
+ "reviews": {
+  "headline": "From our clients",
+  "source": "Google", "url": "https://www.google.com/maps", "rating": "4.9", "count": 104,
+  "items": [
+   {"name": "Sample client", "where": "Sold in East Nashville", "date": "2026-09-16", "stars": 5, "text": "The staging made our 1950s living room look like a magazine. Three offers in four days."},
+   {"name": "Sample client", "where": "Bought in Inglewood", "date": "2026-08-19", "stars": 5, "text": "Darius found a roof problem the seller didn't know about and got us a $9,000 credit."},
+   {"name": "Sample client", "where": "Sold in Sylvan Park", "date": "2026-07-08", "stars": 4, "text": "It sat a little longer than we hoped, but Maggie's Friday texts kept us calm and the price held."}
+  ]
+ },
+ "booking": {
+  "headline": "Let's talk about your move",
+  "body": "Three quick questions, then Maggie or Darius will call you back today.",
+  "cta": "Talk with Maggie and Darius",
+  "headerCta": "Contact us"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "How can we help?", "options": [
+   {"value": "Selling", "hint": "What would ours sell for?"},
+   {"value": "Buying", "hint": "A home in Nashville"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "Moving to Nashville", "hint": "From out of town"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Neighborhood",
+  "areas": ["East Nashville", "Germantown", "12 South", "Sylvan Park", "Inglewood", "Green Hills"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just curious"],
+  "notesHint": "Your address if you're selling, or what you need in a home",
+  "step3": "How should we reach you?",
+  "consent": "By sending this, you agree that Maggie Wren or Darius Cole may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with us.",
+  "submit": "Send to Maggie and Darius",
+  "privacy": "Your details go to Maggie and Darius only. Never sold or shared.",
+  "thanks": "Got it. One of us will call you today. Maggie and Darius"
+ },
+ "faqHeadline": "Questions we hear a lot",
+ "faq": [
+  {"q": "Who will I work with?", "a": "Both of us. Maggie leads on pricing and negotiating, Darius on the house itself and the inspection."},
+  {"q": "What's your commission?", "a": "It's negotiable and agreed in writing before any work starts."},
+  {"q": "Do I need to sign anything to tour homes?", "a": "Yes, a short written buyer agreement, as the rules now require. It says what we're paid and who pays it."},
+  {"q": "Does staging cost extra?", "a": "Light staging for photos is included on our listings. Full staging of a vacant home is quoted separately and is always your choice."}
+ ],
+ "eho": "Equal Housing Opportunity. Maggie Wren and Darius Cole are licensed with Cumberland Door Realty (sample brokerage).",
+ "sticky": {"book": "Contact us"}
+}
