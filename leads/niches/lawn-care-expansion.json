@@ -1,0 +1,181 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Memphis, TN"
+    },
+    {
+      "name": "Little Rock, AR"
+    },
+    {
+      "name": "Jackson, MS"
+    },
+    {
+      "name": "Shreveport, LA"
+    },
+    {
+      "name": "Montgomery, AL"
+    },
+    {
+      "name": "Huntsville, AL"
+    },
+    {
+      "name": "Chattanooga, TN"
+    },
+    {
+      "name": "Greensboro, NC"
+    },
+    {
+      "name": "Winston-Salem, NC"
+    },
+    {
+      "name": "Wilmington, NC"
+    },
+    {
+      "name": "Charleston, SC"
+    },
+    {
+      "name": "Myrtle Beach, SC"
+    },
+    {
+      "name": "Augusta, GA"
+    },
+    {
+      "name": "Macon, GA"
+    },
+    {
+      "name": "Columbus, GA"
+    },
+    {
+      "name": "Tallahassee, FL"
+    },
+    {
+      "name": "Gainesville, FL"
+    },
+    {
+      "name": "Fort Myers, FL"
+    },
+    {
+      "name": "Sarasota, FL"
+    },
+    {
+      "name": "Daytona Beach, FL"
+    },
+    {
+      "name": "Port St. Lucie, FL"
+    },
+    {
+      "name": "Melbourne, FL"
+    },
+    {
+      "name": "Richmond, VA"
+    },
+    {
+      "name": "Virginia Beach, VA"
+    },
+    {
+      "name": "Roanoke, VA"
+    },
+    {
+      "name": "Lexington, KY"
+    },
+    {
+      "name": "Cincinnati, OH"
+    },
+    {
+      "name": "Dayton, OH"
+    },
+    {
+      "name": "Fort Wayne, IN"
+    },
+    {
+      "name": "Evansville, IN"
+    },
+    {
+      "name": "St. Louis, MO"
+    },
+    {
+      "name": "Springfield, MO"
+    },
+    {
+      "name": "Tulsa, OK"
+    },
+    {
+      "name": "Wichita, KS"
+    },
+    {
+      "name": "Omaha, NE"
+    },
+    {
+      "name": "Des Moines, IA"
+    },
+    {
+      "name": "Albuquerque, NM"
+    },
+    {
+      "name": "Tucson, AZ"
+    },
+    {
+      "name": "Mesa, AZ"
+    },
+    {
+      "name": "Las Vegas, NV"
+    },
+    {
+      "name": "Boise, ID"
+    },
+    {
+      "name": "Salt Lake City, UT"
+    },
+    {
+      "name": "Denver, CO"
+    },
+    {
+      "name": "Colorado Springs, CO"
+    },
+    {
+      "name": "El Paso, TX"
+    },
+    {
+      "name": "Corpus Christi, TX"
+    },
+    {
+      "name": "Lubbock, TX"
+    },
+    {
+      "name": "Amarillo, TX"
+    },
+    {
+      "name": "Waco, TX"
+    },
+    {
+      "name": "McAllen, TX"
+    }
+  ]
+}
