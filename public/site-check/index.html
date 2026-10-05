@@ -98,7 +98,7 @@ footer a{margin-right:14px}
 <main id="main">
 <form class="tag" id="check" aria-labelledby="h1">
   <div class="form-no"><span>Website inspection</span><span>8 items &middot; about 1 min</span></div>
-  <h1 id="h1"><span class="who" id="who">For auto detailers</span>Is your website losing jobs?</h1>
+  <h1 id="h1"><span class="who" id="who">For auto detailers</span><span id="h1-q">Is your website losing jobs?</span></h1>
   <p class="lede">Get your phone out and open your own site. Each question takes about five seconds to check. Your score and the three fixes worth doing first show up below. No form for that part.</p>
 
   <fieldset class="trade">
@@ -107,6 +107,8 @@ footer a{margin-right:14px}
       <label class="chip"><input type="radio" name="trade" value="detailing" checked><span>Detailing shop</span></label>
       <label class="chip"><input type="radio" name="trade" value="exterior"><span>Pressure washing company</span></label>
       <label class="chip"><input type="radio" name="trade" value="lawn"><span>Lawn or landscape crew</span></label>
+      <label class="chip"><input type="radio" name="trade" value="cleaning"><span>Commercial cleaning company</span></label>
+      <label class="chip"><input type="radio" name="trade" value="realestate"><span>Real estate agent</span></label>
     </div>
   </fieldset>
 
@@ -161,12 +163,24 @@ footer a{margin-right:14px}
   var T = {
     detailing: { who: "For auto detailers", price: "“Full detail from $___, by car size”", form: "“Price my car”", demo: ["/demos/ramirez-mobile/", "Ramirez & Son Mobile Detail"] },
     exterior: { who: "For pressure washing companies", price: "“House soft wash from $___”", form: "“Get my quote”", demo: ["/demos/haint-blue/", "Haint Blue Soft Wash"] },
-    lawn: { who: "For lawn and landscape crews", price: "“Weekly mowing from $___ a visit”", form: "“Get my price”", demo: ["/demos/pruitt-lawn/", "Pruitt Lawn Co."] }
+    lawn: { who: "For lawn and landscape crews", price: "“Weekly mowing from $___ a visit”", form: "“Get my price”", demo: ["/demos/pruitt-lawn/", "Pruitt Lawn Co."], town: "“Lawn care in Katy, TX”" },
+    cleaning: { who: "For commercial cleaning companies", price: "“Nightly office cleaning from $___ a month”", form: "“Book a walkthrough”", demo: ["/demos/keyholder/", "Keyholder Commercial Cleaning"], town: "“Office cleaning in Greensboro, NC”",
+      // Office contracts are bid after a walkthrough, so no price menu: the first check is what you clean and how to book.
+      priceQ: "Can you see what you clean and how to book a walkthrough?", priceHow: "Open your home page on your phone. Scroll once. Is there a list of what you clean and a walkthrough button?",
+      priceFix: "Say what you clean and offer a walkthrough near the top.", priceEx: "Something like “Offices, clinics and gyms. Book a free walkthrough.”",
+      priceSrc: "Quote request forms convert 8 to 12%; generic contact forms 1 to 3% (FoundryCRO)." },
+    // Agents don't post a price; the first-scroll check looks for the offer instead.
+    realestate: { who: "For real estate agents", h1: "Is your website losing clients?", form: "“Get my home value”", town: "“Helping buyers and sellers in Cypress, TX”",
+      priceQ: "Can you see your offer within one scroll of the top?", priceHow: "Open your home page on your phone. Scroll once. Is there a free home value or a clear next step?",
+      priceFix: "Put one clear offer near the top.", priceEx: "Something like “Free home value, back to you in 24 hours”.",
+      priceSrc: "Most buyers hire the first agent they talk to (NAR 2025)." }
   };
+  // Value sent with the report request, and the /start/ niche, per trade.
+  var SLUG = { detailing: "auto-detailing", exterior: "exterior-cleaning", lawn: "landscaping", cleaning: "commercial-cleaning", realestate: "real-estate" };
   // Order = the order fixes are recommended in.
   var Q = [
     { id: "price", q: "Can you see a price within one scroll of the top?", how: "Open your home page on your phone. Scroll once.",
-      fix: "Put “from” prices for your top three jobs near the top.", ex: function (t) { return "Something like " + t.price + "."; },
+      fix: "Put “from” prices for your top three jobs near the top.", ex: function (t) { return t.priceEx || "Something like " + t.price + "."; },
       src: "57 of 62 local service sites we checked show no clear price, so the shop that shows one stands out." },
     { id: "call", q: "Is there a Call or Text button you can tap without scrolling?", how: "Same screen. Look for a button, not a phone number in small print.",
       fix: "Pin Call and Text buttons to the bottom of every phone screen.", ex: function () { return "They stay put while people scroll."; },
@@ -187,7 +201,7 @@ footer a{margin-right:14px}
       fix: "Cut the form to what you need to quote.", ex: function () { return "Ask for phone or email, not both."; },
       src: "Three fields convert about as well as one (25% vs 25.5%); seven drop to 12% (FoundryCRO)." },
     { id: "town", q: "Does the first screen say what you do and which town you're in?", how: "Read only the top of the page. Would a stranger know both?",
-      fix: "Say the service and the town in the first line.", ex: function () { return "“Mobile detailing in Pasadena, TX” beats a slogan."; },
+      fix: "Say the service and the town in the first line.", ex: function (t) { return (t.town || "“Mobile detailing in Pasadena, TX”") + " beats a slogan."; },
       src: "About 83% of web traffic is on phones (FoundryCRO 2026), so the first phone screen is the page most people judge." }
   ];
   var $ = function (id) { return document.getElementById(id); };
@@ -204,6 +218,9 @@ footer a{margin-right:14px}
   function render(fresh) {
     var t = T[trade()];
     $("who").textContent = t.who;
+    $("h1-q").textContent = t.h1 || "Is your website losing jobs?";
+    $("q-price").textContent = t.priceQ || Q[0].q;
+    $("q-price").nextElementSibling.textContent = t.priceHow || Q[0].how;
     var n = Object.keys(ans).length;
     $("progress").textContent = n + " of 8 answered" + (n && n < 8 ? ". Your result fills in as you go." : "");
     if (!n) return;
@@ -220,9 +237,9 @@ footer a{margin-right:14px}
     var misses = Q.filter(function (q) { return ans[q.id] === "0"; }).slice(0, 3);
     $("fix-h").textContent = misses.length ? "Fix these first" : "Nothing failed yet";
     $("fixes").innerHTML = misses.length ? misses.map(function (q) {
-      return "<li><b>" + q.fix + "</b><span class=ex>" + q.ex(t) + "</span><small>Why: " + q.src + "</small></li>";
+      return "<li><b>" + (q.id === "price" && t.priceFix || q.fix) + "</b><span class=ex>" + q.ex(t) + "</span><small>Why: " + (q.id === "price" && t.priceSrc || q.src) + "</small></li>";
     }).join("") : '<li class="allgood"><b>Every item you answered passed.</b></li>';
-    $("demo").innerHTML = 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>Rather skip the report? <a href=\"/start/?niche=" + { detailing: "auto-detailing", exterior: "exterior-cleaning", lawn: "landscaping" }[trade()] + "\">Start for $99</a>, refunded if you decline the preview.";
+    $("demo").innerHTML = (t.demo ? 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>" : "") + "Rather skip the report? <a href=\"/start/?niche=" + SLUG[trade()] + "\">Start for $99</a>, refunded if you decline the preview.";
   }
 
   form.addEventListener("change", function (e) {
@@ -231,7 +248,7 @@ footer a{margin-right:14px}
     render(true);
     if (Object.keys(ans).length === 8) $("result").focus({ preventScroll: false });
   });
-  try { var p = new URLSearchParams(location.search).get("niche"); var m = { "exterior-cleaning": "exterior", landscaping: "lawn", "auto-detailing": "detailing" }; p = m[p] || p;
+  try { var p = new URLSearchParams(location.search).get("niche"); var m = {}; for (var k in SLUG) m[SLUG[k]] = k; p = m[p] || p;
     if (T[p]) form.querySelector('input[name=trade][value="' + p + '"]').checked = true; } catch (_) {}
   render(false);
   $("stamp-date").textContent = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
