@@ -17,8 +17,8 @@ cp -R site/. "$DEST/"
 chmod 750 "$HOME/gw-data"
 # Leads always go to the agency inbox, whatever an older config.php says (offer1's deploy did the same).
 if [ -f "$DEST/api/config.php" ]; then
-  sed -i -E "s/define\(['\"]GW_LEAD_EMAIL['\"].*/define(\"GW_LEAD_EMAIL\", \"groundworkweb@proton.me\");/" "$DEST/api/config.php"
-  grep -q 'groundworkweb@proton.me' "$DEST/api/config.php" || echo "WARNING: api/config.php does not set GW_LEAD_EMAIL; leads use the default in _lib.php (groundworkweb@proton.me)."
+  sed -i -E "s/define\(\s*['\"]GW_LEAD_EMAIL['\"].*/define(\"GW_LEAD_EMAIL\", \"groundworkweb@proton.me\");/" "$DEST/api/config.php"
+  grep -q 'groundworkweb@proton.me' "$DEST/api/config.php" || echo "WARNING: could not pin GW_LEAD_EMAIL; check api/config.php."
   chmod 600 "$DEST/api/config.php"
 fi
 echo "Deployed $(git rev-parse --short HEAD) to $DEST"
