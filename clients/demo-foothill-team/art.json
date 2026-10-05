@@ -1,0 +1,9 @@
+[{"file":"h1.svg","style":"craftsman","body":"#7C8F6A","trim":"#F2EBDD","roof":"#3E3A36","door":"#C8762E","sky":"morning","trees":"round","seed":51},
+{"file":"h2.svg","style":"modern","body":"#4A4E52","trim":"#D9A441","roof":"#1E1E1E","door":"#D9A441","glass":"#6A8796","sky":"day","trees":"pine","seed":53},
+{"file":"h3.svg","style":"ranch","body":"#C9B79A","trim":"#F4EFE6","roof":"#5A5550","door":"#2F5D62","sky":"day","trees":"pine","seed":57},
+{"file":"h4.svg","style":"farmhouse","body":"#EDEBE5","trim":"#2B2B2B","roof":"#2E3135","door":"#8A3B2A","glass":"#2B3640","sky":"morning","trees":"round","seed":59},
+{"file":"h5.svg","style":"cottage","body":"#B8574A","trim":"#FFF8EC","roof":"#3F3A36","door":"#2F4A3A","sky":"overcast","trees":"round","seed":61},
+{"file":"h6.svg","style":"colonial","body":"#9FB3BF","trim":"#FFFFFF","roof":"#3A3F44","door":"#7A2E2A","shutter":"#2E3D47","sky":"day","trees":"pine","seed":67},
+{"file":"h7.svg","style":"townhome","body":"#6E7F71","body2":"#D9C7A3","body3":"#A8553E","trim":"#F7F2E8","roof":"#2F2F2F","door":"#1E2B33","sky":"dusk","seed":71},
+{"file":"h8.svg","style":"victorian","body":"#5D7A8A","trim":"#FFFDF6","roof":"#3B3540","door":"#C8762E","sky":"morning","trees":"round","seed":73},
+{"file":"h9.svg","style":"ranch","body":"#8E6B52","trim":"#F0E9DC","roof":"#3A3633","door":"#D9A441","sky":"dusk","trees":"pine","seed":79}]

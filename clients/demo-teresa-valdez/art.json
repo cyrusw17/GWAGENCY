@@ -1,0 +1,5 @@
+[{"file":"teresa.svg","kind":"portrait","skin":"#B98463","hair":"#2B1D17","hairStyle":"long","shirt":"#127C80","bg":"#EBD9C4"},
+{"file":"h1.svg","style":"ranch","body":"#D9B48F","trim":"#F5EBDD","roof":"#8C5A3C","door":"#127C80","sky":"day","trees":"palm","seed":51},
+{"file":"h2.svg","style":"modern","body":"#C98E6A","trim":"#EFE4D2","roof":"#3A3330","door":"#22262B","glass":"#5D7A86","sky":"dusk","trees":"none","seed":53},
+{"file":"h3.svg","style":"cottage","body":"#E7D7BE","trim":"#FFFFFF","roof":"#6E4B3A","door":"#B23A6B","sky":"morning","trees":"palm","seed":57},
+{"file":"h4.svg","style":"townhome","body":"#D4A27E","body2":"#E6CDA8","body3":"#9DB0A0","trim":"#F7F0E4","roof":"#4A3B33","door":"#4C6B4A","sky":"day","seed":59}]

@@ -1,0 +1,4 @@
+[{"file":"ruth.svg","kind":"portrait","skin":"#E2B796","hair":"#B9B4AE","hairStyle":"bun","shirt":"#2F5D46","bg":"#EFE2CB","glasses":true},
+{"file":"sam.svg","kind":"portrait","skin":"#DDB08E","hair":"#5A3A22","hairStyle":"beard","shirt":"#4E6B8A","bg":"#E3D6C0"},
+{"file":"first.svg","style":"farmhouse","body":"#F1E9DA","trim":"#FFFFFF","roof":"#5B3A2C","door":"#A8482A","sky":"morning","trees":"pine","seed":89},
+{"file":"month.svg","style":"craftsman","body":"#5E7F6A","trim":"#F4EDE1","roof":"#3A3330","door":"#C89B6A","sky":"day","trees":"oak","seed":97}]
