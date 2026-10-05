@@ -181,7 +181,8 @@ if (drafts.length) {
 const chips = nav.map(t => `<a class="chip" href="#trade-${esc(t.id)}" data-filter="${esc(t.id)}">${esc(t.name)} <span>${t.pages.length}</span></a>`).join("");
 const count = nav.reduce((a, t) => a + t.pages.length, 0);
 const demoTotal = nav.filter(t => t.id !== "agency" && t.id !== "drafts").reduce((a, t) => a + t.pages.length, 0);
-const updated = new Date(data.updated + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+// The build date, so the header always says when this copy was made.
+const updated = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
 
 let html = readFileSync(join(root, "hub", "index.html"), "utf8");
 const fill = { CATALOG: sections.join(""), CHIPS: chips, UPDATED: esc(updated), PAGE_TOTAL: String(count), TRADE_TOTAL: String(data.niches.length), TRADE_PAGES: String(demoTotal) };
