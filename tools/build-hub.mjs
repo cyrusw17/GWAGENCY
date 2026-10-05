@@ -99,6 +99,7 @@ const sitePath = href => "/" + folder(href) + (folder(href) ? "/" : "");
 const used = new Set(); // public folders already shown under a trade
 const nav = []; // trades in order, each with its pages in order, for the back bar
 const sections = [];
+const showcases = [];
 for (const n of data.niches) {
   const cards = [];
   if (n.page) {
@@ -122,14 +123,19 @@ for (const n of data.niches) {
     cards.push({ type: "alt", kind: `Selling page${v ? `, version ${v}` : ", other version"}`, href: `site/${c.href}`, title: name, meta: sitePath(c.href), desc: page(c.href).desc });
   }
   for (const s of n.slots) if (s.client) used.add(`demos/${s.slug}`);
-  nav.push({ id: n.id, name: n.name, short: n.short || n.name.split(" and ")[0], pages: cards.map(c => ({ href: c.href, title: c.title })) });
-  const demoCount = cards.filter(c => c.type === "demo" || c.type === "more").length;
+  const demoCards = cards.filter(c => c.type === "demo" || c.type === "more");
+  const demoCount = demoCards.length;
+  // A trade with several demos also gets a showcase page: every demo with a screenshot, to show a prospect.
+  const showcase = demoCount >= 2 ? `showcase/${n.id}/` : "";
+  if (showcase) showcases.push({ n, demos: demoCards, href: showcase });
+  nav.push({ id: n.id, name: n.name, short: n.short || n.name.split(" and ")[0], showcase, pages: cards.map(c => ({ href: c.href, title: c.title })) });
   sections.push(`
       <section class="trade" id="trade-${esc(n.id)}" data-trade="${esc(n.id)}" aria-labelledby="h-${esc(n.id)}">
         <header class="trade__head">
           <h2 id="h-${esc(n.id)}">${esc(n.name)}</h2>
           <p>${n.page ? "1 selling page, " : ""}${demoCount} demo site${demoCount === 1 ? "" : "s"}</p>
-        </header>
+        </header>${showcase ? `
+        <a class="showlink" href="${showcase}"><b>See all ${demoCount} ${esc(n.name.toLowerCase())} demos on one page</b><span>Screenshots of every design, ready to show a prospect</span></a>` : ""}
         <ul class="cards">${cards.map(c => card(c, n.id)).join("")}
         </ul>
       </section>`);
@@ -184,8 +190,37 @@ const demoTotal = nav.filter(t => t.id !== "agency" && t.id !== "drafts").reduce
 // The build date, so the header always says when this copy was made.
 const updated = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
 
+// Showcase pages: hub/showcase.html filled once per trade. Screenshots come from hub/shots/<slug>.jpg
+// (made by tools/hub-shots.mjs); a demo without one shows its name on a plain panel.
+const slugOf = href => href.replace(/\/$/, "").split("/").pop();
+const shotDir = join(root, "hub", "shots");
+const showTpl = readFileSync(join(root, "hub", "showcase.html"), "utf8");
+for (const { n, demos, href } of showcases) {
+  mkdirSync(join(out, href), { recursive: true });
+  const items = demos.map(d => {
+    const slug = slugOf(d.href), shot = existsSync(join(shotDir, `${slug}.jpg`));
+    if (shot) { mkdirSync(join(out, "assets", "shots"), { recursive: true }); cpSync(join(shotDir, `${slug}.jpg`), join(out, "assets", "shots", `${slug}.jpg`)); }
+    return `
+      <li class="show">
+        <a class="show__link" href="../../${esc(d.href)}">
+          <span class="show__shot">${shot ? `<img src="../../assets/shots/${esc(slug)}.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">` : `<span class="show__blank">${esc(d.title)}</span>`}</span>
+          <b class="show__title">${esc(d.title)}</b>
+          ${d.meta ? `<span class="show__meta">${esc(d.meta)}</span>` : ""}
+          ${d.desc ? `<span class="show__desc">${esc(clip(d.desc, 170))}</span>` : ""}
+          <span class="show__open">Open the site <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>`;
+  }).join("");
+  const fillShow = { NAME: esc(n.name), LOWER: esc(n.name.toLowerCase()), COUNT: String(demos.length), ITEMS: items, SELL: n.page ? `<a class="btn" href="../../site/${esc(n.page)}">See the selling page</a>` : "", TRADE: esc(n.id) };
+  writeFileSync(join(out, href, "index.html"), showTpl.replace(/\{\{(\w+)\}\}/g, (m, k) => {
+    if (!(k in fillShow)) { errors.push(`hub/showcase.html: unknown placeholder ${m}`); return m; }
+    return fillShow[k];
+  }));
+}
+const banner = showcases.map(({ n, demos, href }) => `<a class="showlink showlink--big" href="${href}"><b>${esc(n.name)}: all ${demos.length} demo sites on one page</b><span>Open the showcase</span></a>`).join("");
+
 let html = readFileSync(join(root, "hub", "index.html"), "utf8");
-const fill = { CATALOG: sections.join(""), CHIPS: chips, UPDATED: esc(updated), PAGE_TOTAL: String(count), TRADE_TOTAL: String(data.niches.length), TRADE_PAGES: String(demoTotal) };
+const fill = { SHOWCASES: banner, CATALOG: sections.join(""), CHIPS: chips, UPDATED: esc(updated), PAGE_TOTAL: String(count), TRADE_TOTAL: String(data.niches.length), TRADE_PAGES: String(demoTotal) };
 html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in fill)) { errors.push(`hub/index.html: unknown placeholder ${m}`); return m; }
   return fill[k];
