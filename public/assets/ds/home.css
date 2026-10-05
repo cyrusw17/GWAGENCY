@@ -143,7 +143,10 @@ body.home a{color:inherit}
 }
 @media (min-width:1024px){
   .h-top{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start;padding-bottom:40px}
-  .h-hero{padding-top:72px}
+  .h-hero{padding-top:40px}
+  .h-hero .fan-wrap{margin-top:10px}
+  .h-hero h1{font-size:3.9rem}
+  .h-hero .lede{margin-top:16px}
   .h-picker{padding-top:72px}
   .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
   .free-sec h2,.faq-sec h2{font-size:2.2rem}

@@ -34,10 +34,14 @@
 (function () {
   var fan = document.getElementById("fan"), stage = document.getElementById("fan-stage");
   if (!fan) return;
+  /* The screenshots load after the page, so they never hold up the headline (phone LCP). Sizes are fixed, so nothing shifts. */
+  function load() { [].forEach.call(fan.querySelectorAll("img[data-src]"), function (im) { im.src = im.dataset.src; }); }
+  if (document.readyState === "complete") load(); else addEventListener("load", load);
   var phs = [].slice.call(fan.querySelectorAll(".fan-ph")), front = 1;
   function lay() {
     phs.forEach(function (p, i) {
       var d = (((i - front) % 3) + 3) % 3; d = d === 2 ? -1 : d;
+      p.setAttribute("aria-pressed", String(!d));
       p.style.transform = "translateX(" + d * 92 + "px) translateZ(" + (d ? -40 : 60) + "px) rotateY(" + d * -28 + "deg)";
     });
   }
