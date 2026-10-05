@@ -418,3 +418,5 @@ body:not(.home) .site-header .btn{white-space:nowrap}
 @media (max-width:420px){body:not(.home) .logo{font-size:1rem}body:not(.home) .header-end{gap:8px}body:not(.home) .menu-btn{padding:0 10px}}
 body:not(.home) .logo{white-space:nowrap}
 body:not(.home) .site-header .btn-sm{min-height:44px;padding:8px 14px;font-size:.95rem;box-shadow:2px 2px 0 var(--ink)}
+/* Small print on paint buttons stays full strength: at 0.72-0.8 opacity it fell to 3.3:1 (light) and 4.3:1 (dark). */
+body .btn.btn-buy small{opacity:1}
