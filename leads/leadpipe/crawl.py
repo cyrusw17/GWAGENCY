@@ -20,6 +20,10 @@ PLATFORM_DOMAINS = (
     "linkedin.com", "yelp.com", "linktr.ee", "linkin.bio", "nextdoor.com", "google.com", "g.page",
     "business.site", "booksy.com", "square.site", "squareup.com", "vagaro.com", "thumbtack.com",
     "angi.com", "homeadvisor.com", "urable.com", "calendly.com",
+    # Brokerage and portal profile pages: not the agent's own site, and their terms bar collection.
+    "kw.com", "kwrealty.com", "remax.com", "coldwellbanker.com", "coldwellbankerhomes.com", "century21.com",
+    "compass.com", "exprealty.com", "bhhs.com", "sothebysrealty.com", "realtor.com", "zillow.com",
+    "redfin.com", "homes.com", "trulia.com", "har.com", "realtyonegroup.com", "elliman.com",
 )
 
 

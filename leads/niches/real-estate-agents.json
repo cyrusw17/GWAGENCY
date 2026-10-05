@@ -1,0 +1,51 @@
+{
+  "name": "real-estate-agents",
+  "slug": "real-estate-agents",
+  "queries": [
+    "real estate agent",
+    "realtor"
+  ],
+  "exclude_types": [
+    "apartment_complex",
+    "apartment_building",
+    "property_management_company",
+    "storage",
+    "lodging"
+  ],
+  "name_exclude": [
+    "apartments",
+    "property management",
+    "self storage",
+    "mortgage",
+    "title company",
+    "home inspection"
+  ],
+  "min_reviews": 5,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Tucson, AZ"
+    },
+    {
+      "name": "Kansas City, MO"
+    },
+    {
+      "name": "Asheville, NC"
+    },
+    {
+      "name": "Houston, TX"
+    },
+    {
+      "name": "Tampa, FL"
+    },
+    {
+      "name": "Charlotte, NC"
+    },
+    {
+      "name": "Nashville, TN"
+    },
+    {
+      "name": "Phoenix, AZ"
+    }
+  ]
+}

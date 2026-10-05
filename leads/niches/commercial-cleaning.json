@@ -1,0 +1,89 @@
+{
+  "name": "commercial-cleaning",
+  "slug": "commercial-cleaning",
+  "queries": [
+    "janitorial service",
+    "commercial cleaning service",
+    "office cleaning service"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "laundry",
+    "dry_cleaning",
+    "hardware_store",
+    "home_goods_store"
+  ],
+  "name_exclude": [
+    "jani-king",
+    "jani king",
+    "coverall",
+    "anago",
+    "vanguard cleaning",
+    "jan-pro",
+    "jan pro",
+    "servpro",
+    "stratus building",
+    "city wide",
+    "citywide",
+    "openworks",
+    "system4",
+    "bonus building",
+    "merry maids",
+    "molly maid",
+    "maid pro",
+    "maidpro",
+    "the maids",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 3,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Tampa, FL"
+    },
+    {
+      "name": "Orlando, FL"
+    },
+    {
+      "name": "Jacksonville, FL"
+    },
+    {
+      "name": "Houston, TX"
+    },
+    {
+      "name": "Atlanta, GA"
+    },
+    {
+      "name": "Charlotte, NC"
+    },
+    {
+      "name": "Raleigh, NC"
+    },
+    {
+      "name": "Nashville, TN"
+    },
+    {
+      "name": "Phoenix, AZ"
+    },
+    {
+      "name": "Dallas, TX"
+    },
+    {
+      "name": "Ocala, FL"
+    },
+    {
+      "name": "Mobile, AL"
+    },
+    {
+      "name": "Greenville, SC"
+    },
+    {
+      "name": "Tyler, TX"
+    },
+    {
+      "name": "Dothan, AL"
+    }
+  ]
+}
