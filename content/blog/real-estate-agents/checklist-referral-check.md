@@ -5,6 +5,7 @@ type: email checklist (main email offer for realestate.groundwork-web.com/blog/)
 format: one printable page (US Letter), checkboxes
 linked_from: /blog/what-to-put-on-a-realtor-website/
 status: draft
+meta_description: A printable checklist for agents: what a referred client checks on your website before they call, and how to make sure they find it.
 ---
 
 # The Referral-Check Checklist for Agents

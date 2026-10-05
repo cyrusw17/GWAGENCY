@@ -1,0 +1,39 @@
+# GroundWork-Web
+
+> GroundWork-Web designs, builds and hosts websites for local service businesses in the United States: auto detailers, pressure washing and soft washing companies, lawn care and landscaping crews, commercial cleaning and janitorial companies, and real estate agents. Based in Deer Park, Texas. Contact: groundworkweb@proton.me.
+
+How it works: the owner pays $99 to start, we build the whole site and send a private preview, and the owner pays the rest only after approving it. The $99 is refunded if they pass on the preview. The founding price for the first 25 clients is $399 all in. Hosting is $99 a month. The owner owns the domain. Sample designs on this site are for fictional businesses and are labeled as samples.
+
+## Website design by trade
+
+- [Mobile Auto Detailing Website Design](https://groundwork-web.com/auto-detailing/): Car detailing website design for mobile detailers: prices by vehicle size, booking built in, call and text on every phone. $99 to start, $300 when you approve.
+- [Pressure Washing & Soft Wash Website Design](https://groundwork-web.com/exterior-cleaning/): Pressure washing website design: starting prices on the page, a quote form that asks what needs washing, and call and text on every phone. $99 to start.
+- [Lawn Care and Landscaping Website Design](https://groundwork-web.com/landscaping/): Lawn care website design for mowing and landscape crews: weekly prices on the page, a ZIP check for your route, and seasonal updates. $99 to start, refundable.
+- [Commercial Cleaning Website Design](https://groundwork-web.com/commercial-cleaning/): Commercial cleaning website design: a walkthrough request form, insurance and background checks up front, and the buildings you already clean. $99 to start.
+- [Real Estate Agent Website Design & Hosting](https://groundwork-web.com/real-estate/): Real estate agent website design: home value requests, neighborhood pages, and your license and brokerage shown. The leads stay with you. $99 to start.
+
+## Guides
+
+- [Car detailing website not getting bookings? 8 fixes](https://groundwork-web.com/auto-detailing/blog/car-detailing-website-not-getting-bookings/): If your detailing site gets visits but few bookings, it's usually one of these 8 things. Check yours on your own phone in 8 questions, free.
+- [How to price car detailing on your website (3 layouts)](https://groundwork-web.com/auto-detailing/blog/how-to-price-car-detailing-on-website/): Customers want a number before they text you. Here's how to show detailing prices online with "from" prices, sizes and add-ons, and not get stuck.
+- [What to put on a car detailing website (15 things)](https://groundwork-web.com/auto-detailing/blog/what-to-put-on-a-car-detailing-website/): The 15 things a customer checks on a detailing website before they book, in the order they check them. Free printable checklist.
+- [Pressure washing before and after photos: a shot list](https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-before-and-after-photos/): Same spot, same angle, same light. A simple shot list for pressure washing before-and-afters that look real and book jobs.
+- [Pressure washing quote form: price jobs without driving out](https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-quote-form/): Stop driving out to quote driveways. The 8 form fields and photo asks that let you price most pressure washing jobs from home. Free checklist.
+- [Pressure washing website must-haves: 12 things to add](https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-website-must-haves/): The 12 things a homeowner checks on a pressure washing website before asking for a quote, in the order they check them.
+- [Lawn care marketing in the off season: a winter checklist](https://groundwork-web.com/landscaping/blog/lawn-care-marketing-off-season/): Winter is when you have time. A month-by-month list of what to fix on your lawn care website so March calls turn into a full route.
+- [Lawn care spring signup page: fill your route before March](https://groundwork-web.com/landscaping/blog/lawn-care-spring-signup/): A simple spring signup page with a season price, a start date and a 4-field form can fill your route before the grass grows. Here's how to build one.
+- [Lawn care website must haves: 12 things homeowners check](https://groundwork-web.com/landscaping/blog/lawn-care-website-must-haves/): The 12 things a homeowner looks for on a lawn care website before calling, from the top of the page to the form, for mowing and landscaping.
+- [Cleaning company capability statement: what goes on it](https://groundwork-web.com/commercial-cleaning/blog/cleaning-company-capability-statement/): A capability statement is the one page a facility manager forwards to their boss. Here's what a cleaning company should put on it, section by section.
+- [What to ask on a commercial cleaning quote form](https://groundwork-web.com/commercial-cleaning/blog/commercial-cleaning-quote-form/): The 6 fields to ask before a cleaning walkthrough, and the page copy that gets facility managers to fill them in.
+- [Commercial cleaning website: what facility managers check](https://groundwork-web.com/commercial-cleaning/blog/commercial-cleaning-website-what-to-include/): Facility managers vet cleaning companies online before any walkthrough. Here are the 12 things they look for, and the free checklist.
+- [Do realtors need their own website?](https://groundwork-web.com/real-estate/blog/do-realtors-need-their-own-website/): Your brokerage page belongs to the brokerage. What changes when you own your site, when it isn't worth it yet, and how to compare what it costs.
+- [How to write a real estate agent bio people read](https://groundwork-web.com/real-estate/blog/how-to-write-a-real-estate-agent-bio/): Skip 'top producer.' A 4-part structure for a realtor bio that sounds like you and makes a referred client want to call, with three short examples.
+- [What to put on a realtor website for referred clients](https://groundwork-web.com/real-estate/blog/what-to-put-on-a-realtor-website/): Many clients come from a friend's referral and look you up before they call. The 12 things they check on your site, in order, plus a free checklist.
+
+## Other pages
+
+- [What a Website Costs](https://groundwork-web.com/pricing/): What a website costs: $99 today, $300 when you approve, $399 total. Then $99 a month to keep it up, or $199 if we also update it. Deer Park, Texas.
+- [See Your Site Before the Monthly Starts](https://groundwork-web.com/before-you-pay/): Pay $99, see a private preview, and approve before anything goes live. Don't want it? The $99 comes back. The $300 and the monthly plan start when you approve.
+- [Is Your Website Losing Jobs? Free 8-Point Check](https://groundwork-web.com/site-check/): Eight yes-or-no questions you can check on your own phone. Built for auto detailers, pressure washing companies and lawn crews. Your score and top three fixes show right away, no form.
+- [How Detailers Show Up for Detailing Near Me](https://groundwork-web.com/guides/get-found-on-google/): A detailer's checklist for ranking on Google: Business Profile setup, the pages your site needs, prices, photos, reviews and schema. No fluff.
+- [Privacy](https://groundwork-web.com/privacy/): What GroundWork-Web collects on this site, why, and how to opt out. Plain English, no cookies, nothing stored in your browser, no third-party trackers.

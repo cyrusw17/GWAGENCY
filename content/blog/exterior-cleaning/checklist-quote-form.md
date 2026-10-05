@@ -9,6 +9,7 @@ delivery: download shown on the page right after submit, plus a few short tips b
 linked_from: /blog/pressure-washing-quote-form/
 status: draft
 format: one printable page (US Letter)
+meta_description: A printable checklist for pressure washing owners: what your quote form should ask so you can price jobs from photos without driving out.
 ---
 
 # The quote-form checklist for pressure washing

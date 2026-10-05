@@ -5,6 +5,7 @@ guide_slug: commercial-cleaning-capability-statement
 title: Capability statement template for cleaning companies
 format: one page, fill in the brackets, prints in black and white
 consent: "The template opens right here. We'll also send a few short tips for commercial cleaning owners. Unsubscribe anytime." + link to /privacy/
+meta_description: A free capability statement template for cleaning and janitorial companies: the sections to fill in, in order, on one printable page.
 ---
 
 # [Company name]
