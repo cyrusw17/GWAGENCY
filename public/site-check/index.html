@@ -252,7 +252,14 @@ footer a{margin-right:14px;color:var(--ink);display:inline-flex;min-height:44px;
     $("fixes").innerHTML = misses.length ? misses.map(function (q) {
       return "<li><b>" + (q.id === "price" && t.priceFix || q.fix) + "</b><span class=ex>" + q.ex(t) + "</span><small>Why: " + (q.id === "price" && t.priceSrc || q.src) + "</small></li>";
     }).join("") : '<li class="allgood"><b>Every item you answered passed.</b></li>';
-    $("demo").innerHTML = (t.demo ? 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>" : "") + "Rather skip the report? <a href=\"/start/?niche=" + SLUG[trade()] + "\">Start for $99</a>, refunded if you decline the preview.";
+    // Campaign tags from this page's URL (window.gwAttr, from attr.js) ride along, like every other internal link.
+    function startHref() {
+      var u = new URL("/start/", location.origin);
+      Object.keys(window.gwAttr || {}).forEach(function (k) { u.searchParams.set(k, window.gwAttr[k]); });
+      u.searchParams.set("niche", SLUG[trade()]);
+      return u.pathname + u.search;
+    }
+    $("demo").innerHTML = (t.demo ? 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>" : "") + "Rather skip the report? <a href=\"" + startHref() + "\">Start for $99</a>, refunded if you decline the preview.";
   }
 
   form.addEventListener("change", function (e) {
@@ -277,6 +284,7 @@ footer a{margin-right:14px;color:var(--ink);display:inline-flex;min-height:44px;
     var score = Q.filter(function (q) { return ans[q.id] === "1"; }).length;
     var data = { form: "audit", type: trade(), links: site.value.trim().slice(0, 300), email: isEmail ? c : "", phone: isEmail ? "" : c,
       notes: "Site check: " + score + "/8 from " + Object.keys(ans).length + " answers. No: " + Q.filter(function (q) { return ans[q.id] === "0"; }).map(function (q) { return q.id; }).join(", "),
+      attribution: JSON.stringify(Object.assign({}, window.gwAttr || {}, { page: location.host + location.pathname })),
       company_url: rep.company_url.value };
     var btn = rep.querySelector("button"); btn.disabled = true; status.textContent = "Sending...";
     var ok = false, G = window.GW || {};
@@ -292,6 +300,7 @@ footer a{margin-right:14px;color:var(--ink);display:inline-flex;min-height:44px;
   });
 })();
 </script>
+<script src="/assets/js/attr.js?v=3.1" defer></script>
 <script src="/assets/js/analytics.js?v=3.1" defer></script>
 </body>
 </html>
