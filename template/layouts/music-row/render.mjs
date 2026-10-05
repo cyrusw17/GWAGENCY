@@ -34,12 +34,12 @@ ${k.demoBar()}
       <div class="card">
         <h1 id="h1">${esc(h.headline)}</h1>
         <p class="lede">${esc(h.sub)}</p>
-        <div class="seg" role="tablist" aria-label="I'm here to">${["buy", "sell"].map((x, i) => `<button type="button" role="tab" id="tab-${x}" aria-controls="pane-${x}" aria-selected="${i ? "false" : "true"}" data-seg="${x}">${x === "buy" ? "Buy a home" : "Sell my home"}</button>`).join("")}</div>
-        <form class="pane" id="pane-buy" role="tabpanel" aria-labelledby="tab-buy" data-pane="buy" action="#homes">
+        <div class="seg" role="group" aria-label="I'm here to">${["buy", "sell"].map((x, i) => `<button type="button" aria-controls="pane-${x}" aria-pressed="${i ? "false" : "true"}" data-seg="${x}">${x === "buy" ? "Buy a home" : "Sell my home"}</button>`).join("")}</div>
+        <form class="pane" id="pane-buy" data-pane="buy" action="#homes">
           <label for="h-hood">Neighborhood</label>
           <div class="row"><select id="h-hood" name="hood">${(nb.items || []).map(x => `<option>${esc(x.name)}</option>`).join("")}<option>Anywhere in Nashville</option></select><button class="btn btn-go" type="submit">See homes</button></div>
         </form>
-        <form class="pane" id="pane-sell" role="tabpanel" aria-labelledby="tab-sell" data-pane="sell" action="#book">
+        <form class="pane" id="pane-sell" data-pane="sell" action="#book" hidden>
           <label for="h-addr">Your address</label>
           <div class="row"><input id="h-addr" name="addr" autocomplete="street-address" placeholder="Your street address"><button class="btn btn-go" type="submit">Get my value</button></div>
         </form>

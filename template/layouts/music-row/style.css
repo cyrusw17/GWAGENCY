@@ -49,8 +49,8 @@ h1{font-size:clamp(36px,4.6vw,58px)}
 .lede{color:var(--muted);margin:14px 0 20px}
 .seg{display:inline-flex;background:#ECE5D8;border-radius:12px;padding:4px;margin-bottom:14px}
 .seg button{font:600 15px var(--body);min-height:44px;padding:6px 16px;border:0;border-radius:9px;background:transparent;color:var(--ink);cursor:pointer}
-.seg button[aria-selected=true]{background:var(--ink);color:#fff}
-.no-js .seg{visibility:hidden;height:0;margin:0}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.no-js .seg{visibility:hidden}
 .pane label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
 .pane+.pane{margin-top:12px}
 .row{display:flex;flex-wrap:wrap;gap:8px}

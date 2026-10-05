@@ -4,12 +4,11 @@
   document.body.classList.remove("no-js");
   var segs = document.querySelectorAll("[data-seg]"), panes = document.querySelectorAll("[data-pane]");
   function seg(v) {
-    segs.forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.seg === v)); b.tabIndex = b.dataset.seg === v ? 0 : -1; });
+    segs.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.seg === v)); });
     panes.forEach(function (p) { p.hidden = p.dataset.pane !== v; });
   }
   segs.forEach(function (b) {
     b.addEventListener("click", function () { seg(b.dataset.seg); });
-    b.addEventListener("keydown", function (e) { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { var o = b.dataset.seg === "buy" ? "sell" : "buy"; seg(o); document.querySelector('[data-seg="' + o + '"]').focus(); } });
   });
   seg("buy");
 
