@@ -21,7 +21,8 @@
 
 <link rel="preload" as="font" type="font/woff2" href="fonts/dm-serif-display-latin-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin-400-normal.woff2" crossorigin>
-<style>@font-face{font-family:"DM Serif Display";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/dm-serif-display-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Manrope";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}:root{}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin-700-normal.woff2" crossorigin>
+<style>@font-face{font-family:"DM Serif Display";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/dm-serif-display-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Manrope";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}@font-face{font-family:"Manrope";font-weight:700;font-style:normal;font-display:swap;src:url("fonts/manrope-latin-700-normal.woff2") format("woff2")}:root{}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 [data-steps] [data-step]{border:0;margin:0;padding:0;min-width:0}
 [data-steps] [data-step]:not(.on){display:none}
@@ -66,8 +67,8 @@ legend{font:600 24px/1.2 var(--display);margin-bottom:14px;padding:0}
 .faq summary:after{content:"+";position:absolute;right:4px;top:12px;font-size:24px;color:var(--go)}
 .faq details[open] summary:after{content:"–"}
 .faq p{margin:0 0 16px;color:var(--muted)}@font-face{font-family:"DM Serif Display";font-weight:400;font-display:swap;src:url("fonts/dm-serif-display-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-weight:700;font-display:swap;src:url("fonts/manrope-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Manrope";font-weight:400;font-display:optional;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Manrope";font-weight:700;font-display:optional;src:url("fonts/manrope-latin-700-normal.woff2") format("woff2")}
 /* Layout: a classic agent site. Photo header, white pages, navy ink, a Colorado copper for action. */
 :root{--paper:#FFFFFF;--soft:#F4F1EC;--card:#FFFFFF;--ink:#1B2430;--muted:#59616C;--line:#E2DDD5;--navy:#1B2430;--go:#B5562B;--go-d:#934321;--radius:4px;
   --display:"DM Serif Display",Georgia,serif;--body:"Manrope",system-ui,sans-serif}
@@ -118,7 +119,7 @@ h1{font-size:clamp(42px,6.4vw,84px);max-width:15ch}
 @media (min-width:760px){.search{grid-template-columns:1.4fr 1fr .7fr auto;align-items:end}}
 .search label span{display:block;font:700 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .search select{width:100%;min-height:48px;font:400 16px var(--body);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;background:#fff;color:var(--ink)}
-.no-js .search{display:none}
+
 .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .credit-line{position:absolute;right:12px;bottom:6px;z-index:1;margin:0;font-size:11px;color:rgba(255,255,255,.7)}
 
@@ -227,7 +228,7 @@ legend{font-family:var(--display);font-weight:400}
     <p class="eyebrow">Elena Marsh · Denver real estate</p>
     <h1 id="h1">Find your place in Denver, with someone who&#39;s lived here all her life.</h1>
     <p class="lede">Search my current listings below, or tell me what you&#39;re after and I&#39;ll send homes the day they come up.</p>
-    <form class="search" data-search role="search" aria-label="Search Elena Marsh's listings">
+    <form class="search" data-search action="#listings" role="search" aria-label="Search Elena Marsh's listings">
       <label><span>Neighborhood</span><select name="area"><option value="">Any</option><option>Highlands</option><option>Wash Park</option><option>Park Hill</option><option>Virginia Village</option><option>Baker</option></select></label>
       <label><span>Max price</span><select name="max"><option value="">Any</option><option value="500000">$500,000</option><option value="750000">$750,000</option><option value="1000000">$1,000,000</option><option value="1500000">$1,500,000</option></select></label>
       <label><span>Beds</span><select name="beds"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></label>

@@ -1,6 +1,6 @@
 @font-face{font-family:"DM Serif Display";font-weight:400;font-display:swap;src:url("fonts/dm-serif-display-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-weight:700;font-display:swap;src:url("fonts/manrope-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Manrope";font-weight:400;font-display:optional;src:url("fonts/manrope-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Manrope";font-weight:700;font-display:optional;src:url("fonts/manrope-latin-700-normal.woff2") format("woff2")}
 /* Layout: a classic agent site. Photo header, white pages, navy ink, a Colorado copper for action. */
 :root{--paper:#FFFFFF;--soft:#F4F1EC;--card:#FFFFFF;--ink:#1B2430;--muted:#59616C;--line:#E2DDD5;--navy:#1B2430;--go:#B5562B;--go-d:#934321;--radius:4px;
   --display:"DM Serif Display",Georgia,serif;--body:"Manrope",system-ui,sans-serif}
@@ -51,7 +51,7 @@ h1{font-size:clamp(42px,6.4vw,84px);max-width:15ch}
 @media (min-width:760px){.search{grid-template-columns:1.4fr 1fr .7fr auto;align-items:end}}
 .search label span{display:block;font:700 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .search select{width:100%;min-height:48px;font:400 16px var(--body);border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;background:#fff;color:var(--ink)}
-.no-js .search{display:none}
+
 .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .credit-line{position:absolute;right:12px;bottom:6px;z-index:1;margin:0;font-size:11px;color:rgba(255,255,255,.7)}
 

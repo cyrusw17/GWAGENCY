@@ -54,6 +54,12 @@
     "weight": 400,
     "src": "fonts/manrope-latin-400-normal.woff2",
     "preload": true
+   },
+   {
+    "family": "Manrope",
+    "weight": 700,
+    "src": "fonts/manrope-latin-700-normal.woff2",
+    "preload": true
    }
   ]
  },

@@ -34,7 +34,7 @@ ${k.demoBar()}
     <p class="eyebrow">${esc(h.eyebrow || "")}</p>
     <h1 id="h1">${esc(h.headline)}</h1>
     <p class="lede">${esc(h.sub)}</p>
-    <form class="search" data-search role="search" aria-label="Search ${esc(b.name)}'s listings">
+    <form class="search" data-search action="#listings" role="search" aria-label="Search ${esc(b.name)}'s listings">
       <label><span>Neighborhood</span><select name="area"><option value="">Any</option>${areas.map(a => `<option>${esc(a)}</option>`).join("")}</select></label>
       <label><span>Max price</span><select name="max"><option value="">Any</option>${(L.prices || []).map(p => `<option value="${p}">${usd(p)}</option>`).join("")}</select></label>
       <label><span>Beds</span><select name="beds"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></label>
