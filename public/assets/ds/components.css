@@ -416,3 +416,5 @@ body:not(.home) .form :is(input,select,textarea):focus-visible{outline-color:var
 body:not(.home) .radio-card:has(input:checked){border-color:var(--paint);box-shadow:4px 4px 0 var(--paint)}
 body:not(.home) .site-header .btn{white-space:nowrap}
 @media (max-width:420px){body:not(.home) .logo{font-size:1rem}body:not(.home) .header-end{gap:8px}body:not(.home) .menu-btn{padding:0 10px}}
+body:not(.home) .logo{white-space:nowrap}
+body:not(.home) .site-header .btn-sm{min-height:44px;padding:8px 14px;font-size:.95rem;box-shadow:2px 2px 0 var(--ink)}
