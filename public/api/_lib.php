@@ -36,7 +36,13 @@ function gw_db(): PDO {
         device TEXT NOT NULL DEFAULT "",
         vhash TEXT NOT NULL
     )');
+    // Columns added with opt-in analytics (2026-10). vhash now holds the consented visitor id.
+    $cols = array_column($db->query('PRAGMA table_info(events)')->fetchAll(), 'name');
+    foreach (['host' => 'TEXT NOT NULL DEFAULT ""', 'sid' => 'TEXT NOT NULL DEFAULT ""', 'entry' => 'INTEGER NOT NULL DEFAULT 0'] as $c => $def) {
+        if (!in_array($c, $cols, true)) $db->exec("ALTER TABLE events ADD COLUMN $c $def");
+    }
     $db->exec('CREATE INDEX IF NOT EXISTS ix_events_ts ON events(ts)');
+    $db->exec('CREATE INDEX IF NOT EXISTS ix_events_sid ON events(sid)');
     $db->exec('CREATE INDEX IF NOT EXISTS ix_events_type_ts ON events(type, ts)');
     return $db;
 }
