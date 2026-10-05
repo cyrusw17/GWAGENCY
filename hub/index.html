@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GroundWork Status</title>
-<meta name="description" content="Where GroundWork-Web stands: the offer, the finished demo site and the launch status.">
+<title>GroundWork Sites</title>
+<meta name="description" content="Every GroundWork-Web page in one place: each trade's selling page and demo sites side by side, the agency site, and the offer.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="assets/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,82 +12,97 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23E5A00D%22/%3E%3C/svg%3E">
 </head>
 <body>
-<a class="skip" href="#main">Skip to the work log</a>
+<a class="skip" href="#main">Skip to the list of sites</a>
 
 <header class="top">
   <div class="wrap top__row">
-    <p class="mark" translate="no"><span class="mark__dot" aria-hidden="true"></span>GroundWork-Web</p>
-    <p class="top__meta">Status · updated {{UPDATED}}</p>
+    <a class="mark" href="./" translate="no"><span class="mark__dot" aria-hidden="true"></span>GroundWork-Web</a>
+    <p class="top__meta">Updated {{UPDATED}}</p>
   </div>
-  <nav class="jump" aria-label="On this page">
-    <div class="wrap jump__row">
-      <a href="#demos">Demo sites</a>
-      <a href="#offer">Offer and prices</a>
-      <a href="#selling">Selling pages</a>
-      <a href="#pages">Every page</a>
-      <a class="jump__out" href="site/">Open groundwork-web.com</a>
-    </div>
-  </nav>
+  <div class="wrap finder">
+    <form class="search" role="search" action="#" onsubmit="return false">
+      <label class="sr-only" for="q">Search every page</label>
+      <input id="q" type="search" placeholder="Search {{PAGE_TOTAL}} pages: a trade, town or business" autocomplete="off" enterkeyhint="search">
+    </form>
+    <nav class="tradebar" aria-label="Trades">
+      <a class="chip" href="#main" data-filter="" aria-current="true">All <span>{{PAGE_TOTAL}}</span></a>{{CHIPS}}
+    </nav>
+  </div>
 </header>
 
-<div class="wrap layout layout--single">
-  <main id="main">
-    <section class="intro">
-      <h1>GroundWork-Web, where things stand</h1>
-      <p class="lede">GroundWork-Web builds websites for owner-run local service businesses, starting with auto detailers. This page shows the offer, the finished demo sites and the page each trade is sent to.</p>
-    </section>
+<main id="main" class="wrap">
+  <section class="intro">
+    <h1>Every site, by trade</h1>
+    <p class="lede">Each trade has a selling page (the page cold email sends owners to) and the demo sites it shows off, side by side. Pick a trade above, or search for a town or business. Every page has a bar at the top to come back here or step to the next page in its trade.</p>
+    <p class="count" aria-live="polite" id="count">{{TRADE_TOTAL}} trades, {{TRADE_PAGES}} selling pages and demos, {{PAGE_TOTAL}} pages in all.</p>
+  </section>
+{{CATALOG}}
+  <p class="none" id="none" hidden>Nothing matches that search. <a href="#main" data-clear>Show every page</a></p>
 
-
-    <nav class="start" aria-label="Start here">
-      <a href="site/"><b>The agency site</b><span>groundwork-web.com home page</span></a>
-      <a href="#demos"><b>Demo sites</b><span>One finished demo per trade</span></a>
-      <a href="#selling"><b>Selling pages</b><span>One page per trade, plus the free site check</span></a>
-      <a href="site/pricing/"><b>Pricing</b><span>$99 to start, $300 on approval</span></a>
-    </nav>
-
-    <section id="demos" class="sec">
-      <h2>Demo sites</h2>
-      <p class="sec__lede">{{DEMO_NOTE}} Each is a made-up business in a real town, marked as a demo, with sample reviews and prices labelled as samples.</p>
-      {{DEMOS}}
-    </section>
-
-    <section id="offer" class="sec">
-      <h2>Offer and prices</h2>
-      <p class="sec__lede">One price list for every trade. The site is built before the client pays the bulk of the build fee, so the risk sits with us.</p>
-      <div class="ticket" role="group" aria-label="Price list">
-        <div class="ticket__row"><span>Start the build</span><b>$99</b><em>Refunded if they don't like the preview</em></div>
-        <div class="ticket__row"><span>Approve the preview</span><b>$300</b><em>Paid only once they've seen their site</em></div>
-        <div class="ticket__row"><span>Host plan</span><b>$99<small>/mo</small></b><em>Hosting, SSL, uptime monitoring, and broken link and form fixes</em></div>
-        <div class="ticket__row ticket__row--pick"><span>Grow plan</span><b>$199<small>/mo</small></b><em>Everything in Host, plus 2 to 3 updates a month (promos, prices, photos) and a monthly Google Business Profile and SEO check-in</em></div>
-        <div class="ticket__row"><span>Pay a year up front</span><b>12 for 10</b><em>Two months free on either plan</em></div>
-      </div>
-      <div class="cols cols--one">
-        <div>
-          <h3>Rules that come with it</h3>
-          <ul class="list">
-            <li>The first 25 paying clients keep the founding rate. After them the build is $499 total.</li>
-            <li>The first 10 clients get the founding rate in exchange for written consent to share their real results as a case study. Nothing is ever invented.</li>
-            <li>Leave any month with 30 days' notice. No year-long contract.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-
-  </main>
-</div>
+  <section id="offer" class="sec">
+    <h2>Offer and prices</h2>
+    <p class="sec__lede">One price list for every trade. The site is built before the client pays the bulk of the build fee, so the risk sits with us.</p>
+    <div class="ticket" role="group" aria-label="Price list">
+      <div class="ticket__row"><span>Start the build</span><b>$99</b><em>Refunded if they don't like the preview</em></div>
+      <div class="ticket__row"><span>Approve the preview</span><b>$300</b><em>Paid only once they've seen their site</em></div>
+      <div class="ticket__row"><span>Host plan</span><b>$99<small>/mo</small></b><em>Hosting, SSL, uptime monitoring, and broken link and form fixes</em></div>
+      <div class="ticket__row ticket__row--pick"><span>Grow plan</span><b>$199<small>/mo</small></b><em>Everything in Host, plus 2 to 3 updates a month (promos, prices, photos) and a monthly Google Business Profile and SEO check-in</em></div>
+      <div class="ticket__row"><span>Pay a year up front</span><b>12 for 10</b><em>Two months free on either plan</em></div>
+    </div>
+    <ul class="list">
+      <li>The first 25 paying clients keep the founding rate. After them the build is $499 total.</li>
+      <li>Separately, we ask the first 10 clients for written consent to share their real results as a case study. It doesn't change the price, and nothing is ever invented.</li>
+      <li>Leave any month with 30 days' notice. No year-long contract.</li>
+    </ul>
+  </section>
+</main>
 
 <footer class="foot">
   <div class="wrap">
-    <p>GroundWork-Web status page. Not indexed by search engines.</p>
+    <p>GroundWork-Web status page. Not indexed by search engines. Demo businesses are made up; forms and tracking don't send anything from this copy.</p>
   </div>
 </footer>
+<script>
+// Filter by trade (chips) and by text (search). Without this script every page is listed and the chips jump to their trade.
+(function () {
+  var q = document.getElementById("q"), chips = document.querySelectorAll(".chip"), secs = document.querySelectorAll(".trade"),
+      none = document.getElementById("none"), count = document.getElementById("count"), base = count.textContent, trade = "";
+  function apply() {
+    var words = q.value.toLowerCase().trim().split(/\s+/).filter(Boolean), shown = 0;
+    secs.forEach(function (s) {
+      var n = 0, inTrade = !trade || s.dataset.trade === trade;
+      s.querySelectorAll(".card").forEach(function (c) {
+        var ok = inTrade && words.every(function (w) { return c.dataset.q.indexOf(w) >= 0; });
+        c.hidden = !ok; if (ok) n++;
+      });
+      s.hidden = !n; shown += n;
+      var d = s.querySelector("details"); if (d && n && (words.length || trade)) d.open = true;
+    });
+    chips.forEach(function (c) { c.setAttribute("aria-current", c.dataset.filter === trade ? "true" : "false"); });
+    none.hidden = shown > 0;
+    count.textContent = words.length || trade ? "Showing " + shown + " page" + (shown === 1 ? "" : "s") + "." : base;
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (h === "search") { q.focus(); return; }
+    var m = /^trade-(.+)$/.exec(h);
+    trade = m && document.querySelector('.trade[data-trade="' + m[1] + '"]') ? m[1] : "";
+    apply();
+  }
+  chips.forEach(function (c) {
+    c.addEventListener("click", function (e) {
+      e.preventDefault(); trade = c.dataset.filter;
+      history.replaceState(null, "", trade ? "#trade-" + trade : location.pathname);
+      apply(); document.getElementById("main").scrollIntoView();
+    });
+  });
+  document.querySelector("[data-clear]").addEventListener("click", function (e) {
+    e.preventDefault(); q.value = ""; trade = ""; history.replaceState(null, "", location.pathname); apply();
+  });
+  q.addEventListener("input", apply);
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+})();
+</script>
 </body>
 </html>
