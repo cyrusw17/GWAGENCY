@@ -239,7 +239,14 @@ footer a{margin-right:14px}
     $("fixes").innerHTML = misses.length ? misses.map(function (q) {
       return "<li><b>" + (q.id === "price" && t.priceFix || q.fix) + "</b><span class=ex>" + q.ex(t) + "</span><small>Why: " + (q.id === "price" && t.priceSrc || q.src) + "</small></li>";
     }).join("") : '<li class="allgood"><b>Every item you answered passed.</b></li>';
-    $("demo").innerHTML = (t.demo ? 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>" : "") + "Rather skip the report? <a href=\"/start/?niche=" + SLUG[trade()] + "\">Start for $99</a>, refunded if you decline the preview.";
+    // Campaign tags from this page's URL (window.gwAttr, from attr.js) ride along, like every other internal link.
+    function startHref() {
+      var u = new URL("/start/", location.origin);
+      Object.keys(window.gwAttr || {}).forEach(function (k) { u.searchParams.set(k, window.gwAttr[k]); });
+      u.searchParams.set("niche", SLUG[trade()]);
+      return u.pathname + u.search;
+    }
+    $("demo").innerHTML = (t.demo ? 'See these fixes on a working demo: <a href="' + t.demo[0] + '">' + t.demo[1] + "</a> (a fictional business we built).<br><br>" : "") + "Rather skip the report? <a href=\"" + startHref() + "\">Start for $99</a>, refunded if you decline the preview.";
   }
 
   form.addEventListener("change", function (e) {
