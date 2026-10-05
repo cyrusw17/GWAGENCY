@@ -144,3 +144,5 @@ h1 .w{display:inline-block}
 .faq-sec{padding-top:70px;padding-bottom:80px;max-width:880px}
 .faq{margin-top:18px}
 legend{font-family:var(--display);font-weight:500;font-size:30px}
+@media (max-width:899px){.top{position:absolute;left:0;right:0;top:auto}}
+@media (max-width:767px){.belt,.belt.moving{overflow:visible;-webkit-mask:none;mask:none}.belt-track,.belt.moving .belt-track{flex-direction:column;width:auto;animation:none}.belt-track li{width:auto}.belt-track li[aria-hidden]{display:none}.belt-pause{display:none}}

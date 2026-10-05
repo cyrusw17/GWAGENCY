@@ -151,3 +151,5 @@ h1{font-size:clamp(36px,4.6vw,58px)}
 .alt-link{font-weight:600}
 .faq-sec{padding-top:40px;padding-bottom:80px;max-width:880px}
 .faq{margin-top:18px}
+.p-tag{display:inline-block;background:rgba(20,18,33,.78);padding:4px 10px;border-radius:999px}
+@media (max-width:520px){.person{grid-template-columns:1fr}.person img{width:96px;height:96px}}
