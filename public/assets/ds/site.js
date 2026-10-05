@@ -1,6 +1,6 @@
 /*
   GroundWork-Web design system v3. Site behavior. Replaces the retired main.js.
-  Stores nothing in the browser: no cookies, no localStorage, no sessionStorage.
+  Stores nothing in the browser itself (analytics.js handles the opt-in cookies).
   Needs config.js first (window.GW).
 */
 (function () {

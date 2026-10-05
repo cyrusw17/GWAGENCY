@@ -144,6 +144,7 @@ ${body}
 </footer>
 <script src="/assets/js/config.js?v=3.1"></script>
 <script src="/assets/js/guide.js" defer></script>
+<script src="/assets/js/analytics.js?v=3.1" defer></script>
 </body>
 </html>
 `;
