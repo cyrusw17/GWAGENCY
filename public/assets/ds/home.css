@@ -11,7 +11,7 @@ body.home{
   --ink:#17181A; --ink-2:#45474C; --ink-3:#5B5D62;
   --line:#CFCBC1; --line-2:#B3AEA2;
   --paint:#C8410F; --paint-text:#A93A12; --on-paint:#FFFFFF;
-  --mark:#2F7D4F;
+  --mark:#2F7D4F; --ledger-paint:#FF6A33;
   --accent:var(--paint); --accent-deep:var(--paint-text); --on-accent:var(--on-paint);
   --font-display:"Bricolage Grotesque","Arial Narrow",sans-serif;
   --font-body:"Hanken Grotesk",system-ui,sans-serif;
@@ -24,7 +24,7 @@ body.home{
     --ink:#EDEBE5; --ink-2:#B9B7B0; --ink-3:#9C9A94;
     --line:#2F3033; --line-2:#45464A;
     --paint:#FF6A33; --paint-text:#FF8A5C; --on-paint:#1A0A03;
-    --mark:#5CC48A;
+    --mark:#5CC48A; --ledger-paint:#A93A12;
   }
 }
 
@@ -89,11 +89,11 @@ body.home a{color:inherit}
 .ledger-sec .h-sub{color:color-mix(in srgb,var(--bg) 72%,var(--ink));margin:0 0 22px;max-width:52ch}
 .ledger{list-style:none;padding:0;margin:0;border-top:2px solid var(--bg)}
 .ledger li{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:16px 0;border-bottom:1px dashed color-mix(in srgb,var(--bg) 40%,var(--ink))}
-.ledger .h-when{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--paint);grid-column:1/-1}
+.ledger .h-when{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ledger-paint);grid-column:1/-1}
 .ledger .h-what{font-size:1rem;line-height:1.4}
 .ledger .h-amt{font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1;align-self:center;text-align:right}
 .ledger .h-amt small{display:block;font:400 .75rem var(--font-mono);opacity:.75}
-.ledger .total .h-amt{color:var(--paint)}
+.ledger .total .h-amt{color:var(--ledger-paint)}
 .ledger-sec .act{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-top:24px}
 .ledger-sec .btn-paint{box-shadow:3px 3px 0 var(--bg)}
 .ledger-sec .text-link{color:var(--bg)}
