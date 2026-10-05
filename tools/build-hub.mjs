@@ -188,7 +188,7 @@ const chips = nav.map(t => `<a class="chip" href="#trade-${esc(t.id)}" data-filt
 const count = nav.reduce((a, t) => a + t.pages.length, 0);
 const demoTotal = nav.filter(t => t.id !== "agency" && t.id !== "drafts").reduce((a, t) => a + t.pages.length, 0);
 // The build date, so the header always says when this copy was made.
-const updated = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
+const updated = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 // Showcase pages: hub/showcase.html filled once per trade. Screenshots come from hub/shots/<slug>.jpg
 // (made by tools/hub-shots.mjs); a demo without one shows its name on a plain panel.
