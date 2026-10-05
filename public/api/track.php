@@ -53,8 +53,10 @@ $w      = (int)($in['w'] ?? 0);
 $device = $w <= 0 ? '' : ($w < 700 ? 'mobile' : ($w < 1100 ? 'tablet' : 'desktop'));
 
 $host  = gw_own_host();
-// Local test servers and previews never land in the live numbers.
-if ($host === '' || $host === 'localhost' || str_starts_with($host, '127.') || $host === '[::1]' || str_ends_with($host, '.local')) { http_response_code(204); exit; }
+// Only our own hosts count, so local test servers and previews never land in the live numbers.
+if (!preg_match('/(^|\.)groundwork-web\.com$/', $host)) { http_response_code(204); exit; }
+// The owner's own visits don't count (the dashboard sign-in cookie is sent to /api/).
+if (GW_STATS_KEY !== '' && hash_equals(hash_hmac('sha256', 'gw-dashboard', GW_STATS_KEY), (string)($_COOKIE['gw_admin'] ?? ''))) { http_response_code(204); exit; }
 $host  = mb_substr($host, 0, 100);
 $entry = !empty($in['newvisit']) ? 1 : 0;
 
