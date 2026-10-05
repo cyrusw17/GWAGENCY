@@ -48,7 +48,10 @@
   if (document.readyState === "complete") load(); else addEventListener("load", load);
   var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var cards = [].slice.call(cf.querySelectorAll(".cf-ph")), N = cards.length, name = document.getElementById("cf-name");
-  var pos = 0, target = 0, drag = null, running = false;
+  /* Opens on the visitor's trade when the link says it (?trade=detail|ext|lawn|comm|re), otherwise on detailing. */
+  var want = (location.search.match(/[?&]trade=([a-z]+)/) || [])[1], pos = 1;
+  cards.some(function (c, i) { if (want && c.dataset.tab === "t-" + want) { pos = i; return true; } });
+  var target = pos, drag = null, running = false;
   function wrap(d) { d = ((d % N) + N) % N; return d > N / 2 ? d - N : d; }
   function front() { return ((Math.round(target) % N) + N) % N; }
   function render() {
@@ -95,4 +98,5 @@
   prev.addEventListener("click", function () { go(-1); });
   next.addEventListener("click", function () { go(1); });
   render();
+  if (want) { var wt = document.getElementById(cards[pos].dataset.tab); if (wt) wt.click(); }
 })();
