@@ -1,6 +1,9 @@
 /* GroundWork-Web blog: article layout and the drawn-in-code visuals (tools/build-blog.mjs). Needs tokens.css and base.css.
    Phone first: everything below is laid out for a 360-430px screen, then widened at 720px. No images, no web fonts beyond the DS set. */
 
+:root{--on-mark:#fff}
+@media (prefers-color-scheme:dark){:root{--on-mark:#0B0C0D}}
+
 /* Reading progress: a marking-paint line under the header, CSS only, where scroll timelines exist. */
 .art-progress{position:fixed;inset:0 0 auto;height:3px;background:var(--paint);transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
 @supports (animation-timeline:scroll()){.art-progress{animation:art-grow linear both;animation-timeline:scroll(root)}}
@@ -54,7 +57,7 @@
 .prose .bv :where(p,li){margin-bottom:0;color:inherit;max-width:none}
 .prose .bv .bv-why,.prose .bv .bv-msg-t,.prose .bv .bv-sms-who,.prose .bv .bv-title{color:var(--ink-3)}
 .prose .bv .bv-verdict,.prose .bv .bv-card.is-before p{color:var(--ink-2)}
-.prose .bv .bv-msg.is-you{color:var(--bg)}
+.prose .bv .bv-msg.is-you{color:var(--on-mark)}
 .bv{margin:var(--s6) 0;padding:0}
 .bv>figcaption{margin-top:var(--s3);font-size:.9rem;color:var(--ink-3);line-height:1.45;max-width:60ch}
 .bv>figcaption b{color:var(--ink-2);font-weight:600}
@@ -103,7 +106,7 @@
 .bv-card.is-before{background:transparent;border-style:dashed}
 .bv-card.is-before .bv-lab{border:1px solid var(--line-2);color:var(--ink-3)}
 .bv-card.is-after{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
-.bv-card.is-after .bv-lab{background:var(--mark);color:var(--bg)}
+.bv-card.is-after .bv-lab{background:var(--mark);color:var(--on-mark)}
 .bv-card p{font-size:.98rem;line-height:1.5}
 .bv-card p+p{margin-top:var(--s2)}
 .bv-card.is-before p{color:var(--ink-2)}
@@ -146,7 +149,7 @@
 .bv-form{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);padding:var(--s4);display:grid;gap:10px}
 .bv-f{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:10px 12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--bg)}
 .bv-f b{font-weight:600;font-size:.95rem}
-.bv-f em{font-style:normal;font-family:var(--font-mono);font-size:.7rem;padding:2px 6px;border-radius:var(--r-sm);background:var(--mark);color:var(--bg)}
+.bv-f em{font-style:normal;font-family:var(--font-mono);font-size:.7rem;padding:2px 6px;border-radius:var(--r-sm);background:var(--mark);color:var(--on-mark)}
 .bv-f small{grid-column:1/-1;color:var(--ink-3);font-size:.84rem;line-height:1.35}
 .bv-f.is-cut{border-style:dashed;background:transparent}
 .bv-f.is-cut b{text-decoration:line-through;text-decoration-color:var(--paint);text-decoration-thickness:2px;color:var(--ink-3)}
@@ -181,7 +184,7 @@
 .bv-sms-who{text-align:center;font-size:.78rem;color:var(--ink-3);padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:4px}
 .bv-msg{max-width:86%;padding:9px 12px;border-radius:18px;font-size:.93rem;line-height:1.4}
 .bv-msg.is-them{background:var(--cream);border-bottom-left-radius:5px;justify-self:start}
-.bv-msg.is-you{background:var(--mark);color:var(--bg);border-bottom-right-radius:5px;justify-self:end}
+.bv-msg.is-you{background:var(--mark);color:var(--on-mark);border-bottom-right-radius:5px;justify-self:end}
 .bv-msg-t{font-size:.7rem;color:var(--ink-3);justify-self:center}
 
 /* pull quote */
@@ -214,7 +217,7 @@
 .post-card:first-child a{background:var(--block);color:var(--block-ink);border-color:var(--block)}
 .post-card:first-child h2{font-size:clamp(1.5rem,6vw,2rem)}
 .post-card:first-child p,.post-card:first-child .art-kicker{color:var(--block-mute)}
-.post-card:first-child .pc-more{color:var(--block-paint)}
+.post-card:first-child .pc-more,.post-card:first-child .art-kicker b{color:var(--block-paint)}
 
 @media (min-width:720px){
   .bv-phone-wrap{grid-template-columns:300px 1fr;gap:var(--s7)}
