@@ -14,3 +14,4 @@ outreach/out*/
 leads*.csv
 *.leads.csv
 *.leads.jsonl
+_cpanel/
