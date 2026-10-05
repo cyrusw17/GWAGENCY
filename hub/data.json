@@ -85,16 +85,27 @@
       "owner": "Real estate designer",
       "slots": [
         {
-          "business": "Nadia Brooks, real estate agent",
-          "town": "Chattanooga, TN",
-          "concept": "A neighborhood map she drew: tap a neighborhood for her field note on the houses, the drive downtown and what to check before an offer, then selling and buying timelines, a rough seller net sheet and a recently-sold notebook",
-          "status": "review",
-          "client": "demo-nadia-brooks",
-          "slug": "nadia-brooks"
+          "business": "Hollis & Son, real estate agents",
+          "town": "Asheville, NC",
+          "concept": "A family album: the mother-and-son team first, then a fix-it-or-leave-it game for sellers, sold homes as album pages and an easy way to ask a question",
+          "status": "graded",
+          "grade": "A+",
+          "client": "demo-hollis-family",
+          "slug": "hollis-family"
         }
       ],
       "page": "real-estate/",
       "more": [
+        {
+          "label": "Text thread, Tucson AZ",
+          "href": "site/demos/teresa-valdez/",
+          "featured": true
+        },
+        {
+          "label": "Photo header, Denver CO",
+          "href": "site/demos/elena-marsh/",
+          "featured": true
+        },
         {
           "label": "Listing book, Beaufort SC",
           "href": "site/demos/june-pettiford/"
@@ -104,20 +115,8 @@
           "href": "site/demos/foothill-team/"
         },
         {
-          "label": "Text thread, Tucson AZ",
-          "href": "site/demos/teresa-valdez/"
-        },
-        {
           "label": "Magazine profile, Kansas City",
           "href": "site/demos/marcus-bell/"
-        },
-        {
-          "label": "Family album, Asheville NC",
-          "href": "site/demos/hollis-family/"
-        },
-        {
-          "label": "Photo header, Denver CO",
-          "href": "site/demos/elena-marsh/"
         },
         {
           "label": "Photo slideshow, Austin TX",
@@ -130,6 +129,10 @@
         {
           "label": "Team site, Nashville TN",
           "href": "site/demos/wren-cole/"
+        },
+        {
+          "label": "Neighborhood map, Chattanooga TN",
+          "href": "site/demos/nadia-brooks/"
         }
       ]
     }
