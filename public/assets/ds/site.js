@@ -10,7 +10,7 @@
   var params = new URLSearchParams(location.search);
 
   // Attribution travels in the links, not in storage. Only tags already in this page's URL are passed on.
-  var keep = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "demo", "city"];
+  var keep = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "demo", "city", "niche"];
   var attr = {};
   keep.forEach(function (k) { if (params.get(k)) attr[k] = params.get(k).slice(0, 60); });
   window.gwAttr = attr;

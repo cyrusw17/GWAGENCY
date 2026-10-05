@@ -15,5 +15,9 @@ for path in site/*/; do
 done
 cp -R site/. "$DEST/"
 chmod 750 "$HOME/gw-data"
-[ -f "$DEST/api/config.php" ] && chmod 600 "$DEST/api/config.php"
+# Leads always go to the agency inbox, whatever an older config.php says (offer1's deploy did the same).
+if [ -f "$DEST/api/config.php" ]; then
+  sed -i 's/define("GW_LEAD_EMAIL".*/define("GW_LEAD_EMAIL", "groundworkweb@proton.me");/' "$DEST/api/config.php"
+  chmod 600 "$DEST/api/config.php"
+fi
 echo "Deployed $(git rev-parse --short HEAD) to $DEST"
