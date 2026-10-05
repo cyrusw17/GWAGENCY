@@ -1,7 +1,7 @@
 ---
 niche: real-estate-agents
 title: The Referral-Check Checklist for Agents
-type: email checklist (main email offer for realestate.groundwork-web.com/blog/)
+type: email checklist (main email offer for https://groundwork-web.com/real-estate/blog/)
 format: one printable page (US Letter), checkboxes
 linked_from: /blog/what-to-put-on-a-realtor-website/
 status: draft
@@ -44,4 +44,4 @@ meta_description: A printable checklist for agents: what a referred client check
 
 Boxes you couldn't tick are your to-do list. Start with the first screen.
 
-GroundWork-Web builds and looks after real estate agent websites: realestate.groundwork-web.com
+GroundWork-Web builds and looks after real estate agent websites: https://groundwork-web.com/real-estate/

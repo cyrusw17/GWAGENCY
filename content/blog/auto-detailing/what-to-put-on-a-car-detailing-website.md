@@ -7,8 +7,8 @@ primary_keyword: what to put on a car detailing website
 secondary_keywords: [car detailing website checklist, detailing website must haves, mobile detailing website, auto detailing website design]
 search_intent: commercial-informational (checklist guide)
 brief: /mnt/project-files/blog/plan/auto-detailing.md#brief-1-what-to-put-on-a-detailing-website
-url: https://detailing.groundwork-web.com/blog/what-to-put-on-a-car-detailing-website/
-selling_page: https://detailing.groundwork-web.com/
+url: https://groundwork-web.com/auto-detailing/blog/what-to-put-on-a-car-detailing-website/
+selling_page: https://groundwork-web.com/auto-detailing/
 email_offer: The Detailer's Booking Page Checklist
 word_count_target: 1400-1800
 status: draft
@@ -161,4 +161,4 @@ Open your own site on your phone and go top to bottom: where you work, what it c
 > [Email] [Business name] [Website (optional)] **Send me the checklist**
 > The checklist opens right here. We'll also send a few short tips for detailing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather not build it yourself, we build and look after [detailing websites](https://detailing.groundwork-web.com/) with this list worked in: prices by vehicle size, your booking tool, Call and Text on every screen and the towns you drive to. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.
+If you'd rather not build it yourself, we build and look after [detailing websites](https://groundwork-web.com/auto-detailing/) with this list worked in: prices by vehicle size, your booking tool, Call and Text on every screen and the towns you drive to. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.

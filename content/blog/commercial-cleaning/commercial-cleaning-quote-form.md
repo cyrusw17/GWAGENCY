@@ -1,7 +1,7 @@
 ---
 niche: commercial-cleaning
 slug: commercial-cleaning-quote-form
-url: https://commercial.groundwork-web.com/blog/commercial-cleaning-quote-form/
+url: https://groundwork-web.com/commercial-cleaning/blog/commercial-cleaning-quote-form/
 title: "What to ask on a commercial cleaning quote form"
 h1: "The walkthrough request page: what to ask before you walk a building"
 meta_description: "The 6 fields to ask before a cleaning walkthrough, and the page copy that gets facility managers to fill them in."
@@ -9,7 +9,7 @@ primary_keyword: commercial cleaning quote form
 secondary_keywords: [janitorial walkthrough request, request a cleaning bid online, commercial cleaning estimate form]
 search_intent: commercial (how-to)
 brief: /mnt/project-files/blog/plan/commercial-cleaning.md#brief-3-walkthrough-request-page
-selling_page: https://commercial.groundwork-web.com/
+selling_page: https://groundwork-web.com/commercial-cleaning/
 demo_linked: /work/keyholder/
 sibling_posts: [/blog/commercial-cleaning-website-what-to-include/, /blog/cleaning-company-capability-statement/]
 email_offer: The Bid-Ready Website Checklist (checklist-bid-ready-website.md), both forms
@@ -103,4 +103,4 @@ Bring a printed capability statement and a notepad, and send the written bid whe
 >
 > The checklist opens right here. We'll also send a few short tips for commercial cleaning owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-We build and look after [commercial cleaning websites](https://commercial.groundwork-web.com/) with a walkthrough request on every screen and these fields already on the form. See [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+We build and look after [commercial cleaning websites](https://groundwork-web.com/commercial-cleaning/) with a walkthrough request on every screen and these fields already on the form. See [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

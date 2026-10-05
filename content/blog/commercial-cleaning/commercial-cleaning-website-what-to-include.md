@@ -1,7 +1,7 @@
 ---
 niche: commercial-cleaning
 slug: commercial-cleaning-website-what-to-include
-url: https://commercial.groundwork-web.com/blog/commercial-cleaning-website-what-to-include/
+url: https://groundwork-web.com/commercial-cleaning/blog/commercial-cleaning-website-what-to-include/
 title: "Commercial cleaning website: what facility managers check"
 h1: "What facility managers check on your website before they call"
 meta_description: "Facility managers vet cleaning companies online before any walkthrough. Here are the 12 things they look for, and the free checklist."
@@ -9,7 +9,7 @@ primary_keyword: commercial cleaning website what to include
 secondary_keywords: [janitorial website design, commercial cleaning company website, office cleaning website, what property managers look for in a cleaning company]
 search_intent: commercial-informational (checklist from the buyer's side)
 brief: /mnt/project-files/blog/plan/commercial-cleaning.md#brief-1-what-facility-managers-check-on-your-website-before-they-call
-selling_page: https://commercial.groundwork-web.com/
+selling_page: https://groundwork-web.com/commercial-cleaning/
 demo_linked: /work/keyholder/
 sibling_posts: [/blog/cleaning-company-capability-statement/, /blog/commercial-cleaning-quote-form/]
 email_offer: Capability statement template (capability-statement-template.md), main; The Bid-Ready Website Checklist (checklist-bid-ready-website.md), second form
@@ -119,4 +119,4 @@ On a phone, the first screen should say what you clean and where, show one or tw
 >
 > The checklist opens right here. We'll also send a few short tips for commercial cleaning owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather not do this yourself, we build and look after [commercial cleaning websites](https://commercial.groundwork-web.com/) with credentials near the top, a section for each building type you take, and a walkthrough request on every screen. See one on [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+If you'd rather not do this yourself, we build and look after [commercial cleaning websites](https://groundwork-web.com/commercial-cleaning/) with credentials near the top, a section for each building type you take, and a walkthrough request on every screen. See one on [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

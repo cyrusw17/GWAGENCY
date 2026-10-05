@@ -58,7 +58,7 @@ jobs:
       - name: Check the live pages
         if: ${{ !inputs.dry_run }}
         run: |
-          for u in https://groundwork-web.com/ $(sed 's#.*#https://&.groundwork-web.com/#' _cpanel/subdomains.txt); do
+          for u in https://groundwork-web.com/{,auto-detailing/,exterior-cleaning/,landscaping/,commercial-cleaning/,real-estate/,work/}; do
             code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$u" || true)
             echo "$code $u"
           done

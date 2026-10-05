@@ -15,7 +15,7 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 const unesc = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"');
 const BANNER = "Sample design for a fictional business";
 
-export function buildWork({ root, site, MAIN, SUBDOMAINS, walk }) {
+export function buildWork({ root, site, MAIN, walk }) {
   const from = join(site, "demos");
   const to = join(site, "work");
   if (!existsSync(from)) return { indexed: [] };
@@ -25,10 +25,9 @@ export function buildWork({ root, site, MAIN, SUBDOMAINS, walk }) {
 
   // Demos listed on the hub, keyed by folder name.
   const data = JSON.parse(readFileSync(join(root, "hub", "data.json"), "utf8"));
-  const subFor = Object.fromEntries(Object.entries(SUBDOMAINS).map(([sub, dir]) => [dir, `https://${sub}.groundwork-web.com/`]));
   const listed = new Map();
   for (const n of data.niches) {
-    const trade = { name: n.name, sell: subFor[n.page.replace(/\/$/, "")] || `${MAIN}/${n.page}` };
+    const trade = { name: n.name, sell: `${MAIN}/${n.page}` };
     for (const s of n.slots) if (s.slug) listed.set(s.slug, { trade, business: s.business, town: s.town, concept: s.concept, graded: s.grade === "A+" });
     for (const m of n.more || []) {
       const slug = m.href.replace(/\/$/, "").split("/").pop();

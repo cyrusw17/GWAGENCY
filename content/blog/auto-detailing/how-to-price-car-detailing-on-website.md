@@ -7,8 +7,8 @@ primary_keyword: how to price car detailing on website
 secondary_keywords: [detailing price list, should I put prices on my detailing website, detailing packages page, starting at prices]
 search_intent: informational (how-to with examples)
 brief: /mnt/project-files/blog/plan/auto-detailing.md#brief-3-how-to-show-detailing-prices-online
-url: https://detailing.groundwork-web.com/blog/how-to-price-car-detailing-on-website/
-selling_page: https://detailing.groundwork-web.com/
+url: https://groundwork-web.com/auto-detailing/blog/how-to-price-car-detailing-on-website/
+selling_page: https://groundwork-web.com/auto-detailing/
 email_offer: The Detailer's Booking Page Checklist
 word_count_target: 1200-1500
 status: draft
@@ -117,4 +117,4 @@ Whenever they change, and look the page over once a season either way. Update yo
 > [Email] [Business name] [Website (optional)] **Send me the checklist**
 > The checklist opens right here. We'll also send a few short tips for detailing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-We build and look after [detailing websites](https://detailing.groundwork-web.com/) with your menu laid out in whichever of these layouts fits how you work, add-ons and condition line included. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.
+We build and look after [detailing websites](https://groundwork-web.com/auto-detailing/) with your menu laid out in whichever of these layouts fits how you work, add-ons and condition line included. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.

@@ -1,7 +1,7 @@
 ---
 niche: landscaping
 slug: lawn-care-spring-signup
-url: https://landscaping.groundwork-web.com/blog/lawn-care-spring-signup/
+url: https://groundwork-web.com/landscaping/blog/lawn-care-spring-signup/
 title: "Lawn care spring signup page: fill your route before March"
 h1: "The spring signup page: fill your route before March"
 meta_description: "A simple spring signup page with a season price, a start date and a 4-field form can fill your route before the grass grows. Here's how to build one."
@@ -9,7 +9,7 @@ primary_keyword: lawn care spring signup
 secondary_keywords: [pre-sell lawn care season, early bird lawn care, lawn care signup form, recurring lawn service signup online]
 search_intent: commercial-informational how-to
 brief: /mnt/project-files/blog/plan/landscaping.md#brief-2-spring-signup-page-fill-your-route-before-march
-selling_page: https://landscaping.groundwork-web.com/
+selling_page: https://groundwork-web.com/landscaping/
 demo_linked: /work/pruitt-lawn/
 email_offer: The Winter Website Checklist for Lawn Care (checklist-winter-website.md)
 word_count_target: 1200-1600
@@ -134,4 +134,4 @@ Take the streets that fit your route, start a waitlist for the rest, and tell pe
 >
 > The checklist opens right here. We'll also send a few short tips for lawn care owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-We build and look after [lawn care websites](https://landscaping.groundwork-web.com/) with season prices on the page and a short signup form. See [Pruitt Lawn Co.](https://groundwork-web.com/work/pruitt-lawn/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Grow is $199 a month, or $1,990 paid yearly (12 months for the price of 10).
+We build and look after [lawn care websites](https://groundwork-web.com/landscaping/) with season prices on the page and a short signup form. See [Pruitt Lawn Co.](https://groundwork-web.com/work/pruitt-lawn/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Grow is $199 a month, or $1,990 paid yearly (12 months for the price of 10).

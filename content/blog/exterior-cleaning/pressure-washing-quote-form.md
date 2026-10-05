@@ -1,7 +1,7 @@
 ---
 niche: exterior-cleaning
 slug: pressure-washing-quote-form
-url: https://exterior.groundwork-web.com/blog/pressure-washing-quote-form/
+url: https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-quote-form/
 title: "Pressure washing quote form: price jobs without driving out"
 h1: "The pressure washing quote form that gets jobs priced without a site visit"
 meta_description: "Stop driving out to quote driveways. The 8 form fields and photo asks that let you price most pressure washing jobs from home. Free checklist."
@@ -9,7 +9,7 @@ primary_keyword: pressure washing quote form
 secondary_keywords: [online quote pressure washing, pressure washing estimate form, how to quote pressure washing without visiting, instant quote house wash]
 search_intent: commercial-informational (how-to with a template)
 brief: /mnt/project-files/blog/plan/exterior-cleaning.md#brief-1-the-quote-form-that-gets-jobs-priced-without-a-site-visit
-selling_page: https://exterior.groundwork-web.com/
+selling_page: https://groundwork-web.com/exterior-cleaning/
 demo_linked: /work/haint-blue/
 email_offer: The Quote-Form Checklist for Pressure Washing (checklist-quote-form.md)
 word_count_target: 1300-1700
@@ -116,4 +116,4 @@ Ask for the one shot you need, by name. "Can you stand at the end of the drivewa
 >
 > The checklist opens right here. We'll also send a few short tips for pressure washing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather have this set up for you, we build and look after [pressure washing websites](https://exterior.groundwork-web.com/) with a quote form that asks what needs washing and starting prices up front. Try the form on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+If you'd rather have this set up for you, we build and look after [pressure washing websites](https://groundwork-web.com/exterior-cleaning/) with a quote form that asks what needs washing and starting prices up front. Try the form on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

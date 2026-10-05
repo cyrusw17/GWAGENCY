@@ -1,38 +1,38 @@
 # Going live on cPanel
 
-groundwork-web.com is served from Cyrus's cPanel host. Deploys run from GitHub Actions
-(**Actions > Deploy to cPanel > Run workflow**), never by hand and never from offer1.
+groundwork-web.com is served from Cyrus's cPanel host. Every page lives in a folder on the one domain,
+with no subdomains:
 
-## One-time setup (Cyrus)
-1. In cPanel: **Security > Manage API Tokens > Create**. Name it `github-deploy`, set an expiry date. Revoke it there any time.
-2. In GitHub, cyrusw17/GWAGENCY: **Settings > Secrets and variables > Actions > New repository secret**, add:
-   - `CPANEL_HOST`: the server name cPanel shows (the host in your cPanel login URL, without `:2083`)
-   - `CPANEL_USER`: your cPanel username
-   - `CPANEL_TOKEN`: the token from step 1
-3. Make sure **SSL/TLS Status > Run AutoSSL** is on so the subdomains get certificates.
+| Page | Address |
+|---|---|
+| Agency home | groundwork-web.com/ |
+| Auto detailing offer and blog | groundwork-web.com/auto-detailing/ and /auto-detailing/blog/ |
+| Exterior cleaning offer and blog | groundwork-web.com/exterior-cleaning/ and /exterior-cleaning/blog/ |
+| Landscaping offer and blog | groundwork-web.com/landscaping/ and /landscaping/blog/ |
+| Commercial cleaning offer and blog | groundwork-web.com/commercial-cleaning/ and /commercial-cleaning/blog/ |
+| Real estate agents offer and blog | groundwork-web.com/real-estate/ and /real-estate/blog/ |
+| Sample sites | groundwork-web.com/work/ |
 
-## Run order
-1. **Run workflow** with "dry run" ticked (the default). The log lists every top-level item in public_html as
-   REPLACE, OVERWRITE, OVERLAY, ADD or KEEP. Nothing on the server changes.
-2. Run again with "dry run" unticked to go live.
+Never deploy from offer1.
 
-## What a deploy does
-1. `tools/build-cpanel.mjs` copies `public/` to `_cpanel/site/` and moves each niche selling page to its subdomain
-   (detailing., exterior., landscaping., commercial., realestate.groundwork-web.com): canonicals, sitemap and links change,
-   and `.htaccess` gets the host rules. The old paths (groundwork-web.com/auto-detailing/) 301 to the subdomains.
-2. The result is committed to the `cpanel` branch.
-3. `tools/cpanel/publish.sh` calls the cPanel API: adds the subdomains (sharing public_html), clones the repo once
-   into `~/repositories/gwagency-live`, pulls the `cpanel` branch and runs `.cpanel.yml`.
-4. On the server, `deploy.sh` saves `~/site-backups/public_html-<time>.tar.gz` (last 10 kept), then copies the site in
-   the same way offer1's deploy did. Folders the site owns are replaced whole, and `api/` is overlaid so `api/config.php` survives.
-   Anything else in public_html is never deleted, including the private list folder, `.well-known` and `cgi-bin`.
+## How it deploys (the gwweb repo)
+1. `node tools/build-cpanel.mjs` copies `public/` to `_cpanel/site/`, turns the demos into the /work/ portfolio,
+   and adds the /demos/ to /work/ redirect to `.htaccess`.
+2. The contents of `_cpanel/` (site/, .cpanel.yml, deploy.sh) are committed to the main branch of
+   [cyrusw17/gwweb](https://github.com/cyrusw17/gwweb).
+3. In cPanel **Git Version Control**, the gwweb clone gets **Update from Remote**, then **Deploy HEAD Commit**.
+   That runs `.cpanel.yml`, which runs `deploy.sh`.
+4. `deploy.sh` saves `~/site-backups/public_html-<time>.tar.gz` (last 10 kept), then replaces the folders the site owns
+   and overlays `api/` so `api/config.php` survives. Anything else in public_html is never deleted, including the
+   private list folder, `.well-known` and `cgi-bin`.
+
+The GitHub Actions workflow (**Actions > Deploy to cPanel**) does the same through the cPanel API if the repo secrets
+`CPANEL_HOST`, `CPANEL_USER` and `CPANEL_TOKEN` are ever added. Run it with "dry run" ticked first.
 
 ## Demos become /work/
-
-The build moves every demo from /demos/<x>/ to /work/<x>/ (`tools/build-work.mjs`) and 301s the old addresses. Only demos marked `"grade": "A+"` in hub/data.json are indexed, with a self canonical and a sitemap entry; the rest stay noindex. Each demo's business schema is replaced by a CreativeWork page and breadcrumb, its notice bar reads "Sample design for a fictional business", and it ends with a short case study linking its trade's subdomain. /work/ lists the indexed demos by trade. The GitHub Pages copies are not changed and stay noindex.
+The build moves every demo from /demos/<x>/ to /work/<x>/ (`tools/build-work.mjs`) and 301s the old addresses. Only demos marked `"grade": "A+"` in hub/data.json are indexed, with a self canonical and a sitemap entry; the rest stay noindex. Each demo's business schema is replaced by a CreativeWork page and breadcrumb, its notice bar reads "Sample design for a fictional business", and it ends with a short case study linking its trade's selling page. /work/ lists the indexed demos by trade. The GitHub Pages copies are not changed and stay noindex.
 
 ## Rolling back
-Every real run first saves `~/site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz` (the last 10 are kept). To restore one, in
-cPanel **Terminal**:
+Every deploy first saves `~/site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz`. To restore one, in cPanel **Terminal**:
 
     cd ~ && rm -rf public_html && tar -xzf site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz
