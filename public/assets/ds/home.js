@@ -30,31 +30,60 @@
   if (!hero || !bar || !("IntersectionObserver" in window)) return;
   new IntersectionObserver(function (e) { bar.classList.toggle("off", e[0].isIntersecting); }).observe(hero);
 })();
-/* Hero visual: the 3D fan of sample sites. Mouse tilt only (no motion on touch or with reduced motion); picking a site also opens that trade's work order. */
+/* Hero visual: 3D carousel of sample sites. It only moves when the visitor swipes, drags, taps or uses the arrows; tapping a site also opens that trade's work order. */
 (function () {
-  var fan = document.getElementById("fan"), stage = document.getElementById("fan-stage");
-  if (!fan) return;
+  var cf = document.getElementById("cf"), stage = document.getElementById("cf-stage");
+  if (!cf) return;
   /* The screenshots load after the page, so they never hold up the headline (phone LCP). Sizes are fixed, so nothing shifts. */
-  function load() { [].forEach.call(fan.querySelectorAll("img[data-src]"), function (im) { im.src = im.dataset.src; }); }
+  function load() { [].forEach.call(cf.querySelectorAll("img[data-src]"), function (im) { im.src = im.dataset.src; }); }
   if (document.readyState === "complete") load(); else addEventListener("load", load);
-  var phs = [].slice.call(fan.querySelectorAll(".fan-ph")), front = 1;
-  function lay() {
-    phs.forEach(function (p, i) {
-      var d = (((i - front) % 3) + 3) % 3; d = d === 2 ? -1 : d;
-      p.setAttribute("aria-pressed", String(!d));
-      p.style.transform = "translateX(" + d * 92 + "px) translateZ(" + (d ? -40 : 60) + "px) rotateY(" + d * -28 + "deg)";
+  var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cards = [].slice.call(cf.querySelectorAll(".cf-ph")), N = cards.length, name = document.getElementById("cf-name");
+  var pos = 0, target = 0, drag = null, running = false;
+  function wrap(d) { d = ((d % N) + N) % N; return d > N / 2 ? d - N : d; }
+  function front() { return ((Math.round(target) % N) + N) % N; }
+  function render() {
+    cards.forEach(function (c, i) {
+      var d = wrap(i - pos), a = Math.abs(d);
+      c.style.transform = "translateX(" + d * 96 + "px) translateZ(" + -a * 90 + "px) rotateY(" + Math.max(-1, Math.min(1, d)) * -38 + "deg)";
+      c.style.zIndex = String(100 - Math.round(a * 10));
+      c.style.opacity = a > 2.2 ? 0 : 1;
+      c.tabIndex = a > 2.2 ? -1 : 0;
     });
+    var k = front(), t = document.getElementById(cards[k].dataset.tab);
+    var label = (t ? t.textContent.trim() : "") + " \u00b7 " + cards[k].dataset.name;
+    if (name.textContent !== label) name.textContent = label;
   }
-  function pick(i, sync) {
-    front = i; lay();
-    if (sync) { var t = document.getElementById(phs[i].dataset.tab); if (t) t.click(); }
+  function loop() {
+    if (!drag) pos += (target - pos) * (RM ? 1 : 0.16);
+    if (!drag && Math.abs(target - pos) < 0.001) pos = target;
+    render();
+    if (drag || pos !== target) requestAnimationFrame(loop); else running = false;
   }
-  phs.forEach(function (p) { p.addEventListener("click", function () { pick(+p.dataset.i, true); }); });
-  if (matchMedia("(pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    stage.addEventListener("pointermove", function (e) {
-      var r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-      fan.style.transform = "rotateY(" + x * 24 + "deg) rotateX(" + -y * 14 + "deg)";
+  function start() { if (!running) { running = true; requestAnimationFrame(loop); } }
+  function go(n) { target = Math.round(target) + n; start(); }
+  cards.forEach(function (c, i) {
+    c.addEventListener("click", function () {
+      if (drag && drag.moved) return;
+      target = pos + wrap(i - pos); start();
+      var t = document.getElementById(c.dataset.tab); if (t) t.click();
     });
-    stage.addEventListener("pointerleave", function () { fan.style.transform = ""; });
-  }
+  });
+  stage.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, p: pos, moved: false }; start(); });
+  addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x;
+    if (Math.abs(dx) > 6) drag.moved = true;
+    if (drag.moved) { pos = drag.p - dx / 120; target = pos; }
+  });
+  function end() { if (!drag) return; var d = drag; target = Math.round(pos); setTimeout(function () { if (drag === d) drag = null; start(); }, 0); }
+  addEventListener("pointerup", end); addEventListener("pointercancel", end);
+  stage.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); go(1); } else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+  });
+  var prev = document.getElementById("cf-prev"), next = document.getElementById("cf-next");
+  prev.hidden = next.hidden = false;
+  prev.addEventListener("click", function () { go(-1); });
+  next.addEventListener("click", function () { go(1); });
+  render();
 })();

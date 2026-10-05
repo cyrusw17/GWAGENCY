@@ -144,7 +144,7 @@ body.home a{color:inherit}
 @media (min-width:1024px){
   .h-top{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start;padding-bottom:40px}
   .h-hero{padding-top:40px}
-  .h-hero .fan-wrap{margin-top:10px}
+  .h-hero .cf-wrap{margin-top:10px}
   .h-hero h1{font-size:3.9rem}
   .h-hero .lede{margin-top:16px}
   .h-picker{padding-top:72px}
@@ -165,17 +165,17 @@ body.home h1,body.home h2{text-transform:none}
 .ledger li.total{border-top:2px solid var(--bg);border-bottom:none;margin-top:10px}
 .home .bar{transition:transform .2s}
 .home .bar.off{transform:translateY(110%);visibility:hidden}
-/* Hero visual: three real sample sites in 3D. Tilt follows the finger or mouse; tapping one brings it forward and opens that trade below. */
-.fan-wrap{margin-top:22px}
-.fan-stage{height:330px;perspective:900px;display:grid;place-items:center;touch-action:pan-y;overflow:hidden;margin:0 -16px}
-.fan{position:relative;width:150px;height:292px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.fan-ph{position:absolute;inset:0;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 18px 30px -18px rgba(0,0,0,.45);cursor:pointer;padding:0;transition:transform .6s cubic-bezier(.2,.7,.2,1);will-change:transform}
-.fan-ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
-.fan-ph:nth-child(1){transform:translateX(-92px) translateZ(-40px) rotateY(28deg)}
-.fan-ph:nth-child(2){transform:translateZ(60px)}
-.fan-ph:nth-child(3){transform:translateX(92px) translateZ(-40px) rotateY(-28deg)}
-.fan-ph:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
-.fan-cap{font:400 .72rem var(--font-mono);color:var(--ink-3);text-align:center;margin:8px 0 0}
-@media (min-width:768px){.fan-stage{margin:0}}
-.fan-ph{position:absolute}
-.fan-tag{position:absolute;left:8px;bottom:8px;font:400 .66rem var(--font-mono);background:var(--ink);color:var(--bg);padding:2px 6px;border-radius:4px}
+/* Hero visual: a 3D carousel of real sample sites. Swipe, drag, arrows or keys move it; it never moves on its own. Tapping a site opens that trade below. */
+.cf-wrap{margin-top:22px}
+.cf-stage{height:330px;perspective:900px;display:grid;place-items:center;touch-action:pan-y;overflow:hidden;margin:0 -16px;user-select:none;-webkit-user-select:none}
+.cf{position:relative;width:150px;height:292px;transform-style:preserve-3d}
+.cf-ph{position:absolute;inset:0;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 18px 30px -18px rgba(0,0,0,.45);cursor:grab;padding:0;will-change:transform;backface-visibility:hidden}
+.cf-ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;pointer-events:none}
+.cf-ph:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+.cf-tag{position:absolute;left:8px;bottom:8px;font:400 .66rem var(--font-mono);background:var(--ink);color:var(--bg);padding:2px 6px;border-radius:4px}
+.cf-ctl{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:6px}
+.cf-name{font:600 .95rem var(--font-body);margin:0;text-align:center;min-width:0;flex:0 1 auto}
+.cf-btn{width:44px;height:44px;flex:none;border:2px solid var(--ink);border-radius:50%;background:var(--card);color:var(--ink);font-size:1.1rem;cursor:pointer}
+.cf-btn:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.cf-cap{font:400 .72rem var(--font-mono);color:var(--ink-3);text-align:center;margin:8px 0 0}
+@media (min-width:768px){.cf-stage{margin:0}}
