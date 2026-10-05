@@ -187,16 +187,16 @@
    Detailing (the markup above) is the default; field names and what lead.php receives stay the same. */
 (function () {
   var T = {
-    "exterior-cleaning": { title: "Start Your Exterior Cleaning Website for $99", noun: "exterior cleaning", label: "Who you clean for", shop: "Haint Blue Soft Wash", city: "Mount Pleasant and Charleston",
+    "exterior-cleaning": { form: "your quote form", notes: "Surfaces you clean, colors you like, services to feature, deadline", title: "Start Your Exterior Cleaning Website for $99", noun: "exterior cleaning", label: "Who you clean for", shop: "Haint Blue Soft Wash", city: "Mount Pleasant and Charleston",
       types: [["homes", "Mostly homes"], ["commercial", "Mostly commercial buildings"], ["both", "Both"]],
       demos: [["haint-blue", "Haint Blue Soft Wash: porch, soft-wash dial, price sheet"]] },
-    "landscaping": { title: "Start Your Lawn Care Website for $99", noun: "lawn care", label: "What you mostly do", shop: "Pruitt Lawn Co.", city: "Dublin and west Columbus",
+    "landscaping": { form: "your signup and quote form", notes: "Services and seasons you offer, colors you like, deadline", title: "Start Your Lawn Care Website for $99", noun: "lawn care", label: "What you mostly do", shop: "Pruitt Lawn Co.", city: "Dublin and west Columbus",
       types: [["maintenance", "Mowing and weekly maintenance"], ["installs", "Landscape installs and projects"], ["both", "Both"]],
       demos: [["pruitt-lawn", "Pruitt Lawn Co.: season plan, mowing height, ZIP checker"]] },
-    "commercial-cleaning": { title: "Start Your Commercial Cleaning Website for $99", noun: "commercial cleaning", label: "Buildings you clean", shop: "Keyholder Commercial Cleaning", city: "Greensboro and the Triad",
+    "commercial-cleaning": { form: "your walkthrough request form", notes: "Building types, areas you cover, colors you like, deadline", title: "Start Your Commercial Cleaning Website for $99", noun: "commercial cleaning", label: "Buildings you clean", shop: "Keyholder Commercial Cleaning", city: "Greensboro and the Triad",
       types: [["offices", "Mostly offices"], ["specialty", "Medical, schools or other specialty"], ["mixed", "A mix of buildings"]],
       demos: [["keyholder", "Keyholder: night log, floor plan, walkthrough request"]] },
-    "real-estate": { title: "Start Your Real Estate Agent Website for $99", noun: "real estate", label: "How you work", shop: "Your name or team name", city: "Your city and neighborhoods",
+    "real-estate": { form: "your home-value form", notes: "Brokerage, areas you cover, colors you like, deadline", title: "Start Your Real Estate Agent Website for $99", noun: "real estate", label: "How you work", shop: "Your name or team name", city: "Your city and neighborhoods",
       types: [["solo", "Solo agent"], ["team", "Team"], ["both", "Agent who leads a small team"]],
       demos: [["hollis-family", "Hollis & Son: family team, listings and neighborhoods"], ["teresa-valdez", "Text thread: meet the agent first"], ["elena-marsh", "Photo header: listings and a home value request"]] }
   };
@@ -219,6 +219,12 @@
   shop.placeholder = t.shop;
   shop.parentNode.firstChild.nodeValue = key === "real-estate" ? "Name or team name" : "Business name";
   form.querySelector('input[name="city"]').placeholder = t.city;
+  form.querySelector('textarea[name="notes"]').placeholder = t.notes;
+  var host = form.querySelector('input[value="host"]').closest("label").querySelector("p");
+  host.textContent = "Keep the site and forms live. Upgrade to Grow any month.";
+  [].forEach.call(document.querySelectorAll(".checklist li"), function (li) {
+    li.innerHTML = li.innerHTML.replace("your booking tool embedded", t.form);
+  });
   document.getElementById("start-heading").textContent = key === "real-estate" ? "1. You" : "1. Your business";
 })();
 </script>
