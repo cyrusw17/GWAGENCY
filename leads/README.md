@@ -13,6 +13,7 @@ The repo is public. The pipeline writes only to `$LEADS_DATA_DIR` (default `~/gw
 | Variable | Needed for | Notes |
 |---|---|---|
 | `GOOGLE_MAPS_API_KEY` | `search` | Enable Places API (New) and Geocoding API. Restrict the key to those two APIs and set a daily quota in Google Cloud. |
+| `LEADPIPE_MONTHLY_CAP` | `search` | Optional. Paid search pages allowed per calendar month across all runs (default 900, inside the 1,000 free). |
 | `REOON_API_KEY` or `MILLIONVERIFIER_API_KEY` | `verify` | Reoon power mode is the default provider. |
 | `LEADS_DATA_DIR` | all | Optional. Must be outside any git checkout. |
 

@@ -70,6 +70,14 @@ class PlacesTest(unittest.TestCase):
         self.assertEqual(store.usage(self.db, places.SKU), 2)
         self.assertEqual(self.db.execute("SELECT COUNT(*) FROM places").fetchone()[0], 40)
 
+    def test_monthly_cap_spans_runs(self):
+        g = FakeGoogle()
+        store.bump_usage(self.db, places.SKU, places.MONTHLY_CAP - 1)  # earlier runs this month
+        s = places.Searcher(self.db, "k", NICHE, max_requests=100, post=g.post, sleep=lambda _: None)
+        with self.assertRaises(places.BudgetExceeded):
+            s.run(NICHE["areas"])
+        self.assertEqual(g.calls, 1)
+
     def test_stale_tiles_are_searched_again(self):
         g = FakeGoogle()
         places.Searcher(self.db, "k", NICHE, 100, post=g.post, sleep=lambda _: None).run(NICHE["areas"])

@@ -5,6 +5,7 @@ metro is covered by splitting its viewport into tiles and splitting again
 wherever a tile comes back full. Each page is one billed request.
 """
 import json
+import os
 import re
 import time
 import urllib.parse
@@ -23,6 +24,9 @@ ATMOSPHERE_FIELDS = ",places.reviews,places.regularOpeningHours"
 SKU = "text_search_enterprise"
 ATMOSPHERE_SKU = "text_search_enterprise_atmosphere"
 GEOCODE_SKU = "geocoding"
+# Hard monthly ceiling on paid search pages across every run, kept under the 1,000 free
+# Enterprise requests. Override with LEADPIPE_MONTHLY_CAP only after the spend is approved.
+MONTHLY_CAP = int(os.environ.get("LEADPIPE_MONTHLY_CAP", "900"))
 MAX_PER_QUERY = 60
 PAGE_SIZE = 20
 
@@ -86,6 +90,8 @@ class Searcher:
     def _charge(self, sku):
         if self.spent >= self.max_requests:
             raise BudgetExceeded(f"request budget of {self.max_requests} reached")
+        if sku != GEOCODE_SKU and store.usage(self.db, SKU) + store.usage(self.db, ATMOSPHERE_SKU) >= MONTHLY_CAP:
+            raise BudgetExceeded(f"monthly cap of {MONTHLY_CAP} search requests reached")
         self.spent += 1
         store.bump_usage(self.db, sku)
 
