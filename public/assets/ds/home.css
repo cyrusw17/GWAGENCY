@@ -159,3 +159,6 @@ body.home h1,body.home h2{text-transform:none}
 @media (max-width:420px){.home .logo{font-size:1rem}.home .header-end{gap:8px}.home .menu-btn{padding:0 10px}}
 .h-picker .tabs{scroll-padding-inline:16px}
 .home .menu-btn{border-radius:6px;border:2px solid var(--ink)}
+.ledger li.total{border-top:2px solid var(--bg);border-bottom:none;margin-top:10px}
+.home .bar{transition:transform .2s}
+.home .bar.off{transform:translateY(110%);visibility:hidden}

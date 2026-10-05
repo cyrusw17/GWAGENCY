@@ -24,3 +24,9 @@
     if (j >= 0) { e.preventDefault(); select(tabs[j], true); }
   });
 })();
+/* Hide the bottom bar while the hero Start button is on screen, so Start isn't shown twice. */
+(function () {
+  var hero = document.getElementById("hero-start"), bar = document.querySelector(".bar");
+  if (!hero || !bar || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle("off", e[0].isIntersecting); }).observe(hero);
+})();
