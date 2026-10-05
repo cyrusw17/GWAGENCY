@@ -138,6 +138,8 @@
 .bv-meter{height:8px;background:var(--cream);border-radius:4px;overflow:hidden}
 .bv-meter i{display:block;height:100%;width:0;background:var(--mark);transition:width .3s var(--ease)}
 .bv-verdict{font-size:.95rem;color:var(--ink-2)}
+.bv-cta{margin-top:var(--s2);font-weight:600}
+.bv-cta a{color:var(--paint-text);text-decoration-thickness:2px;text-underline-offset:3px}
 .bv-check:not(.is-live) .bv-check-out{display:none}
 
 /* form: a quote form with the fields to cut struck through */

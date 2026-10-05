@@ -76,11 +76,11 @@ const VISUALS = {
     return `<figure class="bv">${ttl(v)}<div class="bv-bars">${v.items.map((i) =>
       `<div class="bv-bar${i.tone ? ` is-${i.tone}` : ""}"><div class="bv-bar-top"><b>${il(i.label)}</b><span>${esc(i.show ?? i.value)}</span></div><div class="bv-track"><div class="bv-fill" style="width:${Math.max(2, Math.round((i.value / max) * 100))}%"></div></div>${i.note ? `<small>${il(i.note)}</small>` : ""}</div>`).join("")}</div>${cap(v)}</figure>`;
   },
-  checker: (v) => {
+  checker: (v, n) => {
     const id = `chk${++checkCount}`;
     const bands = JSON.stringify([...v.bands].sort((a, b) => b.min - a.min));
     return `<figure class="bv"><div class="bv-check" data-bands="${esc(bands)}"><div class="bv-check-head"><b>${il(v.title)}</b>${v.sub ? `<span>${il(v.sub)}</span>` : ""}</div><ol>${v.items.map((q, i) =>
-      `<li><label for="${id}-${i}"><input type="checkbox" id="${id}-${i}"><span>${il(q)}</span></label></li>`).join("")}</ol><div class="bv-check-out" aria-live="polite"><p class="bv-score"><b>0</b> <small>of ${v.items.length} ticked</small></p><div class="bv-meter"><i></i></div><p class="bv-verdict"></p></div></div>${cap(v)}</figure>`;
+      `<li><label for="${id}-${i}"><input type="checkbox" id="${id}-${i}"><span>${il(q)}</span></label></li>`).join("")}</ol><div class="bv-check-out" aria-live="polite"><p class="bv-score"><b>0</b> <small>of ${v.items.length} ticked</small></p><div class="bv-meter"><i></i></div><p class="bv-verdict"></p><p class="bv-cta"><a href="/site-check/?niche=${n.folder}">Want a second opinion? Check your site free in 8 questions</a></p></div></div>${cap(v)}</figure>`;
   },
   form: (v) => `<figure class="bv">${ttl(v)}<div class="bv-form">${v.fields.map((f) =>
     `<div class="bv-f is-${f.state || "keep"}"><b>${il(f.label)}</b><em>${esc({ keep: "keep", cut: "cut", opt: "optional" }[f.state || "keep"])}</em>${f.why ? `<small>${il(f.why)}</small>` : ""}</div>`).join("")}${v.button ? `<div class="bv-form-btn" aria-hidden="true">${esc(v.button)}</div>` : ""}</div>${cap(v)}</figure>`,
@@ -92,12 +92,12 @@ const VISUALS = {
     m.t ? `<p class="bv-msg-t">${esc(m.t)}</p>` : `<p class="bv-msg is-${m.from}">${il(m.text)}</p>`).join("")}</div>${cap(v)}</figure>`,
   pull: (v) => `<p class="bv-pull">${il(v.text)}</p>`,
 };
-function visuals(md, file) {
+function visuals(md, file, n) {
   return md.replace(/^:::visual ([a-z]+)\n([\s\S]*?)\n:::$/gm, (m, kind, json) => {
     if (!VISUALS[kind]) throw new Error(`${file}: unknown visual "${kind}"`);
     let v;
     try { v = JSON.parse(json); } catch (e) { throw new Error(`${file}: bad JSON in ${kind} visual: ${e.message}`); }
-    return "\n" + VISUALS[kind](v) + "\n";
+    return "\n" + VISUALS[kind](v, n) + "\n";
   });
 }
 
@@ -243,7 +243,7 @@ for (const [key, n] of Object.entries(NICHES)) {
     const url = `${blogUrl}${d.slug}/`;
     const title = d.fm.h1 || d.fm.title;
     const mins = readMins(md);
-    const { html, toc } = anchor(fixLinks(marked.parse(visuals(md, d.slug)), n));
+    const { html, toc } = anchor(fixLinks(marked.parse(visuals(md, d.slug, n)), n));
     const takeaways = (d.fm.takeaways || "").split(" | ").filter(Boolean);
     const more = posts.filter((p) => p !== d).map((p) => `      <li><a href="/${n.folder}/blog/${p.slug}/">${esc(p.fm.h1 || p.fm.title)}<span>${readMins(p.body)} min read</span></a></li>`).join("\n");
     const body = `    <header class="art-head">
