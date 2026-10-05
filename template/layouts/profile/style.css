@@ -111,3 +111,4 @@ h1::first-line{font-style:italic}
 .faq-sec{padding-top:56px;padding-bottom:64px;max-width:880px}
 .faq{margin-top:18px}
 legend{font-family:var(--display);font-weight:400;font-size:32px}
+@media (max-width:899px){.cover-copy{order:2}.cover-pic{order:3;max-width:240px}}

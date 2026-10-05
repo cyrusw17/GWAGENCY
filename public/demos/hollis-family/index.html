@@ -70,7 +70,7 @@ legend{font:600 24px/1.2 var(--display);margin-bottom:14px;padding:0}
 @font-face{font-family:"Kalam";font-weight:400;font-display:swap;src:url("fonts/kalam-latin-400-normal.woff2") format("woff2")}
 /* Layout: a kitchen table in the Blue Ridge. Oak, cream paper, rust for action, ridge blue for notes. */
 :root{--paper:#F4EDE1;--card:#FFFCF6;--ink:#2A2522;--muted:#5E5650;--line:#DCCFBC;--oak:#C89B6A;--ridge:#4E6B8A;--pine:#2F5D46;--go:#A8482A;--go-d:#863820;--radius:6px;
-  --display:"Libre Caslon Text",Georgia,serif;--body:Georgia,"Times New Roman",serif;--hand:"Kalam","Comic Sans MS",cursive}
+  --display:"Libre Caslon Text",Georgia,serif;--body:"Libre Caslon Text",Georgia,serif;--hand:"Kalam","Comic Sans MS",cursive}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px;scroll-padding-bottom:84px}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.65 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:72px}
@@ -88,7 +88,7 @@ h2{font-size:clamp(30px,4vw,44px)}
 .sample-tag{font:400 14px/1 var(--body);color:var(--muted);white-space:nowrap}
 .demo-bar{background:#221E1B;color:#D7D2CA;font:400 14px system-ui,sans-serif;padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px 10px}
 .demo-bar b{color:#fff}.demo-bar a{color:#F0B79E;font-weight:700}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:10px 22px;border-radius:var(--radius);font:700 16px/1.2 var(--display);text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:10px 22px;border-radius:var(--radius);font:700 16px/1.2 var(--display);text-decoration:none;border:2px solid transparent;cursor:pointer}
 .btn-go{background:var(--go);color:#fff}.btn-go:hover{background:var(--go-d)}
 .btn-line{border-color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
 .btn-sm{min-height:44px;padding:8px 16px;font-size:15px}
@@ -228,7 +228,7 @@ h1{font-size:clamp(36px,5vw,60px)}
   <div class="wrap">
     <h2 id="story-h">Our story, from the beginning</h2>
     <p class="sub">You&#39;ll be letting us into your home, so here&#39;s a bit of ours first.</p>
-    <ol class="time"><li><p class="yr">1996</p><h3>Ruth gets her license</h3><p>A single mom with a seven-year-old, she sold her first house in Weaverville with Sam asleep in the back seat.</p></li><li><p class="yr">2004</p><h3>Sam starts helping</h3><p>Fifteen and paid in pizza: setting out open house signs and fixing sticky doors before showings.</p></li><li><p class="yr">2018</p><h3>Hollis &amp; Son</h3><p>Sam gets his license after six years as a carpenter. Now there&#39;s someone on the team who can tell you what a repair really costs.</p></li><li><p class="yr">2024</p><h3>After the storm</h3><p>When Helene hit, we spent months helping clients through insurance claims and repairs. Some we&#39;d sold homes to twenty years before.</p></li><li><p class="yr">Today</p><h3>Still at the table</h3><p>Over 600 homes between us. Most new clients come from someone we&#39;ve already helped.</p></li></ol>
+    <ol class="time"><li><p class="yr">1996</p><h3>Ruth gets her license</h3><p>A single mom with a seven-year-old, she sold her first house in Weaverville with Sam asleep in the back seat.</p></li><li><p class="yr">2004</p><h3>Sam starts helping</h3><p>Fifteen and paid in pizza: setting out open house signs and fixing sticky doors before showings.</p></li><li><p class="yr">2018</p><h3>Hollis &amp; Son</h3><p>Sam gets his license after six years as a carpenter. Now there&#39;s someone on the team who can tell you what a repair really costs.</p></li><li><p class="yr">2024</p><h3>After the storm</h3><p>When Helene hit, we spent months helping clients through insurance claims and repairs. Some we&#39;d sold homes to twenty years before.</p></li><li><p class="yr">Today</p><h3>Still at the table</h3><p>Over 600 homes between us (sample). Most new clients come from someone we&#39;ve already helped.</p></li></ol>
   </div>
 </section>
 
