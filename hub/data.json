@@ -10,8 +10,9 @@
         {
           "business": "Ramirez & Son Mobile Detail",
           "town": "San Antonio, TX",
-          "concept": "Price-your-car picker, a two-step booking form, and Call, Text and Book buttons that stay on screen",
-          "status": "review",
+          "concept": "A price-your-car picker, a two-step booking form, and Call, Text and Book buttons that stay on screen",
+          "status": "graded",
+          "grade": "A+",
           "client": "demo-ramirez-mobile",
           "slug": "ramirez-mobile"
         }
@@ -99,11 +100,15 @@
         {
           "label": "Text thread, Tucson AZ",
           "href": "site/demos/teresa-valdez/",
+          "grade": "A+",
+          "concept": "a text thread to meet the agent first, her real week, plain steps for buying and selling, and homes she'd text you about",
           "featured": true
         },
         {
           "label": "Photo header, Denver CO",
           "href": "site/demos/elena-marsh/",
+          "grade": "A+",
+          "concept": "a photo header, featured listings, the neighborhoods she knows street by street, and a free home value request",
           "featured": true
         },
         {

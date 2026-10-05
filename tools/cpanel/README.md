@@ -27,6 +27,10 @@ groundwork-web.com is served from Cyrus's cPanel host. Deploys run from GitHub A
    the same way offer1's deploy did. Folders the site owns are replaced whole, and `api/` is overlaid so `api/config.php` survives.
    Anything else in public_html is never deleted, including the private list folder, `.well-known` and `cgi-bin`.
 
+## Demos become /work/
+
+The build moves every demo from /demos/<x>/ to /work/<x>/ (`tools/build-work.mjs`) and 301s the old addresses. Only demos marked `"grade": "A+"` in hub/data.json are indexed, with a self canonical and a sitemap entry; the rest stay noindex. Each demo's business schema is replaced by a CreativeWork page and breadcrumb, its notice bar reads "Sample design for a fictional business", and it ends with a short case study linking its trade's subdomain. /work/ lists the indexed demos by trade. The GitHub Pages copies are not changed and stay noindex.
+
 ## Rolling back
 Every real run first saves `~/site-backups/public_html-YYYYMMDD-HHMMSS.tar.gz` (the last 10 are kept). To restore one, in
 cPanel **Terminal**:
