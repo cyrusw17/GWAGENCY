@@ -83,15 +83,16 @@
       "#gw-consent button{flex:1 1 120px;min-height:44px;padding:10px 14px;border-radius:7px;border:1.5px solid #1d1d1b;" +
       "font:600 15px/1 system-ui,-apple-system,'Segoe UI',sans-serif;cursor:pointer;background:#fffdf8;color:#1d1d1b}" +
       "#gw-consent button:focus-visible{outline:3px solid #2f6fdf;outline-offset:2px}" +
-      "#gw-consent .gpc{font-size:13px;color:#55524b;margin:10px 0 0}";
+      "#gw-consent .gpc{font-size:13px;color:#55524b;margin:10px 0 0}" +
+      "@media (max-width:560px){#gw-consent{left:8px;right:8px;padding:10px 12px;font-size:14px}#gw-consent p{margin-bottom:8px}" +
+      "#gw-consent button{min-height:44px;padding:8px 10px;font-size:14px}}";
     document.head.appendChild(css);
     var d = document.createElement("div");
     d.id = "gw-consent";
     d.setAttribute("role", "region");
     d.setAttribute("aria-label", "Cookie choice");
     d.innerHTML =
-      "<p><strong>Can we count your visit?</strong> With your OK we use a few first-party cookies to see which pages and links are useful. " +
-      "No ads, nothing sold or shared. <a href=\"/privacy/#cookies\">Details</a></p>" +
+      "<p><strong>Can we count your visit</strong> with a few first-party cookies? No ads, nothing sold or shared. <a href=\"/privacy/#cookies\">Details</a></p>" +
       "<div class=\"r\"><button type=\"button\" data-c=\"1\">Allow</button><button type=\"button\" data-c=\"0\">No thanks</button></div>" +
       (gpc ? "<p class=\"gpc\">Your browser sends a privacy signal (Global Privacy Control or Do Not Track), so we record nothing whatever you pick here.</p>" : "");
     d.addEventListener("click", function (e) {
@@ -99,6 +100,16 @@
       if (b) choose(b.getAttribute("data-c") === "1");
     });
     document.body.appendChild(d);
+    // Sit above any sticky bottom bar (Call | Text | Start) so its buttons stay tappable.
+    var lift = 0;
+    Array.prototype.forEach.call(document.querySelectorAll("body *"), function (el) {
+      if (el === d || d.contains(el)) return;
+      var cs = getComputedStyle(el);
+      if (cs.position !== "fixed" || cs.display === "none" || cs.visibility === "hidden") return;
+      var r = el.getBoundingClientRect();
+      if (r.height > 0 && r.height < window.innerHeight / 3 && Math.abs(r.bottom - window.innerHeight) < 2) lift = Math.max(lift, r.height);
+    });
+    if (lift) d.style.bottom = (lift + 8) + "px";
     if (reopen) d.querySelector("button").focus();
   }
 

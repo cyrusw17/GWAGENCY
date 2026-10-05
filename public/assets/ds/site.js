@@ -114,7 +114,11 @@
         return;
       }
       var data = Object.fromEntries(new FormData(form).entries());
-      data.attribution = JSON.stringify(window.gwAttr || {});
+      // Where this lead came from: the campaign tags carried through links, the form's page, and the
+      // referring site when the visitor landed straight on the form page. Sent with the form they chose to send.
+      var src = Object.assign({}, window.gwAttr || {}, { page: location.host + location.pathname });
+      try { var rh = document.referrer ? new URL(document.referrer).hostname : ""; if (rh && !/(^|\.)groundwork-web\.com$/.test(rh) && rh !== location.hostname) src.ref = rh; } catch (_) {}
+      data.attribution = JSON.stringify(src);
       data.page = location.pathname;
       data.form = form.dataset.gwForm;
       var submit = form.querySelector("button[type=submit]");

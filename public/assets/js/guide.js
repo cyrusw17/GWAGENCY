@@ -21,7 +21,7 @@
       say("Sending...");
       var G = window.GW || {}, data = {
         form: "guide", guide: form.getAttribute("data-guide"), email: email.value.trim(), shop: shop.value.trim(),
-        links: site ? site.value.trim() : "", attribution: (location.pathname + location.search).slice(0, 500),
+        links: site ? site.value.trim() : "", attribution: (location.host + location.pathname + location.search).slice(0, 500),
         company_url: form.elements.company_url ? form.elements.company_url.value : ""
       };
       if (G.formEndpoint) {

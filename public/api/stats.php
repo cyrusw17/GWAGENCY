@@ -66,7 +66,7 @@ $clicks  = $q("SELECT target, label, host, path AS from_page, COUNT(*) n FROM ev
 $ctas    = $q("SELECT label, target, COUNT(*) n FROM events WHERE $ctaWhere AND ts>=? GROUP BY label, target ORDER BY n DESC LIMIT 30", $S);
 $ui      = $q("SELECT host, path, label, COUNT(*) n FROM events WHERE type='ui' AND ts>=? GROUP BY host,path,label ORDER BY n DESC", $S);
 $submits = $q("SELECT label, COUNT(*) n FROM events WHERE type='submit' AND ts>=? GROUP BY label ORDER BY n DESC", $S);
-$camps   = $q("SELECT utm_source s, utm_medium m, utm_campaign c, COUNT(DISTINCT sid) v, SUM(type='pageview') n FROM events WHERE (utm_source<>'' OR utm_campaign<>'') AND ts>=? GROUP BY s,m,c ORDER BY v DESC LIMIT 30", $S);
+$camps   = $q("SELECT utm_source s, utm_medium m, utm_campaign c, COUNT(DISTINCT sid) v, SUM(type='pageview') n, COUNT(DISTINCT CASE WHEN type='submit' THEN sid END) f FROM events WHERE (utm_source<>'' OR utm_campaign<>'') AND ts>=? GROUP BY s,m,c ORDER BY v DESC LIMIT 30", $S);
 $demos   = $q("SELECT demo, COUNT(*) n FROM events WHERE demo<>'' AND ts>=? GROUP BY demo ORDER BY n DESC", $S);
 $devices = $q("SELECT device, COUNT(DISTINCT sid) n FROM events WHERE device<>'' AND sid<>'' AND ts>=? GROUP BY device ORDER BY n DESC", $S);
 // The first page of each visit: where they came from and where they landed.
@@ -97,10 +97,11 @@ foreach ($entries as $r) {
     $channels[$c]['v'] = ($channels[$c]['v'] ?? 0) + 1;
     $channels[$c]['c'] = ($channels[$c]['c'] ?? 0) + (int)$r['conv'];
     $k = $r['host'] . $r['path'];
-    $landing[$k] = ($landing[$k] ?? 0) + 1;
+    $landing[$k]['v'] = ($landing[$k]['v'] ?? 0) + 1;
+    $landing[$k]['c'] = ($landing[$k]['c'] ?? 0) + (int)$r['conv'];
     if ($r['ref'] !== '') $refs[$r['ref']] = ($refs[$r['ref']] ?? 0) + 1;
 }
-uasort($channels, fn($a, $b) => $b['v'] <=> $a['v']); arsort($landing); arsort($refs);
+uasort($channels, fn($a, $b) => $b['v'] <=> $a['v']); uasort($landing, fn($a, $b) => $b['v'] <=> $a['v']); arsort($refs);
 $sections = []; $hosts = [];
 foreach ($pagesRaw as $r) {
     $s = gw_section($r['host'], $r['path']);
@@ -111,6 +112,22 @@ foreach ($pagesRaw as $r) {
 arsort($sections); arsort($hosts);
 $pages = array_slice($pagesRaw, 0, 40);
 
+// Lead source comes from the form itself (UTM tags, form page, outside referrer), so it is
+// there even for visitors who said no to analytics cookies.
+function gw_lead_source(array $l): string {
+    $a = (string)($l['attribution'] ?? '');
+    $j = json_decode($a, true);
+    if (!is_array($j)) {                       // checklist forms send the page address
+        $u = parse_url(str_contains($a, '://') ? $a : 'https://' . ltrim($a, '/'));
+        parse_str($u['query'] ?? '', $j);
+        $j['page'] = ($u['host'] ?? '') . ($u['path'] ?? '');
+    }
+    $tag = trim(implode(' / ', array_filter([$j['utm_source'] ?? '', $j['utm_campaign'] ?? ''])));
+    $from = $tag !== '' ? $tag : (!empty($j['ref']) ? $j['ref'] : 'no tag');
+    $page = preg_replace('/^(www\.)?groundwork-web\.com/', '', (string)($j['page'] ?? ''));
+    $demo = !empty($l['demo']) ? ' · demo ' . $l['demo'] : '';
+    return $from . ($page !== '' ? ' · on ' . $page : '') . $demo;
+}
 $hasLeads = (bool)$q("SELECT 1 FROM sqlite_master WHERE type='table' AND name='leads'");
 $leads = $hasLeads ? $q("SELECT * FROM leads WHERE ts>=? ORDER BY ts DESC LIMIT 50", $S) : [];
 
@@ -147,6 +164,8 @@ td.u{word-break:break-all}
 .chart svg{display:block;width:100%;height:160px}.chart rect{fill:#E5A00D}.chart rect:hover{fill:#F4C55A}
 .chart .ax{display:flex;justify-content:space-between;color:var(--mute);font-size:12px;margin-top:6px}
 .empty{color:var(--mute);font-style:italic}
+p.sub{color:var(--mute);font-size:14px;margin:-6px 0 12px}
+.toggle{margin-top:10px;background:none;border:1px solid var(--steel);color:var(--bone);border-radius:7px;padding:10px 14px;font:inherit;cursor:pointer;min-height:44px}
 p.note{color:var(--mute);font-size:13px;margin-top:40px;max-width:70ch}
 </style></head><body>
 <div class="bar"><h1>GroundWork analytics <span>Opted-in visitors only · first-party · nothing shared</span></h1><a href="?logout=1">Sign out</a></div>
@@ -173,19 +192,6 @@ p.note{color:var(--mute);font-size:13px;margin-top:40px;max-width:70ch}
 <?php endif; ?>
 </div>
 
-<h2>Leads (<?= count($leads) ?>)</h2>
-<div class="wrap"><table><tr><th>When (UTC)</th><th>Form</th><th>Business</th><th>Contact</th><th>Plan</th><th>Demo</th><th>Notes</th></tr>
-<?php if (!$leads): ?><tr><td colspan="7" class="empty">No submissions yet.</td></tr><?php endif; ?>
-<?php foreach ($leads as $l): ?><tr>
-  <td><?= gmdate('M j, g:ia', (int)$l['ts']) ?></td>
-  <td><?= $l['form'] === 'start' ? '<b style="color:var(--signal)">BUILD</b>' : $h(ucfirst($l['form'])) ?></td>
-  <td><?= $h($l['shop']) ?><br><small style="color:var(--mute)"><?= $h($l['city']) ?> · <?= $h($l['type']) ?></small></td>
-  <td><?= $h($l['name']) ?><br><small><a style="color:var(--bone)" href="mailto:<?= $h($l['email']) ?>"><?= $h($l['email']) ?></a> <?= $h($l['phone']) ?></small></td>
-  <td><?= $h(strtoupper((string)$l['plan'])) ?></td>
-  <td><?= $h($l['demo']) ?></td>
-  <td style="max-width:320px"><small><?= $h($l['notes'] ?? '') ?><?= !empty($l['times']) ? ' · Times: ' . $h($l['times']) : '' ?><?= !empty($l['links']) ? '<br>' . $h($l['links']) : '' ?></small></td>
-</tr><?php endforeach; ?></table></div>
-
 <div class="grid">
 <section><h2>Where visits came from</h2>
 <div class="wrap"><table><tr><th>Channel</th><th>Visits</th><th>Sent a form</th></tr>
@@ -198,10 +204,23 @@ p.note{color:var(--mute);font-size:13px;margin-top:40px;max-width:70ch}
 <?php foreach (array_slice($refs, 0, 20, true) as $r => $n): ?><tr><td class="u"><?= $h($r) ?></td><td class="n"><?= $n ?></td></tr><?php endforeach; ?></table></div></section>
 </div>
 
+<h2>Leads (<?= count($leads) ?>)</h2>
+<div class="wrap"><table><tr><th>When (UTC)</th><th>Form</th><th>Business</th><th>Contact</th><th>Source</th><th>Plan</th><th>Notes</th></tr>
+<?php if (!$leads): ?><tr><td colspan="7" class="empty">No submissions yet.</td></tr><?php endif; ?>
+<?php foreach ($leads as $l): ?><tr>
+  <td><?= gmdate('M j, g:ia', (int)$l['ts']) ?></td>
+  <td><?= $l['form'] === 'start' ? '<b style="color:var(--signal)">BUILD</b>' : $h(ucfirst($l['form'])) ?></td>
+  <td><?= $h($l['shop']) ?><br><small style="color:var(--mute)"><?= $h($l['city']) ?> · <?= $h($l['type']) ?></small></td>
+  <td><?= $h($l['name']) ?><br><small><a style="color:var(--bone)" href="mailto:<?= $h($l['email']) ?>"><?= $h($l['email']) ?></a> <?= $h($l['phone']) ?></small></td>
+  <td class="u"><?= $h(gw_lead_source($l)) ?></td>
+  <td><?= $h(strtoupper((string)$l['plan'])) ?></td>
+  <td style="max-width:320px"><small><?= $h($l['notes'] ?? '') ?><?= !empty($l['times']) ? ' · Times: ' . $h($l['times']) : '' ?><?= !empty($l['links']) ? '<br>' . $h($l['links']) : '' ?></small></td>
+</tr><?php endforeach; ?></table></div>
+
 <h2>Campaigns (UTM tags)</h2>
-<div class="wrap"><table><tr><th>Source</th><th>Medium</th><th>Campaign</th><th>Visits</th><th>Views</th></tr>
-<?php if (!$camps): ?><tr><td colspan="5" class="empty">Tag cold-email links like ?utm_source=email&amp;utm_campaign=tx1 to see them here.</td></tr><?php endif; ?>
-<?php foreach ($camps as $r): ?><tr><td><?= $h($r['s']) ?></td><td><?= $h($r['m']) ?></td><td><?= $h($r['c']) ?></td><td class="n"><?= $r['v'] ?></td><td class="n"><?= $r['n'] ?></td></tr><?php endforeach; ?></table></div>
+<div class="wrap"><table><tr><th>Source</th><th>Medium</th><th>Campaign</th><th>Visits</th><th>Views</th><th>Sent a form</th></tr>
+<?php if (!$camps): ?><tr><td colspan="6" class="empty">Tag cold-email links like ?utm_source=email&amp;utm_campaign=tx1 to see them here.</td></tr><?php endif; ?>
+<?php foreach ($camps as $r): ?><tr><td><?= $h($r['s']) ?></td><td><?= $h($r['m']) ?></td><td><?= $h($r['c']) ?></td><td class="n"><?= $r['v'] ?></td><td class="n"><?= $r['n'] ?></td><td class="n"><?= $r['f'] ?></td></tr><?php endforeach; ?></table></div>
 
 <div class="grid">
 <section><h2>Views by part of the site</h2>
@@ -216,18 +235,17 @@ p.note{color:var(--mute);font-size:13px;margin-top:40px;max-width:70ch}
 </div>
 
 <h2>Funnel (visits)</h2>
+<p class="sub">Forms also sit on the blogs and selling pages, so a visit can send one without a CTA click.</p>
 <?php
 $fn = $one("SELECT
     COUNT(DISTINCT CASE WHEN sid<>'' THEN sid END) visits,
     COUNT(DISTINCT CASE WHEN type='click' AND ($ctaWhere) THEN sid END) clicked_cta,
-    COUNT(DISTINCT CASE WHEN type='pageview' AND (path IN ('/audit/','/start/','/site-check/')) THEN sid END) reached_form,
     COUNT(DISTINCT CASE WHEN type='submit' THEN sid END) submitted
   FROM events WHERE sid<>'' AND ts>=?", $S);
 ?>
 <div class="funnel">
   <div><b><?= (int)$fn['visits'] ?></b><small>Visits</small></div>
   <div><b><?= (int)$fn['clicked_cta'] ?></b><small>Clicked a CTA · <?= $pct($fn['clicked_cta'], $fn['visits']) ?></small></div>
-  <div><b><?= (int)$fn['reached_form'] ?></b><small>Opened start, audit or site check · <?= $pct($fn['reached_form'], $fn['visits']) ?></small></div>
   <div><b><?= (int)$fn['submitted'] ?></b><small>Sent a form · <?= $pct($fn['submitted'], $fn['visits']) ?></small></div>
 </div>
 
@@ -245,9 +263,9 @@ $fn = $one("SELECT
 
 <div class="grid">
 <section><h2>Landing pages</h2>
-<div class="wrap"><table><tr><th>First page of the visit</th><th>Visits</th></tr>
-<?php if (!$landing): ?><tr><td colspan="2" class="empty">None yet.</td></tr><?php endif; ?>
-<?php foreach (array_slice($landing, 0, 20, true) as $p => $n): ?><tr><td class="u"><?= $h(preg_replace('/^(www\.)?groundwork-web\.com/', '', $p)) ?></td><td class="n"><?= $n ?></td></tr><?php endforeach; ?></table></div></section>
+<div class="wrap"><table><tr><th>First page of the visit</th><th>Visits</th><th>Sent a form</th></tr>
+<?php if (!$landing): ?><tr><td colspan="3" class="empty">None yet.</td></tr><?php endif; ?>
+<?php foreach (array_slice($landing, 0, 20, true) as $p => $r): ?><tr><td class="u"><?= $h(preg_replace('/^(www\.)?groundwork-web\.com/', '', $p)) ?></td><td class="n"><?= $r['v'] ?></td><td class="n"><?= $r['c'] ?> · <?= $pct($r['c'], $r['v']) ?></td></tr><?php endforeach; ?></table></div></section>
 
 <section><h2>All pages</h2>
 <div class="wrap"><table><tr><th>Page</th><th>Views</th><th>Visitors</th></tr>
@@ -258,7 +276,8 @@ $fn = $one("SELECT
 <h2>Every link clicked</h2>
 <div class="wrap"><table><tr><th>Goes to</th><th>Link text</th><th>On page</th><th>Clicks</th></tr>
 <?php if (!$clicks): ?><tr><td colspan="4" class="empty">No clicks yet.</td></tr><?php endif; ?>
-<?php foreach ($clicks as $r): ?><tr><td class="u"><?= $h($r['target']) ?></td><td><?= $h($r['label']) ?></td><td class="u"><?= $h($where(['host' => $r['host'], 'path' => $r['from_page']])) ?></td><td class="n"><?= $r['n'] ?></td></tr><?php endforeach; ?></table></div>
+<?php foreach ($clicks as $i => $r): ?><tr<?= $i >= 15 ? ' class="more" hidden' : '' ?>><td class="u"><?= $h($r['target']) ?></td><td><?= $h($r['label']) ?></td><td class="u"><?= $h($where(['host' => $r['host'], 'path' => $r['from_page']])) ?></td><td class="n"><?= $r['n'] ?></td></tr><?php endforeach; ?></table></div>
+<?php if (count($clicks) > 15): ?><button type="button" class="toggle" onclick="document.querySelectorAll('tr.more').forEach(function(t){t.hidden=false});this.remove()">Show all <?= count($clicks) ?> links</button><?php endif; ?>
 
 <div class="grid">
 <section><h2>Interactions (price picker, slider, sample booking)</h2>
