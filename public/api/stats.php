@@ -23,7 +23,18 @@ $self = strtok($_SERVER['REQUEST_URI'] ?? '/api/stats.php', '?');
 if (isset($_GET['logout'])) { $cookie('', 0); header('Location: ' . $self); exit; }
 $given = (string)($_POST['key'] ?? $_GET['key'] ?? '');
 if ($given !== '') {
-    if (!hash_equals(GW_STATS_KEY, $given)) { usleep(400000); http_response_code(403); $bad = true; }
+    // Rate limit: 10 wrong keys per hour per address (address kept only as a salted hash, for one hour).
+    $who = hash('sha256', gw_secret() . ($_SERVER['REMOTE_ADDR'] ?? ''));
+    $ff = GW_DATA_DIR . '/login-fails.json';
+    $fails = is_file($ff) ? (json_decode((string)file_get_contents($ff), true) ?: []) : [];
+    $fails = array_map(fn($l) => array_values(array_filter($l, fn($t) => $t > time() - 3600)), $fails);
+    $fails = array_filter($fails);
+    if (count($fails[$who] ?? []) >= 10) { http_response_code(429); echo 'Too many tries. Wait an hour.'; exit; }
+    if (!hash_equals(GW_STATS_KEY, $given)) {
+        $fails[$who][] = time();
+        file_put_contents($ff, json_encode($fails), LOCK_EX);
+        usleep(400000); http_response_code(403); $bad = true;
+    }
     else { $cookie($token, 30 * 86400); header('Location: ' . $self . (isset($_GET['days']) ? '?days=' . (int)$_GET['days'] : '')); exit; }
 }
 if (!hash_equals($token, (string)($_COOKIE['gw_admin'] ?? ''))) {

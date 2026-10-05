@@ -53,6 +53,9 @@ $w      = (int)($in['w'] ?? 0);
 $device = $w <= 0 ? '' : ($w < 700 ? 'mobile' : ($w < 1100 ? 'tablet' : 'desktop'));
 
 $host  = gw_own_host();
+// Local test servers and previews never land in the live numbers.
+if ($host === '' || $host === 'localhost' || str_starts_with($host, '127.') || $host === '[::1]' || str_ends_with($host, '.local')) { http_response_code(204); exit; }
+$host  = mb_substr($host, 0, 100);
 $entry = !empty($in['newvisit']) ? 1 : 0;
 
 $db = gw_db();

@@ -92,7 +92,7 @@
     d.setAttribute("role", "region");
     d.setAttribute("aria-label", "Cookie choice");
     d.innerHTML =
-      "<p><strong>Can we count your visit</strong> with a few first-party cookies? No ads, nothing sold or shared. <a href=\"/privacy/#cookies\">Details</a></p>" +
+      "<p><strong>Can we count your visit?</strong> We use a few first-party cookies. No ads, nothing sold or shared. <a href=\"/privacy/#cookies\">Details</a></p>" +
       "<div class=\"r\"><button type=\"button\" data-c=\"1\">Allow</button><button type=\"button\" data-c=\"0\">No thanks</button></div>" +
       (gpc ? "<p class=\"gpc\">Your browser sends a privacy signal (Global Privacy Control or Do Not Track), so we record nothing whatever you pick here.</p>" : "");
     d.addEventListener("click", function (e) {
