@@ -44,7 +44,7 @@
   };
   function esc(s) { return s.replace(/[&<>"]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]; }); }
   function render() {
-    var t = esc(town.value.trim() || "Your Town, TX"), c = esc((town.value.split(",")[0] || "").trim() || "town");
+    var v = town.value.trim() || town.placeholder, t = esc(v), c = esc(v.split(",")[0].trim() || v);
     var k = copy[trade.value], m = function (s) { return s.replace(/\{t\}/g, "<mark>" + t + "</mark>").replace(/\{c\}/g, "<mark>" + c + "</mark>"); };
     T.innerHTML = m(k[0]) + (trade.value === "re" ? "" : " | Your Business");
     D.innerHTML = m(k[1]);

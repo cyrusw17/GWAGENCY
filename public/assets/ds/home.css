@@ -182,3 +182,4 @@ body.home h1,body.home h2{text-transform:none}
 .serp-title{min-height:calc(1.3em * 3)}
 .serp-desc{min-height:calc(1.45em * 4)}
 @media (min-width:560px){.serp-title{min-height:calc(1.3em * 2)}.serp-desc{min-height:calc(1.45em * 3)}}
+.serp-in input::placeholder{color:var(--ink-3);opacity:1}
