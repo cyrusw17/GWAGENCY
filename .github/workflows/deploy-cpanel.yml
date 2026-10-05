@@ -1,0 +1,64 @@
+# Puts groundwork-web.com live on the cPanel host. Manual only: Actions > Deploy to cPanel > Run.
+# Builds _cpanel/ (tools/build-cpanel.mjs), pushes it to the "cpanel" branch, then has cPanel pull
+# and deploy it (tools/cpanel/publish.sh). Needs repo secrets CPANEL_HOST, CPANEL_USER, CPANEL_TOKEN.
+name: Deploy to cPanel
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would change in public_html (nothing is changed)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-cpanel
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/build-cpanel.mjs
+      - name: Dry run (lists what would change, changes nothing)
+        if: inputs.dry_run
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_TOKEN: ${{ secrets.CPANEL_TOKEN }}
+        run: tools/cpanel/dry-run.sh
+      - name: Push _cpanel to the cpanel branch
+        if: ${{ !inputs.dry_run }}
+        working-directory: _cpanel
+        run: |
+          # Commit on top of the existing branch (no force push), so cPanel can pull it fast-forward.
+          git init -q -b cpanel
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          if git fetch -q --depth 1 origin cpanel; then git reset -q --soft FETCH_HEAD; fi
+          git add -A
+          git commit -q --allow-empty -m "cPanel build from ${GITHUB_SHA::7}"
+          git push origin cpanel
+      - name: Deploy on cPanel
+        if: ${{ !inputs.dry_run }}
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_TOKEN: ${{ secrets.CPANEL_TOKEN }}
+          REPO_URL: https://github.com/${{ github.repository }}.git
+        run: tools/cpanel/publish.sh
+      - name: Check the live pages
+        if: ${{ !inputs.dry_run }}
+        run: |
+          for u in https://groundwork-web.com/ $(sed 's#.*#https://&.groundwork-web.com/#' _cpanel/subdomains.txt); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$u" || true)
+            echo "$code $u"
+          done
