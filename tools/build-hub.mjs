@@ -229,7 +229,7 @@ html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => {
 writeFileSync(join(out, "index.html"), html);
 writeFileSync(join(out, "nav.json"), JSON.stringify(nav));
 cpSync(join(root, "hub", "hub.css"), join(out, "assets", "hub.css"));
-for (const f of ["oswald-600", "oswald-700", "source-sans-400", "source-sans-600"]) cpSync(join(root, "public", "assets", "fonts", `${f}.woff2`), join(out, "assets", "fonts", `${f}.woff2`));
+for (const f of ["bricolage-grotesque-latin-800-normal", "hanken-grotesk-latin-400-normal", "hanken-grotesk-latin-600-normal", "ibm-plex-mono-latin-400-normal"]) cpSync(join(root, "public", "assets", "fonts", `${f}.woff2`), join(out, "assets", "fonts", `${f}.woff2`));
 // Keep the hub and every demo out of search engines.
 writeFileSync(join(out, "robots.txt"), "User-agent: *\nDisallow: /\n");
 writeFileSync(join(out, ".nojekyll"), "");

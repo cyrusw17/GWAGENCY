@@ -414,3 +414,5 @@ body:not(.home) .cmp .us{background:var(--accent-soft)}
 body:not(.home) .form input,body:not(.home) .form select,body:not(.home) .form textarea{border:2px solid var(--line-2);border-radius:6px}
 body:not(.home) .form :is(input,select,textarea):focus-visible{outline-color:var(--mark);border-color:var(--ink)}
 body:not(.home) .radio-card:has(input:checked){border-color:var(--paint);box-shadow:4px 4px 0 var(--paint)}
+body:not(.home) .site-header .btn{white-space:nowrap}
+@media (max-width:420px){body:not(.home) .logo{font-size:1rem}body:not(.home) .header-end{gap:8px}body:not(.home) .menu-btn{padding:0 10px}}
