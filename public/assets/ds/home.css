@@ -162,24 +162,19 @@ body.home h1,body.home h2{text-transform:none}
 .ledger li.total{border-top:2px solid var(--bg);border-bottom:none;margin-top:10px}
 .home .bar{transition:transform .2s}
 .home .bar.off{transform:translateY(110%);visibility:hidden}
-/* Hero option: live search-result preview. The job: show an owner their trade + town as the page title Google reads. */
-.serp-try{margin-top:26px;border:2px solid var(--ink);border-radius:8px;background:var(--card);padding:14px;box-shadow:5px 5px 0 var(--mark)}
-.serp-h{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-3);margin:0 0 10px}
-.serp-in{display:grid;grid-template-columns:1fr;gap:4px 10px}
-.serp-in label{font-weight:600;font-size:.85rem}
-.serp-in select,.serp-in input{min-height:44px;font:400 1rem var(--font-body);color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:6px;padding:6px 10px;margin-bottom:6px;width:100%;box-sizing:border-box}
-.serp-in select:focus-visible,.serp-in input:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
-.serp{border-top:1px dashed var(--line-2);margin-top:6px;padding-top:12px}
-.serp p{margin:0}
-.serp-url{font-size:.85rem;color:var(--ink-2);display:flex;align-items:center;gap:8px}
-.serp-ico{width:18px;height:18px;border-radius:50%;background:var(--paint)}
-.serp-title{font-size:1.15rem;line-height:1.3;color:var(--link-blue,#1A4DB8);margin:4px 0 !important}
-.serp-desc{font-size:.92rem;line-height:1.45;color:var(--ink-2)}
-.serp-title mark,.serp-desc mark{background:color-mix(in srgb,var(--paint) 22%,transparent);color:inherit;padding:0 2px}
-@media (prefers-color-scheme:dark){body.home{--link-blue:#8AB4F8}}
-@media (min-width:560px){.serp-in{grid-template-columns:auto 1fr;align-items:center}.serp-in select,.serp-in input{margin:0 0 6px}}
-/* Reserve room so typing a longer town never pushes the page around (CLS 0). */
-.serp-title{min-height:calc(1.3em * 3)}
-.serp-desc{min-height:calc(1.45em * 4)}
-@media (min-width:560px){.serp-title{min-height:calc(1.3em * 2)}.serp-desc{min-height:calc(1.45em * 3)}}
-.serp-in input::placeholder{color:var(--ink-3);opacity:1}
+/* Hero visual: three real sample sites in 3D. Tilt follows the finger or mouse; tapping one brings it forward and opens that trade below. */
+.fan-wrap{margin-top:22px}
+.fan-stage{height:330px;perspective:900px;display:grid;place-items:center;touch-action:pan-y;overflow:hidden;margin:0 -16px}
+.fan{position:relative;width:150px;height:292px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.fan-ph{position:absolute;inset:0;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 18px 30px -18px rgba(0,0,0,.45);cursor:pointer;padding:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.fan-ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.fan-ph:nth-child(1){transform:translateX(-92px) translateZ(-40px) rotateY(28deg)}
+.fan-ph:nth-child(2){transform:translateZ(60px)}
+.fan-ph:nth-child(3){transform:translateX(92px) translateZ(-40px) rotateY(-28deg)}
+.fan-chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.fan-chip{min-height:44px;padding:4px 12px;border:2px solid var(--ink);border-radius:6px;background:var(--card);color:var(--ink);font:600 .88rem var(--font-body);cursor:pointer}
+.fan-chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.fan-chip:focus-visible,.fan-ph:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+.fan-cap{font:400 .72rem var(--font-mono);color:var(--ink-3);text-align:center;margin:8px 0 0}
+@media (min-width:768px){.fan-stage{margin:0}}
+@media (prefers-reduced-motion:no-preference){.fan.idle{animation:fan-bob 5s ease-in-out infinite}@keyframes fan-bob{50%{transform:rotateX(4deg) rotateY(-6deg) translateY(-6px)}}}

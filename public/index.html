@@ -60,22 +60,21 @@
     <a class="text-link" href="/site-check/">Check my site free</a>
     <small>You see the finished site before you pay the rest. <a href="/before-you-pay/">How the preview and refund work</a>.</small>
   </div>
-  <form class="serp-try" id="serp-try" aria-labelledby="serp-h" onsubmit="return false">
-    <p class="serp-h" id="serp-h">Try it: how your page could read in a search result. Sample wording; we write yours from your real services and prices. Nobody can promise a ranking.</p>
-    <div class="serp-in">
-      <label for="serp-trade">Trade</label>
-      <select id="serp-trade">
-        <option value="detail">Auto detailing</option><option value="ext">Pressure washing</option><option value="lawn">Lawn care</option><option value="comm">Commercial cleaning</option><option value="re">Real estate</option>
-      </select>
-      <label for="serp-town">Your town</label>
-      <input id="serp-town" type="text" placeholder="Pasadena, TX" maxlength="32" autocomplete="address-level2">
+  <div class="fan-wrap" aria-label="Sample sites">
+    <div class="fan-stage" id="fan-stage">
+      <div class="fan idle" id="fan">
+        <button class="fan-ph" type="button" data-i="0" data-tab="t-detail" aria-label="Detailing sample site"><img src="/assets/img/home/ramirez-mobile.webp" alt="" width="520" height="1013" loading="lazy"></button>
+        <button class="fan-ph" type="button" data-i="1" data-tab="t-ext" aria-label="Pressure washing sample site"><img src="/assets/img/home/haint-blue.webp" alt="" width="520" height="1013"></button>
+        <button class="fan-ph" type="button" data-i="2" data-tab="t-lawn" aria-label="Lawn care sample site"><img src="/assets/img/home/pruitt-lawn.webp" alt="" width="520" height="1013" loading="lazy"></button>
+      </div>
     </div>
-    <div class="serp" aria-live="polite">
-      <p class="serp-url"><span class="serp-ico" aria-hidden="true"></span>yourbusiness.com</p>
-      <p class="serp-title" id="serp-title">Mobile Car Detailing in Pasadena, TX | Your Business</p>
-      <p class="serp-desc" id="serp-desc">Prices by vehicle size, packages spelled out and booking from your phone. We come to you anywhere in Pasadena.</p>
+    <div class="fan-chips" role="group" aria-label="Show a sample site">
+      <button class="fan-chip" type="button" data-i="0" aria-pressed="false">Detailing</button>
+      <button class="fan-chip" type="button" data-i="1" aria-pressed="true">Pressure washing</button>
+      <button class="fan-chip" type="button" data-i="2" aria-pressed="false">Lawn care</button>
     </div>
-  </form>
+    <p class="fan-cap">Sample sites for fictional businesses</p>
+  </div>
 </section>
 
 <section class="h-picker" id="trades" aria-labelledby="trades-h">

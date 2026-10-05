@@ -30,27 +30,30 @@
   if (!hero || !bar || !("IntersectionObserver" in window)) return;
   new IntersectionObserver(function (e) { bar.classList.toggle("off", e[0].isIntersecting); }).observe(hero);
 })();
-/* Hero option: live search-result preview. Changing the trade also opens that trade's work order below. */
+/* Hero visual: the 3D fan of sample sites. Tilt is decoration only; picking a site also opens that trade's work order. */
 (function () {
-  var trade = document.getElementById("serp-trade"), town = document.getElementById("serp-town");
-  if (!trade || !town) return;
-  var T = document.getElementById("serp-title"), D = document.getElementById("serp-desc");
-  var copy = {
-    detail: ["Mobile Car Detailing in {t}", "Prices by vehicle size, packages spelled out and booking from your phone. We come to you anywhere in {c}."],
-    ext: ["Pressure Washing and Soft Washing in {t}", "Send two photos and get a price without a visit. House, roof, driveway and fence cleaning in {c}."],
-    lawn: ["Weekly Lawn Mowing in {t}", "Weekly and every-other-week mowing, edging and cleanups. See if your street is on our {c} route."],
-    comm: ["Office and Commercial Cleaning in {t}", "After-hours cleaning to a written scope. Insured, checklist-based and ready for a walkthrough in {c}."],
-    re: ["{c} Real Estate Agent | Homes for Sale in {t}", "Current listings, how I work with buyers and sellers, and a direct line to me, not a portal."]
-  };
-  function esc(s) { return s.replace(/[&<>"]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]; }); }
-  function render() {
-    var v = town.value.trim() || town.placeholder, t = esc(v), c = esc(v.split(",")[0].trim() || v);
-    var k = copy[trade.value], m = function (s) { return s.replace(/\{t\}/g, "<mark>" + t + "</mark>").replace(/\{c\}/g, "<mark>" + c + "</mark>"); };
-    T.innerHTML = m(k[0]) + (trade.value === "re" ? "" : " | Your Business");
-    D.innerHTML = m(k[1]);
+  var fan = document.getElementById("fan"), stage = document.getElementById("fan-stage");
+  if (!fan) return;
+  var phs = [].slice.call(fan.querySelectorAll(".fan-ph")), chips = [].slice.call(document.querySelectorAll(".fan-chip")), front = 1;
+  function lay() {
+    phs.forEach(function (p, i) {
+      var d = (((i - front) % 3) + 3) % 3; d = d === 2 ? -1 : d;
+      p.style.transform = "translateX(" + d * 92 + "px) translateZ(" + (d ? -40 : 60) + "px) rotateY(" + d * -28 + "deg)";
+    });
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", String(+c.dataset.i === front)); });
   }
-  var map = { detail: "t-detail", ext: "t-ext", lawn: "t-lawn", comm: "t-comm", re: "t-re" };
-  trade.addEventListener("change", function () { render(); var tab = document.getElementById(map[trade.value]); if (tab) tab.click(); });
-  town.addEventListener("input", render);
-  render();
+  function pick(i, sync) {
+    front = i; lay();
+    if (sync) { var t = document.getElementById(phs[i].dataset.tab); if (t) t.click(); }
+  }
+  phs.forEach(function (p) { p.addEventListener("click", function () { pick(+p.dataset.i, true); }); });
+  chips.forEach(function (c) { c.addEventListener("click", function () { pick(+c.dataset.i, true); }); });
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    stage.addEventListener("pointermove", function (e) {
+      var r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      fan.classList.remove("idle");
+      fan.style.transform = "rotateY(" + x * 24 + "deg) rotateX(" + -y * 14 + "deg)";
+    });
+    stage.addEventListener("pointerleave", function () { fan.style.transform = ""; fan.classList.add("idle"); });
+  }
 })();
