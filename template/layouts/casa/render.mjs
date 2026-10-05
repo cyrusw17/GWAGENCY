@@ -4,7 +4,7 @@
 // runs, reviews, the request form, FAQ and footer.
 // slides.js only adds behavior; without it the first photo shows and every listing shows.
 import { kit, esc, when, url } from "../_kit.mjs";
-import { agentForm, agentFooter, AGENT_CSS } from "../_agent.mjs";
+import { agentForm, agentFooter, AGENT_CSS, photo } from "../_agent.mjs";
 export const behavior = "funnel.js";
 export const scripts = ["slides.js"];
 
@@ -28,7 +28,7 @@ ${k.demoBar()}
 
 <main id="main">
 <section class="hero" aria-labelledby="h1">
-  <div class="slides" data-slides>${(h.slides || []).map((x, i) => `<figure class="slide${i ? "" : " on"}"><img src="${url(x.img)}" alt="${esc(x.alt)}" width="2400" height="1400" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async"><figcaption>${esc(x.cap || "")}</figcaption></figure>`).join("")}</div>
+  <div class="slides" data-slides>${(h.slides || []).map((x, i) => `<figure class="slide${i ? "" : " on"}"><img ${i ? photo(x.img).replace(/(src|srcset)=/g, "data-$1=") : photo(x.img)} alt="${esc(x.alt)}" width="2400" height="1400" ${i ? "" : 'fetchpriority="high"'} decoding="async"><figcaption>${esc(x.cap || "")}</figcaption></figure>`).join("")}</div>
   <div class="wrap hero-in">
     <div class="hero-copy">
       <h1 id="h1">${esc(h.headline)}</h1>
@@ -51,7 +51,7 @@ ${k.demoBar()}
     <p class="hello">${esc(tm.hello || "")}</p>
     <h2 id="team-h">${esc(tm.headline || "")}</h2>
     <p class="sub">${esc(tm.sub || "")}</p>
-    <div class="pair">${(tm.people || []).map(p => `<article class="person"><img src="${url(p.img)}" alt="${esc(p.alt)}" width="900" height="1100" loading="lazy" decoding="async"><h3>${esc(p.name)}</h3><p class="role">${esc(p.role)}</p><p>${esc(p.bio)}</p></article>`).join("")}</div>
+    <div class="pair">${(tm.people || []).map(p => `<article class="person"><img ${photo(p.img, "(min-width:760px) 50vw, 100vw")} alt="${esc(p.alt)}" width="900" height="1100" loading="lazy" decoding="async"><h3>${esc(p.name)}</h3><p class="role">${esc(p.role)}</p><p>${esc(p.bio)}</p></article>`).join("")}</div>
     ${when(tm.credit, `<p class="fine">${esc(tm.credit)}</p>`)}
   </div>
 </section>
@@ -59,13 +59,13 @@ ${k.demoBar()}
 <section class="homes wrap" id="homes" aria-labelledby="homes-h">
   <div class="sec-head"><h2 id="homes-h">${esc(L.headline || "Our homes")} ${when(k.demo, '<span class="sample-tag">(sample listings)</span>')}</h2>
     <div class="tabs" role="group" aria-label="Show">${["All", "For sale", "Sold"].map((t, i) => `<button type="button" data-tab="${t}" aria-pressed="${i ? "false" : "true"}">${t}</button>`).join("")}</div></div>
-  <ul class="grid">${(L.items || []).map(x => `<li data-status="${esc(x.status)}"><div class="pic"><img src="${url(x.img)}" alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><span class="badge ${x.status === "Sold" ? "sold" : ""}">${esc(x.status)}</span></div><p class="price">${usd(x.price)}</p><h3>${esc(x.street)}</h3><p class="meta">${esc(x.area)} · ${x.beds} bd · ${esc(String(x.baths))} ba · ${Number(x.sqft).toLocaleString("en-US")} sq ft</p>${when(x.status !== "Sold", k.book(x.street, "Schedule a showing", "go-link"))}</li>`).join("")}</ul>
+  <ul class="grid">${(L.items || []).map(x => `<li data-status="${esc(x.status)}"><div class="pic"><img ${photo(x.img, "(min-width:1000px) 380px, (min-width:640px) 50vw, 100vw")} alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><span class="badge ${x.status === "Sold" ? "sold" : ""}">${esc(x.status)}</span></div><p class="price">${usd(x.price)}</p><h3>${esc(x.street)}</h3><p class="meta">${esc(x.area)} · ${x.beds} bd · ${esc(String(x.baths))} ba · ${Number(x.sqft).toLocaleString("en-US")} sq ft</p>${when(x.status !== "Sold", k.book(x.street, "Schedule a showing", "go-link"))}</li>`).join("")}</ul>
   <p class="fine">${esc(L.fine || "")}</p>
 </section>
 
 <section class="inside" aria-labelledby="inside-h">
   <div class="wrap"><h2 id="inside-h">${esc(ins.headline || "")}</h2><p class="sub">${esc(ins.sub || "")}</p></div>
-  <ul class="band">${(ins.items || []).map(x => `<li><img src="${url(x.img)}" alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><p>${esc(x.cap)}</p></li>`).join("")}</ul>
+  <ul class="band">${(ins.items || []).map(x => `<li><img ${photo(x.img, "(min-width:760px) 50vw, 100vw")} alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><p>${esc(x.cap)}</p></li>`).join("")}</ul>
 </section>
 
 <section class="process wrap" id="process" aria-labelledby="proc-h">

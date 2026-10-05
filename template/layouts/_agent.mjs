@@ -1,7 +1,7 @@
 // Shared parts for real estate agent layouts: the 3-step request form with text consent, and
 // the footer an agent's advertising needs (brokerage, license number, Equal Housing statement).
 // Layouts style these with their own CSS. Every string goes through esc().
-import { esc, when } from "./_kit.mjs";
+import { esc, when, url } from "./_kit.mjs";
 
 export function agentForm(k, s, opts = {}) {
   const ld = s.lead || {}, areas = opts.areas || ld.areas || [];
@@ -93,3 +93,11 @@ legend{font:600 24px/1.2 var(--display);margin-bottom:14px;padding:0}
 .faq summary:after{content:"+";position:absolute;right:4px;top:12px;font-size:24px;color:var(--go)}
 .faq details[open] summary:after{content:"–"}
 .faq p{margin:0 0 16px;color:var(--muted)}`;
+
+// A stock photo as responsive WebP: "img/x.jpg" in site.json is served as img/x-800.webp and
+// img/x-1600.webp (made at import time). Anything else (an SVG illustration) passes through.
+export function photo(src, sizes = "100vw") {
+  if (!/\.jpg$/.test(src || "")) return `src="${url(src)}"`;
+  const b = src.replace(/\.jpg$/, "");
+  return `src="${url(b + "-1600.webp")}" srcset="${url(b + "-800.webp")} 800w, ${url(b + "-1600.webp")} 1600w" sizes="${sizes}"`;
+}

@@ -2,6 +2,12 @@
    home value card, which carries the address into the request form. */
 (function () {
   document.body.classList.remove("no-js");
+  // Slides 2+ wait until the page has loaded, so the first photo gets the bandwidth.
+  window.addEventListener("load", function () {
+    document.querySelectorAll("[data-slides] img[data-src]").forEach(function (im) {
+      if (im.dataset.srcset) im.srcset = im.dataset.srcset; im.src = im.dataset.src;
+    });
+  });
   var slides = document.querySelectorAll("[data-slides] .slide"), dots = document.querySelectorAll(".dots i"),
       pause = document.querySelector("[data-pause]"), i = 0, timer = null;
   function go(n) { slides[i].classList.remove("on"); if (dots[i]) dots[i].classList.remove("on"); i = n % slides.length; slides[i].classList.add("on"); if (dots[i]) dots[i].classList.add("on"); }

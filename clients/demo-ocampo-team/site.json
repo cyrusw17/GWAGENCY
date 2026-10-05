@@ -91,25 +91,25 @@
   "sub": "Ana runs the numbers and the negotiating. Luis runs the showings and the people. You get both of us on every deal.",
   "people": [
    {
-    "img": "img/t2.jpg",
-    "alt": "Ana Ocampo, Austin real estate agent",
+    "img": "img/t2.svg",
+    "alt": "Illustrated portrait of Ana Ocampo",
     "name": "Ana Ocampo",
     "role": "Pricing and negotiation",
     "bio": "A former bank appraiser, Ana knows exactly what an appraiser will say about your house before they say it. She's the reason our listings rarely sit."
    },
    {
-    "img": "img/t1.jpg",
-    "alt": "Luis Ocampo, Austin real estate agent",
+    "img": "img/t1.svg",
+    "alt": "Illustrated portrait of Luis Ocampo",
     "name": "Luis Ocampo",
     "role": "Showings and buyers",
     "bio": "Luis coached Little League on the east side for ten years and knows half of Austin by first name. He'll show you twenty houses without once rushing you."
    }
   ],
-  "credit": "Stock photos standing in for the agents' portraits."
+  "credit": "Illustrations, not photos. Your site uses your own portraits."
  },
  "listings": {
   "headline": "Our homes",
-  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named. Photos from Unsplash: Avi Werde, Christian McMenamy, David Mumma, Dennis Lamberth, Francesca Tosolini, Ian MacDonald, Roger Starnes Sr, Troy Spoelma.",
+  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named. Photos from Unsplash: Avi Werde, Christian McMenamy, Dennis Lamberth, Francesca Tosolini, Ian MacDonald, Roger Starnes Sr.",
   "items": [
    {
     "img": "img/a1.jpg",
@@ -180,8 +180,8 @@
   ]
  },
  "inside": {
-  "headline": "The parts photos don't sell, we do",
-  "sub": "Every listing gets professional photos and a video walkthrough. But we also tell buyers what it feels like to live there.",
+  "headline": "What it feels like to live there",
+  "sub": "Every listing gets professional photos and a video walkthrough. We also tell buyers the things a photo can't.",
   "items": [
    {
     "img": "img/i1.jpg",

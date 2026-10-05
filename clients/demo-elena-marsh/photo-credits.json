@@ -1,202 +1,90 @@
 [
-  {
-    "file": "hero.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Brian Babb",
-    "source_url": "https://unsplash.com/photos/XbwHrt87mQ0",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l1.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Roger Starnes Sr",
-    "source_url": "https://unsplash.com/photos/7nABj8zMrFw",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l2.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Tyrone Sanders",
-    "source_url": "https://unsplash.com/photos/kEjrQ8h9Bgc",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l3.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Elijah Crouch",
-    "source_url": "https://unsplash.com/photos/IlIBYAqx_UU",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l4.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Hunter Owens",
-    "source_url": "https://unsplash.com/photos/tCEHu5TJM5I",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l5.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Stacie Ong",
-    "source_url": "https://unsplash.com/photos/iwgPK6SyM_c",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "l6.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Karina G",
-    "source_url": "https://unsplash.com/photos/O4G2VR9Leb0",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "agent.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Compagnons",
-    "source_url": "https://unsplash.com/photos/jzz_3jWMzHA",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "n1.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Hansheng Zhao",
-    "source_url": "https://unsplash.com/photos/SkkFuczPylM",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "n2.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Cassie Gallegos",
-    "source_url": "https://unsplash.com/photos/tjoxkIODoCE",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "n3.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Austin Phillips",
-    "source_url": "https://unsplash.com/photos/pneTm-4lTXM",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "band.jpg",
-    "demo": "demo 7 (Denver)",
-    "photographer": "Francesca Tosolini",
-    "source_url": "https://unsplash.com/photos/tHkJAMcO3QE",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "s1.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Dennis Lamberth",
-    "source_url": "https://unsplash.com/photos/6FvcNx2YgyE",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "s2.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Zac Gudakov",
-    "source_url": "https://unsplash.com/photos/o-uPDNNSsDA",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "s3.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Salvo Media LLC",
-    "source_url": "https://unsplash.com/photos/-atd5-2ciHc",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a1.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Dennis Lamberth",
-    "source_url": "https://unsplash.com/photos/595z5mM1meY",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a2.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Christian McMenamy",
-    "source_url": "https://unsplash.com/photos/3gXWURwT1U4",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a3.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Avi Werde",
-    "source_url": "https://unsplash.com/photos/VcWqA204WWY",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a4.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Roger Starnes Sr",
-    "source_url": "https://unsplash.com/photos/O_Zs64flulU",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a5.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Ian MacDonald",
-    "source_url": "https://unsplash.com/photos/-dcznEJPmsk",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "a6.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Roger Starnes Sr",
-    "source_url": "https://unsplash.com/photos/Gm6bVl7r-QM",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "t1.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "David Mumma",
-    "source_url": "https://unsplash.com/photos/aChQUTPMhkI",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "t2.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Troy Spoelma",
-    "source_url": "https://unsplash.com/photos/EV8PPQG6zxY",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "i1.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Francesca Tosolini",
-    "source_url": "https://unsplash.com/photos/XcVm8mn7NUM",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  },
-  {
-    "file": "i2.jpg",
-    "demo": "demo 8 (Austin)",
-    "photographer": "Francesca Tosolini",
-    "source_url": "https://unsplash.com/photos/w1RE0lBbREo",
-    "license": "Unsplash License",
-    "license_url": "https://unsplash.com/license"
-  }
+ {
+  "file": "hero.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Brian Babb",
+  "source_url": "https://unsplash.com/photos/XbwHrt87mQ0",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l1.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Roger Starnes Sr",
+  "source_url": "https://unsplash.com/photos/7nABj8zMrFw",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l2.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Tyrone Sanders",
+  "source_url": "https://unsplash.com/photos/kEjrQ8h9Bgc",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l3.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Elijah Crouch",
+  "source_url": "https://unsplash.com/photos/IlIBYAqx_UU",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l4.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Hunter Owens",
+  "source_url": "https://unsplash.com/photos/tCEHu5TJM5I",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l5.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Stacie Ong",
+  "source_url": "https://unsplash.com/photos/iwgPK6SyM_c",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "l6.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Karina G",
+  "source_url": "https://unsplash.com/photos/O4G2VR9Leb0",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "n1.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Hansheng Zhao",
+  "source_url": "https://unsplash.com/photos/SkkFuczPylM",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "n2.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Cassie Gallegos",
+  "source_url": "https://unsplash.com/photos/tjoxkIODoCE",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "n3.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Austin Phillips",
+  "source_url": "https://unsplash.com/photos/pneTm-4lTXM",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ },
+ {
+  "file": "band.jpg",
+  "demo": "demo 7 (Denver)",
+  "photographer": "Francesca Tosolini",
+  "source_url": "https://unsplash.com/photos/tHkJAMcO3QE",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license"
+ }
 ]

@@ -87,9 +87,9 @@
   ]
  ],
  "about": {
-  "img": "img/agent.jpg",
-  "alt": "Elena Marsh, Denver real estate agent",
-  "credit": "Stock photo standing in for the agent's portrait.",
+  "img": "img/agent.svg",
+  "alt": "Illustrated portrait of Elena Marsh",
+  "credit": "Illustration, not a photo. Your site uses your own portrait.",
   "eyebrow": "Meet Elena",
   "headline": "Denver born, Highlands raised, still here.",
   "story": [

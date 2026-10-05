@@ -4,7 +4,7 @@
 // band over a photo, reviews, the request form, FAQ and the agent footer.
 // search.js only adds behavior; without it every listing shows and the search is hidden.
 import { kit, esc, when, url } from "../_kit.mjs";
-import { agentForm, agentFooter, AGENT_CSS } from "../_agent.mjs";
+import { agentForm, agentFooter, AGENT_CSS, photo } from "../_agent.mjs";
 export const behavior = "funnel.js";
 export const scripts = ["search.js"];
 
@@ -29,7 +29,7 @@ ${k.demoBar()}
 
 <main id="main">
 <section class="hero" aria-labelledby="h1">
-  <img class="hero-bg" src="${url(h.img)}" alt="" width="2400" height="1350" fetchpriority="high" decoding="async">
+  <img class="hero-bg" ${photo(h.img)} alt="" width="2400" height="1350" fetchpriority="high" decoding="async">
   <div class="wrap hero-in">
     <p class="eyebrow">${esc(h.eyebrow || "")}</p>
     <h1 id="h1">${esc(h.headline)}</h1>
@@ -49,7 +49,7 @@ ${k.demoBar()}
 
 <section class="about" id="about" aria-labelledby="about-h">
   <div class="wrap about-in">
-    <figure class="about-pic"><img src="${url(ab.img)}" alt="${esc(ab.alt || "")}" width="900" height="1100" loading="lazy" decoding="async">${when(ab.credit, `<figcaption>${esc(ab.credit)}</figcaption>`)}</figure>
+    <figure class="about-pic"><img ${photo(ab.img, "(min-width:900px) 460px, 100vw")} alt="${esc(ab.alt || "")}" width="900" height="1100" loading="lazy" decoding="async">${when(ab.credit, `<figcaption>${esc(ab.credit)}</figcaption>`)}</figure>
     <div>
       <p class="eyebrow dark">${esc(ab.eyebrow || "")}</p>
       <h2 id="about-h">${esc(ab.headline || "")}</h2>
@@ -64,7 +64,7 @@ ${k.demoBar()}
 <section class="listings wrap" id="listings" aria-labelledby="list-h">
   <div class="sec-head"><h2 id="list-h">${esc(L.headline || "Featured listings")} ${when(k.demo, '<span class="sample-tag">(sample listings)</span>')}</h2><p class="count" data-count aria-live="polite"></p></div>
   <ul class="cards">${(L.items || []).map(x => `<li class="card" data-area="${esc(x.area)}" data-price="${x.price}" data-beds="${x.beds}">
-    <div class="card-pic"><img src="${url(x.img)}" alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><span class="badge">${esc(x.status)}</span></div>
+    <div class="card-pic"><img ${photo(x.img, "(min-width:1000px) 380px, (min-width:640px) 50vw, 100vw")} alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><span class="badge">${esc(x.status)}</span></div>
     <div class="card-body"><p class="price">${usd(x.price)}</p><h3>${esc(x.street)}</h3><p class="where">${esc(x.area)}, ${esc(b.address?.city || "")}</p>
     <p class="facts"><span>${x.beds} bd</span><span>${esc(String(x.baths))} ba</span><span>${Number(x.sqft).toLocaleString("en-US")} sq ft</span></p>
     ${k.book(x.street, "Ask about this home", "card-link")}</div></li>`).join("")}</ul>
@@ -76,12 +76,12 @@ ${k.demoBar()}
   <div class="wrap">
     <h2 id="hoods-h">${esc(nb.headline || "")}</h2>
     <p class="sub">${esc(nb.sub || "")}</p>
-    <ul class="tiles">${(nb.items || []).map(x => `<li><img src="${url(x.img)}" alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><div><h3>${esc(x.name)}</h3><p>${esc(x.line)}</p></div></li>`).join("")}</ul>
+    <ul class="tiles">${(nb.items || []).map(x => `<li><img ${photo(x.img, "(min-width:760px) 33vw, 100vw")} alt="${esc(x.alt)}" width="1200" height="800" loading="lazy" decoding="async"><div><h3>${esc(x.name)}</h3><p>${esc(x.line)}</p></div></li>`).join("")}</ul>
   </div>
 </section>
 
 <section class="value" id="value" aria-labelledby="value-h">
-  <img class="value-bg" src="${url(v.img)}" alt="" width="2000" height="1200" loading="lazy" decoding="async">
+  <img class="value-bg" ${photo(v.img)} alt="" width="2000" height="1200" loading="lazy" decoding="async">
   <div class="wrap value-in">
     <h2 id="value-h">${esc(v.headline || "")}</h2>
     <p>${esc(v.sub || "")}</p>
