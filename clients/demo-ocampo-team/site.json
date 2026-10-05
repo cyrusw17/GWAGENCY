@@ -1,0 +1,121 @@
+{
+ "slug": "demo-ocampo-team",
+ "demo": true,
+ "renderer": "casa",
+ "niche": "real estate",
+ "demoNote": "Fictional team, brokerage and listings. Photos are free stock images, not real listings.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=casa"},
+ "business": {
+  "name": "The Ocampo Team",
+  "tagline": "Austin real estate · Ana and Luis Ocampo",
+  "brokerage": "Hill Country Home Co. (sample brokerage) · 512-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(512) 555-0136",
+  "sms": "(512) 555-0136",
+  "email": "hola@example.com",
+  "hoursText": "Calls and texts 8am to 8pm, Monday to Saturday",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "20:00"}],
+  "address": {"city": "Austin", "region": "TX", "postal": "78704"},
+  "license": "Texas real estate licenses #000000 and #000001 (sample)"
+ },
+ "theme": {
+  "themeColor": "#FAF6F0",
+  "fontFaces": [
+   {"family": "Young Serif", "weight": 400, "src": "fonts/young-serif-latin-400-normal.woff2", "preload": true},
+   {"family": "Outfit", "weight": 400, "src": "fonts/outfit-latin-400-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "The Ocampo Team | Austin Real Estate, Ana and Luis Ocampo",
+  "description": "Austin homes for sale and a free home value from Ana and Luis Ocampo, a husband and wife real estate team in South Austin, Travis Heights and the Hill Country."
+ },
+ "hero": {
+  "headline": "Austin homes, sold and found by Ana and Luis Ocampo.",
+  "sub": "A husband and wife team who answer the phone, show up on time, and tell you the truth about the house. Bilingual, born in Texas, and in South Austin since 2009.",
+  "slides": [
+   {"img": "img/s1.jpg", "alt": "Limestone home exterior with a live oak", "cap": ""},
+   {"img": "img/s2.jpg", "alt": "Bright modern kitchen", "cap": ""},
+   {"img": "img/s3.jpg", "alt": "Backyard with a pool and shaded porch", "cap": ""}
+  ],
+  "worth": {"headline": "What's your home worth?", "sub": "We'll send a price range from real sales near you within a day. Free, no pressure.", "cta": "Get my home value"}
+ },
+ "team": {
+  "hello": "Hola, y'all.",
+  "headline": "We're Ana and Luis. Married 18 years, selling homes together for 11.",
+  "sub": "Ana runs the numbers and the negotiating. Luis runs the showings and the people. You get both of us on every deal.",
+  "people": [
+   {"img": "img/t2.jpg", "alt": "Ana Ocampo, Austin real estate agent", "name": "Ana Ocampo", "role": "Pricing and negotiation", "bio": "A former bank appraiser, Ana knows exactly what an appraiser will say about your house before they say it. She's the reason our listings rarely sit."},
+   {"img": "img/t1.jpg", "alt": "Luis Ocampo, Austin real estate agent", "name": "Luis Ocampo", "role": "Showings and buyers", "bio": "Luis coached Little League on the east side for ten years and knows half of Austin by first name. He'll show you twenty houses without once rushing you."}
+  ],
+  "credit": ""
+ },
+ "listings": {
+  "headline": "Our homes",
+  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named.",
+  "items": [
+   {"img": "img/a1.jpg", "alt": "Craftsman home with a wide porch", "status": "For sale", "price": 689000, "street": "1408 Kenwood Ave", "area": "Travis Heights", "beds": 3, "baths": 2, "sqft": 1840},
+   {"img": "img/a2.jpg", "alt": "Modern house with wood siding", "status": "For sale", "price": 925000, "street": "2207 Bluebonnet Ln", "area": "Zilker", "beds": 4, "baths": 3, "sqft": 2560},
+   {"img": "img/a3.jpg", "alt": "Limestone ranch house", "status": "Sold", "price": 545000, "street": "8101 Oak Hollow Dr", "area": "Oak Hill", "beds": 3, "baths": 2, "sqft": 1950},
+   {"img": "img/a4.jpg", "alt": "Two-story home with a front lawn", "status": "For sale", "price": 465000, "street": "11214 Bell Ave", "area": "Pflugerville", "beds": 4, "baths": 2.5, "sqft": 2280},
+   {"img": "img/a5.jpg", "alt": "Small cottage with a garden", "status": "Sold", "price": 499000, "street": "1903 E 12th St", "area": "East Austin", "beds": 2, "baths": 1, "sqft": 1080},
+   {"img": "img/a6.jpg", "alt": "Hill Country home with a view", "status": "Sold", "price": 1150000, "street": "4600 Ridge Oak Dr", "area": "Westlake", "beds": 4, "baths": 3.5, "sqft": 3400}
+  ]
+ },
+ "inside": {
+  "headline": "The parts photos don't sell, we do",
+  "sub": "Every listing gets professional photos and a video walkthrough. But we also tell buyers what it feels like to live there.",
+  "items": [
+   {"img": "img/i1.jpg", "alt": "Porch with a swing", "cap": "Kenwood Ave: the porch catches the breeze off the creek every evening after six."},
+   {"img": "img/i2.jpg", "alt": "Staged bedroom with soft light", "cap": "Bluebonnet Ln: the main bedroom faces east, so you wake up with the sun, not the heat."}
+  ]
+ },
+ "process": {
+  "headline": "How we sell your home",
+  "sub": "The same four steps every time, and you'll always know which one we're on.",
+  "cta": "Start with a walk-through",
+  "steps": [["Walk-through", "We walk your home together and agree on what's worth fixing and what to leave."], ["Price", "Ana prices it from the last 90 days of real sales, and shows you every one."], ["Launch", "Photos, video and a weekend of showings, with a recap text every Sunday night."], ["Close", "Offers, inspection, appraisal and title, handled until you hand over the keys."]]
+ },
+ "reviews": {
+  "headline": "From our clients",
+  "source": "Google", "url": "https://www.google.com/maps", "rating": "4.9", "count": 96,
+  "items": [
+   {"name": "Sample client", "where": "Sold in Travis Heights", "date": "2026-09-09", "stars": 5, "text": "Ana told us exactly what the appraisal would come in at, and she was off by $2,000."},
+   {"name": "Sample client", "where": "Bought in Pflugerville", "date": "2026-08-12", "stars": 5, "text": "Luis showed us 23 houses and never once made us feel rushed. Gracias, Luis."},
+   {"name": "Sample client", "where": "Sold in Oak Hill", "date": "2026-06-30", "stars": 4, "text": "It took a price cut to sell, which Ana had warned us about. Honest the whole way."}
+  ]
+ },
+ "booking": {
+  "headline": "Let's talk about your home",
+  "body": "Three quick questions and Ana or Luis will call you back today, in English or Spanish.",
+  "cta": "Talk with Ana and Luis",
+  "headerCta": "Contact us"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "How can we help?", "options": [
+   {"value": "Selling", "hint": "What would ours sell for?"},
+   {"value": "Buying", "hint": "Find a home in Austin"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "Moving to Austin", "hint": "From out of town"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Part of town",
+  "areas": ["South Austin", "Travis Heights", "Zilker", "East Austin", "Oak Hill", "Pflugerville", "Westlake"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just curious"],
+  "notesHint": "Your address if you're selling, or what you need in a home",
+  "step3": "How should we reach you?",
+  "consent": "By sending this, you agree that Ana or Luis Ocampo may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with us.",
+  "submit": "Send to Ana and Luis",
+  "privacy": "Your details go to Ana and Luis only. Never sold or shared.",
+  "thanks": "Got it. We'll call you today. Ana and Luis"
+ },
+ "faqHeadline": "Questions we hear a lot",
+ "faq": [
+  {"q": "¿Hablan español?", "a": "Sí. Both of us speak Spanish, and we can walk you through every document in either language."},
+  {"q": "What's your commission?", "a": "It's negotiable and agreed in writing before any work starts. We'll show you exactly what it covers."},
+  {"q": "Do I need to sign anything to see homes?", "a": "Yes, a short written buyer agreement, as the rules now require. It says what we're paid and who pays it. Talking with us first is free."},
+  {"q": "How do property taxes work in Austin?", "a": "Texas has no state income tax, so property taxes are higher than many states. We'll estimate them for any home before you make an offer, and explain the homestead exemption."}
+ ],
+ "eho": "Equal Housing Opportunity. Ana and Luis Ocampo are licensed with Hill Country Home Co. (sample brokerage).",
+ "sticky": {"book": "Contact us"}
+}
