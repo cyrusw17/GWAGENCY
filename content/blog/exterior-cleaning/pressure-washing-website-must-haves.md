@@ -1,7 +1,7 @@
 ---
 niche: exterior-cleaning
 slug: pressure-washing-website-must-haves
-url: https://exterior.groundwork-web.com/blog/pressure-washing-website-must-haves/
+url: https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-website-must-haves/
 title: "Pressure washing website must-haves: 12 things to add"
 h1: "What to put on a pressure washing website"
 meta_description: "The 12 things a homeowner checks on a pressure washing website before asking for a quote, in the order they check them."
@@ -9,7 +9,7 @@ primary_keyword: pressure washing website must haves
 secondary_keywords: [pressure washing website design, soft washing website, exterior cleaning website, power washing website tips]
 search_intent: commercial-informational (checklist)
 brief: /mnt/project-files/blog/plan/exterior-cleaning.md#brief-2-what-to-put-on-a-pressure-washing-website
-selling_page: https://exterior.groundwork-web.com/
+selling_page: https://groundwork-web.com/exterior-cleaning/
 demo_linked: /work/haint-blue/
 email_offer: The Quote-Form Checklist for Pressure Washing (checklist-quote-form.md); secondary: site check
 word_count_target: 1400-1800
@@ -93,4 +93,4 @@ Start on your next job. Two or three honest pairs from your own work do more for
 >
 > The checklist opens right here. We'll also send a few short tips for pressure washing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather have this built for you, we build and look after [pressure washing websites](https://exterior.groundwork-web.com/) with these 12 things in place. You can see most of them working together on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+If you'd rather have this built for you, we build and look after [pressure washing websites](https://groundwork-web.com/exterior-cleaning/) with these 12 things in place. You can see most of them working together on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

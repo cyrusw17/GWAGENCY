@@ -1,9 +1,8 @@
 #!/bin/bash
 # Called by .github/workflows/deploy-cpanel.yml after the "cpanel" branch is pushed.
 # Uses the cPanel UAPI (port 2083) with an API token to:
-#   1. add each niche subdomain, sharing public_html (AutoSSL then issues its certificate),
-#   2. clone the repo once into ~/repositories/gwagency-live, then pull the cpanel branch,
-#   3. run the deployment (.cpanel.yml -> deploy.sh), and wait for it to finish.
+#   1. clone the repo once into ~/repositories/gwagency-live, then pull the cpanel branch,
+#   2. run the deployment (.cpanel.yml -> deploy.sh), and wait for it to finish.
 # Needs CPANEL_HOST, CPANEL_USER, CPANEL_TOKEN and REPO_URL in the environment.
 set -euo pipefail
 : "${CPANEL_HOST:?}" "${CPANEL_USER:?}" "${CPANEL_TOKEN:?}" "${REPO_URL:?}"
@@ -17,14 +16,6 @@ api() {
     "https://$CPANEL_HOST:2083/execute/$fn" "${args[@]}"
 }
 ok() { jq -e '.status == 1' >/dev/null <<<"$1"; }
-
-while read -r sub; do
-  [ -n "$sub" ] || continue
-  r=$(api SubDomain/addsubdomain "domain=$sub" "rootdomain=groundwork-web.com" "dir=public_html")
-  if ok "$r"; then echo "added $sub.groundwork-web.com"
-  elif grep -qi "already exists" <<<"$r"; then echo "$sub.groundwork-web.com exists"
-  else echo "addsubdomain $sub failed: $(jq -c .errors <<<"$r")"; exit 1; fi
-done < _cpanel/subdomains.txt
 
 r=$(api VersionControl/retrieve)
 if ! jq -e --arg p "$REPO_ROOT" '.data[]? | select(.repository_root == $p)' >/dev/null <<<"$r"; then

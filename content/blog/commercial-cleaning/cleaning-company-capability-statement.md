@@ -1,7 +1,7 @@
 ---
 niche: commercial-cleaning
 slug: cleaning-company-capability-statement
-url: https://commercial.groundwork-web.com/blog/cleaning-company-capability-statement/
+url: https://groundwork-web.com/commercial-cleaning/blog/cleaning-company-capability-statement/
 title: "Cleaning company capability statement: what goes on it"
 h1: "How to write a capability statement for a cleaning company"
 meta_description: "A capability statement is the one page a facility manager forwards to their boss. Here's what a cleaning company should put on it, section by section."
@@ -9,7 +9,7 @@ primary_keyword: cleaning company capability statement
 secondary_keywords: [janitorial capability statement template, capability statement example cleaning, one-page company profile cleaning]
 search_intent: informational (how-to plus outline template)
 brief: /mnt/project-files/blog/plan/commercial-cleaning.md#brief-2-capability-statement-for-a-cleaning-company
-selling_page: https://commercial.groundwork-web.com/
+selling_page: https://groundwork-web.com/commercial-cleaning/
 demo_linked: /work/keyholder/
 sibling_posts: [/blog/commercial-cleaning-website-what-to-include/, /blog/commercial-cleaning-quote-form/]
 external_links: [https://www.sba.gov/federal-contracting/contracting-guide/basic-requirements]
@@ -105,4 +105,4 @@ The walkthrough form next to it needs its own care. We cover the fields and the 
 >
 > The checklist opens right here. We'll also send a few short tips for commercial cleaning owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-We build and look after [commercial cleaning websites](https://commercial.groundwork-web.com/) with your capability statement as a download beside the walkthrough request. [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business, shows how credentials and a walkthrough request sit on the page. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+We build and look after [commercial cleaning websites](https://groundwork-web.com/commercial-cleaning/) with your capability statement as a download beside the walkthrough request. [Keyholder Commercial Cleaning](https://groundwork-web.com/work/keyholder/), a sample design for a fictional business, shows how credentials and a walkthrough request sit on the page. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

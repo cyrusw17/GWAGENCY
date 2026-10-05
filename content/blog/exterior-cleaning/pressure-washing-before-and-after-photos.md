@@ -1,7 +1,7 @@
 ---
 niche: exterior-cleaning
 slug: pressure-washing-before-and-after-photos
-url: https://exterior.groundwork-web.com/blog/pressure-washing-before-and-after-photos/
+url: https://groundwork-web.com/exterior-cleaning/blog/pressure-washing-before-and-after-photos/
 title: "Pressure washing before and after photos: a shot list"
 h1: "Pressure washing before-and-after photos that sell"
 meta_description: "Same spot, same angle, same light. A simple shot list for pressure washing before-and-afters that look real and book jobs."
@@ -9,7 +9,7 @@ primary_keyword: pressure washing before and after photos
 secondary_keywords: [how to take before and after photos pressure washing, soft wash photos for marketing, before after photos website]
 search_intent: informational (shot list)
 brief: /mnt/project-files/blog/plan/exterior-cleaning.md#brief-3-before-and-after-photos-that-sell-a-house-wash
-selling_page: https://exterior.groundwork-web.com/
+selling_page: https://groundwork-web.com/exterior-cleaning/
 demo_linked: /work/haint-blue/
 email_offer: The Quote-Form Checklist for Pressure Washing (checklist-quote-form.md)
 word_count_target: 1000-1400
@@ -93,4 +93,4 @@ If someone says no, take the photos anyway and keep them to yourself. A dated be
 >
 > The checklist opens right here. We'll also send a few short tips for pressure washing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather have a site built around your photos, we build and look after [pressure washing websites](https://exterior.groundwork-web.com/) with a before-and-after up top and room for your captioned pairs. Try the slider on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.
+If you'd rather have a site built around your photos, we build and look after [pressure washing websites](https://groundwork-web.com/exterior-cleaning/) with a before-and-after up top and room for your captioned pairs. Try the slider on [Haint Blue](https://groundwork-web.com/work/haint-blue/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month.

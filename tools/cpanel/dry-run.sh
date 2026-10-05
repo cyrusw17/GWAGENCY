@@ -8,7 +8,6 @@ r=$(curl -sS -G --max-time 60 -H "Authorization: cpanel $CPANEL_USER:$CPANEL_TOK
   --data-urlencode "show_hidden=1")
 jq -e '.status == 1' >/dev/null <<<"$r" || { echo "list_files failed: $(jq -c .errors <<<"$r")"; exit 1; }
 live=$(jq -r '.data[] | "\(.type) \(.file)"' <<<"$r")
-echo "Subdomains to add: $(tr '\n' ' ' < _cpanel/subdomains.txt)"
 echo "Backup first: ~/site-backups/public_html-<time>.tar.gz"
 echo
 while read -r type name; do

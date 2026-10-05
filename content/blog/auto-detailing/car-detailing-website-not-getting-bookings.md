@@ -7,8 +7,8 @@ primary_keyword: car detailing website not getting bookings
 secondary_keywords: [detailing website not converting, why customers don't book detailing, website visitors no calls]
 search_intent: problem-aware (diagnosis list)
 brief: /mnt/project-files/blog/plan/auto-detailing.md#brief-2-why-people-look-at-your-detailing-site-and-dont-book
-url: https://detailing.groundwork-web.com/blog/car-detailing-website-not-getting-bookings/
-selling_page: https://detailing.groundwork-web.com/
+url: https://groundwork-web.com/auto-detailing/blog/car-detailing-website-not-getting-bookings/
+selling_page: https://groundwork-web.com/auto-detailing/
 email_offer: Free site check (primary); The Detailer's Booking Page Checklist (secondary)
 word_count_target: 1200-1600
 status: draft
@@ -110,4 +110,4 @@ Then run the tests again from the parking lot. For everything a detailing page n
 > [Email] [Business name] [Website (optional)] **Send me the checklist**
 > The checklist opens right here. We'll also send a few short tips for detailing owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather hand this off, we build and look after [detailing websites](https://detailing.groundwork-web.com/) with these fixes in from the start: your towns up top, "from" prices and a short booking form. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.
+If you'd rather hand this off, we build and look after [detailing websites](https://groundwork-web.com/auto-detailing/) with these fixes in from the start: your towns up top, "from" prices and a short booking form. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [a sample detailing site we designed](https://groundwork-web.com/work/ramirez-mobile/) for a fictional business.

@@ -1,7 +1,7 @@
 ---
 niche: real-estate-agents
 slug: what-to-put-on-a-realtor-website
-url: https://realestate.groundwork-web.com/blog/what-to-put-on-a-realtor-website/
+url: https://groundwork-web.com/real-estate/blog/what-to-put-on-a-realtor-website/
 title: "What to put on a realtor website for referred clients"
 h1: "What to put on a realtor website: what a referred client checks before they call"
 meta_description: "Many clients come from a friend's referral and look you up before they call. The 12 things they check on your site, in order, plus a free checklist."
@@ -9,7 +9,7 @@ primary_keyword: what to put on a realtor website
 secondary_keywords: [real estate agent website referrals, realtor website must haves, agent website tips, personal real estate website]
 search_intent: commercial-informational (checklist guide)
 brief: /mnt/project-files/blog/plan/real-estate-agents.md#brief-1-what-a-referred-client-checks-on-your-website-before-they-call
-selling_page: https://realestate.groundwork-web.com/
+selling_page: https://groundwork-web.com/real-estate/
 demo_linked: /work/hollis-family/ (Hollis & Son, sample design for a fictional business; path to confirm once the /work/ pages merge)
 sibling_posts: [/blog/how-to-write-a-real-estate-agent-bio/, /blog/do-realtors-need-their-own-website/]
 email_offer: The Referral-Check Checklist for Agents (checklist-referral-check.md)
@@ -149,4 +149,4 @@ If you'd like a second opinion on your current site, the [free site check](https
 >
 > The checklist opens right here. We'll also send a few short tips for real estate agents. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd rather not build it yourself, we build and look after [real estate agent websites](https://realestate.groundwork-web.com/) laid out this way: you first, then who you help, real reviews and a home value request that comes only to you. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Hollis & Son](https://groundwork-web.com/work/hollis-family/), one of our sample designs for fictional businesses.
+If you'd rather not build it yourself, we build and look after [real estate agent websites](https://groundwork-web.com/real-estate/) laid out this way: you first, then who you help, real reviews and a home value request that comes only to you. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Hollis & Son](https://groundwork-web.com/work/hollis-family/), one of our sample designs for fictional businesses.

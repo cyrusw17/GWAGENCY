@@ -1,7 +1,7 @@
 ---
 niche: real-estate-agents
 slug: do-realtors-need-their-own-website
-url: https://realestate.groundwork-web.com/blog/do-realtors-need-their-own-website/
+url: https://groundwork-web.com/real-estate/blog/do-realtors-need-their-own-website/
 title: "Do realtors need their own website?"
 h1: "Do realtors need their own website? What your brokerage page can't do"
 meta_description: "Your brokerage page belongs to the brokerage. What changes when you own your site, when it isn't worth it yet, and how to compare what it costs."
@@ -9,7 +9,7 @@ primary_keyword: do realtors need their own website
 secondary_keywords: [brokerage profile vs personal website, real estate agent personal website, agent website when you change brokerages]
 search_intent: commercial (argument with honest trade-offs)
 brief: /mnt/project-files/blog/plan/real-estate-agents.md#brief-3-do-realtors-need-their-own-website-beyond-the-brokerage-page
-selling_page: https://realestate.groundwork-web.com/
+selling_page: https://groundwork-web.com/real-estate/
 demo_linked: /work/elena-marsh/ (Elena Marsh, sample design for a fictional business; path to confirm once the /work/ pages merge)
 sibling_posts: [/blog/what-to-put-on-a-realtor-website/, /blog/how-to-write-a-real-estate-agent-bio/]
 email_offer: The Referral-Check Checklist for Agents (checklist-referral-check.md)
@@ -98,4 +98,4 @@ Run the free [site check](https://groundwork-web.com/site-check/?niche=real-esta
 >
 > The checklist opens right here. We'll also send a few short tips for real estate agents. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you decide it's time, we build and look after [real estate agent websites](https://realestate.groundwork-web.com/) that put you first and your listings after. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Elena Marsh](https://groundwork-web.com/work/elena-marsh/), one of our sample designs for fictional businesses.
+If you decide it's time, we build and look after [real estate agent websites](https://groundwork-web.com/real-estate/) that put you first and your listings after. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Elena Marsh](https://groundwork-web.com/work/elena-marsh/), one of our sample designs for fictional businesses.

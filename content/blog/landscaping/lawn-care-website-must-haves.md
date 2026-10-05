@@ -1,7 +1,7 @@
 ---
 niche: landscaping
 slug: lawn-care-website-must-haves
-url: https://landscaping.groundwork-web.com/blog/lawn-care-website-must-haves/
+url: https://groundwork-web.com/landscaping/blog/lawn-care-website-must-haves/
 title: "Lawn care website must haves: 12 things homeowners check"
 h1: "What to put on a lawn care website"
 meta_description: "The 12 things a homeowner looks for on a lawn care website before calling, from the top of the page to the form, for mowing and landscaping."
@@ -9,7 +9,7 @@ primary_keyword: lawn care website must haves
 secondary_keywords: [lawn care website design, landscaping website tips, lawn service website, what to include on a landscaping website]
 search_intent: commercial-informational checklist
 brief: /mnt/project-files/blog/plan/landscaping.md#brief-3-what-to-put-on-a-lawn-care-website
-selling_page: https://landscaping.groundwork-web.com/
+selling_page: https://groundwork-web.com/landscaping/
 demo_linked: /work/pruitt-lawn/
 email_offer: The Winter Website Checklist for Lawn Care (checklist-winter-website.md); secondary: site check
 word_count_target: 1400-1800
@@ -111,4 +111,4 @@ Items 1, 2, 3, 5 and 12 matter most for mowing, because they're what a homeowner
 >
 > The checklist opens right here. We'll also send a few short tips for lawn care owners. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-We build and look after [lawn care websites](https://landscaping.groundwork-web.com/) with prices, route days by ZIP and a form that splits weekly service from one-time projects. See [Pruitt Lawn Co.](https://groundwork-web.com/work/pruitt-lawn/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Grow is $199 a month, or $1,990 paid yearly (12 months for the price of 10).
+We build and look after [lawn care websites](https://groundwork-web.com/landscaping/) with prices, route days by ZIP and a form that splits weekly service from one-time projects. See [Pruitt Lawn Co.](https://groundwork-web.com/work/pruitt-lawn/), a sample design for a fictional business. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Grow is $199 a month, or $1,990 paid yearly (12 months for the price of 10).

@@ -1,7 +1,7 @@
 ---
 niche: real-estate-agents
 slug: how-to-write-a-real-estate-agent-bio
-url: https://realestate.groundwork-web.com/blog/how-to-write-a-real-estate-agent-bio/
+url: https://groundwork-web.com/real-estate/blog/how-to-write-a-real-estate-agent-bio/
 title: "How to write a real estate agent bio people read"
 h1: "How to write a real estate agent bio people actually read"
 meta_description: "Skip 'top producer.' A 4-part structure for a realtor bio that sounds like you and makes a referred client want to call, with three short examples."
@@ -9,7 +9,7 @@ primary_keyword: how to write a real estate agent bio
 secondary_keywords: [realtor bio examples, real estate bio tips, about me page realtor, agent bio for website]
 search_intent: informational (how-to with fictional, labeled examples)
 brief: /mnt/project-files/blog/plan/real-estate-agents.md#brief-2-how-to-write-a-realtor-bio-people-actually-read
-selling_page: https://realestate.groundwork-web.com/
+selling_page: https://groundwork-web.com/real-estate/
 demo_linked: /work/teresa-valdez/ (Teresa Valdez, sample design for a fictional business; path to confirm once the /work/ pages merge)
 sibling_posts: [/blog/what-to-put-on-a-realtor-website/, /blog/do-realtors-need-their-own-website/]
 email_offer: The Referral-Check Checklist for Agents (checklist-referral-check.md)
@@ -106,4 +106,4 @@ Write the four parts as four short paragraphs, in order, without editing as you 
 >
 > The checklist opens right here. We'll also send a few short tips for real estate agents. Unsubscribe anytime. [Privacy](https://groundwork-web.com/privacy/)
 
-If you'd like the page built around your bio, we build and look after [real estate agent websites](https://realestate.groundwork-web.com/) that open with you and how you work, then your sales and listings. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Teresa Valdez](https://groundwork-web.com/work/teresa-valdez/), one of our sample designs for fictional businesses.
+If you'd like the page built around your bio, we build and look after [real estate agent websites](https://groundwork-web.com/real-estate/) that open with you and how you work, then your sales and listings. It's $99 to start, refunded if you pass on the preview, and $399 all in at our founding price for the first 25 clients. Hosting is $99 a month. Here's [Teresa Valdez](https://groundwork-web.com/work/teresa-valdez/), one of our sample designs for fictional businesses.

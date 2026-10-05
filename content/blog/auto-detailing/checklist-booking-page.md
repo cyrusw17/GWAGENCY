@@ -1,7 +1,7 @@
 ---
 niche: auto-detailing
 title: The Detailer's Booking Page Checklist
-type: gated checklist (main email offer for detailing.groundwork-web.com/blog/)
+type: gated checklist (main email offer for https://groundwork-web.com/auto-detailing/blog/)
 format: one printable page (US Letter), checkboxes
 linked_from: /blog/what-to-put-on-a-car-detailing-website/
 status: draft
@@ -44,4 +44,4 @@ meta_description: A one-page printable checklist for detailers: the things your 
 
 Boxes you couldn't tick are your to-do list, starting from the top of the page.
 
-GroundWork-Web builds and looks after detailing websites: detailing.groundwork-web.com
+GroundWork-Web builds and looks after detailing websites: https://groundwork-web.com/auto-detailing/
