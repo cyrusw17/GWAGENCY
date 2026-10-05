@@ -1,11 +1,16 @@
 #!/usr/bin/env node
-// Build the work-log hub (hub/) and every linked demo into _site/ for GitHub Pages.
+// Build the hub (hub/) and every linked demo into _site/ for GitHub Pages.
 //   node tools/build-hub.mjs            build into _site/
 //   node tools/build-hub.mjs --out dir  build somewhere else
-// hub/data.json is the only file teammates edit: the demo slots (perTrade per trade).
+// hub/data.json is the only file teammates edit: one entry per trade with its demo slots (perTrade),
+// its selling page ("page"), other versions of that page ("candidates") and extra demos ("more",
+// with "featured": true on the ones to show beside the main demo).
 // A slot with "client" is built from clients/<client>/site.json into demos/<slug>/.
+// The hub lists every page by trade: each trade's selling page and demos side by side, then the rest
+// of groundwork-web.com (public/) and any older demo drafts. It also writes nav.json, which
+// tools/build-pages.mjs uses for the back bar (prev and next within a trade) on every page.
 // Exits non-zero when a demo fails its build checks or a slot is malformed.
-import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -21,20 +26,14 @@ if (inRepo && !/^(_site|dist\/.+)$/.test(relative(root, out))) {
   process.exit(2);
 }
 const data = JSON.parse(readFileSync(join(root, "hub", "data.json"), "utf8"));
+const pub = join(root, "public");
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const decode = s => String(s ?? "").replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 const GRADES = ["A+", "A", "A-", "B", "C", "D", "F", "Inc."];
-const STATUS = {
-  concept: "Concept due",
-  building: "Building",
-  draft: "Earlier draft",
-  review: "In review",
-  graded: "Graded",
-};
-// Review states and grades are internal (they live in the internal report); the public page
-// only says a finished demo is finished.
-const pub = status => (status === "review" || status === "graded" ? "finished" : status);
-STATUS.finished = "Finished";
+// Review states and grades are internal (they live in the internal report); the public page only
+// says a finished demo is finished.
+const STATUS = ["concept", "building", "draft", "review", "graded"];
 const errors = [];
 
 rmSync(out, { recursive: true, force: true });
@@ -44,7 +43,7 @@ mkdirSync(join(out, "assets", "fonts"), { recursive: true });
 for (const niche of data.niches) {
   if (niche.slots.length !== data.perTrade) errors.push(`${niche.id}: needs exactly ${data.perTrade} slots (perTrade), has ${niche.slots.length}`);
   for (const slot of niche.slots) {
-    if (!STATUS[slot.status]) errors.push(`${slot.business}: unknown status "${slot.status}"`);
+    if (!STATUS.includes(slot.status)) errors.push(`${slot.business}: unknown status "${slot.status}"`);
     if (slot.grade && !GRADES.includes(slot.grade)) errors.push(`${slot.business}: unknown grade "${slot.grade}"`);
     if (!slot.client) continue;
     if (!/^[a-z0-9-]+$/.test(slot.slug || "")) { errors.push(`${slot.business}: slug must be lowercase letters, numbers and dashes`); continue; }
@@ -57,50 +56,148 @@ for (const niche of data.niches) {
   }
 }
 
-const slotCard = (slot, i) => {
-  const link = slot.client ? `<a class="slot__open" href="demos/${esc(slot.slug)}/">Open the demo<span class="sr-only"> of ${esc(slot.business)}</span></a>` : `<span class="slot__open slot__open--none">Not built yet</span>`;
-  return `
-        <li class="slot slot--${esc(pub(slot.status))}">
-          <span class="slot__no">${i + 1}</span>
-          <div class="slot__body">
-            <h4 class="slot__name">${esc(slot.business)}</h4>
-            ${slot.town ? `<p class="slot__town">${esc(slot.town)}</p>` : ""}
-            <p class="slot__concept">${esc(slot.concept)}</p>
-          </div>
-          <div class="slot__foot">
-            <span class="pill pill--${esc(pub(slot.status))}">${esc(STATUS[pub(slot.status)])}</span>
-            ${link}
-          </div>
-        </li>`;
+// Every page of groundwork-web.com, keyed by its folder ("" is the home page). Redirect stubs are skipped.
+const pages = new Map();
+(function scan(dir) {
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (name === "api") continue;
+    if (statSync(p).isDirectory()) { scan(p); continue; }
+    if (name !== "index.html") continue;
+    const html = readFileSync(p, "utf8");
+    if (/http-equiv=["']refresh/i.test(html)) continue;
+    const meta = re => { const m = html.match(re) || []; return decode(m[1] ?? m[2] ?? "").trim(); };
+    pages.set(relative(pub, dir), {
+      title: meta(/<title>([^<]*)<\/title>/i).split(/\s[|·]\s/)[0],
+      desc: meta(/<meta\s+name=["']description["']\s+content=(?:"([^"]*)"|'([^']*)')/i),
+    });
+  }
+})(pub);
+// An href from the hub ("site/x/" or "x/" for public pages, "demos/slug/" for hub-built demos) to its public/ folder.
+const folder = href => href.replace(/^site\//, "").replace(/\/$/, "");
+const page = href => pages.get(folder(href)) || {};
+// Card summaries stop before the first sentence that quotes a price, so none ends mid-price.
+const clip = (s, n = 150) => {
+  const sentences = s.match(/[^.!?]+[.!?]*\s*/g) || [];
+  const k = sentences.findIndex(x => x.includes("$"));
+  if (k > 0) s = sentences.slice(0, k).join("").trim();
+  return s.length > n ? s.slice(0, s.lastIndexOf(" ", n)) + "…" : s;
 };
 
-const demos = data.niches.map(n => `
-      <section class="trade" aria-labelledby="trade-${esc(n.id)}">
-        <header class="trade__head">
-          <h3 id="trade-${esc(n.id)}">${esc(n.name)}</h3>
-          <p>${n.slots.filter(s => s.client).length} of ${data.perTrade} finished</p>
-        </header>
-        <ol class="slots">${n.slots.map(slotCard).join("")}
-        </ol>
-        ${n.page ? `<p class="trade__links"><span>Selling page</span><a href="site/${esc(n.page)}">${esc(n.name)} websites<span class="sr-only">, the page that sells them</span></a>${(n.candidates || []).length ? `<span>Other versions</span>${n.candidates.map(c => `<a href="site/${esc(c.href)}">${esc(c.label)}</a>`).join("")}` : ""}${(n.more || []).length ? `<span>More demos</span>${n.more.map(c => `<a href="${esc(c.href)}">${esc(c.label)}</a>`).join("")}` : ""}</p>` : ""}
-      </section>`).join("");
+// Cards: one per page. kind is the small label above the title.
+const card = (c, trade) => `
+          <li class="card card--${esc(c.type)}" data-trade="${esc(trade)}" data-q="${esc([c.kind, c.title, c.meta, c.desc, trade].join(" ").toLowerCase())}">
+            <a class="card__link" href="${esc(c.href)}">
+              <span class="card__kind">${esc(c.kind)}</span>
+              <b class="card__title">${esc(c.title)}</b>
+              ${c.meta ? `<span class="card__meta">${esc(c.meta)}</span>` : ""}
+              ${c.desc ? `<span class="card__desc">${esc(clip(c.desc))}</span>` : ""}
+            </a>
+          </li>`;
+const sitePath = href => "/" + folder(href) + (folder(href) ? "/" : "");
 
-const total = data.niches.reduce((a, n) => a + n.slots.length, 0);
-const updated = new Date(data.updated + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const used = new Set(); // public folders already shown under a trade
+const nav = []; // trades in order, each with its pages in order, for the back bar
+const sections = [];
+for (const n of data.niches) {
+  const cards = [];
+  if (n.page) {
+    used.add(folder(n.page));
+    cards.push({ type: "sell", kind: "Selling page", href: `site/${n.page}`, title: `${n.name} websites`, meta: sitePath(n.page), desc: page(n.page).desc });
+  }
+  for (const s of n.slots) {
+    if (!s.client) continue;
+    cards.push({ type: "demo", kind: "Demo site", href: `demos/${s.slug}/`, title: s.business, meta: s.town, desc: s.concept });
+  }
+  // Extra demos: "featured": true ones sit with the main demo, the rest follow as "More demos".
+  const more = [...(n.more || [])].sort((a, b) => !!b.featured - !!a.featured);
+  for (const m of more) {
+    used.add(folder(m.href));
+    const p = page(m.href);
+    cards.push({ type: m.featured ? "demo" : "more", kind: m.featured ? "Demo site" : "More demos", href: m.href, title: p.title || m.label, meta: m.label, desc: p.desc });
+  }
+  for (const c of n.candidates || []) {
+    used.add(folder(c.href));
+    const [, v, name] = /^(\w+),\s*(.+)$/.exec(c.label) || [, "", c.label];
+    cards.push({ type: "alt", kind: `Selling page${v ? `, version ${v}` : ", other version"}`, href: `site/${c.href}`, title: name, meta: sitePath(c.href), desc: page(c.href).desc });
+  }
+  for (const s of n.slots) if (s.client) used.add(`demos/${s.slug}`);
+  nav.push({ id: n.id, name: n.name, short: n.short || n.name.split(" and ")[0], pages: cards.map(c => ({ href: c.href, title: c.title })) });
+  const demoCount = cards.filter(c => c.type === "demo" || c.type === "more").length;
+  sections.push(`
+      <section class="trade" id="trade-${esc(n.id)}" data-trade="${esc(n.id)}" aria-labelledby="h-${esc(n.id)}">
+        <header class="trade__head">
+          <h2 id="h-${esc(n.id)}">${esc(n.name)}</h2>
+          <p>${n.page ? "1 selling page, " : ""}${demoCount} demo site${demoCount === 1 ? "" : "s"}</p>
+        </header>
+        <ul class="cards">${cards.map(c => card(c, n.id)).join("")}
+        </ul>
+      </section>`);
+}
+
+// The rest of groundwork-web.com, grouped by what a visitor is after. Anything new lands in "Other page".
+const GROUPS = [
+  ["Free tool", p => /^(site-check|audit)$/.test(p)],
+  ["Guide", p => /^guides\//.test(p)],
+  ["Offer and checkout", p => /^(offer|pricing|before-you-pay|start|thanks)$/.test(p)],
+  ["Agency site", p => /^(|privacy|demos)$/.test(p)],
+];
+// Pages whose own title doesn't say what they are out of context.
+const TITLES = { "": "groundwork-web.com home page", thanks: "Thank-you page (after checkout)" };
+const draftSlugs = [];
+const agency = [];
+for (const [path, p] of [...pages].sort((a, b) => a[0].localeCompare(b[0]))) {
+  if (used.has(path)) continue;
+  if (/^demos\/[^/]+$/.test(path)) { draftSlugs.push([path, p]); continue; }
+  const g = GROUPS.find(([, test]) => test(path));
+  agency.push({ type: "page", kind: g ? g[0] : "Other page", href: `site/${path}${path ? "/" : ""}`, title: TITLES[path] || p.title || path, meta: sitePath(path), desc: p.desc });
+}
+const order = k => { const i = GROUPS.findIndex(([name]) => name === k); return i < 0 ? 99 : i; };
+agency.sort((a, b) => order(a.kind) - order(b.kind) || (a.meta === "/" ? -1 : b.meta === "/" ? 1 : a.meta.localeCompare(b.meta)));
+nav.push({ id: "agency", name: "Agency site", short: "Agency", pages: agency.map(c => ({ href: c.href, title: c.title })) });
+sections.push(`
+      <section class="trade" id="trade-agency" data-trade="agency" aria-labelledby="h-agency">
+        <header class="trade__head">
+          <h2 id="h-agency">The agency site</h2>
+          <p>${agency.length} pages of groundwork-web.com</p>
+        </header>
+        <ul class="cards">${agency.map(c => card(c, "agency")).join("")}
+        </ul>
+      </section>`);
+
+const drafts = draftSlugs.map(([path, p]) => ({ type: "draft", kind: "Earlier draft", href: `site/${path}/`, title: p.title, meta: sitePath(path), desc: p.desc }));
+if (drafts.length) {
+  nav.push({ id: "drafts", name: "Earlier drafts", short: "Drafts", pages: drafts.map(c => ({ href: c.href, title: c.title })) });
+  sections.push(`
+      <section class="trade" id="trade-drafts" data-trade="drafts" aria-labelledby="h-drafts">
+        <details class="older">
+          <summary><h2 id="h-drafts">Earlier demo drafts</h2> <span>${drafts.length} demos made before the current ones</span></summary>
+          <ul class="cards">${drafts.map(c => card(c, "drafts")).join("")}
+          </ul>
+        </details>
+      </section>`);
+}
+
+const chips = nav.map(t => `<a class="chip" href="#trade-${esc(t.id)}" data-filter="${esc(t.id)}">${esc(t.name)} <span>${t.pages.length}</span></a>`).join("");
+const count = nav.reduce((a, t) => a + t.pages.length, 0);
+const demoTotal = nav.filter(t => t.id !== "agency" && t.id !== "drafts").reduce((a, t) => a + t.pages.length, 0);
+// The build date, so the header always says when this copy was made.
+const updated = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
 
 let html = readFileSync(join(root, "hub", "index.html"), "utf8");
-const fill = { DEMOS: demos, UPDATED: esc(updated), DEMO_TOTAL: String(total), PER_TRADE: String(data.perTrade), DEMO_NOTE: esc(data.demoNote || "") };
+const fill = { CATALOG: sections.join(""), CHIPS: chips, UPDATED: esc(updated), PAGE_TOTAL: String(count), TRADE_TOTAL: String(data.niches.length), TRADE_PAGES: String(demoTotal) };
 html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in fill)) { errors.push(`hub/index.html: unknown placeholder ${m}`); return m; }
   return fill[k];
 });
 
 writeFileSync(join(out, "index.html"), html);
+writeFileSync(join(out, "nav.json"), JSON.stringify(nav));
 cpSync(join(root, "hub", "hub.css"), join(out, "assets", "hub.css"));
 for (const f of ["oswald-600", "oswald-700", "source-sans-400", "source-sans-600"]) cpSync(join(root, "public", "assets", "fonts", `${f}.woff2`), join(out, "assets", "fonts", `${f}.woff2`));
-// Internal work log: keep it and every demo out of search engines.
+// Keep the hub and every demo out of search engines.
 writeFileSync(join(out, "robots.txt"), "User-agent: *\nDisallow: /\n");
 writeFileSync(join(out, ".nojekyll"), "");
 
 if (errors.length) { errors.forEach(e => console.error(`  ERROR ${e}`)); process.exit(1); }
-console.log(`  built hub (${total} demo slot${total === 1 ? "" : "s"}) -> ${out.replace(root + "/", "")}/`);
+console.log(`  built hub (${data.niches.length} trades, ${count} pages listed) -> ${out.replace(root + "/", "")}/`);
