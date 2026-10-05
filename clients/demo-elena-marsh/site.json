@@ -1,0 +1,325 @@
+{
+ "slug": "demo-elena-marsh",
+ "demo": true,
+ "renderer": "summit",
+ "niche": "real estate",
+ "demoNote": "Fictional agent, brokerage and listings. Photos are free stock images, not real listings.",
+ "demoCta": {
+  "label": "Get this site",
+  "href": "https://groundwork-web.com/start/?niche=real-estate&demo=summit"
+ },
+ "business": {
+  "name": "Elena Marsh",
+  "monogram": "EM",
+  "tagline": "Denver real estate",
+  "brokerage": "Front Range Collective (sample brokerage) · 303-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(303) 555-0174",
+  "sms": "(303) 555-0174",
+  "email": "elena@example.com",
+  "hoursText": "Calls and texts 8am to 8pm, every day",
+  "hours": [
+   {
+    "days": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "08:00",
+    "closes": "20:00"
+   }
+  ],
+  "address": {
+   "city": "Denver",
+   "region": "CO",
+   "postal": "80211"
+  },
+  "license": "Colorado real estate license #FA000000000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#1B2430",
+  "fontFaces": [
+   {
+    "family": "DM Serif Display",
+    "weight": 400,
+    "src": "fonts/dm-serif-display-latin-400-normal.woff2",
+    "preload": true
+   },
+   {
+    "family": "Manrope",
+    "weight": 400,
+    "src": "fonts/manrope-latin-400-normal.woff2",
+    "preload": true
+   },
+   {
+    "family": "Manrope",
+    "weight": 700,
+    "src": "fonts/manrope-latin-700-normal.woff2",
+    "preload": true
+   }
+  ]
+ },
+ "seo": {
+  "title": "Elena Marsh | Denver Real Estate Agent, Homes for Sale",
+  "description": "Denver homes for sale and a free home value from agent Elena Marsh. Highlands, Wash Park, Park Hill and Baker, with straight answers from search to closing."
+ },
+ "hero": {
+  "img": "img/hero.jpg",
+  "eyebrow": "Elena Marsh · Denver real estate",
+  "headline": "Find your place in Denver, with someone who's lived here all her life.",
+  "sub": "Search my current listings below, or tell me what you're after and I'll send homes the day they come up.",
+  "credit": "Photo: Brian Babb, Unsplash"
+ },
+ "stats": [
+  [
+   "12 yrs",
+   "selling Denver homes"
+  ],
+  [
+   "$184M",
+   "in closed sales"
+  ],
+  [
+   "300+",
+   "families helped"
+  ],
+  [
+   "4.9",
+   "average review"
+  ]
+ ],
+ "about": {
+  "img": "img/agent.svg",
+  "alt": "Illustrated portrait of Elena Marsh",
+  "credit": "Illustration, not a photo. Your site uses your own portrait.",
+  "eyebrow": "Meet Elena",
+  "headline": "Denver born, Highlands raised, still here.",
+  "story": [
+   "I grew up two blocks off Tennyson Street, back when you could park on it. I've watched every neighborhood in this city change, and I can tell you which changes will hold their value and which won't.",
+   "Before real estate I was a structural engineer, so yes, I'll look at the cracks in your basement before I look at the countertops. My clients get honest numbers, a plan in writing, and me on the phone, not an assistant."
+  ],
+  "creds": [
+   "Former structural engineer",
+   "Relocation certified",
+   "Speaks Spanish"
+  ],
+  "cta": "Get in touch with Elena"
+ },
+ "listings": {
+  "headline": "Featured listings",
+  "prices": [
+   500000,
+   750000,
+   1000000,
+   1500000
+  ],
+  "fine": "Sample listings for this demo. Your site shows your own listings, with the listing brokerage named. Photos from Unsplash: Austin Phillips, Cassie Gallegos, Elijah Crouch, Francesca Tosolini, Hansheng Zhao, Hunter Owens, Karina G, Roger Starnes Sr, Stacie Ong, Tyrone Sanders.",
+  "items": [
+   {
+    "img": "img/l1.jpg",
+    "alt": "Red brick bungalow",
+    "status": "For sale",
+    "price": 749000,
+    "street": "W 37th Ave",
+    "area": "Highlands",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1760
+   },
+   {
+    "img": "img/l2.jpg",
+    "alt": "White modern farmhouse with black trim",
+    "status": "New listing",
+    "price": 1185000,
+    "street": "S Gilpin St",
+    "area": "Wash Park",
+    "beds": 4,
+    "baths": 3.5,
+    "sqft": 3120
+   },
+   {
+    "img": "img/l3.jpg",
+    "alt": "Red Victorian house",
+    "status": "For sale",
+    "price": 965000,
+    "street": "Albion St",
+    "area": "Park Hill",
+    "beds": 4,
+    "baths": 2.5,
+    "sqft": 2640
+   },
+   {
+    "img": "img/l4.jpg",
+    "alt": "Mid-century ranch house",
+    "status": "Coming soon",
+    "price": 615000,
+    "street": "S Jasmine St",
+    "area": "Virginia Village",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1540
+   },
+   {
+    "img": "img/l5.jpg",
+    "alt": "Row of modern townhomes with mountains behind",
+    "status": "For sale",
+    "price": 489000,
+    "street": "Bannock St",
+    "area": "Baker",
+    "beds": 2,
+    "baths": 2.5,
+    "sqft": 1290
+   },
+   {
+    "img": "img/l6.jpg",
+    "alt": "Yellow craftsman house",
+    "status": "Under contract",
+    "price": 829000,
+    "street": "Wolff St",
+    "area": "Highlands",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 2010
+   }
+  ]
+ },
+ "hoods": {
+  "headline": "Neighborhoods I know street by street",
+  "sub": "I've sold homes all over the metro, and these are the ones I'm asked about most.",
+  "items": [
+   {
+    "img": "img/n1.jpg",
+    "alt": "Tree-lined residential street",
+    "name": "Highlands",
+    "line": "Bungalows, Tennyson Street and a view of downtown."
+   },
+   {
+    "img": "img/n2.jpg",
+    "alt": "City park with a lake and skyline",
+    "name": "Wash Park",
+    "line": "The park, the lakes, and some of Denver's best-kept older homes."
+   },
+   {
+    "img": "img/n3.jpg",
+    "alt": "Row of brick houses",
+    "name": "Baker",
+    "line": "Victorian rows and Broadway's shops and restaurants close by."
+   }
+  ]
+ },
+ "value": {
+  "img": "img/band.jpg",
+  "headline": "What's your home worth in today's Denver market?",
+  "sub": "Enter your address and I'll send a real price range from recent sales near you, not an automated guess. Usually the same day.",
+  "cta": "Get my home value"
+ },
+ "reviews": {
+  "headline": "What clients say",
+  "source": "Google",
+  "url": "https://www.google.com/maps",
+  "rating": "4.9",
+  "count": 143,
+  "items": [
+   {
+    "name": "Sample client",
+    "where": "Sold in the Highlands",
+    "date": "2026-09-14",
+    "stars": 5,
+    "text": "Elena caught a foundation issue the inspector missed on the house we were buying, and she got the seller to fix it."
+   },
+   {
+    "name": "Sample client",
+    "where": "Bought in Wash Park",
+    "date": "2026-08-22",
+    "stars": 5,
+    "text": "We moved from Chicago and bought sight unseen. Her video walkthroughs were better than being there."
+   },
+   {
+    "name": "Sample client",
+    "where": "Sold in Baker",
+    "date": "2026-07-03",
+    "stars": 4,
+    "text": "The sale took a few weeks longer than planned, but she was honest about why and the price held."
+   }
+  ]
+ },
+ "booking": {
+  "headline": "Let's talk about your move",
+  "body": "Answer three quick questions and I'll call you back today. Buying, selling or just curious about the market, it all starts with a conversation.",
+  "cta": "Talk with Elena",
+  "headerCta": "Contact Elena"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {
+   "question": "How can I help?",
+   "options": [
+    {
+     "value": "Buying",
+     "hint": "Find a home in Denver"
+    },
+    {
+     "value": "Selling",
+     "hint": "What would mine sell for?"
+    },
+    {
+     "value": "Both",
+     "hint": "Selling one, buying another"
+    },
+    {
+     "value": "Moving to Denver",
+     "hint": "From out of state"
+    }
+   ]
+  },
+  "step2": "Where and when?",
+  "areaLabel": "Neighborhood",
+  "areas": [
+   "Highlands",
+   "Wash Park",
+   "Park Hill",
+   "Baker",
+   "Virginia Village",
+   "Somewhere else in the metro"
+  ],
+  "timelines": [
+   "In the next 3 months",
+   "3 to 6 months",
+   "6 to 12 months",
+   "Just curious"
+  ],
+  "notesHint": "Your address if you're selling, or what you need in a home",
+  "step3": "How should I reach you?",
+  "consent": "By sending this, you agree that Elena Marsh may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+  "submit": "Send to Elena",
+  "privacy": "Your details go to Elena only. Never sold or shared.",
+  "thanks": "Got it. I'll call you today. Elena"
+ },
+ "faqHeadline": "Questions buyers and sellers ask",
+ "faq": [
+  {
+   "q": "Are these all the homes for sale in Denver?",
+   "a": "No, these are my own listings. I can send you every home on the market that fits what you want, the day it's listed."
+  },
+  {
+   "q": "What's your commission?",
+   "a": "It's negotiable and agreed in writing before any work starts. I'll show you what it covers."
+  },
+  {
+   "q": "Do I need to sign anything to tour homes?",
+   "a": "Yes, a short written buyer agreement, as the rules now require. It says what I'm paid and who pays it. Talking with me first is free."
+  },
+  {
+   "q": "How is your home value different from an online estimate?",
+   "a": "I look at the actual recent sales near you, adjust for your home's condition and updates, and give you a range I'd list it at."
+  }
+ ],
+ "eho": "Equal Housing Opportunity. Elena Marsh is licensed with Front Range Collective (sample brokerage).",
+ "sticky": {
+  "book": "Contact Elena"
+ }
+}

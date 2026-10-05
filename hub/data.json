@@ -78,6 +78,63 @@
         }
       ],
       "page": "commercial-cleaning/"
+    },
+    {
+      "id": "real-estate",
+      "name": "Real estate agents",
+      "owner": "Real estate designer",
+      "slots": [
+        {
+          "business": "Hollis & Son, real estate agents",
+          "town": "Asheville, NC",
+          "concept": "A family album: the mother-and-son team first, then a fix-it-or-leave-it game for sellers, sold homes as album pages and an easy way to ask a question",
+          "status": "graded",
+          "grade": "A+",
+          "client": "demo-hollis-family",
+          "slug": "hollis-family"
+        }
+      ],
+      "page": "real-estate/",
+      "more": [
+        {
+          "label": "Text thread, Tucson AZ",
+          "href": "site/demos/teresa-valdez/",
+          "featured": true
+        },
+        {
+          "label": "Photo header, Denver CO",
+          "href": "site/demos/elena-marsh/",
+          "featured": true
+        },
+        {
+          "label": "Listing book, Beaufort SC",
+          "href": "site/demos/june-pettiford/"
+        },
+        {
+          "label": "Open house board, Boise ID",
+          "href": "site/demos/foothill-team/"
+        },
+        {
+          "label": "Magazine profile, Kansas City",
+          "href": "site/demos/marcus-bell/"
+        },
+        {
+          "label": "Photo slideshow, Austin TX",
+          "href": "site/demos/ocampo-team/"
+        },
+        {
+          "label": "Desert luxury, Scottsdale AZ",
+          "href": "site/demos/sloane-whitaker/"
+        },
+        {
+          "label": "Team site, Nashville TN",
+          "href": "site/demos/wren-cole/"
+        },
+        {
+          "label": "Neighborhood map, Chattanooga TN",
+          "href": "site/demos/nadia-brooks/"
+        }
+      ]
     }
   ],
   "demoNote": "Finished demos, one per trade."

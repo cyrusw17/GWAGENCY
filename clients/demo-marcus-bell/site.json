@@ -1,0 +1,119 @@
+{
+ "slug": "demo-marcus-bell",
+ "demo": true,
+ "renderer": "profile",
+ "niche": "real estate",
+ "demoNote": "Fictional agent, brokerage and homes. Pictures are illustrations.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=profile"},
+ "business": {
+  "name": "Marcus Bell",
+  "tagline": "Real estate · Kansas City",
+  "brokerage": "Plaza & Pine Realty (sample brokerage) · 816-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(816) 555-0162",
+  "sms": "(816) 555-0162",
+  "email": "marcus@example.com",
+  "hoursText": "Calls and texts 8am to 8pm, showings any day",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "20:00"}],
+  "address": {"city": "Kansas City", "region": "MO", "postal": "64111"},
+  "license": "Missouri real estate license #0000000000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#F3EFE6",
+  "fontFaces": [
+   {"family": "Instrument Serif", "weight": 400, "src": "fonts/instrument-serif-latin-400-normal.woff2", "preload": true},
+   {"family": "Albert Sans", "weight": 400, "src": "fonts/albert-sans-latin-400-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "Marcus Bell | Kansas City Real Estate Agent",
+  "description": "Meet Kansas City real estate agent Marcus Bell, a former coach who sells homes in Waldo, Brookside, Midtown and the Northland. Read his story first."
+ },
+ "artNote": "Illustration, not a photo.",
+ "me": {"photo": "img/marcus.svg", "photoAlt": "Illustrated portrait of Marcus Bell in glasses and a blue shirt"},
+ "cover": {"mast": "The Kansas City Profile", "issue": "Fall 2026 · Sample issue", "kicker": "Cover story",
+  "lines": [["14", "years coaching high school basketball"], ["9", "years selling homes in Kansas City"], ["1", "rule: no client ever gets surprised"]]},
+ "hero": {
+  "headline": "The coach who became Kansas City's straight-talk agent.",
+  "sub": "Marcus Bell spent fourteen years teaching teenagers to run a play. Now he runs your home sale or purchase the same way: a plan on paper, practice before game day, and honest film review."
+ },
+ "interview": {
+  "kicker": "The interview",
+  "headline": "“I'd rather lose a listing than lose your trust.”",
+  "dek": "We sat down with Marcus at a Waldo coffee shop to ask what makes him different. He ordered a plain coffee and answered every question.",
+  "items": [
+   {"q": "How does a basketball coach end up selling houses?", "a": ["My wife and I bought our first house in 2015 and our agent disappeared after the offer. Nobody told us anything. I thought, I could do this better, and I could explain it to people.", "Coaching is teaching. So is this. Most people buy or sell a house a few times in their life. They deserve someone who walks them through it like it's practice, before it's the real game."]},
+   {"pull": "“A good agent tells you what you need to hear in week one, not week six.”"},
+   {"q": "What do clients get wrong at the start?", "a": ["Sellers want to price high and come down. In this market, the first two weeks are when the most buyers see your house. Price it right then.", "Buyers think the hard part is finding a house. The hard part is the inspection and the appraisal. That's where I earn my keep."]},
+   {"q": "What's a Saturday look like for you?", "a": ["Open house in the morning, then I'm at my daughter's game at the Plaza courts. If you call me during it, I'll call you at halftime. I'm serious."]},
+   {"pull": "“If you call during my daughter's game, I'll call you back at halftime.”"},
+   {"q": "Why should someone hire you over a bigger team?", "a": ["Because you'll get me. Not an assistant, not a showing agent. Me, from the first walk-through to the closing table, and after.", "And I'll tell you no. If a house has a foundation problem, I'm the first one saying it."]}
+  ]
+ },
+ "which": {
+  "headline": "Which client are you?",
+  "sub": "Pick the one that sounds like you. You'll see how Marcus would run your game plan, and what someone like you said after.",
+  "items": [
+   {"who": "First-time buyer", "title": "Your first house, without the surprises", "steps": ["A one-hour sit-down: budget, must-haves and how the whole process works, start to finish.", "Lender introductions if you want them, so your number is real before we tour.", "A short written agreement before touring that spells out what I'm paid.", "Notes from me on every house, the good and the bad.", "Inspection and appraisal handled with you, step by step, until you have keys."], "cta": "Start my first-home plan", "review": {"name": "Sample client", "where": "First home in Waldo", "text": "We had a hundred questions. Marcus answered every one, twice, and never made us feel dumb.", "stars": 5}},
+   {"who": "Selling to move up", "title": "Sell one, buy the next, in the right order", "steps": ["We price your house from the last 90 days of real sales and plan the timing of both moves.", "A prep list for the three fixes that matter, and permission to skip the rest.", "Professional photos, a floor plan and a weekly showing report.", "Offers negotiated so you aren't stuck owning two houses or none.", "One closing calendar for both deals."], "cta": "Plan my move-up", "review": {"name": "Sample client", "where": "Sold in Brookside, bought in Lee's Summit", "text": "He lined up both closings a day apart. We never paid two mortgages.", "stars": 5}},
+   {"who": "Selling a parent's home", "title": "A family house, handled with care", "steps": ["A first visit with no paperwork, just a walk-through and a plan.", "Help with cleanouts, estate sales and repair crews if you need them.", "A clear choice: sell as-is, or fix a few things first, with the math for each.", "Updates to every sibling, if that helps keep the family on the same page.", "Paperwork coordinated with your attorney or the estate's executor."], "cta": "Talk about mom or dad's house", "review": {"name": "Sample client", "where": "Sold a family home in Raytown", "text": "My brother and I live in different states. Marcus sent us both the same update every Friday. That kept the peace.", "stars": 5}},
+   {"who": "Moving to KC", "title": "Kansas City from a distance", "steps": ["A video call on neighborhoods and commutes, so you know Kansas City from Kansas City, Kansas.", "Live video tours, with me pointing out what the listing photos don't show.", "Inspectors, lenders and title I trust, introduced before you need them.", "Remote signing set up wherever it's allowed.", "Keys handed over when you arrive, plus a list of my favorite barbecue."], "cta": "Plan my move to KC", "review": {"name": "Sample client", "where": "Relocated from Denver", "text": "We bought from 600 miles away off his video tours. The house was exactly what he said it was.", "stars": 4}}
+  ]
+ },
+ "sold": {
+  "headline": "Recently closed",
+  "numbers": [["41", "homes closed last year"], ["99%", "of list price, on average"], ["18", "average days on market"]],
+  "fine": "Sample homes and numbers for this demo site.",
+  "items": [
+   {"img": "img/s1.svg", "alt": "Illustration of a green craftsman bungalow with a red door", "price": 312000, "line": "3 bd · 2 ba", "where": "Waldo bungalow", "tag": "Sold in 6 days"},
+   {"img": "img/s2.svg", "alt": "Illustration of a red brick colonial with blue shutters", "price": 489000, "line": "4 bd · 3 ba", "where": "Brookside colonial", "tag": "Sold over asking"},
+   {"img": "img/s3.svg", "alt": "Illustration of a cream ranch house", "price": 268000, "line": "3 bd · 1.5 ba", "where": "Northland ranch", "tag": "Sold, first-time buyer"},
+   {"img": "img/s4.svg", "alt": "Illustration of a lavender Victorian house", "price": 415000, "line": "4 bd · 2 ba", "where": "Midtown Victorian", "tag": "Sold, estate sale"},
+   {"img": "img/s5.svg", "alt": "Illustration of a dark modern house at dusk", "price": 635000, "line": "3 bd · 3 ba", "where": "Crossroads modern", "tag": "Sold, relocation"},
+   {"img": "img/s6.svg", "alt": "Illustration of a white farmhouse with a red door", "price": 398000, "line": "4 bd · 2.5 ba", "where": "Lee's Summit farmhouse", "tag": "Bought for a move-up"}
+  ]
+ },
+ "reviews": {
+  "headline": "What clients say",
+  "source": "Google", "url": "https://www.google.com/maps", "rating": "4.9", "count": 88,
+  "items": [
+   {"name": "Sample client", "where": "Sold in Waldo", "date": "2026-09-18", "stars": 5, "text": "He told us the price we didn't want to hear. Sold in six days, for the price he said."},
+   {"name": "Sample client", "where": "Bought in the Northland", "date": "2026-08-25", "stars": 5, "text": "Like having a coach on our side. Every step had a plan, and he warned us before every hard part."},
+   {"name": "Sample client", "where": "Sold in Midtown", "date": "2026-07-11", "stars": 4, "text": "Took a couple weeks longer than we hoped, but Marcus kept us posted every Friday without fail."}
+  ]
+ },
+ "booking": {
+  "headline": "Get your game plan",
+  "body": "Answer three quick questions and Marcus will call you back today with a first plan for your sale or purchase. No obligation, no drip emails.",
+  "cta": "Get my game plan",
+  "headerCta": "Talk to Marcus"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "What are you planning?", "options": [
+   {"value": "Buying", "hint": "First home or the next one"},
+   {"value": "Selling", "hint": "What would mine sell for?"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "A family home", "hint": "Selling a parent's house"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Part of town",
+  "areas": ["Waldo", "Brookside", "Midtown", "Northland", "Lee's Summit", "Kansas side"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just getting a plan"],
+  "notesHint": "Your address if you're selling, or what you need in a house",
+  "step3": "How should Marcus reach you?",
+  "consent": "By sending this, you agree that Marcus Bell may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+  "submit": "Send to Marcus",
+  "privacy": "Your details go to Marcus only. Never sold or shared.",
+  "thanks": "Got it. I'll call you today. Marcus"
+ },
+ "faqHeadline": "Questions for Marcus",
+ "faq": [
+  {"q": "Do you work on both sides of the state line?", "a": "I'm licensed in Missouri. For homes in Kansas, I'll introduce you to an agent I trust there."},
+  {"q": "What's your commission?", "a": "It's negotiable and always agreed in writing before any work starts. I'll show you exactly what it covers."},
+  {"q": "Do I have to sign something to tour homes?", "a": "Yes, a short written buyer agreement, as the rules now require. It says what I'm paid and who pays it. Talking to me first is free."},
+  {"q": "Will I work with you or an assistant?", "a": "With me, from the first walk-through to the closing table."}
+ ],
+ "eho": "Equal Housing Opportunity. Marcus Bell is licensed with Plaza & Pine Realty (sample brokerage).",
+ "sticky": {"book": "Talk to Marcus"}
+}

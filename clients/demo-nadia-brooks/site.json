@@ -1,0 +1,434 @@
+{
+  "slug": "demo-nadia-brooks",
+  "demo": true,
+  "renderer": "field-guide",
+  "niche": "real estate",
+  "demoNote": "Fictional agent and brokerage, with sample reviews, sales and license number.",
+  "demoCta": {
+    "label": "Get this site",
+    "href": "https://groundwork-web.com/start/?niche=real-estate&demo=field-guide"
+  },
+  "business": {
+    "name": "Nadia Brooks",
+    "initials": "NB",
+    "tagline": "Real estate agent · Chattanooga, TN",
+    "brokerage": "Ridgeview Realty (sample brokerage) · 423-555-0100",
+    "schemaType": "RealEstateAgent",
+    "phone": "(423) 555-0168",
+    "sms": "(423) 555-0168",
+    "email": "nadia@example.com",
+    "hoursText": "Texts answered 7am to 9pm, every day",
+    "hours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "21:00"
+      }
+    ],
+    "address": {
+      "city": "Chattanooga",
+      "region": "TN",
+      "postal": "37403"
+    },
+    "license": "Tennessee real estate license #000000 (sample)"
+  },
+  "theme": {
+    "themeColor": "#24392E",
+    "fontFaces": [
+      {
+        "family": "Fraunces",
+        "weight": 800,
+        "src": "fonts/fraunces-latin-800-normal.woff2",
+        "preload": true
+      },
+      {
+        "family": "Karla",
+        "weight": 400,
+        "src": "fonts/karla-latin-400-normal.woff2",
+        "preload": true
+      }
+    ]
+  },
+  "seo": {
+    "title": "Nadia Brooks | Chattanooga Real Estate Agent, Buying and Selling",
+    "description": "Chattanooga real estate agent for sellers and buyers in North Shore, St. Elmo, Highland Park, Red Bank and nearby. Home values answered within a day."
+  },
+  "hero": {
+    "headline": "Chattanooga real estate, street by street.",
+    "sub": "I've sold houses here for eleven years, mostly in the neighborhoods on this map. Tap one and you get what I'd tell you on the drive over: the houses, the commute, and the one thing to check before you write an offer."
+  },
+  "guide": {
+    "title": "The neighborhoods I know street by street",
+    "hint": "Tap a neighborhood for my notes. Drawn by hand, not to scale.",
+    "fair": "My notes cover houses, streets and drive times. For schools, I'll point you to Hamilton County Schools' own information so you can decide for yourself.",
+    "hoods": [
+      {
+        "key": "signal",
+        "name": "Signal Mountain",
+        "x": 92,
+        "y": 92,
+        "houses": "Mid-century ranches and newer builds on big wooded lots",
+        "drive": "20 to 25 minutes, down the W Road",
+        "near": "Trailheads, the overlooks, a small-town main street",
+        "note": "Drive the W Road at 7:45 on a weekday before you make an offer.",
+        "lx": 0,
+        "ly": 38,
+        "anchor": "middle"
+      },
+      {
+        "key": "redbank",
+        "name": "Red Bank",
+        "x": 268,
+        "y": 96,
+        "houses": "1950s brick ranches with real yards, some flips",
+        "drive": "10 to 15 minutes",
+        "near": "Dixie Highway shops, quick hop to the North Shore",
+        "note": "The updated ones go fast. Get pre-approved before the first tour."
+      },
+      {
+        "key": "northshore",
+        "name": "North Shore",
+        "x": 330,
+        "y": 186,
+        "lx": -14,
+        "anchor": "end",
+        "houses": "Craftsman bungalows and newer townhomes",
+        "drive": "5 minutes, or walk the Walnut Street Bridge",
+        "near": "Coolidge Park, Frazier Avenue, the riverwalk",
+        "note": "Parking is the question at every showing. Ask about it first."
+      },
+      {
+        "key": "downtown",
+        "name": "Downtown & Southside",
+        "x": 380,
+        "y": 292,
+        "lx": -14,
+        "ly": 26,
+        "anchor": "end",
+        "houses": "Lofts, condos and new townhomes around Main Street",
+        "drive": "You're there",
+        "near": "The Choo Choo, Main Street restaurants, the aquarium",
+        "note": "With a condo, read the HOA's budget and reserves before you fall for the view."
+      },
+      {
+        "key": "highland",
+        "name": "Highland Park",
+        "x": 486,
+        "y": 262,
+        "lx": -20,
+        "ly": -16,
+        "houses": "1910s to 1940s bungalows on a street grid, renovated next to needs-work",
+        "drive": "5 to 10 minutes",
+        "near": "Downtown, Tuxedo Avenue's corner spots",
+        "note": "Comps here go block by block. Two houses a street apart can price $80,000 apart."
+      },
+      {
+        "key": "stelmo",
+        "name": "St. Elmo",
+        "x": 276,
+        "y": 402,
+        "houses": "1890s to 1920s Victorians and bungalows at the foot of Lookout Mountain",
+        "drive": "10 minutes",
+        "near": "The Incline Railway, the Guild Trail, St. Elmo Avenue's coffee and pizza",
+        "note": "Old houses. Add a sewer scope to the inspection, every time.",
+        "lx": -17,
+        "anchor": "end"
+      },
+      {
+        "key": "brainerd",
+        "name": "East Brainerd",
+        "x": 512,
+        "y": 404,
+        "lx": -14,
+        "anchor": "end",
+        "houses": "1990s to 2010s two-story homes in subdivisions",
+        "drive": "20 minutes on I-75",
+        "near": "Hamilton Place shopping, the Enterprise South trails",
+        "note": "Read the HOA rules on fences and sheds before closing, not after."
+      }
+    ],
+    "river": "Tennessee River",
+    "roads": [
+      {
+        "d": "M8 352C140 344 250 336 372 318S540 322 594 346",
+        "label": "I-24",
+        "x": 120,
+        "y": 336
+      },
+      {
+        "d": "M372 318C352 260 330 200 312 130S292 40 288 10",
+        "label": "US-27",
+        "x": 298,
+        "y": 40
+      },
+      {
+        "d": "M540 326C556 360 576 400 596 446",
+        "label": "I-75",
+        "x": 556,
+        "y": 440
+      }
+    ],
+    "marks": [
+      {
+        "label": "Lookout Mtn.",
+        "x": 118,
+        "y": 448
+      },
+      {
+        "label": "Signal Mtn.",
+        "x": 24,
+        "y": 36
+      }
+    ]
+  },
+  "trust": [
+    "Licensed in Tennessee since 2015",
+    "Ridgeview Realty (sample brokerage)",
+    "Texts answered 7am to 9pm",
+    "Equal Housing Opportunity"
+  ],
+  "paths": {
+    "headline": "Two ways I work",
+    "sub": "Every sale is different. These are what a typical one looks like, so you know what's coming and when.",
+    "fine": "Typical timelines for illustration. Your contract dates rule.",
+    "tracks": [
+      {
+        "name": "Selling",
+        "cta": "What's my home worth?",
+        "steps": [
+          {
+            "day": "Day 1",
+            "what": "I walk the house with you",
+            "detail": "Then a price range from recent sales nearby, in writing."
+          },
+          {
+            "day": "Week 1",
+            "what": "Small fixes, then photos",
+            "detail": "A short list, not a remodel. Photos, a floor plan and a video walkthrough."
+          },
+          {
+            "day": "Thursday",
+            "what": "On the market",
+            "detail": "Listed late in the week so it's fresh for weekend showings."
+          },
+          {
+            "day": "Offers",
+            "what": "Every offer side by side",
+            "detail": "Price, terms, inspection and financing, with what you'd net from each."
+          },
+          {
+            "day": "About 30 days",
+            "what": "Inspection, appraisal, closing",
+            "detail": "I handle the repair requests and keep the title company on schedule."
+          }
+        ]
+      },
+      {
+        "name": "Buying",
+        "cta": "Set up a tour",
+        "steps": [
+          {
+            "day": "First call",
+            "what": "What you need, where, and the budget",
+            "detail": "I'll introduce two or three local lenders if you don't have one."
+          },
+          {
+            "day": "Tours",
+            "what": "Houses, then the street",
+            "detail": "We drive the commute and walk the block, not just the rooms."
+          },
+          {
+            "day": "Offer",
+            "what": "Written to win, not to overpay",
+            "detail": "Recent sales next to the asking price, so you know where you stand."
+          },
+          {
+            "day": "Days 1 to 10",
+            "what": "Inspection period",
+            "detail": "Inspector, sewer scope on older houses, and the repair request."
+          },
+          {
+            "day": "About 30 days",
+            "what": "Appraisal and keys",
+            "detail": "Final walkthrough the morning of closing, then the keys."
+          }
+        ]
+      }
+    ]
+  },
+  "netsheet": {
+    "title": "Thinking of selling? A rough net sheet.",
+    "sub": "Slide in a price and your payoff to see roughly what you'd walk away with. When you're ready, I'll do a real one with title quotes and your exact payoff.",
+    "price": 365000,
+    "comm": 5,
+    "payoff": 180000,
+    "costsPct": 1.5,
+    "note": "Sample math, not an offer or a promise. Commission is whatever you agree to; it's negotiable. Taxes, HOA and repairs change the number.",
+    "cta": "Get my real net sheet"
+  },
+  "sold": {
+    "headline": "From my notebook: recently sold",
+    "fine": "Sample sales for this demo. Your site lists your own closings, with your clients' OK.",
+    "items": [
+      {
+        "where": "St. Elmo",
+        "what": "1912 bungalow with the original porch",
+        "meta": "3 bed · 1.5 bath · sold in 6 days · I represented the seller",
+        "note": "Sewer line was fine. We'd checked first.",
+        "photo": "",
+        "alt": "Front porch of a 1912 bungalow in St. Elmo",
+        "shot": "Shot list: the porch at golden hour, Lookout Mountain behind the roofline."
+      },
+      {
+        "where": "Red Bank",
+        "what": "Brick ranch for a first-time buyer",
+        "meta": "3 bed · 2 bath · four offers · I represented the buyer",
+        "note": "We won it on terms, not price.",
+        "photo": "",
+        "alt": "Brick ranch house in Red Bank with a big front yard",
+        "shot": "Shot list: buyers on the front step holding the keys, sold rider on the sign."
+      },
+      {
+        "where": "North Shore",
+        "what": "Townhome a block from Frazier Avenue",
+        "meta": "2 bed · 2.5 bath · sold over asking · seller side",
+        "note": "Two parking spots sold it.",
+        "photo": "",
+        "alt": "Row of North Shore townhomes",
+        "shot": "Shot list: the townhome from across the street, bridge lights in the background."
+      },
+      {
+        "where": "Highland Park",
+        "what": "Renovated 1925 bungalow",
+        "meta": "3 bed · 2 bath · relocation from Atlanta · buyer side",
+        "note": "Toured it on FaceTime first. Closed without a second trip.",
+        "photo": "",
+        "alt": "Renovated bungalow in Highland Park",
+        "shot": "Shot list: the kitchen, with the original pine floors showing."
+      }
+    ]
+  },
+  "reviews": {
+    "headline": "What clients said",
+    "source": "Google",
+    "url": "https://www.google.com/maps",
+    "rating": "4.9",
+    "count": 47,
+    "items": [
+      {
+        "name": "Sample client",
+        "where": "Sold in St. Elmo",
+        "date": "2026-09-12",
+        "stars": 5,
+        "text": "She told us to get the sewer scoped before we listed. Buyer's inspector found nothing to argue about. Closed on time."
+      },
+      {
+        "name": "Sample client",
+        "where": "Bought in Highland Park",
+        "date": "2026-08-20",
+        "stars": 5,
+        "text": "We were moving from Atlanta and could only come up once. Nadia FaceTimed us through four houses and drove the commute for us at rush hour."
+      },
+      {
+        "name": "Sample client",
+        "where": "Bought in Red Bank",
+        "date": "2026-07-29",
+        "stars": 5,
+        "text": "First house. I asked a hundred questions and she answered every text, usually within the hour."
+      }
+    ]
+  },
+  "owner": {
+    "name": "Nadia Brooks",
+    "headline": "Hi, I'm Nadia.",
+    "story": [
+      "I grew up in East Ridge and got my license in 2015 after six years at a title company, which is why I read every contract twice.",
+      "I'm one agent, not a team, so the person you call is the person at the closing table. Most of my business is past clients and their friends. If one of them sent you, tell me who. I'll want to thank them."
+    ],
+    "sign": "Nadia",
+    "photo": "",
+    "shot": "Shot list: Nadia on the Walnut Street Bridge, morning light, North Shore behind her."
+  },
+  "booking": {
+    "headline": "Let's talk about your move.",
+    "body": "Three quick questions. I'll call or text you back within a day, and a home value request gets a price range from recent sales nearby.",
+    "cta": "What's my home worth?",
+    "headerCta": "Talk to Nadia"
+  },
+  "lead": {
+    "endpoint": "",
+    "start": {
+      "question": "What are you thinking about?",
+      "options": [
+        {
+          "value": "Selling",
+          "hint": "Includes a home value request"
+        },
+        {
+          "value": "Buying"
+        },
+        {
+          "value": "Both",
+          "hint": "Selling one, buying another"
+        },
+        {
+          "value": "Just curious",
+          "hint": "No pressure, really"
+        }
+      ]
+    },
+    "step2": "Where and when?",
+    "timelines": [
+      "In the next 3 months",
+      "3 to 6 months",
+      "6 to 12 months",
+      "Just looking"
+    ],
+    "notesHint": "Your address for a home value, or what you're looking for",
+    "step3": "How should I reach you?",
+    "contactHint": "Phone or email, whichever you check first. You only need one.",
+    "consent": "By sending this, you agree that Nadia Brooks may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+    "submit": "Send to Nadia",
+    "privacy": "Your details go to Nadia only. Never sold or shared.",
+    "thanks": "Got it. I'll call or text you within a day. Nadia"
+  },
+  "faqHeadline": "Questions people ask me",
+  "faq": [
+    {
+      "q": "How do you figure out what my house is worth?",
+      "a": "From recent sales of similar houses nearby, adjusted for size, condition and the street. I send a written range, and after I walk the house I'll narrow it."
+    },
+    {
+      "q": "What does it cost to sell?",
+      "a": "Commission is negotiable and we agree on it in writing before anything else. Then there's title, closing costs and prorations. The net sheet on this page gives you a rough idea."
+    },
+    {
+      "q": "Do I need to be pre-approved before we tour?",
+      "a": "It helps, and in neighborhoods where the updated houses go fast it's almost required. I can introduce you to local lenders."
+    },
+    {
+      "q": "Can you help if I'm moving from out of state?",
+      "a": "Yes. Video tours, a drive of the commute on your behalf, and a closing you can sign remotely if the title company allows it."
+    },
+    {
+      "q": "Do you work with first-time buyers?",
+      "a": "A lot of them. I'll walk you through every step and every form, and there are no dumb questions."
+    }
+  ],
+  "eho": "Equal Housing Opportunity. Nadia Brooks is licensed with Ridgeview Realty (sample brokerage). Each office independently owned and operated.",
+  "final": {
+    "headline": "Wondering what your house would sell for?",
+    "sub": "Ask. A price range from recent sales nearby, within a day, and no pressure to list."
+  },
+  "sticky": {
+    "book": "Home value"
+  }
+}

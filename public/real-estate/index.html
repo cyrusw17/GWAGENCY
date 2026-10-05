@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- 21st.dev patterns (hand-ported, vanilla; 21st.dev is blocked by the network policy): animated tabs with a sliding indicator (the sign rider), flip words (rider text), number ticker (closing math), spotlight rows (inspection notes), marquee with pause, animated border beam (Grow plan). -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websites for Real Estate Agents, With Leads That Stay Yours | GroundWork-Web</title>
+<meta name="description" content="Real estate agent websites with a home value request, neighborhood pages and your brokerage and license where they belong. $99 to start, $300 when you approve.">
+<link rel="canonical" href="https://groundwork-web.com/real-estate/">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<meta property="og:title" content="Real estate agent websites: the sign comes down, the site stays up">
+<meta property="og:image" content="https://groundwork-web.com/assets/og.png">
+<link rel="preload" href="/assets/fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fragment-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Website design for real estate agents","provider":{"@id":"https://groundwork-web.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"offers":{"@type":"Offer","price":"399","priceCurrency":"USD","description":"$99 to start, $300 when you approve the preview"}}</script>
+<style>
+@font-face{font-family:"Gloock";font-weight:400;font-display:optional;src:url("/assets/fonts/gloock-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-weight:400;font-display:optional;src:url("/assets/fonts/hanken-grotesk-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-weight:600;font-display:optional;src:url("/assets/fonts/hanken-grotesk-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-weight:800;font-display:optional;src:url("/assets/fonts/hanken-grotesk-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"Fragment Mono";font-weight:400;font-display:optional;src:url("/assets/fonts/fragment-mono-latin-400-normal.woff2") format("woff2")}
+:root{
+  --paper:#F3ECDF;--paper-2:#E9DFCC;--card:#FBF7EF;--ink:#1D2623;--ink-2:#4A544F;--line:#CDBFA6;
+  --sign:#A8322A;--sign-ink:#FFF8EE;--brass:#B9843A;--post:#F7F3EA;--sage:#DDE3D3;--green:#2F4A3C;
+  --display:"Gloock",Georgia,serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"Fragment Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:99;padding:10px 14px;background:#fff;color:#000}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.4vw,48px)}
+h3{font-size:22px}
+.p{color:var(--ink-2);max-width:60ch}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.btn{display:inline-flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:52px;padding:12px 22px;border-radius:4px;background:var(--sign);color:var(--sign-ink);font:800 17px/1.2 var(--body);text-decoration:none;border:2px solid var(--sign)}
+.btn small{font-weight:400;font-size:13px;opacity:.9;margin-top:2px}
+.btn:hover{background:#8E2821;border-color:#8E2821}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1160px;margin:0 auto;padding:16px 20px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px/1 var(--body);text-decoration:none}
+.top nav{display:flex;gap:6px 18px;align-items:center;flex-wrap:wrap;font-weight:600;font-size:15px}
+.top nav a{text-decoration:none;padding:8px 0}
+.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.top nav .btn{min-height:44px;padding:8px 16px;font-size:15px}
+@media (max-width:640px){.top nav a:not(.btn){display:none}}
+
+/* Hero */
+.hero{padding:24px 0 72px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}}
+.kicker{font:400 14px/1.4 var(--mono);color:var(--green);margin:0 0 14px;display:flex;gap:10px;align-items:center}
+.kicker:before{content:"";width:28px;height:2px;background:var(--brass)}
+h1{font-size:clamp(40px,6.4vw,76px)}
+h1 .stay{white-space:nowrap;position:relative;display:inline-block}
+h1 .stay:after{content:"";position:absolute;left:-2%;right:-2%;bottom:.06em;height:.16em;background:var(--brass);opacity:.45;z-index:-1;transform:rotate(-1deg)}
+.lede{font-size:19px;color:var(--ink-2);max-width:52ch;margin:22px 0 28px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* The yard sign */
+.yard{position:relative;max-width:440px;margin:0 auto;width:100%}
+.rider{display:flex;position:relative;background:var(--ink);border-radius:4px 4px 0 0;padding:4px;margin:0 30px;gap:2px}
+.rider button{flex:1;position:relative;z-index:1;border:0;background:transparent;color:#E8E1D2;font:800 14px/1.1 var(--body);padding:12px 4px;min-height:46px;cursor:pointer;letter-spacing:.02em;text-transform:uppercase;border-radius:3px}
+.rider button[aria-pressed="true"]{color:var(--ink)}
+.rider .ind{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 12px)/3);background:var(--brass);border-radius:3px;transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.hooks{display:flex;justify-content:space-between;margin:0 64px;height:16px}
+.hooks span{width:3px;background:#6E6A60}
+.panel{background:var(--card);border:10px solid var(--sign);border-radius:6px;padding:20px 22px 22px;min-height:328px;box-shadow:0 22px 40px -24px rgba(29,38,35,.55);position:relative;transform-origin:50% 0}
+.panel.swing{animation:swing .7s cubic-bezier(.3,1.4,.5,1)}
+@keyframes swing{0%{transform:rotate(-2.4deg)}55%{transform:rotate(1.2deg)}100%{transform:rotate(0)}}
+.panel .who{font:400 12px/1.3 var(--mono);color:var(--sign);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}
+.panel .p-h{font:400 26px/1.08 var(--display);letter-spacing:-.01em;margin:0 0 12px}
+.panel .flip{display:inline-block;animation:flip .45s ease both}
+@keyframes flip{from{opacity:0;transform:translateY(8px) rotateX(70deg)}to{opacity:1;transform:none}}
+.panel ul{list-style:none;margin:0 0 16px;padding:0;border-top:1px dashed var(--line)}
+.panel li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.panel li b{font-weight:600;text-align:right}
+.panel .fake-in{border:1.5px solid var(--ink);border-radius:3px;padding:10px 12px;color:var(--ink-2);font-size:15px;margin:0 0 10px;background:#fff}
+.panel .go{display:inline-block;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:3px;font-weight:700;font-size:15px}
+.panel .note{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.post{width:16px;height:120px;margin:-4px auto 0;background:linear-gradient(90deg,#E5DFD2,var(--post) 40%,#D9D2C3);border-radius:2px}
+.grass{height:10px;background:var(--green);border-radius:10px;margin:0 auto;width:70%;opacity:.8}
+.cap{font-size:14px;color:var(--ink-2);text-align:center;margin:12px 0 0}
+@media (max-width:900px){.post{height:40px}}
+
+/* Statement table */
+.stmt-sec{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:76px 0}
+.stmt-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start}
+@media (max-width:900px){.stmt-grid{grid-template-columns:1fr}}
+.stmt{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border:1.5px solid var(--ink)}
+.stmt caption{text-align:left;font:400 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:0 0 8px;color:var(--ink-2)}
+.stmt th,.stmt td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.stmt thead th{background:var(--ink);color:var(--paper);font-weight:600;font-size:14px}
+.stmt tbody th{font:400 13px/1.4 var(--mono);color:var(--ink-2);width:30%}
+.stmt td.yours{background:#F5F8F0}
+.stmt .ln{color:var(--sign);margin-right:6px}
+@media (max-width:560px){.stmt,.stmt tbody,.stmt tr,.stmt td,.stmt th{display:block;width:100%}.stmt thead{display:none}.stmt caption{display:block;width:100%;padding:12px 14px 8px}.stmt tbody th{border-bottom:0;padding-bottom:8px;background:var(--paper-2);width:100%;font-size:14px}.stmt td:before{content:attr(data-h);display:block;font:400 11px/1.4 var(--mono);text-transform:uppercase;color:var(--ink-2)}}
+
+/* Listing sheet */
+.sheet-sec{padding:80px 0}
+.sheet{border:2px solid var(--ink);background:var(--card);display:grid;grid-template-columns:300px 1fr}
+@media (max-width:860px){.sheet{grid-template-columns:1fr}}
+.sheet-side{background:var(--green);color:#EEF0E6;padding:28px}
+.sheet-side h2{color:#fff;font-size:clamp(28px,3.4vw,40px)}
+.sheet-side p{color:#D5DCCE}
+.days{font-family:var(--display);font-size:84px;line-height:1;margin:24px 0 4px;color:#fff}
+.days+p{margin:0;font-size:14px}
+.fields{margin:0;display:grid;grid-template-columns:1fr 1fr}
+@media (max-width:600px){.fields{grid-template-columns:1fr}}
+.fields div{padding:16px 20px;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+.fields dt{font:400 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--sign)}
+.fields dd{margin:4px 0 0}
+.fields dd b{display:block;font-size:17px}
+.fields dd span{color:var(--ink-2);font-size:15px}
+
+/* Marquee */
+.mq{background:var(--ink);color:var(--paper);padding:14px 0;overflow:hidden;position:relative}
+.mq-cap{margin:0 20px 8px;font:400 12px/1.4 var(--mono);color:#BDB6A6}
+.mq-row{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mq ul{display:flex;list-style:none;margin:0;padding:0}
+.mq li{font-family:var(--display);font-size:24px;padding:0 22px;white-space:nowrap}
+.mq li:after{content:"·";margin-left:44px;color:var(--brass)}
+@keyframes mq{to{transform:translateX(-50%)}}
+body.paused .mq-row,body.paused .beam:before{animation-play-state:paused}
+.pause{position:absolute;right:14px;top:8px;background:transparent;border:1px solid #6B6559;color:var(--paper);font:600 13px/1 var(--body);padding:8px 12px;border-radius:3px;min-height:36px;cursor:pointer}
+
+/* Inspection notes */
+.notes-sec{padding:84px 0;background:var(--sage)}
+.insp{list-style:none;margin:32px 0 0;padding:0;counter-reset:n;border-top:2px solid var(--ink)}
+.insp li{display:grid;grid-template-columns:70px 1fr 1fr;gap:24px;padding:22px 16px;border-bottom:1px solid #A9B39D;position:relative;background:radial-gradient(420px circle at var(--mx,-999px) var(--my,-999px),rgba(255,255,255,.65),transparent 60%)}
+@media (max-width:760px){.insp li{grid-template-columns:44px 1fr;gap:6px 14px}.insp .rec{grid-column:2}}
+.insp .n{font-family:var(--display);font-size:38px;line-height:1;color:var(--green)}
+.insp h3{font-size:21px;margin-bottom:6px}
+.insp p{margin:0;color:var(--ink-2);font-size:16px}
+.insp .tag{font:400 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;display:inline-block;padding:5px 7px;border:1px solid currentColor;border-radius:2px;margin-bottom:8px}
+.insp .obs .tag{color:var(--sign)}
+.insp .rec .tag{color:var(--green)}
+.insp .rec p{color:var(--ink)}
+
+/* Calculator */
+.calc-sec{padding:84px 0}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.calc label{display:flex;justify-content:space-between;gap:12px;font-weight:600;margin:22px 0 6px}
+.calc label output{font-family:var(--mono);font-weight:400;color:var(--sign)}
+.calc input[type=range]{width:100%;accent-color:var(--sign);height:32px}
+.calc .hint{font-size:14px;color:var(--ink-2);margin:2px 0 0}
+.readout{background:var(--ink);color:var(--paper);border-radius:6px;padding:30px;display:flex;flex-direction:column;justify-content:center}
+.readout .take{font:400 13px/1.4 var(--mono);color:#C9C2B3;margin:0}
+.readout .take b{color:#fff;font-size:15px}
+.big{font-family:var(--display);font-size:clamp(64px,9vw,104px);line-height:1;color:#fff;margin:14px 0 2px}
+.big em{font-style:normal;font-size:.36em;color:var(--brass);margin-left:6px}
+.readout p{margin:6px 0}
+.readout .fine{font-size:13px;color:#B8B1A2;margin-top:18px}
+
+/* Money */
+.money-sec{padding:84px 0;background:var(--card);border-top:1px solid var(--line)}
+.legs{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink)}
+@media (max-width:700px){.legs{grid-template-columns:1fr}}
+.leg{padding:24px;border-right:1.5px solid var(--ink)}
+.leg:last-child{border-right:0}
+@media (max-width:700px){.leg{border-right:0;border-bottom:1.5px solid var(--ink)}.leg:last-child{border-bottom:0}}
+.leg .amt{font-family:var(--display);font-size:56px;line-height:1;color:var(--sign)}
+.leg h3{margin:8px 0}
+.leg p{margin:0;color:var(--ink-2)}
+.fork{font:400 14px/1.4 var(--mono);margin:34px 0 14px}
+.plans{display:grid;grid-template-columns:1fr 1.15fr;gap:18px}
+@media (max-width:700px){.plans{grid-template-columns:1fr}}
+.plan{border:1.5px solid var(--ink);border-radius:6px;padding:24px;background:#fff;position:relative}
+.plan .amt{font-family:var(--display);font-size:48px;margin:6px 0}
+.plan .amt small{font-size:18px;font-family:var(--body);color:var(--ink-2)}
+.plan p{color:var(--ink-2)}
+.plan .btn{margin-top:8px}
+.rec-tag{position:absolute;top:-13px;left:20px;background:var(--brass);color:var(--ink);font:800 12px/1 var(--body);padding:7px 10px;border-radius:3px;text-transform:uppercase;letter-spacing:.04em}
+.beam{overflow:visible;border-color:transparent;isolation:isolate}
+.beam:before{content:"";position:absolute;inset:-2px;border-radius:7px;padding:2px;background:conic-gradient(from var(--a,0deg),var(--ink) 0 70%,var(--brass) 80%,var(--sign) 88%,var(--ink) 96%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:beam 5s linear infinite;z-index:-1}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes beam{to{--a:360deg}}
+.after{margin-top:24px;color:var(--ink-2);max-width:78ch}
+
+/* FAQ */
+.faq-sec{padding:84px 0}
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+details{border-bottom:1px solid var(--line);padding:4px 0}
+summary{cursor:pointer;font-weight:600;font-size:18px;padding:14px 32px 14px 0;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";position:absolute;right:4px;top:10px;font:400 26px/1 var(--display);color:var(--sign)}
+details[open] summary:after{content:"–"}
+details p{margin:0 0 16px;color:var(--ink-2)}
+
+/* Note */
+.note-sec{padding:84px 0;background:var(--paper-2)}
+.note-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+@media (max-width:860px){.note-grid{grid-template-columns:1fr}}
+.letter{background:var(--card);padding:30px;border:1px solid var(--line);box-shadow:6px 6px 0 var(--line);margin-top:22px;transform:rotate(-.4deg)}
+.letter p{margin:0 0 12px}
+.sig{font-family:var(--display);font-size:30px;margin:18px 0 0!important;color:var(--sign)}
+.where{font:400 13px/1.4 var(--mono);color:var(--ink-2)}
+.check{border:1.5px dashed var(--ink);padding:24px;border-radius:6px}
+
+footer{background:var(--ink);color:#D8D2C4;padding:36px 0 120px;font-size:15px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:12px}
+footer a{color:#fff}
+
+/* Dock */
+.dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;align-items:flex-end;background:rgba(29,38,35,.94);padding:8px;border-radius:10px;z-index:20;transition:opacity .25s,transform .25s;max-width:calc(100% - 20px)}
+.dock a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 14px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px;color:var(--paper);white-space:nowrap;transition:transform .18s}
+.dock .d-go{background:var(--sign)}
+.dock .d-demo{background:#33403B}
+@media (pointer:fine){.dock a:hover{transform:translateY(-4px) scale(1.08)}}
+.dock.is-away{opacity:0;pointer-events:none;transform:translate(-50%,20px)}
+@media (max-width:759px){.dock{left:0;right:0;bottom:0;transform:none;border-radius:0;max-width:none;padding:8px 10px calc(8px + env(safe-area-inset-bottom))}.dock a{flex:1}.dock .d-x{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="logo" href="/" translate="no"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="4" width="22" height="3" fill="#1D2623"/><rect x="6" y="9" width="16" height="11" rx="1" fill="#A8322A"/><rect x="12.5" y="20" width="3" height="7" fill="#1D2623"/></svg>GroundWork-Web</a>
+  <nav aria-label="Primary"><a href="/demos/hollis-family/">Demo</a><a href="#money">Pricing</a><a href="/site-check/">Free site check</a><a class="btn" href="/start/?niche=real-estate">Start for $99</a></nav>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">For independent agents and small brokerages</p>
+      <h1 id="h1">Real estate agent websites. The sign comes down. The site <span class="stay">stays up.</span></h1>
+      <p class="lede">A yard sign sells one house for a month. Your own site works the years in between: a home value request for the neighbor thinking about selling, your neighborhoods for the buyer from out of town, and your name on the page when a past client sends a friend.</p>
+      <div class="ctas">
+        <a class="btn" href="/start/?niche=real-estate">Start for $99<small>Refunded if you don't want the site</small></a>
+        <a class="btn ghost" href="/demos/hollis-family/">Open the demo site</a>
+      </div>
+    </div>
+    <div>
+      <div class="yard">
+        <div class="rider" role="group" aria-label="Who's on your site? Pick one to see what the site shows them." id="rider">
+          <span class="ind" id="ind" aria-hidden="true"></span>
+          <button type="button" data-k="0" aria-pressed="true">Selling?</button>
+          <button type="button" data-k="1" aria-pressed="false">Buying?</button>
+          <button type="button" data-k="2" aria-pressed="false">Referred?</button>
+        </div>
+        <div class="hooks" aria-hidden="true"><span></span><span></span></div>
+        <div class="panel" id="panel" aria-live="polite">
+          <p class="who" id="p-who">The neighbor thinking about selling</p>
+          <p class="p-h"><span class="flip" id="p-h">What's my home worth?</span></p>
+          <div id="p-body">
+            <p class="fake-in">Street address</p>
+            <ul><li><span>What they get</span><b>A price range from recent sales near them</b></li><li><span>When</span><b>Within a day, from you</b></li></ul>
+            <span class="go">Send me my home's value</span>
+          </div>
+          <p class="note">A sample of the site we'd build. Your name, your brokerage.</p>
+        </div>
+        <div class="post" aria-hidden="true"></div>
+        <div class="grass" aria-hidden="true"></div>
+      </div>
+      <p class="cap">Flip the rider to see what each visitor gets.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stmt-sec" aria-labelledby="stmt-h">
+  <div class="wrap stmt-grid">
+    <div>
+      <h2 id="stmt-h">Whose lead is it?</h2>
+      <p class="p">Portal leads and brokerage profile pages bring in business. They also put other agents' faces next to yours, take a cut, or stay behind when you move. Your own site is the one place a lead comes straight to you.</p>
+    </div>
+    <table class="stmt">
+      <caption>Lead source comparison, the short version</caption>
+      <thead><tr><th scope="col">Line</th><th scope="col">Portal or brokerage page</th><th scope="col">Your own site</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="ln">01</span>Who's on the page</th><td data-h="Portal or brokerage page">You, plus other agents' ads or the whole office roster</td><td class="yours" data-h="Your own site">You</td></tr>
+        <tr><th scope="row"><span class="ln">02</span>Cost per closing</th><td data-h="Portal or brokerage page">Often a referral fee or a pay-per-lead bill</td><td class="yours" data-h="Your own site">Your flat monthly plan</td></tr>
+        <tr><th scope="row"><span class="ln">03</span>When you change brokerages</th><td data-h="Portal or brokerage page">The page, and the leads on it, usually stay</td><td class="yours" data-h="Your own site">The domain is yours. We swap the brokerage line.</td></tr>
+        <tr><th scope="row"><span class="ln">04</span>Seller leads</th><td data-h="Portal or brokerage page">Sold to whoever pays for that ZIP</td><td class="yours" data-h="Your own site">A home value request that only goes to you</td></tr>
+        <tr><th scope="row"><span class="ln">05</span>A past client's friend searching your name</th><td data-h="Portal or brokerage page">Finds a profile with a contact form</td><td class="yours" data-h="Your own site">Finds your reviews, your areas and your cell</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sheet-sec" aria-labelledby="sheet-h">
+  <div class="wrap">
+    <div class="sheet">
+      <div class="sheet-side">
+        <h2 id="sheet-h">The listing sheet for your site</h2>
+        <p>Everything below comes in the build. Then a private preview for you to look over before you pay the rest.</p>
+        <p class="days" aria-label="About 7 days">~7</p>
+        <p>days, about, from the day we get your headshot, areas, reviews and brokerage details</p>
+      </div>
+      <dl class="fields">
+        <div><dt>Seller leads</dt><dd><b>Home value request</b><span>Address, timeline, best way to reach them. Comes to your phone and email, nobody else's.</span></dd></div>
+        <div><dt>Buyer leads</dt><dd><b>Tour and consult request</b><span>Which neighborhood, price range, pre-approved or not. Three short steps.</span></dd></div>
+        <div><dt>Areas</dt><dd><b>Your neighborhoods, in your words</b><span>Houses, streets and drive times. On Grow, a new neighborhood page counts as one of your monthly updates.</span></dd></div>
+        <div><dt>Search</dt><dd><b>Your IDX search, if you have one</b><span>We put in the search your brokerage or IDX provider gives you. We don't sell MLS feeds.</span></dd></div>
+        <div><dt>Proof</dt><dd><b>Your real reviews, linked to the source</b><span>Google, Zillow or wherever they live. Never written by us.</span></dd></div>
+        <div><dt>Compliance</dt><dd><b>Brokerage, license number, Equal Housing</b><span>Where your state's advertising rules want them, plus text-consent wording on every form.</span></dd></div>
+        <div><dt>Phones</dt><dd><b>Call and Text on every screen</b><span>Stuck to the bottom of the phone, so a buyer at a showing reaches you in one tap.</span></dd></div>
+        <div><dt>Domain</dt><dd><b>Registered in your name</b><span>It goes with you, whichever office you hang your license at.</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="mq" id="mq">
+  <p class="mq-cap">Pages your site can carry:</p>
+  <div class="mq-row">
+    <ul><li>What's my home worth?</li><li>First-time buyer checklist</li><li>Moving here from out of state</li><li>Downsizing</li><li>Selling an inherited house</li><li>New construction, with you in the room</li><li>Your neighborhoods, one by one</li><li>Recently sold</li></ul>
+    <ul aria-hidden="true"><li>What's my home worth?</li><li>First-time buyer checklist</li><li>Moving here from out of state</li><li>Downsizing</li><li>Selling an inherited house</li><li>New construction, with you in the room</li><li>Your neighborhoods, one by one</li><li>Recently sold</li></ul>
+  </div>
+  <button type="button" class="pause" id="pause" aria-pressed="false">Pause motion</button>
+</div>
+
+<section class="notes-sec" aria-labelledby="notes-h">
+  <div class="wrap">
+    <h2 id="notes-h">Walkthrough notes on agent websites</h2>
+    <p class="p">Things we see a lot. Common, not universal. Written up the way an inspector would.</p>
+    <ol class="insp" id="insp">
+      <li><span class="n" aria-hidden="true">01</span><div class="obs"><span class="tag">Observed</span><h3>The home page is a search bar.</h3><p>A search box with no listings behind it, or the same feed every agent in town has. Nothing says who you are.</p></div><div class="rec"><span class="tag">Recommend</span><p>Lead with you and your areas. Search sits one tap down, for the people who want it.</p></div></li>
+      <li><span class="n" aria-hidden="true">02</span><div class="obs"><span class="tag">Observed</span><h3>No way to ask "what's my house worth?"</h3><p>The seller lead, the one worth the most, has nowhere to land.</p></div><div class="rec"><span class="tag">Recommend</span><p>A home value request on the first screen, answered by you with a range from recent sales.</p></div></li>
+      <li><span class="n" aria-hidden="true">03</span><div class="obs"><span class="tag">Observed</span><h3>Neighborhood pages say "great schools, safe, family-friendly."</h3><p>That's the kind of wording fair housing guidance warns agents about.</p></div><div class="rec"><span class="tag">Recommend</span><p>Write about the houses, streets, drive times and what's walkable. You approve every word.</p></div></li>
+      <li><span class="n" aria-hidden="true">04</span><div class="obs"><span class="tag">Observed</span><h3>The brokerage name is missing, or the license is.</h3><p>Most states want the brokerage clearly on agent advertising, and a website counts.</p></div><div class="rec"><span class="tag">Recommend</span><p>Brokerage, license number and the Equal Housing statement in the footer and on the contact section.</p></div></li>
+      <li><span class="n" aria-hidden="true">05</span><div class="obs"><span class="tag">Observed</span><h3>The contact form texts people with no consent line.</h3><p>Then the follow-up text is the part that gets you in trouble.</p></div><div class="rec"><span class="tag">Recommend</span><p>A plain consent sentence above the Send button, on every form.</p></div></li>
+      <li><span class="n" aria-hidden="true">06</span><div class="obs"><span class="tag">Observed</span><h3>Reviews are a screenshot from 2019.</h3><p>Nobody can click it, and Google can't read it.</p></div><div class="rec"><span class="tag">Recommend</span><p>Your newest real reviews, with names and dates, linked to where they were posted.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="calc-sec" aria-labelledby="calc-h">
+  <div class="wrap calc">
+    <div>
+      <h2 id="calc-h">How much of one closing does it cost?</h2>
+      <p class="p">Put in a typical sale in your market. The math is the plan divided by what you take home from one closing.</p>
+      <label for="price">Sale price <output for="price" id="price-o">$325,000</output></label>
+      <input type="range" id="price" min="100000" max="1500000" step="5000" value="325000">
+      <label for="comm">Your side's commission <output for="comm" id="comm-o">2.5%</output></label>
+      <input type="range" id="comm" min="1" max="4" step="0.25" value="2.5">
+      <p class="hint">Whatever you and your client agree. It's negotiable, and this is only a sample.</p>
+      <label for="split">Your share after the brokerage split <output for="split" id="split-o">70%</output></label>
+      <input type="range" id="split" min="40" max="100" step="5" value="70">
+    </div>
+    <div class="readout">
+      <p class="sr" aria-live="polite" id="calc-live"></p>
+      <div aria-hidden="true">
+        <p class="take">You take home about <b id="take">$5,688</b> from that closing.</p>
+        <p>One closing pays for</p>
+        <p class="big"><span id="yrs">2.4</span><em id="yrs-u">years</em></p>
+        <p>of Grow ($199 a month). The $399 build plus a whole first year of Grow is <b id="pct">49%</b> of it.</p>
+      </div>
+      <p class="fine">Your numbers, for illustration. This counts the cost only. It doesn't promise any leads or closings.</p>
+    </div>
+  </div>
+</section>
+
+<section id="money" class="money-sec" aria-labelledby="money-h">
+  <div class="wrap">
+    <h2 id="money-h">What it costs, in the order you pay it</h2>
+    <ol class="legs">
+      <li class="leg"><span class="amt">$99</span><h3>Start, today</h3><p>Secure checkout and a short brief: headshot, areas, reviews, brokerage and license details. About a week later you get a private preview and one round of changes. Don't want it? The $99 comes back.</p></li>
+      <li class="leg"><span class="amt">$300</span><h3>Approve, and it goes live</h3><p>Only when you approve it. The site goes live on your domain. $399 total for the build.</p></li>
+    </ol>
+    <p class="fork">Then, once you're live, pick one:</p>
+    <div class="plans">
+      <div class="plan"><h3>Host</h3><p class="amt">$99<small>/mo</small></p><p>Keep it live. Hosting, SSL, uptime checks, and the forms and buttons kept working. Starts the month you go live.</p><a class="btn ghost" href="/start/?plan=host&amp;niche=real-estate">Start on Host</a></div>
+      <div class="plan beam"><span class="rec-tag">We recommend</span><h3>Grow</h3><p class="amt">$199<small>/mo</small></p><p>Keep it working. Everything in Host, plus 2 to 3 updates a month (a new neighborhood page, a just-sold, a new review) and a monthly Google Business Profile and local search check-in.</p><a class="btn" href="/start/?plan=grow&amp;niche=real-estate">Start on Grow</a></div>
+    </div>
+    <p class="after">Or pay a year up front: 12 months for the price of 10. The $399 build and these monthly rates are our founding prices for the first 25 clients, kept for as long as you stay. After that the build is $499. Leave any time with 30 days notice. <a href="/before-you-pay/">Preview, refund and how you leave</a>.</p>
+  </div>
+</section>
+
+<section class="faq-sec" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <h2 id="faq-h">Questions agents ask</h2>
+    <div>
+      <details><summary>My brokerage already gives me a website. Why pay for one?</summary><p>Keep it. A brokerage page usually sits on the brokerage's domain, next to the rest of the roster, and stays there if you move. Yours is on your own domain with your name on it, and it follows you.</p></details>
+      <details><summary>Can my site show MLS listings?</summary><p>If your brokerage or an IDX provider gives you a search widget, we put it on the site. MLS data comes with rules from your MLS, so the feed itself has to come from them. We don't sell feeds.</p></details>
+      <details><summary>What about fair housing in the neighborhood pages?</summary><p>We write about houses, streets, drive times and what's nearby, not about who lives there, and we don't rate schools or safety. You read and approve every page before it goes up.</p></details>
+      <details><summary>Will it have my brokerage and license on it?</summary><p>Yes. Your brokerage name, license number and the Equal Housing Opportunity statement go in the footer and by the contact form. If your broker has a sign-off rule for ads, the preview is the thing to send them.</p></details>
+      <details><summary>I'm on a team. Does it work for us?</summary><p>Yes. It can be a team site with each agent's contact, or your own site that names the team. Tell us in the brief.</p></details>
+      <details><summary>Who owns the domain if I switch brokerages?</summary><p>You do. We register it in your name. When you move, text us and we change the brokerage line and logo.</p></details>
+      <details><summary>How long does it take?</summary><p>About 7 days from the day we get your headshot, areas, reviews and brokerage details.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="note-sec" aria-labelledby="note-h">
+  <div class="wrap note-grid">
+    <div>
+      <h2 id="note-h">A note from the guy building it</h2>
+      <div class="letter">
+        <p>I'm Cyrus Wilburn. I build these from Deer Park, Texas, one business at a time. Agents already have plenty of places that list them. What most don't have is one page that is plainly theirs, where the neighbor who's thinking about selling can ask what the house is worth without being handed to someone else.</p>
+        <p class="sig">Cyrus Wilburn</p>
+        <p class="where">GroundWork-Web, Deer Park, Texas</p>
+      </div>
+    </div>
+    <div class="check">
+      <p><b>Not ready to start?</b> Run the free 1-minute check on the site you have now. You'll get a score and the three fixes worth doing first, with no form.</p>
+      <a class="btn ghost" href="/site-check/">Check my site</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/auto-detailing/">Detailing sites</a><a href="/exterior-cleaning/">Pressure washing sites</a><a href="/landscaping/">Lawn care sites</a><a href="/commercial-cleaning/">Commercial cleaning sites</a><a href="/pricing/">Pricing</a><a href="/privacy/">Privacy</a></nav>
+    <p>&copy; 2026 GroundWork-Web, Deer Park, TX. <a href="mailto:groundworkweb@proton.me">groundworkweb@proton.me</a></p>
+  </div>
+</footer>
+
+<aside class="dock" aria-label="Get started">
+  <a class="d-go" href="/start/?niche=real-estate">Start for $99</a>
+  <a class="d-demo" href="/demos/hollis-family/">See the demo</a>
+  <a class="d-x" href="#calc-h">The math</a>
+  <a class="d-x" href="#money">Rates</a>
+  <a class="d-x" href="/site-check/">Site check</a>
+</aside>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Pause motion (marquee + beam) */
+  var pause = $("pause");
+  function setPaused(p) { document.body.classList.toggle("paused", p); pause.setAttribute("aria-pressed", String(p)); pause.textContent = p ? "Play motion" : "Pause motion"; }
+  setPaused(reduce);
+  pause.addEventListener("click", function () { setPaused(pause.getAttribute("aria-pressed") !== "true"); });
+
+  /* Sign rider: who's on the site */
+  var views = [
+    { who: "The neighbor thinking about selling", h: "What's my home worth?",
+      body: '<p class="fake-in">Street address</p><ul><li><span>What they get</span><b>A price range from recent sales near them</b></li><li><span>When</span><b>Within a day, from you</b></li></ul><span class="go">Send me my home\'s value</span>' },
+    { who: "The buyer moving here from two states away", h: "Looking near downtown?",
+      body: '<ul><li><span>The houses</span><b>1920s bungalows, some new infill</b></li><li><span>Drive to downtown</span><b>About 10 minutes</b></li><li><span>Walk to</span><b>Coffee, the greenway, the Saturday market</b></li></ul><span class="go">Set up a tour</span>' },
+    { who: "The friend a past client sent your way", h: "“My sister said to call you.”",
+      body: '<ul><li><span>Reviews</span><b>Your newest, with names and dates</b></li><li><span>Licensed with</span><b>Your brokerage, license number</b></li><li><span>Reach you</span><b>Call or text, one tap</b></li></ul><span class="go">Text me back</span>' }
+  ];
+  var rider = $("rider"), panel = $("panel"), ind = $("ind");
+  rider.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b || b.getAttribute("aria-pressed") === "true") return;
+    var k = +b.dataset.k, v = views[k];
+    rider.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    ind.style.transform = "translateX(calc(" + k + " * (100% + 2px)))";
+    $("p-who").textContent = v.who;
+    var h = $("p-h"); h.textContent = v.h; h.classList.remove("flip"); void h.offsetWidth; h.classList.add("flip");
+    $("p-body").innerHTML = v.body;
+    if (!reduce) { panel.classList.remove("swing"); void panel.offsetWidth; panel.classList.add("swing"); }
+  });
+
+  /* Spotlight rows */
+  var insp = $("insp");
+  insp.addEventListener("pointermove", function (e) {
+    var li = e.target.closest("li"); if (!li) return;
+    var r = li.getBoundingClientRect();
+    li.style.setProperty("--mx", (e.clientX - r.left) + "px"); li.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+  insp.addEventListener("pointerout", function (e) {
+    var li = e.target.closest("li"); if (li && !li.contains(e.relatedTarget)) { li.style.removeProperty("--mx"); li.style.removeProperty("--my"); }
+  });
+
+  /* Closing math + number ticker */
+  var price = $("price"), comm = $("comm"), split = $("split"), shown = 2.4, raf;
+  var usd = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+  function calc() {
+    var p = +price.value, c = +comm.value, s = +split.value;
+    var take = p * c / 100 * s / 100, yrs = Math.round(take / (199 * 12) * 10) / 10, pct = Math.round((399 + 199 * 12) / take * 100);
+    $("price-o").textContent = usd(p); $("comm-o").textContent = c + "%"; $("split-o").textContent = s + "%";
+    $("take").textContent = usd(take); $("pct").textContent = pct + "%";
+    $("yrs-u").textContent = yrs === 1 ? "year" : "years";
+    $("calc-live").textContent = "You take home about " + usd(take) + ". One closing pays for " + yrs + " years of Grow. The build plus a first year of Grow is " + pct + "% of it.";
+    cancelAnimationFrame(raf);
+    var el = $("yrs"), from = shown, start = null;
+    if (reduce) { shown = yrs; el.textContent = yrs; return; }
+    (function step(ts) {
+      if (start === null) start = ts;
+      var k = Math.min(1, (ts - start) / 450), e = 1 - Math.pow(1 - k, 3);
+      shown = from + (yrs - from) * e; el.textContent = k < 1 ? (Math.round(shown * 10) / 10).toFixed(1) : yrs;
+      if (k < 1) raf = requestAnimationFrame(step); else shown = yrs;
+    })(performance.now());
+  }
+  [price, comm, split].forEach(function (i) { i.addEventListener("input", calc); });
+  calc();
+
+  /* Desktop: dock waits until the visitor is past the hero */
+  var dock = document.querySelector(".dock"), hero = document.querySelector(".hero"), wide = window.matchMedia("(min-width:760px)"), past = false;
+  function set() { dock.classList.toggle("is-away", wide.matches && !past); }
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (e) { past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; set(); }).observe(hero);
+    wide.addEventListener ? wide.addEventListener("change", set) : wide.addListener(set);
+    set();
+  }
+})();
+</script>
+<script src="/assets/js/config.js?v=3.1" defer></script>
+<script src="/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>

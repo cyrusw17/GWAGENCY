@@ -1,0 +1,399 @@
+{
+ "slug": "demo-june-pettiford",
+ "demo": true,
+ "renderer": "listing-book",
+ "niche": "real estate",
+ "demoNote": "Fictional agent, brokerage and listings. House pictures are illustrations.",
+ "demoCta": {
+  "label": "Get this site",
+  "href": "https://groundwork-web.com/start/?niche=real-estate&demo=listing-book"
+ },
+ "business": {
+  "name": "June Pettiford",
+  "tagline": "Lowcountry homes · Beaufort, SC",
+  "brokerage": "Sea Island Realty Group (sample brokerage) · 843-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(843) 555-0137",
+  "sms": "(843) 555-0137",
+  "email": "june@example.com",
+  "hoursText": "Calls and texts 8am to 8pm, showings by appointment",
+  "hours": [
+   {
+    "days": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday"
+    ],
+    "opens": "08:00",
+    "closes": "20:00"
+   }
+  ],
+  "address": {
+   "city": "Beaufort",
+   "region": "SC",
+   "postal": "29902"
+  },
+  "license": "South Carolina real estate license #00000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#EFE7D6",
+  "fontFaces": [
+   {
+    "family": "Bodoni Moda",
+    "weight": 500,
+    "src": "fonts/bodoni-moda-latin-500-normal.woff2",
+    "preload": true
+   },
+   {
+    "family": "Commissioner",
+    "weight": 400,
+    "src": "fonts/commissioner-latin-400-normal.woff2",
+    "preload": true
+   }
+  ]
+ },
+ "seo": {
+  "title": "June Pettiford | Homes for Sale in Beaufort, SC and the Sea Islands",
+  "description": "Homes for sale in Beaufort, Lady's Island and the Sea Islands, with flood zone, payment estimates and a coastal buyer's checklist from agent June Pettiford."
+ },
+ "bookTitle": "The Lowcountry book, October",
+ "artNote": "Illustration. Your site shows your own listing photos.",
+ "hero": {
+  "headline": "Homes for sale in Beaufort and the Sea Islands.",
+  "sub": "Every house in my book gets the same page: the price, the flood zone, what the insurance runs, and the one thing I'd check before you write an offer. Coastal houses deserve the extra lines."
+ },
+ "trust": [
+  "Licensed in South Carolina since 2012",
+  "Sea Island Realty Group (sample)",
+  "Flood zone on every listing",
+  "Equal Housing Opportunity"
+ ],
+ "listingsHeadline": "In the book this month",
+ "listingsFine": "Sample listings for this demo. On your site these come from your own listings or your IDX feed, with the listing brokerage named on each one.",
+ "filters": [
+  [
+   "all",
+   "All homes"
+  ],
+  [
+   "a",
+   "Under $400k"
+  ],
+  [
+   "b",
+   "$400k to $700k"
+  ],
+  [
+   "c",
+   "$700k and up"
+  ]
+ ],
+ "listings": [
+  {
+   "id": "creek",
+   "img": "img/l1.svg",
+   "name": "Raised cottage on a tidal creek",
+   "where": "Lady's Island",
+   "status": "For sale",
+   "price": 689000,
+   "beds": 3,
+   "baths": 2,
+   "sqft": 1860,
+   "built": 1998,
+   "flood": "AE 11, elevated",
+   "taxIns": 640,
+   "hoa": 0,
+   "notes": [
+    "Living space sits above base flood elevation; the certificate is in the disclosures.",
+    "Dock permit on file, floating dock replaced 2021.",
+    "Ask me about the marsh view at low tide. It's better than at high."
+   ]
+  },
+  {
+   "id": "pointe",
+   "img": "img/l2.svg",
+   "name": "Cottage two blocks from the Point",
+   "where": "The Point, historic district",
+   "status": "Under contract",
+   "price": 545000,
+   "beds": 2,
+   "baths": 2,
+   "sqft": 1240,
+   "built": 1925,
+   "flood": "X",
+   "taxIns": 410,
+   "hoa": 0,
+   "notes": [
+    "Historic district: exterior changes go through the review board.",
+    "New roof 2023, original heart pine inside."
+   ]
+  },
+  {
+   "id": "farm",
+   "img": "img/l3.svg",
+   "name": "New farmhouse with a screened porch",
+   "where": "Burton",
+   "status": "For sale",
+   "price": 429000,
+   "beds": 4,
+   "baths": 3,
+   "sqft": 2310,
+   "built": 2022,
+   "flood": "X",
+   "taxIns": 380,
+   "hoa": 45,
+   "notes": [
+    "Builder warranty transfers to the buyer.",
+    "Twelve minutes to downtown, five to the base gate."
+   ]
+  },
+  {
+   "id": "row",
+   "img": "img/l4.svg",
+   "name": "Townhome off Bay Street",
+   "where": "Downtown Beaufort",
+   "status": "Coming soon",
+   "price": 375000,
+   "beds": 2,
+   "baths": 2.5,
+   "sqft": 1420,
+   "built": 2006,
+   "flood": "X",
+   "taxIns": 330,
+   "hoa": 210,
+   "notes": [
+    "Walk to the waterfront park and the shops on Bay.",
+    "HOA covers exterior paint and the roof."
+   ]
+  },
+  {
+   "id": "ranch",
+   "img": "img/l5.svg",
+   "name": "Brick ranch on a half acre",
+   "where": "Port Royal",
+   "status": "For sale",
+   "price": 315000,
+   "beds": 3,
+   "baths": 2,
+   "sqft": 1580,
+   "built": 1978,
+   "flood": "X",
+   "taxIns": 300,
+   "hoa": 0,
+   "notes": [
+    "Septic, inspected and pumped in August.",
+    "Room for a boat and a workshop."
+   ]
+  },
+  {
+   "id": "vic",
+   "img": "img/l6.svg",
+   "name": "1890s house with a double porch",
+   "where": "Old Commons",
+   "status": "For sale",
+   "price": 1150000,
+   "beds": 5,
+   "baths": 3.5,
+   "sqft": 3420,
+   "built": 1894,
+   "flood": "AE 10",
+   "taxIns": 1180,
+   "hoa": 0,
+   "notes": [
+    "Flood insurance quote in hand: ask before you fall in love.",
+    "Wraparound porches on both floors, original windows."
+   ]
+  },
+  {
+   "id": "modern",
+   "img": "img/l7.svg",
+   "name": "Modern build on the deep-water side",
+   "where": "Dataw Island",
+   "status": "For sale",
+   "price": 879000,
+   "beds": 3,
+   "baths": 3,
+   "sqft": 2480,
+   "built": 2019,
+   "flood": "AE 12, built to code",
+   "taxIns": 870,
+   "hoa": 310,
+   "notes": [
+    "Gated community; POA dues include the golf membership tier.",
+    "Impact glass throughout, which helps the wind premium."
+   ]
+  },
+  {
+   "id": "colonial",
+   "img": "img/l8.svg",
+   "name": "Two-story with a fenced yard",
+   "where": "Shell Point",
+   "status": "For sale",
+   "price": 399000,
+   "beds": 4,
+   "baths": 2.5,
+   "sqft": 2140,
+   "built": 2004,
+   "flood": "X",
+   "taxIns": 350,
+   "hoa": 35,
+   "notes": [
+    "Fenced back yard, new HVAC 2024.",
+    "Fifteen minutes to the Marine Corps Air Station."
+   ]
+  }
+ ],
+ "worksheet": {
+  "title": "What would it cost a month?",
+  "sub": "Pick a house from the book and set your down payment and rate. On the coast, insurance can move the number as much as the rate does, so it's in here.",
+  "down": 10,
+  "rate": 6.5,
+  "taxIns": 400,
+  "note": "Sample math for illustration, not a loan offer. Your lender sets the rate; your insurance agent quotes flood and wind.",
+  "cta": "Talk it through with June"
+ },
+ "checklist": {
+  "headline": "Before you buy on the coast",
+  "sub": "The six things I walk every buyer through, in the order they come up.",
+  "items": [
+   [
+    "Find the flood zone",
+    "X, AE or VE changes the insurance, the lender's rules and sometimes the resale. It's on every listing in my book."
+   ],
+   [
+    "Ask for the elevation certificate",
+    "It shows how high the living floor sits above base flood elevation. Higher can mean a much smaller flood premium."
+   ],
+   [
+    "Get insurance quotes before the offer",
+    "Flood and wind, from a local agent, during your due diligence, not the week before closing."
+   ],
+   [
+    "Read the wind deductible",
+    "Coastal policies often carry a separate percentage deductible for named storms. Know the dollar amount."
+   ],
+   [
+    "Order the termite letter",
+    "South Carolina closings use the CL-100 wood infestation report. Lenders ask for it, and so should you."
+   ],
+   [
+    "Check sewer or septic, and the POA",
+    "Many island homes are on septic. Gated communities have POA rules and dues; read both before you sign."
+   ]
+  ]
+ },
+ "owner": {
+  "name": "June Pettiford",
+  "headline": "A note from June",
+  "story": [
+   "I grew up on St. Helena and worked eight years at an insurance agency before I got my license, which is why I ask about the flood zone before I ask about the kitchen.",
+   "I sell houses from Port Royal to Fripp. Most of my buyers are moving here, and I'd rather they hear about the wind deductible from me than from a surprise at closing."
+  ],
+  "sign": "June",
+  "photo": "img/june.svg",
+  "shot": "Illustration, not a photo."
+ },
+ "reviews": {
+  "headline": "From buyers and sellers",
+  "source": "Google",
+  "url": "https://www.google.com/maps",
+  "rating": "4.9",
+  "count": 63,
+  "items": [
+   {
+    "name": "Sample client",
+    "where": "Bought on Lady's Island",
+    "date": "2026-09-08",
+    "stars": 5,
+    "text": "She had the flood quote before we toured. Saved us from a house we'd have loved and couldn't afford to insure."
+   },
+   {
+    "name": "Sample client",
+    "where": "Relocated from Ohio",
+    "date": "2026-08-14",
+    "stars": 5,
+    "text": "Bought sight unseen off her video walkthroughs. The termite letter and the survey were done before we even flew down."
+   },
+   {
+    "name": "Sample client",
+    "where": "Sold in Port Royal",
+    "date": "2026-07-02",
+    "stars": 4,
+    "text": "Took longer to sell than we hoped, but June told us that up front and the price held."
+   }
+  ]
+ },
+ "booking": {
+  "headline": "Ask about a house, or a move",
+  "body": "Three quick questions. I call or text back the same day, and I'll send the flood zone and an insurance ballpark for any house you ask about.",
+  "cta": "Ask about a tour",
+  "headerCta": "Ask June"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {
+   "question": "What can I help with?",
+   "options": [
+    {
+     "value": "Buying",
+     "hint": "A house in the book, or one like it"
+    },
+    {
+     "value": "Selling",
+     "hint": "What would mine sell for?"
+    },
+    {
+     "value": "Moving here",
+     "hint": "From out of state"
+    },
+    {
+     "value": "Both",
+     "hint": "Selling one, buying another"
+    }
+   ]
+  },
+  "step2": "Which home, and when?",
+  "areas": [
+   "Somewhere else in Beaufort County"
+  ],
+  "timelines": [
+   "In the next 3 months",
+   "3 to 6 months",
+   "6 to 12 months",
+   "Just looking"
+  ],
+  "notesHint": "Must-haves, budget, or your address if you're selling",
+  "step3": "How should I reach you?",
+  "contactHint": "Phone or email, whichever you check first. You only need one.",
+  "consent": "By sending this, you agree that June Pettiford may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+  "submit": "Send to June",
+  "privacy": "Your details go to June only. Never sold or shared.",
+  "thanks": "Got it. I'll call or text you today. June"
+ },
+ "faqHeadline": "Questions buyers ask me",
+ "faq": [
+  {
+   "q": "Is flood insurance required?",
+   "a": "If the house is in a high-risk zone (A or V) and you have a federally backed mortgage, yes. In zone X it's optional, and often cheap enough to be worth it. I'll get you a quote either way."
+  },
+  {
+   "q": "Can I buy from out of state?",
+   "a": "Yes. Video walkthroughs, a local inspector, and a closing attorney who can handle a remote signing. South Carolina closings are run by attorneys."
+  },
+  {
+   "q": "What does a coastal inspection add?",
+   "a": "The usual home inspection, plus the CL-100 termite letter, a look at the pilings and the crawlspace on raised houses, and a septic inspection where there's one."
+  },
+  {
+   "q": "Do you work with sellers too?",
+   "a": "Yes. I'll pull the flood paperwork together before we list, because buyers ask for it on the first showing."
+  }
+ ],
+ "eho": "Equal Housing Opportunity. June Pettiford is licensed with Sea Island Realty Group (sample brokerage).",
+ "sticky": {
+  "book": "Ask June"
+ }
+}

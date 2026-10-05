@@ -1,0 +1,130 @@
+{
+ "slug": "demo-teresa-valdez",
+ "demo": true,
+ "renderer": "text-thread",
+ "niche": "real estate",
+ "demoNote": "Fictional agent, brokerage and homes. Pictures are illustrations.",
+ "demoCta": {"label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=text-thread"},
+ "business": {
+  "name": "Teresa Valdez",
+  "tagline": "Real estate · Tucson, AZ",
+  "brokerage": "Sonoran Path Realty (sample brokerage) · 520-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(520) 555-0148",
+  "sms": "(520) 555-0148",
+  "email": "teresa@example.com",
+  "hoursText": "Texts answered 7am to 9pm, every day but Sunday morning",
+  "hours": [{"days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:00", "closes": "21:00"}],
+  "address": {"city": "Tucson", "region": "AZ", "postal": "85719"},
+  "license": "Arizona real estate license #SA000000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#F6F2EE",
+  "fontFaces": [
+   {"family": "Literata", "weight": 700, "src": "fonts/literata-latin-700-normal.woff2", "preload": true},
+   {"family": "Figtree", "weight": 400, "src": "fonts/figtree-latin-400-normal.woff2", "preload": true}
+  ]
+ },
+ "seo": {
+  "title": "Teresa Valdez | Tucson Real Estate Agent, Text Me First",
+  "description": "Tucson real estate agent Teresa Valdez. Meet her first, then see how she sells and buys homes in midtown, the foothills and the west side. Text her anytime."
+ },
+ "artNote": "Illustration, not a photo.",
+ "me": {"first": "Teresa", "avatar": "img/teresa.svg", "photo": "img/teresa.svg", "photoAlt": "Illustrated portrait of Teresa Valdez"},
+ "hero": {
+  "headline": "Hi, I'm Teresa. Ask me anything before you hire a Tucson agent.",
+  "sub": "Most people pick the first agent they talk to. So talk to me first, the way you'd talk to a friend: by text. Tap a question and I'll answer it here, or text me the real one."
+ },
+ "thread": {
+  "status": "Usually replies in 10 min",
+  "opening": ["Hey! I'm Teresa 👋", "Born at St. Mary's, raised off Grant Road, still here. Two kids, one very loud heeler named Chile.", "Here's me, minus the sunburn:"],
+  "qa": [
+   {"q": "Why should I trust you?", "a": ["Fair question. I taught 4th grade for nine years before real estate, so I explain things until they make sense, not until I'm tired of explaining.", "And I'll tell you when a house is wrong for you, even if it means another month of looking."]},
+   {"q": "What's a normal day?", "a": ["School drop-off at 7:40. Showings and calls till 3. Pickup. Paperwork after bedtime.", "Saturdays are open houses and soccer, in that order. You'll see it all on my calendar below."]},
+   {"q": "How do you sell a house?", "a": ["We walk it together and I tell you the three things a buyer will notice first. Usually it's small stuff.", "Then real photos, a price backed by the last 90 days of sales, and a weekly text with every showing and what people said."]},
+   {"q": "What do you charge?", "a": ["Commission is negotiable and we agree on it in writing before we start. No surprises at closing.", "Buyers: we sign a short agreement before touring that spells out exactly what I'm paid and who pays it."]},
+   {"q": "Do you only do midtown?", "a": ["Midtown is home, but I sell all over Tucson: Sam Hughes, the foothills, Marana, the west side.", "I just know which streets flood in monsoon season, because I grew up driving them."]}
+  ]
+ },
+ "week": {
+  "headline": "My week, the real version",
+  "sub": "You'll be trusting me with a big decision, so here's how my week actually looks. My family is on the same calendar as my clients, and I plan both on purpose.",
+  "days": [
+   ["Mon", [["me","Drop-off 7:40"],["job","Pricing walk-through, Sam Hughes"],["job","Listing photos, 2pm"]]],
+   ["Tue", [["job","3 showings, foothills"],["me","Chile to the vet"],["job","Offer review call, 7pm"]]],
+   ["Wed", [["job","Inspection, west side"],["job","Seller weekly text, every client"],["me","Soccer practice"]]],
+   ["Thu", [["job","First-time buyer coffee"],["job","Appraisal meeting"],["me","Family dinner, phone down"]]],
+   ["Fri", [["job","New listings preview"],["job","Closing, 10am"],["me","Movie night"]]],
+   ["Sat", [["job","Open house 10 to 1"],["me","Soccer game 3pm"]]],
+   ["Sun", [["me","Church and the farmers market"],["job","Texts after 1pm"]]]
+  ]
+ },
+ "work": {
+  "headline": "Okay, now the agent part",
+  "sub": "Here is exactly what happens when you hire me, whether you're selling or buying.",
+  "sides": [
+   {"name": "If you're selling", "steps": ["We walk your house and I tell you the three things buyers will notice first.", "I price it from the last 90 days of real sales near you, and show you every comp.", "Real photos, a floor plan and a video walkthrough before it goes live.", "A text every Friday: every showing, every bit of feedback, nothing hidden.", "I run the offers, the inspection and the appraisal until the keys change hands."], "cta": "Ask what mine is worth"},
+   {"name": "If you're buying", "steps": ["A 20-minute coffee to learn what you actually need, not just beds and baths.", "A lender introduction if you want one, so you know your number first.", "Showings on your schedule, with notes from me on every house.", "I write offers that sellers take seriously, and I tell you when to walk away.", "I stay on it through inspection, appraisal and closing, and after."], "cta": "Start looking with me"}
+  ],
+  "numbers": [["11 yrs", "selling homes in Tucson"], ["38", "homes closed last year"], ["10 min", "usual text reply time"]],
+  "fine": "Sample numbers for this demo site."
+ },
+ "homes": {
+  "headline": "Homes I'd text you about",
+  "sub": "This is how I send houses: a picture and one honest line about why it might be the one.",
+  "fine": "Sample homes for this demo site.",
+  "items": [
+   {"img": "img/h1.svg", "alt": "Illustration of a tan brick ranch house with a palm tree", "price": 389000, "line": "3 bd · 2 ba · 1,640 sq ft", "where": "Midtown, near the Rillito path", "note": "Ranch with a big shaded yard. The roof was redone in 2024. You'd hear the doves every morning."},
+   {"img": "img/h2.svg", "alt": "Illustration of a modern terracotta house at dusk", "price": 725000, "line": "4 bd · 3 ba · 2,480 sq ft", "where": "Catalina Foothills", "note": "The sunset view off the back patio is the whole reason. Ask me about the HOA before you fall for it."},
+   {"img": "img/h3.svg", "alt": "Illustration of a cream cottage with a pink door", "price": 312000, "line": "2 bd · 1 ba · 1,050 sq ft", "where": "Barrio Viejo edge", "note": "Small, adobe walls, and the pink door stays. Great first home if you don't need a garage."},
+   {"img": "img/h4.svg", "alt": "Illustration of a row of three townhomes", "price": 279000, "line": "2 bd · 2.5 ba · 1,220 sq ft", "where": "West side, near Tumamoc Hill", "note": "Lock-and-leave townhome. I'd look at it if you hike Tumamoc every morning like I try to."}
+  ]
+ },
+ "reviews": {
+  "headline": "What clients texted me after",
+  "source": "Google",
+  "url": "https://www.google.com/maps",
+  "rating": "4.9",
+  "count": 71,
+  "items": [
+   {"name": "Sample client", "where": "Sold in Sam Hughes", "date": "2026-09-12", "stars": 5, "text": "The Friday texts were everything. I always knew where we stood, even the week nobody came."},
+   {"name": "Sample client", "where": "First home, west side", "date": "2026-08-20", "stars": 5, "text": "She talked us out of a house we loved because of the roof. Found a better one three weeks later."},
+   {"name": "Sample client", "where": "Bought in the foothills", "date": "2026-07-07", "stars": 4, "text": "Took us a while to find the right place, but Teresa never pushed. Felt like having a friend in the business."}
+  ]
+ },
+ "booking": {
+  "headline": "Rather fill out a form? That works too",
+  "body": "Three quick questions and I'll text you back today. If you just want to chat first, that's fine. No pressure, no drip emails.",
+  "cta": "Ask Teresa a question",
+  "headerCta": "Text Teresa"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {"question": "What's going on?", "options": [
+   {"value": "Selling", "hint": "What would mine sell for?"},
+   {"value": "Buying", "hint": "Starting to look"},
+   {"value": "Both", "hint": "Selling one, buying another"},
+   {"value": "Just curious", "hint": "Questions, no plans yet"}
+  ]},
+  "step2": "Where and when?",
+  "areaLabel": "Part of town",
+  "areas": ["Midtown", "Sam Hughes", "Catalina Foothills", "West side", "Marana / Oro Valley", "South Tucson"],
+  "timelines": ["In the next 3 months", "3 to 6 months", "6 to 12 months", "Just curious for now"],
+  "notesHint": "Your address if you're selling, or what you need in a house",
+  "step3": "Where should I text you?",
+  "contactHint": "Phone or email, whichever you check first. You only need one.",
+  "consent": "By sending this, you agree that Teresa Valdez may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with me.",
+  "submit": "Send to Teresa",
+  "privacy": "Your details go to Teresa only. Never sold or shared.",
+  "thanks": "Got it! I'll text you today. Teresa"
+ },
+ "faqHeadline": "Questions people text me",
+ "faq": [
+  {"q": "Do I have to sign anything to talk to you?", "a": "No. Texting, coffee and questions are free. If you want to tour homes, we sign a short written buyer agreement first, as the rules now require, and it says exactly what I'm paid."},
+  {"q": "What's your commission?", "a": "It's negotiable, and we put it in writing before any work starts. I'll walk you through what's included so you can compare me to anyone else."},
+  {"q": "Can you help if I'm moving to Tucson from out of state?", "a": "Yes. Video tours, a list of inspectors and lenders I trust, and a straight answer on monsoon season, scorpions and summer power bills."},
+  {"q": "How fast will you get back to me?", "a": "Usually within 10 minutes during the day. If I'm at a closing or my kid's game, I'll reply by that evening."}
+ ],
+ "eho": "Equal Housing Opportunity. Teresa Valdez is licensed with Sonoran Path Realty (sample brokerage).",
+ "sticky": {"book": "Ask Teresa"}
+}
