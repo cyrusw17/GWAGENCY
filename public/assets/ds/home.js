@@ -12,7 +12,16 @@
     });
     if (focus) { tab.focus(); tab.scrollIntoView({ block: "nearest", inline: "nearest" }); }
   }
+  /* Every work order gets the tallest one's height, so switching trades never moves the page. */
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute("aria-controls")); });
+  function even() {
+    var h = 0;
+    panels.forEach(function (p) { p.style.minHeight = ""; p.hidden = false; h = Math.max(h, p.offsetHeight); });
+    panels.forEach(function (p) { p.style.minHeight = h + "px"; });
+  }
+  even();
   select(tabs[0]);
+  var rt; addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { var on = tabs.filter(function (t) { return t.getAttribute("aria-selected") === "true"; })[0]; even(); select(on || tabs[0]); }, 150); });
   list.addEventListener("click", function (e) {
     var t = e.target.closest('[role="tab"]');
     if (t) select(t);
