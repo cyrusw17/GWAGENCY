@@ -9,7 +9,7 @@ How it works: the owner pays $99 to start, we build the whole site and send a pr
 - [Mobile Auto Detailing Website Design](https://groundwork-web.com/auto-detailing/): Car detailing website design for mobile detailers: prices by vehicle size, booking built in, call and text on every phone. $99 to start, $300 when you approve.
 - [Pressure Washing & Soft Wash Website Design](https://groundwork-web.com/exterior-cleaning/): Pressure washing website design: starting prices on the page, a quote form that asks what needs washing, and call and text on every phone. $99 to start.
 - [Lawn Care and Landscaping Website Design](https://groundwork-web.com/landscaping/): Lawn care website design for mowing and landscape crews: weekly prices on the page, a ZIP check for your route, and seasonal updates. $99 to start, refundable.
-- [Commercial Cleaning and Janitorial Website Design](https://groundwork-web.com/commercial-cleaning/): Commercial cleaning website design: a walkthrough request form, insurance and background checks up front, and the buildings you already clean. $99 to start.
+- [Commercial Cleaning Website Design](https://groundwork-web.com/commercial-cleaning/): Commercial cleaning website design: a walkthrough request form, insurance and background checks up front, and the buildings you already clean. $99 to start.
 - [Real Estate Agent Website Design & Hosting](https://groundwork-web.com/real-estate/): Real estate agent website design: home value requests, neighborhood pages, and your license and brokerage shown. The leads stay with you. $99 to start.
 
 ## Guides

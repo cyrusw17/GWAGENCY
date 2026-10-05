@@ -84,6 +84,9 @@ function page({ n, title, desc, canonical, body, schema, noindex, crumbs }) {
 <title>${esc(title.length > 43 ? title : `${title} | GroundWork-Web`)}</title>
 <meta name="description" content="${esc(desc)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta name="color-scheme" content="light dark">
+<link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/ds/tokens.css?v=3.1">
 <link rel="stylesheet" href="/assets/ds/base.css?v=3.1">
 <link rel="stylesheet" href="/assets/ds/components.css?v=3.2">
@@ -231,7 +234,7 @@ for (const [key, n] of Object.entries(NICHES)) {
     <p class="lede">Plain, practical guides for ${esc(n.trade.toLowerCase())} owners on what a website needs to bring in work. Each one is useful whether or not you ever hire us.</p>
     <ul class="post-list">\n${list}\n    </ul>
     <p><a class="btn btn-buy" href="/${n.folder}/">See what we build for ${esc(n.trade.toLowerCase())}</a></p>`;
-  writeFileSync(join(out, "index.html"), page({ n, title: n.blog[0].toUpperCase() + n.blog.slice(1), desc: `Free guides for ${n.trade.toLowerCase()} owners: what a website needs, how to price it on the page, and how to get more work from it. Useful whether or not you hire us.`,
+  writeFileSync(join(out, "index.html"), page({ n, title: n.blog[0].toUpperCase() + n.blog.slice(1), desc: `Free guides for ${n.trade.toLowerCase()} owners: what a website needs, how to show prices, and how to get more work from it, whether or not you hire us.`,
     canonical: blogUrl, body: ibody, crumbs: [[`${n.trade} websites`, `/${n.folder}/`], ["Blog"]],
     schema: { "@context": "https://schema.org", "@type": "Blog", name: n.blog, url: blogUrl, inLanguage: "en-US",
       publisher: { "@type": "Organization", "@id": `${MAIN}/#business`, name: "GroundWork-Web", url: `${MAIN}/` },
