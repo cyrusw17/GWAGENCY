@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, cpSync, rmSync, existsSync } from "node:fs";
 import { join, resolve, dirname, extname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildWork } from "./build-work.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const out = join(root, "_cpanel");
@@ -22,12 +23,14 @@ export const SUBDOMAINS = {
   realestate: "real-estate",
 };
 // Paths a subdomain serves from the shared web root instead of sending to the main host.
-const SHARED = ["assets", "api", "kit", "demos"];
+const SHARED = ["assets", "api", "kit"];
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 cpSync(join(root, "public"), site, { recursive: true });
 for (const f of ["deploy.sh", ".cpanel.yml"]) cpSync(join(root, "tools", "cpanel", f), join(out, f));
+// Demos become the indexed /work/ portfolio on this host only (tools/build-work.mjs).
+const { indexed } = buildWork({ root, site, MAIN, SUBDOMAINS, walk });
 
 const live = Object.entries(SUBDOMAINS).filter(([, dir]) => existsSync(join(site, dir, "index.html")));
 const subUrl = (sub) => `https://${sub}.groundwork-web.com`;
@@ -103,8 +106,10 @@ ht = ht.replace(httpsOld, `    RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
     RewriteCond %{HTTPS} !=on [OR]
     RewriteCond %{HTTP:X-Forwarded-Proto} =http
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # The demos moved to /work/ on the main host.
+    RewriteRule ^demos(?:/(.*))?$ ${MAIN}/work/$1 [L,R=301]
 ${blocks}`);
 writeFileSync(htPath, ht);
 
 writeFileSync(join(out, "subdomains.txt"), live.map(([sub]) => sub).join("\n") + "\n");
-console.log(`_cpanel/ built: ${live.map(([s, d]) => `${s} -> /${d}/`).join(", ")}`);
+console.log(`_cpanel/ built: ${live.map(([s, d]) => `${s} -> /${d}/`).join(", ")}; /work/ indexes ${indexed.map((w) => w.slug).join(", ")}`);
