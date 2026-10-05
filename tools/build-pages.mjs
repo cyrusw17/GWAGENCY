@@ -42,7 +42,7 @@ const barFor = key => {
   const parts = [link("", "&larr; All", "All GroundWork sites", "#F0B53A", "padding-right:4px")];
   if (at) {
     const { t, i } = at, prev = t.pages[i - 1], next = t.pages[i + 1];
-    parts.push(link(`#trade-${t.id}`, `<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${clean(t.short)}</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">${i + 1}/${t.pages.length}</span>`, `${clean(t.name)}, page ${i + 1} of ${t.pages.length}`, "#F6F3EC", "min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"));
+    parts.push(link(t.showcase || `#trade-${t.id}`, `<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${clean(t.short)}</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">${i + 1}/${t.pages.length}</span>`, `${clean(t.name)}, page ${i + 1} of ${t.pages.length}${t.showcase ? ". Open the showcase of every demo" : ""}`, "#F6F3EC", "min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"));
     parts.push(`<span style="margin-left:auto;display:inline-flex">` +
       (prev ? link(prev.href, icon('<path d="M15 18l-6-6 6-6"/>'), `Previous: ${clean(prev.title)}`) : off + icon('<path d="M15 18l-6-6 6-6"/>') + "</span>") +
       (next ? link(next.href, icon('<path d="M9 18l6-6-6-6"/>'), `Next: ${clean(next.title)}`) : off + icon('<path d="M9 18l6-6-6-6"/>') + "</span>") +
@@ -79,6 +79,10 @@ copy(join(root, "public"), join(out, "site"));
 for (const slug of readdirSync(join(out, "demos"))) {
   const f = join(out, "demos", slug, "index.html");
   try { writeFileSync(f, withBar(readFileSync(f, "utf8"), `demos/${slug}/`)); } catch {}
+}
+for (const t of nav) if (t.showcase) {
+  const f = join(out, t.showcase, "index.html");
+  writeFileSync(f, withBar(readFileSync(f, "utf8"), t.showcase));
 }
 rmSync(join(out, "nav.json"));
 console.log(`  built pages copy -> _site/ (base ${base})`);

@@ -20,3 +20,6 @@ Pages under `public/` that no trade claims are listed under the agency site. Fol
 
 ## What stays off this page
 The repository and its Pages site are public and prospects could find them, so the page shows only the sites and the offer. The full internal version lives in the project files (`master-site/internal-report.html`).
+
+## Showcase pages
+A trade with two or more demos also gets `showcase/<trade id>/`: one page with a screenshot and link for every demo, for showing a prospect. The hub links it at the top and in the trade's section, and the trade name in each page's bar opens it. Screenshots live in `hub/shots/<slug>.jpg`. Run `node tools/hub-shots.mjs` after `node tools/build-pages.mjs` to make or refresh them; it needs Playwright, so it runs locally, not in CI. A demo without a screenshot shows its name on a plain panel.
