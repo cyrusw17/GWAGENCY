@@ -182,6 +182,46 @@
   </div>
 </footer>
 
+<script>
+/* Trade-aware copy: ?niche= swaps the title, heading, business-type options and demo list.
+   Detailing (the markup above) is the default; field names and what lead.php receives stay the same. */
+(function () {
+  var T = {
+    "exterior-cleaning": { title: "Start Your Exterior Cleaning Website for $99", noun: "exterior cleaning", label: "Who you clean for", shop: "Haint Blue Soft Wash", city: "Mount Pleasant and Charleston",
+      types: [["homes", "Mostly homes"], ["commercial", "Mostly commercial buildings"], ["both", "Both"]],
+      demos: [["haint-blue", "Haint Blue Soft Wash: porch, soft-wash dial, price sheet"]] },
+    "landscaping": { title: "Start Your Lawn Care Website for $99", noun: "lawn care", label: "What you mostly do", shop: "Pruitt Lawn Co.", city: "Dublin and west Columbus",
+      types: [["maintenance", "Mowing and weekly maintenance"], ["installs", "Landscape installs and projects"], ["both", "Both"]],
+      demos: [["pruitt-lawn", "Pruitt Lawn Co.: season plan, mowing height, ZIP checker"]] },
+    "commercial-cleaning": { title: "Start Your Commercial Cleaning Website for $99", noun: "commercial cleaning", label: "Buildings you clean", shop: "Keyholder Commercial Cleaning", city: "Greensboro and the Triad",
+      types: [["offices", "Mostly offices"], ["specialty", "Medical, schools or other specialty"], ["mixed", "A mix of buildings"]],
+      demos: [["keyholder", "Keyholder: night log, floor plan, walkthrough request"]] },
+    "real-estate": { title: "Start Your Real Estate Agent Website for $99", noun: "real estate", label: "How you work", shop: "Your name or team name", city: "Your city and neighborhoods",
+      types: [["solo", "Solo agent"], ["team", "Team"], ["both", "Agent who leads a small team"]],
+      demos: [["hollis-family", "Hollis & Son: family team, listings and neighborhoods"], ["teresa-valdez", "Text thread: meet the agent first"], ["elena-marsh", "Photo header: listings and a home value request"]] }
+  };
+  var key = new URLSearchParams(location.search).get("niche"), t = T[key];
+  if (!t) return;
+  var form = document.querySelector('form[data-gw-form="start"]');
+  var opts = function (sel, list, keepFirst) {
+    var first = keepFirst ? sel.options[0] : null;
+    sel.textContent = "";
+    if (first) sel.appendChild(first);
+    list.forEach(function (o) { sel.appendChild(new Option(o[1], o[0])); });
+  };
+  document.title = t.title + " | GroundWork-Web";
+  document.querySelector(".page-hero h1").textContent = "Start your " + t.noun + " website.";
+  var type = form.querySelector('select[name="type"]');
+  type.parentNode.firstChild.nodeValue = t.label + "\n          ";
+  opts(type, t.types, false);
+  opts(form.querySelector('select[name="demo"]'), t.demos, true);
+  var shop = form.querySelector('input[name="shop"]');
+  shop.placeholder = t.shop;
+  shop.parentNode.firstChild.nodeValue = key === "real-estate" ? "Name or team name" : "Business name";
+  form.querySelector('input[name="city"]').placeholder = t.city;
+  document.getElementById("start-heading").textContent = key === "real-estate" ? "1. You" : "1. Your business";
+})();
+</script>
 <script src="/assets/js/config.js?v=3.1"></script>
 <script src="/assets/ds/ui.js?v=3.1"></script>
 <script src="/assets/ds/site.js?v=3.1"></script>
