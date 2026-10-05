@@ -18,6 +18,8 @@ word_count_target: 1100-1400
 sources: none (no outside stats used)
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: Your brokerage page is free and ready the week you join. Here's what it does well, the three things it can't do for a referral business, and how to tell whether your own site is worth paying for yet.
+takeaways: A brokerage page is fine while most of your deals come from leads someone else assigns you. | If your business runs on referrals, your own site carries your story, your reviews and your address with you when you switch brokerages. | Compare options on the three-year total, and talk to your managing broker before anything goes live.
 ---
 
 # Do realtors need their own website? What your brokerage page can't do
@@ -33,6 +35,11 @@ It also keeps you out of the website business. Nobody at the brokerage will ask 
 ## What it can't do
 
 Most profile pages run on one template: headshot, a box of bio text, your listings and a form. Every agent in the office gets the same layout, and a few things don't fit in it.
+
+:::visual compare
+{"title": "Side by side", "cards": [{"kind": "before", "label": "Brokerage profile page", "list": ["Free or close to it, ready the week you join", "A name buyers may already know", "Same template as every agent in the office", "Reviews you may not control", "Comes down or moves when you leave"]}, {"kind": "after", "label": "Your own site", "list": ["Room for your story and how you work", "Your reviews, chosen and kept by you", "An address that stays yours across brokerages", "Costs money, and needs your broker's sign-off"]}]}
+:::
+
 
 The first is your story. A referred client wants to know who you are and how you work before they call, and that takes more room than most bio boxes give you. [How to write a realtor bio people actually read](/blog/how-to-write-a-real-estate-agent-bio/) shows what goes in that room.
 
@@ -55,11 +62,20 @@ It can also wait if your brokerage profile already lets you write a full bio, us
 
 If that sounds like you, spend the effort on your brokerage profile and your Google Business Profile, and come back to the question once referrals and repeat clients make up more of your year. Register a domain in your own name in the meantime. It's a small yearly fee, and it's the one piece that moves with you whatever you decide.
 
+:::visual checker
+{"title": "Is it time for your own site?", "sub": "Tick each one that's true for you.", "items": ["A good share of my deals come from referrals and past clients", "I might change brokerages in the next few years", "My brokerage page won't let me write a full bio or use my own photos", "I can't choose which reviews show on my brokerage page", "Referred clients have told me they couldn't find me online"], "bands": [{"min": 3, "text": "Your own site is probably worth it now. Check your brokerage's rules first."}, {"min": 1, "text": "Worth thinking about. Max out your brokerage profile and Google Business Profile meanwhile."}, {"min": 0, "text": "Your brokerage page is likely enough for now. Come back to this if your lead mix changes."}]}
+:::
+
 ## What an agent website should cost
 
 There isn't one price, because agents buy sites in a few different ways. Some brokerages offer a template site, sometimes included and sometimes for a monthly fee. Real estate website companies sell template sites, usually with a setup fee, a monthly subscription and IDX search built in. A designer or agency builds a custom site for a larger one-time fee plus hosting. And a do-it-yourself site builder costs a monthly plan plus your evenings.
 
 The fair way to compare them is the total over three years, since most agents keep whatever they pick at least that long. Add the setup fee to 36 months of the monthly fee, plus any add-ons such as IDX. A quote of $[setup fee] up front and $[monthly fee] a month comes to $[setup fee] + 36 × $[monthly fee]. Put every option through the same sum, including the one that's "free" through your brokerage, where the cost may show up if you leave.
+
+:::visual price
+{"stamp": "Fill in each quote", "head": ["Three-year cost", "Option A", "Option B"], "rows": [["Setup fee", "$___", "$___"], ["Monthly fee × 36", "$___", "$___"], ["IDX and other add-ons", "$___", "$___"], ["Cost if you leave the brokerage<small>The \"free\" option's catch</small>", "$___", "$___"], ["**Three-year total**", "**$___**", "**$___**"]], "note": "Run every option through the same sum, including the one that's included with your brokerage."}
+:::
+
 
 Then ask each provider four questions:
 - Is the domain registered in my name?

@@ -17,6 +17,8 @@ email_offer: Capability statement template (capability-statement-template.md), m
 word_count_target: 1200-1500
 status: draft
 schema: [Article, BreadcrumbList]
+dek: A property manager asks for your capability statement and you don't have one. Here's what goes on the page, section by section, how to handle past work when you're small, and where it belongs on your site.
+takeaways: Six sections on one page: core services, buildings you clean, how you work, past performance, company data, contact. | Replace "quality service" with facts a manager can check: insurance, background checks, key handling, inspections. | Only list real jobs. Buyers call references, and one false line ends the bid.
 ---
 
 # How to write a capability statement for a cleaning company
@@ -35,6 +37,11 @@ Outside government, the request usually comes from property management companies
 
 Six sections, in this order, all on one page.
 
+:::visual steps
+{"title": "One page, top to bottom", "items": [{"h": "Core services", "p": "Three to six lines, in the words a scope of work uses."}, {"h": "Buildings you clean", "p": "Only the types you clean now or have cleaned."}, {"h": "How you work", "p": "Insurance, bonding, background checks, key logs, inspections, supplies.", "tag": "facts, not adjectives"}, {"h": "Past performance", "p": "Two or three real jobs: building type, size, services, how long."}, {"h": "Company data", "p": "Year started, employees, NAICS 561720, and UEI and CAGE if you're in SAM."}, {"h": "Contact", "p": "One named person, a direct phone, an email, and your walkthrough page."}], "caption": "The order a buyer reads it in: what you do, for whom, how, proof, then who to call."}
+:::
+
+
 ### Core services
 
 Write three to six lines, each a service you do every week, in the words a facility manager uses on a scope of work: nightly janitorial, restroom service, trash and recycling, floor care like VCT strip and wax or carpet extraction, day porter. Put the work you want more of first. Leave off one-time jobs you've done twice.
@@ -46,6 +53,11 @@ Name only the building types you clean now or have cleaned: offices, medical and
 ### How you work
 
 This is where most statements say "quality service" and "attention to detail," and a buyer skips right past it. Put facts a manager can check instead. Your general liability amount, whether you're bonded and for how much, and workers' comp. Who gets a background check and when. How keys and alarm codes are logged. Who inspects the work and how often, and how a complaint gets fixed. What supplies and equipment you bring and what the building provides.
+
+:::visual compare
+{"cards": [{"kind": "before", "label": "What most statements say", "text": "\"We deliver quality service with attention to detail. Your satisfaction is our priority.\"", "why": "Every cleaner says it. A buyer can't check any of it, so they skip it."}, {"kind": "after", "label": "Facts a manager can check", "list": ["General liability: $[amount]. Certificate on request.", "Every cleaner background-checked before their first key.", "Keys logged, never tagged with the address.", "Supervisor inspects each building [how often]."], "why": "Write only the lines that are true for you today."}]}
+:::
+
 
 Write only what's true today. If you aren't bonded, leave the line off. A manager who asks for the paperwork and doesn't get it won't call back. These are the same questions buyers ask of your website, which we go through in [what facility managers check on your website before they call](/blog/commercial-cleaning-website-what-to-include/).
 
@@ -87,6 +99,10 @@ Buyers print these, file them and photocopy them into bid binders, so design for
 Keep it to one page. When it runs over, cut adjectives before you cut facts. Save it as a PDF named "[Company name] capability statement.pdf" so it's easy to find in a download folder full of files called "document (3)."
 
 It's worth keeping a master copy and adjusting it per bid. For a medical office, move medical to the front of the building list and lead past performance with your clinic work.
+
+:::visual checker
+{"title": "Before you send it", "sub": "Tick what's true of your statement right now.", "items": ["It fits on one page", "It reads fine printed in black and white on an office printer", "Every client named has said yes to being named", "Every job listed is one you've actually done", "Insurance and bonding lines match your current policy", "One named person, a direct phone and an email", "Saved as a PDF named \"[Company name] capability statement\"", "The website says the same things as the PDF"], "bands": [{"min": 8, "text": "Ready for a bid binder."}, {"min": 6, "text": "Close. Fix the unticked lines before the next request comes in."}, {"min": 0, "text": "Work through the sections above first. The honesty lines matter more than the design ones."}]}
+:::
 
 ## Put it on your website next to the walkthrough form
 

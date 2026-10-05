@@ -15,6 +15,8 @@ email_offer: The Quote-Form Checklist for Pressure Washing (checklist-quote-form
 word_count_target: 1400-1800
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: Homeowners scroll your site with two other companies open in other tabs. These are the 12 things that keep them on yours, in the order their questions come up.
+takeaways: The first screen needs what you wash, the towns you cover, one quote button and a real before-and-after. | Say which method goes on which surface. "Will this ruin my roof?" stops more quotes than price does. | Everything on the page should lead to one short quote form that asks for photos.
 ---
 
 # What to put on a pressure washing website
@@ -22,6 +24,11 @@ schema: [Article, BreadcrumbList, FAQPage]
 A pressure washing website has to answer a homeowner's questions in the order they come up: do you clean what I need cleaned, do you come to my town, will you hurt my plants or my paint, and how do I get a price. Below are the 12 pressure washing website must-haves, listed in the order people look for them on a phone, from the first screen down to the quote form.
 
 Most homeowners land on your site from a search or your Google Business Profile, usually with a couple of other companies open in other tabs. They scroll for a few seconds looking for a reason to stay. Whichever site answers their worries first tends to get the quote request.
+
+:::visual phone
+{"title": "The 12 items, top to bottom", "alt": "A sketch of a pressure washing page on a phone: headline with towns and a quote button, a before-and-after, services and methods, answers on plants and insurance, reviews, service area, and a short quote form, each marked with its item numbers.", "rows": [{"k": "bar", "text": "9:41", "right": "yourwash.com"}, {"k": "h", "text": "House washing and roof soft washing in [town] and [town]", "pin": "1–3"}, {"k": "btn", "text": "Get my quote"}, {"k": "img", "text": "Before and after: the green north wall"}, {"k": "price", "text": "Siding and roofs", "right": "soft wash", "pin": "4–5"}, {"k": "note", "text": "We cover your plants and rinse them. Insured, certificate on request.", "pin": "6–7"}, {"k": "quote", "text": "Reviews with a first name, town and date", "pin": "8–9"}, {"k": "note", "text": "We go to [town], [town] and [town]. Booked two weeks out in May.", "pin": "10–11"}, {"k": "field", "text": "What needs washing, ZIP, stories, 3 photos", "pin": "12"}, {"k": "sticky", "text": "Call", "right": "Text"}], "notes": [{"pin": "1–3", "text": "**Top:** service and towns, one quote button with Call and Text, a real before-and-after."}, {"pin": "4–5", "text": "**Services:** named the way customers say them, and which method goes on which surface."}, {"pin": "6–7", "text": "**Worries:** plants, paint and windows, and insurance if you carry it."}, {"pin": "8–9", "text": "**Proof:** captioned pairs grouped by surface, real reviews, the person behind the business."}, {"pin": "10–11", "text": "**Area and timing:** your towns by name, busy seasons and your weather plan."}, {"pin": "12", "text": "**The quote form** everything above leads to."}], "caption": "A layout sketch, not a real business."}
+:::
+
 
 ## Top of the page: what you wash, where, and one button
 
@@ -36,6 +43,11 @@ Most homeowners land on your site from a search or your Google Business Profile,
 4. Each service, named the way a customer says it, with what's included. House wash, roof soft wash, driveway and walks, deck and fence, gutters, windows: list only what you do. Under each, write a line or two on what the price covers. Does the house wash include soffits and the outside face of the gutters? Does the driveway price include the front walk and the steps? If you post starting prices, label them clearly, for example "House wash from $[your price]."
 
 5. Which method goes on which surface. Many homeowners have heard that pressure washing strips paint and ruins roofs, and a few have a neighbor who found out the hard way. Say in plain words that siding and roofs get a soft wash (low pressure and a cleaning solution that does the work), and that you save higher pressure for concrete and other hard surfaces that can take it. A short two-column list of surface and method is enough. The [Haint Blue](https://groundwork-web.com/work/haint-blue/) page, a sample design for a fictional business, answers it with a pressure dial.
+
+:::visual price
+{"stamp": "Example. Match it to how you work", "head": ["Surface", "Method"], "rows": [["Vinyl siding, stucco, painted trim", "Soft wash"], ["Asphalt shingle roof", "Soft wash, never high pressure"], ["Concrete driveway and walks", "Pressure, with a surface cleaner"], ["Wood deck and fence", "Low pressure and a cleaner"]], "note": "A two-column list like this answers \"will you ruin my roof?\" before anyone has to ask."}
+:::
+
 
 <!-- email-capture: inline, after the 2nd H2. Gate: email + business name (website optional). Lead type: guide. -->
 > The quote-form checklist for pressure washing: the fields to ask for so you can price from photos, plus the 10 things the page around your quote form should say. One printable page.
@@ -63,6 +75,11 @@ Most homeowners land on your site from a search or your Google Business Profile,
 10. The towns you serve, by name. Someone forty minutes out should be able to tell you don't go there before they fill anything in. A list of town names reads better than a map with a circle on it, and if you charge a trip fee past a certain point, say where that point is.
 
 11. When to book, and what happens with the weather. Spring pollen, mildew on the north side after a wet summer, and the rush before holidays and graduation parties all send people looking at once. If you're booked out two weeks in May, say so, because it saves you a lot of "can you come tomorrow?" texts. Say what you do when the forecast turns: whether you wash in light rain, and that you'll text to move the day if wind or storms come in. Mention HOA deadlines here too ("Got a letter from your HOA? Tell us the date and we'll work to it"). In northern states, add when your season starts and whether you take spring bookings over the winter.
+
+:::visual calendar
+{"title": "When the phone rings (example for a southern market)", "rows": [{"m": "Mar–Apr", "h": "Pollen season", "p": "Yellow film on everything. Driveways, cars and screens.", "hi": true, "chip": "busy"}, {"m": "May–Jun", "h": "Graduations and summer parties", "p": "Say how far out you're booked so people plan ahead.", "hi": true, "chip": "booked out"}, {"m": "Aug–Sep", "h": "Mildew on the north side", "p": "After a wet summer, green walls and black roof streaks."}, {"m": "Nov–Dec", "h": "Before the holidays", "p": "Front of the house, walks and the driveway guests park on.", "hi": true, "chip": "busy"}, {"m": "Any month", "h": "HOA letters", "p": "\"Tell us the date and we'll work to it.\""}], "caption": "Your months will differ by region. In northern states, add when your season starts and whether you take spring bookings over winter."}
+:::
+
 
 ## The quote form, where all of this leads
 

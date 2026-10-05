@@ -14,11 +14,11 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const MAIN = "https://groundwork-web.com";
 const NICHES = {
   // blog: the blog index title and H1, picked from the search terms in seo-terms (tools/seo-terms.mjs).
-  "auto-detailing": { folder: "auto-detailing", sub: "detailing", trade: "Auto detailing", blog: "Car detailing website guides" },
-  "exterior-cleaning": { folder: "exterior-cleaning", sub: "exterior", trade: "Pressure washing", blog: "Pressure washing website and marketing guides" },
-  landscaping: { folder: "landscaping", sub: "landscaping", trade: "Lawn care", blog: "Lawn care website and marketing guides" },
-  "commercial-cleaning": { folder: "commercial-cleaning", sub: "commercial", trade: "Commercial cleaning", blog: "Commercial cleaning website and contract guides" },
-  "real-estate-agents": { folder: "real-estate", sub: "realestate", trade: "Real estate", blog: "Real estate agent website guides" },
+  "auto-detailing": { folder: "auto-detailing", sub: "detailing", trade: "Auto detailing", reader: "auto detailers", blog: "Car detailing website guides" },
+  "exterior-cleaning": { folder: "exterior-cleaning", sub: "exterior", trade: "Pressure washing", reader: "pressure washing owners", blog: "Pressure washing website and marketing guides" },
+  landscaping: { folder: "landscaping", sub: "landscaping", trade: "Lawn care", reader: "lawn care owners", blog: "Lawn care website and marketing guides" },
+  "commercial-cleaning": { folder: "commercial-cleaning", sub: "commercial", trade: "Commercial cleaning", reader: "commercial cleaning owners", blog: "Commercial cleaning website and contract guides" },
+  "real-estate-agents": { folder: "real-estate", sub: "realestate", trade: "Real estate", reader: "real estate agents", blog: "Real estate agent website guides" },
 };
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -43,6 +43,79 @@ function fixLinks(html, n) {
     `<li><input ${attrs} aria-label="${text.trim().replace(/"/g, "&quot;")}"> ${text}`);
   return html.replaceAll(`href="${MAIN}/`, 'href="/');
 }
+
+
+// Visuals drawn in code. In a post: ":::visual <kind>" on its own line, a JSON object, then ":::".
+// Text fields take inline markdown. Every visual is a <figure> with a caption; none uses an image file.
+const il = (s) => marked.parseInline(String(s ?? ""));
+const cap = (v) => (v.caption ? `<figcaption>${il(v.caption)}</figcaption>` : "");
+const ttl = (v) => (v.title ? `<p class="bv-title">${il(v.title)}</p>` : "");
+let checkCount = 0;
+const VISUALS = {
+  phone: (v) => {
+    let pin = 0;
+    const rows = v.rows.map((r) => {
+      const p = r.pin ? `<span class="bv-pin" aria-hidden="true">${r.pin === true ? ++pin : esc(r.pin)}</span>` : "";
+      if (r.k === "bar") return `<div class="bv-row k-bar"><span>${esc(r.text)}</span><span>${esc(r.right || "")}</span>${p}</div>`;
+      if (r.k === "price") return `<div class="bv-row k-price"><span>${il(r.text)}</span><span>${il(r.right || "")}</span>${p}</div>`;
+      if (r.k === "sticky") return `<div class="bv-row k-sticky"><span>${esc(r.text)}</span><span>${esc(r.right)}</span>${p}</div>`;
+      return `<div class="bv-row k-${r.k}">${il(r.text)}${p}</div>`;
+    }).join("");
+    let k = 0;
+    const legend = v.notes.map((n) => `<li><span class="bv-n" aria-hidden="true">${esc(n.pin ?? ++k)}</span><span>${il(n.text ?? n)}</span></li>`).join("");
+    return `<figure class="bv">${ttl(v)}<div class="bv-phone-wrap"><div class="bv-phone" role="img" aria-label="${esc(v.alt)}">${rows}</div><ol class="bv-legend">${legend}</ol></div>${cap(v)}</figure>`;
+  },
+  steps: (v) => `<figure class="bv">${ttl(v)}<ol class="bv-steps">${v.items.map((i) =>
+    `<li><b>${il(i.h)}</b>${i.p ? `<span>${il(i.p)}</span>` : ""}${i.tag ? `<em>${esc(i.tag)}</em>` : ""}</li>`).join("")}</ol>${cap(v)}</figure>`,
+  compare: (v) => `<figure class="bv">${ttl(v)}<div class="bv-cmp${v.cards.length === 3 ? " is-three" : ""}">${v.cards.map((c) =>
+    `<div class="bv-card is-${c.kind || "after"}"><span class="bv-lab">${esc(c.label)}</span>${
+      c.list ? `<ul>${c.list.map((l) => `<li>${il(l)}</li>`).join("")}</ul>` : [].concat(c.text).map((t) => `<p>${il(t)}</p>`).join("")
+    }${c.why ? `<p class="bv-why">${il(c.why)}</p>` : ""}</div>`).join("")}</div>${cap(v)}</figure>`,
+  bars: (v) => {
+    const max = v.max || Math.max(...v.items.map((i) => i.value));
+    return `<figure class="bv">${ttl(v)}<div class="bv-bars">${v.items.map((i) =>
+      `<div class="bv-bar${i.tone ? ` is-${i.tone}` : ""}"><div class="bv-bar-top"><b>${il(i.label)}</b><span>${esc(i.show ?? i.value)}</span></div><div class="bv-track"><div class="bv-fill" style="width:${Math.max(2, Math.round((i.value / max) * 100))}%"></div></div>${i.note ? `<small>${il(i.note)}</small>` : ""}</div>`).join("")}</div>${cap(v)}</figure>`;
+  },
+  checker: (v, n) => {
+    const id = `chk${++checkCount}`;
+    const bands = JSON.stringify([...v.bands].sort((a, b) => b.min - a.min));
+    return `<figure class="bv"><div class="bv-check" data-bands="${esc(bands)}"><div class="bv-check-head"><b>${il(v.title)}</b>${v.sub ? `<span>${il(v.sub)}</span>` : ""}</div><ol>${v.items.map((q, i) =>
+      `<li><label for="${id}-${i}"><input type="checkbox" id="${id}-${i}"><span>${il(q)}</span></label></li>`).join("")}</ol><div class="bv-check-out" aria-live="polite"><p class="bv-score"><b>0</b> <small>of ${v.items.length} ticked</small></p><div class="bv-meter"><i></i></div><p class="bv-verdict"></p><p class="bv-cta"><a href="/site-check/?niche=${n.folder}">Want a second opinion? Check your site free in 8 questions</a></p></div></div>${cap(v)}</figure>`;
+  },
+  form: (v) => `<figure class="bv">${ttl(v)}<div class="bv-form">${v.fields.map((f) =>
+    `<div class="bv-f is-${f.state || "keep"}"><b>${il(f.label)}</b><em>${esc({ keep: "keep", cut: "cut", opt: "optional" }[f.state || "keep"])}</em>${f.why ? `<small>${il(f.why)}</small>` : ""}</div>`).join("")}${v.button ? `<div class="bv-form-btn" aria-hidden="true">${esc(v.button)}</div>` : ""}</div>${cap(v)}</figure>`,
+  calendar: (v) => `<figure class="bv">${ttl(v)}<div class="bv-cal">${v.rows.map((r) =>
+    `<div class="bv-cal-row${r.hi ? " is-hi" : ""}"><span class="bv-cal-m">${esc(r.m)}</span><div><b>${il(r.h)}</b>${r.p ? `<span>${il(r.p)}</span>` : ""}${r.chip ? `<span class="bv-chip">${esc(r.chip)}</span>` : ""}</div></div>`).join("")}</div>${cap(v)}</figure>`,
+  price: (v) => `<figure class="bv"><div class="bv-price">${v.stamp ? `<span class="bv-stamp">${esc(v.stamp)}</span>` : ""}<table><thead><tr>${v.head.map((h) => `<th scope="col">${esc(h)}</th>`).join("")}</tr></thead><tbody>${v.rows.map((r) =>
+    `<tr>${r.map((c, i) => (i ? `<td>${il(c)}</td>` : `<td>${il(c)}</td>`)).join("")}</tr>`).join("")}</tbody></table>${v.note ? `<p class="bv-price-note">${il(v.note)}</p>` : ""}</div>${cap(v)}</figure>`,
+  texts: (v) => `<figure class="bv"><div class="bv-sms">${v.who ? `<p class="bv-sms-who">${esc(v.who)}</p>` : ""}${v.msgs.map((m) =>
+    m.t ? `<p class="bv-msg-t">${esc(m.t)}</p>` : `<p class="bv-msg is-${m.from}">${il(m.text)}</p>`).join("")}</div>${cap(v)}</figure>`,
+  pull: (v) => `<p class="bv-pull">${il(v.text)}</p>`,
+};
+function visuals(md, file, n) {
+  return md.replace(/^:::visual ([a-z]+)\n([\s\S]*?)\n:::$/gm, (m, kind, json) => {
+    if (!VISUALS[kind]) throw new Error(`${file}: unknown visual "${kind}"`);
+    let v;
+    try { v = JSON.parse(json); } catch (e) { throw new Error(`${file}: bad JSON in ${kind} visual: ${e.message}`); }
+    return "\n" + VISUALS[kind](v, n) + "\n";
+  });
+}
+
+// Headings get ids so the "In this guide" list can link to them.
+const slugify = (t) => t.replace(/<[^>]+>/g, "").toLowerCase().replace(/&[a-z#0-9]+;/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
+function anchor(html) {
+  const toc = [], seen = new Set();
+  html = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (m, lvl, inner) => {
+    let id = slugify(inner) || "section";
+    while (seen.has(id)) id += "-2";
+    seen.add(id);
+    if (lvl === "2") toc.push([id, inner.replace(/<[^>]+>/g, "")]);
+    return `<h${lvl} id="${id}">${inner}</h${lvl}>`;
+  });
+  return { html, toc };
+}
+const readMins = (md) => Math.max(2, Math.round(md.replace(/<[^>]+>|:::visual[\s\S]*?:::/g, " ").split(/\s+/).filter(Boolean).length / 230));
+const kicker = (n, mins) => `<p class="art-kicker"><b>${esc(n.trade)}</b><span>${mins} min read</span></p>`;
 
 let formCount = 0;
 function captureForm(block, guide, download, n) {
@@ -90,6 +163,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta name="color-sc
 <link rel="stylesheet" href="/assets/ds/tokens.css?v=4">
 <link rel="stylesheet" href="/assets/ds/base.css?v=4">
 <link rel="stylesheet" href="/assets/ds/components.css?v=4">
+<link rel="stylesheet" href="/assets/ds/blog.css?v=1">
 <link rel="canonical" href="${canonical}">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
@@ -101,36 +175,10 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta name="color-sc
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>\n` : ""}<style>
-.post{padding:clamp(32px,6vw,72px) 0}
-.post .wrap{max-width:720px}
-.post h1{margin:var(--s3) 0 var(--s5)}
-.post .prose h2{margin-top:var(--s6)}
-.post .prose table{width:100%;border-collapse:collapse;margin:var(--s4) 0;font-size:.95rem}
-.post .prose th,.post .prose td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
-.post .prose blockquote{border-left:3px solid var(--line);padding-left:var(--s4);color:var(--ink-2)}
-.post .prose ul.contains-task-list{list-style:none;padding-left:0}
-.crumbs-b{font-size:.9rem;color:var(--ink-3)}
-.crumbs-b a{color:inherit}
-.guide-form{margin:var(--s6) 0;padding:var(--s5);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card)}
-.guide-form label{display:block;font-weight:600;margin-top:var(--s3)}
-.guide-form label span{font-weight:400;color:var(--ink-3)}
-.guide-form input{width:100%;padding:12px;border:1px solid var(--line);border-radius:var(--r-sm);font:inherit;background:var(--bg);color:var(--ink)}
-.guide-form input[aria-invalid=true]{border-color:var(--danger)}
-.guide-form button{margin-top:var(--s4)}
-.guide-consent{font-size:.88rem;color:var(--ink-3);margin-top:var(--s3)}
-.post-list{list-style:none;padding:0;display:grid;gap:var(--s5)}
-.post-list a{font-weight:600;font-size:1.15rem}
-.post-list p{color:var(--ink-2);margin-top:var(--s2)}
-.post-date{color:var(--ink-3);font-size:.92rem;margin:calc(-1 * var(--s3)) 0 var(--s5)}
-.more-guides{margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line)}
-.more-guides ul{padding-left:1.2em}
-.more-guides li{margin-top:var(--s2)}
-@media print{.site-header,.site-footer,.no-print{display:none}}
-</style>
-</head>
+${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>\n` : ""}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="art-progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap">
     <a class="logo" href="/" translate="no"><span class="dot" aria-hidden="true"></span>GroundWork-Web</a>
@@ -158,6 +206,7 @@ ${body}
 </footer>
 <script src="/assets/js/config.js?v=3.1"></script>
 <script src="/assets/js/guide.js" defer></script>
+<script src="/assets/js/blog.js?v=1" defer></script>
 <script src="/assets/js/analytics.js?v=3.1" defer></script>
 </body>
 </html>
@@ -193,13 +242,23 @@ for (const [key, n] of Object.entries(NICHES)) {
     }).replace(/<!--[\s\S]*?-->\n?/g, "");
     const url = `${blogUrl}${d.slug}/`;
     const title = d.fm.h1 || d.fm.title;
-    const more = posts.filter((p) => p !== d).map((p) => `      <li><a href="/${n.folder}/blog/${p.slug}/">${esc(p.fm.h1 || p.fm.title)}</a></li>`).join("\n");
-    const body = `    <h1>${esc(title)}</h1>\n    <p class="post-date">Updated <time datetime="${UPDATED}">${UPDATED_TEXT}</time></p>\n    <div class="prose">\n${fixLinks(marked.parse(md), n)}\n    </div>
+    const mins = readMins(md);
+    const { html, toc } = anchor(fixLinks(marked.parse(visuals(md, d.slug, n)), n));
+    const takeaways = (d.fm.takeaways || "").split(" | ").filter(Boolean);
+    const more = posts.filter((p) => p !== d).map((p) => `      <li><a href="/${n.folder}/blog/${p.slug}/">${esc(p.fm.h1 || p.fm.title)}<span>${readMins(p.body)} min read</span></a></li>`).join("\n");
+    const body = `    <header class="art-head">
+      ${kicker(n, mins)}
+      <h1>${esc(title)}</h1>
+      <p class="art-dek">${esc(d.fm.dek || d.fm.meta_description)}</p>
+      <p class="art-meta">By the GroundWork-Web team, who build websites for ${esc(n.reader)}. Updated <time datetime="${UPDATED}">${UPDATED_TEXT}</time>.</p>
+    </header>
+${takeaways.length ? `    <aside class="art-take" aria-labelledby="take-h"><h2 id="take-h">The short version</h2><ol>${takeaways.map((t) => `<li>${il(t)}</li>`).join("")}</ol></aside>\n` : ""}${toc.length >= 4 ? `    <details class="art-toc no-print"><summary>In this guide (${toc.length} parts)</summary><ol>${toc.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join("")}</ol></details>\n` : ""}    <div class="prose">\n${html}\n    </div>
     <nav class="more-guides no-print" aria-labelledby="more-h">\n      <h2 id="more-h">More ${esc(n.trade.toLowerCase())} guides</h2>\n      <ul>\n${more}\n      </ul>\n    </nav>`;
     const schema = { "@context": "https://schema.org", "@graph": [
       { "@type": "Article", headline: title, description: d.fm.meta_description, mainEntityOfPage: url,
         author: { "@id": `${MAIN}/#business` }, publisher: { "@id": `${MAIN}/#business` },
-        about: n.trade + " websites", inLanguage: "en-US", datePublished: UPDATED, dateModified: UPDATED,
+        about: n.trade + " websites", articleSection: n.trade, inLanguage: "en-US", timeRequired: `PT${mins}M`,
+        wordCount: md.replace(/<[^>]+>|:::visual[\s\S]*?:::/g, " ").split(/\s+/).filter(Boolean).length, datePublished: UPDATED, dateModified: UPDATED,
         image: { "@type": "ImageObject", url: `${MAIN}/assets/og.png`, width: 1200, height: 630 } },
       { "@type": "Organization", "@id": `${MAIN}/#business`, name: "GroundWork-Web", url: `${MAIN}/`,
         logo: { "@type": "ImageObject", url: `${MAIN}/assets/logo.png`, width: 512, height: 512 } },
@@ -230,10 +289,12 @@ for (const [key, n] of Object.entries(NICHES)) {
       crumbs: [[`${n.trade} websites`, `/${n.folder}/`], ["Blog", `/${n.folder}/blog/`], [d.fm.title]] }));
   }
 
-  const list = posts.map((d) => `      <li><a href="/${n.folder}/blog/${d.slug}/">${esc(d.fm.h1 || d.fm.title)}</a><p>${esc(d.fm.meta_description)}</p></li>`).join("\n");
-  const ibody = `    <h1>${esc(n.blog)}</h1>
-    <p class="lede">Plain, practical guides for ${esc(n.trade.toLowerCase())} owners on what a website needs to bring in work. Each one is useful whether or not you ever hire us.</p>
-    <ul class="post-list">\n${list}\n    </ul>
+  const list = posts.map((d) => `      <li class="post-card"><a href="/${n.folder}/blog/${d.slug}/">${kicker(n, readMins(d.body))}<h2>${esc(d.fm.h1 || d.fm.title)}</h2><p>${esc(d.fm.dek || d.fm.meta_description)}</p><span class="pc-more">Read the guide</span></a></li>`).join("\n");
+  const ibody = `    <header class="blog-head">
+      <h1>${esc(n.blog)}</h1>
+      <p class="art-dek">Plain, practical guides for ${esc(n.reader)} on what a website needs to bring in work. Each one is useful whether or not you ever hire us.</p>
+    </header>
+    <ul class="post-cards">\n${list}\n    </ul>
     <p><a class="btn btn-buy" href="/${n.folder}/">See what we build for ${esc(n.trade.toLowerCase())}</a></p>`;
   writeFileSync(join(out, "index.html"), page({ n, title: n.blog[0].toUpperCase() + n.blog.slice(1), desc: `Free guides for ${n.trade.toLowerCase()} owners: what a website needs, how to show prices, and how to get more work from it, whether or not you hire us.`,
     canonical: blogUrl, body: ibody, crumbs: [[`${n.trade} websites`, `/${n.folder}/`], ["Blog"]],

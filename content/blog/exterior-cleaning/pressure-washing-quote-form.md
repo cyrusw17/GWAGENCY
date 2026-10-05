@@ -16,6 +16,8 @@ word_count_target: 1300-1700
 image: "Mock of a 2-step quote form (sample design)"
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: Stop driving across town to pace off driveways for people who never call back. Ask for the right things in the right order and you can price most jobs from your phone.
+takeaways: Open with what needs washing and the ZIP code. Both are easy taps and both tell you if the lead is worth chasing. | Ask for three photos by name: the front from the street, the driveway, and the worst spot up close. | Text back a real price within the hour, with two days to pick from.
 ---
 
 # The pressure washing quote form that gets jobs priced without a site visit
@@ -61,6 +63,11 @@ The worst-spot photo usually tells you the most. You can see whether it's mildew
 
 Each extra field gives the homeowner another place to stop. They're often on the couch at night with two or three companies open, and if your form asks twelve questions while the next one asks four, the short one gets finished.
 
+:::visual pull
+{"text": "Every extra box is one more place for someone on the couch to stop and open the next company's tab."}
+:::
+
+
 Leave these off the first form:
 
 - Full street address. ZIP is enough until you're scheduling.
@@ -71,6 +78,11 @@ Leave these off the first form:
 - A required message box. Keep it optional. Some people will use it to tell you about the HOA letter, the gate code or the dog, which is worth reading.
 
 That leaves eight fields: what needs washing, ZIP, stories, square footage (optional), photos, name, mobile number, and the optional notes box. On a phone, split them over two or three short screens. Services and ZIP go first, stories and photos next, contact details last, so the easy taps come before anything that feels like work.
+
+:::visual form
+{"title": "The form, field by field", "fields": [{"label": "What needs washing", "why": "Tap boxes: house, roof, driveway and walks, deck or fence. Only what you sell."}, {"label": "ZIP code", "why": "Inside your drive limit or not."}, {"label": "How many stories"}, {"label": "Square footage", "state": "opt"}, {"label": "Three photos, named", "why": "Front from the street, the driveway, the worst spot up close."}, {"label": "Name"}, {"label": "Mobile number", "why": "Say you'll text. Email as the fallback."}, {"label": "Notes", "state": "opt", "why": "Where you hear about the HOA letter, the gate code or the dog."}, {"label": "Full street address", "state": "cut", "why": "ZIP is enough until you're scheduling."}, {"label": "Budget", "state": "cut", "why": "Homeowners don't know what a house wash costs."}, {"label": "Preferred dates", "state": "cut", "why": "Settle the day by text once they've said yes to the price."}, {"label": "How did you hear about us?", "state": "cut", "why": "Ask on the job."}], "button": "Send for a price", "caption": "Eight fields, two of them optional. On a phone that's one short scroll."}
+:::
+
 
 ## What the page around the form should say
 
@@ -91,7 +103,13 @@ For the rest of the page, see [what to put on a pressure washing website](/blog/
 
 The form only pays off if you answer fast. Someone who sent three requests on a Tuesday night is likely to book with whoever comes back first with a real number. Save something like this in your phone and edit it per job. The bracketed prices are placeholders for your own.
 
+Here's one to copy, with your details in the brackets:
+
 > Hi [first name], this is [your name] with [company]. Thanks for the photos. A soft wash of your [one/two]-story house in [town], siding, trim and soffits, is $[your price]. The driveway and front walk add $[your price]. That price holds on wash day unless we find something the photos didn't show, and we'd tell you before starting. I have [day] or [day] open next week. Does either work?
+
+:::visual texts
+{"who": "Text thread with a homeowner", "msgs": [{"t": "Tue 8:42 PM · quote form: house + driveway, 2 stories, 3 photos"}, {"from": "you", "text": "Hi [first name], this is [your name] with [company]. Thanks for the photos. A soft wash of your two-story house in [town], siding, trim and soffits, is $[your price]. The driveway and front walk add $[your price]."}, {"from": "you", "text": "That price holds on wash day unless we find something the photos didn't show, and we'd tell you before starting. I have [day] or [day] open next week. Does either work?"}, {"from": "them", "text": "[day] works"}], "caption": "The same template as above, as the homeowner sees it. Sent within the hour, it lands while they are still comparing companies."}
+:::
 
 Naming the house and the town shows you looked at what they sent, and the price is a real number they can say yes to. Ending on two days to pick from is easier to reply to than "let me know."
 

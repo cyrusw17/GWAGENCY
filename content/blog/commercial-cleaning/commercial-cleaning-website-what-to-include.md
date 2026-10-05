@@ -17,6 +17,8 @@ word_count_target: 1500-1900
 image: "Sample floor plan with a walkthrough route: lobby, offices, restrooms, break room (sample design)"
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: A facility manager reads your site looking for answers to six questions before they'll pick up the phone. Most cleaning sites were built for homeowners and answer none of them.
+takeaways: Show the building types you clean and your scope area by area, the way a scope sheet reads. | Answer the trust questions plainly: background checks, key handling, insurance and bonding. Only what's true. | Sell the walkthrough, not a price, and give them a one-page capability statement to send their boss.
 ---
 
 # What facility managers check on your website before they call
@@ -24,6 +26,11 @@ schema: [Article, BreadcrumbList, FAQPage]
 If you're working out what to include on a commercial cleaning website, start with the person who reads it. A facility or property manager has three names from a search and time this week for one or two walkthroughs. Before they call anybody, they open each website and look for answers to about twelve questions. Your site is the first page of your bid.
 
 Most cleaning company sites were built for homeowners. They lead with a move-out special, a price per bedroom and a "Book now" button. A manager looking after a three-story medical building reads that and decides you do houses. Below are the questions a buyer works through before picking up the phone, and what your site should say to each.
+
+:::visual compare
+{"title": "Same company, two audiences", "cards": [{"kind": "before", "label": "Built for homeowners", "list": ["Move-out special", "Price per bedroom", "\"Book now\" button", "Photos of a kitchen counter"]}, {"kind": "after", "label": "Built for a facility manager", "list": ["Building types you clean", "Scope, area by area", "Background checks, keys, insurance", "\"Request a walkthrough\" and a capability statement"]}]}
+:::
+
 
 ## "Do they clean buildings like mine?"
 
@@ -76,6 +83,11 @@ Leave out lines like "we never miss a night." Nobody believes them, and the firs
 
 You bid per building, so a price list doesn't help. Make the walkthrough the thing you sell. "Request a walkthrough" should be the main button on every screen, leading to a short form that asks for the facility type, rough square footage and cleanings a week, then a name and a phone number or email. There's more on the fields and the wording around them in [what to ask on a commercial cleaning quote form](/blog/commercial-cleaning-quote-form/).
 
+:::visual phone
+{"title": "The first screen on a manager's phone", "alt": "A sketch of a commercial cleaning page on a phone: a headline naming office and medical cleaning and the city, two trust facts, a request a walkthrough button, and a capability statement link.", "rows": [{"k": "bar", "text": "9:41", "right": "yourcleaning.com"}, {"k": "h", "text": "Office and medical cleaning in [city]", "pin": true}, {"k": "note", "text": "Nightly, weekends or a day porter.", "pin": false}, {"k": "price", "text": "Background-checked crews", "right": "✓", "pin": true}, {"k": "price", "text": "Keys logged, insured", "right": "✓"}, {"k": "btn", "text": "Request a walkthrough", "pin": true}, {"k": "btn2", "text": "Capability statement (PDF)", "pin": true}], "notes": ["**What you clean and where**, in the headline.", "**One or two trust facts**, only if they're true.", "**The walkthrough** as the main button.", "**Something to forward to the boss.**"], "caption": "A layout sketch, not a real business."}
+:::
+
+
 Next to the form, tell the manager what happens after they send it: who calls, how fast, how long the walkthrough takes and when the written bid arrives.
 
 Say what's included before they ask. State whether you bring the chemicals, equipment and trash liners, and whether restroom paper and soap are supplied by you or by them. Managers compare that line by line. If your agreements run month to month, say so.
@@ -87,6 +99,10 @@ Larger buyers often send an RFP instead, so give them an email address for it.
 The person who finds you often isn't the one who signs. They need one page they can attach to an email, and that page is a capability statement: your services, the buildings you clean, what sets you apart, past work you can name with permission, your insurance and bonding, company details and a contact.
 
 Government and larger commercial buyers sometimes ask for a capability statement by name. Put it on your site as a PDF next to the walkthrough form. We go through it section by section in [how to write a capability statement for a cleaning company](/blog/cleaning-company-capability-statement/).
+
+:::visual checker
+{"title": "Can a manager answer these from your site?", "sub": "Read your site as a stranger would, and tick each one it answers.", "items": ["Do they clean buildings like mine?", "Can I trust them with keys and alarm codes?", "How do they make sure it's done?", "What happens if someone calls out?", "How do I get a price?", "Can I send this to my boss?"], "bands": [{"min": 6, "text": "Your site does the job before the call. Keep the facts current."}, {"min": 4, "text": "A couple of gaps. Those are the questions a manager will ask on the phone, if they call."}, {"min": 0, "text": "Start with building types and the walkthrough button. Those decide whether a manager reads on."}]}
+:::
 
 ## FAQ: what to include on a commercial cleaning website
 

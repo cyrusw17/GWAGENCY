@@ -13,6 +13,8 @@ email_offer: The Detailer's Booking Page Checklist
 word_count_target: 1400-1800
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: Someone in a parking lot has your site open and about ten seconds to decide. These are the 15 things they look for, in the order they look, with a quick test for each.
+takeaways: The first screen has to say what you do, where, and how to book. Plenty of people never scroll past it. | "From" prices, what's in each package and how long it takes are where people decide. | Mobile detailers should answer the water, power and rain questions before anyone asks.
 ---
 
 # What to put on a car detailing website: 15 things, in the order customers check them
@@ -21,7 +23,12 @@ If you're wondering what to put on a car detailing website, start with the order
 
 Most advice on detailing websites stops at "look professional." The person in the parking lot is checking narrower things, and they'll rule you out fast if one is missing.
 
-<!-- image: annotated phone screenshot of the Ramirez & Son page (sample design for a fictional business), items 1 to 15 numbered in the margin. Caption: "Sample design for a fictional business, with the 15 items numbered." -->
+
+
+
+:::visual phone
+{"title": "Where the 15 items sit on a phone", "alt": "A sketch of a detailing page on a phone, top to bottom: headline and towns, booking button, a work photo, a price menu, before-and-after photos, reviews, a note on water and rain, and a booking form, each marked with its item numbers.", "rows": [{"k": "bar", "text": "9:41", "right": "yourdetailing.com"}, {"k": "h", "text": "Mobile car detailing in [your town]", "pin": "1–4"}, {"k": "btn", "text": "Book a detail"}, {"k": "img", "text": "A car you did, not stock"}, {"k": "price", "text": "Full detail, sedan", "right": "from $___", "pin": "5–8"}, {"k": "price", "text": "Pet hair add-on", "right": "from $___"}, {"k": "img", "text": "Before and after: the stained seat", "pin": "9–11"}, {"k": "quote", "text": "Real reviews with first names and dates"}, {"k": "note", "text": "We bring water and power. Rain? We text the night before.", "pin": "12–13"}, {"k": "field", "text": "Name, phone, vehicle, package, ZIP", "pin": "14–15"}, {"k": "sticky", "text": "Call", "right": "Text"}], "notes": [{"pin": "1–4", "text": "**Top of the page:** service and town, service area, one way to book, a real photo."}, {"pin": "5–8", "text": "**Prices:** \"from\" prices by size, what's included, add-ons, how long it takes."}, {"pin": "9–11", "text": "**Proof:** before-and-after pairs, reviews with names, how long you've been at it."}, {"pin": "12–13", "text": "**Mobile only:** water, power and room needed, and your rain plan."}, {"pin": "14–15", "text": "**Booking:** one short form or your real booking tool, and the deposit policy."}], "caption": "A layout sketch, not a real business. One long page works for most solo detailers."}
+:::
 
 ## The top of the page (items 1 to 4)
 
@@ -78,6 +85,11 @@ You've got it if every extra charge you regularly add shows up on the page with 
 A maintenance wash might take an hour; a full detail or a coating can take most of a day. Put a rough time next to each package. If a coating needs the car overnight or kept out of the rain afterward, say so here too.
 
 You've got it if a customer can tell from the page whether they'll need a ride somewhere.
+
+:::visual pull
+{"text": "\"Gold\" and \"Platinum\" mean nothing to someone who has never paid for a detail."}
+:::
+
 
 <!-- email-capture #1: inline, after the 2nd H2. Fields: email (required), business name (required), website (optional). No pre-ticked boxes. On submit, show the download on the page right away. -->
 > **The Detailer's Booking Page Checklist**: all 15 items on one printable page, each with a pass/fail test you can run on your phone in a few minutes.
@@ -137,6 +149,10 @@ You've got it if you can book yourself on your own site, one-handed, in under a 
 If you take a deposit for coatings or long jobs, say how much, when it's refundable and how much cancellation notice you need. People mind finding out about a deposit at checkout far more than they mind the deposit.
 
 You've got it if your policy fits in two or three sentences a customer would understand on the first read.
+
+:::visual checker
+{"title": "Score your own page", "sub": "Tick each item your site already has. Shop owners can tick 12 and 13.", "items": ["Headline says the service and the town", "Towns you cover are listed by name", "Call and Text stay on screen as you scroll", "The first photo is a car you worked on", "\"From\" prices by vehicle size", "What's in each package, spelled out", "Add-ons with prices", "Rough time for each job", "Before-and-after pairs next to the services", "Real reviews with first names and dates", "Who'll work on the car, and since when", "Water, power and room needed", "Your rain plan", "Booking in under a minute, one-handed", "Deposit and cancellation policy in two or three sentences"], "bands": [{"min": 14, "text": "That's a page that books. Keep it current each season."}, {"min": 10, "text": "Solid. The gaps are probably in prices or proof; fix those first."}, {"min": 5, "text": "Customers are leaving with questions. Work top down: items 1 to 8 matter most."}, {"min": 0, "text": "Start with items 1 to 4 this week. They're the first screen, and most of them take minutes."}], "caption": "The score stays on your screen. Nothing is sent."}
+:::
 
 ## FAQ
 

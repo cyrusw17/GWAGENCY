@@ -15,6 +15,8 @@ email_offer: The Winter Website Checklist for Lawn Care (checklist-winter-websit
 word_count_target: 1400-1800
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: A homeowner decides in a few seconds whether to keep reading. These are the 12 things they check before picking up the phone, split by mowing customers and project customers.
+takeaways: The first screen says what you do and where, shows whether you serve their street, and has one clear button. | Mowing customers want plans, prices and your rain policy. Project customers want photos, budget ranges and how a job runs. | Use a short signup form for weekly service and a fuller quote request for projects.
 ---
 
 # What to put on a lawn care website
@@ -22,6 +24,11 @@ schema: [Article, BreadcrumbList, FAQPage]
 Lawn care website must haves come down to what a homeowner checks before picking up the phone. They want to know what you do and where, whether you come to their street, what it roughly costs, whether other people in town are happy with you, and how to get on your list. Below are the 12 things that answer those questions, in about the order someone reads down the page on a phone.
 
 Mowing and landscaping customers read the page differently. Weekly mowing and treatment customers are buying a routine, so they care about price, schedule and your route. Landscaping customers are buying a project, so they want to see work you've done and get a sense of the budget. If you do both, your site needs to serve both, and the sections below say which items go where.
+
+:::visual compare
+{"title": "Two customers, two ways of reading", "cards": [{"kind": "plain", "label": "Weekly mowing", "list": ["Plans and how often you come", "A price before they call", "What happens on rain days", "Whether you mow their street"], "why": "Buying a routine. Items 4 to 6."}, {"kind": "plain", "label": "Patio or backyard project", "list": ["Photos of jobs like theirs, with the town", "A rough budget range", "How a project runs, start to finish", "Licensed and insured"], "why": "Spending real money once. Items 7 to 9."}]}
+:::
+
 
 ## Top of the page: service, town and one button
 
@@ -60,6 +67,11 @@ A homeowner thinking about a new patio or a backyard redo is spending real money
 
 8. Give budget ranges. Most homeowners have no idea what a retaining wall costs, and some won't call at all because they're afraid of the number. A rough range by project type helps them decide whether to reach out. As an example layout, with your own numbers in place: "Most of our patios fall between $[low] and $[high], depending on size and material." It also filters out people whose budget is a long way from yours, which saves you a site visit.
 
+:::visual price
+{"stamp": "Example layout. Your ranges here", "head": ["Project", "Most fall between"], "rows": [["Patio<small>Depends on size and material</small>", "$___ to $___"], ["Retaining wall", "$___ to $___"], ["New planting beds", "$___ to $___"], ["Spring cleanup", "from $___"]], "note": "A range helps people decide whether to reach out, and saves you visits to yards whose budget is a long way from yours."}
+:::
+
+
 9. Explain how a project runs. Lay out the steps from first call to final walkthrough: the visit, the design or sketch, the written quote, the deposit, the schedule and cleanup. People hiring a landscaper for the first time don't know what to expect, and seeing the steps makes it less of a gamble. If you're booked months out for installs, say so here. People will plan around a wait if they know about it.
 
 ## Proof: reviews, years and insurance
@@ -79,6 +91,10 @@ Photos of your own crew and trucks belong in this section too. You don't need ma
 For weekly service, use a short signup form: name, service address, phone or email, and which plan. You'll measure the lot and confirm the price anyway, so there's no reason to ask more up front. [The spring signup page post](/blog/lawn-care-spring-signup/) goes through that form and the page around it in detail.
 
 For landscaping, use a quote request that asks a bit more: what kind of project, the address, a rough budget range, when they'd like it done, and a spot to add photos of the yard. The budget question, phrased as a few ranges to pick from, tells you whether the job is worth a site visit before you drive out.
+
+:::visual steps
+{"title": "One form that splits early", "items": [{"h": "\"Weekly service or a one-time project?\"", "p": "The first question, as two big buttons."}, {"h": "If they tap weekly service", "p": "Name, service address, phone or email, which plan. You measure and confirm the price.", "tag": "4 fields"}, {"h": "If they tap one-time project", "p": "Project type, address, a budget range to pick from, when they'd like it done, and yard photos.", "tag": "5 fields + photos"}], "caption": "Either way, send yourself a test, and say on the page how fast you reply."}
+:::
 
 If you use one form for both, make the first question "Weekly service or a one-time project?" and show the right fields after that. Either way, test the form by sending yourself a message, and say on the page how fast you reply.
 

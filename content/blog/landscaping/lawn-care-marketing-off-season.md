@@ -15,6 +15,8 @@ email_offer: The Winter Website Checklist for Lawn Care (checklist-winter-websit
 word_count_target: 1400-1800
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: The mowers are in for service and the books are caught up. Here's one website job a month, November to March, so the spring calls land on a site that's ready for them.
+takeaways: November: check your site on your phone as a stranger would, and send yourself a test form. | December and January: settle this year's prices, then put them on a spring signup page. | March: you'll miss calls on the job, so save a text reply that names their town and your route day.
 ---
 
 # Get your lawn care website ready for spring
@@ -23,18 +25,20 @@ Lawn care marketing in the off season mostly means fixing your website while you
 
 You already know winter is for planning. The mowers go in for service and the books get caught up, but the website rarely makes the list, partly because "fix the website" is too vague to start on a Tuesday night. Below it's broken into months.
 
+:::visual calendar
+{"title": "Five months, one job each", "rows": [{"m": "Nov", "h": "Check what you've got", "p": "Phone number, prices, photos, towns and the contact form, on your own phone."}, {"m": "Dec", "h": "Write down this season's prices and plans", "p": "Weekly, biweekly, season plans, cleanups, and your rain and skip-a-week rules."}, {"m": "Jan", "h": "Build the spring signup page", "p": "Then text last year's customers the link.", "hi": true, "chip": "signups open"}, {"m": "Feb", "h": "Photos, reviews and your service area", "p": "Last summer's best lawns, a review ask, and the towns that actually made money."}, {"m": "Mar", "h": "Answer fast", "p": "A saved text reply for the calls you miss in someone's back yard.", "hi": true, "chip": "the rush"}], "caption": "One or two short sessions a month is enough if your site is easy to change."}
+:::
+
+
 ## November: check what you've got
 
 Pull your site up on your phone and go through it as if you'd never heard of your company. Put everything that's wrong in a note on your phone; that note is your to-do list until March.
 
-Things to look for:
+Things to look for, and you can tick them off right here:
 
-- The phone number. Is it current, and does tapping it start a call? A number that only shows as text in a picture can't be tapped.
-- Prices. Are there any? If there are, are they this year's or from three seasons ago?
-- Photos. Are they your crew and your lawns, or stock pictures of a golf course? Is the truck in the photo one you still own?
-- The towns you serve. Can someone tell within a few seconds whether you come to their street?
-- The contact form. Fill it out and send it to yourself. Make sure it arrives, and check where it goes (an old email address nobody reads is common).
-- Fit on a phone. Text you have to pinch to read, or buttons too small for a thumb, lose people before they call.
+:::visual checker
+{"title": "The November check", "sub": "Open your site on your phone first.", "items": ["**The phone number** is current, and tapping it starts a call. A number inside a picture can't be tapped.", "**Prices** are on the site, and they're this year's, not from three seasons ago.", "**Photos** show your crew and your lawns, not a golf course, and the truck is one you still own.", "**The towns you serve** are clear within a few seconds.", "**The contact form** arrived when you sent it to yourself, in an inbox someone reads.", "**It fits a phone:** no pinching to read, and buttons big enough for a thumb."], "bands": [{"min": 6, "text": "In good shape. Use December to settle prices and you're ahead of most crews."}, {"min": 4, "text": "Put the unticked ones on your phone note. They're the January and February jobs."}, {"min": 0, "text": "Start with the phone number and the form. Those two lose calls today, not just in spring."}]}
+:::
 
 If you want a second opinion, the [free site check](https://groundwork-web.com/site-check/?niche=landscaping) gives your site a score, and you can ask for a short written report on what to fix first.
 
@@ -95,7 +99,9 @@ In March the calls come while you're in someone's back yard pulling leaves out o
 
 Save a reply in your phone so you can send it from the truck between jobs. Change the brackets each time:
 
-> Hi [name], this is [you] with [company]. Sorry I missed you, I'm on a job. We mow in [town] on [day] and weekly mowing starts the week of [date]. It's from $[your price] a visit for a typical lot, and I'll measure yours and text you a written price. Can I come by [day] or [day] to take a look?
+:::visual texts
+{"who": "Missed call, replied from the truck", "msgs": [{"t": "Missed call · 10:14 AM"}, {"from": "you", "text": "Hi [name], this is [you] with [company]. Sorry I missed you, I'm on a job. We mow in [town] on [day] and weekly mowing starts the week of [date]."}, {"from": "you", "text": "It's from $[your price] a visit for a typical lot, and I'll measure yours and text you a written price. Can I come by [day] or [day] to take a look?"}], "caption": "Copy it into your phone's text replacements or notes, and change the brackets each time."}
+:::
 
 Putting their town and your route day in the reply shows you know where they are. Ending on two days to choose from gets a faster answer than "let me know."
 

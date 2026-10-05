@@ -18,6 +18,8 @@ sources:
   - NAR 2025 Home Buyers and Sellers Generational Trends report, https://cms.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf
 status: draft
 schema: [Article, BreadcrumbList]
+dek: The person reading your bio already has your name from a friend. They want to know who you are and how you work before they call. Here's a four-part structure, three example bios, and the phrases to cut.
+takeaways: Write four short paragraphs: you and the place, who you help, how you work, then credentials. | Specific beats warm. "I answer texts until 9 p.m." says more than "always available". | Write in first person, skip the clichés, and leave out who a neighborhood suits.
 ---
 
 # How to write a real estate agent bio people actually read
@@ -29,6 +31,15 @@ If you're working out how to write a real estate agent bio, write it for the per
 NAR's [2025 Home Buyers and Sellers Generational Trends report](https://cms.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf) calls referrals "the primary method most buyers use to find their real estate agent," and 66% of recent sellers used a referral or an agent they'd worked with before. So the person reading your bio has usually heard about you from somebody. They aren't comparing sales totals across five agents. They want to know whether the person on the page matches what their friend described: easy to talk to, patient with a nervous first-time buyer, quick to call back.
 
 A résumé bio can't tell them that. "Licensed since 2012, Multi-Million Dollar Club, member of the local board" could sit under any headshot in your office, so the reader skims it and either goes looking for your number or asks the friend for a second name. The whole page a referred client checks is covered in [what to put on a realtor website](/blog/what-to-put-on-a-realtor-website/). The bio is the part most agents rewrite three times and still don't like, so it gets its own walkthrough here.
+
+:::visual compare
+{"title": "The same agent, two bios", "cards": [{"kind": "before", "label": "Résumé bio", "text": "\"Licensed since 2012, Multi-Million Dollar Club, member of the local board.\"", "why": "Could sit under any headshot in your office."}, {"kind": "after", "label": "A person", "text": "\"I spent nine years running the front desk of a dental office, so I'm good at calming people down and keeping paperwork straight. Text me anytime before 9 p.m. and I'll answer that day.\"", "why": "From the fictional Jess Arden example below. A detail the friend can repeat, and a reason to text."}]}
+:::
+
+
+:::visual steps
+{"title": "Four paragraphs, in this order", "items": [{"h": "You and the place", "p": "Where you're from and how you ended up selling homes here. One detail someone could repeat."}, {"h": "Who you help", "p": "The situations you handle well, named plainly."}, {"h": "How you work", "p": "How to reach you, how fast you reply, your pace."}, {"h": "Credentials, said plainly", "p": "License, brokerage, designations, languages. Numbers only if the MLS backs them up.", "tag": "keep it short"}], "caption": "Write all four without editing, then read it out loud."}
+:::
 
 ## Part 1: you and the place
 
@@ -94,6 +105,10 @@ Some phrases tell a reader nothing: "top producer," "dedicated to excellence," "
 Plenty of agents write in third person ("Jess is a dedicated professional who...") because it feels less like bragging. On your own site it reads like a press release, and the referred client wants to hear from you. Use first person there. Keep a third-person version of 50 to 80 words for the places that expect one, like a brokerage roster, a seminar flyer or a podcast intro. If the brokerage roster is the only place your bio lives right now, [do realtors need their own website?](/blog/do-realtors-need-their-own-website/) covers what that page can and can't do for you.
 
 A few more to cut: an opening about the market ("In today's competitive market..."), anything about who a neighborhood suits, and a row of designations with no explanation. For length, 150 to 300 words covers the main bio. If you have more to say, a longer About page with headings can hold it.
+
+:::visual checker
+{"title": "The cliché sweep", "sub": "Tick each one your bio stays clear of.", "items": ["\"Top producer\"", "\"Dedicated to excellence\"", "\"Your dream home\"", "\"Passionate about real estate\"", "Third person (\"Jess is a dedicated professional who...\")", "An opening about the market (\"In today's competitive market...\")", "Anything about who a neighborhood suits", "Numbers your MLS records can't back up"], "bands": [{"min": 8, "text": "Clean. Now read it out loud once more."}, {"min": 5, "text": "Nearly there. Cut the leftovers; nobody misses them."}, {"min": 0, "text": "Rewrite in first person first. Most of the rest goes away when you do."}]}
+:::
 
 ## How to write a real estate agent bio in one sitting
 

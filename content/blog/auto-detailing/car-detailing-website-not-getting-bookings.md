@@ -13,6 +13,8 @@ email_offer: Free site check (primary); The Detailer's Booking Page Checklist (s
 word_count_target: 1200-1600
 status: draft
 schema: [Article, BreadcrumbList]
+dek: Your Google profile shows people tapping through to your site, and the phone stays quiet. Here are the eight places they give up, with a test for each one you can run from your own phone.
+takeaways: Most lost bookings happen on the first screen: no town, no price, no obvious button. | Cut the booking form down to what you need to quote: name, phone, vehicle, package and ZIP code. | Every fix here is free, and most take less time than a maintenance wash.
 ---
 
 # Why people look at your detailing site and don't book
@@ -20,6 +22,11 @@ schema: [Article, BreadcrumbList]
 When a car detailing website is not getting bookings but people are clearly visiting it, the site is losing them after they arrive. Your Google profile shows the website taps, the phone stays quiet, and somewhere before the booking button the customer gave up. You can fix that on the page without spending a dollar more on ads.
 
 Below are the eight usual causes, each with a 30-second test you can run on your own phone right now, ideally in a parking lot on one bar of signal.
+
+:::visual phone
+{"title": "What the first screen should answer", "alt": "A phone screen for a mobile detailer with the service and towns in the headline, a line saying they come to you, a from price, one booking button, and Call and Text buttons pinned to the bottom.", "rows": [{"k": "bar", "text": "9:41", "right": "yourdetailing.com"}, {"k": "h", "text": "Mobile car detailing in [your town] and [next town]", "pin": true}, {"k": "note", "text": "We come to you. Water and power on board.", "pin": true}, {"k": "img", "text": "Your photo: a car you did, on a driveway"}, {"k": "price", "text": "Full detail, SUV", "right": "from $___", "pin": true}, {"k": "btn", "text": "Book a detail", "pin": true}, {"k": "quote", "text": "A real review, word for word, with a first name and date"}, {"k": "sticky", "text": "Call", "right": "Text", "pin": true}], "notes": ["**The service and your towns in the headline.** Nobody should need a menu to learn you cover their street.", "**\"We come to you\" in plain words.** It's the first thing anyone asks a mobile detailer.", "**A \"from\" price** within one scroll of the top.", "**One booking button**, with a short form behind it.", "**Call and Text pinned to the bottom** so a thumb can reach them from anywhere on the page."], "caption": "A layout sketch, not a real business. Swap in your own towns, photo and prices."}
+:::
+
 
 ## They can't tell if you come to them
 
@@ -33,6 +40,11 @@ The test: open your home page and don't scroll. Can you see the word "mobile" (o
 
 Someone on the fence about a detail has a number in their head. If your site says "call for a quote," they have to guess yours, and people guess high. Texting a stranger to ask a price feels like the start of a negotiation, so plenty of them just don't.
 
+:::visual pull
+{"text": "People who can't see a price guess, and they guess high."}
+:::
+
+
 You don't need a full price sheet. A "from" price for each main job, by vehicle size, gives them enough to decide whether to reach out. You keep room to adjust for the car that's been the dog's bed for three years, and you can say so right under the prices. There are three ways to lay this out in [how to show detailing prices on your website](/blog/how-to-price-car-detailing-on-website/).
 
 The test: within one scroll of the top, can you find a dollar figure for a full detail on an SUV?
@@ -40,6 +52,11 @@ The test: within one scroll of the top, can you find a dollar figure for a full 
 ## The button is a form with nine fields
 
 Count the boxes on your booking or quote form. Name, email, phone, address, year, make, model, color, preferred date, how did you hear about us. Each one makes sense on its own. Together they're a chore on a phone keyboard with a kid kicking the back of the seat.
+
+:::visual form
+{"title": "The ten-field form, trimmed", "fields": [{"label": "Name"}, {"label": "Phone or email", "why": "Whichever one you actually reply on."}, {"label": "Vehicle (make and model)"}, {"label": "Package"}, {"label": "ZIP code", "why": "Tells you if it's in your area and how far you'll drive."}, {"label": "Preferred date", "state": "opt", "why": "Keep it if your booking tool shows open times."}, {"label": "Year", "state": "cut", "why": "Ask in the confirmation text."}, {"label": "Color", "state": "cut", "why": "Same. You'll see it when you pull up."}, {"label": "Full street address", "state": "cut", "why": "Get it once the time is agreed."}, {"label": "How did you hear about us?", "state": "cut", "why": "Ask after the job, when they're happy."}], "button": "Get my price and a time", "caption": "Five boxes to quote a job, one optional. The rest can wait until the customer has said yes."}
+:::
+
 
 To give a price and a time slot you mostly need a name, a phone number, the vehicle, the package and a ZIP code. Year and color can wait for the confirmation text. Ask for phone or email, whichever one you reply on.
 
@@ -94,6 +111,10 @@ A first-time customer has a few worries a regular doesn't. Will someone confirm?
 A short "what happens next" note right under the booking button covers most of it. An example, to swap for your own policies: "You'll get a text within the hour to confirm your time. We bring our own water and power. You don't need to be home if you leave the keys where we agree. You pay after you've looked the car over."
 
 The test: ask someone who has never booked you to read your page and tell you what happens after they press the button. Anything they have to guess at goes in the note.
+
+:::visual checker
+{"title": "Run the eight tests", "sub": "Tick each one your site passes on your phone.", "items": ["Without scrolling, I can see \"mobile\" (or my street) and a town name.", "Within one scroll there's a dollar figure for a full detail on an SUV.", "I booked myself one-handed in under a minute, and my phone buzzed when the form came in.", "With Wi-Fi off, my headline and a photo showed up before I counted to two.", "I can tell what changed in every before-and-after pair without zooming in.", "I can read a real review with a name on it without leaving my site.", "Every price, hour, phone number and address matches today, and matches my Google profile.", "Someone who's never booked me can say what happens after they press the button."], "bands": [{"min": 8, "text": "Your page isn't what's losing bookings. Look at how fast you reply and at your Google profile next."}, {"min": 6, "text": "Close. Fix the unticked ones this week, starting with whichever sits nearest the top of the page."}, {"min": 3, "text": "A few leaks. Start with the ten-minute fixes in the next section."}, {"min": 0, "text": "Start at the top: towns, a price and one button. Those three change how the whole first screen reads."}], "caption": "Nothing here is sent anywhere. The score stays on your screen."}
+:::
 
 ## Car detailing website not getting bookings: what to fix first
 
