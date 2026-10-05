@@ -200,7 +200,9 @@
       types: [["solo", "Solo agent"], ["team", "Team"], ["both", "Agent who leads a small team"]],
       demos: [["hollis-family", "Hollis & Son: family team, listings and neighborhoods"], ["teresa-valdez", "Text thread: meet the agent first"], ["elena-marsh", "Photo header: listings and a home value request"]] }
   };
-  var key = new URLSearchParams(location.search).get("niche"), t = T[key];
+  var q = new URLSearchParams(location.search), key = q.get("niche");
+  if (!key) key = {ext:"exterior-cleaning", lawn:"landscaping", comm:"commercial-cleaning", re:"real-estate"}[q.get("trade")];
+  var t = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : null;
   if (!t) return;
   var form = document.querySelector('form[data-gw-form="start"]');
   var opts = function (sel, list, keepFirst) {
