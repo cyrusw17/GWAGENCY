@@ -108,7 +108,7 @@ const CASE_CSS = `.gw-case{background:#f5f5f4;color:#1c1917;border-top:1px solid
 
 function caseStudy(d, business, MAIN) {
   const trade = d?.trade;
-  const what = d ? `<p>The business on this page, ${esc(business)}${d.town ? ` in ${esc(d.town)}` : ""}, is made up. GroundWork-Web designed this site to show what a website for ${esc(trade.name.toLowerCase())} can do: ${esc(d.concept.charAt(0).toLowerCase() + d.concept.slice(1).replace(/\.$/, ""))}.</p>` : "";
+  const what = d ? `<p>The business on this page, ${esc(business)}${d.town ? ` in ${esc(d.town)}` : ""}, is made up. GroundWork-Web designed this site to show what a website for ${esc(trade.name.toLowerCase())} can do. ${esc(d.concept.charAt(0).toUpperCase() + d.concept.slice(1).replace(/\.$/, ""))}.</p>` : "";
   return `<aside class="gw-case" aria-label="About this sample design"><style>${CASE_CSS}</style><div>
 <h2>About this sample design</h2>
 ${what}<p>Nothing here is a real company. The names, reviews, prices, listings and photos are samples. A real build uses the owner's own name, photos, prices and service area, and the owner approves the preview before paying for the build.</p>
@@ -138,7 +138,10 @@ ${groups.map(({ n, items }) => `
 </section>`).join("")}
 </main>`;
   const desc = "Sample website designs by GroundWork-Web for made-up local businesses: auto detailers, exterior cleaners, lawn care, commercial cleaners and real estate agents.";
+  // Preload the body font too, so the swap doesn't shift the trade sections (CLS).
+  const fonts = ["source-sans-400", "source-sans-600"].map((f) => `<link rel="preload" href="/assets/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin>`).join("\n");
   return shell
+    .replace(/(<link rel="preload" href="\/assets\/fonts\/oswald-600\.woff2"[^>]*>)/, `$1\n${fonts}`)
     .replace(/<main id="main">[\s\S]*<\/main>/, main)
     .replace(/<title>[^<]*<\/title>/, "<title>Website Design Samples for Local Trades | GroundWork-Web</title>")
     .replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*"/g, `$1${desc}"`)
