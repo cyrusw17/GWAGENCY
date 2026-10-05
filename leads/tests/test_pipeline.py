@@ -143,6 +143,14 @@ class CrawlVerifyExportTest(unittest.TestCase):
             return 200, url, "text/html", "joe@shineco.com"
         self.assertEqual(crawl.fetch_site("https://shineco.com", fetch=fetch)["status"], "robots_blocked")
 
+    def test_off_site_redirect_keeps_only_that_sites_addresses(self):
+        def fetch(url, **kw):
+            if url.endswith("/robots.txt"):
+                raise http.HttpError(404)
+            return 200, "https://azjesse.com/", "text/html", "jesse@azjesse.com someone@gmail.com"
+        res = crawl.fetch_site("https://brokerage.com/jesse", fetch=fetch, sleep=lambda _: None)
+        self.assertEqual(set(res["emails"]), {"jesse@azjesse.com"})
+
     def test_private_addresses_refused(self):
         for url in ("http://169.254.169.254/latest/meta-data", "http://127.0.0.1:8080/", "file:///etc/passwd",
                     "http://10.0.0.5/"):

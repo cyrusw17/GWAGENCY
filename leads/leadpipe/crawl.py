@@ -40,6 +40,7 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
     """
     parts = urllib.parse.urlsplit(website if "://" in website else "http://" + website)
     root = f"{parts.scheme}://{parts.netloc}"
+    site_host = (parts.hostname or "").lower().removeprefix("www.")
     robots = urllib.robotparser.RobotFileParser()
     try:
         _, _, _, txt = fetch(root + "/robots.txt", timeout=10, retries=0, max_bytes=200_000)
@@ -72,15 +73,18 @@ def fetch_site(website, max_pages=5, delay=1.0, fetch=functools.partial(http.req
             continue
         if extract.has_no_transfer_notice(body):
             return {"status": "no_transfer_notice", "pages": pages, "emails": {}, "note": url, "signals": signals}
+        page_host = (urllib.parse.urlsplit(final_url).hostname or "").lower().removeprefix("www.")
+        on_site = page_host == site_host or page_host.endswith("." + site_host)
         for email in extract.emails_in(body):
-            emails.setdefault(email, url)
+            # A page that redirected off the shop's site isn't the shop's: keep only that site's own addresses.
+            if on_site or email.rsplit("@", 1)[-1] == page_host:
+                emails.setdefault(email, final_url)
         page_signals = extract.site_signals(body)
         has_form = has_form or page_signals["has_form"]
         if pages == 1:
             signals = page_signals
             queue.extend(extract.same_site_links(body, final_url))
-    site = (parts.hostname or "").removeprefix("www.")
-    sendable = any(extract.rank(e, site) is not None for e in emails)  # a designer credit alone doesn't count
+    sendable = any(extract.rank(e, site_host) is not None for e in emails)  # a designer credit alone doesn't count
     status = "ok" if sendable else ("form_only" if has_form else "no_email")
     return {"status": status, "pages": pages, "emails": emails, "note": None, "signals": signals}
 
