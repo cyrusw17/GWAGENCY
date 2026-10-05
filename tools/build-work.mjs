@@ -138,9 +138,9 @@ ${groups.map(({ n, items }) => `
 </main>`;
   const desc = "Sample website designs by GroundWork-Web for made-up local businesses: auto detailers, exterior cleaners, lawn care, commercial cleaners and real estate agents.";
   // Preload the body font too, so the swap doesn't shift the trade sections (CLS).
-  const fonts = ["source-sans-400", "source-sans-600"].map((f) => `<link rel="preload" href="/assets/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin>`).join("\n");
+  const fonts = ["hanken-grotesk-latin-400-normal", "hanken-grotesk-latin-600-normal"].map((f) => `<link rel="preload" href="/assets/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin>`).join("\n");
   return shell
-    .replace(/(<link rel="preload" href="\/assets\/fonts\/oswald-600\.woff2"[^>]*>)/, `$1\n${fonts}`)
+    .replace(/(<link rel="preload" href="\/assets\/fonts\/bricolage-grotesque-latin-800-normal\.woff2"[^>]*>)/, `$1\n${fonts}`)
     .replace(/<main id="main">[\s\S]*<\/main>/, main)
     .replace(/<title>[^<]*<\/title>/, "<title>Website Design Samples for Local Trades | GroundWork-Web</title>")
     .replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*"/g, `$1${desc}"`)

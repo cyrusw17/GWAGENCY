@@ -61,10 +61,10 @@ const page = n => `<!doctype html>
 <title>${esc(n.title)}</title>
 <meta name="description" content="${esc(`Websites for ${n.who}, with prices on the page and a quote form that gets used. $99 today, $300 when you approve, then $99 or $199 a month.`)}">
 <meta name="color-scheme" content="light dark">
-<link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/ds/tokens.css?v=3.1">
-<link rel="stylesheet" href="/assets/ds/base.css?v=3.1">
-<link rel="stylesheet" href="/assets/ds/components.css?v=3.2">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/ds/tokens.css?v=4">
+<link rel="stylesheet" href="/assets/ds/base.css?v=4">
+<link rel="stylesheet" href="/assets/ds/components.css?v=4">
 <link rel="canonical" href="https://groundwork-web.com/${n.path}/">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <meta property="og:title" content="${esc(n.title)}">
