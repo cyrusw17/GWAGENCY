@@ -15,6 +15,8 @@ email_offer: The Winter Website Checklist for Lawn Care (checklist-winter-websit
 word_count_target: 1200-1600
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: Every homeowner who signs up online in January is one less voicemail to return from somebody's back yard in March. Here's what goes on the page, the four-field form, and how to get last year's customers to it.
+takeaways: Show two or three plans with "from" prices, the week you start, and what a visit includes. | Ask for four things: name, service address, phone or email, and the plan. | Skip the big discount. Locking last year's price and keeping their route day work better.
 ---
 
 # The spring signup page: fill your route before March
@@ -33,9 +35,9 @@ And every homeowner who signs up online in January is one less voicemail to retu
 
 Keep the page short enough to read on a phone. Start with your plans, two or three at most. Here's an example layout; put your own numbers in:
 
-- Weekly mowing, April to October: from $[your price] a visit for a typical quarter-acre lot.
-- Every other week: from $[your price] a visit. If you only allow biweekly once growth slows down in summer, say so here.
-- Season plan: $[your price] a month, April through October, same weekly service, one even payment.
+:::visual price
+{"stamp": "Your prices go here", "head": ["Plan", "Price"], "rows": [["Weekly mowing<small>April to October, typical quarter-acre lot</small>", "from $___ a visit"], ["Every other week<small>Say if it's only allowed once growth slows in summer</small>", "from $___ a visit"], ["Season plan<small>Same weekly service, one even payment</small>", "$___ a month"]], "note": "Bigger lots: we measure and text you a written price before the first cut."}
+:::
 
 If you sell a monthly plan, show the math in one line so it doesn't look like a trick. As an example: "We plan on 28 weekly cuts. 28 visits at $[visit price], split over 7 months."
 
@@ -67,6 +69,11 @@ Ask for four things:
 
 That's enough to measure the lot, price it and call them back. Gate codes and the dog you'll learn when you come out to measure. If you want one more box, make it an optional "anything we should know?" note. Every required field you add is one more reason for someone on their phone to give up halfway.
 
+:::visual form
+{"title": "The signup form", "fields": [{"label": "Name"}, {"label": "Service address", "why": "Labeled that way: some people are signing up a rental or a parent's house."}, {"label": "Phone or email", "why": "Whichever they check. Either one is fine."}, {"label": "Plan", "why": "A dropdown with the plans from the page."}, {"label": "Gate code, dogs", "state": "cut", "why": "You'll learn these when you come out to measure."}, {"label": "Lot size", "state": "cut", "why": "You're measuring anyway, and few people know theirs."}, {"label": "Card number", "state": "cut", "why": "Unless you take a deposit. More on that below."}], "button": "Save my spot", "caption": "Four fields. After they send it: \"Got it. We'll text you within a day to set a time to measure.\""}
+:::
+
+
 After they hit send, the page should tell them what happens next in plain words: "Got it. We'll text you within a day to set a time to measure. Nothing is charged until you've seen your price." Then do what it says. A signup that sits unanswered for a week in February goes cold.
 
 Once a week, sort the new signups by street in a spreadsheet or your scheduling app, and you'll see the route take shape.
@@ -76,6 +83,9 @@ Once a week, sort the new signups by street in a spreadsheet or your scheduling 
 You don't need a big discount to get people to sign up early. Ten percent off in January mostly teaches customers to wait for the next sale, and it costs you on every cut all season.
 
 Smaller offers work:
+
+
+
 
 Lock last year's price for returning customers who sign up by a set date. If your prices are going up this year, this is a real reason to act now, and it doesn't touch your new rate.
 
@@ -87,13 +97,11 @@ Whatever you offer, give it a real deadline, like "sign up by [date]", and stick
 
 ## Getting last year's customers to it
 
-Returning customers are your easiest signups, and most just need a reminder and a link. Text them in early January:
+Returning customers are your easiest signups, and most just need a reminder and a link. Text them in early January. Two weeks later, send one follow-up to anyone who hasn't signed up, and make it easy to say no to:
 
-> Hi [name], [you] from [company] here. We're booking the [year] season now. Your price stays at $[last year's price] a visit if you sign up by [date], and you keep your [day]: [link]
-
-Two weeks later, send one follow-up to anyone who hasn't signed up. Make it easy to say no to:
-
-> Hi [name], just checking you saw this. Happy to keep your spot if you want it: [link]. If you're going a different way this year, no hard feelings.
+:::visual texts
+{"who": "Two texts to a returning customer", "msgs": [{"t": "Early January"}, {"from": "you", "text": "Hi [name], [you] from [company] here. We're booking the [year] season now. Your price stays at $[last year's price] a visit if you sign up by [date], and you keep your [day]: [link]"}, {"t": "Two weeks later, if they haven't signed up"}, {"from": "you", "text": "Hi [name], just checking you saw this. Happy to keep your spot if you want it: [link]. If you're going a different way this year, no hard feelings."}], "caption": "Two texts, then stop. The easy way out in the second one keeps it friendly, whatever they decide."}
+:::
 
 For customers without a mobile number, mail a postcard. One side gets your name, a photo of one of your lawns and "Spring signups are open." The other side:
 

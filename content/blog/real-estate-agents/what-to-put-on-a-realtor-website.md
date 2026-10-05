@@ -19,6 +19,8 @@ sources:
   - NAR 2025 Profile of Home Buyers and Sellers (news release), https://www.nar.realtor/news/real-estate-news/nar-2025-profile-of-home-buyers-sellers-reveals-market-extremes
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: A friend said "call Dana, she was great" and now someone is looking you up on their phone. These are the 12 things they check before they call, in the order they check them.
+takeaways: The first screen confirms the name: a recent photo, the name people use, your brokerage and your area. | Then they look for their own situation, how you work, recent sales with dates, and real reviews. | Make texting easy, offer a home value request, and put listing search one tap down.
 ---
 
 # What to put on a realtor website: what a referred client checks before they call
@@ -29,7 +31,9 @@ That person is a big share of your business. In NAR's [2025 Home Buyers and Sell
 
 A lot of agent websites are built for someone browsing homes: the home page is a search bar and the agent is a thumbnail in the corner. The referred client got your name from somebody they trust, and on their phone they'll decide whether to call you or ask the friend for a second name.
 
-<!-- image: phone screenshot of the Hollis & Son page (sample design for a fictional business) with items 1 to 12 numbered in the margin. Caption: "Sample design for a fictional business, with the 12 items numbered." -->
+:::visual phone
+{"title": "The 12 items on a phone", "alt": "A sketch of a real estate agent's page on a phone: photo, name and brokerage, area, a short story, who they help, recent sales, a review, text and call buttons, a home value request, and a listing search link, each marked with item numbers.", "rows": [{"k": "bar", "text": "9:41", "right": "yourname.com"}, {"k": "img", "text": "A recent photo of you"}, {"k": "h", "text": "Kate [Last name], [brokerage]", "pin": "1–4"}, {"k": "note", "text": "Selling homes in [town] and [county] since [year]."}, {"k": "note", "text": "Inherited houses and first-time buyers. I answer texts until 9.", "pin": "5–6"}, {"k": "price", "text": "Recent sales", "right": "with dates", "pin": "7–8"}, {"k": "quote", "text": "A real review, first name and what you did for them", "pin": "9"}, {"k": "btn2", "text": "What's my home worth?", "pin": "10–11"}, {"k": "price", "text": "Search listings", "right": "→", "pin": "12"}, {"k": "sticky", "text": "Text", "right": "Call"}], "notes": [{"pin": "1–4", "text": "**Is this the person my friend meant?** Photo, name, area, a short story."}, {"pin": "5–6", "text": "**Will they get me?** Who you work with and how you communicate."}, {"pin": "7–8", "text": "**Do they know what they're doing?** Recent sales with dates, credentials."}, {"pin": "9", "text": "**What do other people say?** Real reviews with names and context."}, {"pin": "10–11", "text": "**How do I reach them?** Text and Call, and a home value request."}, {"pin": "12", "text": "**Then the listings**, one tap down."}], "caption": "A layout sketch for a fictional agent. Your brokerage's rules may set where its name and your license number go."}
+:::
 
 ## "Is this the person my friend meant?"
 
@@ -108,6 +112,11 @@ The visitor is ready to get in touch, but a lot of people would rather send a te
 
 Put Text and Call buttons where a thumb can reach them on any screen. A lot of referred buyers will text first ("Hi, Maria gave me your name, we're thinking about spring"). If your form signs people up for text follow-ups, add a plain consent sentence above the send button and run the wording past your broker.
 
+:::visual texts
+{"who": "A referred buyer's first text", "msgs": [{"t": "Sunday 7:52 PM"}, {"from": "them", "text": "Hi, Maria gave me your name, we're thinking about spring"}, {"from": "you", "text": "Hi! Thanks for reaching out, and say thanks to Maria for me. Spring is a good time to start looking. Want to grab 15 minutes this week so I can hear what you're after? I'm free [day] or [day]."}], "caption": "Plenty of people would rather text a stranger than call one. A Text button makes that first message easy. The reply is an example; use your own words."}
+:::
+
+
 ### 11. A home value request
 
 Sellers in your referral pool usually start by asking what their house is worth. Give them a short form for the address and a rough timeline, and say who answers it and when ("I'll send you a range from recent sales nearby within a day"). Someone who got your name from a friend doesn't want a ten-email sequence for asking one question.
@@ -135,6 +144,10 @@ For some agents it is, at least for now. The trade-offs, including what happens 
 ### What if I'm new and don't have sales yet?
 
 Put more weight on items 1 to 6 and on reviews from people you've helped in other ways. Show the sales you worked on with a team, and say they were team deals. Leave the "recent sales" list off until you have real ones.
+
+:::visual checker
+{"title": "Pretend a friend just gave you your own name", "sub": "Open your site on your phone and tick what you can find.", "items": ["A real, recent photo of me", "My name the way people say it, with my brokerage", "The towns or areas I cover, by local names", "A short first-person story", "The situations I handle well", "How to reach me and how fast I reply", "Recent sales with dates", "Credentials, said plainly", "Real reviews with names and context", "Text and Call buttons within thumb reach", "A home value request", "Listing search, one tap down"], "bands": [{"min": 11, "text": "A referred client would know it's you and how to reach you. Keep the sales and reviews current."}, {"min": 7, "text": "Good bones. The gaps are usually the story and the recent sales."}, {"min": 0, "text": "Start with items 1 to 4. A stranger can't call you if they're not sure it's you."}], "caption": "The score stays on your screen."}
+:::
 
 ## The short version: what to put on a realtor website
 

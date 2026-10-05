@@ -16,6 +16,8 @@ email_offer: The Bid-Ready Website Checklist (checklist-bid-ready-website.md), b
 word_count_target: 1000-1300
 status: draft
 schema: [Article, BreadcrumbList]
+dek: A facility manager doesn't want a price, they want a written bid they can defend to whoever signs. Here's the six-field form that books the walkthrough, and what to say around it.
+takeaways: Call the button "Request a walkthrough", because that's what happens next. | Six fields, mostly taps: building type, square footage range, cleanings a week, hours, contract end date, contact. | After they send it, call when you said you would, offer two times, and send a calendar invite.
 ---
 
 # The walkthrough request page: what to ask before you walk a building
@@ -28,9 +30,19 @@ A homeowner wants a price. A facility manager wants a written bid they can compa
 
 Name the button for what actually happens next: "Request a walkthrough." It says you'll come look at the building and bid in writing, which is what the manager expected anyway. Give the form its own page or section under that heading, and make it the main button on every screen of your site.
 
+:::visual compare
+{"cards": [{"kind": "before", "label": "Homeowner wording", "text": "**Get a free quote**", "why": "Sounds like a number by email. A manager can't defend that to their boss."}, {"kind": "after", "label": "Says what happens next", "text": "**Request a walkthrough**", "why": "You come look at the building and bid in writing, which is how buildings get bought."}]}
+:::
+
+
 ## The six fields on a commercial cleaning quote form
 
 Use choices wherever you can. A manager filling this in at their desk between other jobs will tap a button faster than they'll type a sentence.
+
+:::visual form
+{"title": "The walkthrough request form", "fields": [{"label": "Building type", "why": "Offices, medical or dental, schools, warehouses, retail, something else."}, {"label": "Rough square footage", "why": "Ranges, plus \"not sure\"."}, {"label": "Cleanings a week", "why": "One, two, three, five, or other."}, {"label": "Hours", "why": "After close, early morning, weekends, or a day porter."}, {"label": "Current contract end date", "state": "opt", "why": "\"If you have one.\" Tells you how soon this could start."}, {"label": "Name, company, and a phone or email", "why": "One contact method, not both. Optional notes box."}, {"label": "Exact square footage", "state": "cut", "why": "Plenty of managers don't know it. Ranges get an answer."}, {"label": "Budget", "state": "cut", "why": "You price after the walkthrough."}], "button": "Request a walkthrough", "caption": "Mostly taps. A manager can finish it between other jobs."}
+:::
+
 
 ### Building type
 
@@ -84,6 +96,11 @@ Last, one line under the button about what you do with their details, like "We o
 ## After they submit
 
 Show a confirmation on the page that repeats your promise, who will call and by when, and make sure that call happens.
+
+:::visual steps
+{"title": "From form to written bid", "items": [{"h": "Confirmation on the page", "p": "Who will call, and by when."}, {"h": "The call", "p": "Offer two walkthrough times.", "tag": "within the time you promised"}, {"h": "Calendar invite", "p": "Address, your name, your phone number."}, {"h": "The walkthrough", "p": "Capability statement and a notepad in hand. Ask who's walking with you, about the scope or RFP, badge rules, and what the current cleaner misses."}, {"h": "The written bid", "p": "Sent when you said you'd send it."}]}
+:::
+
 
 When you call or email, offer two walkthrough times and send a calendar invite with the address, your name and your phone number. A few questions before the visit save a second trip:
 

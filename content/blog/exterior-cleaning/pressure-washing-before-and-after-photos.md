@@ -15,6 +15,8 @@ email_offer: The Quote-Form Checklist for Pressure Washing (checklist-quote-form
 word_count_target: 1000-1400
 status: draft
 schema: [Article, BreadcrumbList]
+dek: A homeowner can spot a staged pair from across the room. Here's a six-shot routine that makes your before-and-afters believable, plus the captions that help them show up in search.
+takeaways: Shoot the before and the after from the same mark, at the same height, in the same light. | Three shots each time: wide, mid and close. The close-up of the worst spot does the selling. | Caption every pair with the surface, the town and what you did, and ask before you post someone's house.
 ---
 
 # Pressure washing before-and-after photos that sell
@@ -39,6 +41,11 @@ For the before shots, pick a spot you can find again. The mailbox, a sidewalk se
 
 For the afters, open the before photo, look at where the roofline and the edges sit in the frame, then stand on the same mark and line the new shot up to match. Wait until concrete has dried before you shoot it, since a dry slab is what the homeowner sees the next morning. If you work with a helper, one person can take all six so the height and habits stay the same.
 
+:::visual steps
+{"title": "The six-shot routine on one job", "items": [{"h": "Pick your mark", "p": "The mailbox, a sidewalk seam or the corner of the driveway apron. Somewhere you can stand again in two hours."}, {"h": "Wide, before", "p": "The whole front of the house from the street, or the full driveway from the road.", "tag": "phone at chest height, 1x"}, {"h": "Mid, before", "p": "One wall or one section: the green north side, the garage door and the slab in front of it."}, {"h": "Close, before", "p": "The worst spot from about an arm's length away. This is the one people zoom in on."}, {"h": "Do the job"}, {"h": "Same three, after", "p": "Open each before photo, line up the roofline and edges, stand on the same mark and shoot again.", "tag": "same mark, same lens"}], "caption": "Six photos, about two minutes of your day, and a pair nobody can call staged."}
+:::
+
+
 <!-- email-capture: inline, after the 2nd H2. Gate: email + business name (website optional). Lead type: guide. -->
 > The quote-form checklist for pressure washing: the three photos to ask every homeowner for, the rest of the fields that let you price from home, and the 10 lines your quote page should say. One printable page.
 >
@@ -62,9 +69,18 @@ Light matters more than any setting. Overcast days are the easiest. On a sunny d
 
 What doesn't matter much: megapixels, a pro camera mode or an editing app. If you edit at all, keep it to straightening and cropping, and apply the same crop to both photos.
 
+:::visual checker
+{"title": "Before you press the shutter", "sub": "Run through this on the before shots, then again on the afters.", "items": ["Standard 1x lens, no 0.5x and no digital zoom", "Exposure locked on the wall, so the phone can't brighten the after", "Grid lines on, roofline level", "Lens wiped on your shirt", "Standing on the same mark as the before", "Sun on the same side as the before, or an overcast sky", "No house numbers, plates, people or pets in the frame"], "bands": [{"min": 7, "text": "That pair will hold up to a close look."}, {"min": 5, "text": "Nearly there. Exposure and the mark are the two that matter most."}, {"min": 0, "text": "Fix the lens, the exposure lock and the mark first. Those three make the pair match."}]}
+:::
+
 ## Captions that help search: surface, town and what was done
 
 A caption should tell a stranger what they're looking at. A simple pattern works: surface, town, what you did. For example, "Vinyl siding on a two-story in [town]. Soft wash, mildew on the north wall." Or "Concrete driveway in [town]. Surface cleaner and a post-treatment for the oil stain."
+
+:::visual compare
+{"cards": [{"kind": "before", "label": "Tells nobody anything", "text": "\"Before and after!! 🔥\"", "why": "No surface, no town, nothing a search engine or a neighbor can use."}, {"kind": "after", "label": "Surface, town, what you did", "text": "\"Vinyl siding on a two-story in [town]. Soft wash, mildew on the north wall.\"", "why": "Matches what people type, like \"house washing [town]\", and shows you know the surface."}]}
+:::
+
 
 People search for things like "house washing [town]" and "roof cleaning near me", and a caption with the surface and the town gives your page the words they typed. Rename the files before you upload them too, so "IMG_4432.jpg" becomes something like "vinyl-siding-soft-wash-[town]-after.jpg". Write a short alt text that describes the photo in the same words. Name the town and stop there, though: a street name or house number never belongs in a caption.
 

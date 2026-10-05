@@ -13,6 +13,8 @@ email_offer: The Detailer's Booking Page Checklist
 word_count_target: 1200-1500
 status: draft
 schema: [Article, BreadcrumbList, FAQPage]
+dek: A customer who can't see a number guesses high and texts someone else. Here are three ways to lay out detailing prices, plus wording for the condition fee that won't start an argument.
+takeaways: Post a "from" price for each main job. It answers the question before anyone has to text you. | Pick the layout by what changes your hours most: the size of the car, the work done, or the car's condition. | Write the condition fee as a promise to quote before you start, not as a warning.
 ---
 
 # How to show detailing prices on your website without losing jobs
@@ -20,6 +22,11 @@ schema: [Article, BreadcrumbList, FAQPage]
 The short answer to how to price car detailing on your website: post a starting number for each main job, say plainly what raises it, and give the odd cars a way to get an exact quote. Three layouts do that well, and which one suits you depends on how much your jobs vary. After them comes how to word add-ons and the condition fee without starting an argument.
 
 Every price in this post is an example. Where you see $[your price], put in your own.
+
+:::visual compare
+{"title": "Which layout fits how you work", "cards": [{"kind": "plain", "label": "Layout 1", "text": ["**\"From\" prices by vehicle size.**", "Best if you do the same few jobs most days and size is what changes the hours."]}, {"kind": "plain", "label": "Layout 2", "text": ["**Three packages with what's included.**", "Best if your jobs differ more by the work done than by the car."]}, {"kind": "plain", "label": "Layout 3", "text": ["**Quick quote with a photo.**", "Best for heavy interiors, coatings and paint correction, where you need to see the car."]}], "caption": "Most detailers use 1 or 2 for everyday jobs and send the odd cars to 3."}
+:::
+
 
 ## Why "call for a quote" costs you texts
 
@@ -33,11 +40,9 @@ A price menu also shows what a full detail includes at your place, which is how 
 
 This is the simplest one and the one customers expect. One row per service, one column per size. An example, with your numbers in the brackets:
 
-| Service | Sedan or coupe | SUV or small truck | 3-row SUV, van or full-size truck |
-|---|---|---|---|
-| Full detail | from $[your price] | from $[your price] | from $[your price] |
-| Interior only | from $[your price] | from $[your price] | from $[your price] |
-| Wash and sealant | from $[your price] | from $[your price] | from $[your price] |
+:::visual price
+{"stamp": "Your prices go here", "head": ["Service", "Sedan, coupe", "SUV, small truck", "3-row, van, big truck"], "rows": [["Full detail", "from $___", "from $___", "from $___"], ["Interior only", "from $___", "from $___", "from $___"], ["Wash and sealant", "from $___", "from $___", "from $___"]], "note": "Prices are for a car in normal condition. Heavy pet hair, sand or stains cost extra, and we'll tell you how much before we start."}
+:::
 
 Under the table, one sentence does most of the protecting: "Prices are for a car in normal condition. Heavy pet hair, sand or stains cost extra, and we'll tell you how much before we start."
 
@@ -78,9 +83,9 @@ List add-ons with "from" prices right under your packages or table, so nobody me
 
 The condition fee is the line most detailers hate writing, and the wording makes a big difference. Here are two ways to say the same thing:
 
-"Excessively dirty vehicles will incur additional charges."
-
-"Some cars need extra time because of heavy pet hair, sand, spills or stains. If yours does, we'll tell you the extra before we start, and you can say no."
+:::visual compare
+{"cards": [{"kind": "before", "label": "Reads like a threat", "text": "\"Excessively dirty vehicles will incur additional charges.\"", "why": "Who decides what's excessive? The customer pictures an argument at the end."}, {"kind": "after", "label": "Reads like a promise", "text": "\"Some cars need extra time because of heavy pet hair, sand, spills or stains. If yours does, we'll tell you the extra before we start, and you can say no.\"", "why": "Names the causes, and the customer decides before any work starts."}]}
+:::
 
 The second puts the decision in the customer's hands before any work starts. If you can, add a typical amount, such as "usually $[your price] to $[your price]." Then do what the page promises and text the extra before you start the job.
 
