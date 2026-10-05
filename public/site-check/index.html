@@ -264,6 +264,7 @@ footer a{margin-right:14px}
     var score = Q.filter(function (q) { return ans[q.id] === "1"; }).length;
     var data = { form: "audit", type: trade(), links: site.value.trim().slice(0, 300), email: isEmail ? c : "", phone: isEmail ? "" : c,
       notes: "Site check: " + score + "/8 from " + Object.keys(ans).length + " answers. No: " + Q.filter(function (q) { return ans[q.id] === "0"; }).map(function (q) { return q.id; }).join(", "),
+      attribution: JSON.stringify(Object.assign({}, window.gwAttr || {}, { page: location.host + location.pathname })),
       company_url: rep.company_url.value };
     var btn = rep.querySelector("button"); btn.disabled = true; status.textContent = "Sending...";
     var ok = false, G = window.GW || {};
@@ -279,6 +280,7 @@ footer a{margin-right:14px}
   });
 })();
 </script>
+<script src="/assets/js/attr.js?v=3.1" defer></script>
 <script src="/assets/js/analytics.js?v=3.1" defer></script>
 </body>
 </html>
