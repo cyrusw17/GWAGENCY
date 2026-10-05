@@ -48,7 +48,8 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;margin:0;le
 h2{font-size:clamp(32px,4.4vw,52px)}
 .sub{color:var(--muted);max-width:62ch}
 .fine{font-size:14px;color:var(--muted)}
-.sample-tag{font:400 12px/1 var(--mono);letter-spacing:0;text-transform:none;color:inherit;opacity:.75;white-space:nowrap}
+.sample-tag{font:400 12px/1 var(--mono);letter-spacing:0;text-transform:none;color:#5F6466;white-space:nowrap}
+.b-title .sample-tag{color:inherit}
 .demo-bar{background:#000;color:#D6D9D2;font-size:14px;padding:8px 16px;display:flex;flex-wrap:wrap;gap:4px 10px}
 .demo-bar b{color:#fff}.demo-bar a{color:var(--amber);font-weight:800}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:10px 22px;border-radius:8px;font:800 16px/1.2 var(--display);text-decoration:none;border:2px solid transparent;cursor:pointer}
@@ -142,7 +143,8 @@ h1{font-size:clamp(40px,6vw,80px);max-width:16ch}
 .team{background:var(--sage);padding:64px 0}
 .people{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:26px}
 @media (min-width:760px){.people{grid-template-columns:repeat(3,1fr)}}
-.p-shot{margin:0 0 12px}
+.p-shot{margin:0 0 12px;width:120px}
+.p-shot img{border-radius:50%;width:120px;height:120px}
 .p-shot .ph{aspect-ratio:4/3;background:linear-gradient(160deg,#B8C4AE,#EDE7D6);border-radius:8px}
 .p-shot figcaption{font:400 11px/1.5 var(--mono);color:var(--muted);margin-top:6px}
 .people h3{font-size:24px}
@@ -312,7 +314,7 @@ legend{font:800 24px/1.2 var(--display);margin-bottom:14px;padding:0}
   <div class="wrap">
     <h2 id="team-h">Three agents, one phone</h2>
     <p class="sub">Whoever answers knows your house. We split the open houses so every weekend has one of us at every door.</p>
-    <ul class="people"><li><figure class="p-shot is-ph"><div class="ph" role="img" aria-label="Dana Whitcomb"></div><figcaption><b>Sample photo slot.</b> Shot list: Dana on a North End porch, fall leaves.</figcaption></figure><h3>Dana Whitcomb</h3><p class="role">Team lead · listings</p><p>Fourteen years selling in the North and East Ends. Ask her about geothermal heat.</p><p class="lic">Idaho license #SP00001 (sample)</p></li><li><figure class="p-shot is-ph"><div class="ph" role="img" aria-label="Marco Ruiz"></div><figcaption><b>Sample photo slot.</b> Shot list: Marco with buyers at a front door, keys in hand.</figcaption></figure><h3>Marco Ruiz</h3><p class="role">Buyers · first homes</p><p>Bilingual, and patient with a hundred questions. Lives on the Bench.</p><p class="lic">Idaho license #SP00002 (sample)</p></li><li><figure class="p-shot is-ph"><div class="ph" role="img" aria-label="Priya Nand"></div><figcaption><b>Sample photo slot.</b> Shot list: Priya on the Greenbelt, the river behind her.</figcaption></figure><h3>Priya Nand</h3><p class="role">Relocation · new builds</p><p>Moved here from Seattle herself. Runs video tours for out-of-state buyers.</p><p class="lic">Idaho license #SP00003 (sample)</p></li></ul>
+    <ul class="people"><li><figure class="p-shot"><img src="img/dana.svg" alt="Dana Whitcomb" loading="lazy" decoding="async"><figcaption>Illustration, not a photo.</figcaption></figure><h3>Dana Whitcomb</h3><p class="role">Team lead · listings</p><p>Fourteen years selling in the North and East Ends. Ask her about geothermal heat.</p><p class="lic">Idaho license #SP00001 (sample)</p></li><li><figure class="p-shot"><img src="img/marco.svg" alt="Marco Ruiz" loading="lazy" decoding="async"><figcaption>Illustration, not a photo.</figcaption></figure><h3>Marco Ruiz</h3><p class="role">Buyers · first homes</p><p>Bilingual, and patient with a hundred questions. Lives on the Bench.</p><p class="lic">Idaho license #SP00002 (sample)</p></li><li><figure class="p-shot"><img src="img/priya.svg" alt="Priya Nand" loading="lazy" decoding="async"><figcaption>Illustration, not a photo.</figcaption></figure><h3>Priya Nand</h3><p class="role">Relocation · new builds</p><p>Moved here from Seattle herself. Runs video tours for out-of-state buyers.</p><p class="lic">Idaho license #SP00003 (sample)</p></li></ul>
   </div>
 </section>
 

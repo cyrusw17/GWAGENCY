@@ -1,140 +1,416 @@
 {
-  "slug": "demo-foothill-team",
-  "demo": true,
-  "renderer": "open-house",
-  "niche": "real estate",
-  "demoNote": "Fictional team, brokerage and open houses. House pictures are illustrations.",
-  "demoCta": { "label": "Get this site", "href": "https://groundwork-web.com/start/?niche=real-estate&demo=open-house" },
-  "business": {
-    "name": "Foothill Home Team",
-    "tagline": "Three agents · Boise, ID",
-    "brokerage": "Basalt Real Estate (sample brokerage) · 208-555-0100",
-    "schemaType": "RealEstateAgent",
-    "phone": "(208) 555-0182",
-    "sms": "(208) 555-0182",
-    "email": "team@example.com",
-    "hoursText": "Texts answered 8am to 8pm, open houses Saturday and Sunday",
-    "hours": [{ "days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "20:00" }],
-    "address": { "city": "Boise", "region": "ID", "postal": "83702" },
-    "license": "Idaho brokerage license #DB00000 (sample)"
-  },
-  "theme": {
-    "themeColor": "#1D2124",
-    "fontFaces": [
-      { "family": "Red Hat Display", "weight": 800, "src": "fonts/red-hat-display-latin-800-normal.woff2", "preload": true },
-      { "family": "Martian Mono", "weight": 600, "src": "fonts/martian-mono-latin-600-normal.woff2", "preload": true }
-    ]
-  },
-  "seo": {
-    "title": "Foothill Home Team | Boise Open Houses This Weekend",
-    "description": "Boise open houses this weekend in the North End, East End, the Bench and Harris Ranch. Plan a route and tour with the Foothill Home Team."
-  },
-  "artNote": "Illustration. Your site shows your own listing photos.",
-  "hero": {
-    "headline": "Boise open houses this weekend.",
-    "sub": "We host every one of our own open houses. Pick the ones you want to see, add them to your route, and we'll text you the order that makes sense with Saturday traffic."
-  },
-  "board": {
-    "title": "Open this weekend",
-    "note": "Times are local. Shoe covers at the door. Bring your pre-approval if you want to talk numbers on site.",
-    "routeCta": "Send me this route",
+ "slug": "demo-foothill-team",
+ "demo": true,
+ "renderer": "open-house",
+ "niche": "real estate",
+ "demoNote": "Fictional team, brokerage and open houses. House pictures are illustrations.",
+ "demoCta": {
+  "label": "Get this site",
+  "href": "https://groundwork-web.com/start/?niche=real-estate&demo=open-house"
+ },
+ "business": {
+  "name": "Foothill Home Team",
+  "tagline": "Three agents · Boise, ID",
+  "brokerage": "Basalt Real Estate (sample brokerage) · 208-555-0100",
+  "schemaType": "RealEstateAgent",
+  "phone": "(208) 555-0182",
+  "sms": "(208) 555-0182",
+  "email": "team@example.com",
+  "hoursText": "Texts answered 8am to 8pm, open houses Saturday and Sunday",
+  "hours": [
+   {
     "days": [
-      { "label": "Saturday", "rows": [
-        { "id": "s1", "time": "10:00", "street": "1400 block of N 15th St", "hood": "North End", "price": 689000, "beds": 3, "baths": 2, "img": "img/h1.svg", "alt": "Green craftsman bungalow with a front porch" },
-        { "id": "s2", "time": "11:30", "street": "Warm Springs Ave", "hood": "East End", "price": 1240000, "beds": 4, "baths": 3.5, "img": "img/h8.svg", "alt": "Blue two-story Victorian with a turret" },
-        { "id": "s3", "time": "1:00", "street": "Vista Ave and Overland", "hood": "The Bench", "price": 419000, "beds": 3, "baths": 2, "img": "img/h3.svg", "alt": "Tan single-story ranch with a garage" },
-        { "id": "s4", "time": "2:30", "street": "Parkcenter Blvd", "hood": "Southeast Boise", "price": 365000, "beds": 2, "baths": 2.5, "img": "img/h7.svg", "alt": "Row of three townhomes at dusk" },
-        { "id": "s5", "time": "4:00", "street": "Harris Ranch", "hood": "East Boise", "price": 849000, "beds": 4, "baths": 3, "img": "img/h2.svg", "alt": "Modern two-story home with wood slat accents" }
-      ]},
-      { "label": "Sunday", "rows": [
-        { "id": "u1", "time": "11:00", "street": "Collister Dr", "hood": "Collister", "price": 529000, "beds": 3, "baths": 2, "img": "img/h5.svg", "alt": "Red brick cottage with a gabled porch" },
-        { "id": "u2", "time": "12:30", "street": "Hill Rd", "hood": "Foothills", "price": 975000, "beds": 5, "baths": 3, "img": "img/h4.svg", "alt": "White modern farmhouse with black trim" },
-        { "id": "u3", "time": "2:00", "street": "Five Mile Rd", "hood": "West Boise", "price": 449000, "beds": 4, "baths": 2.5, "img": "img/h6.svg", "alt": "Blue-grey two-story colonial with shutters" },
-        { "id": "u4", "time": "3:30", "street": "Garden City, off Chinden", "hood": "Garden City", "price": 389000, "beds": 3, "baths": 2, "img": "img/h9.svg", "alt": "Brown ranch house at dusk" }
-      ]}
-    ]
-  },
-  "trust": ["Three agents, one phone number", "Basalt Real Estate (sample brokerage)", "Every open house hosted by us", "Equal Housing Opportunity"],
-  "reel": {
-    "headline": "Recently listed by the team",
-    "sub": "Scroll the reel. Every one of these had an open house the first weekend it was on the market.",
-    "fine": "Sample listings for this demo. Your site shows your own listings and photos, with the listing brokerage named.",
-    "items": [
-      { "img": "img/h1.svg", "alt": "Craftsman bungalow in the North End", "hood": "North End", "line": "1920s bungalow, walk to Camel's Back Park" },
-      { "img": "img/h2.svg", "alt": "Modern home in Harris Ranch", "hood": "Harris Ranch", "line": "2018 build, Greenbelt access" },
-      { "img": "img/h4.svg", "alt": "Modern farmhouse in the foothills", "hood": "Foothills", "line": "Trail access from the back gate" },
-      { "img": "img/h5.svg", "alt": "Brick cottage in Collister", "hood": "Collister", "line": "Big lot, mature trees" },
-      { "img": "img/h6.svg", "alt": "Two-story colonial in West Boise", "hood": "West Boise", "line": "Cul-de-sac, finished basement" },
-      { "img": "img/h8.svg", "alt": "Victorian house in the East End", "hood": "East End", "line": "Geothermal heat, original woodwork" },
-      { "img": "img/h3.svg", "alt": "Ranch house on the Bench", "hood": "The Bench", "line": "Single level, new roof" },
-      { "img": "img/h9.svg", "alt": "Ranch house in Garden City", "hood": "Garden City", "line": "Near the river and the breweries" }
-    ]
-  },
-  "sell": {
-    "headline": "Selling? Here's your first weekend.",
-    "sub": "Most homes get their best showings in the first two weekends on the market. This is how we run yours.",
-    "cta": "What's my home worth?",
-    "steps": [
-      ["Monday", "Walkthrough and a price range", "From recent sales nearby, in writing, with what we'd fix and what we'd leave."],
-      ["Wednesday", "Photos, floor plan, video", "Shot on a clear morning. The foothills behind the house are part of the listing."],
-      ["Thursday", "Live on the market", "Out to the MLS and every big home search site, with the open house dates on it."],
-      ["Saturday + Sunday", "Two open houses, hosted by us", "Sign-in sheet, feedback from every visitor, and a text to you after each one."],
-      ["Monday after", "Offers side by side", "Price, terms, inspection and appraisal gaps, and what you'd net from each."]
-    ]
-  },
-  "team": {
-    "headline": "Three agents, one phone",
-    "sub": "Whoever answers knows your house. We split the open houses so every weekend has one of us at every door.",
-    "people": [
-      { "name": "Dana Whitcomb", "role": "Team lead · listings", "line": "Fourteen years selling in the North and East Ends. Ask her about geothermal heat.", "license": "Idaho license #SP00001 (sample)", "photo": "", "shot": "Shot list: Dana on a North End porch, fall leaves." },
-      { "name": "Marco Ruiz", "role": "Buyers · first homes", "line": "Bilingual, and patient with a hundred questions. Lives on the Bench.", "license": "Idaho license #SP00002 (sample)", "photo": "", "shot": "Shot list: Marco with buyers at a front door, keys in hand." },
-      { "name": "Priya Nand", "role": "Relocation · new builds", "line": "Moved here from Seattle herself. Runs video tours for out-of-state buyers.", "license": "Idaho license #SP00003 (sample)", "photo": "", "shot": "Shot list: Priya on the Greenbelt, the river behind her." }
-    ]
-  },
-  "reviews": {
-    "headline": "After the open house",
-    "source": "Google",
-    "url": "https://www.google.com/maps",
-    "rating": "4.9",
-    "count": 112,
-    "items": [
-      { "name": "Sample client", "where": "Bought in Collister", "date": "2026-09-21", "stars": 5, "text": "We saw five houses in one Saturday because Marco put them in an order that actually worked. Made an offer that night." },
-      { "name": "Sample client", "where": "Sold in the North End", "date": "2026-08-30", "stars": 5, "text": "Dana texted us after both open houses with who came and what they said. Had three offers by Monday." },
-      { "name": "Sample client", "where": "Relocated from California", "date": "2026-08-03", "stars": 4, "text": "Priya's video tours were great. The new build ran late, which wasn't her fault, and she kept on the builder for us." }
-    ]
-  },
-  "booking": {
-    "headline": "Tour, sell, or just ask",
-    "body": "Three quick questions. One of us texts back the same day. If you added open houses to your route, they're already in the form.",
-    "cta": "Plan a tour",
-    "headerCta": "Text the team"
-  },
-  "lead": {
-    "endpoint": "",
-    "start": { "question": "What can we help with?", "options": [
-      { "value": "Touring open houses", "hint": "This weekend or next" },
-      { "value": "Buying", "hint": "A private showing" },
-      { "value": "Selling", "hint": "What would mine sell for?" },
-      { "value": "Moving to Boise", "hint": "From out of state" }
-    ]},
-    "step2": "Where and when?",
-    "areas": ["North End", "East End", "The Bench", "Southeast Boise", "Harris Ranch", "Collister", "Foothills", "West Boise", "Garden City", "Meridian or Eagle"],
-    "timelines": ["This weekend", "In the next 3 months", "3 to 6 months", "Just looking"],
-    "notesHint": "Your route, must-haves, or your address if you're selling",
-    "step3": "How should we reach you?",
-    "contactHint": "Phone or email, whichever you check first. You only need one.",
-    "consent": "By sending this, you agree that the Foothill Home Team may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with us.",
-    "submit": "Send to the team",
-    "privacy": "Your details go to the team only. Never sold or shared.",
-    "thanks": "Got it. One of us will text you today."
-  },
-  "faqHeadline": "Questions about open houses",
-  "faq": [
-    { "q": "Do I need an appointment for an open house?", "a": "No. Walk in any time during the hours on the board. Adding it to your route just lets us know to expect you." },
-    { "q": "Can I see a house privately instead?", "a": "Yes. Pick Buying in the form and we'll set a time that works, usually within a day or two." },
-    { "q": "I'm already working with an agent. Can I still come?", "a": "Of course. Tell us at the door, and we'll be glad to talk with your agent about the house." },
-    { "q": "Do you host open houses for every listing?", "a": "For every one of ours, unless the seller asks us not to. Most of our sellers get two weekends." }
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "08:00",
+    "closes": "20:00"
+   }
   ],
-  "eho": "Equal Housing Opportunity. The Foothill Home Team is licensed with Basalt Real Estate (sample brokerage).",
-  "sticky": { "book": "Plan a tour" }
+  "address": {
+   "city": "Boise",
+   "region": "ID",
+   "postal": "83702"
+  },
+  "license": "Idaho brokerage license #DB00000 (sample)"
+ },
+ "theme": {
+  "themeColor": "#1D2124",
+  "fontFaces": [
+   {
+    "family": "Red Hat Display",
+    "weight": 800,
+    "src": "fonts/red-hat-display-latin-800-normal.woff2",
+    "preload": true
+   },
+   {
+    "family": "Martian Mono",
+    "weight": 600,
+    "src": "fonts/martian-mono-latin-600-normal.woff2",
+    "preload": true
+   }
+  ]
+ },
+ "seo": {
+  "title": "Foothill Home Team | Boise Open Houses This Weekend",
+  "description": "Boise open houses this weekend in the North End, East End, the Bench and Harris Ranch. Plan a route and tour with the Foothill Home Team."
+ },
+ "artNote": "Illustration. Your site shows your own listing photos.",
+ "hero": {
+  "headline": "Boise open houses this weekend.",
+  "sub": "We host every one of our own open houses. Pick the ones you want to see, add them to your route, and we'll text you the order that makes sense with Saturday traffic."
+ },
+ "board": {
+  "title": "Open this weekend",
+  "note": "Times are local. Shoe covers at the door. Bring your pre-approval if you want to talk numbers on site.",
+  "routeCta": "Send me this route",
+  "days": [
+   {
+    "label": "Saturday",
+    "rows": [
+     {
+      "id": "s1",
+      "time": "10:00",
+      "street": "1400 block of N 15th St",
+      "hood": "North End",
+      "price": 689000,
+      "beds": 3,
+      "baths": 2,
+      "img": "img/h1.svg",
+      "alt": "Green craftsman bungalow with a front porch"
+     },
+     {
+      "id": "s2",
+      "time": "11:30",
+      "street": "Warm Springs Ave",
+      "hood": "East End",
+      "price": 1240000,
+      "beds": 4,
+      "baths": 3.5,
+      "img": "img/h8.svg",
+      "alt": "Blue two-story Victorian with a turret"
+     },
+     {
+      "id": "s3",
+      "time": "1:00",
+      "street": "Vista Ave and Overland",
+      "hood": "The Bench",
+      "price": 419000,
+      "beds": 3,
+      "baths": 2,
+      "img": "img/h3.svg",
+      "alt": "Tan single-story ranch with a garage"
+     },
+     {
+      "id": "s4",
+      "time": "2:30",
+      "street": "Parkcenter Blvd",
+      "hood": "Southeast Boise",
+      "price": 365000,
+      "beds": 2,
+      "baths": 2.5,
+      "img": "img/h7.svg",
+      "alt": "Row of three townhomes at dusk"
+     },
+     {
+      "id": "s5",
+      "time": "4:00",
+      "street": "Harris Ranch",
+      "hood": "East Boise",
+      "price": 849000,
+      "beds": 4,
+      "baths": 3,
+      "img": "img/h2.svg",
+      "alt": "Modern two-story home with wood slat accents"
+     }
+    ]
+   },
+   {
+    "label": "Sunday",
+    "rows": [
+     {
+      "id": "u1",
+      "time": "11:00",
+      "street": "Collister Dr",
+      "hood": "Collister",
+      "price": 529000,
+      "beds": 3,
+      "baths": 2,
+      "img": "img/h5.svg",
+      "alt": "Red brick cottage with a gabled porch"
+     },
+     {
+      "id": "u2",
+      "time": "12:30",
+      "street": "Hill Rd",
+      "hood": "Foothills",
+      "price": 975000,
+      "beds": 5,
+      "baths": 3,
+      "img": "img/h4.svg",
+      "alt": "White modern farmhouse with black trim"
+     },
+     {
+      "id": "u3",
+      "time": "2:00",
+      "street": "Five Mile Rd",
+      "hood": "West Boise",
+      "price": 449000,
+      "beds": 4,
+      "baths": 2.5,
+      "img": "img/h6.svg",
+      "alt": "Blue-grey two-story colonial with shutters"
+     },
+     {
+      "id": "u4",
+      "time": "3:30",
+      "street": "Garden City, off Chinden",
+      "hood": "Garden City",
+      "price": 389000,
+      "beds": 3,
+      "baths": 2,
+      "img": "img/h9.svg",
+      "alt": "Brown ranch house at dusk"
+     }
+    ]
+   }
+  ]
+ },
+ "trust": [
+  "Three agents, one phone number",
+  "Basalt Real Estate (sample brokerage)",
+  "Every open house hosted by us",
+  "Equal Housing Opportunity"
+ ],
+ "reel": {
+  "headline": "Recently listed by the team",
+  "sub": "Scroll the reel. Every one of these had an open house the first weekend it was on the market.",
+  "fine": "Sample listings for this demo. Your site shows your own listings and photos, with the listing brokerage named.",
+  "items": [
+   {
+    "img": "img/h1.svg",
+    "alt": "Craftsman bungalow in the North End",
+    "hood": "North End",
+    "line": "1920s bungalow, walk to Camel's Back Park"
+   },
+   {
+    "img": "img/h2.svg",
+    "alt": "Modern home in Harris Ranch",
+    "hood": "Harris Ranch",
+    "line": "2018 build, Greenbelt access"
+   },
+   {
+    "img": "img/h4.svg",
+    "alt": "Modern farmhouse in the foothills",
+    "hood": "Foothills",
+    "line": "Trail access from the back gate"
+   },
+   {
+    "img": "img/h5.svg",
+    "alt": "Brick cottage in Collister",
+    "hood": "Collister",
+    "line": "Big lot, mature trees"
+   },
+   {
+    "img": "img/h6.svg",
+    "alt": "Two-story colonial in West Boise",
+    "hood": "West Boise",
+    "line": "Cul-de-sac, finished basement"
+   },
+   {
+    "img": "img/h8.svg",
+    "alt": "Victorian house in the East End",
+    "hood": "East End",
+    "line": "Geothermal heat, original woodwork"
+   },
+   {
+    "img": "img/h3.svg",
+    "alt": "Ranch house on the Bench",
+    "hood": "The Bench",
+    "line": "Single level, new roof"
+   },
+   {
+    "img": "img/h9.svg",
+    "alt": "Ranch house in Garden City",
+    "hood": "Garden City",
+    "line": "Near the river and the breweries"
+   }
+  ]
+ },
+ "sell": {
+  "headline": "Selling? Here's your first weekend.",
+  "sub": "Most homes get their best showings in the first two weekends on the market. This is how we run yours.",
+  "cta": "What's my home worth?",
+  "steps": [
+   [
+    "Monday",
+    "Walkthrough and a price range",
+    "From recent sales nearby, in writing, with what we'd fix and what we'd leave."
+   ],
+   [
+    "Wednesday",
+    "Photos, floor plan, video",
+    "Shot on a clear morning. The foothills behind the house are part of the listing."
+   ],
+   [
+    "Thursday",
+    "Live on the market",
+    "Out to the MLS and every big home search site, with the open house dates on it."
+   ],
+   [
+    "Saturday + Sunday",
+    "Two open houses, hosted by us",
+    "Sign-in sheet, feedback from every visitor, and a text to you after each one."
+   ],
+   [
+    "Monday after",
+    "Offers side by side",
+    "Price, terms, inspection and appraisal gaps, and what you'd net from each."
+   ]
+  ]
+ },
+ "team": {
+  "headline": "Three agents, one phone",
+  "sub": "Whoever answers knows your house. We split the open houses so every weekend has one of us at every door.",
+  "people": [
+   {
+    "name": "Dana Whitcomb",
+    "role": "Team lead · listings",
+    "line": "Fourteen years selling in the North and East Ends. Ask her about geothermal heat.",
+    "license": "Idaho license #SP00001 (sample)",
+    "photo": "img/dana.svg",
+    "shot": "Illustration, not a photo."
+   },
+   {
+    "name": "Marco Ruiz",
+    "role": "Buyers · first homes",
+    "line": "Bilingual, and patient with a hundred questions. Lives on the Bench.",
+    "license": "Idaho license #SP00002 (sample)",
+    "photo": "img/marco.svg",
+    "shot": "Illustration, not a photo."
+   },
+   {
+    "name": "Priya Nand",
+    "role": "Relocation · new builds",
+    "line": "Moved here from Seattle herself. Runs video tours for out-of-state buyers.",
+    "license": "Idaho license #SP00003 (sample)",
+    "photo": "img/priya.svg",
+    "shot": "Illustration, not a photo."
+   }
+  ]
+ },
+ "reviews": {
+  "headline": "After the open house",
+  "source": "Google",
+  "url": "https://www.google.com/maps",
+  "rating": "4.9",
+  "count": 112,
+  "items": [
+   {
+    "name": "Sample client",
+    "where": "Bought in Collister",
+    "date": "2026-09-21",
+    "stars": 5,
+    "text": "We saw five houses in one Saturday because Marco put them in an order that actually worked. Made an offer that night."
+   },
+   {
+    "name": "Sample client",
+    "where": "Sold in the North End",
+    "date": "2026-08-30",
+    "stars": 5,
+    "text": "Dana texted us after both open houses with who came and what they said. Had three offers by Monday."
+   },
+   {
+    "name": "Sample client",
+    "where": "Relocated from California",
+    "date": "2026-08-03",
+    "stars": 4,
+    "text": "Priya's video tours were great. The new build ran late, which wasn't her fault, and she kept on the builder for us."
+   }
+  ]
+ },
+ "booking": {
+  "headline": "Tour, sell, or just ask",
+  "body": "Three quick questions. One of us texts back the same day. If you added open houses to your route, they're already in the form.",
+  "cta": "Plan a tour",
+  "headerCta": "Text the team"
+ },
+ "lead": {
+  "endpoint": "",
+  "start": {
+   "question": "What can we help with?",
+   "options": [
+    {
+     "value": "Touring open houses",
+     "hint": "This weekend or next"
+    },
+    {
+     "value": "Buying",
+     "hint": "A private showing"
+    },
+    {
+     "value": "Selling",
+     "hint": "What would mine sell for?"
+    },
+    {
+     "value": "Moving to Boise",
+     "hint": "From out of state"
+    }
+   ]
+  },
+  "step2": "Where and when?",
+  "areas": [
+   "North End",
+   "East End",
+   "The Bench",
+   "Southeast Boise",
+   "Harris Ranch",
+   "Collister",
+   "Foothills",
+   "West Boise",
+   "Garden City",
+   "Meridian or Eagle"
+  ],
+  "timelines": [
+   "This weekend",
+   "In the next 3 months",
+   "3 to 6 months",
+   "Just looking"
+  ],
+  "notesHint": "Your route, must-haves, or your address if you're selling",
+  "step3": "How should we reach you?",
+  "contactHint": "Phone or email, whichever you check first. You only need one.",
+  "consent": "By sending this, you agree that the Foothill Home Team may call or text you about your real estate question at the number you gave. Message and data rates may apply. Reply STOP to opt out. Consent isn't a condition of working with us.",
+  "submit": "Send to the team",
+  "privacy": "Your details go to the team only. Never sold or shared.",
+  "thanks": "Got it. One of us will text you today."
+ },
+ "faqHeadline": "Questions about open houses",
+ "faq": [
+  {
+   "q": "Do I need an appointment for an open house?",
+   "a": "No. Walk in any time during the hours on the board. Adding it to your route just lets us know to expect you."
+  },
+  {
+   "q": "Can I see a house privately instead?",
+   "a": "Yes. Pick Buying in the form and we'll set a time that works, usually within a day or two."
+  },
+  {
+   "q": "I'm already working with an agent. Can I still come?",
+   "a": "Of course. Tell us at the door, and we'll be glad to talk with your agent about the house."
+  },
+  {
+   "q": "Do you host open houses for every listing?",
+   "a": "For every one of ours, unless the seller asks us not to. Most of our sellers get two weekends."
+  }
+ ],
+ "eho": "Equal Housing Opportunity. The Foothill Home Team is licensed with Basalt Real Estate (sample brokerage).",
+ "sticky": {
+  "book": "Plan a tour"
+ }
 }

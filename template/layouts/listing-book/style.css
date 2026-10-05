@@ -135,7 +135,8 @@ h1{font-size:clamp(36px,4.6vw,58px);font-weight:500}
 .owner{background:var(--page);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
 .owner-in{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
 @media (min-width:860px){.owner-in{grid-template-columns:.7fr 1.3fr;gap:56px}}
-.owner-shot{margin:0;max-width:340px}
+.owner-shot{margin:0;max-width:220px}
+.owner-shot img{border-radius:50%}
 .owner-shot .ph{aspect-ratio:4/5;background:linear-gradient(170deg,#C7D1C6,#E9E0CC)}
 .owner-shot figcaption{font-style:normal}
 .letter h2{margin-bottom:14px}
