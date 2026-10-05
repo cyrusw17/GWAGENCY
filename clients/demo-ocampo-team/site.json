@@ -116,7 +116,7 @@
     "alt": "White ranch house with a porch",
     "status": "For sale",
     "price": 689000,
-    "street": "1408 Kenwood Ave",
+    "street": "Kenwood Ave",
     "area": "Travis Heights",
     "beds": 3,
     "baths": 2,
@@ -127,7 +127,7 @@
     "alt": "Two-story colonial house",
     "status": "For sale",
     "price": 925000,
-    "street": "2207 Bluebonnet Ln",
+    "street": "Bluebonnet Ln",
     "area": "Zilker",
     "beds": 4,
     "baths": 3,
@@ -138,7 +138,7 @@
     "alt": "Tudor-style house",
     "status": "Sold",
     "price": 545000,
-    "street": "8101 Oak Hollow Dr",
+    "street": "Oak Hollow Dr",
     "area": "Oak Hill",
     "beds": 3,
     "baths": 2,
@@ -149,7 +149,7 @@
     "alt": "Gray two-story house",
     "status": "For sale",
     "price": 465000,
-    "street": "11214 Bell Ave",
+    "street": "Bell Ave",
     "area": "Pflugerville",
     "beds": 4,
     "baths": 2.5,
@@ -160,7 +160,7 @@
     "alt": "White craftsman house",
     "status": "Sold",
     "price": 499000,
-    "street": "1903 E 12th St",
+    "street": "E 12th St",
     "area": "East Austin",
     "beds": 2,
     "baths": 1,
@@ -171,7 +171,7 @@
     "alt": "Modern stone house",
     "status": "Sold",
     "price": 1150000,
-    "street": "4600 Ridge Oak Dr",
+    "street": "Ridge Oak Dr",
     "area": "Westlake",
     "beds": 4,
     "baths": 3.5,
@@ -186,12 +186,12 @@
    {
     "img": "img/i1.jpg",
     "alt": "Porch with a swing",
-    "cap": "Kenwood Ave: the porch catches the breeze off the creek every evening after six."
+    "cap": "On Kenwood Ave, the porch catches the breeze off the creek every evening after six."
    },
    {
     "img": "img/i2.jpg",
     "alt": "Staged bedroom with soft light",
-    "cap": "Bluebonnet Ln: the main bedroom faces east, so you wake up with the sun, not the heat."
+    "cap": "On Bluebonnet Ln, the main bedroom faces east, so you wake up with the sun, not the heat."
    }
   ]
  },
