@@ -162,3 +162,23 @@ body.home h1,body.home h2{text-transform:none}
 .ledger li.total{border-top:2px solid var(--bg);border-bottom:none;margin-top:10px}
 .home .bar{transition:transform .2s}
 .home .bar.off{transform:translateY(110%);visibility:hidden}
+/* Hero option: live search-result preview. The job: show an owner their trade + town as the page title Google reads. */
+.serp-try{margin-top:26px;border:2px solid var(--ink);border-radius:8px;background:var(--card);padding:14px;box-shadow:5px 5px 0 var(--mark)}
+.serp-h{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-3);margin:0 0 10px}
+.serp-in{display:grid;grid-template-columns:1fr;gap:4px 10px}
+.serp-in label{font-weight:600;font-size:.85rem}
+.serp-in select,.serp-in input{min-height:44px;font:400 1rem var(--font-body);color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:6px;padding:6px 10px;margin-bottom:6px;width:100%;box-sizing:border-box}
+.serp-in select:focus-visible,.serp-in input:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.serp{border-top:1px dashed var(--line-2);margin-top:6px;padding-top:12px}
+.serp p{margin:0}
+.serp-url{font-size:.85rem;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.serp-ico{width:18px;height:18px;border-radius:50%;background:var(--paint)}
+.serp-title{font-size:1.15rem;line-height:1.3;color:var(--link-blue,#1A4DB8);margin:4px 0 !important}
+.serp-desc{font-size:.92rem;line-height:1.45;color:var(--ink-2)}
+.serp-title mark,.serp-desc mark{background:color-mix(in srgb,var(--paint) 22%,transparent);color:inherit;padding:0 2px}
+@media (prefers-color-scheme:dark){body.home{--link-blue:#8AB4F8}}
+@media (min-width:560px){.serp-in{grid-template-columns:auto 1fr;align-items:center}.serp-in select,.serp-in input{margin:0 0 6px}}
+/* Reserve room so typing a longer town never pushes the page around (CLS 0). */
+.serp-title{min-height:calc(1.3em * 3)}
+.serp-desc{min-height:calc(1.45em * 4)}
+@media (min-width:560px){.serp-title{min-height:calc(1.3em * 2)}.serp-desc{min-height:calc(1.45em * 3)}}
