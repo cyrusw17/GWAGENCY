@@ -1,8 +1,9 @@
 // Turns the demos into the /work/ portfolio for the cPanel build (called by build-cpanel.mjs).
 // GitHub Pages is untouched: its copies stay noindex at /site/demos/.
 //   site/demos/<x>/ moves to site/work/<x>/ and every link to /demos/ points at /work/.
-//   Graded demos (a hub/data.json slot or "more" entry with grade "A+") lose noindex, get a
-//   self canonical, and go in the sitemap. Every other demo stays noindex.
+//   Graded demos (a hub/data.json slot or "more" entry with grade "A+") get a self canonical and
+//   are listed on /work/. Every demo page is noindex, follow and stays out of the sitemap, so a
+//   fictional business never shows up in a real town's search; /work/ itself stays indexed.
 //   Business schema (LocalBusiness types, address, hours, reviews, FAQ) is replaced by one
 //   CreativeWork page with a BreadcrumbList, made by GroundWork.
 //   Every demo's notice bar says "Sample design for a fictional business", and each listed demo
@@ -50,8 +51,8 @@ export function buildWork({ root, site, MAIN, walk }) {
 
     html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g, "");
     html = html.replace(/<link rel="canonical"[^>]*>\s*/g, "").replace(/<meta property="og:url"[^>]*>\s*/g, "");
-    html = html.replace(/<meta name="robots"[^>]*>/, index ? `<meta name="robots" content="index, follow">` : `<meta name="robots" content="noindex">`);
-    if (!/<meta name="robots"/.test(html)) html = html.replace("</title>", `</title>\n<meta name="robots" content="noindex">`);
+    html = html.replace(/<meta name="robots"[^>]*>/, `<meta name="robots" content="noindex, follow">`);
+    if (!/<meta name="robots"/.test(html)) html = html.replace("</title>", `</title>\n<meta name="robots" content="noindex, follow">`);
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
@@ -89,11 +90,7 @@ export function buildWork({ root, site, MAIN, walk }) {
   writeFileSync(join(from, ".htaccess"), "RedirectMatch 301 ^/demos/(.*)$ /work/$1\n");
 
   const sitemap = join(site, "sitemap.xml");
-  const day = new Date().toISOString().slice(0, 10);
-  let xml = readFileSync(sitemap, "utf8").replaceAll(`${MAIN}/demos/`, `${MAIN}/work/`);
-  const urls = indexed.map((w) => `  <url><loc>${w.url}</loc><lastmod>${day}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`).join("\n");
-  xml = xml.replace("</urlset>", `${urls}\n</urlset>`);
-  writeFileSync(sitemap, xml);
+  writeFileSync(sitemap, readFileSync(sitemap, "utf8").replaceAll(`${MAIN}/demos/`, `${MAIN}/work/`));
   return { indexed };
 }
 
