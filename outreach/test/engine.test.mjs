@@ -208,6 +208,23 @@ test("renders mockups with any template folder", async () => {
   assert.match(r2.rejected.find(x => x.place_id === "fx-001").reasons, /outside a labeled "faq" section/);
 });
 
+test("structured data carries no sample content", async () => {
+  const out = mkdtempSync(join(tmpdir(), "gw-run-"));
+  const { approved } = await run({ in: join(fx, "sample-leads.csv"), out, noPipeline: true, today: "2026-10-03", salt: "s" });
+  assert.ok(approved.length);
+  for (const a of approved) {
+    const html = readFileSync(join(out, a.mockup_dir, "index.html"), "utf8");
+    const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => m[1]).join("\n");
+    assert.doesNotMatch(ld, /"price"|FAQPage|"Sample/i, `${a.company_name}: sample content in JSON-LD`);
+  }
+  // A template that puts the sample FAQ into its schema is rejected.
+  const tpl = mkdtempSync(join(tmpdir(), "gw-tpl-"));
+  writeFileSync(join(tpl, "render.mjs"), `export const render = s => '<!doctype html><meta name="robots" content="noindex"><h1>' + s.business.name + '</h1><a href="tel:' + s.business.phone.replace(/\\D/g, "") + '">Call</a><script type="application/ld+json">' + JSON.stringify({ "@type": "FAQPage", mainEntity: s.faq.map(f => ({ name: f.q, acceptedAnswer: { text: f.a } })) }) + '</script>';`);
+  const r = await run({ in: join(fx, "sample-leads.csv"), out: mkdtempSync(join(tmpdir(), "gw-run-")), noPipeline: true, today: "2026-10-03", salt: "s", template: tpl });
+  assert.equal(r.approved.length, 0);
+  assert.match(r.rejected.find(x => x.place_id === "fx-001").reasons, /schema states sample faq content as fact/);
+});
+
 test("refuses to run without the sales pipeline", async () => {
   await assert.rejects(run({ in: join(fx, "sample-leads.csv"), out: mkdtempSync(join(tmpdir(), "gw-run-")), dry: true }), /--pipeline/);
 });

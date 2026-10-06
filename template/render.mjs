@@ -53,7 +53,11 @@ export function schema(s) {
     areaServed: (s.areas?.cities || []).map(c => ({ "@type": "City", name: c })),
     openingHoursSpecification: (b.hours || []).map(h => ({ "@type": "OpeningHoursSpecification", dayOfWeek: h.days, opens: h.opens, closes: h.closes })),
     sameAs: b.social?.length ? b.social : undefined,
-    hasOfferCatalog: s.packages?.length ? {
+    // schema.offers (mockups): the business's real service names only, no prices; [] leaves the catalog out.
+    hasOfferCatalog: s.schema?.offers ? (s.schema.offers.length ? {
+      "@type": "OfferCatalog", name: "Services",
+      itemListElement: s.schema.offers.map(name => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    } : undefined) : s.packages?.length ? {
       "@type": "OfferCatalog", name: "Services",
       itemListElement: s.packages.map(p => ({ "@type": "Offer", name: p.name, price: typeof p.price === "number" ? p.price : undefined, priceCurrency: "USD", itemOffered: { "@type": "Service", name: p.name } })),
     } : undefined,
@@ -61,7 +65,7 @@ export function schema(s) {
   const out = [biz,
     // The page itself: who publishes it and when it was last built (freshness + author signals for AI answers).
     { "@context": "https://schema.org", "@type": "WebPage", name: s.seo?.title, url: s.seo?.canonical, dateModified: s.builtAt, author: { "@type": "Organization", name: b.name }, publisher: { "@type": "Organization", name: b.name }, about: { "@type": biz["@type"], name: b.name } }];
-  if (s.faq?.length) out.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: s.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
+  if (s.faq?.length && s.schema?.faq !== false) out.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: s.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
   // Inside <script>, "</" must not appear; JSON.stringify already escapes quotes.
   return out.map(o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`).join("\n");
 }
