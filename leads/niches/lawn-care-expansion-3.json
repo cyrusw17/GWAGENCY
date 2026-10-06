@@ -1,0 +1,181 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Hoover, AL"
+    },
+    {
+      "name": "Florence, AL"
+    },
+    {
+      "name": "Gadsden, AL"
+    },
+    {
+      "name": "Cookeville, TN"
+    },
+    {
+      "name": "Kingsport, TN"
+    },
+    {
+      "name": "Rock Hill, SC"
+    },
+    {
+      "name": "Florence, SC"
+    },
+    {
+      "name": "Hilton Head Island, SC"
+    },
+    {
+      "name": "Brunswick, GA"
+    },
+    {
+      "name": "Warner Robins, GA"
+    },
+    {
+      "name": "Dalton, GA"
+    },
+    {
+      "name": "Rome, GA"
+    },
+    {
+      "name": "Port Charlotte, FL"
+    },
+    {
+      "name": "Vero Beach, FL"
+    },
+    {
+      "name": "Fort Walton Beach, FL"
+    },
+    {
+      "name": "Jacksonville, NC"
+    },
+    {
+      "name": "Greenville, NC"
+    },
+    {
+      "name": "Rocky Mount, NC"
+    },
+    {
+      "name": "Danville, VA"
+    },
+    {
+      "name": "Harrisonburg, VA"
+    },
+    {
+      "name": "Winchester, VA"
+    },
+    {
+      "name": "Alexandria, LA"
+    },
+    {
+      "name": "Houma, LA"
+    },
+    {
+      "name": "Tupelo, MS"
+    },
+    {
+      "name": "Meridian, MS"
+    },
+    {
+      "name": "Hot Springs, AR"
+    },
+    {
+      "name": "Texarkana, AR"
+    },
+    {
+      "name": "Muskogee, OK"
+    },
+    {
+      "name": "Enid, OK"
+    },
+    {
+      "name": "Manhattan, KS"
+    },
+    {
+      "name": "Salina, KS"
+    },
+    {
+      "name": "Grand Island, NE"
+    },
+    {
+      "name": "Rapid City, SD"
+    },
+    {
+      "name": "Bismarck, ND"
+    },
+    {
+      "name": "Waterloo, IA"
+    },
+    {
+      "name": "Dubuque, IA"
+    },
+    {
+      "name": "Bloomington, IL"
+    },
+    {
+      "name": "Terre Haute, IN"
+    },
+    {
+      "name": "Muncie, IN"
+    },
+    {
+      "name": "Mansfield, OH"
+    },
+    {
+      "name": "Lima, OH"
+    },
+    {
+      "name": "Erie, PA"
+    },
+    {
+      "name": "Bowling Green, OH"
+    },
+    {
+      "name": "Temple, TX"
+    },
+    {
+      "name": "Bryan, TX"
+    },
+    {
+      "name": "Nacogdoches, TX"
+    },
+    {
+      "name": "Conroe, TX"
+    },
+    {
+      "name": "New Braunfels, TX"
+    },
+    {
+      "name": "Santa Fe, NM"
+    },
+    {
+      "name": "The Villages, FL"
+    }
+  ]
+}
