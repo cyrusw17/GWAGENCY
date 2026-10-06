@@ -1,0 +1,343 @@
+{
+  "name": "commercial-cleaning",
+  "slug": "commercial-cleaning",
+  "queries": [
+    "janitorial service",
+    "commercial cleaning service"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "laundry",
+    "dry_cleaning",
+    "hardware_store",
+    "home_goods_store"
+  ],
+  "name_exclude": [
+    "jani-king",
+    "jani king",
+    "coverall",
+    "anago",
+    "vanguard cleaning",
+    "jan-pro",
+    "jan pro",
+    "servpro",
+    "stratus building",
+    "city wide",
+    "citywide",
+    "openworks",
+    "system4",
+    "bonus building",
+    "merry maids",
+    "molly maid",
+    "maid pro",
+    "maidpro",
+    "the maids",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 3,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Birmingham, AL"
+    },
+    {
+      "name": "Tuscaloosa, AL"
+    },
+    {
+      "name": "Auburn, AL"
+    },
+    {
+      "name": "Knoxville, TN"
+    },
+    {
+      "name": "Clarksville, TN"
+    },
+    {
+      "name": "Jackson, TN"
+    },
+    {
+      "name": "Johnson City, TN"
+    },
+    {
+      "name": "Columbia, SC"
+    },
+    {
+      "name": "Spartanburg, SC"
+    },
+    {
+      "name": "Savannah, GA"
+    },
+    {
+      "name": "Athens, GA"
+    },
+    {
+      "name": "Albany, GA"
+    },
+    {
+      "name": "Valdosta, GA"
+    },
+    {
+      "name": "Pensacola, FL"
+    },
+    {
+      "name": "Panama City, FL"
+    },
+    {
+      "name": "Lakeland, FL"
+    },
+    {
+      "name": "Naples, FL"
+    },
+    {
+      "name": "West Palm Beach, FL"
+    },
+    {
+      "name": "Fort Lauderdale, FL"
+    },
+    {
+      "name": "Miami, FL"
+    },
+    {
+      "name": "Durham, NC"
+    },
+    {
+      "name": "Fayetteville, NC"
+    },
+    {
+      "name": "Hickory, NC"
+    },
+    {
+      "name": "Lynchburg, VA"
+    },
+    {
+      "name": "Charlottesville, VA"
+    },
+    {
+      "name": "Fredericksburg, VA"
+    },
+    {
+      "name": "Lafayette, LA"
+    },
+    {
+      "name": "Lake Charles, LA"
+    },
+    {
+      "name": "Monroe, LA"
+    },
+    {
+      "name": "Hattiesburg, MS"
+    },
+    {
+      "name": "Gulfport, MS"
+    },
+    {
+      "name": "Fayetteville, AR"
+    },
+    {
+      "name": "Fort Smith, AR"
+    },
+    {
+      "name": "Jonesboro, AR"
+    },
+    {
+      "name": "Joplin, MO"
+    },
+    {
+      "name": "Columbia, MO"
+    },
+    {
+      "name": "Topeka, KS"
+    },
+    {
+      "name": "Lawrence, KS"
+    },
+    {
+      "name": "Lincoln, NE"
+    },
+    {
+      "name": "Sioux Falls, SD"
+    },
+    {
+      "name": "Fargo, ND"
+    },
+    {
+      "name": "Cedar Rapids, IA"
+    },
+    {
+      "name": "Davenport, IA"
+    },
+    {
+      "name": "Peoria, IL"
+    },
+    {
+      "name": "Springfield, IL"
+    },
+    {
+      "name": "Champaign, IL"
+    },
+    {
+      "name": "Rockford, IL"
+    },
+    {
+      "name": "Madison, WI"
+    },
+    {
+      "name": "Milwaukee, WI"
+    },
+    {
+      "name": "Green Bay, WI"
+    },
+    {
+      "name": "Grand Rapids, MI"
+    },
+    {
+      "name": "Lansing, MI"
+    },
+    {
+      "name": "Kalamazoo, MI"
+    },
+    {
+      "name": "Toledo, OH"
+    },
+    {
+      "name": "Akron, OH"
+    },
+    {
+      "name": "Cleveland, OH"
+    },
+    {
+      "name": "Youngstown, OH"
+    },
+    {
+      "name": "Pittsburgh, PA"
+    },
+    {
+      "name": "Harrisburg, PA"
+    },
+    {
+      "name": "Allentown, PA"
+    },
+    {
+      "name": "Lancaster, PA"
+    },
+    {
+      "name": "South Bend, IN"
+    },
+    {
+      "name": "Bloomington, IN"
+    },
+    {
+      "name": "Lafayette, IN"
+    },
+    {
+      "name": "Owensboro, KY"
+    },
+    {
+      "name": "Huntington, WV"
+    },
+    {
+      "name": "Charleston, WV"
+    },
+    {
+      "name": "Killeen, TX"
+    },
+    {
+      "name": "College Station, TX"
+    },
+    {
+      "name": "Beaumont, TX"
+    },
+    {
+      "name": "Midland, TX"
+    },
+    {
+      "name": "Odessa, TX"
+    },
+    {
+      "name": "Abilene, TX"
+    },
+    {
+      "name": "San Angelo, TX"
+    },
+    {
+      "name": "Wichita Falls, TX"
+    },
+    {
+      "name": "Laredo, TX"
+    },
+    {
+      "name": "Brownsville, TX"
+    },
+    {
+      "name": "Victoria, TX"
+    },
+    {
+      "name": "Longview, TX"
+    },
+    {
+      "name": "Texarkana, TX"
+    },
+    {
+      "name": "Sherman, TX"
+    },
+    {
+      "name": "Las Cruces, NM"
+    },
+    {
+      "name": "Flagstaff, AZ"
+    },
+    {
+      "name": "Prescott, AZ"
+    },
+    {
+      "name": "Yuma, AZ"
+    },
+    {
+      "name": "Reno, NV"
+    },
+    {
+      "name": "St. George, UT"
+    },
+    {
+      "name": "Provo, UT"
+    },
+    {
+      "name": "Ogden, UT"
+    },
+    {
+      "name": "Fort Collins, CO"
+    },
+    {
+      "name": "Grand Junction, CO"
+    },
+    {
+      "name": "Pueblo, CO"
+    },
+    {
+      "name": "Idaho Falls, ID"
+    },
+    {
+      "name": "Spokane, WA"
+    },
+    {
+      "name": "Bakersfield, CA"
+    },
+    {
+      "name": "Fresno, CA"
+    },
+    {
+      "name": "Sacramento, CA"
+    },
+    {
+      "name": "Redding, CA"
+    },
+    {
+      "name": "Medford, OR"
+    },
+    {
+      "name": "Cheyenne, WY"
+    }
+  ]
+}
