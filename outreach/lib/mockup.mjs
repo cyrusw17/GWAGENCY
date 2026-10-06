@@ -91,6 +91,8 @@ export function siteJson(p, facts, { niche, palettes, id, demoCtaHref }) {
     faq: niche.faq.map(x => ({ q: fill(x.q, f), a: fill(x.a, f) })),
     final: niche.final,
   };
+  // Structured data is a claim to Google: only the shop's own facts, never sample prices or answers.
+  site.schema = { offers: realServices.map(x => x.name), faq: !sampleSections.includes("faq") };
   Object.defineProperty(site, "sampleSections", { value: sampleSections, enumerable: false });
   return site;
 }

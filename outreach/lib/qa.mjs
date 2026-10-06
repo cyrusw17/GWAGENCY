@@ -71,6 +71,15 @@ export function checkMockup(html, p, site) {
     for (const [k, [got, row]] of Object.entries(want)) if (got != null && got !== "" && !same(k, got, row)) r.push(`mockup schema ${k} "${got}" isn't the row's value`);
     if (ld.name && ld["@type"] !== "WebPage" && ld["@type"] !== "FAQPage" && ld.name !== p.shop) r.push(`mockup schema name "${ld.name}" isn't the shop`);
     if (ld.aggregateRating || ld.review) r.push("mockup schema has rating or review markup (not allowed on a mockup)");
+    // Nothing from a sample section may reach the structured data.
+    const raw = JSON.stringify(ld);
+    for (const id of site.sampleSections || []) {
+      const vals = { services: (site.services || []).flatMap(x => [x.name, x.desc]), pricing: (site.packages || []).flatMap(x => [x.name, ...(x.features || [])]),
+        faq: (site.faq || []).flatMap(x => [x.q, x.a]), how: (site.steps || []).flatMap(x => [x.title, x.body]) }[id] || [];
+      const hit = vals.find(v => v && !p.services.includes(v) && raw.includes(JSON.stringify(v))); // a real service can share a sample name
+      if (hit) r.push(`mockup schema states sample ${id} content as fact ("${hit}")`);
+    }
+    if (/"price"\s*:/.test(raw) && (site.sampleSections || []).includes("pricing")) r.push("mockup schema has a price, but the mockup's prices are samples");
   }
   // Allowed numbers: the shop's own facts, plus the copyright year.
   const allowed = new Set([p.rating?.toFixed(1), String(p.review_count), p.review_count?.toLocaleString("en-US"), p.zip, String(new Date(site.builtAt || Date.now()).getFullYear()), "5"].filter(Boolean));
