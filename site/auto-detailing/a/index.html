@@ -1,0 +1,588 @@
+<!doctype html>
+<!-- 21st.dev patterns (hand-ported to vanilla HTML/CSS/JS): reveal lens / compare panel (hero inspection light), spotlight cards (6 defects), border beam (Grow plan), number ticker (calculator), bento grid (what's included) -->
+<html lang="en">
+<head><script>(function(){var api=function(u){return /[/]api[/]/.test(String(u&&u.url||u))},n=navigator,f=window.fetch;if(n.sendBeacon){var b=n.sendBeacon.bind(n);n.sendBeacon=function(u,d){return api(u)||b(u,d)}}if(f)window.fetch=function(u,o){return api(u)?Promise.resolve(new Response("{}",{status:200,headers:{"Content-Type":"application/json"}})):f.apply(this,arguments)}})()</script><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto Detailing Websites That Pass the Inspection Light | GroundWork-Web</title>
+<meta name="description" content="Auto detailing websites with prices by vehicle size, your booking tool built in, and Call and Text buttons on every phone screen. $99 to start, $300 when you approve.">
+<link rel="canonical" href="https://groundwork-web.com/auto-detailing/">
+<link rel="icon" href="/GWAGENCY/site/assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#17181A">
+<meta property="og:title" content="Auto detailing websites that pass the inspection light">
+<meta property="og:image" content="https://groundwork-web.com/assets/og.png">
+<link rel="preload" href="/GWAGENCY/site/assets/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Website design for auto detailers","provider":{"@id":"https://groundwork-web.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"offers":{"@type":"Offer","price":"399","priceCurrency":"USD","description":"$99 to start, $300 when you approve the preview"}}</script>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(/GWAGENCY/site/assets/fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/GWAGENCY/site/assets/fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/GWAGENCY/site/assets/fonts/hanken-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/GWAGENCY/site/assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  /* GroundWork dark: asphalt ink, marking paint, locate green */
+  --night:#17181A;--bay:#1C1D1F;--gun:#222326;--gun-2:#2A2B2E;--steel:#45464A;--edge:#8A8881;
+  --led:#EDEBE5;--text:#D2D0C9;--mute:#B9B7B0;--cool:#EDEBE5;--mark:#5CC48A;
+  --hot:#FF6A33;--hot-2:#FF8A5C;--cream:#E2DFD6;--ink:#17181A;--ink-2:#45474C;
+  --disp:"Bricolage Grotesque","Arial Narrow",sans-serif;--sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+body{margin:0;background:var(--night);color:var(--text);font:400 17px/1.6 var(--sans);overflow-x:hidden}
+a{color:inherit}
+b,strong{font-weight:600;color:var(--led)}
+#gw-consent strong{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--led);color:var(--night);padding:10px 14px;z-index:20}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+h1,h2,h3{font-family:var(--disp);font-weight:800;color:var(--led);letter-spacing:-.02em;line-height:1.02;margin:0;text-transform:none}
+.tag{font-family:var(--mono);font-size:.8rem;letter-spacing:0;color:var(--mute)}
+
+/* buttons */
+.btn{display:inline-flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:2px;min-height:52px;padding:12px 22px;border-radius:6px;border:0;background:var(--hot);color:var(--night);font:600 1rem/1.15 var(--sans);text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 var(--led);transition:background .15s}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--led)}
+.btn small{font-weight:400;font-size:.8rem}
+.btn:hover{background:var(--hot-2)}
+.btn.ghost{background:transparent;color:var(--led);box-shadow:inset 0 0 0 2px var(--led)}
+.btn.ghost:hover{background:var(--gun)}
+.btn.ghost:active{box-shadow:inset 0 0 0 2px var(--led)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,calc((100% - 1088px)/2));background:var(--night);border-bottom:2px solid var(--led)}
+.logo .dot{flex:none;width:14px;height:14px;background:var(--hot);transform:rotate(45deg)}
+.logo{gap:10px;font-family:var(--disp);font-weight:800;font-size:1.15rem;letter-spacing:-.03em;text-decoration:none;color:var(--led);min-height:48px;display:inline-flex;align-items:center}
+.top nav{display:flex;align-items:center;gap:6px}
+.top nav a.nl{display:none;text-decoration:none;font-size:.92rem;padding:12px 10px;min-height:48px}
+.top nav a.nl:hover{color:var(--led);text-decoration:underline}
+.top .btn{min-height:48px;padding:10px 16px;font-size:.92rem;display:none}
+.pause{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 12px;border:2px solid var(--edge);border-radius:6px;background:transparent;color:var(--text);font:400 .8rem var(--mono);cursor:pointer}
+.pause::before{content:"";width:10px;height:10px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
+.pause[aria-pressed=true]::before{border:0;width:0;height:0;border-left:10px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.pause:hover{color:var(--led);border-color:var(--mute)}
+@media (min-width:760px){.top .btn{display:inline-flex}}
+@media (min-width:960px){.top nav a.nl{display:inline-flex;align-items:center}}
+
+/* hero */
+.hero{padding:18px 0 64px;position:relative}
+
+.hero-grid{position:relative;display:grid;gap:36px;align-items:center}
+@media (min-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,560px)}}
+.for{margin:0 0 18px;font:400 .82rem var(--mono);color:var(--mute)}
+.for span{color:var(--hot-2)}
+h1{font-size:clamp(2.3rem,8vw,3.8rem);max-width:15ch}
+h1 em{font-style:normal;position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-.08em;height:.14em;background:var(--hot);border-radius:2px}
+.lede{font-size:1.08rem;max-width:33em;margin:22px 0 28px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the 50/50 test panel */
+.rig{position:relative}
+.rig-label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 10px;font:400 .76rem var(--mono);color:var(--mute)}
+.panel{position:relative;border-radius:8px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:crosshair;
+  background:var(--gun);border:2px solid var(--led);box-shadow:5px 5px 0 var(--hot)}
+
+.halves{display:grid;grid-template-columns:1fr 1fr;min-height:380px}
+.half{padding:18px 16px 20px;position:relative;font-size:.74rem;line-height:1.4}
+.half .site{font-family:var(--disp);font-size:.82rem;letter-spacing:-.01em;margin:0 0 4px}
+.half .mnav{font-size:.66rem;margin:0 0 14px;opacity:.9}
+.before{color:#A3A19A}
+.before .site{color:#B9B7B0}
+.mrow{margin:0 0 12px;padding:8px 9px;border:1px solid #ffffff12;border-radius:6px;position:relative}
+.mrow b{display:block;color:inherit;font-weight:600}
+.before .mrow{background:#ffffff05}
+.mtag{position:absolute;left:6px;top:-10px;background:var(--hot);color:var(--night);font:400 .62rem/1 var(--mono);padding:4px 6px;border-radius:4px;transform:rotate(-3deg) scale(.6);opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap}
+.lit .mtag{opacity:1;transform:rotate(-3deg) scale(1)}
+.lit{border-color:#FF6A3388}
+.after{color:#EDEBE5}
+.after .site{color:var(--led)}
+.after .mrow{background:#ffffff0a;border-color:#ffffff1f}
+.mtab{width:100%;border-collapse:collapse;font-size:.7rem}
+.mtab td{padding:2px 0}
+.mtab td+td{text-align:right;color:var(--led);font-family:var(--mono)}
+.mbtns{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mbtns span{display:block;text-align:center;padding:7px 4px;border-radius:4px;border:1px solid #ffffff33;color:var(--led);font-weight:600}
+.mbtns span.k{grid-column:1/-1;background:var(--hot);border-color:var(--hot);color:var(--night)}
+.sample{font-size:.62rem;color:#B9B7B0}
+.tape{position:absolute;top:0;bottom:0;left:50%;width:14px;margin-left:-7px;background:repeating-linear-gradient(0deg,#E2DFD6 0 6px,#CFCBC1 6px 7px);opacity:.92;box-shadow:0 0 0 1px #00000040;pointer-events:none}
+.tape span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);font:800 .5rem/1 var(--sans);letter-spacing:.2em;color:#17181A;white-space:nowrap}
+.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fx .arcs path{fill:none;stroke:#EDEBE5;stroke-width:.8;stroke-linecap:round}
+.knob{position:absolute;left:0;top:0;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;border:2px solid var(--hot);background:radial-gradient(circle,#fff 0 3px,transparent 4px);cursor:grab;touch-action:none;transform:translate(var(--kx,0),var(--ky,0))}
+.knob:active{cursor:grabbing}
+.knob:focus-visible{outline:3px solid var(--mark);outline-offset:4px}
+.rig-cap{font:400 .76rem/1.45 var(--mono);color:var(--mute);margin:12px 0 0}
+.readout-line{display:flex;gap:10px;align-items:center;margin-top:10px;min-height:28px;font-size:.88rem;color:var(--led)}
+.readout-line::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--hot);transform:rotate(45deg);flex:none}
+@media (max-width:560px){
+  .halves{grid-template-columns:1fr;min-height:0}
+  .tape{display:none}
+  .after::before{content:"TAPE LINE";position:absolute;left:0;right:0;top:0;height:14px;display:flex;align-items:center;justify-content:center;font:800 .5rem/1 var(--sans);letter-spacing:.2em;color:#17181A;background:repeating-linear-gradient(90deg,#E2DFD6 0 6px,#CFCBC1 6px 7px);box-shadow:0 0 0 1px #00000040}
+  .half{padding:16px 14px 14px}
+  .after{padding-top:22px}
+  .before .mrows{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+  .before .mrows .mrow:last-child{grid-column:1/-1}
+}
+
+/* sections */
+section{padding:72px 0}
+.bay{background:var(--bay);border-top:2px solid var(--led);border-bottom:2px solid var(--led)}
+h2{font-size:clamp(1.9rem,5.4vw,3rem);max-width:18ch}
+.p{max-width:36em;margin:16px 0 0}
+
+/* bento: what's included */
+.inc{display:grid;gap:34px}
+@media (min-width:960px){.inc{grid-template-columns:300px 1fr;align-items:start}.inc-head{position:sticky;top:24px}}
+.inc-head .big7{display:flex;align-items:baseline;gap:10px;margin-top:26px;font-family:var(--disp);color:var(--led)}
+.inc-head .big7 span{font-size:6rem;line-height:.9;color:var(--hot);letter-spacing:-.05em}
+.inc-head .big7 small{font-family:var(--mono);font-size:.85rem;color:var(--mute)}
+.bento{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:640px){.bento{grid-template-columns:repeat(6,1fr)}.b-menu{grid-column:span 4}.b-book{grid-column:span 2}.b-btns{grid-column:span 2}.b-map{grid-column:span 2}.b-dom{grid-column:span 2}}
+.tile{background:var(--gun);border:2px solid var(--steel);border-radius:8px;padding:20px;position:relative;overflow:hidden}
+.tile h3{font-size:1.25rem;margin:8px 0 8px}
+.tile p{margin:0;font-size:.95rem}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.sizes div{border-top:1px solid var(--steel);padding-top:10px;text-align:center;font-size:.85rem;color:var(--led)}
+.sizes svg{display:block;margin:0 auto 6px;width:100%;max-width:96px;height:auto}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{border:1px solid var(--edge);border-radius:4px;padding:4px 10px;font-size:.82rem;color:var(--led)}
+.phone{margin-top:14px;border:1px solid var(--steel);border-radius:14px;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px;max-width:190px}
+.phone span{display:block;text-align:center;padding:8px 0;border-radius:6px;font-weight:600;font-size:.85rem}
+.phone .c{background:var(--hot);color:var(--night)}.phone .t{box-shadow:inset 0 0 0 1px var(--cool);color:var(--led)}
+.b-map svg{display:block;margin-top:10px;width:100%;height:auto;max-width:220px}
+.url{margin-top:14px;font-family:var(--mono);font-size:.8rem;color:var(--led);border:1px solid var(--steel);border-radius:6px;padding:10px;word-break:break-all}
+
+/* spotlight defect cards */
+.def-head{display:grid;gap:18px;align-items:end}
+@media (min-width:860px){.def-head{grid-template-columns:1fr 360px}}
+.def-head .p{margin:0;font-size:.95rem}
+.defects{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:12px}
+@media (min-width:700px){.defects{grid-template-columns:1fr 1fr}}
+@media (min-width:1040px){.defects{grid-template-columns:repeat(3,1fr)}}
+.spot{--mx:50%;--my:-200px;position:relative;background:var(--gun);border-radius:8px;padding:22px 20px 20px;border:2px solid var(--steel);overflow:hidden;isolation:isolate}
+.spot::before{display:none;content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(260px circle at var(--mx) var(--my),#EDEBE51f,transparent 65%);transition:opacity .3s}
+.spot::after{display:none;content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;opacity:.7;
+  background:repeating-radial-gradient(circle at var(--mx) var(--my),transparent 0 9px,#EDEBE510 9px 10px);
+  -webkit-mask:radial-gradient(150px circle at var(--mx) var(--my),#000,transparent 75%);mask:radial-gradient(150px circle at var(--mx) var(--my),#000,transparent 75%)}
+.spot .num{display:flex;justify-content:space-between;align-items:center}
+.spot .num i{font-style:normal;font-family:var(--mono);font-size:.9rem;color:#FF8A5C}
+.spot h3{font-family:var(--sans);font-weight:600;font-size:1.06rem;line-height:1.35;margin:12px 0 8px;letter-spacing:0}
+.spot p{margin:0;font-size:.95rem}
+.spot .fix{margin-top:14px;padding-top:12px;border-top:1px dashed var(--steel);color:var(--led)}
+.spot .fix b{color:var(--hot-2);font-family:var(--mono);font-weight:400;font-size:.75rem;display:block;margin-bottom:4px}
+
+/* calculator */
+.calc{display:grid;gap:32px;align-items:start}
+@media (min-width:900px){.calc{grid-template-columns:1fr 1fr}}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 22px}
+.pick button{font:600 .92rem var(--sans);background:transparent;color:var(--text);border:2px solid var(--edge);border-radius:6px;padding:10px 14px;min-height:48px;cursor:pointer}
+.pick button:hover{color:var(--led);border-color:var(--mute)}
+.pick button[aria-pressed=true]{border-color:var(--hot);background:var(--hot);color:var(--night)}
+.calc label{display:block;font:400 .8rem var(--mono);color:var(--led);margin-bottom:8px}
+.money{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:1.6rem;color:var(--led)}
+.money input{font:800 1.6rem var(--disp);width:5.4em;min-height:56px;padding:6px 12px;border:2px solid var(--mute);border-radius:6px;background:var(--gun);color:var(--led)}
+.gauge{background:var(--gun);border:2px solid var(--led);border-radius:8px;padding:26px 24px}
+.gauge p{margin:0 0 14px}
+.gauge .big{display:block;font-family:var(--disp);font-size:clamp(2.4rem,9vw,3.6rem);line-height:1.05;color:var(--led);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.gauge .big u{text-decoration:none;color:var(--hot)}
+.gauge .fine{font:400 .75rem/1.45 var(--mono);color:var(--mute);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--steel)}
+
+/* rate sheet */
+.steps{display:grid;gap:12px;margin-top:30px}
+@media (min-width:760px){.steps{grid-template-columns:1fr 1fr}}
+.step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:20px;border:2px solid var(--led);border-radius:8px}
+.step .amt{grid-row:span 3;font-family:var(--disp);font-size:1.9rem;color:var(--led);line-height:1}
+.step h3{font-family:var(--sans);font-weight:600;font-size:1.05rem;letter-spacing:0}
+.step .sub{font:400 .78rem var(--mono);color:var(--mute)}
+.step p{margin:4px 0 0;font-size:.95rem}
+.plans{display:grid;gap:16px;margin-top:16px}
+@media (min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plan{position:relative;border-radius:8px;padding:26px 24px;background:var(--gun);border:2px solid var(--led)}
+.plan .amt{font-family:var(--disp);font-size:2.3rem;color:var(--led);line-height:1.1;margin:12px 0 2px}
+.plan .amt small{font-family:var(--mono);font-size:1rem;color:var(--mute)}
+.plan h3{font-family:var(--sans);font-weight:600;font-size:1.2rem;letter-spacing:0}
+.plan ul{margin:16px 0 22px;padding:0;list-style:none}
+.plan li{padding:8px 0 8px 22px;border-top:1px dashed var(--steel);position:relative;font-size:.95rem}
+.plan li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;border:2px solid var(--mark)}
+.plan.grow{box-shadow:5px 5px 0 var(--hot)}
+.plan.grow li::before{border-color:var(--hot)}
+.rec{display:inline-block;margin-left:8px;background:var(--hot);color:var(--night);font:400 .72rem/1 var(--mono);padding:5px 7px;border-radius:4px;vertical-align:middle}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.beam{display:none;position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
+  background:conic-gradient(from var(--a),transparent 0 70%,#FF6A33 80%,#fff 84%,#EDEBE5 86%,transparent 92%),linear-gradient(#45464A,#45464A);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  animation:beam 6s linear infinite}
+@keyframes beam{to{--a:360deg}}
+.after-note{font-size:.92rem;margin:22px 0 0;max-width:50em}
+
+/* faq */
+.faq{display:grid;gap:28px}
+@media (min-width:900px){.faq{grid-template-columns:320px 1fr}}
+details{border-top:1px solid var(--steel)}
+details:first-of-type{border-top:2px solid var(--led)}
+details:last-of-type{border-bottom:2px solid var(--led)}
+summary{display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:56px;padding:12px 0;font-weight:600;color:var(--led);cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--hot-2);font-size:1.4rem;flex:none}
+details[open] summary::after{content:"\2212"}
+details p{margin:0 0 18px;max-width:42em}
+
+/* letter */
+.letter{display:grid;gap:30px}
+@media (min-width:900px){.letter{grid-template-columns:1fr 1fr;align-items:end}}
+.note{border-left:6px solid var(--hot);padding:4px 0 4px 22px;max-width:36em}
+.note p{margin:0 0 14px}
+.sig{font-family:var(--disp);font-weight:800;color:var(--led);font-size:1.4rem;margin-top:18px}
+.sig small{display:block;font-family:var(--mono);font-weight:400;font-size:.8rem;color:var(--mute);margin-top:4px}
+.check{border:2px dashed var(--mute);border-radius:8px;padding:22px}
+.check p{margin:0 0 16px}
+
+footer{padding:34px 0 120px;font-size:.88rem;background:var(--cream);color:var(--ink-2);border-top:2px solid var(--ink)}
+footer a{color:var(--ink)}
+footer nav{display:flex;flex-wrap:wrap;gap:0 18px}
+footer nav a{display:inline-flex;align-items:center;min-height:48px;text-decoration:none}
+footer nav a:hover{color:var(--ink);text-decoration-color:var(--hot);text-decoration:underline}
+footer p a{display:inline-block;padding:12px 0}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:10;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--night);border-top:2px solid var(--led)}
+.dock .btn{align-items:center;padding:10px 8px}
+@media (min-width:760px){.dock{display:none}footer{padding-bottom:34px}}
+
+html.still .beam{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.mtag,.btn,.spot::before{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><nav aria-label="All GroundWork sites" style="all:initial;box-sizing:border-box;display:flex;flex-wrap:nowrap;gap:6px;align-items:center;width:100%;padding:0 8px 0 12px;background:#17181A;color:#EDEBE5;font:600 13px/1 system-ui,sans-serif;position:relative;z-index:2147483647"><a href="/GWAGENCY/" aria-label="All GroundWork sites" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#F0B53A;padding-right:4px">&larr; All</a><a href="/GWAGENCY/#trade-detailing" aria-label="Auto detailing, page 3 of 4" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Auto detailing</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">3/4</span></a><span style="margin-left:auto;display:inline-flex"><a href="/GWAGENCY/demos/ramirez-mobile/" aria-label="Previous: Ramirez &amp; Son Mobile Detail" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M15 18l-6-6 6-6"/></svg></a><a href="/GWAGENCY/site/auto-detailing/b/" aria-label="Next: Finished to spec" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M9 18l6-6-6-6"/></svg></a><a href="/GWAGENCY/#search" aria-label="Search all sites" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a></span></nav>
+<header class="top">
+  <a class="logo" href="/GWAGENCY/site/" translate="no"><span class="dot" aria-hidden="true"></span>GroundWork-Web</a>
+  <nav aria-label="Primary">
+    <a class="nl" href="/GWAGENCY/site/demos/ramirez-mobile/">Demo</a><a class="nl" href="#money">Pricing</a><a class="nl" href="/GWAGENCY/site/site-check/?niche=auto-detailing">Free site check</a>
+    <button class="pause" id="pause" type="button" aria-pressed="false">Pause motion</button>
+    <a class="btn" href="/GWAGENCY/site/start/?niche=auto-detailing">Start for $99</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="for">For auto detailers, <span>mobile and shop</span></p>
+      <h1 id="h1">Auto detailing websites that pass the <em>inspection light.</em></h1>
+      <p class="lede">You don't hand back a car until you've walked it with the swirl finder. Your customers do the same thing to your website: up close, on a phone, deciding fast. A lot of detailing sites look fine from across the lot and show every defect once someone actually looks. We build the corrected one.</p>
+      <div class="ctas">
+        <a class="btn" href="/GWAGENCY/site/start/?niche=auto-detailing">Start for $99<small>Refunded if you don't want the site</small></a>
+        <a class="btn ghost" href="/GWAGENCY/site/demos/ramirez-mobile/">Open the demo site</a>
+      </div>
+    </div>
+
+    <div class="rig">
+      <p class="rig-label"><span class="tag">50/50 test panel</span><span>Sample site, sample prices</span></p>
+      <div class="panel" id="panel">
+        <div class="halves" aria-hidden="true">
+          <div class="half before" id="before">
+            <p class="site">PREMIUM AUTO SPA</p>
+            <p class="mnav">Home &nbsp;|&nbsp; Gallery &nbsp;|&nbsp; Contact</p>
+            <div class="mrows">
+              <div class="mrow" data-d="Packages don't say what's in them"><span class="mtag">What's in it?</span><b>Gold Package</b>Platinum Package</div>
+              <div class="mrow" data-d="Ceramic coating says call for pricing"><span class="mtag">No price</span><b>Ceramic coating</b>Call for pricing</div>
+              <div class="mrow" data-d="The Book button goes to a Facebook message"><span class="mtag">Goes to DMs</span><b>Book now</b>Message us on Facebook</div>
+            </div>
+          </div>
+          <div class="half after" id="after">
+            <p class="site">YOUR SHOP DETAIL CO.</p>
+            <p class="mnav">Prices &nbsp;|&nbsp; Coatings &nbsp;|&nbsp; Area</p>
+            <div class="mrow"><b>Full detail</b>
+              <table class="mtab"><tr><td>Sedan</td><td>$180</td></tr><tr><td>SUV</td><td>$210</td></tr><tr><td>Truck</td><td>$240</td></tr></table>
+            </div>
+            <div class="mrow"><b>Ceramic, 2-year</b>from $650 <span class="sample">(sample)</span></div>
+            <div class="mbtns"><span class="k">Book a time</span><span>Call</span><span>Text</span></div>
+          </div>
+        </div>
+        <div class="tape" aria-hidden="true"><span>TAPE LINE</span></div>
+        <svg class="fx" id="fx" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="haze"><stop offset="0" stop-color="#F6F5F1" stop-opacity=".55"/><stop offset=".25" stop-color="#EDEBE5" stop-opacity=".2"/><stop offset="1" stop-color="#EDEBE5" stop-opacity="0"/></radialGradient>
+            <radialGradient id="crisp"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset=".55" stop-color="#F6F5F1" stop-opacity=".95"/><stop offset=".7" stop-color="#EDEBE5" stop-opacity=".12"/><stop offset="1" stop-color="#EDEBE5" stop-opacity="0"/></radialGradient>
+            <radialGradient id="fade"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <mask id="lens" maskUnits="userSpaceOnUse" x="-200" y="-200" width="400" height="400"><circle r="170" fill="url(#fade)"/></mask>
+            <clipPath id="cb"><rect id="cbr" width="0" height="0"/></clipPath>
+            <clipPath id="ca"><rect id="car" width="0" height="0"/></clipPath>
+          </defs>
+          <g clip-path="url(#cb)"><g class="lg"><circle r="130" fill="url(#haze)"/><g class="arcs" mask="url(#lens)" id="arcs"></g></g></g>
+          <g clip-path="url(#ca)"><g class="lg"><circle r="34" fill="url(#crisp)"/><circle r="90" fill="url(#haze)" opacity=".35"/></g></g>
+        </svg>
+        <div class="knob" id="knob" role="slider" tabindex="0" aria-label="Inspection light position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-describedby="rig-cap"></div>
+      </div>
+      <p class="readout-line" id="readout" aria-live="polite">Under the light: the left side shows swirls.</p>
+      <p class="rig-cap" id="rig-cap">On one side of the tape: how a lot of detailing sites look up close. On the other: the corrected one. Drag the light, or focus it and use the arrow keys.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bay" aria-labelledby="inc-h">
+  <div class="wrap inc">
+    <div class="inc-head">
+      <h2 id="inc-h">What's on the panel when we hand it back</h2>
+      <p class="p">One full correction for your website, priced up front, done in about a week from the day we get your packages, prices and photos.</p>
+      <p class="big7"><small>about</small><span>7</span><small>days</small></p>
+    </div>
+    <div class="bento">
+      <div class="tile b-menu">
+        <span class="tag">Price menu</span>
+        <h3>Your prices by vehicle size</h3>
+        <p>Sedan, SUV, truck. The customer finds their row and knows the number before they call.</p>
+        <div class="sizes" aria-hidden="true">
+          <div><svg viewBox="0 0 96 36"><path d="M4 28h88M10 28c0-5 3-8 8-9l12-7h26l14 7h12c5 1 7 4 7 9" fill="none" stroke="#9C9A94" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/><circle cx="72" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/></svg>Sedan</div>
+          <div><svg viewBox="0 0 96 36"><path d="M4 28h88M8 28V18l8-10h48l14 10h8c3 0 4 3 4 6v4" fill="none" stroke="#9C9A94" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/><circle cx="72" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/></svg>SUV</div>
+          <div><svg viewBox="0 0 96 36"><path d="M4 28h88M8 28V18l6-10h24v10h50v10" fill="none" stroke="#9C9A94" stroke-width="2" stroke-linejoin="round"/><circle cx="22" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/><circle cx="74" cy="28" r="5" fill="#17181A" stroke="#EDEBE5" stroke-width="2"/></svg>Truck</div>
+        </div>
+      </div>
+      <div class="tile b-book">
+        <span class="tag">Booking</span>
+        <h3>Your booking tool, built in</h3>
+        <p>Keep what you use now.</p>
+        <div class="chips"><span>Square</span><span>Booksy</span><span>Urable</span><span>Google</span></div>
+      </div>
+      <div class="tile b-btns">
+        <span class="tag">Phone</span>
+        <h3>Call and Text on every screen</h3>
+        <p>Thumb reach, on every page, on every phone.</p>
+        <div class="phone" aria-hidden="true"><span class="c">Call</span><span class="t">Text</span></div>
+      </div>
+      <div class="tile b-map">
+        <span class="tag">Area</span>
+        <h3>Service area or shop map</h3>
+        <p>Plus local search setup.</p>
+        <svg viewBox="0 0 220 90" aria-hidden="true"><path d="M8 70c30-10 50 8 80-6s50-30 90-20 30 16 34 20" fill="none" stroke="#45464A" stroke-width="6" stroke-linecap="round"/><path d="M20 20c40 6 60-6 100 4s60 10 92 0" fill="none" stroke="#45464A" stroke-width="3"/><ellipse cx="112" cy="46" rx="70" ry="34" fill="none" stroke="#FF8A5C" stroke-width="2" stroke-dasharray="5 5"/><circle cx="112" cy="46" r="5" fill="#FF6A33"/></svg>
+      </div>
+      <div class="tile b-dom">
+        <span class="tag">Domain</span>
+        <h3>Registered in your name</h3>
+        <p>Not ours. Yours.</p>
+        <div class="url" translate="no">yourshopdetail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="def-h">
+  <div class="wrap">
+    <div class="def-head">
+      <h2 id="def-h">Six defects that are common on detailing sites</h2>
+      <p class="p">What shows up when we walk a detailer's site on a phone, written the way you'd write up paint: what's wrong, and the correction.</p>
+    </div>
+    <ul class="defects" id="defects">
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">01</i></div><h3>Ceramic coating says &ldquo;call for pricing.&rdquo;</h3><p>The most expensive job you sell has no starting number, so the shopper compares the shop that has one.</p><p class="fix"><b>Correction</b>&ldquo;From&rdquo; prices for each coating level, and what changes the price.</p></li>
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">02</i></div><h3>Packages don't say what's in them.</h3><p>&ldquo;Gold&rdquo; and &ldquo;Platinum&rdquo; mean nothing to someone who's never had a detail.</p><p class="fix"><b>Correction</b>A checklist per package, with interior, exterior and add-ons spelled out.</p></li>
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">03</i></div><h3>Paint correction is one line.</h3><p>One-step and multi-step correction are different jobs at different prices, and the customer can't tell.</p><p class="fix"><b>Correction</b>A short &ldquo;which one do I need?&rdquo; with the swirl problem each stage fixes.</p></li>
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">04</i></div><h3>The Book button goes to a Facebook message.</h3><p>Then the shop finds it at 11 p.m. and the customer already booked elsewhere.</p><p class="fix"><b>Correction</b>Your real booking tool on the page, with a deposit for coating jobs if you take one.</p></li>
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">05</i></div><h3>The gallery is forty photos of the same hood.</h3><p>Nobody scrolls it on a phone.</p><p class="fix"><b>Correction</b>Six before-and-after pairs, picked by service.</p></li>
+      <li class="spot"><div class="num"><span class="tag">Defect</span><i aria-hidden="true">06</i></div><h3>Mobile detailers don't say where they go.</h3><p>The customer in the next town over doesn't know to ask.</p><p class="fix"><b>Correction</b>The cities you drive to, right under the prices.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bay" aria-labelledby="calc-h">
+  <div class="wrap calc">
+    <div>
+      <h2 id="calc-h">How many details pay for it?</h2>
+      <p class="p">Pick a job or type your own ticket. The math is the plan divided by one job.</p>
+      <div class="pick" role="group" aria-label="Pick a job" id="pick">
+        <button type="button" data-v="75" aria-pressed="false">Maintenance wash</button>
+        <button type="button" data-v="200" aria-pressed="true">Full detail</button>
+        <button type="button" data-v="450" aria-pressed="false">Paint correction</button>
+        <button type="button" data-v="900" aria-pressed="false">Ceramic coating</button>
+      </div>
+      <label for="ticket">Average ticket</label>
+      <div class="money">$<input id="ticket" type="number" inputmode="numeric" min="20" max="5000" value="200"></div>
+    </div>
+    <div class="gauge" aria-live="polite">
+      <p>Grow ($199 a month) is paid for by <span class="big" aria-hidden="true"><u id="grow-t">1</u> <span id="grow-u">job</span></span><span class="sr" id="grow-n">1 job</span> a month.</p>
+      <p>Host ($99 a month) by <b id="host-n">0.5 jobs</b>, and the whole $399 build by <b id="build-n">2 jobs</b>.</p>
+      <p class="fine">Typical ticket sizes, for illustration. This counts the cost only. It doesn't promise any number of jobs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="money" aria-labelledby="money-h">
+  <div class="wrap">
+    <h2 id="money-h">The rate sheet</h2>
+    <div class="steps">
+      <div class="step"><span class="amt">$99</span><h3>Start</h3><span class="sub">Secure checkout and a short brief: packages, prices, photos, booking tool</span><p>Today. About a week later you get a private preview and one round of changes. Don't want it? The $99 comes back.</p></div>
+      <div class="step"><span class="amt">$300</span><h3>Approve</h3><span class="sub">The site goes live on your domain</span><p>Only when you approve it. $399 total for the build.</p></div>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Host</h3>
+        <p class="amt">$99<small>/mo</small></p>
+        <p>Keep it live. Starts the month you go live.</p>
+        <ul><li>Hosting and SSL</li><li>Uptime checks</li><li>The booking and buttons kept working</li></ul>
+        <a class="btn ghost" href="/GWAGENCY/site/start/?plan=host&amp;niche=auto-detailing">Start on Host</a>
+      </div>
+      <div class="plan grow">
+        <span class="beam" aria-hidden="true"></span>
+        <h3>Grow <span class="rec">We recommend</span></h3>
+        <p class="amt">$199<small>/mo</small></p>
+        <p>Keep it selling. Everything in Host, plus:</p>
+        <ul><li>2 to 3 updates a month: new packages, a ceramic special, fresh before-and-afters</li><li>A monthly Google Business Profile and local search check-in</li></ul>
+        <a class="btn" href="/GWAGENCY/site/start/?plan=grow&amp;niche=auto-detailing">Start on Grow</a>
+      </div>
+    </div>
+    <p class="after-note">Or pay a year up front: 12 months for the price of 10. The $399 build and these monthly rates are our founding prices for the first 25 clients, kept for as long as you stay. After that the build is $499. Leave any time with 30 days notice. <a href="/GWAGENCY/site/before-you-pay/">Preview, refund and how you leave</a>.</p>
+  </div>
+</section>
+
+<section class="bay" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <h2 id="faq-h">Questions detailers ask</h2>
+    <div>
+      <details><summary>I already use Square, Booksy or Urable. Do I have to switch?</summary><p>No. We build your booking tool into the site, so customers pick a package and a time without leaving it.</p></details>
+      <details><summary>Why not build it myself on a site builder?</summary><p>You can. You'd pay a builder every month and do it after hours. What you'd still have to work out is the price menu by vehicle size, the booking flow and the local search setup, and then keep it current. That's the part we do.</p></details>
+      <details><summary>Who owns the domain and the site?</summary><p>You own the domain. We register it in your name when you approve the site. If you leave, we hand over the site files after your final invoice.</p></details>
+      <details><summary>Who updates my prices and packages?</summary><p>On Grow, we do: send a text and it's changed, up to 2 to 3 updates a month. On Host, the site stays as built, and changes are quoted.</p></details>
+      <details><summary>I'm mobile only. Does it still fit?</summary><p>Yes. Mobile detailers get the cities you drive to, a we-come-to-you booking flow, and a Google Business Profile set up as a service-area business.</p></details>
+      <details><summary>How long does it take?</summary><p>About 7 days from the day we get your packages, prices and photos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="note-h">
+  <div class="wrap letter">
+    <div class="note">
+      <h2 id="note-h" class="sr">A note from Cyrus</h2>
+      <p>I'm Cyrus Wilburn. I build these from Deer Park, Texas, one shop at a time. Detailing was the first trade I built for, because the work sells itself in person and the websites usually don't. I'd rather your site do the explaining, so you can get back to the car.</p>
+      <p class="sig">Cyrus Wilburn<small>GroundWork-Web, Deer Park, Texas</small></p>
+    </div>
+    <div class="check">
+      <p><b>Not ready to start?</b> Run the free 1-minute check on the site you have now. You'll get a score and the three fixes worth doing first, with no form.</p>
+      <a class="btn ghost" href="/GWAGENCY/site/site-check/?niche=auto-detailing">Check my site</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="/GWAGENCY/site/">Home</a><a href="/GWAGENCY/site/exterior-cleaning/">Pressure washing sites</a><a href="/GWAGENCY/site/landscaping/">Lawn care sites</a><a href="/GWAGENCY/site/commercial-cleaning/">Commercial cleaning sites</a><a href="/GWAGENCY/site/pricing/">Pricing</a><a href="/GWAGENCY/site/privacy/">Privacy</a></nav>
+    <p>&copy; 2026 GroundWork-Web, Deer Park, TX. <a href="mailto:groundworkweb@proton.me">groundworkweb@proton.me</a></p>
+  </div>
+</footer>
+<aside class="dock" aria-label="Get started"><a class="btn" href="/GWAGENCY/site/start/?niche=auto-detailing">Start for $99</a><a class="btn ghost" href="/GWAGENCY/site/demos/ramirez-mobile/">See the demo</a></aside>
+
+<script>
+(function () {
+  var root = document.documentElement, $ = function (id) { return document.getElementById(id); };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Pause motion: covers the light's idle sweep, the Grow border beam and the number ticker */
+  var pauseBtn = $("pause");
+  function setStill(on) { root.classList.toggle("still", on); pauseBtn.setAttribute("aria-pressed", String(on)); pauseBtn.textContent = on ? "Play motion" : "Pause motion"; }
+  setStill(reduce);
+  pauseBtn.addEventListener("click", function () { setStill(!root.classList.contains("still")); if (!root.classList.contains("still")) sweep(); });
+  var still = function () { return root.classList.contains("still"); };
+
+  /* Inspection light: the 50/50 test panel */
+  var panel = $("panel"), knob = $("knob"), fx = $("fx"), arcs = $("arcs"), out = $("readout");
+  var before = $("before"), after = $("after"), lgs = fx.querySelectorAll(".lg");
+  var defects = before.querySelectorAll(".mrow");
+  var W = 0, H = 0, pos = { x: .25, y: .42 }, touched = false, rects = [], bR, lastMsg = "";
+
+  // swirl marks: broken concentric arcs around the light, the way real swirls show under a point source
+  var d = "", rnd = (function (s) { return function () { s = (s * 16807) % 2147483647; return s / 2147483647; }; })(7);
+  for (var i = 0; i < 150; i++) {
+    var r = 8 + Math.pow(rnd(), .8) * 165, a0 = rnd() * Math.PI * 2, span = (.15 + rnd() * .7);
+    var x0 = Math.cos(a0) * r, y0 = Math.sin(a0) * r, x1 = Math.cos(a0 + span) * r, y1 = Math.sin(a0 + span) * r;
+    d += '<path d="M' + x0.toFixed(1) + " " + y0.toFixed(1) + "A" + r.toFixed(1) + " " + r.toFixed(1) + " 0 0 1 " + x1.toFixed(1) + " " + y1.toFixed(1) + '" opacity="' + (.25 + rnd() * .6).toFixed(2) + '"/>';
+  }
+  arcs.innerHTML = d;
+
+  function rel(el) { var p = panel.getBoundingClientRect(), e = el.getBoundingClientRect(); return { x: e.left - p.left, y: e.top - p.top, w: e.width, h: e.height }; }
+  function setRect(id, q) { var n = $(id); n.setAttribute("x", q.x); n.setAttribute("y", q.y); n.setAttribute("width", q.w); n.setAttribute("height", q.h); }
+  function measure() {
+    W = panel.clientWidth; H = panel.clientHeight;
+    bR = rel(before); setRect("cbr", bR); setRect("car", rel(after));
+    rects = [].map.call(defects, rel);
+    place();
+  }
+  function place() {
+    var x = pos.x * W, y = pos.y * H, t = "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")";
+    for (var i = 0; i < lgs.length; i++) lgs[i].setAttribute("transform", t);
+    knob.style.setProperty("--kx", x + "px"); knob.style.setProperty("--ky", y + "px");
+    var onBefore = x >= bR.x && x <= bR.x + bR.w && y >= bR.y && y <= bR.y + bR.h, hits = [];
+    for (var k = 0; k < rects.length; k++) {
+      var q = rects[k], cx = Math.max(q.x, Math.min(x, q.x + q.w)), cy = Math.max(q.y, Math.min(y, q.y + q.h));
+      var lit = onBefore && Math.hypot(x - cx, y - cy) < 46;
+      defects[k].classList.toggle("lit", lit);
+      if (lit) hits.push(defects[k].getAttribute("data-d"));
+    }
+    var msg = onBefore ? (hits.length ? "Under the light: " + hits.join(", ") + "." : "Under the light: swirls on the uncorrected side of the tape.") : "Under the light: the corrected side. Clean reflection, prices and booking up front.";
+    if (msg !== lastMsg) { out.textContent = msg; lastMsg = msg; }
+    knob.setAttribute("aria-valuenow", Math.round(pos.x * 100));
+    knob.setAttribute("aria-valuetext", onBefore ? "Over the uncorrected side" : "Over the corrected side");
+  }
+  function fromEvent(e) { var p = panel.getBoundingClientRect(); pos.x = Math.min(1, Math.max(0, (e.clientX - p.left) / p.width)); pos.y = Math.min(1, Math.max(0, (e.clientY - p.top) / p.height)); place(); }
+  var dragging = false;
+  panel.addEventListener("pointermove", function (e) { if (e.pointerType === "mouse" || dragging) { touched = true; fromEvent(e); } });
+  panel.addEventListener("pointerdown", function (e) { touched = true; dragging = true; fromEvent(e); if (e.target === knob) knob.setPointerCapture(e.pointerId); });
+  window.addEventListener("pointerup", function () { dragging = false; });
+  window.addEventListener("pointercancel", function () { dragging = false; });
+  knob.addEventListener("keydown", function (e) {
+    var s = e.shiftKey ? .15 : .05, k = e.key;
+    if (k === "ArrowLeft") pos.x -= s; else if (k === "ArrowRight") pos.x += s;
+    else if (k === "ArrowUp") pos.y -= s; else if (k === "ArrowDown") pos.y += s;
+    else if (k === "Home") pos.x = .02; else if (k === "End") pos.x = .98; else return;
+    e.preventDefault(); touched = true;
+    pos.x = Math.min(1, Math.max(0, pos.x)); pos.y = Math.min(1, Math.max(0, pos.y)); place();
+  });
+  // idle sweep until someone picks up the light (stops for good on first touch, and whenever motion is paused)
+  var t0 = 0;
+  function sweep() {
+    if (touched || still()) return;
+    requestAnimationFrame(function step(ts) {
+      if (touched || still()) return;
+      if (!t0) t0 = ts;
+      var t = (ts - t0) / 1000;
+      if (bR.w > W * .8) { pos.y = .5 - Math.cos(t * .55) * .38; pos.x = .5 + Math.sin(t * 1.1) * .3; } else { pos.x = .5 - Math.cos(t * .55) * .4; pos.y = .42 + Math.sin(t * 1.1) * .16; }
+      place(); requestAnimationFrame(step);
+    });
+  }
+  if ("ResizeObserver" in window) new ResizeObserver(measure).observe(panel); else window.addEventListener("resize", measure);
+  measure(); sweep();
+
+  /* Spotlight cards */
+  var list = $("defects");
+  list.addEventListener("pointermove", function (e) {
+    var c = e.target.closest(".spot"); if (!c) return;
+    var r = c.getBoundingClientRect(); c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+  list.addEventListener("pointerout", function (e) { var c = e.target.closest(".spot"); if (c && !c.contains(e.relatedTarget)) c.style.setProperty("--my", "-200px"); });
+
+  /* Calculator with number ticker */
+  var t = $("ticket"), pick = $("pick"), shown = 1, raf = 0;
+  var rd = function (n) { return Math.round(n * 10) / 10; };
+  var jobs = function (n) { n = rd(n); return n + (n === 1 ? " job" : " jobs"); };
+  function tick(to) {
+    cancelAnimationFrame(raf);
+    $("grow-u").textContent = to === 1 ? "job" : "jobs";
+    if (still()) { shown = to; $("grow-t").textContent = to; return; }
+    var from = shown, st = 0;
+    raf = requestAnimationFrame(function f(ts) {
+      if (!st) st = ts;
+      var k = Math.min(1, (ts - st) / 450), e = 1 - Math.pow(1 - k, 3);
+      shown = rd(from + (to - from) * e); $("grow-t").textContent = shown;
+      if (k < 1) raf = requestAnimationFrame(f); else { shown = to; $("grow-t").textContent = to; }
+    });
+  }
+  function calc() {
+    var v = Math.max(1, parseFloat(t.value) || 0);
+    $("grow-n").textContent = jobs(199 / v); $("host-n").textContent = jobs(99 / v); $("build-n").textContent = jobs(399 / v);
+    tick(rd(199 / v));
+    pick.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.v === v)); });
+  }
+  pick.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { t.value = b.dataset.v; calc(); } });
+  t.addEventListener("input", calc); calc();
+})();
+</script>
+<script src="/GWAGENCY/site/assets/js/config.js?v=3.1" defer></script>
+<script src="/GWAGENCY/site/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>

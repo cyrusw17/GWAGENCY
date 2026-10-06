@@ -1,0 +1,50 @@
+/* GroundWork-Web design system v4, "marked out before we build". Tokens only. Same palette and type as the homepage (home.css).
+   Concrete, asphalt ink, marking-paint orange, locate-flag green. Fonts are self-hosted, nothing calls another domain. */
+@font-face{font-family:"Bricolage Grotesque";font-weight:800;font-display:swap;src:url("../fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-weight:400;font-display:swap;src:url("../fonts/hanken-grotesk-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-weight:600;font-display:swap;src:url("../fonts/hanken-grotesk-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url("../fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2")}
+
+/* Light is the default. Dark applies only when the device asks for it. No toggle, nothing stored. */
+:root{
+  --bg:#ECEAE4; --cream:#E2DFD6; --card:#F6F5F1;
+  --ink:#17181A; --ink-2:#45474C; --ink-3:#5B5D62;
+  --line:#CFCBC1; --line-2:#B3AEA2;
+
+  /* Price and compare blocks: asphalt in light, raised asphalt in dark */
+  --block:#17181A; --block-2:#222326; --block-line:#3A3B3F; --block-ink:#EDEBE5; --block-mute:#B9B7B0;
+
+  --paint:#C8410F; --paint-text:#A93A12; --on-paint:#FFFFFF; --mark:#2F7D4F; --block-paint:#FF6A33;
+  --accent:var(--paint); --accent-deep:var(--paint-text); --accent-text:var(--paint-text); --accent-soft:#F3DCD0; --on-accent:var(--on-paint);
+  --btn:#17181A; --on-btn:#ECEAE4;
+  --danger:#B42318; --ok:#2F7D4F;
+
+  --font-display:"Bricolage Grotesque","Arial Narrow",sans-serif;
+  --font-body:"Hanken Grotesk",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  /* 4px scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+  --r-sm:4px; --r-md:6px; --r-lg:8px; --r-xl:8px; --r-2xl:10px; --pill:6px;
+
+  --max:1160px;
+  --gutter:16px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --t-fast:.2s; --t-reveal:.7s;
+
+  color-scheme:light;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#141516; --cream:#1C1D1F; --card:#1F2022;
+    --ink:#EDEBE5; --ink-2:#B9B7B0; --ink-3:#9C9A94;
+    --line:#2F3033; --line-2:#45464A;
+    --block:#0B0C0D; --block-2:#1A1B1D; --block-line:#3A3B3F;
+    --paint:#FF6A33; --paint-text:#FF8A5C; --on-paint:#1A0A03; --mark:#5CC48A;
+    --accent-soft:rgba(255,106,51,.14);
+    --btn:#EDEBE5; --on-btn:#141516;
+    --danger:#FFB4A8; --ok:#5CC48A;
+    color-scheme:dark;
+  }
+}

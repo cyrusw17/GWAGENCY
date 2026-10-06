@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head><script>(function(){var api=function(u){return /[/]api[/]/.test(String(u&&u.url||u))},n=navigator,f=window.fetch;if(n.sendBeacon){var b=n.sendBeacon.bind(n);n.sendBeacon=function(u,d){return api(u)||b(u,d)}}if(f)window.fetch=function(u,o){return api(u)?Promise.resolve(new Response("{}",{status:200,headers:{"Content-Type":"application/json"}})):f.apply(this,arguments)}})()</script><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://groundwork-web.com/demos/briar-mobile/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Briar Mobile Detail | We Come To You · Nashville</title>
+<meta name="description" content="Fictional Nashville mobile detailer. Add interior, wheels, or ceramic and watch the visit total update before you book.">
+<link rel="icon" href="/GWAGENCY/site/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/GWAGENCY/site/kit/kit.css?v=3.1">
+<style>
+  @font-face{font-family:"Oswald";font-style:normal;font-weight:600;font-display:swap;src:url("/GWAGENCY/site/assets/fonts/oswald-600.woff2") format("woff2")}
+  @font-face{font-family:"Oswald";font-style:normal;font-weight:700;font-display:swap;src:url("/GWAGENCY/site/assets/fonts/oswald-700.woff2") format("woff2")}
+  @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url("/GWAGENCY/site/assets/fonts/source-sans-400.woff2") format("woff2")}
+  @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url("/GWAGENCY/site/assets/fonts/source-sans-600.woff2") format("woff2")}
+  :root{
+    --k-bg:#F6F1E8; --k-panel:#FFFCF7; --k-panel-2:#E7DDD0; --k-text:#241910; --k-mute:#6B5C4E;
+    --k-line:#D9CBBA; --k-accent:#C65A24; --k-accent-ink:#FFF8F3; --k-accent-2:#2C241C;
+  }
+  html,body{overflow-x:clip}
+  .k-btn{text-transform:none;letter-spacing:0;font-family:var(--k-body);font-size:16px;font-weight:600;min-height:44px;width:auto;max-width:100%;align-self:flex-start;justify-self:start}
+  .k-sticky .k-btn{width:100%}
+  .k-embed .slot{min-height:44px}
+  .k-faq summary{min-height:44px;align-items:center}
+  .k-nav{background:rgba(246,241,232,.92)}
+  .k-sticky{background:rgba(246,241,232,.95)}
+  .k-art .paint{background:
+    radial-gradient(120% 80% at 80% 10%, rgba(198,90,36,.45), transparent 55%),
+    radial-gradient(90% 60% at 20% 90%, rgba(44,36,28,.55), transparent 60%),
+    linear-gradient(160deg,#3a2e24,#1a140f)}
+  .k-art .label{background:rgba(255,252,247,.9);color:var(--k-mute)}
+  .k-art .label b{color:var(--k-text)}
+  .k-gallery .g .paint{background:linear-gradient(160deg,#3a2e24,#1a140f)}
+  .k-gallery .g.h1 .paint{background:radial-gradient(110% 80% at 20% 0%,rgba(198,90,36,.5),transparent 60%),linear-gradient(160deg,#3a2e24,#1a140f)}
+  .k-gallery .g.h2 .paint{background:radial-gradient(100% 90% at 90% 100%,rgba(44,36,28,.9),transparent 60%),linear-gradient(200deg,#4a3b30,#16110d)}
+  .k-gallery .g.h3 .paint{background:linear-gradient(120deg,#1a140f 0%,#3a2e24 45%,rgba(198,90,36,.45) 100%)}
+  .k-gallery .g .cap{background:rgba(255,252,247,.9);color:var(--k-mute)}
+  .k-gallery .g .cap b{color:var(--k-text)}
+  .build{background:var(--k-panel);border:1px solid var(--k-line);border-radius:12px;padding:22px}
+  .build-base{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--k-line);margin-bottom:14px}
+  .build-base b{font-family:var(--k-display);font-size:28px;font-weight:600}
+  .build-adds{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+  .build-add{min-height:44px;padding:10px 14px;border-radius:999px;border:1px solid var(--k-line);background:transparent;color:var(--k-text);font:inherit;font-weight:600;font-size:16px;width:auto;max-width:100%}
+  .build-add[aria-pressed="true"]{background:var(--k-accent);color:var(--k-accent-ink);border-color:var(--k-accent)}
+  .build-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:18px 0 6px;padding-top:14px;border-top:1px solid var(--k-line)}
+  .build-total strong{font-family:var(--k-display);font-size:42px;line-height:1;font-weight:600}
+  .build-summary{margin:0;color:var(--k-mute)}
+  .book-summary{margin:0;padding:12px 14px;border:1px solid var(--k-line);border-radius:6px;background:var(--k-bg);font-size:16px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><nav aria-label="All GroundWork sites" style="all:initial;box-sizing:border-box;display:flex;flex-wrap:nowrap;gap:6px;align-items:center;width:100%;padding:0 8px 0 12px;background:#17181A;color:#EDEBE5;font:600 13px/1 system-ui,sans-serif;position:relative;z-index:2147483647"><a href="/GWAGENCY/" aria-label="All GroundWork sites" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#F0B53A;padding-right:4px">&larr; All</a><a href="/GWAGENCY/#trade-drafts" aria-label="Earlier drafts, page 3 of 8" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;min-width:0;flex:0 1 auto;justify-content:flex-start;text-decoration:underline;text-underline-offset:3px"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Drafts</span><span style="color:#ABA79C;margin-left:6px;white-space:nowrap">3/8</span></a><span style="margin-left:auto;display:inline-flex"><a href="/GWAGENCY/site/demos/bayou-shine/" aria-label="Previous: Bayou Shine Detail" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M15 18l-6-6 6-6"/></svg></a><a href="/GWAGENCY/site/demos/clearline/" aria-label="Next: Clearline Detail" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M9 18l6-6-6-6"/></svg></a><a href="/GWAGENCY/#search" aria-label="Search all sites" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;color:#EDEBE5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a></span></nav>
+
+<div class="gw-bar" role="region" aria-label="GroundWork demo notice">
+  <div class="k-wrap">
+    <b><i></i>GroundWork demo</b>
+    <span>Fictional Nashville mobile shop. Add-ons update the total. No payment.</span>
+    <div class="gw-actions">
+      <a class="gw-cta" href="/GWAGENCY/site/audit/?demo=briar">Book the audit</a>
+      <a class="gw-cta p" href="/GWAGENCY/site/start/?demo=briar">Start for $99</a>
+    </div>
+  </div>
+</div>
+
+<header class="k-nav">
+  <div class="k-wrap">
+    <a class="k-logo" href="#main">Briar Mobile <small>Detail · We come to you</small></a>
+    <nav class="k-links" aria-label="Site"><a href="#services">Services</a><a href="#packages">Pricing</a><a href="#build">Build</a><a href="#work">Work</a><a href="#reviews">Reviews</a></nav>
+    <div class="k-actions"><a class="k-btn k-btn-ghost" href="sms:6155550184">Text us</a><a class="k-btn k-btn-primary" href="#book">Book now</a></div>
+  </div>
+</header>
+
+<main id="main">
+<section class="k-hero">
+  <div class="k-wrap">
+    <div>
+      <div class="k-eyebrow">Nashville · Franklin · Brentwood · Hendersonville</div>
+      <h1>Build the visit. <em>See the total.</em></h1>
+      <p class="lede">We pull up with water and power. Start with a driveway wash, tap interior, wheels, or a spray ceramic, and the price on the page changes before you pick a window.</p>
+      <div class="k-ctas"><a class="k-btn k-btn-primary" href="#build">Build a visit</a><a class="k-btn k-btn-ghost" href="#packages">See prices</a></div>
+      <div class="k-proof"><div><b>4.9</b>Sample rating</div><div><b>6 days</b>a week</div><div><b>$0</b>travel in zone</div></div>
+    </div>
+    <div class="k-art" aria-hidden="true">
+      <div class="paint"></div><div class="beads"></div><div class="sheen"></div>
+      <div class="label"><b>Driveway · Franklin</b>Wash + wheels</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="k-wrap">
+    <h2 class="k-eyebrow">Services</h2>
+    <div class="k-services">
+      <div><div class="n">01</div><h3>Driveway wash</h3><p>Hand wash, dry, and a spray sealant. The base every visit starts from.</p></div>
+      <div><div class="n">02</div><h3>Interior reset</h3><p>Vacuum, wipe, and a light shampoo. Crumbs and coffee, not a full extraction day.</p></div>
+      <div><div class="n">03</div><h3>Wheel faces</h3><p>Barrels, faces, and tire dressing. Added when the wash alone won’t reach the brake dust.</p></div>
+      <div><div class="n">04</div><h3>Spray ceramic</h3><p>A six-month spray on paint that is already clean. Not a multi-year coating.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="k-band" id="packages">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Pricing</div><h2>Set visits, <br>or build your own.</h2></div>
+      <p>Sedan pricing. SUV and truck +$25. The builder below starts from the driveway wash and adds only what you tap.</p>
+    </div>
+    <div class="k-pkgs">
+      <div class="k-pkg">
+        <div class="pn">Driveway wash</div><div class="pp">$115</div><div class="pt">About 1 hour</div>
+        <ul><li>Hand wash + dry</li><li>Glass + door jambs</li><li>Tire dress</li><li>Spray sealant</li></ul>
+        <a class="k-btn k-btn-ghost" href="#book">Book a wash</a>
+      </div>
+      <div class="k-pkg pop">
+        <div class="tag" aria-hidden="true">Most booked</div>
+        <div class="pn">Inside + out <span class="sr-only">, most booked</span></div><div class="pp">$215</div><div class="pt">About 3 hours</div>
+        <ul><li>Everything in the wash</li><li>Interior reset</li><li>Seat and carpet wipe</li><li>Wheel faces</li></ul>
+        <a class="k-btn k-btn-primary" href="#build">Build this visit</a>
+      </div>
+      <div class="k-pkg">
+        <div class="pn">Interior only</div><div class="pp">$155</div><div class="pt">About 2 hours</div>
+        <ul><li>Full vacuum</li><li>Wipe-down + glass</li><li>Light shampoo</li><li>Cargo area</li></ul>
+        <a class="k-btn k-btn-ghost" href="#book">Book interior</a>
+      </div>
+    </div>
+    <p class="k-fine">No travel fee inside the zone. Outside it, a flat $25 told to you before the slot is held.</p>
+  </div>
+</section>
+
+<section id="build">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Package builder</div><h2>Tap add-ons. <br>The total moves.</h2></div>
+      <p>Fictional menu. Nothing is charged here. The booking form below stays a demo.</p>
+    </div>
+    <div class="build">
+      <div class="build-base"><span>Driveway wash</span><b>$115</b></div>
+      <ul class="build-adds">
+        <li><button type="button" class="build-add" data-addon data-price="75" data-name="Interior reset" aria-pressed="false">Interior reset · +$75</button></li>
+        <li><button type="button" class="build-add" data-addon data-price="40" data-name="Wheel faces" aria-pressed="false">Wheel faces · +$40</button></li>
+        <li><button type="button" class="build-add" data-addon data-price="90" data-name="Spray ceramic" aria-pressed="false">Spray ceramic · +$90</button></li>
+      </ul>
+      <div aria-live="polite" aria-atomic="true">
+        <p class="build-total"><span>Visit total</span><strong data-total>$115</strong></p>
+        <p class="build-summary" data-summary>Driveway wash</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k-band" id="work">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Recent jobs</div><h2>Driveways around Nashville</h2></div>
+      <p>Demo imagery. Yours: real jobs, pulled from your phone or Instagram.</p>
+    </div>
+    <div class="k-gallery">
+      <div class="g w h2"><div class="paint"></div><div class="beads"></div><div class="cap"><b>Franklin</b>Wash + wheels</div></div>
+      <div class="g t h1"><div class="paint"></div><div class="cap"><b>Germantown</b>Interior reset</div></div>
+      <div class="g h3"><div class="paint"></div><div class="cap"><b>Brentwood</b>Spray ceramic</div></div>
+      <div class="g h1"><div class="paint"></div><div class="beads"></div><div class="cap"><b>East Nashville</b>Inside + out</div></div>
+      <div class="g h2"><div class="paint"></div><div class="cap"><b>Hendersonville</b>Driveway wash</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="k-wrap">
+    <div class="k-head">
+      <div><div class="k-eyebrow">Reviews</div><h2>Sample notes</h2></div>
+      <p>Sample reviews for the demo. Yours pull from Google.</p>
+    </div>
+    <div class="k-reviews">
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"I added wheels on the site and the total updated before I picked a window. That’s all I needed."</p><div class="who"><b>Jonah P.</b>Sample · Tacoma · wash + wheels</div></div>
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"Came to the office lot. Interior and a wash. Text when they were close."</p><div class="who"><b>Maya L.</b>Sample · Pilot · inside + out</div></div>
+      <div class="k-rev"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><p>"Prices on the page, no travel fee in Franklin. Easy to book from the driveway."</p><div class="who"><b>Chris D.</b>Sample · Accord · driveway wash</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="k-band" id="book">
+  <div class="k-wrap k-book">
+    <div>
+      <div class="k-eyebrow">Book a slot</div>
+      <h2 id="book-heading">We’ll text when <br>we’re close.</h2>
+      <p class="k-mute" style="margin-top:20px">The summary follows the add-ons you tapped. Leave the keys somewhere we can reach. We bring water if the hose bib is behind a gate.</p>
+      <ul class="k-areas" aria-label="Service areas"><li>Nashville</li><li>Franklin</li><li>Brentwood</li><li>Hendersonville</li><li>Mount Juliet</li><li>Murfreesboro</li></ul>
+    </div>
+    <form class="k-embed" aria-labelledby="book-heading">
+      <p class="book-summary" data-book-summary>Booking summary: Driveway wash · $115</p>
+      <div class="row">
+        <label>Package<select><option>Driveway wash, $115</option><option>Inside + out, $215</option><option>Interior only, $155</option></select></label>
+        <label>Vehicle<select><option>Sedan</option><option>SUV / Truck (+$25)</option></select></label>
+      </div>
+      <div class="row"><label>Address / ZIP<input placeholder="37206"></label><label>Day<input type="date" value="2026-10-02"></label></div>
+      <fieldset><legend>Arrival window</legend>
+        <div class="slots" role="radiogroup" aria-label="Arrival window">
+          <button type="button" class="slot" role="radio" aria-checked="true">8-10am</button>
+          <button type="button" class="slot" role="radio" aria-checked="false">10-12</button>
+          <button type="button" class="slot" role="radio" aria-checked="false">12-2pm</button>
+          <button type="button" class="slot" role="radio" aria-checked="false">2-4pm</button>
+        </div>
+      </fieldset>
+      <div class="row"><label>Name<input placeholder="Your name"></label><label>Phone<input placeholder="(615) 555‑0100"></label></div>
+      <button class="k-btn k-btn-primary" type="submit">Confirm booking</button>
+      <p role="status" aria-live="polite"></p>
+      <div class="note">Demo widget · real sites embed your booking tool here</div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="k-wrap k-faq" style="max-width:820px">
+    <h2 class="k-eyebrow">Questions</h2>
+    <details><summary>Is the total a payment?</summary><p>No. Tapping add-ons only updates the visit total and the booking summary. A real site would hand that total to your booking tool. This demo does not charge a card.</p></details>
+    <details><summary>Do you need a hose?</summary><p>Helpful, not required. The van carries water. A working hose bib just shortens the visit.</p></details>
+    <details><summary>What if I live outside the zone?</summary><p>A flat $25, named before you confirm. We don’t add it after the van is already on the way.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="k-footer">
+  <div class="k-wrap">
+    <div><b>Briar Mobile Detail</b>Nashville area · Mon-Sat · 8am-6pm<br>Water and power on the van</div>
+    <div><b>Contact</b><a href="sms:6155550184">Text (615) 555‑0184</a><br><a href="#">hello@briarmobile.example</a></div>
+    <div><b>Follow</b>Instagram · Facebook · Google<br><br><span style="font-size:12px">Demo site by <a href="/GWAGENCY/site/">GroundWork</a> · <a href="/GWAGENCY/site/privacy/">Privacy</a></span></div>
+  </div>
+</footer>
+
+<nav class="k-sticky" aria-label="Quick actions"><a class="k-btn k-btn-ghost" href="sms:6155550184">Text</a><a class="k-btn k-btn-primary" href="#book">Book now</a></nav>
+
+<script src="/GWAGENCY/site/kit/kit.js?v=3.1"></script>
+<script>
+(function () {
+  var adds = document.querySelectorAll("[data-addon]");
+  if (!adds.length) return;
+  var totalEl = document.querySelector("[data-total]");
+  var summaryEl = document.querySelector("[data-summary]");
+  var bookEl = document.querySelector("[data-book-summary]");
+  var base = 115;
+
+  function render() {
+    var total = base;
+    var names = ["Driveway wash"];
+    adds.forEach(function (btn) {
+      if (btn.getAttribute("aria-pressed") === "true") {
+        total += Number(btn.getAttribute("data-price")) || 0;
+        names.push(btn.getAttribute("data-name"));
+      }
+    });
+    var money = "$" + total;
+    var line = names.join(" + ") + " · " + money;
+    if (totalEl) totalEl.textContent = money;
+    if (summaryEl) summaryEl.textContent = names.join(" + ");
+    if (bookEl) bookEl.textContent = "Booking summary: " + line;
+  }
+
+  adds.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var on = btn.getAttribute("aria-pressed") === "true";
+      btn.setAttribute("aria-pressed", on ? "false" : "true");
+      render();
+    });
+  });
+})();
+</script>
+<script src="/GWAGENCY/site/assets/js/analytics.js?v=3.1" defer></script>
+</body>
+</html>
