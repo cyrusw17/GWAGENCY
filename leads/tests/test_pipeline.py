@@ -72,6 +72,8 @@ class PlacesTest(unittest.TestCase):
 
     def test_monthly_cap_spans_runs(self):
         g = FakeGoogle()
+        self.addCleanup(setattr, places, "MONTHLY_BUDGET_USD", places.MONTHLY_BUDGET_USD)
+        places.MONTHLY_BUDGET_USD = 10**6  # isolate the request cap from the dollar guard
         store.bump_usage(self.db, places.SKU, places.MONTHLY_CAP - 1)  # earlier runs this month
         s = places.Searcher(self.db, "k", NICHE, max_requests=100, post=g.post, sleep=lambda _: None)
         with self.assertRaises(places.BudgetExceeded):
