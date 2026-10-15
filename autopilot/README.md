@@ -17,13 +17,17 @@ Copy this folder to ~/Desktop/business/autopilot. Key: ~/.config/groundwork/smar
 
 | Reply intent | Autopilot does |
 |---|---|
-| Clean yes only (no question attached) | Template 1 only if mockup_url returns HTTP 200; otherwise the interim line |
-| Unsubscribe / not interested | No reply. Same day: `unsubscribe CAMPAIGN_ID LEAD_ID`, then `block EMAIL` |
-| Mixed intent ("yes, how much?") or unsure | Draft and flag |
+| Asks for the preview / mockup ("sure, send it") | Auto-reply with template 1A: the link to the site-check form, https://groundwork-web.com/site-check/?utm_source=email&utm_medium=email&utm_campaign=autopilot |
+| Form filled in, or they ask to see it | Build the mockup, screenshot it (phone + desktop PNG), send template 1 with the images. Images only: never send HTML, code, a zip or a live page link (Cyrus, 2026-10-15: "photos, no code, so they can't steal it") |
+| Unsubscribe, "no thanks", "not interested", "stop", "remove me" or similar | No reply. Same day: `unsubscribe CAMPAIGN_ID LEAD_ID`, then `block EMAIL` |
+| Price or how-it-works question | Auto-answer with template 2 or 3, live prices only (Cyrus: deliver what they ask for) |
+| Mixed or unclear intent | Draft and flag |
 | Out of office / auto-reply | Nothing |
-| Price question, objection, refund | Draft and flag, never auto-send |
-| Wants a call | Flag Cyrus |
-| Angry, legal, payment, anything unclear | Draft, do NOT send, flag |
+| Refund, payment, angry, legal, AI question | Draft, do NOT send, flag |
+
+Replies draw on the team's research already distilled into reply-templates.md (cold-email playbook: plain text, under 80 words, one ask; sales-ops reply and onboarding work).
+
+Sending images: try the Smartlead reply API's attachment field on the first delivery. If the API can't attach files, save the PNGs to autopilot/outbox/<lead>/ and flag Cyrus in the summary to attach them in Smartlead; do not host them as a web page.
 
 ## Script safety
 - `replies` returns only threads whose newest message is an unanswered REPLY and skips ids in log/processed.json; `reply` refuses any id already there.

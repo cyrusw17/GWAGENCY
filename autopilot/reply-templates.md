@@ -35,13 +35,23 @@ Rules for every reply: plain text, under 80 words, one question or one link, sig
 
 ---
 
+### 1A. Asks for the preview (auto-send)
+
+> Great, {first_name}. Fill in this short form so I build the right thing for {shop}: https://groundwork-web.com/site-check/?utm_source=email&utm_medium=email&utm_campaign=autopilot
+>
+> I'll send screenshots of your mockup as soon as it's ready.
+>
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
+> Reply "no thanks" and I won't email again.
+
 ### 1. Interested
 
 Funnel (Cyrus, 2026-10-04 22:13Z, decisions.md): they reply yes, we send their mockup, and a call comes only if they hesitate (1B). The decision log calls this page their "preview"; in client copy it stays "mockup", so it isn't confused with the paid private preview built after the $99.
 
-> Great, {first_name}. Here's the mockup I made for {shop}: {mockup_url}
+> Great, {first_name}. Here's the mockup I made for {shop}, attached as screenshots (phone and desktop).
 >
-> Tap through it on your phone. If you like where it's going, reply yes and I'll send the link to start your real site for $99. You see the finished site before paying the $300, then from $99 a month once it's live. If you don't want it, the $99 comes back.
+> Have a look on your phone. If you like where it's going, reply yes and I'll send the link to start your real site for $99. You see the finished site before paying the $300, then from $99 a month once it's live. If you don't want it, the $99 comes back.
 >
 > Questions? Just reply here.
 >
@@ -49,7 +59,7 @@ Funnel (Cyrus, 2026-10-04 22:13Z, decisions.md): they reply yes, we send their m
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
-Auto-send this only when the reply is a clean yes and `{mockup_url}` is set and returns HTTP 200 from the live host. Mockups don't have a working Start for $99 button yet (GleamUp's "Make it mine" linked to "#"), so the line above asks them to reply yes instead. Once every mockup carries a working start link (the /start/ link with niche and UTMs), it can go back to "the Start for $99 button on the page gets your real site built."
+Send this once the mockup is built: attach the phone and desktop PNG screenshots. Never send HTML, code, a zip or a live page link.
 
 If the mockup isn't live yet, send this interim line instead, then the template above once it is:
 
@@ -77,7 +87,7 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 > - $300 only when you approve it and it goes live. Don't want it? The $99 comes back.
 > - Then $199/mo for Grow (everything in Host, plus 2 to 3 updates a month and a monthly Google Business Profile and SEO check-in) or $99/mo for Host (site and booking stay live). Both start the month you go live. Cancel with 30 days written notice.
 >
-> Here's the mockup I made for {shop}: {mockup_url}. Reply yes and I'll send the link to start the real site. Rather talk it through first? Grab a time: {calendly_link}
+> Screenshots of the mockup I made for {shop} are attached. Reply yes and I'll send the link to start the real site. Rather talk it through first? Grab a time: {calendly_link}
 >
 > GroundWork - Web
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
@@ -87,7 +97,7 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 
 > Hi {first_name}, after the $99 start you send me your logo, 10 to 20 photos, your services and prices, and the booking tool you use (Square, Booksy, Google, Calendly or similar). I build the site and send a private preview in about a week. You get one round of changes, then you approve and it goes live.
 >
-> Here's the mockup I made for {shop}: {mockup_url}. Reply yes and I'll send the link to get things going. Rather talk it through first? Grab a time: {calendly_link}
+> Screenshots of the mockup I made for {shop} are attached. Reply yes and I'll send the link to get things going. Rather talk it through first? Grab a time: {calendly_link}
 >
 > GroundWork - Web
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
