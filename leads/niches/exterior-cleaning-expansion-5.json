@@ -1,0 +1,482 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Ocean City, MD"
+    },
+    {
+      "name": "Salisbury, MD"
+    },
+    {
+      "name": "Annapolis, MD"
+    },
+    {
+      "name": "Frederick, MD"
+    },
+    {
+      "name": "Hagerstown, MD"
+    },
+    {
+      "name": "Dover, DE"
+    },
+    {
+      "name": "Wilmington, DE"
+    },
+    {
+      "name": "Rehoboth Beach, DE"
+    },
+    {
+      "name": "Cape May, NJ"
+    },
+    {
+      "name": "Toms River, NJ"
+    },
+    {
+      "name": "Cherry Hill, NJ"
+    },
+    {
+      "name": "Vineland, NJ"
+    },
+    {
+      "name": "Reading, PA"
+    },
+    {
+      "name": "York, PA"
+    },
+    {
+      "name": "Scranton, PA"
+    },
+    {
+      "name": "State College, PA"
+    },
+    {
+      "name": "Altoona, PA"
+    },
+    {
+      "name": "Williamsport, PA"
+    },
+    {
+      "name": "Syracuse, NY"
+    },
+    {
+      "name": "Rochester, NY"
+    },
+    {
+      "name": "Buffalo, NY"
+    },
+    {
+      "name": "Albany, NY"
+    },
+    {
+      "name": "Binghamton, NY"
+    },
+    {
+      "name": "Hartford, CT"
+    },
+    {
+      "name": "New Haven, CT"
+    },
+    {
+      "name": "Providence, RI"
+    },
+    {
+      "name": "Worcester, MA"
+    },
+    {
+      "name": "Springfield, MA"
+    },
+    {
+      "name": "Manchester, NH"
+    },
+    {
+      "name": "Portland, ME"
+    },
+    {
+      "name": "Burlington, VT"
+    },
+    {
+      "name": "Morgantown, WV"
+    },
+    {
+      "name": "Parkersburg, WV"
+    },
+    {
+      "name": "Wheeling, WV"
+    },
+    {
+      "name": "Canton, OH"
+    },
+    {
+      "name": "Sandusky, OH"
+    },
+    {
+      "name": "Zanesville, OH"
+    },
+    {
+      "name": "Ann Arbor, MI"
+    },
+    {
+      "name": "Traverse City, MI"
+    },
+    {
+      "name": "Saginaw, MI"
+    },
+    {
+      "name": "Holland, MI"
+    },
+    {
+      "name": "Appleton, WI"
+    },
+    {
+      "name": "Eau Claire, WI"
+    },
+    {
+      "name": "La Crosse, WI"
+    },
+    {
+      "name": "Rochester, MN"
+    },
+    {
+      "name": "St. Cloud, MN"
+    },
+    {
+      "name": "Duluth, MN"
+    },
+    {
+      "name": "Mankato, MN"
+    },
+    {
+      "name": "Iowa City, IA"
+    },
+    {
+      "name": "Ames, IA"
+    },
+    {
+      "name": "Sioux City, IA"
+    },
+    {
+      "name": "Council Bluffs, IA"
+    },
+    {
+      "name": "Quincy, IL"
+    },
+    {
+      "name": "Decatur, IL"
+    },
+    {
+      "name": "Carbondale, IL"
+    },
+    {
+      "name": "Kokomo, IN"
+    },
+    {
+      "name": "Columbus, IN"
+    },
+    {
+      "name": "Paducah, KY"
+    },
+    {
+      "name": "Hopkinsville, KY"
+    },
+    {
+      "name": "Cape Girardeau, MO"
+    },
+    {
+      "name": "Branson, MO"
+    },
+    {
+      "name": "Jefferson City, MO"
+    },
+    {
+      "name": "St. Joseph, MO"
+    },
+    {
+      "name": "Hutchinson, KS"
+    },
+    {
+      "name": "Garden City, KS"
+    },
+    {
+      "name": "Kearney, NE"
+    },
+    {
+      "name": "North Platte, NE"
+    },
+    {
+      "name": "Casper, WY"
+    },
+    {
+      "name": "Laramie, WY"
+    },
+    {
+      "name": "Bozeman, MT"
+    },
+    {
+      "name": "Missoula, MT"
+    },
+    {
+      "name": "Great Falls, MT"
+    },
+    {
+      "name": "Coeur d'Alene, ID"
+    },
+    {
+      "name": "Twin Falls, ID"
+    },
+    {
+      "name": "Pocatello, ID"
+    },
+    {
+      "name": "Logan, UT"
+    },
+    {
+      "name": "Cedar City, UT"
+    },
+    {
+      "name": "Durango, CO"
+    },
+    {
+      "name": "Loveland, CO"
+    },
+    {
+      "name": "Greeley, CO"
+    },
+    {
+      "name": "Lake Havasu City, AZ"
+    },
+    {
+      "name": "Sierra Vista, AZ"
+    },
+    {
+      "name": "Casa Grande, AZ"
+    },
+    {
+      "name": "Roswell, NM"
+    },
+    {
+      "name": "Farmington, NM"
+    },
+    {
+      "name": "Clovis, NM"
+    },
+    {
+      "name": "Bend, OR"
+    },
+    {
+      "name": "Eugene, OR"
+    },
+    {
+      "name": "Salem, OR"
+    },
+    {
+      "name": "Grants Pass, OR"
+    },
+    {
+      "name": "Yakima, WA"
+    },
+    {
+      "name": "Kennewick, WA"
+    },
+    {
+      "name": "Bellingham, WA"
+    },
+    {
+      "name": "Olympia, WA"
+    },
+    {
+      "name": "Wenatchee, WA"
+    },
+    {
+      "name": "Chico, CA"
+    },
+    {
+      "name": "Visalia, CA"
+    },
+    {
+      "name": "Modesto, CA"
+    },
+    {
+      "name": "San Luis Obispo, CA"
+    },
+    {
+      "name": "Santa Rosa, CA"
+    },
+    {
+      "name": "Temecula, CA"
+    },
+    {
+      "name": "Palm Desert, CA"
+    },
+    {
+      "name": "Victorville, CA"
+    },
+    {
+      "name": "Henderson, NV"
+    },
+    {
+      "name": "Carson City, NV"
+    },
+    {
+      "name": "Lufkin, TX"
+    },
+    {
+      "name": "Huntsville, TX"
+    },
+    {
+      "name": "Paris, TX"
+    },
+    {
+      "name": "Big Spring, TX"
+    },
+    {
+      "name": "Del Rio, TX"
+    },
+    {
+      "name": "Seguin, TX"
+    },
+    {
+      "name": "Port Arthur, TX"
+    },
+    {
+      "name": "Galveston, TX"
+    },
+    {
+      "name": "Lake Jackson, TX"
+    },
+    {
+      "name": "Rockport, TX"
+    },
+    {
+      "name": "Harlingen, TX"
+    },
+    {
+      "name": "Natchez, MS"
+    },
+    {
+      "name": "Columbus, MS"
+    },
+    {
+      "name": "Greenville, MS"
+    },
+    {
+      "name": "Vicksburg, MS"
+    },
+    {
+      "name": "Jonesboro, GA"
+    },
+    {
+      "name": "Thomasville, GA"
+    },
+    {
+      "name": "Tifton, GA"
+    },
+    {
+      "name": "Waycross, GA"
+    },
+    {
+      "name": "Milledgeville, GA"
+    },
+    {
+      "name": "Cartersville, GA"
+    },
+    {
+      "name": "Enterprise, AL"
+    },
+    {
+      "name": "Anniston, AL"
+    },
+    {
+      "name": "Cullman, AL"
+    },
+    {
+      "name": "Athens, AL"
+    },
+    {
+      "name": "Lake City, FL"
+    },
+    {
+      "name": "Crestview, FL"
+    },
+    {
+      "name": "Sebring, FL"
+    },
+    {
+      "name": "Palatka, FL"
+    },
+    {
+      "name": "Homestead, FL"
+    },
+    {
+      "name": "Key West, FL"
+    },
+    {
+      "name": "Punta Gorda, FL"
+    },
+    {
+      "name": "Venice, FL"
+    },
+    {
+      "name": "Orangeburg, SC"
+    },
+    {
+      "name": "Georgetown, SC"
+    },
+    {
+      "name": "Seneca, SC"
+    },
+    {
+      "name": "Elizabeth City, NC"
+    },
+    {
+      "name": "Morehead City, NC"
+    },
+    {
+      "name": "Lumberton, NC"
+    },
+    {
+      "name": "Sanford, NC"
+    },
+    {
+      "name": "Southern Pines, NC"
+    },
+    {
+      "name": "Kill Devil Hills, NC"
+    },
+    {
+      "name": "Martinsville, VA"
+    },
+    {
+      "name": "Staunton, VA"
+    },
+    {
+      "name": "Fredericksburg, TX"
+    },
+    {
+      "name": "Lake Wylie, SC"
+    }
+  ]
+}

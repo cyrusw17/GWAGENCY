@@ -1,0 +1,268 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Bel Air, MD"
+    },
+    {
+      "name": "Columbia, MD"
+    },
+    {
+      "name": "Gaithersburg, MD"
+    },
+    {
+      "name": "Ashburn, VA"
+    },
+    {
+      "name": "Fairfax, VA"
+    },
+    {
+      "name": "Woodbridge, VA"
+    },
+    {
+      "name": "Glen Allen, VA"
+    },
+    {
+      "name": "Mechanicsville, VA"
+    },
+    {
+      "name": "Cranberry Township, PA"
+    },
+    {
+      "name": "West Chester, PA"
+    },
+    {
+      "name": "Doylestown, PA"
+    },
+    {
+      "name": "Lancaster, OH"
+    },
+    {
+      "name": "Lewis Center, OH"
+    },
+    {
+      "name": "Beavercreek, OH"
+    },
+    {
+      "name": "Springboro, OH"
+    },
+    {
+      "name": "Brighton, MI"
+    },
+    {
+      "name": "Rochester Hills, MI"
+    },
+    {
+      "name": "Novi, MI"
+    },
+    {
+      "name": "Plainfield, IL"
+    },
+    {
+      "name": "Orland Park, IL"
+    },
+    {
+      "name": "Crystal Lake, IL"
+    },
+    {
+      "name": "Waukesha, WI"
+    },
+    {
+      "name": "Brookfield, WI"
+    },
+    {
+      "name": "Lakeville, MN"
+    },
+    {
+      "name": "Woodbury, MN"
+    },
+    {
+      "name": "Maple Grove, MN"
+    },
+    {
+      "name": "West Des Moines, IA"
+    },
+    {
+      "name": "Papillion, NE"
+    },
+    {
+      "name": "Shawnee, KS"
+    },
+    {
+      "name": "Wentzville, MO"
+    },
+    {
+      "name": "Ballwin, MO"
+    },
+    {
+      "name": "Nixa, MO"
+    },
+    {
+      "name": "Bixby, OK"
+    },
+    {
+      "name": "Yukon, OK"
+    },
+    {
+      "name": "Mustang, OK"
+    },
+    {
+      "name": "Lakeway, TX"
+    },
+    {
+      "name": "Kyle, TX"
+    },
+    {
+      "name": "Buda, TX"
+    },
+    {
+      "name": "Montgomery, TX"
+    },
+    {
+      "name": "Magnolia, TX"
+    },
+    {
+      "name": "Friendswood, TX"
+    },
+    {
+      "name": "Fulshear, TX"
+    },
+    {
+      "name": "Richmond, TX"
+    },
+    {
+      "name": "Forney, TX"
+    },
+    {
+      "name": "Wylie, TX"
+    },
+    {
+      "name": "Burleson, TX"
+    },
+    {
+      "name": "Aledo, TX"
+    },
+    {
+      "name": "Madison, MS"
+    },
+    {
+      "name": "Brandon, MS"
+    },
+    {
+      "name": "Trussville, AL"
+    },
+    {
+      "name": "Hoschton, GA"
+    },
+    {
+      "name": "Dacula, GA"
+    },
+    {
+      "name": "Loganville, GA"
+    },
+    {
+      "name": "Evans, GA"
+    },
+    {
+      "name": "Grovetown, GA"
+    },
+    {
+      "name": "Mount Pleasant, TN"
+    },
+    {
+      "name": "Thompson's Station, TN"
+    },
+    {
+      "name": "Arlington, TN"
+    },
+    {
+      "name": "Mint Hill, NC"
+    },
+    {
+      "name": "Indian Trail, NC"
+    },
+    {
+      "name": "Wesley Chapel, FL"
+    },
+    {
+      "name": "Lithia, FL"
+    },
+    {
+      "name": "Riverview, FL"
+    },
+    {
+      "name": "Lakewood Ranch, FL"
+    },
+    {
+      "name": "Oviedo, FL"
+    },
+    {
+      "name": "Clermont, FL"
+    },
+    {
+      "name": "St. Johns, FL"
+    },
+    {
+      "name": "Fleming Island, FL"
+    },
+    {
+      "name": "Gilbert, AZ"
+    },
+    {
+      "name": "Queen Creek, AZ"
+    },
+    {
+      "name": "Chandler, AZ"
+    },
+    {
+      "name": "Highlands Ranch, CO"
+    },
+    {
+      "name": "Castle Rock, CO"
+    },
+    {
+      "name": "Parker, CO"
+    },
+    {
+      "name": "Meridian, ID"
+    },
+    {
+      "name": "Eagle, ID"
+    },
+    {
+      "name": "Lehi, UT"
+    },
+    {
+      "name": "Draper, UT"
+    },
+    {
+      "name": "Saratoga Springs, UT"
+    }
+  ]
+}

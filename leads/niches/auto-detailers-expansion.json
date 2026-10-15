@@ -1,0 +1,113 @@
+{
+  "name": "auto-detailers",
+  "queries": [
+    "auto detailing",
+    "mobile auto detailing",
+    "ceramic coating"
+  ],
+  "exclude_types": [
+    "car_dealer",
+    "gas_station",
+    "car_rental",
+    "parking",
+    "auto_parts_store"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Charlotte, NC"
+    },
+    {
+      "name": "Atlanta, GA"
+    },
+    {
+      "name": "Orlando, FL"
+    },
+    {
+      "name": "Tampa, FL"
+    },
+    {
+      "name": "Jacksonville, FL"
+    },
+    {
+      "name": "Nashville, TN"
+    },
+    {
+      "name": "Phoenix, AZ"
+    },
+    {
+      "name": "Las Vegas, NV"
+    },
+    {
+      "name": "Raleigh, NC"
+    },
+    {
+      "name": "Columbus, OH"
+    },
+    {
+      "name": "Indianapolis, IN"
+    },
+    {
+      "name": "Kansas City, MO"
+    },
+    {
+      "name": "Oklahoma City, OK"
+    },
+    {
+      "name": "Louisville, KY"
+    },
+    {
+      "name": "Memphis, TN"
+    },
+    {
+      "name": "Birmingham, AL"
+    },
+    {
+      "name": "Richmond, VA"
+    },
+    {
+      "name": "Greenville, SC"
+    },
+    {
+      "name": "Charleston, SC"
+    },
+    {
+      "name": "Knoxville, TN"
+    },
+    {
+      "name": "Tucson, AZ"
+    },
+    {
+      "name": "Albuquerque, NM"
+    },
+    {
+      "name": "Denver, CO"
+    },
+    {
+      "name": "Salt Lake City, UT"
+    },
+    {
+      "name": "Boise, ID"
+    },
+    {
+      "name": "Omaha, NE"
+    }
+  ],
+  "slug": "auto-detailing",
+  "name_exclude": [
+    "ziebart",
+    "tint world",
+    "maaco",
+    "take 5",
+    "mister car wash",
+    "quick quack",
+    "tommy's express"
+  ],
+  "name_require_any": [
+    "detail",
+    "ceramic",
+    "coating",
+    "paint correction",
+    "ppf"
+  ]
+}
