@@ -45,8 +45,8 @@ Funnel (Cyrus, 2026-10-04 22:13Z, decisions.md): they reply yes, we send their m
 >
 > Questions? Just reply here.
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 Auto-send this only when the reply is a clean yes and `{mockup_url}` is set and returns HTTP 200 from the live host. Mockups don't have a working Start for $99 button yet (GleamUp's "Make it mine" linked to "#"), so the line above asks them to reply yes instead. Once every mockup carries a working start link (the /start/ link with niche and UTMs), it can go back to "the Start for $99 button on the page gets your real site built."
@@ -55,8 +55,8 @@ If the mockup isn't live yet, send this interim line instead, then the template 
 
 > Great, {first_name}. I'm putting {shop}'s mockup together now and will send the link as soon as it's ready.
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 ### 1B. Not sure / hesitating (call fallback)
@@ -65,8 +65,8 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 
 > Fair enough, {first_name}. Easier to talk it through? Grab any time that works and I'll answer whatever's on your mind, no pressure: {calendly_link}
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 ### 2. Price question
@@ -79,8 +79,8 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 >
 > Here's the mockup I made for {shop}: {mockup_url}. Reply yes and I'll send the link to start the real site. Rather talk it through first? Grab a time: {calendly_link}
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 ### 3. How it works / timing
@@ -89,8 +89,8 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 >
 > Here's the mockup I made for {shop}: {mockup_url}. Reply yes and I'll send the link to get things going. Rather talk it through first? Grab a time: {calendly_link}
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 ("About a week" matches the live site; the developer thread still confirms it, same as sequence email 3B.)
@@ -107,8 +107,8 @@ If they prefer to book: `{calendly_link}`. On the call, follow [sales-call.md](s
 
 > Fair enough, {first_name}. One thing worth checking: when someone searches "{service} {city}", does your current page show your prices and take a booking request without them having to message you? If it does, you're set. If not, I'm happy to show you what that could look like, no cost to look.
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 If they reply no, stop. If they mention paying another agency, see 5B (parked until client 3).
@@ -119,8 +119,8 @@ Team lead, 2026-10-03: don't use until we have 3 paying clients. Until then, log
 
 > Makes sense, {first_name}. If you ever want to compare: I'd build {shop} a new site for the same $99 refundable start, waive the $300, and your first month is free. You'd see your new site before switching anything. When does your current contract renew?
 >
-> Cyrus
-> GroundWork-Web, {postal address}
+> GroundWork - Web
+> 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
 Log `notes = switch, renews {month}` and follow up a month before renewal.
@@ -129,7 +129,7 @@ Log `notes = switch, renews {month}` and follow up a month before renewal.
 
 > No problem, {first_name}. When's a better time, after {month}? I'll check back then and not before.
 >
-> Cyrus
+> GroundWork - Web
 
 Set `interested = later` and the date in `notes`. One follow-up on that date, then stop.
 
@@ -137,7 +137,7 @@ Set `interested = later` and the date in `notes`. One follow-up on that date, th
 
 > Understood, {first_name}. Thanks for letting me know, I won't email again. Good luck with the season.
 >
-> Cyrus
+> GroundWork - Web
 
 Set `status = lost`, `lost_reason = not interested`. Add to suppression. The autopilot sends no reply here (autopilot/README.md); the line above is only for Cyrus if he answers one by hand.
 
@@ -149,7 +149,7 @@ No reply. Suppress the same day: Smartlead block list plus `status = do-not-cont
 
 > Thanks, {first_name}. Who's the best person for this, and is it OK if I mention you sent me?
 >
-> Cyrus
+> GroundWork - Web
 
 Only email the new person if they give the address. Never guess an address.
 
@@ -157,7 +157,7 @@ Only email the new person if they give the address. Never guess an address.
 
 > Fair question. I'm Cyrus, I run GroundWork-Web, a small shop{location} that builds sites for {niche_plural}. I found {shop} on Google Maps and your email on {source}. If you'd rather not hear from me, say so and I'll remove you.
 >
-> Cyrus
+> GroundWork - Web
 
 `{niche_plural}` is the niche in plain words ("detailers", "pressure washing companies", "landscapers"). `{location}` is " in Deer Park, Texas" only if that is true and matches the footer's postal address; otherwise leave it empty. `{source}` comes from the `email_source` column in `sales/pipeline.csv`, the true source logged with the contact (their website, Facebook page, Google listing). If we don't know the source for that contact, say "a business listing" and flag it to the cold email specialist.
 
@@ -171,7 +171,7 @@ Stays true whether or not auto-send is approved. Before use, the developer threa
 
 > Sorry about that, {first_name}. You're removed and won't hear from me again.
 >
-> Cyrus
+> GroundWork - Web
 
 Suppress today, tag `notes = complaint`, and tell the cold email specialist the inbox and domain so they can watch complaint rates.
 
