@@ -38,9 +38,9 @@ Rules for every reply: plain text, under 80 words, one question or one link, sig
 
 ### 1A. Asks for the preview (auto-send)
 
-> Great, {first_name}. Fill in this short form so I build the right thing for {shop}: https://groundwork-web.com/site-check/?utm_source=email&utm_medium=email&utm_campaign=autopilot
+> Great, {first_name}. If you have a minute, this short form helps me build the right thing for {shop}: https://groundwork-web.com/site-check/?niche={niche}&utm_source=email&utm_medium=email&utm_campaign=autopilot
 >
-> I'll send screenshots of your mockup as soon as it's ready.
+> Either way, I'll send screenshots of your mockup as soon as it's ready.
 >
 > GroundWork - Web
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
@@ -79,6 +79,8 @@ Use when they hesitate after the mockup, or answer the first email with doubts. 
 > GroundWork - Web
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
+
+Templates 2 and 3: drop the "Screenshots ... are attached" sentence when no mockup has been built yet, and keep the rest (marketing review 02).
 
 ### 2. Price question
 
