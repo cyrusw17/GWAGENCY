@@ -34,7 +34,7 @@ KEY = _key()
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOG_DIR = os.path.join(HERE, "log")
 PROCESSED = os.path.join(LOG_DIR, "processed.json")
-OPT_OUT = re.compile(r"(unsubscribe|opt out|opt-out|reply ['\"]?stop|not interested.{0,40}let me know)", re.I)
+OPT_OUT = re.compile(r"(unsubscribe|opt out|opt-out|reply ['\"]?(stop|no thanks)|won't email (you )?again)", re.I)
 
 
 class ApiError(Exception):
