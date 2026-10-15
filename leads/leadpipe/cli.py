@@ -7,12 +7,7 @@ from pathlib import Path
 
 from . import crawl, export, places, report, store, verify
 
-# USD per 1,000 requests and free requests per month (Google Maps Platform, 2026).
-PRICES = {
-    places.SKU: (35.0, 1000),
-    places.ATMOSPHERE_SKU: (40.0, 1000),
-    places.GEOCODE_SKU: (5.0, 10000),
-}
+PRICES = places.PRICES
 
 
 def load_niche(path):
@@ -104,12 +99,11 @@ def cmd_stats(db, niche, a):
     for row in db.execute("""SELECT COALESCE(verify_status, 'unverified'), COUNT(*) FROM emails WHERE domain IN
                              (SELECT domain FROM places WHERE niche=?) GROUP BY 1""", (n,)):
         print(f"  email {row[0]}: {row[1]}")
-    cost = 0.0
     for sku, (price, free) in PRICES.items():
-        used = store.usage(db, sku)
-        cost += max(0, used - free) * price / 1000
-        print(f"  {store.month()} {sku}: {used} requests ({free} free)")
-    print(f"  Estimated Google bill this month: ${cost:.2f}")
+        print(f"  {store.month()} {sku}: {store.usage(db, sku)} requests ({free} free)")
+    print(f"  Estimated Google bill this month: ${store.cost(db, PRICES, store.month()):.2f}"
+          f" (monthly budget ${places.MONTHLY_BUDGET_USD:.2f})")
+    print(f"  Estimated Google bill all time: ${store.cost(db, PRICES):.2f} (total budget ${places.TOTAL_BUDGET_USD:.2f})")
 
 
 def main(argv=None):

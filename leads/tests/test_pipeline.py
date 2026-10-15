@@ -78,6 +78,32 @@ class PlacesTest(unittest.TestCase):
             s.run(NICHE["areas"])
         self.assertEqual(g.calls, 1)
 
+    def test_dollar_budgets_stop_paid_pages(self):
+        old = places.MONTHLY_CAP, places.MONTHLY_BUDGET_USD, places.TOTAL_BUDGET_USD
+        try:
+            places.MONTHLY_CAP = 10**6
+            store.bump_usage(self.db, places.SKU, 1000)  # free tier used up
+            places.MONTHLY_BUDGET_USD, places.TOTAL_BUDGET_USD = 0.10, 300.0  # room for 2 pages at $0.035
+            g = FakeGoogle()
+            with self.assertRaises(places.BudgetExceeded):
+                places.Searcher(self.db, "k", NICHE, 100, post=g.post, sleep=lambda _: None).run(NICHE["areas"])
+            self.assertEqual(g.calls, 2)
+            db = store.connect(":memory:")
+            db.execute("INSERT INTO usage VALUES ('2000-01', ?, 9570)", (places.SKU,))  # $299.95 in an old month
+            store.bump_usage(db, places.SKU, 1000)
+            places.MONTHLY_BUDGET_USD = 1000.0
+            g = FakeGoogle()
+            with self.assertRaises(places.BudgetExceeded) as e:
+                places.Searcher(db, "k", NICHE, 1000, post=g.post, sleep=lambda _: None).run(NICHE["areas"])
+            self.assertIn("total", str(e.exception))
+            self.assertEqual(g.calls, 1)
+            self.assertLessEqual(store.cost(db, places.PRICES), 300.0)
+        finally:
+            places.MONTHLY_CAP, places.MONTHLY_BUDGET_USD, places.TOTAL_BUDGET_USD = old
+
+    def test_total_budget_cannot_be_raised_above_hard_cap(self):
+        self.assertLessEqual(places.TOTAL_BUDGET_USD, places.HARD_TOTAL_USD)
+
     def test_stale_tiles_are_searched_again(self):
         g = FakeGoogle()
         places.Searcher(self.db, "k", NICHE, 100, post=g.post, sleep=lambda _: None).run(NICHE["areas"])

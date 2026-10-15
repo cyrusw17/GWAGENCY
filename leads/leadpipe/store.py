@@ -101,6 +101,19 @@ def usage(db, sku):
     return row["count"] if row else 0
 
 
+def cost(db, prices, month_=None):
+    """Estimated Google bill in USD for one month, or for every recorded month when month_ is None.
+    The free tier is assumed to apply to each SKU, which overstates cost slightly when one tier is shared."""
+    q, args = "SELECT month, sku, count FROM usage", ()
+    if month_:
+        q, args = q + " WHERE month = ?", (month_,)
+    total = 0.0
+    for r in db.execute(q, args):
+        price, free = prices.get(r["sku"], (0.0, 0))
+        total += max(0, r["count"] - free) * price / 1000
+    return total
+
+
 GOOGLE_FIELDS = ("name", "address", "city", "state", "phone", "website", "rating", "reviews",
                  "primary_type", "business_status", "maps_url", "review_samples", "hours_text", "fetched_at")
 

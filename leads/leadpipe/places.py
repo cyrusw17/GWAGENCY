@@ -27,6 +27,17 @@ GEOCODE_SKU = "geocoding"
 # Hard monthly ceiling on paid search pages across every run, kept under the 1,000 free
 # Enterprise requests. Override with LEADPIPE_MONTHLY_CAP only after the spend is approved.
 MONTHLY_CAP = int(os.environ.get("LEADPIPE_MONTHLY_CAP", "900"))
+# Dollar guards on the estimated Google bill (Cyrus, 2026-10: $300 total, never exceeded). The total
+# can be lowered with LEADPIPE_TOTAL_BUDGET_USD but never raised above HARD_TOTAL_USD.
+HARD_TOTAL_USD = 300.0
+TOTAL_BUDGET_USD = min(float(os.environ.get("LEADPIPE_TOTAL_BUDGET_USD", HARD_TOTAL_USD)), HARD_TOTAL_USD)
+MONTHLY_BUDGET_USD = float(os.environ.get("LEADPIPE_MONTHLY_BUDGET_USD", "25"))
+# USD per 1,000 requests and free requests per month (Google Maps Platform, 2026).
+PRICES = {
+    SKU: (35.0, 1000),
+    ATMOSPHERE_SKU: (40.0, 1000),
+    GEOCODE_SKU: (5.0, 10000),
+}
 MAX_PER_QUERY = 60
 PAGE_SIZE = 20
 
@@ -92,6 +103,11 @@ class Searcher:
             raise BudgetExceeded(f"request budget of {self.max_requests} reached")
         if sku != GEOCODE_SKU and store.usage(self.db, SKU) + store.usage(self.db, ATMOSPHERE_SKU) >= MONTHLY_CAP:
             raise BudgetExceeded(f"monthly cap of {MONTHLY_CAP} search requests reached")
+        price = PRICES[sku][0] / 1000
+        if store.cost(self.db, PRICES, store.month()) + price > MONTHLY_BUDGET_USD:
+            raise BudgetExceeded(f"monthly Google budget of ${MONTHLY_BUDGET_USD:.2f} reached")
+        if store.cost(self.db, PRICES) + price > TOTAL_BUDGET_USD:
+            raise BudgetExceeded(f"total Google budget of ${TOTAL_BUDGET_USD:.2f} reached")
         self.spent += 1
         store.bump_usage(self.db, sku)
 
