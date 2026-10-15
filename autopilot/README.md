@@ -20,7 +20,7 @@ Copy this folder to ~/Desktop/business/autopilot. Key: ~/.config/groundwork/smar
 | Asks for the preview / mockup ("sure, send it") | Auto-reply with template 1A: the link to the site-check form, https://groundwork-web.com/site-check/?utm_source=email&utm_medium=email&utm_campaign=autopilot |
 | Form filled in, or they ask to see it | Build the mockup, screenshot it (phone + desktop PNG), send template 1 with the images. Images only: never send HTML, code, a zip or a live page link (Cyrus, 2026-10-15: "photos, no code, so they can't steal it") |
 | Unsubscribe, "no thanks", "not interested", "stop", "remove me" or similar | No reply. Same day: `unsubscribe CAMPAIGN_ID LEAD_ID`, then `block EMAIL` |
-| Price or how-it-works question | Auto-answer with template 2 or 3, live prices only (Cyrus: deliver what they ask for) |
+| Price or how-it-works question | Template 2 or 3, live prices only. DRAFT-ONLY until marketing and the consultant pass these templates (team lead gate, 2026-10-15); then auto-send |
 | Mixed or unclear intent | Draft and flag |
 | Out of office / auto-reply | Nothing |
 | Refund, payment, angry, legal, AI question | Draft, do NOT send, flag |
