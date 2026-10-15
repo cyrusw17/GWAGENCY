@@ -1,0 +1,58 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Princeton, NJ"
+    },
+    {
+      "name": "Morristown, NJ"
+    },
+    {
+      "name": "Ridgefield, CT"
+    },
+    {
+      "name": "Hingham, MA"
+    },
+    {
+      "name": "Andover, MA"
+    },
+    {
+      "name": "Exeter, NH"
+    },
+    {
+      "name": "Saratoga Springs, NY"
+    },
+    {
+      "name": "Huntington, NY"
+    },
+    {
+      "name": "Fishkill, NY"
+    }
+  ]
+}

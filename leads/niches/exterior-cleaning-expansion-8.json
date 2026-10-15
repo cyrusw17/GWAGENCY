@@ -1,0 +1,221 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Stockton, CA"
+    },
+    {
+      "name": "Merced, CA"
+    },
+    {
+      "name": "Folsom, CA"
+    },
+    {
+      "name": "Vacaville, CA"
+    },
+    {
+      "name": "San Rafael, CA"
+    },
+    {
+      "name": "Concord, CA"
+    },
+    {
+      "name": "Livermore, CA"
+    },
+    {
+      "name": "San Jose, CA"
+    },
+    {
+      "name": "Santa Cruz, CA"
+    },
+    {
+      "name": "Salinas, CA"
+    },
+    {
+      "name": "Hanford, CA"
+    },
+    {
+      "name": "Porterville, CA"
+    },
+    {
+      "name": "Santa Maria, CA"
+    },
+    {
+      "name": "Lompoc, CA"
+    },
+    {
+      "name": "Santa Barbara, CA"
+    },
+    {
+      "name": "Ventura, CA"
+    },
+    {
+      "name": "Thousand Oaks, CA"
+    },
+    {
+      "name": "Santa Clarita, CA"
+    },
+    {
+      "name": "Lancaster, CA"
+    },
+    {
+      "name": "Riverside, CA"
+    },
+    {
+      "name": "Hemet, CA"
+    },
+    {
+      "name": "Pomona, CA"
+    },
+    {
+      "name": "Irvine, CA"
+    },
+    {
+      "name": "Oceanside, CA"
+    },
+    {
+      "name": "Chula Vista, CA"
+    },
+    {
+      "name": "El Centro, CA"
+    },
+    {
+      "name": "Yuba City, CA"
+    },
+    {
+      "name": "Eureka, CA"
+    },
+    {
+      "name": "Klamath Falls, OR"
+    },
+    {
+      "name": "Roseburg, OR"
+    },
+    {
+      "name": "Corvallis, OR"
+    },
+    {
+      "name": "Beaverton, OR"
+    },
+    {
+      "name": "Longview, WA"
+    },
+    {
+      "name": "Tacoma, WA"
+    },
+    {
+      "name": "Bremerton, WA"
+    },
+    {
+      "name": "Everett, WA"
+    },
+    {
+      "name": "Mount Vernon, WA"
+    },
+    {
+      "name": "Walla Walla, WA"
+    },
+    {
+      "name": "Ellensburg, WA"
+    },
+    {
+      "name": "Moses Lake, WA"
+    },
+    {
+      "name": "Lewiston, ID"
+    },
+    {
+      "name": "Helena, MT"
+    },
+    {
+      "name": "Kalispell, MT"
+    },
+    {
+      "name": "Butte, MT"
+    },
+    {
+      "name": "Sheridan, WY"
+    },
+    {
+      "name": "Rock Springs, WY"
+    },
+    {
+      "name": "Montrose, CO"
+    },
+    {
+      "name": "Canon City, CO"
+    },
+    {
+      "name": "Boulder, CO"
+    },
+    {
+      "name": "Kingman, AZ"
+    },
+    {
+      "name": "Bullhead City, AZ"
+    },
+    {
+      "name": "Payson, AZ"
+    },
+    {
+      "name": "Show Low, AZ"
+    },
+    {
+      "name": "Surprise, AZ"
+    },
+    {
+      "name": "Pahrump, NV"
+    },
+    {
+      "name": "Elko, NV"
+    },
+    {
+      "name": "Hobbs, NM"
+    },
+    {
+      "name": "Carlsbad, NM"
+    },
+    {
+      "name": "Alamogordo, NM"
+    },
+    {
+      "name": "Silver City, NM"
+    },
+    {
+      "name": "Gallup, NM"
+    },
+    {
+      "name": "Ithaca, NY"
+    },
+    {
+      "name": "Elmira, NY"
+    },
+    {
+      "name": "Jamestown, NY"
+    }
+  ]
+}
