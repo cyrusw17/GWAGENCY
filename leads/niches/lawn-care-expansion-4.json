@@ -1,0 +1,91 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Overland Park, KS"
+    },
+    {
+      "name": "Olathe, KS"
+    },
+    {
+      "name": "Edmond, OK"
+    },
+    {
+      "name": "Broken Arrow, OK"
+    },
+    {
+      "name": "Plano, TX"
+    },
+    {
+      "name": "Carmel, IN"
+    },
+    {
+      "name": "Fishers, IN"
+    },
+    {
+      "name": "Noblesville, IN"
+    },
+    {
+      "name": "Dublin, OH"
+    },
+    {
+      "name": "West Chester, OH"
+    },
+    {
+      "name": "Brentwood, TN"
+    },
+    {
+      "name": "Johns Creek, GA"
+    },
+    {
+      "name": "Peachtree City, GA"
+    },
+    {
+      "name": "Huntersville, NC"
+    },
+    {
+      "name": "Apex, NC"
+    },
+    {
+      "name": "Bentonville, AR"
+    },
+    {
+      "name": "Rogers, AR"
+    },
+    {
+      "name": "Conway, AR"
+    },
+    {
+      "name": "Bossier City, LA"
+    },
+    {
+      "name": "Ankeny, IA"
+    }
+  ]
+}

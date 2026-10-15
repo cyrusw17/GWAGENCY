@@ -1,0 +1,119 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Clearwater, FL"
+    },
+    {
+      "name": "St. Petersburg, FL"
+    },
+    {
+      "name": "Bradenton, FL"
+    },
+    {
+      "name": "Palm Coast, FL"
+    },
+    {
+      "name": "Kissimmee, FL"
+    },
+    {
+      "name": "Cape Coral, FL"
+    },
+    {
+      "name": "Destin, FL"
+    },
+    {
+      "name": "Mount Pleasant, SC"
+    },
+    {
+      "name": "Summerville, SC"
+    },
+    {
+      "name": "Aiken, SC"
+    },
+    {
+      "name": "Anderson, SC"
+    },
+    {
+      "name": "Gastonia, NC"
+    },
+    {
+      "name": "Concord, NC"
+    },
+    {
+      "name": "Mooresville, NC"
+    },
+    {
+      "name": "Cary, NC"
+    },
+    {
+      "name": "Chesapeake, VA"
+    },
+    {
+      "name": "Williamsburg, VA"
+    },
+    {
+      "name": "Frisco, TX"
+    },
+    {
+      "name": "McKinney, TX"
+    },
+    {
+      "name": "Katy, TX"
+    },
+    {
+      "name": "The Woodlands, TX"
+    },
+    {
+      "name": "Sugar Land, TX"
+    },
+    {
+      "name": "Round Rock, TX"
+    },
+    {
+      "name": "Georgetown, TX"
+    },
+    {
+      "name": "Franklin, TN"
+    },
+    {
+      "name": "Hendersonville, TN"
+    },
+    {
+      "name": "Alpharetta, GA"
+    },
+    {
+      "name": "Marietta, GA"
+    },
+    {
+      "name": "Gainesville, GA"
+    },
+    {
+      "name": "Newnan, GA"
+    }
+  ]
+}
