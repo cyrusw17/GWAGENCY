@@ -1,0 +1,319 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Elkhart, IN"
+    },
+    {
+      "name": "Warsaw, IN"
+    },
+    {
+      "name": "Marion, IN"
+    },
+    {
+      "name": "Richmond, IN"
+    },
+    {
+      "name": "Jasper, IN"
+    },
+    {
+      "name": "Vincennes, IN"
+    },
+    {
+      "name": "Logansport, IN"
+    },
+    {
+      "name": "Battle Creek, MI"
+    },
+    {
+      "name": "Jackson, MI"
+    },
+    {
+      "name": "Midland, MI"
+    },
+    {
+      "name": "Mount Pleasant, MI"
+    },
+    {
+      "name": "Muskegon, MI"
+    },
+    {
+      "name": "Monroe, MI"
+    },
+    {
+      "name": "Adrian, MI"
+    },
+    {
+      "name": "Port Huron, MI"
+    },
+    {
+      "name": "Findlay, OH"
+    },
+    {
+      "name": "Marion, OH"
+    },
+    {
+      "name": "Newark, OH"
+    },
+    {
+      "name": "Chillicothe, OH"
+    },
+    {
+      "name": "Athens, OH"
+    },
+    {
+      "name": "Wooster, OH"
+    },
+    {
+      "name": "Tiffin, OH"
+    },
+    {
+      "name": "Defiance, OH"
+    },
+    {
+      "name": "Sidney, OH"
+    },
+    {
+      "name": "Wilmington, OH"
+    },
+    {
+      "name": "Portsmouth, OH"
+    },
+    {
+      "name": "Cambridge, OH"
+    },
+    {
+      "name": "New Philadelphia, OH"
+    },
+    {
+      "name": "Steubenville, OH"
+    },
+    {
+      "name": "Kankakee, IL"
+    },
+    {
+      "name": "DeKalb, IL"
+    },
+    {
+      "name": "Ottawa, IL"
+    },
+    {
+      "name": "Galesburg, IL"
+    },
+    {
+      "name": "Macomb, IL"
+    },
+    {
+      "name": "Jacksonville, IL"
+    },
+    {
+      "name": "Effingham, IL"
+    },
+    {
+      "name": "Mattoon, IL"
+    },
+    {
+      "name": "Danville, IL"
+    },
+    {
+      "name": "Mount Vernon, IL"
+    },
+    {
+      "name": "Freeport, IL"
+    },
+    {
+      "name": "Sterling, IL"
+    },
+    {
+      "name": "Janesville, WI"
+    },
+    {
+      "name": "Kenosha, WI"
+    },
+    {
+      "name": "Sheboygan, WI"
+    },
+    {
+      "name": "Fond du Lac, WI"
+    },
+    {
+      "name": "Wausau, WI"
+    },
+    {
+      "name": "Stevens Point, WI"
+    },
+    {
+      "name": "Manitowoc, WI"
+    },
+    {
+      "name": "Owatonna, MN"
+    },
+    {
+      "name": "Winona, MN"
+    },
+    {
+      "name": "Red Wing, MN"
+    },
+    {
+      "name": "Willmar, MN"
+    },
+    {
+      "name": "Brainerd, MN"
+    },
+    {
+      "name": "Mason City, IA"
+    },
+    {
+      "name": "Fort Dodge, IA"
+    },
+    {
+      "name": "Marshalltown, IA"
+    },
+    {
+      "name": "Ottumwa, IA"
+    },
+    {
+      "name": "Burlington, IA"
+    },
+    {
+      "name": "Muscatine, IA"
+    },
+    {
+      "name": "Clinton, IA"
+    },
+    {
+      "name": "Newton, IA"
+    },
+    {
+      "name": "Spencer, IA"
+    },
+    {
+      "name": "Columbus, NE"
+    },
+    {
+      "name": "Norfolk, NE"
+    },
+    {
+      "name": "Hastings, NE"
+    },
+    {
+      "name": "Fremont, NE"
+    },
+    {
+      "name": "Emporia, KS"
+    },
+    {
+      "name": "Pittsburg, KS"
+    },
+    {
+      "name": "Dodge City, KS"
+    },
+    {
+      "name": "Hays, KS"
+    },
+    {
+      "name": "Leavenworth, KS"
+    },
+    {
+      "name": "Sedalia, MO"
+    },
+    {
+      "name": "Warrensburg, MO"
+    },
+    {
+      "name": "Rolla, MO"
+    },
+    {
+      "name": "Lebanon, MO"
+    },
+    {
+      "name": "Poplar Bluff, MO"
+    },
+    {
+      "name": "Kirksville, MO"
+    },
+    {
+      "name": "Farmington, MO"
+    },
+    {
+      "name": "Washington, MO"
+    },
+    {
+      "name": "Mexico, MO"
+    },
+    {
+      "name": "Bluefield, WV"
+    },
+    {
+      "name": "Beckley, WV"
+    },
+    {
+      "name": "Clarksburg, WV"
+    },
+    {
+      "name": "Chambersburg, PA"
+    },
+    {
+      "name": "Gettysburg, PA"
+    },
+    {
+      "name": "Lebanon, PA"
+    },
+    {
+      "name": "Pottsville, PA"
+    },
+    {
+      "name": "Hazleton, PA"
+    },
+    {
+      "name": "Bloomsburg, PA"
+    },
+    {
+      "name": "Sunbury, PA"
+    },
+    {
+      "name": "Lewistown, PA"
+    },
+    {
+      "name": "Johnstown, PA"
+    },
+    {
+      "name": "Indiana, PA"
+    },
+    {
+      "name": "Meadville, PA"
+    },
+    {
+      "name": "Washington, PA"
+    },
+    {
+      "name": "Uniontown, PA"
+    }
+  ]
+}

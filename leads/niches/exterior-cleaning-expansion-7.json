@@ -1,0 +1,521 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Live Oak, FL"
+    },
+    {
+      "name": "Perry, FL"
+    },
+    {
+      "name": "Marianna, FL"
+    },
+    {
+      "name": "Defuniak Springs, FL"
+    },
+    {
+      "name": "Arcadia, FL"
+    },
+    {
+      "name": "Okeechobee, FL"
+    },
+    {
+      "name": "Clewiston, FL"
+    },
+    {
+      "name": "Inverness, FL"
+    },
+    {
+      "name": "Wauchula, FL"
+    },
+    {
+      "name": "Andalusia, AL"
+    },
+    {
+      "name": "Troy, AL"
+    },
+    {
+      "name": "Eufaula, AL"
+    },
+    {
+      "name": "Selma, AL"
+    },
+    {
+      "name": "Jasper, AL"
+    },
+    {
+      "name": "Fort Payne, AL"
+    },
+    {
+      "name": "Scottsboro, AL"
+    },
+    {
+      "name": "Alexander City, AL"
+    },
+    {
+      "name": "Talladega, AL"
+    },
+    {
+      "name": "Atmore, AL"
+    },
+    {
+      "name": "Bainbridge, GA"
+    },
+    {
+      "name": "Moultrie, GA"
+    },
+    {
+      "name": "Cordele, GA"
+    },
+    {
+      "name": "Americus, GA"
+    },
+    {
+      "name": "Douglas, GA"
+    },
+    {
+      "name": "Jesup, GA"
+    },
+    {
+      "name": "Vidalia, GA"
+    },
+    {
+      "name": "Dublin, GA"
+    },
+    {
+      "name": "Toccoa, GA"
+    },
+    {
+      "name": "Blue Ridge, GA"
+    },
+    {
+      "name": "Laurinburg, NC"
+    },
+    {
+      "name": "Rockingham, NC"
+    },
+    {
+      "name": "Albemarle, NC"
+    },
+    {
+      "name": "Mount Airy, NC"
+    },
+    {
+      "name": "North Wilkesboro, NC"
+    },
+    {
+      "name": "Marion, NC"
+    },
+    {
+      "name": "Franklin, NC"
+    },
+    {
+      "name": "Murphy, NC"
+    },
+    {
+      "name": "Roanoke Rapids, NC"
+    },
+    {
+      "name": "Ahoskie, NC"
+    },
+    {
+      "name": "Edenton, NC"
+    },
+    {
+      "name": "Whiteville, NC"
+    },
+    {
+      "name": "Clinton, NC"
+    },
+    {
+      "name": "Dunn, NC"
+    },
+    {
+      "name": "Dillon, SC"
+    },
+    {
+      "name": "Kingstree, SC"
+    },
+    {
+      "name": "Walterboro, SC"
+    },
+    {
+      "name": "Newberry, SC"
+    },
+    {
+      "name": "Laurens, SC"
+    },
+    {
+      "name": "Union, SC"
+    },
+    {
+      "name": "Camden, SC"
+    },
+    {
+      "name": "South Hill, VA"
+    },
+    {
+      "name": "Farmville, VA"
+    },
+    {
+      "name": "South Boston, VA"
+    },
+    {
+      "name": "Wytheville, VA"
+    },
+    {
+      "name": "Marion, VA"
+    },
+    {
+      "name": "Galax, VA"
+    },
+    {
+      "name": "Lexington, VA"
+    },
+    {
+      "name": "Covington, VA"
+    },
+    {
+      "name": "Tappahannock, VA"
+    },
+    {
+      "name": "Kilmarnock, VA"
+    },
+    {
+      "name": "Westminster, MD"
+    },
+    {
+      "name": "Cumberland, MD"
+    },
+    {
+      "name": "Lexington Park, MD"
+    },
+    {
+      "name": "Crossville, TN"
+    },
+    {
+      "name": "McMinnville, TN"
+    },
+    {
+      "name": "Lawrenceburg, TN"
+    },
+    {
+      "name": "Fayetteville, TN"
+    },
+    {
+      "name": "Paris, TN"
+    },
+    {
+      "name": "Union City, TN"
+    },
+    {
+      "name": "Dyersburg, TN"
+    },
+    {
+      "name": "Greeneville, TN"
+    },
+    {
+      "name": "Somerset, KY"
+    },
+    {
+      "name": "London, KY"
+    },
+    {
+      "name": "Pikeville, KY"
+    },
+    {
+      "name": "Morehead, KY"
+    },
+    {
+      "name": "Danville, KY"
+    },
+    {
+      "name": "Glasgow, KY"
+    },
+    {
+      "name": "Campbellsville, KY"
+    },
+    {
+      "name": "Murray, KY"
+    },
+    {
+      "name": "Madisonville, KY"
+    },
+    {
+      "name": "Natchitoches, LA"
+    },
+    {
+      "name": "Opelousas, LA"
+    },
+    {
+      "name": "Morgan City, LA"
+    },
+    {
+      "name": "Bogalusa, LA"
+    },
+    {
+      "name": "DeRidder, LA"
+    },
+    {
+      "name": "Leesville, LA"
+    },
+    {
+      "name": "Bastrop, LA"
+    },
+    {
+      "name": "McComb, MS"
+    },
+    {
+      "name": "Brookhaven, MS"
+    },
+    {
+      "name": "Laurel, MS"
+    },
+    {
+      "name": "Philadelphia, MS"
+    },
+    {
+      "name": "Kosciusko, MS"
+    },
+    {
+      "name": "Grenada, MS"
+    },
+    {
+      "name": "Clarksdale, MS"
+    },
+    {
+      "name": "Corinth, MS"
+    },
+    {
+      "name": "Cleveland, MS"
+    },
+    {
+      "name": "Batesville, AR"
+    },
+    {
+      "name": "Searcy, AR"
+    },
+    {
+      "name": "Russellville, AR"
+    },
+    {
+      "name": "Mountain Home, AR"
+    },
+    {
+      "name": "Harrison, AR"
+    },
+    {
+      "name": "El Dorado, AR"
+    },
+    {
+      "name": "Magnolia, AR"
+    },
+    {
+      "name": "Camden, AR"
+    },
+    {
+      "name": "Arkadelphia, AR"
+    },
+    {
+      "name": "Pine Bluff, AR"
+    },
+    {
+      "name": "Blytheville, AR"
+    },
+    {
+      "name": "Paragould, AR"
+    },
+    {
+      "name": "Ardmore, OK"
+    },
+    {
+      "name": "Duncan, OK"
+    },
+    {
+      "name": "Ada, OK"
+    },
+    {
+      "name": "McAlester, OK"
+    },
+    {
+      "name": "Durant, OK"
+    },
+    {
+      "name": "Tahlequah, OK"
+    },
+    {
+      "name": "Bartlesville, OK"
+    },
+    {
+      "name": "Ponca City, OK"
+    },
+    {
+      "name": "Shawnee, OK"
+    },
+    {
+      "name": "Chickasha, OK"
+    },
+    {
+      "name": "Guymon, OK"
+    },
+    {
+      "name": "Woodward, OK"
+    },
+    {
+      "name": "Altus, OK"
+    },
+    {
+      "name": "Weatherford, OK"
+    },
+    {
+      "name": "Palestine, TX"
+    },
+    {
+      "name": "Corsicana, TX"
+    },
+    {
+      "name": "Athens, TX"
+    },
+    {
+      "name": "Jacksonville, TX"
+    },
+    {
+      "name": "Marshall, TX"
+    },
+    {
+      "name": "Mount Pleasant, TX"
+    },
+    {
+      "name": "Sulphur Springs, TX"
+    },
+    {
+      "name": "Gainesville, TX"
+    },
+    {
+      "name": "Stephenville, TX"
+    },
+    {
+      "name": "Brownwood, TX"
+    },
+    {
+      "name": "Marble Falls, TX"
+    },
+    {
+      "name": "Bastrop, TX"
+    },
+    {
+      "name": "Brenham, TX"
+    },
+    {
+      "name": "Bay City, TX"
+    },
+    {
+      "name": "El Campo, TX"
+    },
+    {
+      "name": "Port Lavaca, TX"
+    },
+    {
+      "name": "Beeville, TX"
+    },
+    {
+      "name": "Alice, TX"
+    },
+    {
+      "name": "Kingsville, TX"
+    },
+    {
+      "name": "Uvalde, TX"
+    },
+    {
+      "name": "Eagle Pass, TX"
+    },
+    {
+      "name": "Alpine, TX"
+    },
+    {
+      "name": "Fort Stockton, TX"
+    },
+    {
+      "name": "Pecos, TX"
+    },
+    {
+      "name": "Plainview, TX"
+    },
+    {
+      "name": "Pampa, TX"
+    },
+    {
+      "name": "Borger, TX"
+    },
+    {
+      "name": "Hereford, TX"
+    },
+    {
+      "name": "Vernon, TX"
+    },
+    {
+      "name": "Snyder, TX"
+    },
+    {
+      "name": "Sweetwater, TX"
+    },
+    {
+      "name": "Lamesa, TX"
+    },
+    {
+      "name": "Andrews, TX"
+    },
+    {
+      "name": "Jasper, TX"
+    },
+    {
+      "name": "Livingston, TX"
+    },
+    {
+      "name": "Cleveland, TX"
+    },
+    {
+      "name": "Liberty, TX"
+    },
+    {
+      "name": "Orange, TX"
+    },
+    {
+      "name": "Silsbee, TX"
+    },
+    {
+      "name": "Center, TX"
+    },
+    {
+      "name": "Carthage, TX"
+    },
+    {
+      "name": "Henderson, TX"
+    }
+  ]
+}
