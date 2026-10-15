@@ -1,0 +1,277 @@
+{
+  "name": "lawn-care",
+  "slug": "landscaping-lawn-care",
+  "queries": [
+    "lawn care service",
+    "landscaper"
+  ],
+  "exclude_types": [
+    "garden_center",
+    "hardware_store",
+    "home_improvement_store",
+    "nursery"
+  ],
+  "name_exclude": [
+    "trugreen",
+    "weed man",
+    "grounds guys",
+    "lawn doctor",
+    "brightview",
+    "yellowstone",
+    "lawn love",
+    "sunday lawn",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_reviews": 15,
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Leawood, KS"
+    },
+    {
+      "name": "Prairie Village, KS"
+    },
+    {
+      "name": "Blue Springs, MO"
+    },
+    {
+      "name": "Raymore, MO"
+    },
+    {
+      "name": "Belton, MO"
+    },
+    {
+      "name": "Kirkwood, MO"
+    },
+    {
+      "name": "Florissant, MO"
+    },
+    {
+      "name": "Arnold, MO"
+    },
+    {
+      "name": "Columbia, IL"
+    },
+    {
+      "name": "Collinsville, IL"
+    },
+    {
+      "name": "O'Fallon, IL"
+    },
+    {
+      "name": "Joliet, IL"
+    },
+    {
+      "name": "Aurora, IL"
+    },
+    {
+      "name": "Elgin, IL"
+    },
+    {
+      "name": "Schaumburg, IL"
+    },
+    {
+      "name": "Valparaiso, IN"
+    },
+    {
+      "name": "Crown Point, IN"
+    },
+    {
+      "name": "Plainfield, IN"
+    },
+    {
+      "name": "Brownsburg, IN"
+    },
+    {
+      "name": "Franklin, IN"
+    },
+    {
+      "name": "Fairborn, OH"
+    },
+    {
+      "name": "Kettering, OH"
+    },
+    {
+      "name": "Centerville, OH"
+    },
+    {
+      "name": "Hamilton, OH"
+    },
+    {
+      "name": "Fairfield, OH"
+    },
+    {
+      "name": "Loveland, OH"
+    },
+    {
+      "name": "Grove City, OH"
+    },
+    {
+      "name": "Pickerington, OH"
+    },
+    {
+      "name": "Powell, OH"
+    },
+    {
+      "name": "Hudson, OH"
+    },
+    {
+      "name": "Avon, OH"
+    },
+    {
+      "name": "North Royalton, OH"
+    },
+    {
+      "name": "Erlanger, KY"
+    },
+    {
+      "name": "Fort Thomas, KY"
+    },
+    {
+      "name": "Shelbyville, KY"
+    },
+    {
+      "name": "Nicholasville, KY"
+    },
+    {
+      "name": "Bartlett, TN"
+    },
+    {
+      "name": "Olive Branch, MS"
+    },
+    {
+      "name": "Hernando, MS"
+    },
+    {
+      "name": "Ridgeland, MS"
+    },
+    {
+      "name": "Flowood, MS"
+    },
+    {
+      "name": "Prairieville, LA"
+    },
+    {
+      "name": "Zachary, LA"
+    },
+    {
+      "name": "Broussard, LA"
+    },
+    {
+      "name": "Youngsville, LA"
+    },
+    {
+      "name": "Haughton, LA"
+    },
+    {
+      "name": "Sand Springs, OK"
+    },
+    {
+      "name": "Jenks, OK"
+    },
+    {
+      "name": "Claremore, OK"
+    },
+    {
+      "name": "Piedmont, OK"
+    },
+    {
+      "name": "Cabot, AR"
+    },
+    {
+      "name": "Bryant, AR"
+    },
+    {
+      "name": "Maumelle, AR"
+    },
+    {
+      "name": "Sherwood, AR"
+    },
+    {
+      "name": "Grapevine, TX"
+    },
+    {
+      "name": "Coppell, TX"
+    },
+    {
+      "name": "Sachse, TX"
+    },
+    {
+      "name": "Princeton, TX"
+    },
+    {
+      "name": "Anna, TX"
+    },
+    {
+      "name": "Melissa, TX"
+    },
+    {
+      "name": "Royse City, TX"
+    },
+    {
+      "name": "Heath, TX"
+    },
+    {
+      "name": "Red Oak, TX"
+    },
+    {
+      "name": "Cleburne, TX"
+    },
+    {
+      "name": "Cibolo, TX"
+    },
+    {
+      "name": "Helotes, TX"
+    },
+    {
+      "name": "Dripping Springs, TX"
+    },
+    {
+      "name": "Liberty Hill, TX"
+    },
+    {
+      "name": "Taylor, TX"
+    },
+    {
+      "name": "Manvel, TX"
+    },
+    {
+      "name": "Alvin, TX"
+    },
+    {
+      "name": "Dickinson, TX"
+    },
+    {
+      "name": "Milton, GA"
+    },
+    {
+      "name": "Hiram, GA"
+    },
+    {
+      "name": "Braselton, GA"
+    },
+    {
+      "name": "Jefferson, GA"
+    },
+    {
+      "name": "Statham, GA"
+    },
+    {
+      "name": "Bogart, GA"
+    },
+    {
+      "name": "Watkinsville, GA"
+    },
+    {
+      "name": "Byron, GA"
+    },
+    {
+      "name": "Perry, GA"
+    },
+    {
+      "name": "Kathleen, GA"
+    }
+  ]
+}

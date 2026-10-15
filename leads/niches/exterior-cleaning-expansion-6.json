@@ -1,0 +1,326 @@
+{
+  "name": "exterior-cleaning",
+  "slug": "exterior-cleaning",
+  "queries": [
+    "pressure washing service",
+    "soft washing"
+  ],
+  "exclude_types": [
+    "car_wash",
+    "car_dealer",
+    "hardware_store",
+    "home_improvement_store"
+  ],
+  "name_exclude": [
+    "window genie",
+    "men in kilts",
+    "fish window",
+    "shack shine",
+    "sears",
+    "aire serv",
+    "mr. handyman",
+    "angi",
+    "homeadvisor",
+    "thumbtack"
+  ],
+  "min_tile_deg": 0.03,
+  "areas": [
+    {
+      "name": "Deltona, FL"
+    },
+    {
+      "name": "Palm Bay, FL"
+    },
+    {
+      "name": "Titusville, FL"
+    },
+    {
+      "name": "Port Orange, FL"
+    },
+    {
+      "name": "Ormond Beach, FL"
+    },
+    {
+      "name": "Sanford, FL"
+    },
+    {
+      "name": "Apopka, FL"
+    },
+    {
+      "name": "Winter Garden, FL"
+    },
+    {
+      "name": "Brandon, FL"
+    },
+    {
+      "name": "Plant City, FL"
+    },
+    {
+      "name": "Zephyrhills, FL"
+    },
+    {
+      "name": "Dunedin, FL"
+    },
+    {
+      "name": "Largo, FL"
+    },
+    {
+      "name": "Bonita Springs, FL"
+    },
+    {
+      "name": "Estero, FL"
+    },
+    {
+      "name": "Marco Island, FL"
+    },
+    {
+      "name": "North Port, FL"
+    },
+    {
+      "name": "Fort Pierce, FL"
+    },
+    {
+      "name": "Pensacola Beach, FL"
+    },
+    {
+      "name": "Navarre, FL"
+    },
+    {
+      "name": "Niceville, FL"
+    },
+    {
+      "name": "Santa Rosa Beach, FL"
+    },
+    {
+      "name": "Gulf Shores, AL"
+    },
+    {
+      "name": "Orange Beach, AL"
+    },
+    {
+      "name": "Fairhope, AL"
+    },
+    {
+      "name": "Ocean Springs, MS"
+    },
+    {
+      "name": "Covington, LA"
+    },
+    {
+      "name": "Sulphur, LA"
+    },
+    {
+      "name": "Baytown, TX"
+    },
+    {
+      "name": "Pasadena, TX"
+    },
+    {
+      "name": "Humble, TX"
+    },
+    {
+      "name": "Tomball, TX"
+    },
+    {
+      "name": "Rosenberg, TX"
+    },
+    {
+      "name": "Missouri City, TX"
+    },
+    {
+      "name": "Texas City, TX"
+    },
+    {
+      "name": "Portland, TX"
+    },
+    {
+      "name": "Mission, TX"
+    },
+    {
+      "name": "Edinburg, TX"
+    },
+    {
+      "name": "San Benito, TX"
+    },
+    {
+      "name": "Belton, TX"
+    },
+    {
+      "name": "Copperas Cove, TX"
+    },
+    {
+      "name": "Murrells Inlet, SC"
+    },
+    {
+      "name": "North Myrtle Beach, SC"
+    },
+    {
+      "name": "Little River, SC"
+    },
+    {
+      "name": "Hartsville, SC"
+    },
+    {
+      "name": "Easley, SC"
+    },
+    {
+      "name": "Clemson, SC"
+    },
+    {
+      "name": "Boiling Springs, SC"
+    },
+    {
+      "name": "Gaffney, SC"
+    },
+    {
+      "name": "Lancaster, SC"
+    },
+    {
+      "name": "Monroe, NC"
+    },
+    {
+      "name": "Kannapolis, NC"
+    },
+    {
+      "name": "Lenoir, NC"
+    },
+    {
+      "name": "Morganton, NC"
+    },
+    {
+      "name": "Hendersonville, NC"
+    },
+    {
+      "name": "Waynesville, NC"
+    },
+    {
+      "name": "Brevard, NC"
+    },
+    {
+      "name": "Asheboro, NC"
+    },
+    {
+      "name": "Lexington, NC"
+    },
+    {
+      "name": "Thomasville, NC"
+    },
+    {
+      "name": "Mebane, NC"
+    },
+    {
+      "name": "Roxboro, NC"
+    },
+    {
+      "name": "Henderson, NC"
+    },
+    {
+      "name": "Smithfield, NC"
+    },
+    {
+      "name": "Kinston, NC"
+    },
+    {
+      "name": "Washington, NC"
+    },
+    {
+      "name": "Leland, NC"
+    },
+    {
+      "name": "Southport, NC"
+    },
+    {
+      "name": "Emerald Isle, NC"
+    },
+    {
+      "name": "Norfolk, VA"
+    },
+    {
+      "name": "Portsmouth, VA"
+    },
+    {
+      "name": "Smithfield, VA"
+    },
+    {
+      "name": "Gloucester, VA"
+    },
+    {
+      "name": "Culpeper, VA"
+    },
+    {
+      "name": "Warrenton, VA"
+    },
+    {
+      "name": "Front Royal, VA"
+    },
+    {
+      "name": "Salem, VA"
+    },
+    {
+      "name": "Christiansburg, VA"
+    },
+    {
+      "name": "Abingdon, VA"
+    },
+    {
+      "name": "Morristown, TN"
+    },
+    {
+      "name": "Sevierville, TN"
+    },
+    {
+      "name": "Oak Ridge, TN"
+    },
+    {
+      "name": "Athens, TN"
+    },
+    {
+      "name": "Tullahoma, TN"
+    },
+    {
+      "name": "Shelbyville, TN"
+    },
+    {
+      "name": "Dickson, TN"
+    },
+    {
+      "name": "Calhoun, GA"
+    },
+    {
+      "name": "Dahlonega, GA"
+    },
+    {
+      "name": "Monroe, GA"
+    },
+    {
+      "name": "Covington, GA"
+    },
+    {
+      "name": "Conyers, GA"
+    },
+    {
+      "name": "Griffin, GA"
+    },
+    {
+      "name": "Peachtree Corners, GA"
+    },
+    {
+      "name": "Douglasville, GA"
+    },
+    {
+      "name": "Dallas, GA"
+    },
+    {
+      "name": "St. Simons Island, GA"
+    },
+    {
+      "name": "Richmond Hill, GA"
+    },
+    {
+      "name": "Hinesville, GA"
+    },
+    {
+      "name": "North Augusta, SC"
+    }
+  ]
+}
