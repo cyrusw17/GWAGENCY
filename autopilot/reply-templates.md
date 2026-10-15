@@ -1,6 +1,6 @@
 # Reply templates by intent
 
-Owner: Sales ops thread. Status: **for the autopilot.** Cyrus asked on 2026-10-15 (Full business autopilot thread) for Claude to send and answer emails and send mockups itself; the team lead approved the autopilot plan the same day, with guardrails in [autopilot/README.md](../autopilot/README.md). Auto-sent: only a clean yes (template 1, or its interim line). Suppressed with no reply: unsubscribes and not-interested (7, 8). Nothing: out-of-office (13). Every other reply, and any mixed or unclear one ("yes, how much?"), is drafted and flagged for Cyrus. Nothing sends until Cyrus's real name and the postal address are in place; every auto-reply is signed with his real name, the postal address and the opt-out line. Templates pass marketing, then the consultant, before the first auto-send.
+Owner: Sales ops thread. Status: **for the autopilot.** Cyrus asked on 2026-10-15 (Full business autopilot thread) for Claude to send and answer emails and send mockups itself; the team lead approved the autopilot plan the same day, with guardrails in [autopilot/README.md](../autopilot/README.md). Reply rules (Cyrus, project chat, 2026-10-15 06:39Z: "deliver whatever they ask for"): auto-sent are preview requests (1A), a yes (1 or its interim line), price questions (2) and how-it-works questions (3), all from live prices only. Suppressed with no reply: anyone who asks to unsubscribe or says "no thanks" or similar (7, 8). Nothing: out-of-office (13). Refund, payment, angry, legal and AI questions, and anything unclear, are drafted and flagged for Cyrus. Mockups go out only as phone and desktop PNG screenshots, never HTML, code, a zip or a live page link, so they can't be copied. Sign-off and postal address set by Cyrus on 2026-10-15: every reply is signed "GroundWork - Web", with the address on the next line and then the opt-out line. Templates pass marketing, then the consultant, before the first auto-send.
 
 Prices quoted here are the **live** ones only: $99 to start (refunded if they don't want the site), $300 on approval, Host $99/mo, Grow $199/mo, monthly starts the month they go live, leave with 30 days written notice. Rank, the results guarantee, annual prepay and the switch offer stay out of replies until Cyrus approves them (pricing/approved-pricing.md).
 
@@ -13,18 +13,19 @@ Prices quoted here are the **live** ones only: $99 to start (refunded if they do
 5. **Stop the sequence** on any reply (already set in the sequence settings). Opt-outs become `do-not-contact` the same day.
 6. **A phone number beats an email thread.** If they give a number or sound warm, text or call within 5 minutes. Most detailers answer texts faster than email.
 
-Rules for every reply: plain text, under 80 words, one question or one link, signed "Cyrus". A link is fine now because they wrote back first. Never claim results we can't show, never show demo sites as real clients, and if asked whether AI is involved, answer honestly (template 11).
+Rules for every reply: plain text, under 80 words, one question or one link, signed "GroundWork - Web". A link is fine now because they wrote back first. Never claim results we can't show, never show demo sites as real clients, and if asked whether AI is involved, answer honestly (template 11).
 
 | # | Label | Example reply | Goal of our answer |
 |---|---|---|---|
-| 1 | Interested | "Sure, send it" / "Yes, show me" | Send their mockup; start link when they say yes |
+| 1A | Asks for the preview | "Send me the preview" | Link to the site-check form; screenshots once built |
+| 1 | Interested | "Sure, send it" / "Yes, show me" | Send mockup screenshots; start link when they say yes |
 | 1B | Not sure / hesitating | "Maybe", "Not sure", a yes with doubts | Offer a short call (fallback) |
 | 2 | Price question | "What does it cost?" | Plain prices, their mockup, a call if they want one |
 | 3 | How it works / timing | "How long? What do you need from me?" | Steps, their mockup, a call if they want one |
 | 4 | Wants a call | "Call me" / sends a number | Call or text within 5 minutes |
 | 5 | Has a site / uses Facebook or an app | "I already have a website" | One honest gap, then let go |
 | 6 | Not now | "Busy season, maybe later" | Agree a date, set a reminder |
-| 7 | Not interested | "No thanks" | Close politely, suppress |
+| 7 | Not interested | "No thanks" | No reply, suppress today |
 | 8 | Unsubscribe / remove | "Remove me", "stop" | No reply, suppress today |
 | 9 | Wrong person / referral | "Talk to my partner" | Ask for the right contact |
 | 10 | Who are you / is this spam | "How did you get my email?" | Be plain about the source |
@@ -59,11 +60,11 @@ Funnel (Cyrus, 2026-10-04 22:13Z, decisions.md): they reply yes, we send their m
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
 > Reply "no thanks" and I won't email again.
 
-Send this once the mockup is built: attach the phone and desktop PNG screenshots. Never send HTML, code, a zip or a live page link.
+Send this once the mockup is built, with the phone and desktop PNG screenshots attached. Never send HTML, code, a zip or a live page link. Screenshots have no buttons, so the line above asks them to reply yes for the start link.
 
-If the mockup isn't live yet, send this interim line instead, then the template above once it is:
+If the mockup isn't built yet, send this interim line instead, then the template above once it is:
 
-> Great, {first_name}. I'm putting {shop}'s mockup together now and will send the link as soon as it's ready.
+> Great, {first_name}. I'm putting {shop}'s mockup together now and will send screenshots as soon as it's ready.
 >
 > GroundWork - Web
 > 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520
@@ -149,7 +150,7 @@ Set `interested = later` and the date in `notes`. One follow-up on that date, th
 >
 > GroundWork - Web
 
-Set `status = lost`, `lost_reason = not interested`. Add to suppression. The autopilot sends no reply here (autopilot/README.md); the line above is only for Cyrus if he answers one by hand.
+Set `status = lost`, `lost_reason = not interested`. Add to suppression. "No thanks" or anything like it is an automatic unsubscribe with no reply (Cyrus, 2026-10-15); the line above is only for Cyrus if he answers one by hand.
 
 ### 8. Unsubscribe / remove
 
@@ -169,7 +170,7 @@ Only email the new person if they give the address. Never guess an address.
 >
 > GroundWork - Web
 
-`{niche_plural}` is the niche in plain words ("detailers", "pressure washing companies", "landscapers"). `{location}` is " in Deer Park, Texas" only if that is true and matches the footer's postal address; otherwise leave it empty. `{source}` comes from the `email_source` column in `sales/pipeline.csv`, the true source logged with the contact (their website, Facebook page, Google listing). If we don't know the source for that contact, say "a business listing" and flag it to the cold email specialist.
+`{niche_plural}` is the niche in plain words ("detailers", "pressure washing companies", "landscapers"). `{location}` is " in Houston, Texas", which matches the footer's postal address (Cyrus, 2026-10-15). `{source}` comes from the `email_source` column in `sales/pipeline.csv`, the true source logged with the contact (their website, Facebook page, Google listing). If we don't know the source for that contact, say "a business listing" and flag it to the cold email specialist.
 
 ### 11. Is this AI?
 
@@ -198,4 +199,4 @@ Send the welcome email from [onboarding.md](onboarding.md) (E1) within 1 busines
 ## Placeholders still needed before use
 - `{calendly_link}`: use the existing `https://calendly.com/cyruswilburn2005/30min` as is (Cyrus set Calendly changes aside, 2026-10-03). Replies don't promise a length, so the 30-minute slot is fine; the 15-minute mismatch is only on the site's audit copy.
 - `{source}`: the `email_source` column in `sales/pipeline.csv`.
-- `{postal address}`: the CAN-SPAM footer address Cyrus chooses (also needed by the sequences). Commercial replies (1 and its interim line, 1B, 2, 3, 5) carry the footer; closes (7, 12) don't, and unsubscribes (8) get no reply.
+- Postal address (filled in, Cyrus 2026-10-15): 3120 Southwest Fwy Ste 101 PMB 963882, Houston, Texas 77098-4520. Commercial replies (1 and its interim line, 1B, 2, 3, 5) carry the footer; closes (7, 12) don't, and unsubscribes (8) get no reply.
